@@ -6,28 +6,22 @@ using static LanguageExt.Prelude;
 
 namespace PatternMatching
 {
-	public sealed class SimplePattern<TInput> : IPattern<TInput, TInput>
+	public sealed class SimplePattern<TInput> : ConditionalPattern<TInput, TInput, SimplePattern<TInput>>
 	{
-		private readonly Lst<Func<TInput, bool>> predicates;
-
 		public SimplePattern(Func<TInput, bool> predicate)
-		{
-			this.predicates = List(predicate);
-		}
+			: base(List(predicate)) { }
 
 		private SimplePattern(Lst<Func<TInput, bool>> predicates)
-		{
-			this.predicates = predicates;
-		}
+				: base(predicates) { }
 
-		public Option<TInput> Match(TInput input)
-			=> Some(input).Filter(result => this.predicates.ForAll(predicate => predicate(result)));
+		public override Option<TInput> Match(TInput input)
+			=> Some(input).Filter(result => this.Predicates.ForAll(predicate => predicate(result)));
 
-		public SimplePattern<TInput> When(Func<TInput, bool> predicate)
-			=> new SimplePattern<TInput>(this.predicates.Add(predicate));
+		public override SimplePattern<TInput> When(Func<TInput, bool> predicate)
+			=> new SimplePattern<TInput>(this.Predicates.Add(predicate));
 
 		public SimplePattern<TInput> And(SimplePattern<TInput> other)
-			=> new SimplePattern<TInput>(this.predicates.Append(other.predicates));
+			=> new SimplePattern<TInput>(this.Predicates.Append(other.Predicates));
 
 		public SimplePattern<TInput> Or(SimplePattern<TInput> other)
 			=> new SimplePattern<TInput>(input => this.Match(input).IsSome || other.Match(input).IsSome);

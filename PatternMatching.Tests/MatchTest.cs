@@ -2,7 +2,7 @@
 
 using PatternMatching.Tests.Samples;
 
-using static PatternMatching.Patterns;
+using static PatternMatching.Pattern;
 
 namespace PatternMatching.Tests
 {
