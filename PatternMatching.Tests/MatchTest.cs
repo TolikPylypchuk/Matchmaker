@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using System;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 using PatternMatching.Tests.Samples;
 
@@ -55,13 +56,14 @@ namespace PatternMatching.Tests
 		[TestMethod]
 		public void TestTypes()
 		{
-			int Sum(ConsList list)
-				=> Match.Create<ConsList, int>()
-					.Case(ConsCell.Pattern, cell => cell.Head + Sum(cell.Tail))
-					.Case(Empty.Pattern, _ => 0)
-					.ExecuteOn(list);
+			Func<ConsList, int> sum = null;
 
-			Assert.AreEqual(3, Sum(ConsList.Cell(1, ConsList.Cell(2, ConsList.Empty))));
+			sum = Match.Create<ConsList, int>()
+					.Case(ConsCell.Pattern, cell => cell.Head + sum(cell.Tail))
+					.Case(Empty.Pattern, _ => 0)
+					.Compile();
+
+			Assert.AreEqual(3, sum(ConsList.Cell(1, ConsList.Cell(2, ConsList.Empty))));
 		}
 	}
 }

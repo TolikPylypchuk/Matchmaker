@@ -163,6 +163,12 @@
             and those are forbidden to use with dynamic types.
             </remarks>
         </member>
+        <member name="M:PatternMatching.Matcher`2.Compile">
+            <summary>
+            Compiles this matcher into a function which, when called, will match the specified value.
+            </summary>
+            <returns>A function which, when called, will match the specified value.</returns>
+        </member>
         <member name="T:PatternMatching.Matcher`1">
             <summary>
             Represents a match expression, which doesn't yield a value.
@@ -245,6 +251,18 @@
             The match failed for all cases.
             </exception>
             <seealso cref="M:PatternMatching.Matcher`1.ExecuteOn(`0)" />
+        </member>
+        <member name="M:PatternMatching.Matcher`1.Compile">
+            <summary>
+            Compiles this matcher into a function which, when called, will match the specified value.
+            </summary>
+            <returns>A function which, when called, will match the specified value.</returns>
+        </member>
+        <member name="M:PatternMatching.Matcher`1.CompileStrict">
+            <summary>
+            Compiles this matcher into an action which, when called, will match the specified value.
+            </summary>
+            <returns>An action which, when called, will match the specified value.</returns>
         </member>
         <member name="T:PatternMatching.MatchException">
             <summary>

@@ -95,6 +95,13 @@ namespace PatternMatching
 
 			throw new MatchException($"Cannot match {input}.");
 		}
+
+		/// <summary>
+		/// Compiles this matcher into a function which, when called, will match the specified value.
+		/// </summary>
+		/// <returns>A function which, when called, will match the specified value.</returns>
+		public Func<TInput, TOutput> Compile()
+			=> this.ExecuteOn;
 	}
 
 	/// <summary>
@@ -206,5 +213,19 @@ namespace PatternMatching
 				throw new MatchException($"Cannot match {input}.");
 			}
 		}
+
+		/// <summary>
+		/// Compiles this matcher into a function which, when called, will match the specified value.
+		/// </summary>
+		/// <returns>A function which, when called, will match the specified value.</returns>
+		public Func<TInput, bool> Compile()
+			=> this.ExecuteOn;
+
+		/// <summary>
+		/// Compiles this matcher into an action which, when called, will match the specified value.
+		/// </summary>
+		/// <returns>An action which, when called, will match the specified value.</returns>
+		public Action<TInput> CompileStrict()
+			=> this.ExecuteOnStrict;
 	}
 }
