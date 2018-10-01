@@ -54,6 +54,27 @@ namespace PatternMatching
 		/// <returns>A new pattern, which includes the specified condition.</returns>
 		public override Pattern<TInput, TMatchResult> When(Func<TMatchResult, bool> predicate)
 			=> new Pattern<TInput, TMatchResult>(this.matcher, this.Predicates.Add(predicate));
+
+		/// <summary>
+		/// Returns a pattern which is matched successfully
+		/// when the specified pattern is not matched successfully.
+		/// </summary>
+		/// <param name="pattern">The pattern to invert.</param>
+		/// <returns>
+		/// A pattern which is matched successfully
+		/// when the specified pattern is not matched successfully.
+		/// </returns>
+		/// <remarks>
+		/// This pattern ignores the specified pattern's transformation
+		/// and returns the input value if matched successfully.
+		/// </remarks>
+		/// <exception cref="ArgumentNullException">
+		/// <paramref name="pattern" /> is <see langword="null" />.
+		/// </exception>
+		public static SimplePattern<TInput> operator ~(Pattern<TInput, TMatchResult> pattern)
+			=> pattern != null
+				? Pattern.Not(pattern)
+				: throw new ArgumentNullException(nameof(pattern));
 	}
 
 	/// <summary>

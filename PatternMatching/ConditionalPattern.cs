@@ -47,6 +47,9 @@ namespace PatternMatching
 		/// </summary>
 		/// <param name="predicate">The condition to add.</param>
 		/// <returns>A new pattern, which includes the specified condition.</returns>
+		/// <exception cref="ArgumentNullException">
+		/// <paramref name="predicate" /> is <see langword="null" />.
+		/// </exception>
 		public abstract TPattern When(Func<TMatchResult, bool> predicate);
 	}
 }

@@ -53,11 +53,21 @@ namespace PatternMatching
 		/// <typeparam name="TMatchResult">The type of the result of the pattern's match.</typeparam>
 		/// <param name="pattern">The pattern to match with.</param>
 		/// <param name="func">The function to execute if the match is successful.</param>
-		/// <returns></returns>
+		/// <returns>
+		/// A new matcher which includes the specified pattern and function to execute if this
+		/// pattern is matched successfully.
+		/// </returns>
+		/// <exception cref="ArgumentNullException">
+		/// <paramref name="pattern" /> or <paramref name="func" /> is <see langword="null" />.
+		/// </exception>
 		public Matcher<TInput, TOutput> Case<TMatchResult>(
 			IPattern<TInput, TMatchResult> pattern,
 			Func<TMatchResult, TOutput> func)
-			=> new Matcher<TInput, TOutput>(this.patterns.Add((pattern, func)));
+			=> pattern != null
+				? func != null
+					? new Matcher<TInput, TOutput>(this.patterns.Add((pattern, func)))
+					: throw new ArgumentNullException(nameof(func))
+				: throw new ArgumentNullException(nameof(pattern));
 
 		/// <summary>
 		/// Executes the match expression on the specified input and returns the result.
@@ -136,9 +146,19 @@ namespace PatternMatching
 		/// <typeparam name="TMatchResult">The type of the result of the pattern's match.</typeparam>
 		/// <param name="pattern">The pattern to match with.</param>
 		/// <param name="func">The function to execute if the match is successful.</param>
-		/// <returns></returns>
+		/// <returns>
+		/// A new matcher which includes the specified pattern and function to execute if this
+		/// pattern is matched successfully.
+		/// </returns>
+		/// <exception cref="ArgumentNullException">
+		/// <paramref name="pattern" /> or <paramref name="func" /> is <see langword="null" />.
+		/// </exception>
 		public Matcher<TInput> Case<TMatchResult>(IPattern<TInput, TMatchResult> pattern, Action<TMatchResult> func)
-			=> new Matcher<TInput>(this.patterns.Add((pattern, func)));
+			=> pattern != null
+				? func != null
+					? new Matcher<TInput>(this.patterns.Add((pattern, func)))
+					: throw new ArgumentNullException(nameof(func))
+				: throw new ArgumentNullException(nameof(pattern));
 
 		/// <summary>
 		/// Executes the match expression on the specified input.
