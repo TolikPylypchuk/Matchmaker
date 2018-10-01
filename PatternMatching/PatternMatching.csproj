@@ -5,6 +5,10 @@
     <LangVersion>latest</LangVersion>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>C:\Users\Tolik\OneDrive\Documents\Visual Studio 2017\Projects\PatternMatching\PatternMatching\PatternMatching.xml</DocumentationFile>
+  </PropertyGroup>
+
   <ItemGroup>
     <PackageReference Include="LanguageExt.Core" Version="3.0.26" />
     <PackageReference Include="System.Dynamic.Runtime" Version="4.3.0" />
