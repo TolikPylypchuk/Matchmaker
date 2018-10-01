@@ -33,16 +33,16 @@ namespace PatternMatching.Tests
 						LessThan(1),
 						_ => "x < 1")
 					.Case(
-						GreaterOrEqual(1).And(LessThan(2)),
+						GreaterOrEqual(1) & LessThan(2),
 						_ => "1 <= x < 2")
 					.Case(
-						GreaterOrEqual(2).And(LessThan(3)),
+						GreaterOrEqual(2) & LessThan(3),
 						_ => "2 <= x < 3")
 					.Case(
-						GreaterOrEqual(3).And(LessThan(4)),
+						GreaterOrEqual(3) & LessThan(4),
 						_ => "3 <= x < 4")
 					.Case(
-						GreaterOrEqual(4).And(Not(GreaterThan(5))),
+						GreaterOrEqual(4) & Not(GreaterThan(5)),
 						_ => "4 <= x <= 5")
 					.Case(
 						Any<int>(),

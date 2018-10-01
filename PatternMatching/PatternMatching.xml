@@ -1,0 +1,597 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>PatternMatching</name>
+    </assembly>
+    <members>
+        <member name="T:PatternMatching.ConditionalPattern`3">
+            <summary>
+            Represents a pattern, to which additional conditions may be added.
+            </summary>
+            <typeparam name="TInput">The type of the input value of the expression.</typeparam>
+            <typeparam name="TMatchResult">The type of the result of this pattern's match.</typeparam>
+            <typeparam name="TPattern">The type of the pattern.</typeparam>
+        </member>
+        <member name="F:PatternMatching.ConditionalPattern`3.Predicates">
+            <summary>
+            A list of predicates, which specify the conditions of this pattern.
+            </summary>
+        </member>
+        <member name="M:PatternMatching.ConditionalPattern`3.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:PatternMatching.ConditionalPattern`3" /> class
+            without any conditions.
+            </summary>
+        </member>
+        <member name="M:PatternMatching.ConditionalPattern`3.#ctor(LanguageExt.Lst{System.Func{`1,System.Boolean}})">
+            <summary>
+            Initializes a new instance of the <see cref="T:PatternMatching.ConditionalPattern`3" /> class
+            with the specified conditions.
+            </summary>
+            <param name="predicates">The conditions of this pattern.</param>
+        </member>
+        <member name="M:PatternMatching.ConditionalPattern`3.Match(`0)">
+            <summary>
+            Matches the input with this pattern, and returns a transformed result.
+            </summary>
+            <param name="input">The input value to match.</param>
+            <returns>
+            A non-empty optional value, which contains the transformed result of the match,
+            if this match is successful. Otherwise, an empty optional.
+            </returns>
+        </member>
+        <member name="M:PatternMatching.ConditionalPattern`3.When(System.Func{`1,System.Boolean})">
+            <summary>
+            Returns a new pattern, which includes the specified condition.
+            </summary>
+            <param name="predicate">The condition to add.</param>
+            <returns>A new pattern, which includes the specified condition.</returns>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="predicate" /> is <see langword="null" />.
+            </exception>
+        </member>
+        <member name="T:PatternMatching.IPattern`2">
+            <summary>
+            Represents a pattern to match with in a match expression.
+            </summary>
+            <typeparam name="TInput">The type of the input value of the expression.</typeparam>
+            <typeparam name="TMatchResult">The type of the result of this pattern's match.</typeparam>
+        </member>
+        <member name="M:PatternMatching.IPattern`2.Match(`0)">
+            <summary>
+            Matches the input with this pattern, and returns a transformed result.
+            </summary>
+            <param name="input">The input value to match.</param>
+            <returns>
+            A non-empty optional value, which contains the transformed result of the match,
+            if this match is successful. Otherwise, an empty optional.
+            </returns>
+        </member>
+        <member name="T:PatternMatching.Match">
+            <summary>
+            A static class which creates a match expression.
+            </summary>
+        </member>
+        <member name="M:PatternMatching.Match.Create``2">
+            <summary>
+            Creates a match expression.
+            </summary>
+            <typeparam name="TInput">The type of the input value.</typeparam>
+            <typeparam name="TOutput">The type of the result.</typeparam>
+            <returns>
+            A matcher which specifies the patterns to match with, and functions which are executed.
+            </returns>
+        </member>
+        <member name="M:PatternMatching.Match.Create``1">
+            <summary>
+            Creates a match statement.
+            </summary>
+            <typeparam name="TInput">The type of the input value.</typeparam>
+            <returns>
+            A matcher which specifies the patterns to match with, and actions which are executed.
+            </returns>
+        </member>
+        <member name="T:PatternMatching.Matcher`2">
+            <summary>
+            Represents a match expression.
+            </summary>
+            <typeparam name="TInput">The type of the input value of the expression.</typeparam>
+            <typeparam name="TOutput">The type of the output value of the expression.</typeparam>
+            <seealso cref="T:PatternMatching.Matcher`1" />
+        </member>
+        <member name="F:PatternMatching.Matcher`2.patterns">
+             <summary>
+             The list of patterns that will be matched in this expression.
+             </summary>
+             <remarks>
+             This list has dynamic items in it because the matcher knows nothing about transformations
+             of the patterns. If it did, then the information about each type of the pattern transformation
+             would be required, and that would render the matcher either unusable, because of the many types
+             which will have to be specified, or impossible, because there would always be a finite amount
+             of matcher types (each with information about one more match result type than the previous).
+             
+             This list contains value tuples which contain the pattern and the function which is to be executed
+             if the pattern is matched successfully.
+            
+             The type safety is not compromised this way, because the match result type is needed only between
+             the execution of the pattern match and the execution of the function, and is not visible to the
+             outside world.
+            
+             This incurs a performance overhead, but it must be compromised in order for this to work.
+             </remarks>
+        </member>
+        <member name="M:PatternMatching.Matcher`2.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:PatternMatching.Matcher`2" /> class.
+            </summary>
+        </member>
+        <member name="M:PatternMatching.Matcher`2.#ctor(LanguageExt.Lst{System.Object})">
+            <summary>
+            Initializes a new instance of the <see cref="T:PatternMatching.Matcher`2" /> class
+            with the specified patterns.
+            </summary>
+            <param name="patterns">The patterns of this expression.</param>
+        </member>
+        <member name="M:PatternMatching.Matcher`2.Case``1(PatternMatching.IPattern{`0,``0},System.Func{``0,`1})">
+            <summary>
+            Returns a new matcher which includes the specified pattern and function to execute if this
+            pattern is matched successfully.
+            </summary>
+            <typeparam name="TMatchResult">The type of the result of the pattern's match.</typeparam>
+            <param name="pattern">The pattern to match with.</param>
+            <param name="func">The function to execute if the match is successful.</param>
+            <returns>
+            A new matcher which includes the specified pattern and function to execute if this
+            pattern is matched successfully.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="pattern" /> or <paramref name="func" /> is <see langword="null" />.
+            </exception>
+        </member>
+        <member name="M:PatternMatching.Matcher`2.ExecuteOn(`0)">
+            <summary>
+            Executes the match expression on the specified input and returns the result.
+            </summary>
+            <param name="input">The input value of the expression.</param>
+            <returns>The result of the match expression.</returns>
+            <exception cref="T:PatternMatching.MatchException">
+            The match failed for all cases.
+            </exception>
+            <remarks>
+            This method uses some non-conventional manipulation of the option type.
+            It is used because the conventional approach uses lambda expressions,
+            and those are forbidden to use with dynamic types.
+            </remarks>
+        </member>
+        <member name="T:PatternMatching.Matcher`1">
+            <summary>
+            Represents a match expression, which doesn't yield a value.
+            </summary>
+            <typeparam name="TInput">The type of the input value of the expression.</typeparam>
+            <remarks>A match expression which doesn't yield a value is also known as a match statement.</remarks>
+            <seealso cref="T:PatternMatching.Matcher`2" />
+        </member>
+        <member name="F:PatternMatching.Matcher`1.patterns">
+             <summary>
+             The list of patterns that will be matched in this expression.
+             </summary>
+             <remarks>
+             This list has dynamic items in it because the matcher knows nothing about transformations
+             of the patterns. If it did, then the information about each type of the pattern transformation
+             would be required, and that would render the matcher either unusable, because of the many types
+             which will have to be specified, or impossible, because there would always be a finite amount
+             of matcher types (each with information about one more match result type than the previous).
+             
+             This list contains value tuples which contain the pattern and the function which is to be executed
+             if the pattern is matched successfully.
+            
+             The type safety is not compromised this way, because the match result type is needed only between
+             the execution of the pattern match and the execution of the function, and is not visible to the
+             outside world.
+            
+             This incurs a performance overhead, but it must be compromised in order for this to work.
+             </remarks>
+        </member>
+        <member name="M:PatternMatching.Matcher`1.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:PatternMatching.Matcher`1" /> class.
+            </summary>
+        </member>
+        <member name="M:PatternMatching.Matcher`1.#ctor(LanguageExt.Lst{System.Object})">
+            <summary>
+            Initializes a new instance of the <see cref="T:PatternMatching.Matcher`1" /> class
+            with the specified patterns.
+            </summary>
+            <param name="patterns">The patterns of this expression.</param>
+        </member>
+        <member name="M:PatternMatching.Matcher`1.Case``1(PatternMatching.IPattern{`0,``0},System.Action{``0})">
+            <summary>
+            Returns a new matcher which includes the specified pattern and function to execute if this
+            pattern is matched successfully.
+            </summary>
+            <typeparam name="TMatchResult">The type of the result of the pattern's match.</typeparam>
+            <param name="pattern">The pattern to match with.</param>
+            <param name="func">The function to execute if the match is successful.</param>
+            <returns>
+            A new matcher which includes the specified pattern and function to execute if this
+            pattern is matched successfully.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="pattern" /> or <paramref name="func" /> is <see langword="null" />.
+            </exception>
+        </member>
+        <member name="M:PatternMatching.Matcher`1.ExecuteOn(`0)">
+            <summary>
+            Executes the match expression on the specified input.
+            </summary>
+            <param name="input">The input value of the expression.</param>
+            <returns>
+            <see langword="true" />, if the match was successful.
+            Otherwise, <see langword="false" />.
+            </returns>
+            <remarks>
+            This method uses some non-conventional manipulation of the option type.
+            It is used because the conventional approach uses lambda expressions,
+            and those are forbidden to use with dynamic types.
+            </remarks>
+            <seealso cref="M:PatternMatching.Matcher`1.ExecuteOnStrict(`0)" />
+        </member>
+        <member name="M:PatternMatching.Matcher`1.ExecuteOnStrict(`0)">
+            <summary>
+            Executes the match expression strictly on the specified input.
+            </summary>
+            <param name="input">The input value of the expression.</param>
+            <exception cref="T:PatternMatching.MatchException">
+            The match failed for all cases.
+            </exception>
+            <seealso cref="M:PatternMatching.Matcher`1.ExecuteOn(`0)" />
+        </member>
+        <member name="T:PatternMatching.MatchException">
+            <summary>
+            Represents an exception which is thrown when a match expression hasn't found a successful pattern.
+            </summary>
+        </member>
+        <member name="M:PatternMatching.MatchException.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:PatternMatching.MatchException" /> class.
+            </summary>
+        </member>
+        <member name="M:PatternMatching.MatchException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:PatternMatching.MatchException" /> class.
+            </summary>
+            <param name="message">The message which describes this exception.</param>
+        </member>
+        <member name="M:PatternMatching.MatchException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:PatternMatching.MatchException" /> class.
+            </summary>
+            <param name="message">The message which describes this exception.</param>
+            <param name="innerException">The exception, which caused this exception.</param>
+        </member>
+        <member name="M:PatternMatching.MatchException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:PatternMatching.MatchException" /> class.
+            </summary>
+            <param name="info">The serialization info.</param>
+            <param name="context">The streaming context.</param>
+        </member>
+        <member name="T:PatternMatching.Pattern`2">
+            <summary>
+            Represents a general transforming pattern.
+            </summary>
+            <typeparam name="TInput">The type of the input value of the expression.</typeparam>
+            <typeparam name="TMatchResult">The type of the result of this pattern's match.</typeparam>
+        </member>
+        <member name="F:PatternMatching.Pattern`2.matcher">
+            <summary>
+            The matcher function.
+            </summary>
+        </member>
+        <member name="M:PatternMatching.Pattern`2.#ctor(System.Func{`0,LanguageExt.Option{`1}})">
+            <summary>
+            Initializes a new instance of the <see cref="T:PatternMatching.Pattern`2" /> class
+            with the specified matcher function.
+            </summary>
+            <param name="matcher">The matcher function.</param>
+        </member>
+        <member name="M:PatternMatching.Pattern`2.#ctor(System.Func{`0,LanguageExt.Option{`1}},LanguageExt.Lst{System.Func{`1,System.Boolean}})">
+            <summary>
+            Initializes a new instance of the <see cref="T:PatternMatching.Pattern`2" /> class
+            with the specified matcher function and additional conditions.
+            </summary>
+            <param name="matcher">The matcher function.</param>
+            <param name="predicates">The additional conditions.</param>
+        </member>
+        <member name="M:PatternMatching.Pattern`2.Match(`0)">
+            <summary>
+            Matches the input with this pattern, and returns a transformed result.
+            </summary>
+            <param name="input">The input value to match.</param>
+            <returns>
+            A non-empty optional value, which contains the transformed result of the match,
+            if this match is successful. Otherwise, an empty optional.
+            </returns>
+        </member>
+        <member name="M:PatternMatching.Pattern`2.When(System.Func{`1,System.Boolean})">
+            <summary>
+            Returns a new pattern, which includes the specified condition.
+            </summary>
+            <param name="predicate">The condition to add.</param>
+            <returns>A new pattern, which includes the specified condition.</returns>
+        </member>
+        <member name="M:PatternMatching.Pattern`2.op_OnesComplement(PatternMatching.Pattern{`0,`1})">
+            <summary>
+            Returns a pattern which is matched successfully
+            when the specified pattern is not matched successfully.
+            </summary>
+            <param name="pattern">The pattern to invert.</param>
+            <returns>
+            A pattern which is matched successfully
+            when the specified pattern is not matched successfully.
+            </returns>
+            <remarks>
+            This pattern ignores the specified pattern's transformation
+            and returns the input value if matched successfully.
+            </remarks>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="pattern" /> is <see langword="null" />.
+            </exception>
+        </member>
+        <member name="T:PatternMatching.Pattern">
+            <summary>
+            Contains some frequently used patterns.
+            </summary>
+        </member>
+        <member name="M:PatternMatching.Pattern.Any``1">
+            <summary>
+            Returns a pattern which is always matched successfully.
+            </summary>
+            <typeparam name="TInput">The type of the input value of the expression.</typeparam>
+            <returns>A pattern which is always matched successfully.</returns>
+            <remarks>
+            This pattern should be used as the default case of the match expression, if one is needed.
+            </remarks>
+        </member>
+        <member name="M:PatternMatching.Pattern.EqualTo``1(``0)">
+            <summary>
+            Returns a pattern which is matched successfully when the input value
+            is equal to the specified value.
+            </summary>
+            <typeparam name="TInput">The type of the input value of the expression.</typeparam>
+            <param name="value">The value to check for equality.</param>
+            <returns>
+            A pattern which is matched successfully when the input value
+            is equal to the specified value.
+            </returns>
+        </member>
+        <member name="M:PatternMatching.Pattern.LessThan``1(``0)">
+            <summary>
+            Returns a pattern which is matched successfully when the input value
+            is less than the specified value.
+            </summary>
+            <typeparam name="TInput">The type of the input value of the expression.</typeparam>
+            <param name="value">The value to compare with.</param>
+            <returns>
+            A pattern which is matched successfully when the input value
+            is less than the specified value.
+            </returns>
+        </member>
+        <member name="M:PatternMatching.Pattern.LessOrEqual``1(``0)">
+            <summary>
+            Returns a pattern which is matched successfully when the input value
+            is less than or equal to the specified value.
+            </summary>
+            <typeparam name="TInput">The type of the input value of the expression.</typeparam>
+            <param name="value">The value to compare with.</param>
+            <returns>
+            A pattern which is matched successfully when the input value
+            is less than or equal to the specified value.
+            </returns>
+        </member>
+        <member name="M:PatternMatching.Pattern.GreaterThan``1(``0)">
+            <summary>
+            Returns a pattern which is matched successfully when the input value
+            is greater than the specified value.
+            </summary>
+            <typeparam name="TInput">The type of the input value of the expression.</typeparam>
+            <param name="value">The value to compare with.</param>
+            <returns>
+            A pattern which is matched successfully when the input value
+            is greater than the specified value.
+            </returns>
+        </member>
+        <member name="M:PatternMatching.Pattern.GreaterOrEqual``1(``0)">
+            <summary>
+            Returns a pattern which is matched successfully when the input value
+            is greater than or equal to the specified value.
+            </summary>
+            <typeparam name="TInput">The type of the input value of the expression.</typeparam>
+            <param name="value">The value to compare with.</param>
+            <returns>
+            A pattern which is matched successfully when the input value
+            is greater than or equal to the specified value.
+            </returns>
+        </member>
+        <member name="M:PatternMatching.Pattern.Type``2">
+            <summary>
+            Returns a pattern which is matched successfully when the input value
+            is of the specified type.
+            </summary>
+            <typeparam name="TInput">The type of the input value of the expression.</typeparam>
+            <typeparam name="TType">The type to check for.</typeparam>
+            <returns>
+            A pattern which is matched successfully when the input value
+            is of the specified type.
+            </returns>
+            <remarks>
+            This pattern should be used to match discriminated unions, which are implemented
+            as class hierarchies.
+            </remarks>
+        </member>
+        <member name="M:PatternMatching.Pattern.Not``2(PatternMatching.IPattern{``0,``1})">
+            <summary>
+            Returns a pattern which is matched successfully
+            when the specified pattern is not matched successfully.
+            </summary>
+            <typeparam name="TInput">The type of the input value of the expression.</typeparam>
+            <typeparam name="TMatchResult">The type of the result of this pattern's match.</typeparam>
+            <param name="pattern">The pattern to invert.</param>
+            <returns>
+            A pattern which is matched successfully
+            when the specified pattern is not matched successfully.
+            </returns>
+            <remarks>
+            This pattern ignores the specified pattern's transformation
+            and returns the input value if matched successfully.
+            </remarks>
+        </member>
+        <member name="T:PatternMatching.SimplePattern`1">
+            <summary>
+            Represents a general non-transforming pattern.
+            </summary>
+            <typeparam name="TInput">The type of the input value of the expression.</typeparam>
+        </member>
+        <member name="M:PatternMatching.SimplePattern`1.#ctor(System.Func{`0,System.Boolean})">
+            <summary>
+            Initializes a new instance of the <see cref="T:PatternMatching.SimplePattern`1" /> class
+            with the specified condition.
+            </summary>
+            <param name="predicate">The condition of this pattern.</param>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="predicate" /> is <see langword="null" />.
+            </exception>
+        </member>
+        <member name="M:PatternMatching.SimplePattern`1.#ctor(LanguageExt.Lst{System.Func{`0,System.Boolean}})">
+            <summary>
+            Initializes a new instance of the <see cref="T:PatternMatching.SimplePattern`1" /> class
+            with the specified conditions.
+            </summary>
+            <param name="predicates">The conditions of this pattern.</param>
+        </member>
+        <member name="M:PatternMatching.SimplePattern`1.Match(`0)">
+            <summary>
+            Matches the input with this pattern, and returns the input value.
+            </summary>
+            <param name="input">The input value to match.</param>
+            <returns>
+            A non-empty optional value, which contains the input value,
+            if this match is successful. Otherwise, an empty optional.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="input" /> is <see langword="null" />.
+            </exception>
+        </member>
+        <member name="M:PatternMatching.SimplePattern`1.When(System.Func{`0,System.Boolean})">
+            <summary>
+            Returns a new pattern, which includes the specified condition.
+            </summary>
+            <param name="predicate">The condition to add.</param>
+            <returns>A new pattern, which includes the specified condition.</returns>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="predicate" /> is <see langword="null" />.
+            </exception>
+        </member>
+        <member name="M:PatternMatching.SimplePattern`1.And(PatternMatching.SimplePattern{`0})">
+            <summary>
+            Returns a pattern, which is matched successfully only if both
+            this and other pattern are matched successfully.
+            </summary>
+            <param name="other">The other pattern.</param>
+            <returns>
+            A pattern, which is matched successfully only if both
+            this and other pattern are matched successfully.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="other" /> is <see langword="null" />.
+            </exception>
+        </member>
+        <member name="M:PatternMatching.SimplePattern`1.Or(PatternMatching.SimplePattern{`0})">
+            <summary>
+            Returns a pattern, which is matched successfully if
+            this or other pattern is matched successfully.
+            </summary>
+            <param name="other">The other pattern.</param>
+            <returns>
+            A pattern, which is matched successfully if
+            this or other pattern is matched successfully.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="other" /> is <see langword="null" />.
+            </exception>
+        </member>
+        <member name="M:PatternMatching.SimplePattern`1.Xor(PatternMatching.SimplePattern{`0})">
+            <summary>
+            Returns a pattern, which is matched successfully if
+            matches with this and other patterns yield different results.
+            </summary>
+            <param name="other">The other pattern.</param>
+            <returns>
+            A pattern, which is matched successfully if
+            matches with this and other patterns yield different results.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="other" /> is <see langword="null" />.
+            </exception>
+        </member>
+        <member name="M:PatternMatching.SimplePattern`1.op_BitwiseAnd(PatternMatching.SimplePattern{`0},PatternMatching.SimplePattern{`0})">
+            <summary>
+            Returns a pattern, which is matched successfully only if both
+            the first and second patterns are matched successfully.
+            </summary>
+            <param name="pattern1">The first pattern.</param>
+            <param name="pattern2">The second pattern.</param>
+            <returns>
+            A pattern, which is matched successfully only if both
+            the first and second patterns are matched successfully.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="pattern1" /> or <paramref name="pattern2" /> is <see langword="null" />.
+            </exception>
+        </member>
+        <member name="M:PatternMatching.SimplePattern`1.op_BitwiseOr(PatternMatching.SimplePattern{`0},PatternMatching.SimplePattern{`0})">
+            <summary>
+            Returns a pattern, which is matched successfully if
+            the first or the second pattern is matched successfully.
+            </summary>
+            <param name="pattern1">The first pattern.</param>
+            <param name="pattern2">The second pattern.</param>
+            <returns>
+            A pattern, which is matched successfully if
+            the first or the second pattern is matched successfully.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="pattern1" /> or <paramref name="pattern2" /> is <see langword="null" />.
+            </exception>
+        </member>
+        <member name="M:PatternMatching.SimplePattern`1.op_ExclusiveOr(PatternMatching.SimplePattern{`0},PatternMatching.SimplePattern{`0})">
+            <summary>
+            Returns a pattern, which is matched successfully if
+            matches with the first and second patterns yield different results.
+            </summary>
+            <param name="pattern1">The first pattern.</param>
+            <param name="pattern2">The second pattern.</param>
+            <returns>
+            A pattern, which is matched successfully if
+            matches with the first and second patterns yield different results.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="pattern1" /> or <paramref name="pattern2" /> is <see langword="null" />.
+            </exception>
+        </member>
+        <member name="M:PatternMatching.SimplePattern`1.op_OnesComplement(PatternMatching.SimplePattern{`0})">
+            <summary>
+            Returns a pattern which is matched successfully
+            when the specified pattern is not matched successfully.
+            </summary>
+            <param name="pattern">The pattern to invert.</param>
+            <returns>
+            A pattern which is matched successfully
+            when the specified pattern is not matched successfully.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="pattern" /> is <see langword="null" />.
+            </exception>
+        </member>
+    </members>
+</doc>
