@@ -60,8 +60,8 @@ the expression.
 
 To execute a match expression, the `ExecuteOn` method is used. It takes the
 input value to match. In the `Matcher<TInput, TOutput>` class this method
-returns the result of the match and throws a `MatchException` if no successful
-match was found. In the `Matcher<TInput>` class this method returns a `bool`
+returns the result of the match, or throws a `MatchException` if no successful
+match was found. In the `Matcher<TInput>` class this method returns a boolean
 value, which signifies whether the match was successful. This class also contains
 the `ExecuteOnStrict` method, thich also throws the `MatchException` if
 the match is not successful.
