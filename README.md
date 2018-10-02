@@ -5,7 +5,7 @@ than is currently available in the `switch` statement.
 
 ## Patterns
 
-One of two central idea of this library is a _pattern_. A pattern is an
+One of two central ideas of this library is a _pattern_. A pattern is an
 object which implements the `IPattern<TInput, TMatchResult>`
 interface. This interface contains only one method -
 `Option<TMatchResult> Match(Tinput input)`. The `Match` method
@@ -45,7 +45,7 @@ such as `&` and `|`).
 
 ## Matchers
 
-The second central ideas is the _matcher_, which represents the match expression
+The second central idea is the _matcher_, which represents the match expression
 itself. It is represented by two classes: `Matcher<TInput, TOutput>` and
 `Matcher<TInput>`. The difference between them is that the former represents
 a match expression, which yields a result, and the latter represents a match
