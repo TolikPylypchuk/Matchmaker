@@ -1,6 +1,5 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-
 using PatternMatching.Tests.Samples;
 
 using static PatternMatching.Pattern;

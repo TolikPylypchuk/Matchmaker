@@ -1,5 +1,4 @@
 ﻿using System;
-
 using LanguageExt;
 
 using static LanguageExt.Prelude;
@@ -43,7 +42,9 @@ namespace PatternMatching
 		/// <paramref name="input" /> is <see langword="null" />.
 		/// </exception>
 		public override Option<TInput> Match(TInput input)
-			=> Some(input).Filter(result => this.Predicates.ForAll(predicate => predicate(result)));
+			=> input != null
+				? Some(input).Filter(result => this.Predicates.ForAll(predicate => predicate(result)))
+				: throw new ArgumentNullException(nameof(input));
 
 		/// <summary>
 		/// Returns a new pattern, which includes the specified condition.
