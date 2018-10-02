@@ -88,7 +88,7 @@ string result =
         .ExecuteOn(5);
 ```
 
-`EqualTo` is a predefined pattern
+`EqualTo` is a predefined pattern.
 
 This is what an equivalent `switch` statement looks like:
 
@@ -269,7 +269,7 @@ public int Sum(ConsList list)
     }
 
     throw new MatchException(
-        "This will never happen, but C# can't know that");
+        "This will never happen, but C# can't know that.");
 }
 ```
 
@@ -277,7 +277,7 @@ Note: The declaration of sum must be split from its initialization, because
 C# doesn't premit initializing recursive lambda expressions in declaration.
 
 Defining the `Pattern` field in the `ConsCell` and `Empty` wasn't necessary,
-but `Case(Empty.Pattern, _ => 0)` is more readable, then
+but `Case(Empty.Pattern, _ => 0)` is more readable than
 `Case(Type<ConsList, Empty>(), _ => 0)`.
 
 As we can see, we have to throw an exception in the `switch` version, because
