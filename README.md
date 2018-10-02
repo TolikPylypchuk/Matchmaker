@@ -45,7 +45,7 @@ such as `&` and `|`).
 
 ## Matchers
 
-The second central idea is the _matcher_, which represents the match expression
+The second central ideas is the _matcher_, which represents the match expression
 itself. It is represented by two classes: `Matcher<TInput, TOutput>` and
 `Matcher<TInput>`. The difference between them is that the former represents
 a match expression, which yields a result, and the latter represents a match
