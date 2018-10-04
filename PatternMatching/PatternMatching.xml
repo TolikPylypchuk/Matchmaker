@@ -69,7 +69,7 @@
         </member>
         <member name="T:PatternMatching.Match">
             <summary>
-            A static class which creates a match expression.
+            A static class which is used to create match expressions.
             </summary>
         </member>
         <member name="M:PatternMatching.Match.Create``2">
@@ -79,7 +79,7 @@
             <typeparam name="TInput">The type of the input value.</typeparam>
             <typeparam name="TOutput">The type of the result.</typeparam>
             <returns>
-            A matcher which specifies the patterns to match with, and functions which are executed.
+            A matcher which specifies the patterns to match with and functions which are executed.
             </returns>
         </member>
         <member name="M:PatternMatching.Match.Create``1">
@@ -88,7 +88,7 @@
             </summary>
             <typeparam name="TInput">The type of the input value.</typeparam>
             <returns>
-            A matcher which specifies the patterns to match with, and actions which are executed.
+            A matcher which specifies the patterns to match with and actions which are executed.
             </returns>
         </member>
         <member name="T:PatternMatching.Matcher`2">
