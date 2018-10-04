@@ -287,7 +287,7 @@ in `switch` or in a match, we'll get an exception. In F# a warning is issued,
 when the match is incomplete, but then again, C# doesn't have the notion of
 complete or incomplete matches.
 
-## Preformance
+## Performance
 
 I didn't perform any benchmarks, but I can guess that pattern matching here is
 much, _much_ slower than the traditional `switch` statements. This is because
