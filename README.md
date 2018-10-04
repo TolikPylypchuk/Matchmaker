@@ -126,10 +126,10 @@ input value to match. In the `Matcher<TInput, TOutput>` class this method
 returns the result of the match, or throws a `MatchException` if no successful
 match was found. In the `Matcher<TInput>` class this method returns a boolean
 value, which signifies whether the match was successful. This class also contains
-the `ExecuteOnStrict` method, thich also throws the `MatchException` if
+the `ExecuteOnStrict` method, which also throws the `MatchException` if
 the match is not successful.
 
-The `Compile` method is also available. It returns a function which, when
+The `ToFunction` method is also available. It returns a function which, when
 called, will execute the match expression.
 
 ## A more complex example

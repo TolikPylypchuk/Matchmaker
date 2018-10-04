@@ -99,7 +99,7 @@ namespace PatternMatching
 		/// Compiles this matcher into a function which, when called, will match the specified value.
 		/// </summary>
 		/// <returns>A function which, when called, will match the specified value.</returns>
-		public Func<TInput, TOutput> Compile()
+		public Func<TInput, TOutput> ToFunction()
 			=> this.ExecuteOn;
 	}
 
@@ -217,14 +217,14 @@ namespace PatternMatching
 		/// Compiles this matcher into a function which, when called, will match the specified value.
 		/// </summary>
 		/// <returns>A function which, when called, will match the specified value.</returns>
-		public Func<TInput, bool> Compile()
+		public Func<TInput, bool> ToFunction()
 			=> this.ExecuteOn;
 
 		/// <summary>
 		/// Compiles this matcher into an action which, when called, will match the specified value.
 		/// </summary>
 		/// <returns>An action which, when called, will match the specified value.</returns>
-		public Action<TInput> CompileStrict()
+		public Action<TInput> ToStrictFunction()
 			=> this.ExecuteOnStrict;
 	}
 }
