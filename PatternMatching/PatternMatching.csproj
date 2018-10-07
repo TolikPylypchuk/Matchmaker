@@ -3,6 +3,17 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <LangVersion>latest</LangVersion>
+    <PackageTags>csharp pattern-matching functional-programming</PackageTags>
+    <PackageId>CSharpStuff.PatternMatching</PackageId>
+    <Authors>tolik-pylypchuk</Authors>
+    <Description>A library which enables more powerful pattern matching than is currently available in the switch statement.</Description>
+    <Copyright>Copyright © 2018 Tolik Pylypchuk</Copyright>
+    <PackageLicenseUrl>https://github.com/TolikPylypchuk/PatternMatching/blob/master/LICENSE</PackageLicenseUrl>
+    <RepositoryUrl>https://github.com/TolikPylypchuk/PatternMatching</RepositoryUrl>
+    <PackageProjectUrl>https://tolikpylypchuk.github.io/PatternMatching</PackageProjectUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageIconUrl>https://github.com/TolikPylypchuk/PatternMatching/raw/master/logo.png</PackageIconUrl>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
