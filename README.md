@@ -1,6 +1,6 @@
 # PatternMatching
 
-[![NuGet](https://img.shields.io/nuget/1.0.0/Nuget.Core.svg)](https://www.nuget.org/packages/CSharpStuff.PatternMatching)
+[![NuGet](https://img.shields.io/nuget/v/Nuget.Core.svg)](https://www.nuget.org/packages/CSharpStuff.PatternMatching)
 
 A library which enables more powerful pattern matching
 than is currently available in the `switch` statement.
