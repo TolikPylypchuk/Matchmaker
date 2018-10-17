@@ -276,9 +276,9 @@ a function which finds the sum of all items of the list.</p>
 <pre><code>Func&lt;ConsList, int&gt; sum = null;
 
 sum = Match.Create&lt;ConsList, int&gt;()
-	.Case&lt;ConsCell&gt;(cell =&gt; cell.Head + sum(cell.Tail))
-	.Case&lt;Empty&gt;(_ =&gt; 0)
-	.ToFunction();
+    .Case&lt;ConsCell&gt;(cell =&gt; cell.Head + sum(cell.Tail))
+    .Case&lt;Empty&gt;(_ =&gt; 0)
+    .ToFunction();
 </code></pre>
 <p>Here is the equivalent function implemented using the <code>switch</code> statement:</p>
 <pre><code>public int Sum(ConsList list)

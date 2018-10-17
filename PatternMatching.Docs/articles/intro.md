@@ -238,9 +238,9 @@ a function which finds the sum of all items of the list.
 Func<ConsList, int> sum = null;
 
 sum = Match.Create<ConsList, int>()
-	.Case<ConsCell>(cell => cell.Head + sum(cell.Tail))
-	.Case<Empty>(_ => 0)
-	.ToFunction();
+    .Case<ConsCell>(cell => cell.Head + sum(cell.Tail))
+    .Case<Empty>(_ => 0)
+    .ToFunction();
 ```
 
 Here is the equivalent function implemented using the `switch` statement:
