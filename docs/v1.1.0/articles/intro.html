@@ -291,8 +291,7 @@ sum = Match.Create&lt;ConsList, int&gt;()
             return 0;
     }
 
-    throw new MatchException(
-        &quot;This will never happen, but C# can't know that.&quot;);
+    throw new MatchException(&quot;This will never happen, but C# can't know that.&quot;);
 }
 </code></pre>
 <p>Note: The declaration of sum must be split from its initialization, because

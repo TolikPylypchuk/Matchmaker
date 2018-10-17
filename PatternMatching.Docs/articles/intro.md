@@ -256,8 +256,7 @@ public int Sum(ConsList list)
             return 0;
     }
 
-    throw new MatchException(
-        "This will never happen, but C# can't know that.");
+    throw new MatchException("This will never happen, but C# can't know that.");
 }
 ```
 
