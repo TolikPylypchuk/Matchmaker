@@ -249,7 +249,7 @@ Func<ConsList, int> sum = null;
 sum = Match.Create<ConsList, int>()
     .Case(ConsCell.Pattern, cell => cell.Head + sum(cell.Tail))
     .Case(Empty.Pattern, _ => 0)
-    .Compile();
+    .ToFunction();
 ```
 
 Here is the equivalent function implemented using the `switch` statement:

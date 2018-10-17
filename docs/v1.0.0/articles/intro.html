@@ -286,7 +286,7 @@ a function which finds the sum of all items of the list.</p>
 sum = Match.Create&lt;ConsList, int&gt;()
     .Case(ConsCell.Pattern, cell =&gt; cell.Head + sum(cell.Tail))
     .Case(Empty.Pattern, _ =&gt; 0)
-    .Compile();
+    .ToFunction();
 </code></pre>
 <p>Here is the equivalent function implemented using the <code>switch</code> statement:</p>
 <pre><code>public int Sum(ConsList list)
@@ -338,7 +338,7 @@ for this to work.</p>
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/TolikPylypchuk/PatternMatching/blob/master/PatternMatching.Docs/articles/intro.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/TolikPylypchuk/PatternMatching/blob/v1.1/PatternMatching.Docs/articles/intro.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

@@ -58,7 +58,7 @@
 				]
 			}
 		],
-		"dest": "..\\docs",
+		"dest": "..\\docs\\v1.1.0",
 		"globalMetadata": {
 			"_appLogoPath": "logo.svg",
 			"_appFaviconPath": "favicon.ico",

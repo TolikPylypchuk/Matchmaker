@@ -1,9 +1,20 @@
 # PatternMatching
 
-[![NuGet](https://img.shields.io/nuget/v/Nuget.Core.svg)](https://www.nuget.org/packages/CSharpStuff.PatternMatching)
+[![NuGet](https://img.shields.io/nuget/v/CSharpStuff.PatternMatching.svg)](https://www.nuget.org/packages/CSharpStuff.PatternMatching/)
 
 A library which enables more powerful pattern matching
 than is currently available in the `switch` statement.
+
+The documentation can be found here:
+
+ - Version 1.1.0: https://tolikpylypchuk.github.io/PatternMatching/v1.1.0
+ - Version 1.0.0: https://tolikpylypchuk.github.io/PatternMatching/v1.0.0
+
+## Installation
+
+```
+Install-Package CSharpStuff.PatternMatching -Version 1.1.0
+```
 
 ## A simple example
 
@@ -254,7 +265,7 @@ Func<ConsList, int> sum = null;
 sum = Match.Create<ConsList, int>()
     .Case(ConsCell.Pattern, cell => cell.Head + sum(cell.Tail))
     .Case(Empty.Pattern, _ => 0)
-    .Compile();
+    .ToFunction();
 ```
 
 Here is the equivalent function implemented using the `switch` statement:
