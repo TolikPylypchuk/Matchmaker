@@ -2,8 +2,6 @@
 {
 	public sealed class ConsCell : ConsList
 	{
-		public static readonly Pattern<ConsList, ConsCell> Pattern = PatternMatching.Pattern.Type<ConsList, ConsCell>();
-
 		public int Head { get; }
 		public ConsList Tail { get; }
 

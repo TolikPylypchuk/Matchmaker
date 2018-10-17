@@ -100,25 +100,13 @@
             <seealso cref="T:PatternMatching.Matcher`1" />
         </member>
         <member name="F:PatternMatching.Matcher`2.patterns">
-             <summary>
-             The list of patterns that will be matched in this expression.
-             </summary>
-             <remarks>
-             This list has dynamic items in it because the matcher knows nothing about transformations
-             of the patterns. If it did, then the information about each type of the pattern transformation
-             would be required, and that would render the matcher either unusable, because of the many types
-             which will have to be specified, or impossible, because there would always be a finite amount
-             of matcher types (each with information about one more match result type than the previous).
-             
-             This list contains value tuples which contain the pattern and the function which is to be executed
-             if the pattern is matched successfully.
-            
-             The type safety is not compromised this way, because the match result type is needed only between
-             the execution of the pattern match and the execution of the function, and is not visible to the
-             outside world.
-            
-             This incurs a performance overhead, but it must be compromised in order for this to work.
-             </remarks>
+            <summary>
+            The list of patterns that will be matched in this expression.
+            </summary>
+            <remarks>
+            This list contains value tuples which contain the pattern and the function which is to be executed
+            if the pattern is matched successfully.
+            </remarks>
         </member>
         <member name="M:PatternMatching.Matcher`2.#ctor">
             <summary>
@@ -146,6 +134,21 @@
             </returns>
             <exception cref="T:System.ArgumentNullException">
             <paramref name="pattern" /> or <paramref name="func" /> is <see langword="null" />.
+            </exception>
+        </member>
+        <member name="M:PatternMatching.Matcher`2.Case``1(System.Func{``0,`1})">
+            <summary>
+            Returns a new matcher which includes the pattern for the specified type and function to execute if this
+            pattern is matched successfully.
+            </summary>
+            <typeparam name="TType">The type of the result of the pattern's match.</typeparam>
+            <param name="func">The function to execute if the match is successful.</param>
+            <returns>
+            A new matcher which includes the type pattern and function to execute if this
+            pattern is matched successfully.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="func" /> is <see langword="null" />.
             </exception>
         </member>
         <member name="M:PatternMatching.Matcher`2.ExecuteOn(`0)">
@@ -178,25 +181,13 @@
             <seealso cref="T:PatternMatching.Matcher`2" />
         </member>
         <member name="F:PatternMatching.Matcher`1.patterns">
-             <summary>
-             The list of patterns that will be matched in this expression.
-             </summary>
-             <remarks>
-             This list has dynamic items in it because the matcher knows nothing about transformations
-             of the patterns. If it did, then the information about each type of the pattern transformation
-             would be required, and that would render the matcher either unusable, because of the many types
-             which will have to be specified, or impossible, because there would always be a finite amount
-             of matcher types (each with information about one more match result type than the previous).
-             
-             This list contains value tuples which contain the pattern and the function which is to be executed
-             if the pattern is matched successfully.
-            
-             The type safety is not compromised this way, because the match result type is needed only between
-             the execution of the pattern match and the execution of the function, and is not visible to the
-             outside world.
-            
-             This incurs a performance overhead, but it must be compromised in order for this to work.
-             </remarks>
+            <summary>
+            The list of patterns that will be matched in this expression.
+            </summary>
+            <remarks>
+            This list contains value tuples which contain the pattern and the action which is to be executed
+            if the pattern is matched successfully.
+            </remarks>
         </member>
         <member name="M:PatternMatching.Matcher`1.#ctor">
             <summary>
@@ -212,18 +203,33 @@
         </member>
         <member name="M:PatternMatching.Matcher`1.Case``1(PatternMatching.IPattern{`0,``0},System.Action{``0})">
             <summary>
-            Returns a new matcher which includes the specified pattern and function to execute if this
+            Returns a new matcher which includes the specified pattern and action to execute if this
             pattern is matched successfully.
             </summary>
             <typeparam name="TMatchResult">The type of the result of the pattern's match.</typeparam>
             <param name="pattern">The pattern to match with.</param>
-            <param name="func">The function to execute if the match is successful.</param>
+            <param name="action">The action to execute if the match is successful.</param>
             <returns>
-            A new matcher which includes the specified pattern and function to execute if this
+            A new matcher which includes the specified pattern and action to execute if this
             pattern is matched successfully.
             </returns>
             <exception cref="T:System.ArgumentNullException">
-            <paramref name="pattern" /> or <paramref name="func" /> is <see langword="null" />.
+            <paramref name="pattern" /> or <paramref name="action" /> is <see langword="null" />.
+            </exception>
+        </member>
+        <member name="M:PatternMatching.Matcher`1.Case``1(System.Action{``0})">
+            <summary>
+            Returns a new matcher which includes the pattern for the specified type and action to execute if this
+            pattern is matched successfully.
+            </summary>
+            <typeparam name="TType">The type of the result of the pattern's match.</typeparam>
+            <param name="action">The action to execute if the match is successful.</param>
+            <returns>
+            A new matcher which includes the type pattern and action to execute if this
+            pattern is matched successfully.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="action" /> is <see langword="null" />.
             </exception>
         </member>
         <member name="M:PatternMatching.Matcher`1.ExecuteOn(`0)">
@@ -370,6 +376,13 @@
             <remarks>
             This pattern should be used as the default case of the match expression, if one is needed.
             </remarks>
+        </member>
+        <member name="M:PatternMatching.Pattern.Null``1">
+            <summary>
+            Returns a pattern which is matched successfully when the input value is null.
+            </summary>
+            <typeparam name="TInput">The type of the input value of the expression.</typeparam>
+            <returns>A pattern which is matched successfully when the input value is null.</returns>
         </member>
         <member name="M:PatternMatching.Pattern.EqualTo``1(``0)">
             <summary>

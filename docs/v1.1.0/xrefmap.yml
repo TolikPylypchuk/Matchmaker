@@ -169,6 +169,15 @@ references:
   fullName.vb: PatternMatching.Matcher(Of TInput).Case(Of TMatchResult)(PatternMatching.IPattern(Of TInput, TMatchResult), System.Action(Of TMatchResult))
   nameWithType: Matcher<TInput>.Case<TMatchResult>(IPattern<TInput, TMatchResult>, Action<TMatchResult>)
   nameWithType.vb: Matcher(Of TInput).Case(Of TMatchResult)(IPattern(Of TInput, TMatchResult), Action(Of TMatchResult))
+- uid: PatternMatching.Matcher`1.Case``1(System.Action{``0})
+  name: Case<TType>(Action<TType>)
+  href: api/PatternMatching.Matcher-1.html#PatternMatching_Matcher_1_Case__1_System_Action___0__
+  commentId: M:PatternMatching.Matcher`1.Case``1(System.Action{``0})
+  name.vb: Case(Of TType)(Action(Of TType))
+  fullName: PatternMatching.Matcher<TInput>.Case<TType>(System.Action<TType>)
+  fullName.vb: PatternMatching.Matcher(Of TInput).Case(Of TType)(System.Action(Of TType))
+  nameWithType: Matcher<TInput>.Case<TType>(Action<TType>)
+  nameWithType.vb: Matcher(Of TInput).Case(Of TType)(Action(Of TType))
 - uid: PatternMatching.Matcher`1.ExecuteOn(`0)
   name: ExecuteOn(TInput)
   href: api/PatternMatching.Matcher-1.html#PatternMatching_Matcher_1_ExecuteOn__0_
@@ -264,6 +273,15 @@ references:
   fullName.vb: PatternMatching.Matcher(Of TInput, TOutput).Case(Of TMatchResult)(PatternMatching.IPattern(Of TInput, TMatchResult), System.Func(Of TMatchResult, TOutput))
   nameWithType: Matcher<TInput, TOutput>.Case<TMatchResult>(IPattern<TInput, TMatchResult>, Func<TMatchResult, TOutput>)
   nameWithType.vb: Matcher(Of TInput, TOutput).Case(Of TMatchResult)(IPattern(Of TInput, TMatchResult), Func(Of TMatchResult, TOutput))
+- uid: PatternMatching.Matcher`2.Case``1(System.Func{``0,`1})
+  name: Case<TType>(Func<TType, TOutput>)
+  href: api/PatternMatching.Matcher-2.html#PatternMatching_Matcher_2_Case__1_System_Func___0__1__
+  commentId: M:PatternMatching.Matcher`2.Case``1(System.Func{``0,`1})
+  name.vb: Case(Of TType)(Func(Of TType, TOutput))
+  fullName: PatternMatching.Matcher<TInput, TOutput>.Case<TType>(System.Func<TType, TOutput>)
+  fullName.vb: PatternMatching.Matcher(Of TInput, TOutput).Case(Of TType)(System.Func(Of TType, TOutput))
+  nameWithType: Matcher<TInput, TOutput>.Case<TType>(Func<TType, TOutput>)
+  nameWithType.vb: Matcher(Of TInput, TOutput).Case(Of TType)(Func(Of TType, TOutput))
 - uid: PatternMatching.Matcher`2.ExecuteOn(`0)
   name: ExecuteOn(TInput)
   href: api/PatternMatching.Matcher-2.html#PatternMatching_Matcher_2_ExecuteOn__0_
@@ -453,6 +471,22 @@ references:
   fullName.vb: PatternMatching.Pattern.Not(Of TInput, TMatchResult)(PatternMatching.IPattern(Of TInput, TMatchResult))
   nameWithType: Pattern.Not<TInput, TMatchResult>(IPattern<TInput, TMatchResult>)
   nameWithType.vb: Pattern.Not(Of TInput, TMatchResult)(IPattern(Of TInput, TMatchResult))
+- uid: PatternMatching.Pattern.Null*
+  name: "Null"
+  href: api/PatternMatching.Pattern.html#PatternMatching_Pattern_Null_
+  commentId: Overload:PatternMatching.Pattern.Null
+  isSpec: "True"
+  fullName: PatternMatching.Pattern.Null
+  nameWithType: Pattern.Null
+- uid: PatternMatching.Pattern.Null``1
+  name: Null<TInput>()
+  href: api/PatternMatching.Pattern.html#PatternMatching_Pattern_Null__1
+  commentId: M:PatternMatching.Pattern.Null``1
+  name.vb: Null(Of TInput)()
+  fullName: PatternMatching.Pattern.Null<TInput>()
+  fullName.vb: PatternMatching.Pattern.Null(Of TInput)()
+  nameWithType: Pattern.Null<TInput>()
+  nameWithType.vb: Pattern.Null(Of TInput)()
 - uid: PatternMatching.Pattern.Type*
   name: Type
   href: api/PatternMatching.Pattern.html#PatternMatching_Pattern_Type_

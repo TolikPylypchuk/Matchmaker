@@ -231,9 +231,6 @@ public abstract class ConsList
 
 public sealed class ConsCell : ConsList
 {
-    public static readonly Pattern<ConsList, ConsCell> Pattern =
-        PatternMatching.Pattern.Type<ConsList, ConsCell>();
-
     public int Head { get; }
     public ConsList Tail { get; }
     
@@ -246,15 +243,9 @@ public sealed class ConsCell : ConsList
 
 public sealed class Empty : ConsList
 {
-    public static readonly Pattern<ConsList, Empty> Pattern =
-        PatternMatching.Pattern.Type<ConsList, Empty>();
-
     internal Empty() { }
 }
 ```
-
-The `Type` pattern is matched successfully, if the input value is of the
-specifified type.
 
 Now let's look what pattern matching on the list whould look like. Let's create
 a function which finds the sum of all items of the list.
@@ -263,9 +254,9 @@ a function which finds the sum of all items of the list.
 Func<ConsList, int> sum = null;
 
 sum = Match.Create<ConsList, int>()
-    .Case(ConsCell.Pattern, cell => cell.Head + sum(cell.Tail))
-    .Case(Empty.Pattern, _ => 0)
-    .ToFunction();
+	.Case<ConsCell>(cell => cell.Head + sum(cell.Tail))
+	.Case<Empty>(_ => 0)
+	.ToFunction();
 ```
 
 Here is the equivalent function implemented using the `switch` statement:
@@ -287,11 +278,13 @@ public int Sum(ConsList list)
 ```
 
 Note: The declaration of sum must be split from its initialization, because
-C# doesn't premit initializing recursive lambda expressions in declaration.
+C# doesn't permit initializing recursive lambda expressions in declaration.
 
-Defining the `Pattern` field in the `ConsCell` and `Empty` wasn't necessary,
-but `Case(Empty.Pattern, _ => 0)` is more readable than
-`Case(Type<ConsList, Empty>(), _ => 0)`.
+The `Case<TType>(Func<TType, TOutput> func)` is simply shorthand for
+`Case(Pattern.Type<TInput, TType> pattern, Func<TType, TOutput> func)`.
+
+The `Type` pattern is matched successfully, if the input value is of the
+specifified type.
 
 As we can see, we have to throw an exception in the `switch` version, because
 C# can't know that `ConsCell` and `Empty` are the only possible subclasses

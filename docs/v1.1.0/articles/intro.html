@@ -256,9 +256,6 @@ for simplicity.</p>
 
 public sealed class ConsCell : ConsList
 {
-    public static readonly Pattern&lt;ConsList, ConsCell&gt; Pattern =
-        PatternMatching.Pattern.Type&lt;ConsList, ConsCell&gt;();
-
     public int Head { get; }
     public ConsList Tail { get; }
     
@@ -271,22 +268,17 @@ public sealed class ConsCell : ConsList
 
 public sealed class Empty : ConsList
 {
-    public static readonly Pattern&lt;ConsList, Empty&gt; Pattern =
-        PatternMatching.Pattern.Type&lt;ConsList, Empty&gt;();
-
     internal Empty() { }
 }
 </code></pre>
-<p>The <code>Type</code> pattern is matched successfully, if the input value is of the
-specifified type.</p>
 <p>Now let's look what pattern matching on the list whould look like. Let's create
 a function which finds the sum of all items of the list.</p>
 <pre><code>Func&lt;ConsList, int&gt; sum = null;
 
 sum = Match.Create&lt;ConsList, int&gt;()
-    .Case(ConsCell.Pattern, cell =&gt; cell.Head + sum(cell.Tail))
-    .Case(Empty.Pattern, _ =&gt; 0)
-    .ToFunction();
+	.Case&lt;ConsCell&gt;(cell =&gt; cell.Head + sum(cell.Tail))
+	.Case&lt;Empty&gt;(_ =&gt; 0)
+	.ToFunction();
 </code></pre>
 <p>Here is the equivalent function implemented using the <code>switch</code> statement:</p>
 <pre><code>public int Sum(ConsList list)
@@ -304,10 +296,11 @@ sum = Match.Create&lt;ConsList, int&gt;()
 }
 </code></pre>
 <p>Note: The declaration of sum must be split from its initialization, because
-C# doesn't premit initializing recursive lambda expressions in declaration.</p>
-<p>Defining the <code>Pattern</code> field in the <code>ConsCell</code> and <code>Empty</code> wasn't necessary,
-but <code>Case(Empty.Pattern, _ =&gt; 0)</code> is more readable than
-<code>Case(Type&lt;ConsList, Empty&gt;(), _ =&gt; 0)</code>.</p>
+C# doesn't permit initializing recursive lambda expressions in declaration.</p>
+<p>The <code>Case&lt;TType&gt;(Func&lt;TType, TOutput&gt; func)</code> is simply shorthand for
+<code>Case(Pattern.Type&lt;TInput, TType&gt; pattern, Func&lt;TType, TOutput&gt; func)</code>.</p>
+<p>The <code>Type</code> pattern is matched successfully, if the input value is of the
+specifified type.</p>
 <p>As we can see, we have to throw an exception in the <code>switch</code> version, because
 C# can't know that <code>ConsCell</code> and <code>Empty</code> are the only possible subclasses
 of <code>ConsList</code>. And for that reason if we forget to define one of the cases

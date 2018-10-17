@@ -15,20 +15,8 @@ namespace PatternMatching
 		/// The list of patterns that will be matched in this expression.
 		/// </summary>
 		/// <remarks>
-		/// This list has dynamic items in it because the matcher knows nothing about transformations
-		/// of the patterns. If it did, then the information about each type of the pattern transformation
-		/// would be required, and that would render the matcher either unusable, because of the many types
-		/// which will have to be specified, or impossible, because there would always be a finite amount
-		/// of matcher types (each with information about one more match result type than the previous).
-		/// 
 		/// This list contains value tuples which contain the pattern and the function which is to be executed
 		/// if the pattern is matched successfully.
-		///
-		/// The type safety is not compromised this way, because the match result type is needed only between
-		/// the execution of the pattern match and the execution of the function, and is not visible to the
-		/// outside world.
-		///
-		/// This incurs a performance overhead, but it must be compromised in order for this to work.
 		/// </remarks>
 		private readonly Lst<dynamic> patterns;
 
@@ -67,6 +55,23 @@ namespace PatternMatching
 					? new Matcher<TInput, TOutput>(this.patterns.Add((pattern, func)))
 					: throw new ArgumentNullException(nameof(func))
 				: throw new ArgumentNullException(nameof(pattern));
+
+		/// <summary>
+		/// Returns a new matcher which includes the pattern for the specified type and function to execute if this
+		/// pattern is matched successfully.
+		/// </summary>
+		/// <typeparam name="TType">The type of the result of the pattern's match.</typeparam>
+		/// <param name="func">The function to execute if the match is successful.</param>
+		/// <returns>
+		/// A new matcher which includes the type pattern and function to execute if this
+		/// pattern is matched successfully.
+		/// </returns>
+		/// <exception cref="ArgumentNullException">
+		/// <paramref name="func" /> is <see langword="null" />.
+		/// </exception>
+		public Matcher<TInput, TOutput> Case<TType>(Func<TType, TOutput> func)
+			where TType : TInput
+			=> this.Case(Pattern.Type<TInput, TType>(), func);
 
 		/// <summary>
 		/// Executes the match expression on the specified input and returns the result.
@@ -115,20 +120,8 @@ namespace PatternMatching
 		/// The list of patterns that will be matched in this expression.
 		/// </summary>
 		/// <remarks>
-		/// This list has dynamic items in it because the matcher knows nothing about transformations
-		/// of the patterns. If it did, then the information about each type of the pattern transformation
-		/// would be required, and that would render the matcher either unusable, because of the many types
-		/// which will have to be specified, or impossible, because there would always be a finite amount
-		/// of matcher types (each with information about one more match result type than the previous).
-		/// 
-		/// This list contains value tuples which contain the pattern and the function which is to be executed
+		/// This list contains value tuples which contain the pattern and the action which is to be executed
 		/// if the pattern is matched successfully.
-		///
-		/// The type safety is not compromised this way, because the match result type is needed only between
-		/// the execution of the pattern match and the execution of the function, and is not visible to the
-		/// outside world.
-		///
-		/// This incurs a performance overhead, but it must be compromised in order for this to work.
 		/// </remarks>
 		private readonly Lst<dynamic> patterns;
 
@@ -146,25 +139,42 @@ namespace PatternMatching
 			=> this.patterns = patterns;
 
 		/// <summary>
-		/// Returns a new matcher which includes the specified pattern and function to execute if this
+		/// Returns a new matcher which includes the specified pattern and action to execute if this
 		/// pattern is matched successfully.
 		/// </summary>
 		/// <typeparam name="TMatchResult">The type of the result of the pattern's match.</typeparam>
 		/// <param name="pattern">The pattern to match with.</param>
-		/// <param name="func">The function to execute if the match is successful.</param>
+		/// <param name="action">The action to execute if the match is successful.</param>
 		/// <returns>
-		/// A new matcher which includes the specified pattern and function to execute if this
+		/// A new matcher which includes the specified pattern and action to execute if this
 		/// pattern is matched successfully.
 		/// </returns>
 		/// <exception cref="ArgumentNullException">
-		/// <paramref name="pattern" /> or <paramref name="func" /> is <see langword="null" />.
+		/// <paramref name="pattern" /> or <paramref name="action" /> is <see langword="null" />.
 		/// </exception>
-		public Matcher<TInput> Case<TMatchResult>(IPattern<TInput, TMatchResult> pattern, Action<TMatchResult> func)
+		public Matcher<TInput> Case<TMatchResult>(IPattern<TInput, TMatchResult> pattern, Action<TMatchResult> action)
 			=> pattern != null
-				? func != null
-					? new Matcher<TInput>(this.patterns.Add((pattern, func)))
-					: throw new ArgumentNullException(nameof(func))
+				? action != null
+					? new Matcher<TInput>(this.patterns.Add((pattern, action)))
+					: throw new ArgumentNullException(nameof(action))
 				: throw new ArgumentNullException(nameof(pattern));
+
+		/// <summary>
+		/// Returns a new matcher which includes the pattern for the specified type and action to execute if this
+		/// pattern is matched successfully.
+		/// </summary>
+		/// <typeparam name="TType">The type of the result of the pattern's match.</typeparam>
+		/// <param name="action">The action to execute if the match is successful.</param>
+		/// <returns>
+		/// A new matcher which includes the type pattern and action to execute if this
+		/// pattern is matched successfully.
+		/// </returns>
+		/// <exception cref="ArgumentNullException">
+		/// <paramref name="action" /> is <see langword="null" />.
+		/// </exception>
+		public Matcher<TInput> Case<TType>(Action<TType> action)
+			where TType : TInput
+			=> this.Case(Pattern.Type<TInput, TType>(), action);
 
 		/// <summary>
 		/// Executes the match expression on the specified input.

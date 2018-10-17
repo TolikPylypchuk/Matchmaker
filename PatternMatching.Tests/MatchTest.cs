@@ -58,8 +58,8 @@ namespace PatternMatching.Tests
 			Func<ConsList, int> sum = null;
 
 			sum = Match.Create<ConsList, int>()
-				.Case(ConsCell.Pattern, cell => cell.Head + sum(cell.Tail))
-				.Case(Empty.Pattern, _ => 0)
+				.Case<ConsCell>(cell => cell.Head + sum(cell.Tail))
+				.Case<Empty>(_ => 0)
 				.ToFunction();
 
 			Assert.AreEqual(3, sum(ConsList.Cell(1, ConsList.Cell(2, ConsList.Empty))));
