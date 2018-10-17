@@ -93,6 +93,15 @@ namespace PatternMatching
 			=> new SimplePattern<TInput>(_ => true);
 
 		/// <summary>
+		/// Returns a pattern which is matched successfully when the input value is null.
+		/// </summary>
+		/// <typeparam name="TInput">The type of the input value of the expression.</typeparam>
+		/// <returns>A pattern which is matched successfully when the input value is null.</returns>
+		public static SimplePattern<TInput> Null<TInput>()
+			where TInput : class
+			=> new SimplePattern<TInput>(input => input == null);
+
+		/// <summary>
 		/// Returns a pattern which is matched successfully when the input value
 		/// is equal to the specified value.
 		/// </summary>
