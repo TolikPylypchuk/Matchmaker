@@ -265,7 +265,6 @@ C# doesn't permit initializing recursive lambda expressions in declaration.
 
 The `Case<TType>(Func<TType, TOutput> func)` is simply shorthand for
 `Case(Pattern.Type<TInput, TType> pattern, Func<TType, TOutput> func)`.
-
 The `Type` pattern is matched successfully, if the input value is of the
 specifified type.
 
@@ -274,7 +273,8 @@ C# can't know that `ConsCell` and `Empty` are the only possible subclasses
 of `ConsList`. And for that reason if we forget to define one of the cases
 in `switch` or in a match, we'll get an exception. In F# a warning is issued,
 when the match is incomplete, but then again, C# doesn't have the notion of
-complete or incomplete matches.
+complete or incomplete matches. Of course, this match will fail if the
+provided list is `null`, but this can be handled using the `Null` pattern.
 
 ## Performance
 

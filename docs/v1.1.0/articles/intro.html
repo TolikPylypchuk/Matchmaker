@@ -297,15 +297,16 @@ sum = Match.Create&lt;ConsList, int&gt;()
 <p>Note: The declaration of sum must be split from its initialization, because
 C# doesn't permit initializing recursive lambda expressions in declaration.</p>
 <p>The <code>Case&lt;TType&gt;(Func&lt;TType, TOutput&gt; func)</code> is simply shorthand for
-<code>Case(Pattern.Type&lt;TInput, TType&gt; pattern, Func&lt;TType, TOutput&gt; func)</code>.</p>
-<p>The <code>Type</code> pattern is matched successfully, if the input value is of the
+<code>Case(Pattern.Type&lt;TInput, TType&gt; pattern, Func&lt;TType, TOutput&gt; func)</code>.
+The <code>Type</code> pattern is matched successfully, if the input value is of the
 specifified type.</p>
 <p>As we can see, we have to throw an exception in the <code>switch</code> version, because
 C# can't know that <code>ConsCell</code> and <code>Empty</code> are the only possible subclasses
 of <code>ConsList</code>. And for that reason if we forget to define one of the cases
 in <code>switch</code> or in a match, we'll get an exception. In F# a warning is issued,
 when the match is incomplete, but then again, C# doesn't have the notion of
-complete or incomplete matches.</p>
+complete or incomplete matches. Of course, this match will fail if the
+provided list is <code>null</code>, but this can be handled using the <code>Null</code> pattern.</p>
 <h2 id="performance">Performance</h2>
 <p>I didn't perform any benchmarks, but I can guess that pattern matching here is
 much, <em>much</em> slower than the traditional <code>switch</code> statements. This is because
