@@ -142,180 +142,180 @@ references:
   fullName.vb: PatternMatching.Match.Create(Of TInput, TOutput)()
   nameWithType: Match.Create<TInput, TOutput>()
   nameWithType.vb: Match.Create(Of TInput, TOutput)()
-- uid: PatternMatching.Matcher`1
-  name: Matcher<TInput>
-  href: api/PatternMatching.Matcher-1.html
-  commentId: T:PatternMatching.Matcher`1
-  name.vb: Matcher(Of TInput)
-  fullName: PatternMatching.Matcher<TInput>
-  fullName.vb: PatternMatching.Matcher(Of TInput)
-  nameWithType: Matcher<TInput>
-  nameWithType.vb: Matcher(Of TInput)
-- uid: PatternMatching.Matcher`1.Case*
+- uid: PatternMatching.Match`1
+  name: Match<TInput>
+  href: api/PatternMatching.Match-1.html
+  commentId: T:PatternMatching.Match`1
+  name.vb: Match(Of TInput)
+  fullName: PatternMatching.Match<TInput>
+  fullName.vb: PatternMatching.Match(Of TInput)
+  nameWithType: Match<TInput>
+  nameWithType.vb: Match(Of TInput)
+- uid: PatternMatching.Match`1.Case*
   name: Case
-  href: api/PatternMatching.Matcher-1.html#PatternMatching_Matcher_1_Case_
-  commentId: Overload:PatternMatching.Matcher`1.Case
+  href: api/PatternMatching.Match-1.html#PatternMatching_Match_1_Case_
+  commentId: Overload:PatternMatching.Match`1.Case
   isSpec: "True"
-  fullName: PatternMatching.Matcher<TInput>.Case
-  fullName.vb: PatternMatching.Matcher(Of TInput).Case
-  nameWithType: Matcher<TInput>.Case
-  nameWithType.vb: Matcher(Of TInput).Case
-- uid: PatternMatching.Matcher`1.Case``1(PatternMatching.IPattern{`0,``0},System.Action{``0})
+  fullName: PatternMatching.Match<TInput>.Case
+  fullName.vb: PatternMatching.Match(Of TInput).Case
+  nameWithType: Match<TInput>.Case
+  nameWithType.vb: Match(Of TInput).Case
+- uid: PatternMatching.Match`1.Case``1(PatternMatching.IPattern{`0,``0},System.Action{``0})
   name: Case<TMatchResult>(IPattern<TInput, TMatchResult>, Action<TMatchResult>)
-  href: api/PatternMatching.Matcher-1.html#PatternMatching_Matcher_1_Case__1_PatternMatching_IPattern__0___0__System_Action___0__
-  commentId: M:PatternMatching.Matcher`1.Case``1(PatternMatching.IPattern{`0,``0},System.Action{``0})
+  href: api/PatternMatching.Match-1.html#PatternMatching_Match_1_Case__1_PatternMatching_IPattern__0___0__System_Action___0__
+  commentId: M:PatternMatching.Match`1.Case``1(PatternMatching.IPattern{`0,``0},System.Action{``0})
   name.vb: Case(Of TMatchResult)(IPattern(Of TInput, TMatchResult), Action(Of TMatchResult))
-  fullName: PatternMatching.Matcher<TInput>.Case<TMatchResult>(PatternMatching.IPattern<TInput, TMatchResult>, System.Action<TMatchResult>)
-  fullName.vb: PatternMatching.Matcher(Of TInput).Case(Of TMatchResult)(PatternMatching.IPattern(Of TInput, TMatchResult), System.Action(Of TMatchResult))
-  nameWithType: Matcher<TInput>.Case<TMatchResult>(IPattern<TInput, TMatchResult>, Action<TMatchResult>)
-  nameWithType.vb: Matcher(Of TInput).Case(Of TMatchResult)(IPattern(Of TInput, TMatchResult), Action(Of TMatchResult))
-- uid: PatternMatching.Matcher`1.Case``1(System.Action{``0})
+  fullName: PatternMatching.Match<TInput>.Case<TMatchResult>(PatternMatching.IPattern<TInput, TMatchResult>, System.Action<TMatchResult>)
+  fullName.vb: PatternMatching.Match(Of TInput).Case(Of TMatchResult)(PatternMatching.IPattern(Of TInput, TMatchResult), System.Action(Of TMatchResult))
+  nameWithType: Match<TInput>.Case<TMatchResult>(IPattern<TInput, TMatchResult>, Action<TMatchResult>)
+  nameWithType.vb: Match(Of TInput).Case(Of TMatchResult)(IPattern(Of TInput, TMatchResult), Action(Of TMatchResult))
+- uid: PatternMatching.Match`1.Case``1(System.Action{``0})
   name: Case<TType>(Action<TType>)
-  href: api/PatternMatching.Matcher-1.html#PatternMatching_Matcher_1_Case__1_System_Action___0__
-  commentId: M:PatternMatching.Matcher`1.Case``1(System.Action{``0})
+  href: api/PatternMatching.Match-1.html#PatternMatching_Match_1_Case__1_System_Action___0__
+  commentId: M:PatternMatching.Match`1.Case``1(System.Action{``0})
   name.vb: Case(Of TType)(Action(Of TType))
-  fullName: PatternMatching.Matcher<TInput>.Case<TType>(System.Action<TType>)
-  fullName.vb: PatternMatching.Matcher(Of TInput).Case(Of TType)(System.Action(Of TType))
-  nameWithType: Matcher<TInput>.Case<TType>(Action<TType>)
-  nameWithType.vb: Matcher(Of TInput).Case(Of TType)(Action(Of TType))
-- uid: PatternMatching.Matcher`1.ExecuteOn(`0)
+  fullName: PatternMatching.Match<TInput>.Case<TType>(System.Action<TType>)
+  fullName.vb: PatternMatching.Match(Of TInput).Case(Of TType)(System.Action(Of TType))
+  nameWithType: Match<TInput>.Case<TType>(Action<TType>)
+  nameWithType.vb: Match(Of TInput).Case(Of TType)(Action(Of TType))
+- uid: PatternMatching.Match`1.ExecuteOn(`0)
   name: ExecuteOn(TInput)
-  href: api/PatternMatching.Matcher-1.html#PatternMatching_Matcher_1_ExecuteOn__0_
-  commentId: M:PatternMatching.Matcher`1.ExecuteOn(`0)
-  fullName: PatternMatching.Matcher<TInput>.ExecuteOn(TInput)
-  fullName.vb: PatternMatching.Matcher(Of TInput).ExecuteOn(TInput)
-  nameWithType: Matcher<TInput>.ExecuteOn(TInput)
-  nameWithType.vb: Matcher(Of TInput).ExecuteOn(TInput)
-- uid: PatternMatching.Matcher`1.ExecuteOn*
+  href: api/PatternMatching.Match-1.html#PatternMatching_Match_1_ExecuteOn__0_
+  commentId: M:PatternMatching.Match`1.ExecuteOn(`0)
+  fullName: PatternMatching.Match<TInput>.ExecuteOn(TInput)
+  fullName.vb: PatternMatching.Match(Of TInput).ExecuteOn(TInput)
+  nameWithType: Match<TInput>.ExecuteOn(TInput)
+  nameWithType.vb: Match(Of TInput).ExecuteOn(TInput)
+- uid: PatternMatching.Match`1.ExecuteOn*
   name: ExecuteOn
-  href: api/PatternMatching.Matcher-1.html#PatternMatching_Matcher_1_ExecuteOn_
-  commentId: Overload:PatternMatching.Matcher`1.ExecuteOn
+  href: api/PatternMatching.Match-1.html#PatternMatching_Match_1_ExecuteOn_
+  commentId: Overload:PatternMatching.Match`1.ExecuteOn
   isSpec: "True"
-  fullName: PatternMatching.Matcher<TInput>.ExecuteOn
-  fullName.vb: PatternMatching.Matcher(Of TInput).ExecuteOn
-  nameWithType: Matcher<TInput>.ExecuteOn
-  nameWithType.vb: Matcher(Of TInput).ExecuteOn
-- uid: PatternMatching.Matcher`1.ExecuteOnStrict(`0)
+  fullName: PatternMatching.Match<TInput>.ExecuteOn
+  fullName.vb: PatternMatching.Match(Of TInput).ExecuteOn
+  nameWithType: Match<TInput>.ExecuteOn
+  nameWithType.vb: Match(Of TInput).ExecuteOn
+- uid: PatternMatching.Match`1.ExecuteOnStrict(`0)
   name: ExecuteOnStrict(TInput)
-  href: api/PatternMatching.Matcher-1.html#PatternMatching_Matcher_1_ExecuteOnStrict__0_
-  commentId: M:PatternMatching.Matcher`1.ExecuteOnStrict(`0)
-  fullName: PatternMatching.Matcher<TInput>.ExecuteOnStrict(TInput)
-  fullName.vb: PatternMatching.Matcher(Of TInput).ExecuteOnStrict(TInput)
-  nameWithType: Matcher<TInput>.ExecuteOnStrict(TInput)
-  nameWithType.vb: Matcher(Of TInput).ExecuteOnStrict(TInput)
-- uid: PatternMatching.Matcher`1.ExecuteOnStrict*
+  href: api/PatternMatching.Match-1.html#PatternMatching_Match_1_ExecuteOnStrict__0_
+  commentId: M:PatternMatching.Match`1.ExecuteOnStrict(`0)
+  fullName: PatternMatching.Match<TInput>.ExecuteOnStrict(TInput)
+  fullName.vb: PatternMatching.Match(Of TInput).ExecuteOnStrict(TInput)
+  nameWithType: Match<TInput>.ExecuteOnStrict(TInput)
+  nameWithType.vb: Match(Of TInput).ExecuteOnStrict(TInput)
+- uid: PatternMatching.Match`1.ExecuteOnStrict*
   name: ExecuteOnStrict
-  href: api/PatternMatching.Matcher-1.html#PatternMatching_Matcher_1_ExecuteOnStrict_
-  commentId: Overload:PatternMatching.Matcher`1.ExecuteOnStrict
+  href: api/PatternMatching.Match-1.html#PatternMatching_Match_1_ExecuteOnStrict_
+  commentId: Overload:PatternMatching.Match`1.ExecuteOnStrict
   isSpec: "True"
-  fullName: PatternMatching.Matcher<TInput>.ExecuteOnStrict
-  fullName.vb: PatternMatching.Matcher(Of TInput).ExecuteOnStrict
-  nameWithType: Matcher<TInput>.ExecuteOnStrict
-  nameWithType.vb: Matcher(Of TInput).ExecuteOnStrict
-- uid: PatternMatching.Matcher`1.ToFunction
+  fullName: PatternMatching.Match<TInput>.ExecuteOnStrict
+  fullName.vb: PatternMatching.Match(Of TInput).ExecuteOnStrict
+  nameWithType: Match<TInput>.ExecuteOnStrict
+  nameWithType.vb: Match(Of TInput).ExecuteOnStrict
+- uid: PatternMatching.Match`1.ToFunction
   name: ToFunction()
-  href: api/PatternMatching.Matcher-1.html#PatternMatching_Matcher_1_ToFunction
-  commentId: M:PatternMatching.Matcher`1.ToFunction
-  fullName: PatternMatching.Matcher<TInput>.ToFunction()
-  fullName.vb: PatternMatching.Matcher(Of TInput).ToFunction()
-  nameWithType: Matcher<TInput>.ToFunction()
-  nameWithType.vb: Matcher(Of TInput).ToFunction()
-- uid: PatternMatching.Matcher`1.ToFunction*
+  href: api/PatternMatching.Match-1.html#PatternMatching_Match_1_ToFunction
+  commentId: M:PatternMatching.Match`1.ToFunction
+  fullName: PatternMatching.Match<TInput>.ToFunction()
+  fullName.vb: PatternMatching.Match(Of TInput).ToFunction()
+  nameWithType: Match<TInput>.ToFunction()
+  nameWithType.vb: Match(Of TInput).ToFunction()
+- uid: PatternMatching.Match`1.ToFunction*
   name: ToFunction
-  href: api/PatternMatching.Matcher-1.html#PatternMatching_Matcher_1_ToFunction_
-  commentId: Overload:PatternMatching.Matcher`1.ToFunction
+  href: api/PatternMatching.Match-1.html#PatternMatching_Match_1_ToFunction_
+  commentId: Overload:PatternMatching.Match`1.ToFunction
   isSpec: "True"
-  fullName: PatternMatching.Matcher<TInput>.ToFunction
-  fullName.vb: PatternMatching.Matcher(Of TInput).ToFunction
-  nameWithType: Matcher<TInput>.ToFunction
-  nameWithType.vb: Matcher(Of TInput).ToFunction
-- uid: PatternMatching.Matcher`1.ToStrictFunction
+  fullName: PatternMatching.Match<TInput>.ToFunction
+  fullName.vb: PatternMatching.Match(Of TInput).ToFunction
+  nameWithType: Match<TInput>.ToFunction
+  nameWithType.vb: Match(Of TInput).ToFunction
+- uid: PatternMatching.Match`1.ToStrictFunction
   name: ToStrictFunction()
-  href: api/PatternMatching.Matcher-1.html#PatternMatching_Matcher_1_ToStrictFunction
-  commentId: M:PatternMatching.Matcher`1.ToStrictFunction
-  fullName: PatternMatching.Matcher<TInput>.ToStrictFunction()
-  fullName.vb: PatternMatching.Matcher(Of TInput).ToStrictFunction()
-  nameWithType: Matcher<TInput>.ToStrictFunction()
-  nameWithType.vb: Matcher(Of TInput).ToStrictFunction()
-- uid: PatternMatching.Matcher`1.ToStrictFunction*
+  href: api/PatternMatching.Match-1.html#PatternMatching_Match_1_ToStrictFunction
+  commentId: M:PatternMatching.Match`1.ToStrictFunction
+  fullName: PatternMatching.Match<TInput>.ToStrictFunction()
+  fullName.vb: PatternMatching.Match(Of TInput).ToStrictFunction()
+  nameWithType: Match<TInput>.ToStrictFunction()
+  nameWithType.vb: Match(Of TInput).ToStrictFunction()
+- uid: PatternMatching.Match`1.ToStrictFunction*
   name: ToStrictFunction
-  href: api/PatternMatching.Matcher-1.html#PatternMatching_Matcher_1_ToStrictFunction_
-  commentId: Overload:PatternMatching.Matcher`1.ToStrictFunction
+  href: api/PatternMatching.Match-1.html#PatternMatching_Match_1_ToStrictFunction_
+  commentId: Overload:PatternMatching.Match`1.ToStrictFunction
   isSpec: "True"
-  fullName: PatternMatching.Matcher<TInput>.ToStrictFunction
-  fullName.vb: PatternMatching.Matcher(Of TInput).ToStrictFunction
-  nameWithType: Matcher<TInput>.ToStrictFunction
-  nameWithType.vb: Matcher(Of TInput).ToStrictFunction
-- uid: PatternMatching.Matcher`2
-  name: Matcher<TInput, TOutput>
-  href: api/PatternMatching.Matcher-2.html
-  commentId: T:PatternMatching.Matcher`2
-  name.vb: Matcher(Of TInput, TOutput)
-  fullName: PatternMatching.Matcher<TInput, TOutput>
-  fullName.vb: PatternMatching.Matcher(Of TInput, TOutput)
-  nameWithType: Matcher<TInput, TOutput>
-  nameWithType.vb: Matcher(Of TInput, TOutput)
-- uid: PatternMatching.Matcher`2.Case*
+  fullName: PatternMatching.Match<TInput>.ToStrictFunction
+  fullName.vb: PatternMatching.Match(Of TInput).ToStrictFunction
+  nameWithType: Match<TInput>.ToStrictFunction
+  nameWithType.vb: Match(Of TInput).ToStrictFunction
+- uid: PatternMatching.Match`2
+  name: Match<TInput, TOutput>
+  href: api/PatternMatching.Match-2.html
+  commentId: T:PatternMatching.Match`2
+  name.vb: Match(Of TInput, TOutput)
+  fullName: PatternMatching.Match<TInput, TOutput>
+  fullName.vb: PatternMatching.Match(Of TInput, TOutput)
+  nameWithType: Match<TInput, TOutput>
+  nameWithType.vb: Match(Of TInput, TOutput)
+- uid: PatternMatching.Match`2.Case*
   name: Case
-  href: api/PatternMatching.Matcher-2.html#PatternMatching_Matcher_2_Case_
-  commentId: Overload:PatternMatching.Matcher`2.Case
+  href: api/PatternMatching.Match-2.html#PatternMatching_Match_2_Case_
+  commentId: Overload:PatternMatching.Match`2.Case
   isSpec: "True"
-  fullName: PatternMatching.Matcher<TInput, TOutput>.Case
-  fullName.vb: PatternMatching.Matcher(Of TInput, TOutput).Case
-  nameWithType: Matcher<TInput, TOutput>.Case
-  nameWithType.vb: Matcher(Of TInput, TOutput).Case
-- uid: PatternMatching.Matcher`2.Case``1(PatternMatching.IPattern{`0,``0},System.Func{``0,`1})
+  fullName: PatternMatching.Match<TInput, TOutput>.Case
+  fullName.vb: PatternMatching.Match(Of TInput, TOutput).Case
+  nameWithType: Match<TInput, TOutput>.Case
+  nameWithType.vb: Match(Of TInput, TOutput).Case
+- uid: PatternMatching.Match`2.Case``1(PatternMatching.IPattern{`0,``0},System.Func{``0,`1})
   name: Case<TMatchResult>(IPattern<TInput, TMatchResult>, Func<TMatchResult, TOutput>)
-  href: api/PatternMatching.Matcher-2.html#PatternMatching_Matcher_2_Case__1_PatternMatching_IPattern__0___0__System_Func___0__1__
-  commentId: M:PatternMatching.Matcher`2.Case``1(PatternMatching.IPattern{`0,``0},System.Func{``0,`1})
+  href: api/PatternMatching.Match-2.html#PatternMatching_Match_2_Case__1_PatternMatching_IPattern__0___0__System_Func___0__1__
+  commentId: M:PatternMatching.Match`2.Case``1(PatternMatching.IPattern{`0,``0},System.Func{``0,`1})
   name.vb: Case(Of TMatchResult)(IPattern(Of TInput, TMatchResult), Func(Of TMatchResult, TOutput))
-  fullName: PatternMatching.Matcher<TInput, TOutput>.Case<TMatchResult>(PatternMatching.IPattern<TInput, TMatchResult>, System.Func<TMatchResult, TOutput>)
-  fullName.vb: PatternMatching.Matcher(Of TInput, TOutput).Case(Of TMatchResult)(PatternMatching.IPattern(Of TInput, TMatchResult), System.Func(Of TMatchResult, TOutput))
-  nameWithType: Matcher<TInput, TOutput>.Case<TMatchResult>(IPattern<TInput, TMatchResult>, Func<TMatchResult, TOutput>)
-  nameWithType.vb: Matcher(Of TInput, TOutput).Case(Of TMatchResult)(IPattern(Of TInput, TMatchResult), Func(Of TMatchResult, TOutput))
-- uid: PatternMatching.Matcher`2.Case``1(System.Func{``0,`1})
+  fullName: PatternMatching.Match<TInput, TOutput>.Case<TMatchResult>(PatternMatching.IPattern<TInput, TMatchResult>, System.Func<TMatchResult, TOutput>)
+  fullName.vb: PatternMatching.Match(Of TInput, TOutput).Case(Of TMatchResult)(PatternMatching.IPattern(Of TInput, TMatchResult), System.Func(Of TMatchResult, TOutput))
+  nameWithType: Match<TInput, TOutput>.Case<TMatchResult>(IPattern<TInput, TMatchResult>, Func<TMatchResult, TOutput>)
+  nameWithType.vb: Match(Of TInput, TOutput).Case(Of TMatchResult)(IPattern(Of TInput, TMatchResult), Func(Of TMatchResult, TOutput))
+- uid: PatternMatching.Match`2.Case``1(System.Func{``0,`1})
   name: Case<TType>(Func<TType, TOutput>)
-  href: api/PatternMatching.Matcher-2.html#PatternMatching_Matcher_2_Case__1_System_Func___0__1__
-  commentId: M:PatternMatching.Matcher`2.Case``1(System.Func{``0,`1})
+  href: api/PatternMatching.Match-2.html#PatternMatching_Match_2_Case__1_System_Func___0__1__
+  commentId: M:PatternMatching.Match`2.Case``1(System.Func{``0,`1})
   name.vb: Case(Of TType)(Func(Of TType, TOutput))
-  fullName: PatternMatching.Matcher<TInput, TOutput>.Case<TType>(System.Func<TType, TOutput>)
-  fullName.vb: PatternMatching.Matcher(Of TInput, TOutput).Case(Of TType)(System.Func(Of TType, TOutput))
-  nameWithType: Matcher<TInput, TOutput>.Case<TType>(Func<TType, TOutput>)
-  nameWithType.vb: Matcher(Of TInput, TOutput).Case(Of TType)(Func(Of TType, TOutput))
-- uid: PatternMatching.Matcher`2.ExecuteOn(`0)
+  fullName: PatternMatching.Match<TInput, TOutput>.Case<TType>(System.Func<TType, TOutput>)
+  fullName.vb: PatternMatching.Match(Of TInput, TOutput).Case(Of TType)(System.Func(Of TType, TOutput))
+  nameWithType: Match<TInput, TOutput>.Case<TType>(Func<TType, TOutput>)
+  nameWithType.vb: Match(Of TInput, TOutput).Case(Of TType)(Func(Of TType, TOutput))
+- uid: PatternMatching.Match`2.ExecuteOn(`0)
   name: ExecuteOn(TInput)
-  href: api/PatternMatching.Matcher-2.html#PatternMatching_Matcher_2_ExecuteOn__0_
-  commentId: M:PatternMatching.Matcher`2.ExecuteOn(`0)
-  fullName: PatternMatching.Matcher<TInput, TOutput>.ExecuteOn(TInput)
-  fullName.vb: PatternMatching.Matcher(Of TInput, TOutput).ExecuteOn(TInput)
-  nameWithType: Matcher<TInput, TOutput>.ExecuteOn(TInput)
-  nameWithType.vb: Matcher(Of TInput, TOutput).ExecuteOn(TInput)
-- uid: PatternMatching.Matcher`2.ExecuteOn*
+  href: api/PatternMatching.Match-2.html#PatternMatching_Match_2_ExecuteOn__0_
+  commentId: M:PatternMatching.Match`2.ExecuteOn(`0)
+  fullName: PatternMatching.Match<TInput, TOutput>.ExecuteOn(TInput)
+  fullName.vb: PatternMatching.Match(Of TInput, TOutput).ExecuteOn(TInput)
+  nameWithType: Match<TInput, TOutput>.ExecuteOn(TInput)
+  nameWithType.vb: Match(Of TInput, TOutput).ExecuteOn(TInput)
+- uid: PatternMatching.Match`2.ExecuteOn*
   name: ExecuteOn
-  href: api/PatternMatching.Matcher-2.html#PatternMatching_Matcher_2_ExecuteOn_
-  commentId: Overload:PatternMatching.Matcher`2.ExecuteOn
+  href: api/PatternMatching.Match-2.html#PatternMatching_Match_2_ExecuteOn_
+  commentId: Overload:PatternMatching.Match`2.ExecuteOn
   isSpec: "True"
-  fullName: PatternMatching.Matcher<TInput, TOutput>.ExecuteOn
-  fullName.vb: PatternMatching.Matcher(Of TInput, TOutput).ExecuteOn
-  nameWithType: Matcher<TInput, TOutput>.ExecuteOn
-  nameWithType.vb: Matcher(Of TInput, TOutput).ExecuteOn
-- uid: PatternMatching.Matcher`2.ToFunction
+  fullName: PatternMatching.Match<TInput, TOutput>.ExecuteOn
+  fullName.vb: PatternMatching.Match(Of TInput, TOutput).ExecuteOn
+  nameWithType: Match<TInput, TOutput>.ExecuteOn
+  nameWithType.vb: Match(Of TInput, TOutput).ExecuteOn
+- uid: PatternMatching.Match`2.ToFunction
   name: ToFunction()
-  href: api/PatternMatching.Matcher-2.html#PatternMatching_Matcher_2_ToFunction
-  commentId: M:PatternMatching.Matcher`2.ToFunction
-  fullName: PatternMatching.Matcher<TInput, TOutput>.ToFunction()
-  fullName.vb: PatternMatching.Matcher(Of TInput, TOutput).ToFunction()
-  nameWithType: Matcher<TInput, TOutput>.ToFunction()
-  nameWithType.vb: Matcher(Of TInput, TOutput).ToFunction()
-- uid: PatternMatching.Matcher`2.ToFunction*
+  href: api/PatternMatching.Match-2.html#PatternMatching_Match_2_ToFunction
+  commentId: M:PatternMatching.Match`2.ToFunction
+  fullName: PatternMatching.Match<TInput, TOutput>.ToFunction()
+  fullName.vb: PatternMatching.Match(Of TInput, TOutput).ToFunction()
+  nameWithType: Match<TInput, TOutput>.ToFunction()
+  nameWithType.vb: Match(Of TInput, TOutput).ToFunction()
+- uid: PatternMatching.Match`2.ToFunction*
   name: ToFunction
-  href: api/PatternMatching.Matcher-2.html#PatternMatching_Matcher_2_ToFunction_
-  commentId: Overload:PatternMatching.Matcher`2.ToFunction
+  href: api/PatternMatching.Match-2.html#PatternMatching_Match_2_ToFunction_
+  commentId: Overload:PatternMatching.Match`2.ToFunction
   isSpec: "True"
-  fullName: PatternMatching.Matcher<TInput, TOutput>.ToFunction
-  fullName.vb: PatternMatching.Matcher(Of TInput, TOutput).ToFunction
-  nameWithType: Matcher<TInput, TOutput>.ToFunction
-  nameWithType.vb: Matcher(Of TInput, TOutput).ToFunction
+  fullName: PatternMatching.Match<TInput, TOutput>.ToFunction
+  fullName.vb: PatternMatching.Match(Of TInput, TOutput).ToFunction
+  nameWithType: Match<TInput, TOutput>.ToFunction
+  nameWithType.vb: Match(Of TInput, TOutput).ToFunction
 - uid: PatternMatching.MatchException
   name: MatchException
   href: api/PatternMatching.MatchException.html

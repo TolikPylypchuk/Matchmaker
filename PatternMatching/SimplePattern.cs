@@ -9,6 +9,10 @@ namespace PatternMatching
 	/// Represents a general non-transforming pattern.
 	/// </summary>
 	/// <typeparam name="TInput">The type of the input value of the expression.</typeparam>
+	/// <seealso cref="IPattern{TInput, TMatchResult}" />
+	/// <seealso cref="ConditionalPattern{TInput, TMatchResult, TPattern}" />
+	/// <seealso cref="Pattern{TInput, TMatchResult}" />
+	/// <seealso cref="Pattern" />
 	public sealed class SimplePattern<TInput> : ConditionalPattern<TInput, TInput, SimplePattern<TInput>>
 	{
 		/// <summary>

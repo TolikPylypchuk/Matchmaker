@@ -119,25 +119,25 @@ constructed from a predicate. This class extends the
 Methods, such as `And`, `Or` and others are defined (and operators,
 such as `&` and `|`).
 
-## Matchers
+## Match Expressions
 
-The second central idea is the _matcher_, which represents the match expression
-itself. It is represented by two classes: `Matcher<TInput, TOutput>` and
-`Matcher<TInput>`. The difference between them is that the former represents
-a match expression, which yields a result, and the latter represents a match
-expression, which doesn't yield a result (also known as match statement).
+The second central idea is the match expression itself. It is represented
+by two classes: `Match<TInput, TOutput>` and `Match<TInput>`. The difference
+between them is that the former represents a match expression, which yields
+a result, and the latter represents a match expression, which doesn't yield
+a result (also known as match statement).
 
 A match expression can be created using the `Create` methods of the static
 class `Match`.
 
-The `Matcher` classes include a `Case` method which is used to add a
+The `Match` classes include a `Case` method which is used to add a
 pattern and a function, which is executed if the match is successful, to
 the expression.
 
 To execute a match expression, the `ExecuteOn` method is used. It takes the
-input value to match. In the `Matcher<TInput, TOutput>` class this method
+input value to match. In the `Match<TInput, TOutput>` class this method
 returns the result of the match, or throws a `MatchException` if no successful
-match was found. In the `Matcher<TInput>` class this method returns a boolean
+match was found. In the `Match<TInput>` class this method returns a boolean
 value, which signifies whether the match was successful. This class also contains
 the `ExecuteOnStrict` method, which also throws the `MatchException` if
 the match is not successful.
@@ -296,14 +296,14 @@ complete or incomplete matches.
 
 I didn't perform any benchmarks, but I can guess that pattern matching here is
 much, _much_ slower than the traditional `switch` statements. This is because
-the matchers use dynamic values internally.
+the matches use dynamic values internally.
 
-The matchers contain a list of pairs of patterns and functions to execute.
-This list has dynamic items in it because the matcher knows nothing about
+The matches contain a list of pairs of patterns and functions to execute.
+This list has dynamic items in it because the match expression knows nothing about
 transformations of the patterns. If it did, then the information about each type
-of the pattern transformation would be required, and that would render the matcher
+of the pattern transformation would be required, and that would render the match
 either unusable, because of the many types which will have to be specified, or
-impossible, because there would always be a finite amount of matcher types
+impossible, because there would always be a finite amount of match types
 (each with information about one more match result type than the previous).
 
 The type safety is not compromised this way, because the match result type is

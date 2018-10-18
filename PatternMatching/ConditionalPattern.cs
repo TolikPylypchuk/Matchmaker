@@ -9,6 +9,9 @@ namespace PatternMatching
 	/// <typeparam name="TInput">The type of the input value of the expression.</typeparam>
 	/// <typeparam name="TMatchResult">The type of the result of this pattern's match.</typeparam>
 	/// <typeparam name="TPattern">The type of the pattern.</typeparam>
+	/// <seealso cref="IPattern{TInput, TMatchResult}" />
+	/// <seealso cref="Pattern{TInput, TMatchResult}" />
+	/// <seealso cref="SimplePattern{TInput}" />
 	public abstract class ConditionalPattern<TInput, TMatchResult, TPattern> : IPattern<TInput, TMatchResult>
 		where TPattern : ConditionalPattern<TInput, TMatchResult, TPattern>
 	{

@@ -3,6 +3,8 @@
 	/// <summary>
 	/// A static class which is used to create match expressions.
 	/// </summary>
+	/// <seealso cref="Match{TInput, TOutput}" />
+	/// <seealso cref="Match{TInput}" />
 	public static class Match
 	{
 		/// <summary>
@@ -13,8 +15,8 @@
 		/// <returns>
 		/// A matcher which specifies the patterns to match with and functions which are executed.
 		/// </returns>
-		public static Matcher<TInput, TOutput> Create<TInput, TOutput>()
-			=> new Matcher<TInput, TOutput>();
+		public static Match<TInput, TOutput> Create<TInput, TOutput>()
+			=> new Match<TInput, TOutput>();
 
 		/// <summary>
 		/// Creates a match statement.
@@ -23,7 +25,7 @@
 		/// <returns>
 		/// A matcher which specifies the patterns to match with and actions which are executed.
 		/// </returns>
-		public static Matcher<TInput> Create<TInput>()
-			=> new Matcher<TInput>();
+		public static Match<TInput> Create<TInput>()
+			=> new Match<TInput>();
 	}
 }

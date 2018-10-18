@@ -6,6 +6,8 @@ namespace PatternMatching
 	/// <summary>
 	/// Represents an exception which is thrown when a match expression hasn't found a successful pattern.
 	/// </summary>
+	/// <seealso cref="Match{TInput, TOutput}" />
+	/// <seealso cref="Match{TInput}" />
 	public class MatchException : Exception
 	{
 		/// <summary>

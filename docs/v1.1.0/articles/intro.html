@@ -163,21 +163,21 @@ constructed from a predicate. This class extends the
 <p><code>SimplePattern</code> can be easily combined with any other <code>SimplePattern</code>.
 Methods, such as <code>And</code>, <code>Or</code> and others are defined (and operators,
 such as <code>&amp;</code> and <code>|</code>).</p>
-<h2 id="matchers">Matchers</h2>
-<p>The second central idea is the <em>matcher</em>, which represents the match expression
-itself. It is represented by two classes: <code>Matcher&lt;TInput, TOutput&gt;</code> and
-<code>Matcher&lt;TInput&gt;</code>. The difference between them is that the former represents
-a match expression, which yields a result, and the latter represents a match
-expression, which doesn't yield a result (also known as match statement).</p>
+<h2 id="match-expressions">Match Expressions</h2>
+<p>The second central idea is the match expression itself. It is represented
+by two classes: <code>Match&lt;TInput, TOutput&gt;</code> and <code>Match&lt;TInput&gt;</code>. The difference
+between them is that the former represents a match expression, which yields
+a result, and the latter represents a match expression, which doesn't yield
+a result (also known as match statement).</p>
 <p>A match expression can be created using the <code>Create</code> methods of the static
 class <code>Match</code>.</p>
-<p>The <code>Matcher</code> classes include a <code>Case</code> method which is used to add a
+<p>The <code>Match</code> classes include a <code>Case</code> method which is used to add a
 pattern and a function, which is executed if the match is successful, to
 the expression.</p>
 <p>To execute a match expression, the <code>ExecuteOn</code> method is used. It takes the
-input value to match. In the <code>Matcher&lt;TInput, TOutput&gt;</code> class this method
+input value to match. In the <code>Match&lt;TInput, TOutput&gt;</code> class this method
 returns the result of the match, or throws a <code>MatchException</code> if no successful
-match was found. In the <code>Matcher&lt;TInput&gt;</code> class this method returns a boolean
+match was found. In the <code>Match&lt;TInput&gt;</code> class this method returns a boolean
 value, which signifies whether the match was successful. This class also contains
 the <code>ExecuteOnStrict</code> method, which also throws the <code>MatchException</code> if
 the match is not successful.</p>
@@ -309,13 +309,13 @@ complete or incomplete matches.</p>
 <h2 id="performance">Performance</h2>
 <p>I didn't perform any benchmarks, but I can guess that pattern matching here is
 much, <em>much</em> slower than the traditional <code>switch</code> statements. This is because
-the matchers use dynamic values internally.</p>
-<p>The matchers contain a list of pairs of patterns and functions to execute.
-This list has dynamic items in it because the matcher knows nothing about
+the matches use dynamic values internally.</p>
+<p>The matches contain a list of pairs of patterns and functions to execute.
+This list has dynamic items in it because the match expression knows nothing about
 transformations of the patterns. If it did, then the information about each type
-of the pattern transformation would be required, and that would render the matcher
+of the pattern transformation would be required, and that would render the match
 either unusable, because of the many types which will have to be specified, or
-impossible, because there would always be a finite amount of matcher types
+impossible, because there would always be a finite amount of match types
 (each with information about one more match result type than the previous).</p>
 <p>The type safety is not compromised this way, because the match result type is
 needed only between the execution of the pattern match and the execution of
