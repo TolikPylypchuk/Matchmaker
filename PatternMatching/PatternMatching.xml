@@ -351,6 +351,20 @@
             A pattern which is matched successfully when the input value
             is equal to the specified value.
             </returns>
+            <seealso cref="M:PatternMatching.Pattern.EqualTo``1(System.Func{``0})" />
+        </member>
+        <member name="M:PatternMatching.Pattern.EqualTo``1(System.Func{``0})">
+            <summary>
+            Returns a pattern which is matched successfully when the input value
+            is equal to the provided value.
+            </summary>
+            <typeparam name="TInput">The type of the input value of the expression.</typeparam>
+            <param name="valueProvider">The provider of the value to check for equality.</param>
+            <returns>
+            A pattern which is matched successfully when the input value
+            is equal to the provided value.
+            </returns>
+            <seealso cref="M:PatternMatching.Pattern.EqualTo``1(``0)" />
         </member>
         <member name="M:PatternMatching.Pattern.LessThan``1(``0)">
             <summary>
@@ -363,6 +377,32 @@
             A pattern which is matched successfully when the input value
             is less than the specified value.
             </returns>
+            <seealso cref="M:PatternMatching.Pattern.LessThan``1(System.Func{``0})" />
+            <seealso cref="M:PatternMatching.Pattern.LessOrEqual``1(``0)" />
+            <seealso cref="M:PatternMatching.Pattern.LessOrEqual``1(System.Func{``0})" />
+            <seealso cref="M:PatternMatching.Pattern.GreaterThan``1(``0)" />
+            <seealso cref="M:PatternMatching.Pattern.GreaterThan``1(System.Func{``0})" />
+            <seealso cref="M:PatternMatching.Pattern.GreaterOrEqual``1(``0)" />
+            <seealso cref="M:PatternMatching.Pattern.GreaterOrEqual``1(System.Func{``0})" />
+        </member>
+        <member name="M:PatternMatching.Pattern.LessThan``1(System.Func{``0})">
+            <summary>
+            Returns a pattern which is matched successfully when the input value
+            is less than the provided value.
+            </summary>
+            <typeparam name="TInput">The type of the input value of the expression.</typeparam>
+            <param name="valueProvider">The provider of the value to compare with.</param>
+            <returns>
+            A pattern which is matched successfully when the input value
+            is less than the provided value.
+            </returns>
+            <seealso cref="M:PatternMatching.Pattern.LessThan``1(``0)" />
+            <seealso cref="M:PatternMatching.Pattern.LessOrEqual``1(``0)" />
+            <seealso cref="M:PatternMatching.Pattern.LessOrEqual``1(System.Func{``0})" />
+            <seealso cref="M:PatternMatching.Pattern.GreaterThan``1(``0)" />
+            <seealso cref="M:PatternMatching.Pattern.GreaterThan``1(System.Func{``0})" />
+            <seealso cref="M:PatternMatching.Pattern.GreaterOrEqual``1(``0)" />
+            <seealso cref="M:PatternMatching.Pattern.GreaterOrEqual``1(System.Func{``0})" />
         </member>
         <member name="M:PatternMatching.Pattern.LessOrEqual``1(``0)">
             <summary>
@@ -375,6 +415,32 @@
             A pattern which is matched successfully when the input value
             is less than or equal to the specified value.
             </returns>
+            <seealso cref="M:PatternMatching.Pattern.LessThan``1(``0)" />
+            <seealso cref="M:PatternMatching.Pattern.LessThan``1(System.Func{``0})" />
+            <seealso cref="M:PatternMatching.Pattern.LessOrEqual``1(System.Func{``0})" />
+            <seealso cref="M:PatternMatching.Pattern.GreaterThan``1(``0)" />
+            <seealso cref="M:PatternMatching.Pattern.GreaterThan``1(System.Func{``0})" />
+            <seealso cref="M:PatternMatching.Pattern.GreaterOrEqual``1(``0)" />
+            <seealso cref="M:PatternMatching.Pattern.GreaterOrEqual``1(System.Func{``0})" />
+        </member>
+        <member name="M:PatternMatching.Pattern.LessOrEqual``1(System.Func{``0})">
+            <summary>
+            Returns a pattern which is matched successfully when the input value
+            is less than or equal to the provided value.
+            </summary>
+            <typeparam name="TInput">The type of the input value of the expression.</typeparam>
+            <param name="valueProvider">The provider of the value to compare with.</param>
+            <returns>
+            A pattern which is matched successfully when the input value
+            is less than or equal to the provided value.
+            </returns>
+            <seealso cref="M:PatternMatching.Pattern.LessThan``1(``0)" />
+            <seealso cref="M:PatternMatching.Pattern.LessThan``1(System.Func{``0})" />
+            <seealso cref="M:PatternMatching.Pattern.LessOrEqual``1(``0)" />
+            <seealso cref="M:PatternMatching.Pattern.GreaterThan``1(``0)" />
+            <seealso cref="M:PatternMatching.Pattern.GreaterThan``1(System.Func{``0})" />
+            <seealso cref="M:PatternMatching.Pattern.GreaterOrEqual``1(``0)" />
+            <seealso cref="M:PatternMatching.Pattern.GreaterOrEqual``1(System.Func{``0})" />
         </member>
         <member name="M:PatternMatching.Pattern.GreaterThan``1(``0)">
             <summary>
@@ -387,6 +453,32 @@
             A pattern which is matched successfully when the input value
             is greater than the specified value.
             </returns>
+            <seealso cref="M:PatternMatching.Pattern.LessThan``1(``0)" />
+            <seealso cref="M:PatternMatching.Pattern.LessThan``1(System.Func{``0})" />
+            <seealso cref="M:PatternMatching.Pattern.LessOrEqual``1(``0)" />
+            <seealso cref="M:PatternMatching.Pattern.LessOrEqual``1(System.Func{``0})" />
+            <seealso cref="M:PatternMatching.Pattern.GreaterThan``1(System.Func{``0})" />
+            <seealso cref="M:PatternMatching.Pattern.GreaterOrEqual``1(``0)" />
+            <seealso cref="M:PatternMatching.Pattern.GreaterOrEqual``1(System.Func{``0})" />
+        </member>
+        <member name="M:PatternMatching.Pattern.GreaterThan``1(System.Func{``0})">
+            <summary>
+            Returns a pattern which is matched successfully when the input value
+            is greater than the provided value.
+            </summary>
+            <typeparam name="TInput">The type of the input value of the expression.</typeparam>
+            <param name="valueProvider">The provider of the value to compare with.</param>
+            <returns>
+            A pattern which is matched successfully when the input value
+            is greater than the provided value.
+            </returns>
+            <seealso cref="M:PatternMatching.Pattern.LessThan``1(``0)" />
+            <seealso cref="M:PatternMatching.Pattern.LessThan``1(System.Func{``0})" />
+            <seealso cref="M:PatternMatching.Pattern.LessOrEqual``1(``0)" />
+            <seealso cref="M:PatternMatching.Pattern.LessOrEqual``1(System.Func{``0})" />
+            <seealso cref="M:PatternMatching.Pattern.GreaterThan``1(``0)" />
+            <seealso cref="M:PatternMatching.Pattern.GreaterOrEqual``1(``0)" />
+            <seealso cref="M:PatternMatching.Pattern.GreaterOrEqual``1(System.Func{``0})" />
         </member>
         <member name="M:PatternMatching.Pattern.GreaterOrEqual``1(``0)">
             <summary>
@@ -399,6 +491,32 @@
             A pattern which is matched successfully when the input value
             is greater than or equal to the specified value.
             </returns>
+            <seealso cref="M:PatternMatching.Pattern.LessThan``1(``0)" />
+            <seealso cref="M:PatternMatching.Pattern.LessThan``1(System.Func{``0})" />
+            <seealso cref="M:PatternMatching.Pattern.LessOrEqual``1(``0)" />
+            <seealso cref="M:PatternMatching.Pattern.LessOrEqual``1(System.Func{``0})" />
+            <seealso cref="M:PatternMatching.Pattern.GreaterThan``1(``0)" />
+            <seealso cref="M:PatternMatching.Pattern.GreaterThan``1(System.Func{``0})" />
+            <seealso cref="M:PatternMatching.Pattern.GreaterOrEqual``1(System.Func{``0})" />
+        </member>
+        <member name="M:PatternMatching.Pattern.GreaterOrEqual``1(System.Func{``0})">
+            <summary>
+            Returns a pattern which is matched successfully when the input value
+            is greater than or equal to the provided value.
+            </summary>
+            <typeparam name="TInput">The type of the input value of the expression.</typeparam>
+            <param name="valueProvider">The provider of the value to compare with.</param>
+            <returns>
+            A pattern which is matched successfully when the input value
+            is greater than or equal to the provided value.
+            </returns>
+            <seealso cref="M:PatternMatching.Pattern.LessThan``1(``0)" />
+            <seealso cref="M:PatternMatching.Pattern.LessThan``1(System.Func{``0})" />
+            <seealso cref="M:PatternMatching.Pattern.LessOrEqual``1(``0)" />
+            <seealso cref="M:PatternMatching.Pattern.LessOrEqual``1(System.Func{``0})" />
+            <seealso cref="M:PatternMatching.Pattern.GreaterThan``1(``0)" />
+            <seealso cref="M:PatternMatching.Pattern.GreaterThan``1(System.Func{``0})" />
+            <seealso cref="M:PatternMatching.Pattern.GreaterOrEqual``1(``0)" />
         </member>
         <member name="M:PatternMatching.Pattern.Type``2">
             <summary>

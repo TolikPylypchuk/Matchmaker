@@ -391,6 +391,15 @@ references:
   fullName.vb: PatternMatching.Pattern.EqualTo(Of TInput)(TInput)
   nameWithType: Pattern.EqualTo<TInput>(TInput)
   nameWithType.vb: Pattern.EqualTo(Of TInput)(TInput)
+- uid: PatternMatching.Pattern.EqualTo``1(System.Func{``0})
+  name: EqualTo<TInput>(Func<TInput>)
+  href: api/PatternMatching.Pattern.html#PatternMatching_Pattern_EqualTo__1_System_Func___0__
+  commentId: M:PatternMatching.Pattern.EqualTo``1(System.Func{``0})
+  name.vb: EqualTo(Of TInput)(Func(Of TInput))
+  fullName: PatternMatching.Pattern.EqualTo<TInput>(System.Func<TInput>)
+  fullName.vb: PatternMatching.Pattern.EqualTo(Of TInput)(System.Func(Of TInput))
+  nameWithType: Pattern.EqualTo<TInput>(Func<TInput>)
+  nameWithType.vb: Pattern.EqualTo(Of TInput)(Func(Of TInput))
 - uid: PatternMatching.Pattern.GreaterOrEqual*
   name: GreaterOrEqual
   href: api/PatternMatching.Pattern.html#PatternMatching_Pattern_GreaterOrEqual_
@@ -407,6 +416,15 @@ references:
   fullName.vb: PatternMatching.Pattern.GreaterOrEqual(Of TInput)(TInput)
   nameWithType: Pattern.GreaterOrEqual<TInput>(TInput)
   nameWithType.vb: Pattern.GreaterOrEqual(Of TInput)(TInput)
+- uid: PatternMatching.Pattern.GreaterOrEqual``1(System.Func{``0})
+  name: GreaterOrEqual<TInput>(Func<TInput>)
+  href: api/PatternMatching.Pattern.html#PatternMatching_Pattern_GreaterOrEqual__1_System_Func___0__
+  commentId: M:PatternMatching.Pattern.GreaterOrEqual``1(System.Func{``0})
+  name.vb: GreaterOrEqual(Of TInput)(Func(Of TInput))
+  fullName: PatternMatching.Pattern.GreaterOrEqual<TInput>(System.Func<TInput>)
+  fullName.vb: PatternMatching.Pattern.GreaterOrEqual(Of TInput)(System.Func(Of TInput))
+  nameWithType: Pattern.GreaterOrEqual<TInput>(Func<TInput>)
+  nameWithType.vb: Pattern.GreaterOrEqual(Of TInput)(Func(Of TInput))
 - uid: PatternMatching.Pattern.GreaterThan*
   name: GreaterThan
   href: api/PatternMatching.Pattern.html#PatternMatching_Pattern_GreaterThan_
@@ -423,6 +441,15 @@ references:
   fullName.vb: PatternMatching.Pattern.GreaterThan(Of TInput)(TInput)
   nameWithType: Pattern.GreaterThan<TInput>(TInput)
   nameWithType.vb: Pattern.GreaterThan(Of TInput)(TInput)
+- uid: PatternMatching.Pattern.GreaterThan``1(System.Func{``0})
+  name: GreaterThan<TInput>(Func<TInput>)
+  href: api/PatternMatching.Pattern.html#PatternMatching_Pattern_GreaterThan__1_System_Func___0__
+  commentId: M:PatternMatching.Pattern.GreaterThan``1(System.Func{``0})
+  name.vb: GreaterThan(Of TInput)(Func(Of TInput))
+  fullName: PatternMatching.Pattern.GreaterThan<TInput>(System.Func<TInput>)
+  fullName.vb: PatternMatching.Pattern.GreaterThan(Of TInput)(System.Func(Of TInput))
+  nameWithType: Pattern.GreaterThan<TInput>(Func<TInput>)
+  nameWithType.vb: Pattern.GreaterThan(Of TInput)(Func(Of TInput))
 - uid: PatternMatching.Pattern.LessOrEqual*
   name: LessOrEqual
   href: api/PatternMatching.Pattern.html#PatternMatching_Pattern_LessOrEqual_
@@ -439,6 +466,15 @@ references:
   fullName.vb: PatternMatching.Pattern.LessOrEqual(Of TInput)(TInput)
   nameWithType: Pattern.LessOrEqual<TInput>(TInput)
   nameWithType.vb: Pattern.LessOrEqual(Of TInput)(TInput)
+- uid: PatternMatching.Pattern.LessOrEqual``1(System.Func{``0})
+  name: LessOrEqual<TInput>(Func<TInput>)
+  href: api/PatternMatching.Pattern.html#PatternMatching_Pattern_LessOrEqual__1_System_Func___0__
+  commentId: M:PatternMatching.Pattern.LessOrEqual``1(System.Func{``0})
+  name.vb: LessOrEqual(Of TInput)(Func(Of TInput))
+  fullName: PatternMatching.Pattern.LessOrEqual<TInput>(System.Func<TInput>)
+  fullName.vb: PatternMatching.Pattern.LessOrEqual(Of TInput)(System.Func(Of TInput))
+  nameWithType: Pattern.LessOrEqual<TInput>(Func<TInput>)
+  nameWithType.vb: Pattern.LessOrEqual(Of TInput)(Func(Of TInput))
 - uid: PatternMatching.Pattern.LessThan*
   name: LessThan
   href: api/PatternMatching.Pattern.html#PatternMatching_Pattern_LessThan_
@@ -455,6 +491,15 @@ references:
   fullName.vb: PatternMatching.Pattern.LessThan(Of TInput)(TInput)
   nameWithType: Pattern.LessThan<TInput>(TInput)
   nameWithType.vb: Pattern.LessThan(Of TInput)(TInput)
+- uid: PatternMatching.Pattern.LessThan``1(System.Func{``0})
+  name: LessThan<TInput>(Func<TInput>)
+  href: api/PatternMatching.Pattern.html#PatternMatching_Pattern_LessThan__1_System_Func___0__
+  commentId: M:PatternMatching.Pattern.LessThan``1(System.Func{``0})
+  name.vb: LessThan(Of TInput)(Func(Of TInput))
+  fullName: PatternMatching.Pattern.LessThan<TInput>(System.Func<TInput>)
+  fullName.vb: PatternMatching.Pattern.LessThan(Of TInput)(System.Func(Of TInput))
+  nameWithType: Pattern.LessThan<TInput>(Func<TInput>)
+  nameWithType.vb: Pattern.LessThan(Of TInput)(Func(Of TInput))
 - uid: PatternMatching.Pattern.Not*
   name: Not
   href: api/PatternMatching.Pattern.html#PatternMatching_Pattern_Not_

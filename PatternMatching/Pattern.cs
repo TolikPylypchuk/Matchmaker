@@ -42,12 +42,28 @@ namespace PatternMatching
 		/// A pattern which is matched successfully when the input value
 		/// is equal to the specified value.
 		/// </returns>
+		/// <seealso cref="EqualTo{TInput}(Func{TInput})" />
 		public static SimplePattern<TInput> EqualTo<TInput>(TInput value)
 			where TInput : IEquatable<TInput>
 			=> new SimplePattern<TInput>(input => input.Equals(value));
 
 		/// <summary>
 		/// Returns a pattern which is matched successfully when the input value
+		/// is equal to the provided value.
+		/// </summary>
+		/// <typeparam name="TInput">The type of the input value of the expression.</typeparam>
+		/// <param name="valueProvider">The provider of the value to check for equality.</param>
+		/// <returns>
+		/// A pattern which is matched successfully when the input value
+		/// is equal to the provided value.
+		/// </returns>
+		/// <seealso cref="EqualTo{TInput}(TInput)" />
+		public static SimplePattern<TInput> EqualTo<TInput>(Func<TInput> valueProvider)
+			where TInput : IEquatable<TInput>
+			=> new SimplePattern<TInput>(input => input.Equals(valueProvider()));
+
+		/// <summary>
+		/// Returns a pattern which is matched successfully when the input value
 		/// is less than the specified value.
 		/// </summary>
 		/// <typeparam name="TInput">The type of the input value of the expression.</typeparam>
@@ -56,12 +72,40 @@ namespace PatternMatching
 		/// A pattern which is matched successfully when the input value
 		/// is less than the specified value.
 		/// </returns>
+		/// <seealso cref="LessThan{TInput}(Func{TInput})" />
+		/// <seealso cref="LessOrEqual{TInput}(TInput)" />
+		/// <seealso cref="LessOrEqual{TInput}(Func{TInput})" />
+		/// <seealso cref="GreaterThan{TInput}(TInput)" />
+		/// <seealso cref="GreaterThan{TInput}(Func{TInput})" />
+		/// <seealso cref="GreaterOrEqual{TInput}(TInput)" />
+		/// <seealso cref="GreaterOrEqual{TInput}(Func{TInput})" />
 		public static SimplePattern<TInput> LessThan<TInput>(TInput value)
 			where TInput : IComparable<TInput>
 			=> new SimplePattern<TInput>(input => input.CompareTo(value) < 0);
 
 		/// <summary>
 		/// Returns a pattern which is matched successfully when the input value
+		/// is less than the provided value.
+		/// </summary>
+		/// <typeparam name="TInput">The type of the input value of the expression.</typeparam>
+		/// <param name="valueProvider">The provider of the value to compare with.</param>
+		/// <returns>
+		/// A pattern which is matched successfully when the input value
+		/// is less than the provided value.
+		/// </returns>
+		/// <seealso cref="LessThan{TInput}(TInput)" />
+		/// <seealso cref="LessOrEqual{TInput}(TInput)" />
+		/// <seealso cref="LessOrEqual{TInput}(Func{TInput})" />
+		/// <seealso cref="GreaterThan{TInput}(TInput)" />
+		/// <seealso cref="GreaterThan{TInput}(Func{TInput})" />
+		/// <seealso cref="GreaterOrEqual{TInput}(TInput)" />
+		/// <seealso cref="GreaterOrEqual{TInput}(Func{TInput})" />
+		public static SimplePattern<TInput> LessThan<TInput>(Func<TInput> valueProvider)
+			where TInput : IComparable<TInput>
+			=> new SimplePattern<TInput>(input => input.CompareTo(valueProvider()) < 0);
+
+		/// <summary>
+		/// Returns a pattern which is matched successfully when the input value
 		/// is less than or equal to the specified value.
 		/// </summary>
 		/// <typeparam name="TInput">The type of the input value of the expression.</typeparam>
@@ -70,12 +114,40 @@ namespace PatternMatching
 		/// A pattern which is matched successfully when the input value
 		/// is less than or equal to the specified value.
 		/// </returns>
+		/// <seealso cref="LessThan{TInput}(TInput)" />
+		/// <seealso cref="LessThan{TInput}(Func{TInput})" />
+		/// <seealso cref="LessOrEqual{TInput}(Func{TInput})" />
+		/// <seealso cref="GreaterThan{TInput}(TInput)" />
+		/// <seealso cref="GreaterThan{TInput}(Func{TInput})" />
+		/// <seealso cref="GreaterOrEqual{TInput}(TInput)" />
+		/// <seealso cref="GreaterOrEqual{TInput}(Func{TInput})" />
 		public static SimplePattern<TInput> LessOrEqual<TInput>(TInput value)
 			where TInput : IComparable<TInput>
 			=> new SimplePattern<TInput>(input => input.CompareTo(value) <= 0);
 
 		/// <summary>
 		/// Returns a pattern which is matched successfully when the input value
+		/// is less than or equal to the provided value.
+		/// </summary>
+		/// <typeparam name="TInput">The type of the input value of the expression.</typeparam>
+		/// <param name="valueProvider">The provider of the value to compare with.</param>
+		/// <returns>
+		/// A pattern which is matched successfully when the input value
+		/// is less than or equal to the provided value.
+		/// </returns>
+		/// <seealso cref="LessThan{TInput}(TInput)" />
+		/// <seealso cref="LessThan{TInput}(Func{TInput})" />
+		/// <seealso cref="LessOrEqual{TInput}(TInput)" />
+		/// <seealso cref="GreaterThan{TInput}(TInput)" />
+		/// <seealso cref="GreaterThan{TInput}(Func{TInput})" />
+		/// <seealso cref="GreaterOrEqual{TInput}(TInput)" />
+		/// <seealso cref="GreaterOrEqual{TInput}(Func{TInput})" />
+		public static SimplePattern<TInput> LessOrEqual<TInput>(Func<TInput> valueProvider)
+			where TInput : IComparable<TInput>
+			=> new SimplePattern<TInput>(input => input.CompareTo(valueProvider()) <= 0);
+
+		/// <summary>
+		/// Returns a pattern which is matched successfully when the input value
 		/// is greater than the specified value.
 		/// </summary>
 		/// <typeparam name="TInput">The type of the input value of the expression.</typeparam>
@@ -84,9 +156,37 @@ namespace PatternMatching
 		/// A pattern which is matched successfully when the input value
 		/// is greater than the specified value.
 		/// </returns>
+		/// <seealso cref="LessThan{TInput}(TInput)" />
+		/// <seealso cref="LessThan{TInput}(Func{TInput})" />
+		/// <seealso cref="LessOrEqual{TInput}(TInput)" />
+		/// <seealso cref="LessOrEqual{TInput}(Func{TInput})" />
+		/// <seealso cref="GreaterThan{TInput}(Func{TInput})" />
+		/// <seealso cref="GreaterOrEqual{TInput}(TInput)" />
+		/// <seealso cref="GreaterOrEqual{TInput}(Func{TInput})" />
 		public static SimplePattern<TInput> GreaterThan<TInput>(TInput value)
 			where TInput : IComparable<TInput>
 			=> new SimplePattern<TInput>(input => input.CompareTo(value) > 0);
+
+		/// <summary>
+		/// Returns a pattern which is matched successfully when the input value
+		/// is greater than the provided value.
+		/// </summary>
+		/// <typeparam name="TInput">The type of the input value of the expression.</typeparam>
+		/// <param name="valueProvider">The provider of the value to compare with.</param>
+		/// <returns>
+		/// A pattern which is matched successfully when the input value
+		/// is greater than the provided value.
+		/// </returns>
+		/// <seealso cref="LessThan{TInput}(TInput)" />
+		/// <seealso cref="LessThan{TInput}(Func{TInput})" />
+		/// <seealso cref="LessOrEqual{TInput}(TInput)" />
+		/// <seealso cref="LessOrEqual{TInput}(Func{TInput})" />
+		/// <seealso cref="GreaterThan{TInput}(TInput)" />
+		/// <seealso cref="GreaterOrEqual{TInput}(TInput)" />
+		/// <seealso cref="GreaterOrEqual{TInput}(Func{TInput})" />
+		public static SimplePattern<TInput> GreaterThan<TInput>(Func<TInput> valueProvider)
+			where TInput : IComparable<TInput>
+			=> new SimplePattern<TInput>(input => input.CompareTo(valueProvider()) > 0);
 
 		/// <summary>
 		/// Returns a pattern which is matched successfully when the input value
@@ -98,9 +198,37 @@ namespace PatternMatching
 		/// A pattern which is matched successfully when the input value
 		/// is greater than or equal to the specified value.
 		/// </returns>
+		/// <seealso cref="LessThan{TInput}(TInput)" />
+		/// <seealso cref="LessThan{TInput}(Func{TInput})" />
+		/// <seealso cref="LessOrEqual{TInput}(TInput)" />
+		/// <seealso cref="LessOrEqual{TInput}(Func{TInput})" />
+		/// <seealso cref="GreaterThan{TInput}(TInput)" />
+		/// <seealso cref="GreaterThan{TInput}(Func{TInput})" />
+		/// <seealso cref="GreaterOrEqual{TInput}(Func{TInput})" />
 		public static SimplePattern<TInput> GreaterOrEqual<TInput>(TInput value)
 			where TInput : IComparable<TInput>
 			=> new SimplePattern<TInput>(input => input.CompareTo(value) >= 0);
+
+		/// <summary>
+		/// Returns a pattern which is matched successfully when the input value
+		/// is greater than or equal to the provided value.
+		/// </summary>
+		/// <typeparam name="TInput">The type of the input value of the expression.</typeparam>
+		/// <param name="valueProvider">The provider of the value to compare with.</param>
+		/// <returns>
+		/// A pattern which is matched successfully when the input value
+		/// is greater than or equal to the provided value.
+		/// </returns>
+		/// <seealso cref="LessThan{TInput}(TInput)" />
+		/// <seealso cref="LessThan{TInput}(Func{TInput})" />
+		/// <seealso cref="LessOrEqual{TInput}(TInput)" />
+		/// <seealso cref="LessOrEqual{TInput}(Func{TInput})" />
+		/// <seealso cref="GreaterThan{TInput}(TInput)" />
+		/// <seealso cref="GreaterThan{TInput}(Func{TInput})" />
+		/// <seealso cref="GreaterOrEqual{TInput}(TInput)" />
+		public static SimplePattern<TInput> GreaterOrEqual<TInput>(Func<TInput> valueProvider)
+			where TInput : IComparable<TInput>
+			=> new SimplePattern<TInput>(input => input.CompareTo(valueProvider()) >= 0);
 
 		/// <summary>
 		/// Returns a pattern which is matched successfully when the input value

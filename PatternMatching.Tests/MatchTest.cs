@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using PatternMatching.Tests.Samples;
 
@@ -50,6 +51,28 @@ namespace PatternMatching.Tests
 					.ExecuteOn(5);
 
 			Assert.AreEqual("4 <= x <= 5", result);
+		}
+
+		[TestMethod]
+		public void TestLaziness()
+		{
+			Func<int> LongComputation(int delay, int value)
+				=> () =>
+				{
+					Thread.Sleep(delay);
+					return value;
+				};
+
+			string result =
+				Match.Create<int, string>()
+					.Case(EqualTo(LongComputation(0, 1)), _ => "one")
+					.Case(EqualTo(LongComputation(100, 1)), _ => "two")
+					.Case(EqualTo(LongComputation(200, 1)), _ => "three")
+					.Case(EqualTo(LongComputation(300, 1)), _ => "four")
+					.Case(Any<int>(), i => i.ToString())
+					.ExecuteOn(1);
+
+			Assert.AreEqual("one", result);
 		}
 
 		[TestMethod]

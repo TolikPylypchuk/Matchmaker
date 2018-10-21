@@ -236,6 +236,9 @@ switch (i)
 <p>This is some very non-idiomatic usage of <code>switch</code> statements, but can easily
 be rewritten using the <code>if-else-if</code> statement, which is still a statement,
 and thus cannot yield a result.</p>
+<p>There are also lazy equivalents of these patterns, which take value providers
+instead of values, for example <code>EqualTo(() =&gt; 1)</code>. They are useful, when the
+value to compare to is obtained with a long-running computation.</p>
 <h2 id="discriminated-unions">Discriminated unions</h2>
 <p>While discriminated unions are not directly supported in C#, they can be modelled
 using class hierarchies. But still, in order for them be user-friendly, a way to

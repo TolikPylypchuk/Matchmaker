@@ -206,6 +206,10 @@ This is some very non-idiomatic usage of `switch` statements, but can easily
 be rewritten using the `if-else-if` statement, which is still a statement,
 and thus cannot yield a result.
 
+There are also lazy equivalents of these patterns, which take value providers
+instead of values, for example `EqualTo(() => 1)`. They are useful, when the
+value to compare to is obtained with a long-running computation.
+
 ## Discriminated unions
 
 While discriminated unions are not directly supported in C#, they can be modelled
