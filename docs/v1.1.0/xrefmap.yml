@@ -133,6 +133,15 @@ references:
   fullName.vb: PatternMatching.Match.Create(Of TInput)()
   nameWithType: Match.Create<TInput>()
   nameWithType.vb: Match.Create(Of TInput)()
+- uid: PatternMatching.Match.Create``1(System.Boolean)
+  name: Create<TInput>(Boolean)
+  href: api/PatternMatching.Match.html#PatternMatching_Match_Create__1_System_Boolean_
+  commentId: M:PatternMatching.Match.Create``1(System.Boolean)
+  name.vb: Create(Of TInput)(Boolean)
+  fullName: PatternMatching.Match.Create<TInput>(System.Boolean)
+  fullName.vb: PatternMatching.Match.Create(Of TInput)(System.Boolean)
+  nameWithType: Match.Create<TInput>(Boolean)
+  nameWithType.vb: Match.Create(Of TInput)(Boolean)
 - uid: PatternMatching.Match.Create``2
   name: Create<TInput, TOutput>()
   href: api/PatternMatching.Match.html#PatternMatching_Match_Create__2
@@ -142,6 +151,15 @@ references:
   fullName.vb: PatternMatching.Match.Create(Of TInput, TOutput)()
   nameWithType: Match.Create<TInput, TOutput>()
   nameWithType.vb: Match.Create(Of TInput, TOutput)()
+- uid: PatternMatching.Match.Create``2(System.Boolean)
+  name: Create<TInput, TOutput>(Boolean)
+  href: api/PatternMatching.Match.html#PatternMatching_Match_Create__2_System_Boolean_
+  commentId: M:PatternMatching.Match.Create``2(System.Boolean)
+  name.vb: Create(Of TInput, TOutput)(Boolean)
+  fullName: PatternMatching.Match.Create<TInput, TOutput>(System.Boolean)
+  fullName.vb: PatternMatching.Match.Create(Of TInput, TOutput)(System.Boolean)
+  nameWithType: Match.Create<TInput, TOutput>(Boolean)
+  nameWithType.vb: Match.Create(Of TInput, TOutput)(Boolean)
 - uid: PatternMatching.Match`1
   name: Match<TInput>
   href: api/PatternMatching.Match-1.html
@@ -169,6 +187,15 @@ references:
   fullName.vb: PatternMatching.Match(Of TInput).Case(Of TMatchResult)(PatternMatching.IPattern(Of TInput, TMatchResult), System.Action(Of TMatchResult))
   nameWithType: Match<TInput>.Case<TMatchResult>(IPattern<TInput, TMatchResult>, Action<TMatchResult>)
   nameWithType.vb: Match(Of TInput).Case(Of TMatchResult)(IPattern(Of TInput, TMatchResult), Action(Of TMatchResult))
+- uid: PatternMatching.Match`1.Case``1(PatternMatching.IPattern{`0,``0},System.Boolean,System.Action{``0})
+  name: Case<TMatchResult>(IPattern<TInput, TMatchResult>, Boolean, Action<TMatchResult>)
+  href: api/PatternMatching.Match-1.html#PatternMatching_Match_1_Case__1_PatternMatching_IPattern__0___0__System_Boolean_System_Action___0__
+  commentId: M:PatternMatching.Match`1.Case``1(PatternMatching.IPattern{`0,``0},System.Boolean,System.Action{``0})
+  name.vb: Case(Of TMatchResult)(IPattern(Of TInput, TMatchResult), Boolean, Action(Of TMatchResult))
+  fullName: PatternMatching.Match<TInput>.Case<TMatchResult>(PatternMatching.IPattern<TInput, TMatchResult>, System.Boolean, System.Action<TMatchResult>)
+  fullName.vb: PatternMatching.Match(Of TInput).Case(Of TMatchResult)(PatternMatching.IPattern(Of TInput, TMatchResult), System.Boolean, System.Action(Of TMatchResult))
+  nameWithType: Match<TInput>.Case<TMatchResult>(IPattern<TInput, TMatchResult>, Boolean, Action<TMatchResult>)
+  nameWithType.vb: Match(Of TInput).Case(Of TMatchResult)(IPattern(Of TInput, TMatchResult), Boolean, Action(Of TMatchResult))
 - uid: PatternMatching.Match`1.Case``1(System.Action{``0})
   name: Case<TType>(Action<TType>)
   href: api/PatternMatching.Match-1.html#PatternMatching_Match_1_Case__1_System_Action___0__
@@ -178,6 +205,15 @@ references:
   fullName.vb: PatternMatching.Match(Of TInput).Case(Of TType)(System.Action(Of TType))
   nameWithType: Match<TInput>.Case<TType>(Action<TType>)
   nameWithType.vb: Match(Of TInput).Case(Of TType)(Action(Of TType))
+- uid: PatternMatching.Match`1.Case``1(System.Boolean,System.Action{``0})
+  name: Case<TType>(Boolean, Action<TType>)
+  href: api/PatternMatching.Match-1.html#PatternMatching_Match_1_Case__1_System_Boolean_System_Action___0__
+  commentId: M:PatternMatching.Match`1.Case``1(System.Boolean,System.Action{``0})
+  name.vb: Case(Of TType)(Boolean, Action(Of TType))
+  fullName: PatternMatching.Match<TInput>.Case<TType>(System.Boolean, System.Action<TType>)
+  fullName.vb: PatternMatching.Match(Of TInput).Case(Of TType)(System.Boolean, System.Action(Of TType))
+  nameWithType: Match<TInput>.Case<TType>(Boolean, Action<TType>)
+  nameWithType.vb: Match(Of TInput).Case(Of TType)(Boolean, Action(Of TType))
 - uid: PatternMatching.Match`1.ExecuteOn(`0)
   name: ExecuteOn(TInput)
   href: api/PatternMatching.Match-1.html#PatternMatching_Match_1_ExecuteOn__0_
@@ -195,23 +231,57 @@ references:
   fullName.vb: PatternMatching.Match(Of TInput).ExecuteOn
   nameWithType: Match<TInput>.ExecuteOn
   nameWithType.vb: Match(Of TInput).ExecuteOn
-- uid: PatternMatching.Match`1.ExecuteOnStrict(`0)
-  name: ExecuteOnStrict(TInput)
-  href: api/PatternMatching.Match-1.html#PatternMatching_Match_1_ExecuteOnStrict__0_
-  commentId: M:PatternMatching.Match`1.ExecuteOnStrict(`0)
-  fullName: PatternMatching.Match<TInput>.ExecuteOnStrict(TInput)
-  fullName.vb: PatternMatching.Match(Of TInput).ExecuteOnStrict(TInput)
-  nameWithType: Match<TInput>.ExecuteOnStrict(TInput)
-  nameWithType.vb: Match(Of TInput).ExecuteOnStrict(TInput)
-- uid: PatternMatching.Match`1.ExecuteOnStrict*
-  name: ExecuteOnStrict
-  href: api/PatternMatching.Match-1.html#PatternMatching_Match_1_ExecuteOnStrict_
-  commentId: Overload:PatternMatching.Match`1.ExecuteOnStrict
+- uid: PatternMatching.Match`1.ExecuteStrict(`0)
+  name: ExecuteStrict(TInput)
+  href: api/PatternMatching.Match-1.html#PatternMatching_Match_1_ExecuteStrict__0_
+  commentId: M:PatternMatching.Match`1.ExecuteStrict(`0)
+  fullName: PatternMatching.Match<TInput>.ExecuteStrict(TInput)
+  fullName.vb: PatternMatching.Match(Of TInput).ExecuteStrict(TInput)
+  nameWithType: Match<TInput>.ExecuteStrict(TInput)
+  nameWithType.vb: Match(Of TInput).ExecuteStrict(TInput)
+- uid: PatternMatching.Match`1.ExecuteStrict*
+  name: ExecuteStrict
+  href: api/PatternMatching.Match-1.html#PatternMatching_Match_1_ExecuteStrict_
+  commentId: Overload:PatternMatching.Match`1.ExecuteStrict
   isSpec: "True"
-  fullName: PatternMatching.Match<TInput>.ExecuteOnStrict
-  fullName.vb: PatternMatching.Match(Of TInput).ExecuteOnStrict
-  nameWithType: Match<TInput>.ExecuteOnStrict
-  nameWithType.vb: Match(Of TInput).ExecuteOnStrict
+  fullName: PatternMatching.Match<TInput>.ExecuteStrict
+  fullName.vb: PatternMatching.Match(Of TInput).ExecuteStrict
+  nameWithType: Match<TInput>.ExecuteStrict
+  nameWithType.vb: Match(Of TInput).ExecuteStrict
+- uid: PatternMatching.Match`1.ExecuteStrictWithFallthrough(`0)
+  name: ExecuteStrictWithFallthrough(TInput)
+  href: api/PatternMatching.Match-1.html#PatternMatching_Match_1_ExecuteStrictWithFallthrough__0_
+  commentId: M:PatternMatching.Match`1.ExecuteStrictWithFallthrough(`0)
+  fullName: PatternMatching.Match<TInput>.ExecuteStrictWithFallthrough(TInput)
+  fullName.vb: PatternMatching.Match(Of TInput).ExecuteStrictWithFallthrough(TInput)
+  nameWithType: Match<TInput>.ExecuteStrictWithFallthrough(TInput)
+  nameWithType.vb: Match(Of TInput).ExecuteStrictWithFallthrough(TInput)
+- uid: PatternMatching.Match`1.ExecuteStrictWithFallthrough*
+  name: ExecuteStrictWithFallthrough
+  href: api/PatternMatching.Match-1.html#PatternMatching_Match_1_ExecuteStrictWithFallthrough_
+  commentId: Overload:PatternMatching.Match`1.ExecuteStrictWithFallthrough
+  isSpec: "True"
+  fullName: PatternMatching.Match<TInput>.ExecuteStrictWithFallthrough
+  fullName.vb: PatternMatching.Match(Of TInput).ExecuteStrictWithFallthrough
+  nameWithType: Match<TInput>.ExecuteStrictWithFallthrough
+  nameWithType.vb: Match(Of TInput).ExecuteStrictWithFallthrough
+- uid: PatternMatching.Match`1.ExecuteWithFallthrough(`0)
+  name: ExecuteWithFallthrough(TInput)
+  href: api/PatternMatching.Match-1.html#PatternMatching_Match_1_ExecuteWithFallthrough__0_
+  commentId: M:PatternMatching.Match`1.ExecuteWithFallthrough(`0)
+  fullName: PatternMatching.Match<TInput>.ExecuteWithFallthrough(TInput)
+  fullName.vb: PatternMatching.Match(Of TInput).ExecuteWithFallthrough(TInput)
+  nameWithType: Match<TInput>.ExecuteWithFallthrough(TInput)
+  nameWithType.vb: Match(Of TInput).ExecuteWithFallthrough(TInput)
+- uid: PatternMatching.Match`1.ExecuteWithFallthrough*
+  name: ExecuteWithFallthrough
+  href: api/PatternMatching.Match-1.html#PatternMatching_Match_1_ExecuteWithFallthrough_
+  commentId: Overload:PatternMatching.Match`1.ExecuteWithFallthrough
+  isSpec: "True"
+  fullName: PatternMatching.Match<TInput>.ExecuteWithFallthrough
+  fullName.vb: PatternMatching.Match(Of TInput).ExecuteWithFallthrough
+  nameWithType: Match<TInput>.ExecuteWithFallthrough
+  nameWithType.vb: Match(Of TInput).ExecuteWithFallthrough
 - uid: PatternMatching.Match`1.ToFunction
   name: ToFunction()
   href: api/PatternMatching.Match-1.html#PatternMatching_Match_1_ToFunction
@@ -229,6 +299,23 @@ references:
   fullName.vb: PatternMatching.Match(Of TInput).ToFunction
   nameWithType: Match<TInput>.ToFunction
   nameWithType.vb: Match(Of TInput).ToFunction
+- uid: PatternMatching.Match`1.ToFunctionWithFallthrough
+  name: ToFunctionWithFallthrough()
+  href: api/PatternMatching.Match-1.html#PatternMatching_Match_1_ToFunctionWithFallthrough
+  commentId: M:PatternMatching.Match`1.ToFunctionWithFallthrough
+  fullName: PatternMatching.Match<TInput>.ToFunctionWithFallthrough()
+  fullName.vb: PatternMatching.Match(Of TInput).ToFunctionWithFallthrough()
+  nameWithType: Match<TInput>.ToFunctionWithFallthrough()
+  nameWithType.vb: Match(Of TInput).ToFunctionWithFallthrough()
+- uid: PatternMatching.Match`1.ToFunctionWithFallthrough*
+  name: ToFunctionWithFallthrough
+  href: api/PatternMatching.Match-1.html#PatternMatching_Match_1_ToFunctionWithFallthrough_
+  commentId: Overload:PatternMatching.Match`1.ToFunctionWithFallthrough
+  isSpec: "True"
+  fullName: PatternMatching.Match<TInput>.ToFunctionWithFallthrough
+  fullName.vb: PatternMatching.Match(Of TInput).ToFunctionWithFallthrough
+  nameWithType: Match<TInput>.ToFunctionWithFallthrough
+  nameWithType.vb: Match(Of TInput).ToFunctionWithFallthrough
 - uid: PatternMatching.Match`1.ToStrictFunction
   name: ToStrictFunction()
   href: api/PatternMatching.Match-1.html#PatternMatching_Match_1_ToStrictFunction
@@ -246,6 +333,23 @@ references:
   fullName.vb: PatternMatching.Match(Of TInput).ToStrictFunction
   nameWithType: Match<TInput>.ToStrictFunction
   nameWithType.vb: Match(Of TInput).ToStrictFunction
+- uid: PatternMatching.Match`1.ToStrictFunctionWithFallthrough
+  name: ToStrictFunctionWithFallthrough()
+  href: api/PatternMatching.Match-1.html#PatternMatching_Match_1_ToStrictFunctionWithFallthrough
+  commentId: M:PatternMatching.Match`1.ToStrictFunctionWithFallthrough
+  fullName: PatternMatching.Match<TInput>.ToStrictFunctionWithFallthrough()
+  fullName.vb: PatternMatching.Match(Of TInput).ToStrictFunctionWithFallthrough()
+  nameWithType: Match<TInput>.ToStrictFunctionWithFallthrough()
+  nameWithType.vb: Match(Of TInput).ToStrictFunctionWithFallthrough()
+- uid: PatternMatching.Match`1.ToStrictFunctionWithFallthrough*
+  name: ToStrictFunctionWithFallthrough
+  href: api/PatternMatching.Match-1.html#PatternMatching_Match_1_ToStrictFunctionWithFallthrough_
+  commentId: Overload:PatternMatching.Match`1.ToStrictFunctionWithFallthrough
+  isSpec: "True"
+  fullName: PatternMatching.Match<TInput>.ToStrictFunctionWithFallthrough
+  fullName.vb: PatternMatching.Match(Of TInput).ToStrictFunctionWithFallthrough
+  nameWithType: Match<TInput>.ToStrictFunctionWithFallthrough
+  nameWithType.vb: Match(Of TInput).ToStrictFunctionWithFallthrough
 - uid: PatternMatching.Match`2
   name: Match<TInput, TOutput>
   href: api/PatternMatching.Match-2.html
@@ -264,6 +368,15 @@ references:
   fullName.vb: PatternMatching.Match(Of TInput, TOutput).Case
   nameWithType: Match<TInput, TOutput>.Case
   nameWithType.vb: Match(Of TInput, TOutput).Case
+- uid: PatternMatching.Match`2.Case``1(PatternMatching.IPattern{`0,``0},System.Boolean,System.Func{``0,`1})
+  name: Case<TMatchResult>(IPattern<TInput, TMatchResult>, Boolean, Func<TMatchResult, TOutput>)
+  href: api/PatternMatching.Match-2.html#PatternMatching_Match_2_Case__1_PatternMatching_IPattern__0___0__System_Boolean_System_Func___0__1__
+  commentId: M:PatternMatching.Match`2.Case``1(PatternMatching.IPattern{`0,``0},System.Boolean,System.Func{``0,`1})
+  name.vb: Case(Of TMatchResult)(IPattern(Of TInput, TMatchResult), Boolean, Func(Of TMatchResult, TOutput))
+  fullName: PatternMatching.Match<TInput, TOutput>.Case<TMatchResult>(PatternMatching.IPattern<TInput, TMatchResult>, System.Boolean, System.Func<TMatchResult, TOutput>)
+  fullName.vb: PatternMatching.Match(Of TInput, TOutput).Case(Of TMatchResult)(PatternMatching.IPattern(Of TInput, TMatchResult), System.Boolean, System.Func(Of TMatchResult, TOutput))
+  nameWithType: Match<TInput, TOutput>.Case<TMatchResult>(IPattern<TInput, TMatchResult>, Boolean, Func<TMatchResult, TOutput>)
+  nameWithType.vb: Match(Of TInput, TOutput).Case(Of TMatchResult)(IPattern(Of TInput, TMatchResult), Boolean, Func(Of TMatchResult, TOutput))
 - uid: PatternMatching.Match`2.Case``1(PatternMatching.IPattern{`0,``0},System.Func{``0,`1})
   name: Case<TMatchResult>(IPattern<TInput, TMatchResult>, Func<TMatchResult, TOutput>)
   href: api/PatternMatching.Match-2.html#PatternMatching_Match_2_Case__1_PatternMatching_IPattern__0___0__System_Func___0__1__
@@ -273,6 +386,15 @@ references:
   fullName.vb: PatternMatching.Match(Of TInput, TOutput).Case(Of TMatchResult)(PatternMatching.IPattern(Of TInput, TMatchResult), System.Func(Of TMatchResult, TOutput))
   nameWithType: Match<TInput, TOutput>.Case<TMatchResult>(IPattern<TInput, TMatchResult>, Func<TMatchResult, TOutput>)
   nameWithType.vb: Match(Of TInput, TOutput).Case(Of TMatchResult)(IPattern(Of TInput, TMatchResult), Func(Of TMatchResult, TOutput))
+- uid: PatternMatching.Match`2.Case``1(System.Boolean,System.Func{``0,`1})
+  name: Case<TType>(Boolean, Func<TType, TOutput>)
+  href: api/PatternMatching.Match-2.html#PatternMatching_Match_2_Case__1_System_Boolean_System_Func___0__1__
+  commentId: M:PatternMatching.Match`2.Case``1(System.Boolean,System.Func{``0,`1})
+  name.vb: Case(Of TType)(Boolean, Func(Of TType, TOutput))
+  fullName: PatternMatching.Match<TInput, TOutput>.Case<TType>(System.Boolean, System.Func<TType, TOutput>)
+  fullName.vb: PatternMatching.Match(Of TInput, TOutput).Case(Of TType)(System.Boolean, System.Func(Of TType, TOutput))
+  nameWithType: Match<TInput, TOutput>.Case<TType>(Boolean, Func<TType, TOutput>)
+  nameWithType.vb: Match(Of TInput, TOutput).Case(Of TType)(Boolean, Func(Of TType, TOutput))
 - uid: PatternMatching.Match`2.Case``1(System.Func{``0,`1})
   name: Case<TType>(Func<TType, TOutput>)
   href: api/PatternMatching.Match-2.html#PatternMatching_Match_2_Case__1_System_Func___0__1__
@@ -282,6 +404,40 @@ references:
   fullName.vb: PatternMatching.Match(Of TInput, TOutput).Case(Of TType)(System.Func(Of TType, TOutput))
   nameWithType: Match<TInput, TOutput>.Case<TType>(Func<TType, TOutput>)
   nameWithType.vb: Match(Of TInput, TOutput).Case(Of TType)(Func(Of TType, TOutput))
+- uid: PatternMatching.Match`2.ExecuteNonStrict(`0)
+  name: ExecuteNonStrict(TInput)
+  href: api/PatternMatching.Match-2.html#PatternMatching_Match_2_ExecuteNonStrict__0_
+  commentId: M:PatternMatching.Match`2.ExecuteNonStrict(`0)
+  fullName: PatternMatching.Match<TInput, TOutput>.ExecuteNonStrict(TInput)
+  fullName.vb: PatternMatching.Match(Of TInput, TOutput).ExecuteNonStrict(TInput)
+  nameWithType: Match<TInput, TOutput>.ExecuteNonStrict(TInput)
+  nameWithType.vb: Match(Of TInput, TOutput).ExecuteNonStrict(TInput)
+- uid: PatternMatching.Match`2.ExecuteNonStrict*
+  name: ExecuteNonStrict
+  href: api/PatternMatching.Match-2.html#PatternMatching_Match_2_ExecuteNonStrict_
+  commentId: Overload:PatternMatching.Match`2.ExecuteNonStrict
+  isSpec: "True"
+  fullName: PatternMatching.Match<TInput, TOutput>.ExecuteNonStrict
+  fullName.vb: PatternMatching.Match(Of TInput, TOutput).ExecuteNonStrict
+  nameWithType: Match<TInput, TOutput>.ExecuteNonStrict
+  nameWithType.vb: Match(Of TInput, TOutput).ExecuteNonStrict
+- uid: PatternMatching.Match`2.ExecuteNonStrictWithFallthrough(`0)
+  name: ExecuteNonStrictWithFallthrough(TInput)
+  href: api/PatternMatching.Match-2.html#PatternMatching_Match_2_ExecuteNonStrictWithFallthrough__0_
+  commentId: M:PatternMatching.Match`2.ExecuteNonStrictWithFallthrough(`0)
+  fullName: PatternMatching.Match<TInput, TOutput>.ExecuteNonStrictWithFallthrough(TInput)
+  fullName.vb: PatternMatching.Match(Of TInput, TOutput).ExecuteNonStrictWithFallthrough(TInput)
+  nameWithType: Match<TInput, TOutput>.ExecuteNonStrictWithFallthrough(TInput)
+  nameWithType.vb: Match(Of TInput, TOutput).ExecuteNonStrictWithFallthrough(TInput)
+- uid: PatternMatching.Match`2.ExecuteNonStrictWithFallthrough*
+  name: ExecuteNonStrictWithFallthrough
+  href: api/PatternMatching.Match-2.html#PatternMatching_Match_2_ExecuteNonStrictWithFallthrough_
+  commentId: Overload:PatternMatching.Match`2.ExecuteNonStrictWithFallthrough
+  isSpec: "True"
+  fullName: PatternMatching.Match<TInput, TOutput>.ExecuteNonStrictWithFallthrough
+  fullName.vb: PatternMatching.Match(Of TInput, TOutput).ExecuteNonStrictWithFallthrough
+  nameWithType: Match<TInput, TOutput>.ExecuteNonStrictWithFallthrough
+  nameWithType.vb: Match(Of TInput, TOutput).ExecuteNonStrictWithFallthrough
 - uid: PatternMatching.Match`2.ExecuteOn(`0)
   name: ExecuteOn(TInput)
   href: api/PatternMatching.Match-2.html#PatternMatching_Match_2_ExecuteOn__0_
@@ -299,6 +455,23 @@ references:
   fullName.vb: PatternMatching.Match(Of TInput, TOutput).ExecuteOn
   nameWithType: Match<TInput, TOutput>.ExecuteOn
   nameWithType.vb: Match(Of TInput, TOutput).ExecuteOn
+- uid: PatternMatching.Match`2.ExecuteWithFallthrough(`0)
+  name: ExecuteWithFallthrough(TInput)
+  href: api/PatternMatching.Match-2.html#PatternMatching_Match_2_ExecuteWithFallthrough__0_
+  commentId: M:PatternMatching.Match`2.ExecuteWithFallthrough(`0)
+  fullName: PatternMatching.Match<TInput, TOutput>.ExecuteWithFallthrough(TInput)
+  fullName.vb: PatternMatching.Match(Of TInput, TOutput).ExecuteWithFallthrough(TInput)
+  nameWithType: Match<TInput, TOutput>.ExecuteWithFallthrough(TInput)
+  nameWithType.vb: Match(Of TInput, TOutput).ExecuteWithFallthrough(TInput)
+- uid: PatternMatching.Match`2.ExecuteWithFallthrough*
+  name: ExecuteWithFallthrough
+  href: api/PatternMatching.Match-2.html#PatternMatching_Match_2_ExecuteWithFallthrough_
+  commentId: Overload:PatternMatching.Match`2.ExecuteWithFallthrough
+  isSpec: "True"
+  fullName: PatternMatching.Match<TInput, TOutput>.ExecuteWithFallthrough
+  fullName.vb: PatternMatching.Match(Of TInput, TOutput).ExecuteWithFallthrough
+  nameWithType: Match<TInput, TOutput>.ExecuteWithFallthrough
+  nameWithType.vb: Match(Of TInput, TOutput).ExecuteWithFallthrough
 - uid: PatternMatching.Match`2.ToFunction
   name: ToFunction()
   href: api/PatternMatching.Match-2.html#PatternMatching_Match_2_ToFunction
@@ -316,6 +489,57 @@ references:
   fullName.vb: PatternMatching.Match(Of TInput, TOutput).ToFunction
   nameWithType: Match<TInput, TOutput>.ToFunction
   nameWithType.vb: Match(Of TInput, TOutput).ToFunction
+- uid: PatternMatching.Match`2.ToFunctionWithFallthrough
+  name: ToFunctionWithFallthrough()
+  href: api/PatternMatching.Match-2.html#PatternMatching_Match_2_ToFunctionWithFallthrough
+  commentId: M:PatternMatching.Match`2.ToFunctionWithFallthrough
+  fullName: PatternMatching.Match<TInput, TOutput>.ToFunctionWithFallthrough()
+  fullName.vb: PatternMatching.Match(Of TInput, TOutput).ToFunctionWithFallthrough()
+  nameWithType: Match<TInput, TOutput>.ToFunctionWithFallthrough()
+  nameWithType.vb: Match(Of TInput, TOutput).ToFunctionWithFallthrough()
+- uid: PatternMatching.Match`2.ToFunctionWithFallthrough*
+  name: ToFunctionWithFallthrough
+  href: api/PatternMatching.Match-2.html#PatternMatching_Match_2_ToFunctionWithFallthrough_
+  commentId: Overload:PatternMatching.Match`2.ToFunctionWithFallthrough
+  isSpec: "True"
+  fullName: PatternMatching.Match<TInput, TOutput>.ToFunctionWithFallthrough
+  fullName.vb: PatternMatching.Match(Of TInput, TOutput).ToFunctionWithFallthrough
+  nameWithType: Match<TInput, TOutput>.ToFunctionWithFallthrough
+  nameWithType.vb: Match(Of TInput, TOutput).ToFunctionWithFallthrough
+- uid: PatternMatching.Match`2.ToNonStrictFunction
+  name: ToNonStrictFunction()
+  href: api/PatternMatching.Match-2.html#PatternMatching_Match_2_ToNonStrictFunction
+  commentId: M:PatternMatching.Match`2.ToNonStrictFunction
+  fullName: PatternMatching.Match<TInput, TOutput>.ToNonStrictFunction()
+  fullName.vb: PatternMatching.Match(Of TInput, TOutput).ToNonStrictFunction()
+  nameWithType: Match<TInput, TOutput>.ToNonStrictFunction()
+  nameWithType.vb: Match(Of TInput, TOutput).ToNonStrictFunction()
+- uid: PatternMatching.Match`2.ToNonStrictFunction*
+  name: ToNonStrictFunction
+  href: api/PatternMatching.Match-2.html#PatternMatching_Match_2_ToNonStrictFunction_
+  commentId: Overload:PatternMatching.Match`2.ToNonStrictFunction
+  isSpec: "True"
+  fullName: PatternMatching.Match<TInput, TOutput>.ToNonStrictFunction
+  fullName.vb: PatternMatching.Match(Of TInput, TOutput).ToNonStrictFunction
+  nameWithType: Match<TInput, TOutput>.ToNonStrictFunction
+  nameWithType.vb: Match(Of TInput, TOutput).ToNonStrictFunction
+- uid: PatternMatching.Match`2.ToNonStrictFunctionWithFallthrough
+  name: ToNonStrictFunctionWithFallthrough()
+  href: api/PatternMatching.Match-2.html#PatternMatching_Match_2_ToNonStrictFunctionWithFallthrough
+  commentId: M:PatternMatching.Match`2.ToNonStrictFunctionWithFallthrough
+  fullName: PatternMatching.Match<TInput, TOutput>.ToNonStrictFunctionWithFallthrough()
+  fullName.vb: PatternMatching.Match(Of TInput, TOutput).ToNonStrictFunctionWithFallthrough()
+  nameWithType: Match<TInput, TOutput>.ToNonStrictFunctionWithFallthrough()
+  nameWithType.vb: Match(Of TInput, TOutput).ToNonStrictFunctionWithFallthrough()
+- uid: PatternMatching.Match`2.ToNonStrictFunctionWithFallthrough*
+  name: ToNonStrictFunctionWithFallthrough
+  href: api/PatternMatching.Match-2.html#PatternMatching_Match_2_ToNonStrictFunctionWithFallthrough_
+  commentId: Overload:PatternMatching.Match`2.ToNonStrictFunctionWithFallthrough
+  isSpec: "True"
+  fullName: PatternMatching.Match<TInput, TOutput>.ToNonStrictFunctionWithFallthrough
+  fullName.vb: PatternMatching.Match(Of TInput, TOutput).ToNonStrictFunctionWithFallthrough
+  nameWithType: Match<TInput, TOutput>.ToNonStrictFunctionWithFallthrough
+  nameWithType.vb: Match(Of TInput, TOutput).ToNonStrictFunctionWithFallthrough
 - uid: PatternMatching.MatchException
   name: MatchException
   href: api/PatternMatching.MatchException.html

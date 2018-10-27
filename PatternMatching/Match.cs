@@ -15,8 +15,26 @@
 		/// <returns>
 		/// A matcher which specifies the patterns to match with and functions which are executed.
 		/// </returns>
+		/// <seealso cref="Create{TInput, TOutput}(bool)" />
+		/// <seealso cref="Create{TInput}()" />
+		/// <seealso cref="Create{TInput}(bool)" />
 		public static Match<TInput, TOutput> Create<TInput, TOutput>()
-			=> new Match<TInput, TOutput>();
+			=> new Match<TInput, TOutput>(fallthroughByDefault: false);
+
+		/// <summary>
+		/// Creates a match expression.
+		/// </summary>
+		/// <typeparam name="TInput">The type of the input value.</typeparam>
+		/// <typeparam name="TOutput">The type of the result.</typeparam>
+		/// <param name="fallthroughByDefault">The default fallthrough behaviour.</param>
+		/// <returns>
+		/// A matcher which specifies the patterns to match with and functions which are executed.
+		/// </returns>
+		/// <seealso cref="Create{TInput, TOutput}()" />
+		/// <seealso cref="Create{TInput}()" />
+		/// <seealso cref="Create{TInput}(bool)" />
+		public static Match<TInput, TOutput> Create<TInput, TOutput>(bool fallthroughByDefault)
+			=> new Match<TInput, TOutput>(fallthroughByDefault);
 
 		/// <summary>
 		/// Creates a match statement.
@@ -25,7 +43,24 @@
 		/// <returns>
 		/// A matcher which specifies the patterns to match with and actions which are executed.
 		/// </returns>
+		/// <seealso cref="Create{TInput, TOutput}()" />
+		/// <seealso cref="Create{TInput, TOutput}(bool)" />
+		/// <seealso cref="Create{TInput}(bool)" />
 		public static Match<TInput> Create<TInput>()
-			=> new Match<TInput>();
+			=> new Match<TInput>(fallthroughByDefault: false);
+
+		/// <summary>
+		/// Creates a match statement with the specified default fallthrough behaviour.
+		/// </summary>
+		/// <typeparam name="TInput">The type of the input value.</typeparam>
+		/// <param name="fallthroughByDefault">The default fallthrough behaviour.</param>
+		/// <returns>
+		/// A matcher which specifies the patterns to match with and actions which are executed.
+		/// </returns>
+		/// <seealso cref="Create{TInput, TOutput}()" />
+		/// <seealso cref="Create{TInput, TOutput}(bool)" />
+		/// <seealso cref="Create{TInput}()" />
+		public static Match<TInput> Create<TInput>(bool fallthroughByDefault)
+			=> new Match<TInput>(fallthroughByDefault);
 	}
 }

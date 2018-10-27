@@ -90,6 +90,23 @@
             <returns>
             A matcher which specifies the patterns to match with and functions which are executed.
             </returns>
+            <seealso cref="M:PatternMatching.Match.Create``2(System.Boolean)" />
+            <seealso cref="M:PatternMatching.Match.Create``1" />
+            <seealso cref="M:PatternMatching.Match.Create``1(System.Boolean)" />
+        </member>
+        <member name="M:PatternMatching.Match.Create``2(System.Boolean)">
+            <summary>
+            Creates a match expression.
+            </summary>
+            <typeparam name="TInput">The type of the input value.</typeparam>
+            <typeparam name="TOutput">The type of the result.</typeparam>
+            <param name="fallthroughByDefault">The default fallthrough behaviour.</param>
+            <returns>
+            A matcher which specifies the patterns to match with and functions which are executed.
+            </returns>
+            <seealso cref="M:PatternMatching.Match.Create``2" />
+            <seealso cref="M:PatternMatching.Match.Create``1" />
+            <seealso cref="M:PatternMatching.Match.Create``1(System.Boolean)" />
         </member>
         <member name="M:PatternMatching.Match.Create``1">
             <summary>
@@ -99,6 +116,22 @@
             <returns>
             A matcher which specifies the patterns to match with and actions which are executed.
             </returns>
+            <seealso cref="M:PatternMatching.Match.Create``2" />
+            <seealso cref="M:PatternMatching.Match.Create``2(System.Boolean)" />
+            <seealso cref="M:PatternMatching.Match.Create``1(System.Boolean)" />
+        </member>
+        <member name="M:PatternMatching.Match.Create``1(System.Boolean)">
+            <summary>
+            Creates a match statement with the specified default fallthrough behaviour.
+            </summary>
+            <typeparam name="TInput">The type of the input value.</typeparam>
+            <param name="fallthroughByDefault">The default fallthrough behaviour.</param>
+            <returns>
+            A matcher which specifies the patterns to match with and actions which are executed.
+            </returns>
+            <seealso cref="M:PatternMatching.Match.Create``2" />
+            <seealso cref="M:PatternMatching.Match.Create``2(System.Boolean)" />
+            <seealso cref="M:PatternMatching.Match.Create``1" />
         </member>
         <member name="T:PatternMatching.MatchException">
             <summary>
@@ -147,21 +180,28 @@
             The list of patterns that will be matched in this expression.
             </summary>
             <remarks>
-            This list contains value tuples which contain the pattern and the action which is to be executed
-            if the pattern is matched successfully.
+            This list contains value tuples which contain the pattern, the fallthrough behaviour,
+            and the action which is to be executed if the pattern is matched successfully.
             </remarks>
         </member>
-        <member name="M:PatternMatching.Match`1.#ctor">
+        <member name="F:PatternMatching.Match`1.fallthroughByDefault">
+            <summary>
+            The default fallthrough behaviour.
+            </summary>
+        </member>
+        <member name="M:PatternMatching.Match`1.#ctor(System.Boolean)">
             <summary>
             Initializes a new instance of the <see cref="T:PatternMatching.Match`1" /> class.
             </summary>
+            <param name="fallthroughByDefault">The default fallthrough behaviour.</param>
         </member>
-        <member name="M:PatternMatching.Match`1.#ctor(LanguageExt.Lst{System.Object})">
+        <member name="M:PatternMatching.Match`1.#ctor(LanguageExt.Lst{System.Object},System.Boolean)">
             <summary>
             Initializes a new instance of the <see cref="T:PatternMatching.Match`1" /> class
             with the specified patterns.
             </summary>
             <param name="patterns">The patterns of this expression.</param>
+            <param name="fallthroughByDefault">The default fallthrough behaviour.</param>
         </member>
         <member name="M:PatternMatching.Match`1.Case``1(PatternMatching.IPattern{`0,``0},System.Action{``0})">
             <summary>
@@ -170,6 +210,23 @@
             </summary>
             <typeparam name="TMatchResult">The type of the result of the pattern's match.</typeparam>
             <param name="pattern">The pattern to match with.</param>
+            <param name="action">The action to execute if the match is successful.</param>
+            <returns>
+            A new matcher which includes the specified pattern and action to execute if this
+            pattern is matched successfully.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="pattern" /> or <paramref name="action" /> is <see langword="null" />.
+            </exception>
+        </member>
+        <member name="M:PatternMatching.Match`1.Case``1(PatternMatching.IPattern{`0,``0},System.Boolean,System.Action{``0})">
+            <summary>
+            Returns a new matcher which includes the specified pattern and action to execute if this
+            pattern is matched successfully.
+            </summary>
+            <typeparam name="TMatchResult">The type of the result of the pattern's match.</typeparam>
+            <param name="pattern">The pattern to match with.</param>
+            <param name="fallthrough">The fallthrough behaviour.</param>
             <param name="action">The action to execute if the match is successful.</param>
             <returns>
             A new matcher which includes the specified pattern and action to execute if this
@@ -194,6 +251,22 @@
             <paramref name="action" /> is <see langword="null" />.
             </exception>
         </member>
+        <member name="M:PatternMatching.Match`1.Case``1(System.Boolean,System.Action{``0})">
+            <summary>
+            Returns a new matcher which includes the pattern for the specified type and action to execute if this
+            pattern is matched successfully.
+            </summary>
+            <typeparam name="TType">The type of the result of the pattern's match.</typeparam>
+            <param name="fallthrough">The fallthrough behaviour.</param>
+            <param name="action">The action to execute if the match is successful.</param>
+            <returns>
+            A new matcher which includes the type pattern and action to execute if this
+            pattern is matched successfully.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="action" /> is <see langword="null" />.
+            </exception>
+        </member>
         <member name="M:PatternMatching.Match`1.ExecuteOn(`0)">
             <summary>
             Executes the match expression on the specified input.
@@ -208,9 +281,11 @@
             It is used because the conventional approach uses lambda expressions,
             and those are forbidden to use with dynamic types.
             </remarks>
-            <seealso cref="M:PatternMatching.Match`1.ExecuteOnStrict(`0)" />
+            <seealso cref="M:PatternMatching.Match`1.ExecuteStrict(`0)" />
+            <seealso cref="M:PatternMatching.Match`1.ExecuteWithFallthrough(`0)" />
+            <seealso cref="M:PatternMatching.Match`1.ExecuteStrictWithFallthrough(`0)" />
         </member>
-        <member name="M:PatternMatching.Match`1.ExecuteOnStrict(`0)">
+        <member name="M:PatternMatching.Match`1.ExecuteStrict(`0)">
             <summary>
             Executes the match expression strictly on the specified input.
             </summary>
@@ -219,18 +294,110 @@
             The match failed for all cases.
             </exception>
             <seealso cref="M:PatternMatching.Match`1.ExecuteOn(`0)" />
+            <seealso cref="M:PatternMatching.Match`1.ExecuteWithFallthrough(`0)" />
+            <seealso cref="M:PatternMatching.Match`1.ExecuteStrictWithFallthrough(`0)" />
+            <seealso cref="M:PatternMatching.Match`1.ToFunction" />
+            <seealso cref="M:PatternMatching.Match`1.ToStrictFunction" />
+            <seealso cref="M:PatternMatching.Match`1.ToFunctionWithFallthrough" />
+            <seealso cref="M:PatternMatching.Match`1.ToStrictFunctionWithFallthrough" />
+        </member>
+        <member name="M:PatternMatching.Match`1.ExecuteWithFallthrough(`0)">
+            <summary>
+            Executes the match expression on the specified input with fallthrough.
+            </summary>
+            <param name="input">The input value of the expression.</param>
+            <returns>
+            The number of patterns that were matched successfully.
+            </returns>
+            <remarks>
+            This method uses some non-conventional manipulation of the option type.
+            It is used because the conventional approach uses lambda expressions,
+            and those are forbidden to use with dynamic types.
+            </remarks>
+            <seealso cref="M:PatternMatching.Match`1.ExecuteOn(`0)" />
+            <seealso cref="M:PatternMatching.Match`1.ExecuteStrict(`0)" />
+            <seealso cref="M:PatternMatching.Match`1.ExecuteStrictWithFallthrough(`0)" />
+            <seealso cref="M:PatternMatching.Match`1.ToFunction" />
+            <seealso cref="M:PatternMatching.Match`1.ToStrictFunction" />
+            <seealso cref="M:PatternMatching.Match`1.ToFunctionWithFallthrough" />
+            <seealso cref="M:PatternMatching.Match`1.ToStrictFunctionWithFallthrough" />
+        </member>
+        <member name="M:PatternMatching.Match`1.ExecuteStrictWithFallthrough(`0)">
+            <summary>
+            Executes the match expression strictly on the specified input with fallthrough.
+            </summary>
+            <param name="input">The input value of the expression.</param>
+            <returns>
+            The number of patterns that were matched successfully.
+            </returns>
+            <exception cref="T:PatternMatching.MatchException">
+            The match failed for all cases.
+            </exception>
+            <remarks>
+            This method uses some non-conventional manipulation of the option type.
+            It is used because the conventional approach uses lambda expressions,
+            and those are forbidden to use with dynamic types.
+            </remarks>
+            <seealso cref="M:PatternMatching.Match`1.ExecuteOn(`0)" />
+            <seealso cref="M:PatternMatching.Match`1.ExecuteStrict(`0)" />
+            <seealso cref="M:PatternMatching.Match`1.ExecuteWithFallthrough(`0)" />
+            <seealso cref="M:PatternMatching.Match`1.ExecuteStrictWithFallthrough(`0)" />
+            <seealso cref="M:PatternMatching.Match`1.ToFunction" />
+            <seealso cref="M:PatternMatching.Match`1.ToStrictFunction" />
+            <seealso cref="M:PatternMatching.Match`1.ToFunctionWithFallthrough" />
+            <seealso cref="M:PatternMatching.Match`1.ToStrictFunctionWithFallthrough" />
         </member>
         <member name="M:PatternMatching.Match`1.ToFunction">
             <summary>
-            Compiles this matcher into a function which, when called, will match the specified value.
+            Returns a function which, when called, will match the specified value.
             </summary>
             <returns>A function which, when called, will match the specified value.</returns>
+            <seealso cref="M:PatternMatching.Match`1.ExecuteOn(`0)" />
+            <seealso cref="M:PatternMatching.Match`1.ExecuteStrict(`0)" />
+            <seealso cref="M:PatternMatching.Match`1.ExecuteWithFallthrough(`0)" />
+            <seealso cref="M:PatternMatching.Match`1.ExecuteStrictWithFallthrough(`0)" />
+            <seealso cref="M:PatternMatching.Match`1.ToStrictFunction" />
+            <seealso cref="M:PatternMatching.Match`1.ToFunctionWithFallthrough" />
+            <seealso cref="M:PatternMatching.Match`1.ToStrictFunctionWithFallthrough" />
         </member>
         <member name="M:PatternMatching.Match`1.ToStrictFunction">
             <summary>
-            Compiles this matcher into an action which, when called, will match the specified value.
+            Returns an action which, when called, will match the specified value strictly.
             </summary>
             <returns>An action which, when called, will match the specified value.</returns>
+            <seealso cref="M:PatternMatching.Match`1.ExecuteOn(`0)" />
+            <seealso cref="M:PatternMatching.Match`1.ExecuteStrict(`0)" />
+            <seealso cref="M:PatternMatching.Match`1.ExecuteWithFallthrough(`0)" />
+            <seealso cref="M:PatternMatching.Match`1.ExecuteStrictWithFallthrough(`0)" />
+            <seealso cref="M:PatternMatching.Match`1.ToFunction" />
+            <seealso cref="M:PatternMatching.Match`1.ToFunctionWithFallthrough" />
+            <seealso cref="M:PatternMatching.Match`1.ToStrictFunctionWithFallthrough" />
+        </member>
+        <member name="M:PatternMatching.Match`1.ToFunctionWithFallthrough">
+            <summary>
+            Returns a function which, when called, will match the specified value with fallthrough.
+            </summary>
+            <returns>A function which, when called, will match the specified value.</returns>
+            <seealso cref="M:PatternMatching.Match`1.ExecuteOn(`0)" />
+            <seealso cref="M:PatternMatching.Match`1.ExecuteStrict(`0)" />
+            <seealso cref="M:PatternMatching.Match`1.ExecuteWithFallthrough(`0)" />
+            <seealso cref="M:PatternMatching.Match`1.ExecuteStrictWithFallthrough(`0)" />
+            <seealso cref="M:PatternMatching.Match`1.ToFunction" />
+            <seealso cref="M:PatternMatching.Match`1.ToStrictFunction" />
+            <seealso cref="M:PatternMatching.Match`1.ToStrictFunctionWithFallthrough" />
+        </member>
+        <member name="M:PatternMatching.Match`1.ToStrictFunctionWithFallthrough">
+            <summary>
+            Returns a function which, when called, will match the specified value strictly with fallthrough.
+            </summary>
+            <returns>An action which, when called, will match the specified value.</returns>
+            <seealso cref="M:PatternMatching.Match`1.ExecuteOn(`0)" />
+            <seealso cref="M:PatternMatching.Match`1.ExecuteStrict(`0)" />
+            <seealso cref="M:PatternMatching.Match`1.ExecuteWithFallthrough(`0)" />
+            <seealso cref="M:PatternMatching.Match`1.ExecuteStrictWithFallthrough(`0)" />
+            <seealso cref="M:PatternMatching.Match`1.ToFunction" />
+            <seealso cref="M:PatternMatching.Match`1.ToStrictFunction" />
+            <seealso cref="M:PatternMatching.Match`1.ToFunctionWithFallthrough" />
         </member>
         <member name="T:PatternMatching.Match`2">
             <summary>
@@ -247,21 +414,28 @@
             The list of patterns that will be matched in this expression.
             </summary>
             <remarks>
-            This list contains value tuples which contain the pattern and the function which is to be executed
-            if the pattern is matched successfully.
+            This list contains value tuples which contain the pattern, the fallthrough behaviour,
+            and the action which is to be executed if the pattern is matched successfully.
             </remarks>
         </member>
-        <member name="M:PatternMatching.Match`2.#ctor">
+        <member name="F:PatternMatching.Match`2.fallthroughByDefault">
+            <summary>
+            The default fallthrough behaviour.
+            </summary>
+        </member>
+        <member name="M:PatternMatching.Match`2.#ctor(System.Boolean)">
             <summary>
             Initializes a new instance of the <see cref="T:PatternMatching.Match`2" /> class.
             </summary>
+            <param name="fallthroughByDefault">The default fallthrough behaviour.</param>
         </member>
-        <member name="M:PatternMatching.Match`2.#ctor(LanguageExt.Lst{System.Object})">
+        <member name="M:PatternMatching.Match`2.#ctor(LanguageExt.Lst{System.Object},System.Boolean)">
             <summary>
             Initializes a new instance of the <see cref="T:PatternMatching.Match`2" /> class
             with the specified patterns.
             </summary>
             <param name="patterns">The patterns of this expression.</param>
+            <param name="fallthroughByDefault">The default fallthrough behaviour.</param>
         </member>
         <member name="M:PatternMatching.Match`2.Case``1(PatternMatching.IPattern{`0,``0},System.Func{``0,`1})">
             <summary>
@@ -270,6 +444,23 @@
             </summary>
             <typeparam name="TMatchResult">The type of the result of the pattern's match.</typeparam>
             <param name="pattern">The pattern to match with.</param>
+            <param name="func">The function to execute if the match is successful.</param>
+            <returns>
+            A new matcher which includes the specified pattern and function to execute if this
+            pattern is matched successfully.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="pattern" /> or <paramref name="func" /> is <see langword="null" />.
+            </exception>
+        </member>
+        <member name="M:PatternMatching.Match`2.Case``1(PatternMatching.IPattern{`0,``0},System.Boolean,System.Func{``0,`1})">
+            <summary>
+            Returns a new matcher which includes the specified pattern and function to execute if this
+            pattern is matched successfully.
+            </summary>
+            <typeparam name="TMatchResult">The type of the result of the pattern's match.</typeparam>
+            <param name="pattern">The pattern to match with.</param>
+            <param name="fallthrough">The fallthrough behaviour.</param>
             <param name="func">The function to execute if the match is successful.</param>
             <returns>
             A new matcher which includes the specified pattern and function to execute if this
@@ -294,6 +485,22 @@
             <paramref name="func" /> is <see langword="null" />.
             </exception>
         </member>
+        <member name="M:PatternMatching.Match`2.Case``1(System.Boolean,System.Func{``0,`1})">
+            <summary>
+            Returns a new matcher which includes the pattern for the specified type and function to execute if this
+            pattern is matched successfully.
+            </summary>
+            <typeparam name="TType">The type of the result of the pattern's match.</typeparam>
+            <param name="fallthrough">The fallthrough behaviour.</param>
+            <param name="func">The function to execute if the match is successful.</param>
+            <returns>
+            A new matcher which includes the type pattern and function to execute if this
+            pattern is matched successfully.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="func" /> is <see langword="null" />.
+            </exception>
+        </member>
         <member name="M:PatternMatching.Match`2.ExecuteOn(`0)">
             <summary>
             Executes the match expression on the specified input and returns the result.
@@ -308,12 +515,128 @@
             It is used because the conventional approach uses lambda expressions,
             and those are forbidden to use with dynamic types.
             </remarks>
+            <seealso cref="M:PatternMatching.Match`2.ExecuteNonStrict(`0)" />
+            <seealso cref="M:PatternMatching.Match`2.ExecuteWithFallthrough(`0)" />
+            <seealso cref="M:PatternMatching.Match`2.ExecuteNonStrictWithFallthrough(`0)" />
+            <seealso cref="M:PatternMatching.Match`2.ToFunction" />
+            <seealso cref="M:PatternMatching.Match`2.ToNonStrictFunction" />
+            <seealso cref="M:PatternMatching.Match`2.ToFunctionWithFallthrough" />
+            <seealso cref="M:PatternMatching.Match`2.ToNonStrictFunctionWithFallthrough" />
+        </member>
+        <member name="M:PatternMatching.Match`2.ExecuteNonStrict(`0)">
+            <summary>
+            Executes the match expression on the specified input and returns the result.
+            </summary>
+            <param name="input">The input value of the expression.</param>
+            <returns>The result of the match expression, or nothing if no pattern was matched successfully.</returns>
+            <remarks>
+            This method uses some non-conventional manipulation of the option type.
+            It is used because the conventional approach uses lambda expressions,
+            and those are forbidden to use with dynamic types.
+            </remarks>
+            <seealso cref="M:PatternMatching.Match`2.ExecuteOn(`0)" />
+            <seealso cref="M:PatternMatching.Match`2.ExecuteWithFallthrough(`0)" />
+            <seealso cref="M:PatternMatching.Match`2.ExecuteNonStrictWithFallthrough(`0)" />
+            <seealso cref="M:PatternMatching.Match`2.ToFunction" />
+            <seealso cref="M:PatternMatching.Match`2.ToNonStrictFunction" />
+            <seealso cref="M:PatternMatching.Match`2.ToFunctionWithFallthrough" />
+            <seealso cref="M:PatternMatching.Match`2.ToNonStrictFunctionWithFallthrough" />
+        </member>
+        <member name="M:PatternMatching.Match`2.ExecuteWithFallthrough(`0)">
+            <summary>
+            Executes the match expression on the specified input with fallthrough and returns a list of results.
+            </summary>
+            <param name="input">The input value of the expression.</param>
+            <returns>The list of results of the match expression.</returns>
+            <exception cref="T:PatternMatching.MatchException">
+            The match failed for all cases.
+            </exception>
+            <remarks>
+            This method uses some non-conventional manipulation of the option type.
+            It is used because the conventional approach uses lambda expressions,
+            and those are forbidden to use with dynamic types.
+            </remarks>
+            <seealso cref="M:PatternMatching.Match`2.ExecuteOn(`0)" />
+            <seealso cref="M:PatternMatching.Match`2.ExecuteNonStrict(`0)" />
+            <seealso cref="M:PatternMatching.Match`2.ExecuteNonStrictWithFallthrough(`0)" />
+            <seealso cref="M:PatternMatching.Match`2.ToFunction" />
+            <seealso cref="M:PatternMatching.Match`2.ToNonStrictFunction" />
+            <seealso cref="M:PatternMatching.Match`2.ToFunctionWithFallthrough" />
+            <seealso cref="M:PatternMatching.Match`2.ToNonStrictFunctionWithFallthrough" />
+        </member>
+        <member name="M:PatternMatching.Match`2.ExecuteNonStrictWithFallthrough(`0)">
+            <summary>
+            Executes the match expression on the specified input with fallthrough and returns a list of results.
+            </summary>
+            <param name="input">The input value of the expression.</param>
+            <returns>
+            The list of results of the match expression, which is empty if no pattern is matched successfully.
+            </returns>
+            <remarks>
+            This method uses some non-conventional manipulation of the option type.
+            It is used because the conventional approach uses lambda expressions,
+            and those are forbidden to use with dynamic types.
+            </remarks>
+            <seealso cref="M:PatternMatching.Match`2.ExecuteOn(`0)" />
+            <seealso cref="M:PatternMatching.Match`2.ExecuteNonStrict(`0)" />
+            <seealso cref="M:PatternMatching.Match`2.ExecuteWithFallthrough(`0)" />
+            <seealso cref="M:PatternMatching.Match`2.ToFunction" />
+            <seealso cref="M:PatternMatching.Match`2.ToNonStrictFunction" />
+            <seealso cref="M:PatternMatching.Match`2.ToFunctionWithFallthrough" />
+            <seealso cref="M:PatternMatching.Match`2.ToNonStrictFunctionWithFallthrough" />
         </member>
         <member name="M:PatternMatching.Match`2.ToFunction">
             <summary>
-            Compiles this matcher into a function which, when called, will match the specified value.
+            Returns a function which, when called, will match the specified value.
             </summary>
             <returns>A function which, when called, will match the specified value.</returns>
+            <seealso cref="M:PatternMatching.Match`2.ExecuteOn(`0)" />
+            <seealso cref="M:PatternMatching.Match`2.ExecuteNonStrict(`0)" />
+            <seealso cref="M:PatternMatching.Match`2.ExecuteWithFallthrough(`0)" />
+            <seealso cref="M:PatternMatching.Match`2.ExecuteNonStrictWithFallthrough(`0)" />
+            <seealso cref="M:PatternMatching.Match`2.ToNonStrictFunction" />
+            <seealso cref="M:PatternMatching.Match`2.ToFunctionWithFallthrough" />
+            <seealso cref="M:PatternMatching.Match`2.ToNonStrictFunctionWithFallthrough" />
+        </member>
+        <member name="M:PatternMatching.Match`2.ToNonStrictFunction">
+            <summary>
+            Returns a function which, when called, will match the specified value.
+            </summary>
+            <returns>A function which, when called, will match the specified value.</returns>
+            <seealso cref="M:PatternMatching.Match`2.ExecuteOn(`0)" />
+            <seealso cref="M:PatternMatching.Match`2.ExecuteNonStrict(`0)" />
+            <seealso cref="M:PatternMatching.Match`2.ExecuteWithFallthrough(`0)" />
+            <seealso cref="M:PatternMatching.Match`2.ExecuteNonStrictWithFallthrough(`0)" />
+            <seealso cref="M:PatternMatching.Match`2.ToFunction" />
+            <seealso cref="M:PatternMatching.Match`2.ToFunctionWithFallthrough" />
+            <seealso cref="M:PatternMatching.Match`2.ToNonStrictFunctionWithFallthrough" />
+        </member>
+        <member name="M:PatternMatching.Match`2.ToFunctionWithFallthrough">
+            <summary>
+            Returns a function which, when called, will match the specified value.
+            </summary>
+            <returns>A function which, when called, will match the specified value.</returns>
+            <seealso cref="M:PatternMatching.Match`2.ExecuteOn(`0)" />
+            <seealso cref="M:PatternMatching.Match`2.ExecuteNonStrict(`0)" />
+            <seealso cref="M:PatternMatching.Match`2.ExecuteWithFallthrough(`0)" />
+            <seealso cref="M:PatternMatching.Match`2.ExecuteNonStrictWithFallthrough(`0)" />
+            <seealso cref="M:PatternMatching.Match`2.ToFunction" />
+            <seealso cref="M:PatternMatching.Match`2.ToNonStrictFunction" />
+            <seealso cref="M:PatternMatching.Match`2.ToFunctionWithFallthrough" />
+            <seealso cref="M:PatternMatching.Match`2.ToNonStrictFunctionWithFallthrough" />
+        </member>
+        <member name="M:PatternMatching.Match`2.ToNonStrictFunctionWithFallthrough">
+            <summary>
+            Returns a function which, when called, will match the specified value.
+            </summary>
+            <returns>A function which, when called, will match the specified value.</returns>
+            <seealso cref="M:PatternMatching.Match`2.ExecuteOn(`0)" />
+            <seealso cref="M:PatternMatching.Match`2.ExecuteNonStrict(`0)" />
+            <seealso cref="M:PatternMatching.Match`2.ExecuteWithFallthrough(`0)" />
+            <seealso cref="M:PatternMatching.Match`2.ExecuteNonStrictWithFallthrough(`0)" />
+            <seealso cref="M:PatternMatching.Match`2.ToFunction" />
+            <seealso cref="M:PatternMatching.Match`2.ToNonStrictFunction" />
+            <seealso cref="M:PatternMatching.Match`2.ToFunctionWithFallthrough" />
         </member>
         <member name="T:PatternMatching.Pattern">
             <summary>
