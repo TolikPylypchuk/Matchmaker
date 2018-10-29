@@ -5,7 +5,8 @@
 What's new in version 1.1:
 
 - `Matcher` classes renamed to `Match` (breaking change).
-- OptionUnsafe is now used instead of `Option` in patterns to fully support `null` values (breaking change).
+- `OptionUnsafe` is now used instead of `Option` in patterns to fully support `null` values (breaking change).
+- Implemented matching with fallthrough
 - Added two new patterns - `Null` for classes and `StructNull` for nullable structs.
 
 Although there are several breaking changes, the major version is not incremented, as these changes
