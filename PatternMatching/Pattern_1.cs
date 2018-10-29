@@ -73,8 +73,6 @@ namespace PatternMatching
 		/// <paramref name="pattern" /> is <see langword="null" />.
 		/// </exception>
 		public static SimplePattern<TInput> operator ~(Pattern<TInput, TMatchResult> pattern)
-			=> pattern != null
-				? Pattern.Not(pattern)
-				: throw new ArgumentNullException(nameof(pattern));
+			=> Pattern.Not(pattern);
 	}
 }

@@ -125,14 +125,6 @@ namespace PatternMatching
 		/// <see langword="true" />, if the match was successful.
 		/// Otherwise, <see langword="false" />.
 		/// </returns>
-		/// <remarks>
-		/// This method uses some non-conventional manipulation of the option type.
-		/// It is used because the conventional approach uses lambda expressions,
-		/// and those are forbidden to use with dynamic types.
-		/// </remarks>
-		/// <seealso cref="ExecuteStrict(TInput)" />
-		/// <seealso cref="ExecuteWithFallthrough(TInput)" />
-		/// <seealso cref="ExecuteStrictWithFallthrough(TInput)" />
 		public bool ExecuteOn(TInput input)
 		{
 			foreach (var pattern in this.patterns)
@@ -155,13 +147,6 @@ namespace PatternMatching
 		/// <exception cref="MatchException">
 		/// The match failed for all cases.
 		/// </exception>
-		/// <seealso cref="ExecuteOn(TInput)" />
-		/// <seealso cref="ExecuteWithFallthrough(TInput)" />
-		/// <seealso cref="ExecuteStrictWithFallthrough(TInput)" />
-		/// <seealso cref="ToFunction" />
-		/// <seealso cref="ToStrictFunction" />
-		/// <seealso cref="ToFunctionWithFallthrough" />
-		/// <seealso cref="ToStrictFunctionWithFallthrough" />
 		public void ExecuteStrict(TInput input)
 		{
 			bool isMatched = this.ExecuteOn(input);
@@ -179,18 +164,6 @@ namespace PatternMatching
 		/// <returns>
 		/// The number of patterns that were matched successfully.
 		/// </returns>
-		/// <remarks>
-		/// This method uses some non-conventional manipulation of the option type.
-		/// It is used because the conventional approach uses lambda expressions,
-		/// and those are forbidden to use with dynamic types.
-		/// </remarks>
-		/// <seealso cref="ExecuteOn(TInput)" />
-		/// <seealso cref="ExecuteStrict(TInput)" />
-		/// <seealso cref="ExecuteStrictWithFallthrough(TInput)" />
-		/// <seealso cref="ToFunction" />
-		/// <seealso cref="ToStrictFunction" />
-		/// <seealso cref="ToFunctionWithFallthrough" />
-		/// <seealso cref="ToStrictFunctionWithFallthrough" />
 		public int ExecuteWithFallthrough(TInput input)
 		{
 			int numberOfMatches = 0;
@@ -221,19 +194,6 @@ namespace PatternMatching
 		/// <exception cref="MatchException">
 		/// The match failed for all cases.
 		/// </exception>
-		/// <remarks>
-		/// This method uses some non-conventional manipulation of the option type.
-		/// It is used because the conventional approach uses lambda expressions,
-		/// and those are forbidden to use with dynamic types.
-		/// </remarks>
-		/// <seealso cref="ExecuteOn(TInput)" />
-		/// <seealso cref="ExecuteStrict(TInput)" />
-		/// <seealso cref="ExecuteWithFallthrough(TInput)" />
-		/// <seealso cref="ExecuteStrictWithFallthrough(TInput)" />
-		/// <seealso cref="ToFunction" />
-		/// <seealso cref="ToStrictFunction" />
-		/// <seealso cref="ToFunctionWithFallthrough" />
-		/// <seealso cref="ToStrictFunctionWithFallthrough" />
 		public int ExecuteStrictWithFallthrough(TInput input)
 		{
 			int numberOfMatches = this.ExecuteWithFallthrough(input);
@@ -250,13 +210,6 @@ namespace PatternMatching
 		/// Returns a function which, when called, will match the specified value.
 		/// </summary>
 		/// <returns>A function which, when called, will match the specified value.</returns>
-		/// <seealso cref="ExecuteOn(TInput)" />
-		/// <seealso cref="ExecuteStrict(TInput)" />
-		/// <seealso cref="ExecuteWithFallthrough(TInput)" />
-		/// <seealso cref="ExecuteStrictWithFallthrough(TInput)" />
-		/// <seealso cref="ToStrictFunction" />
-		/// <seealso cref="ToFunctionWithFallthrough" />
-		/// <seealso cref="ToStrictFunctionWithFallthrough" />
 		public Func<TInput, bool> ToFunction()
 			=> this.ExecuteOn;
 
@@ -264,13 +217,6 @@ namespace PatternMatching
 		/// Returns an action which, when called, will match the specified value strictly.
 		/// </summary>
 		/// <returns>An action which, when called, will match the specified value.</returns>
-		/// <seealso cref="ExecuteOn(TInput)" />
-		/// <seealso cref="ExecuteStrict(TInput)" />
-		/// <seealso cref="ExecuteWithFallthrough(TInput)" />
-		/// <seealso cref="ExecuteStrictWithFallthrough(TInput)" />
-		/// <seealso cref="ToFunction" />
-		/// <seealso cref="ToFunctionWithFallthrough" />
-		/// <seealso cref="ToStrictFunctionWithFallthrough" />
 		public Action<TInput> ToStrictFunction()
 			=> this.ExecuteStrict;
 
@@ -278,13 +224,6 @@ namespace PatternMatching
 		/// Returns a function which, when called, will match the specified value with fallthrough.
 		/// </summary>
 		/// <returns>A function which, when called, will match the specified value.</returns>
-		/// <seealso cref="ExecuteOn(TInput)" />
-		/// <seealso cref="ExecuteStrict(TInput)" />
-		/// <seealso cref="ExecuteWithFallthrough(TInput)" />
-		/// <seealso cref="ExecuteStrictWithFallthrough(TInput)" />
-		/// <seealso cref="ToFunction" />
-		/// <seealso cref="ToStrictFunction" />
-		/// <seealso cref="ToStrictFunctionWithFallthrough" />
 		public Func<TInput, int> ToFunctionWithFallthrough()
 			=> this.ExecuteWithFallthrough;
 
@@ -292,13 +231,6 @@ namespace PatternMatching
 		/// Returns a function which, when called, will match the specified value strictly with fallthrough.
 		/// </summary>
 		/// <returns>An action which, when called, will match the specified value.</returns>
-		/// <seealso cref="ExecuteOn(TInput)" />
-		/// <seealso cref="ExecuteStrict(TInput)" />
-		/// <seealso cref="ExecuteWithFallthrough(TInput)" />
-		/// <seealso cref="ExecuteStrictWithFallthrough(TInput)" />
-		/// <seealso cref="ToFunction" />
-		/// <seealso cref="ToStrictFunction" />
-		/// <seealso cref="ToFunctionWithFallthrough" />
 		public Func<TInput, int> ToStrictFunctionWithFallthrough()
 			=> this.ExecuteStrictWithFallthrough;
 	}

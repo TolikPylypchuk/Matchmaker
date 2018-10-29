@@ -7,7 +7,6 @@ namespace PatternMatching
 	/// </summary>
 	/// <typeparam name="TInput">The type of the input value of the expression.</typeparam>
 	/// <typeparam name="TMatchResult">The type of the result of this pattern's match.</typeparam>
-	/// <seealso cref="IPattern{TInput, TMatchResult}" />
 	/// <seealso cref="Pattern{TInput, TMatchResult}" />
 	/// <seealso cref="SimplePattern{TInput}" />
 	/// <seealso cref="Pattern" />

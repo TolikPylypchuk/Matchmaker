@@ -132,18 +132,6 @@ namespace PatternMatching
 		/// <exception cref="MatchException">
 		/// The match failed for all cases.
 		/// </exception>
-		/// <remarks>
-		/// This method uses some non-conventional manipulation of the option type.
-		/// It is used because the conventional approach uses lambda expressions,
-		/// and those are forbidden to use with dynamic types.
-		/// </remarks>
-		/// <seealso cref="ExecuteNonStrict(TInput)" />
-		/// <seealso cref="ExecuteWithFallthrough(TInput)" />
-		/// <seealso cref="ExecuteNonStrictWithFallthrough(TInput)" />
-		/// <seealso cref="ToFunction" />
-		/// <seealso cref="ToNonStrictFunction" />
-		/// <seealso cref="ToFunctionWithFallthrough" />
-		/// <seealso cref="ToNonStrictFunctionWithFallthrough" />
 		public TOutput ExecuteOn(TInput input)
 		{
 			foreach (var pattern in this.patterns)
@@ -163,18 +151,6 @@ namespace PatternMatching
 		/// </summary>
 		/// <param name="input">The input value of the expression.</param>
 		/// <returns>The result of the match expression, or nothing if no pattern was matched successfully.</returns>
-		/// <remarks>
-		/// This method uses some non-conventional manipulation of the option type.
-		/// It is used because the conventional approach uses lambda expressions,
-		/// and those are forbidden to use with dynamic types.
-		/// </remarks>
-		/// <seealso cref="ExecuteOn(TInput)" />
-		/// <seealso cref="ExecuteWithFallthrough(TInput)" />
-		/// <seealso cref="ExecuteNonStrictWithFallthrough(TInput)" />
-		/// <seealso cref="ToFunction" />
-		/// <seealso cref="ToNonStrictFunction" />
-		/// <seealso cref="ToFunctionWithFallthrough" />
-		/// <seealso cref="ToNonStrictFunctionWithFallthrough" />
 		public Option<TOutput> ExecuteNonStrict(TInput input)
 		{
 			foreach (var pattern in this.patterns)
@@ -197,18 +173,6 @@ namespace PatternMatching
 		/// <exception cref="MatchException">
 		/// The match failed for all cases.
 		/// </exception>
-		/// <remarks>
-		/// This method uses some non-conventional manipulation of the option type.
-		/// It is used because the conventional approach uses lambda expressions,
-		/// and those are forbidden to use with dynamic types.
-		/// </remarks>
-		/// <seealso cref="ExecuteOn(TInput)" />
-		/// <seealso cref="ExecuteNonStrict(TInput)" />
-		/// <seealso cref="ExecuteNonStrictWithFallthrough(TInput)" />
-		/// <seealso cref="ToFunction" />
-		/// <seealso cref="ToNonStrictFunction" />
-		/// <seealso cref="ToFunctionWithFallthrough" />
-		/// <seealso cref="ToNonStrictFunctionWithFallthrough" />
 		public Lst<TOutput> ExecuteWithFallthrough(TInput input)
 		{
 			Lst<TOutput> results = this.ExecuteNonStrictWithFallthrough(input);
@@ -228,18 +192,6 @@ namespace PatternMatching
 		/// <returns>
 		/// The list of results of the match expression, which is empty if no pattern is matched successfully.
 		/// </returns>
-		/// <remarks>
-		/// This method uses some non-conventional manipulation of the option type.
-		/// It is used because the conventional approach uses lambda expressions,
-		/// and those are forbidden to use with dynamic types.
-		/// </remarks>
-		/// <seealso cref="ExecuteOn(TInput)" />
-		/// <seealso cref="ExecuteNonStrict(TInput)" />
-		/// <seealso cref="ExecuteWithFallthrough(TInput)" />
-		/// <seealso cref="ToFunction" />
-		/// <seealso cref="ToNonStrictFunction" />
-		/// <seealso cref="ToFunctionWithFallthrough" />
-		/// <seealso cref="ToNonStrictFunctionWithFallthrough" />
 		public Lst<TOutput> ExecuteNonStrictWithFallthrough(TInput input)
 		{
 			Lst<TOutput> results;
@@ -263,13 +215,6 @@ namespace PatternMatching
 		/// Returns a function which, when called, will match the specified value.
 		/// </summary>
 		/// <returns>A function which, when called, will match the specified value.</returns>
-		/// <seealso cref="ExecuteOn(TInput)" />
-		/// <seealso cref="ExecuteNonStrict(TInput)" />
-		/// <seealso cref="ExecuteWithFallthrough(TInput)" />
-		/// <seealso cref="ExecuteNonStrictWithFallthrough(TInput)" />
-		/// <seealso cref="ToNonStrictFunction" />
-		/// <seealso cref="ToFunctionWithFallthrough" />
-		/// <seealso cref="ToNonStrictFunctionWithFallthrough" />
 		public Func<TInput, TOutput> ToFunction()
 			=> this.ExecuteOn;
 
@@ -277,13 +222,6 @@ namespace PatternMatching
 		/// Returns a function which, when called, will match the specified value.
 		/// </summary>
 		/// <returns>A function which, when called, will match the specified value.</returns>
-		/// <seealso cref="ExecuteOn(TInput)" />
-		/// <seealso cref="ExecuteNonStrict(TInput)" />
-		/// <seealso cref="ExecuteWithFallthrough(TInput)" />
-		/// <seealso cref="ExecuteNonStrictWithFallthrough(TInput)" />
-		/// <seealso cref="ToFunction" />
-		/// <seealso cref="ToFunctionWithFallthrough" />
-		/// <seealso cref="ToNonStrictFunctionWithFallthrough" />
 		public Func<TInput, Option<TOutput>> ToNonStrictFunction()
 			=> this.ExecuteNonStrict;
 
@@ -291,14 +229,6 @@ namespace PatternMatching
 		/// Returns a function which, when called, will match the specified value.
 		/// </summary>
 		/// <returns>A function which, when called, will match the specified value.</returns>
-		/// <seealso cref="ExecuteOn(TInput)" />
-		/// <seealso cref="ExecuteNonStrict(TInput)" />
-		/// <seealso cref="ExecuteWithFallthrough(TInput)" />
-		/// <seealso cref="ExecuteNonStrictWithFallthrough(TInput)" />
-		/// <seealso cref="ToFunction" />
-		/// <seealso cref="ToNonStrictFunction" />
-		/// <seealso cref="ToFunctionWithFallthrough" />
-		/// <seealso cref="ToNonStrictFunctionWithFallthrough" />
 		public Func<TInput, Lst<TOutput>> ToFunctionWithFallthrough()
 			=> this.ExecuteWithFallthrough;
 
@@ -306,15 +236,7 @@ namespace PatternMatching
 		/// Returns a function which, when called, will match the specified value.
 		/// </summary>
 		/// <returns>A function which, when called, will match the specified value.</returns>
-		/// <seealso cref="ExecuteOn(TInput)" />
-		/// <seealso cref="ExecuteNonStrict(TInput)" />
-		/// <seealso cref="ExecuteWithFallthrough(TInput)" />
-		/// <seealso cref="ExecuteNonStrictWithFallthrough(TInput)" />
-		/// <seealso cref="ToFunction" />
-		/// <seealso cref="ToNonStrictFunction" />
-		/// <seealso cref="ToFunctionWithFallthrough" />
 		public Func<TInput, Lst<TOutput>> ToNonStrictFunctionWithFallthrough()
 			=> this.ExecuteNonStrictWithFallthrough;
-
 	}
 }

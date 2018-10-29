@@ -1,2 +1,6 @@
 - name: Introduction
   href: intro.md
+- name: Fallthrough
+  href: fallthrough.md
+- name: Discriminated Unions
+  href: unions.md

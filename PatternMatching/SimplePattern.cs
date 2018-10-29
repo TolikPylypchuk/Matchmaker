@@ -72,6 +72,7 @@ namespace PatternMatching
 		/// A pattern, which is matched successfully only if both
 		/// this and other pattern are matched successfully.
 		/// </returns>
+		/// <remarks>This is a short-circuiting operation.</remarks>
 		/// <exception cref="ArgumentNullException">
 		/// <paramref name="other" /> is <see langword="null" />.
 		/// </exception>
@@ -89,6 +90,7 @@ namespace PatternMatching
 		/// A pattern, which is matched successfully if
 		/// this or other pattern is matched successfully.
 		/// </returns>
+		/// <remarks>This is a short-circuiting operation.</remarks>
 		/// <exception cref="ArgumentNullException">
 		/// <paramref name="other" /> is <see langword="null" />.
 		/// </exception>
@@ -124,6 +126,7 @@ namespace PatternMatching
 		/// A pattern, which is matched successfully only if both
 		/// the first and second patterns are matched successfully.
 		/// </returns>
+		/// <remarks>This is a short-circuiting operator.</remarks>
 		/// <exception cref="ArgumentNullException">
 		/// <paramref name="pattern1" /> or <paramref name="pattern2" /> is <see langword="null" />.
 		/// </exception>
@@ -144,6 +147,7 @@ namespace PatternMatching
 		/// A pattern, which is matched successfully if
 		/// the first or the second pattern is matched successfully.
 		/// </returns>
+		/// <remarks>This is a short-circuiting operator.</remarks>
 		/// <exception cref="ArgumentNullException">
 		/// <paramref name="pattern1" /> or <paramref name="pattern2" /> is <see langword="null" />.
 		/// </exception>
@@ -187,8 +191,6 @@ namespace PatternMatching
 		/// <paramref name="pattern" /> is <see langword="null" />.
 		/// </exception>
 		public static SimplePattern<TInput> operator ~(SimplePattern<TInput> pattern)
-			=> pattern != null
-				? Pattern.Not(pattern)
-				: throw new ArgumentNullException(nameof(pattern));
+			=> Pattern.Not(pattern);
 	}
 }

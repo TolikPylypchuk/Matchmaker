@@ -15,9 +15,6 @@
 		/// <returns>
 		/// A matcher which specifies the patterns to match with and functions which are executed.
 		/// </returns>
-		/// <seealso cref="Create{TInput, TOutput}(bool)" />
-		/// <seealso cref="Create{TInput}()" />
-		/// <seealso cref="Create{TInput}(bool)" />
 		public static Match<TInput, TOutput> Create<TInput, TOutput>()
 			=> new Match<TInput, TOutput>(fallthroughByDefault: false);
 
@@ -30,9 +27,6 @@
 		/// <returns>
 		/// A matcher which specifies the patterns to match with and functions which are executed.
 		/// </returns>
-		/// <seealso cref="Create{TInput, TOutput}()" />
-		/// <seealso cref="Create{TInput}()" />
-		/// <seealso cref="Create{TInput}(bool)" />
 		public static Match<TInput, TOutput> Create<TInput, TOutput>(bool fallthroughByDefault)
 			=> new Match<TInput, TOutput>(fallthroughByDefault);
 
@@ -43,9 +37,6 @@
 		/// <returns>
 		/// A matcher which specifies the patterns to match with and actions which are executed.
 		/// </returns>
-		/// <seealso cref="Create{TInput, TOutput}()" />
-		/// <seealso cref="Create{TInput, TOutput}(bool)" />
-		/// <seealso cref="Create{TInput}(bool)" />
 		public static Match<TInput> Create<TInput>()
 			=> new Match<TInput>(fallthroughByDefault: false);
 
@@ -57,9 +48,6 @@
 		/// <returns>
 		/// A matcher which specifies the patterns to match with and actions which are executed.
 		/// </returns>
-		/// <seealso cref="Create{TInput, TOutput}()" />
-		/// <seealso cref="Create{TInput, TOutput}(bool)" />
-		/// <seealso cref="Create{TInput}()" />
 		public static Match<TInput> Create<TInput>(bool fallthroughByDefault)
 			=> new Match<TInput>(fallthroughByDefault);
 	}

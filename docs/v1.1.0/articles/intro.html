@@ -69,7 +69,7 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="introduction">Introduction</h1>
 
-<h2 id="a-simple-example">A simple example</h2>
+<h2 id="a-simple-example">A Simple Example</h2>
 <p>This is what the simplest match expression looks like:</p>
 <pre><code>using static PatternMatching.Pattern;
 
@@ -239,77 +239,20 @@ and thus cannot yield a result.</p>
 <p>There are also lazy equivalents of these patterns, which take value providers
 instead of values, for example <code>EqualTo(() =&gt; 1)</code>. They are useful, when the
 value to compare to is obtained with a long-running computation.</p>
-<h2 id="discriminated-unions">Discriminated unions</h2>
-<p>While discriminated unions are not directly supported in C#, they can be modelled
-using class hierarchies. But still, in order for them be user-friendly, a way to
-process the values has to be implemented, usually in the form of the Visitor pattern.</p>
-<p>Or, pattern matching can be used instead of visitors.</p>
-<p>Let's define a very simple list, implemented as cons cells. This list is not generic
-for simplicity.</p>
-<pre><code>public abstract class ConsList
-{
-    private protected ConsList() { }
-    
-    public static ConsList Cell(int head, ConsList tail)
-        =&gt; new ConsCell(head, tail);
-    
-    public static ConsList Empty
-        =&gt; new Empty();
-}
-
-public sealed class ConsCell : ConsList
-{
-    public int Head { get; }
-    public ConsList Tail { get; }
-    
-    internal ConsCell(int head, ConsList tail)
-    {
-        this.Head = head;
-        this.Tail = tail;
-    }
-}
-
-public sealed class Empty : ConsList
-{
-    internal Empty() { }
-}
-</code></pre>
-<p>Now let's look what pattern matching on the list whould look like. Let's create
-a function which finds the sum of all items of the list.</p>
-<pre><code>Func&lt;ConsList, int&gt; sum = null;
-
-sum = Match.Create&lt;ConsList, int&gt;()
-    .Case&lt;ConsCell&gt;(cell =&gt; cell.Head + sum(cell.Tail))
-    .Case&lt;Empty&gt;(_ =&gt; 0)
-    .ToFunction();
-</code></pre>
-<p>Here is the equivalent function implemented using the <code>switch</code> statement:</p>
-<pre><code>public int Sum(ConsList list)
-{
-    switch (list)
-    {
-        case ConsCell cell:
-            return cell.Head + Sum(cell.Tail);
-        case Empty _:
-            return 0;
-    }
-
-    throw new MatchException(&quot;This will never happen, but C# can't know that.&quot;);
-}
-</code></pre>
-<p>Note: The declaration of sum must be split from its initialization, because
-C# doesn't permit initializing recursive lambda expressions in declaration.</p>
-<p>The <code>Case&lt;TType&gt;(Func&lt;TType, TOutput&gt; func)</code> is simply shorthand for
-<code>Case(Pattern.Type&lt;TInput, TType&gt; pattern, Func&lt;TType, TOutput&gt; func)</code>.
-The <code>Type</code> pattern is matched successfully, if the input value is of the
-specifified type.</p>
-<p>As we can see, we have to throw an exception in the <code>switch</code> version, because
-C# can't know that <code>ConsCell</code> and <code>Empty</code> are the only possible subclasses
-of <code>ConsList</code>. And for that reason if we forget to define one of the cases
-in <code>switch</code> or in a match, we'll get an exception. In F# a warning is issued,
-when the match is incomplete, but then again, C# doesn't have the notion of
-complete or incomplete matches. Of course, this match will fail if the
-provided list is <code>null</code>, but this can be handled using the <code>Null</code> pattern.</p>
+<h2 id="null-values">Null values</h2>
+<p>This library was inspired by functional programming practices and as such it
+doesn't go well with <code>null</code> values.</p>
+<h2 id="strict-mode-vs-non-strict-mode">Strict Mode vs. Non-Strict Mode</h2>
+<p>Both match expressions and match statements have two modes: strict and non-strict.
+When matching in strict mode, an exception is thrown if no successful patterns
+are found in a match expression. On the other hand, when matching in non-strict
+mode, no exceptions will be thrown. This means that a match expression has to
+return an optional value.</p>
+<p><em>Note</em>: The default mode in a match expression is strict, because one would
+usually want a result. The default mode in a match statement is non-strict,
+because one would usually not care whether a successful match was actually found.
+That's why a match expression contains the <code>ExecuteOn</code> and <code>ExecuteNonStrict</code> methods
+and a match statement contains the <code>ExecuteOn</code> and <code>ExecuteStrict</code> methods.</p>
 <h2 id="performance">Performance</h2>
 <p>I didn't perform any benchmarks, but I can guess that pattern matching here is
 much, <em>much</em> slower than the traditional <code>switch</code> statements. This is because
