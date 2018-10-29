@@ -137,7 +137,8 @@ C# can't know that <code>ConsCell</code> and <code>Empty</code> are the only pos
 of <code>ConsList</code>. And for that reason if we forget to define one of the cases
 in <code>switch</code> or in a match, we'll get an exception. In F# a warning is issued,
 when the match is incomplete, but then again, C# doesn't have the notion of
-complete or incomplete matches.</p>
+complete or incomplete matches. Of course, this match will fail if the
+provided list is <code>null</code>, but this can be handled using the <code>Null</code> pattern.</p>
 </article>
           </div>
           

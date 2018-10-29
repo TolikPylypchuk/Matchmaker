@@ -17,14 +17,14 @@ namespace PatternMatching
 		/// <summary>
 		/// The matcher function.
 		/// </summary>
-		private readonly Func<TInput, Option<TMatchResult>> matcher;
+		private readonly Func<TInput, OptionUnsafe<TMatchResult>> matcher;
 
 		/// <summary>
 		/// Initializes a new instance of the <see cref="Pattern{TInput, TMatchResult}" /> class
 		/// with the specified matcher function.
 		/// </summary>
 		/// <param name="matcher">The matcher function.</param>
-		public Pattern(Func<TInput, Option<TMatchResult>> matcher)
+		public Pattern(Func<TInput, OptionUnsafe<TMatchResult>> matcher)
 			=> this.matcher = matcher;
 
 		/// <summary>
@@ -33,7 +33,7 @@ namespace PatternMatching
 		/// </summary>
 		/// <param name="matcher">The matcher function.</param>
 		/// <param name="predicates">The additional conditions.</param>
-		private Pattern(Func<TInput, Option<TMatchResult>> matcher, Lst<Func<TMatchResult, bool>> predicates)
+		private Pattern(Func<TInput, OptionUnsafe<TMatchResult>> matcher, Lst<Func<TMatchResult, bool>> predicates)
 			: base(predicates)
 			=> this.matcher = matcher;
 
@@ -45,7 +45,7 @@ namespace PatternMatching
 		/// A non-empty optional value, which contains the transformed result of the match,
 		/// if this match is successful. Otherwise, an empty optional.
 		/// </returns>
-		public override Option<TMatchResult> Match(TInput input)
+		public override OptionUnsafe<TMatchResult> Match(TInput input)
 			=> this.matcher(input).Filter(result => this.Predicates.ForAll(predicate => predicate(result)));
 
 		/// <summary>

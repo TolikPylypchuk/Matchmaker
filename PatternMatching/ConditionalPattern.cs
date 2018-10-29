@@ -42,7 +42,7 @@ namespace PatternMatching
 		/// A non-empty optional value, which contains the transformed result of the match,
 		/// if this match is successful. Otherwise, an empty optional.
 		/// </returns>
-		public abstract Option<TMatchResult> Match(TInput input);
+		public abstract OptionUnsafe<TMatchResult> Match(TInput input);
 
 		/// <summary>
 		/// Returns a new pattern, which includes the specified condition.

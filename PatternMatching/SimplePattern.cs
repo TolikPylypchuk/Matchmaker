@@ -42,13 +42,8 @@ namespace PatternMatching
 		/// A non-empty optional value, which contains the input value,
 		/// if this match is successful. Otherwise, an empty optional.
 		/// </returns>
-		/// <exception cref="ArgumentNullException">
-		/// <paramref name="input" /> is <see langword="null" />.
-		/// </exception>
-		public override Option<TInput> Match(TInput input)
-			=> input != null
-				? Some(input).Filter(result => this.Predicates.ForAll(predicate => predicate(result)))
-				: throw new ArgumentNullException(nameof(input));
+		public override OptionUnsafe<TInput> Match(TInput input)
+			=> SomeUnsafe(input).Filter(result => this.Predicates.ForAll(predicate => predicate(result)));
 
 		/// <summary>
 		/// Returns a new pattern, which includes the specified condition.

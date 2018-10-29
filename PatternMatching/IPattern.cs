@@ -20,6 +20,6 @@ namespace PatternMatching
 		/// A non-empty optional value, which contains the transformed result of the match,
 		/// if this match is successful. Otherwise, an empty optional.
 		/// </returns>
-		Option<TMatchResult> Match(TInput input);
+		OptionUnsafe<TMatchResult> Match(TInput input);
 	}
 }

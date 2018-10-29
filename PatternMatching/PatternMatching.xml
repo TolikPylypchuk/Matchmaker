@@ -498,6 +498,20 @@
             This pattern should be used as the default case of the match expression, if one is needed.
             </remarks>
         </member>
+        <member name="M:PatternMatching.Pattern.Null``1">
+            <summary>
+            Returns a pattern which is matched successfully when the input value is <see langword="null" />.
+            </summary>
+            <typeparam name="TInput">The type of the input value of the expression.</typeparam>
+            <returns>A pattern which is matched successfully when the input value is <see langword="null" />.</returns>
+        </member>
+        <member name="M:PatternMatching.Pattern.StructNull``1">
+            <summary>
+            Returns a pattern which is matched successfully when the input value is <see langword="null" />.
+            </summary>
+            <typeparam name="TInput">The type of the input value of the expression.</typeparam>
+            <returns>A pattern which is matched successfully when the input value is <see langword="null" />.</returns>
+        </member>
         <member name="M:PatternMatching.Pattern.EqualTo``1(``0)">
             <summary>
             Returns a pattern which is matched successfully when the input value
@@ -685,14 +699,14 @@
             The matcher function.
             </summary>
         </member>
-        <member name="M:PatternMatching.Pattern`2.#ctor(System.Func{`0,LanguageExt.Option{`1}})">
+        <member name="M:PatternMatching.Pattern`2.#ctor(System.Func{`0,LanguageExt.OptionUnsafe{`1}})">
             <summary>
             Initializes a new instance of the <see cref="T:PatternMatching.Pattern`2" /> class
             with the specified matcher function.
             </summary>
             <param name="matcher">The matcher function.</param>
         </member>
-        <member name="M:PatternMatching.Pattern`2.#ctor(System.Func{`0,LanguageExt.Option{`1}},LanguageExt.Lst{System.Func{`1,System.Boolean}})">
+        <member name="M:PatternMatching.Pattern`2.#ctor(System.Func{`0,LanguageExt.OptionUnsafe{`1}},LanguageExt.Lst{System.Func{`1,System.Boolean}})">
             <summary>
             Initializes a new instance of the <see cref="T:PatternMatching.Pattern`2" /> class
             with the specified matcher function and additional conditions.
@@ -771,9 +785,6 @@
             A non-empty optional value, which contains the input value,
             if this match is successful. Otherwise, an empty optional.
             </returns>
-            <exception cref="T:System.ArgumentNullException">
-            <paramref name="input" /> is <see langword="null" />.
-            </exception>
         </member>
         <member name="M:PatternMatching.SimplePattern`1.When(System.Func{`0,System.Boolean})">
             <summary>

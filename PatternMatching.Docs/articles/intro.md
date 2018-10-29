@@ -194,6 +194,12 @@ There are also lazy equivalents of these patterns, which take value providers
 instead of values, for example `EqualTo(() => 1)`. They are useful, when the
 value to compare to is obtained with a long-running computation.
 
+## Null Values
+
+This library uses unsafe options, which can store `null` values, so these values
+are fully supported. There are the `Null` and `StructNull` patterns to match
+a class or a nullable struct respectively.
+
 ## Strict Mode vs. Non-Strict Mode
 
 Both match expressions and match statements have two modes: strict and non-strict.

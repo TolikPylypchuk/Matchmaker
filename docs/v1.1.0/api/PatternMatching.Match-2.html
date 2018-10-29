@@ -510,7 +510,7 @@ pattern is matched successfully.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Option&lt;TOutput&gt; ExecuteNonStrict(TInput input)</code></pre>
+    <pre><code class="lang-csharp hljs">public OptionUnsafe&lt;TOutput&gt; ExecuteNonStrict(TInput input)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -540,7 +540,7 @@ pattern is matched successfully.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">LanguageExt.Option</span>&lt;TOutput&gt;</td>
+        <td><span class="xref">LanguageExt.OptionUnsafe</span>&lt;TOutput&gt;</td>
         <td><p>The result of the match expression, or nothing if no pattern was matched successfully.</p>
 </td>
       </tr>
@@ -806,7 +806,7 @@ pattern is matched successfully.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Func&lt;TInput, Option&lt;TOutput&gt;&gt; ToNonStrictFunction()</code></pre>
+    <pre><code class="lang-csharp hljs">public Func&lt;TInput, OptionUnsafe&lt;TOutput&gt;&gt; ToNonStrictFunction()</code></pre>
   </div>
   <h5 class="returns">Returns</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -818,7 +818,7 @@ pattern is matched successfully.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Func</span>&lt;TInput, <span class="xref">LanguageExt.Option</span>&lt;TOutput&gt;&gt;</td>
+        <td><span class="xref">System.Func</span>&lt;TInput, <span class="xref">LanguageExt.OptionUnsafe</span>&lt;TOutput&gt;&gt;</td>
         <td><p>A function which, when called, will match the specified value.</p>
 </td>
       </tr>

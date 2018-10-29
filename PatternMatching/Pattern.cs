@@ -22,7 +22,25 @@ namespace PatternMatching
 		/// </remarks>
 		public static SimplePattern<TInput> Any<TInput>()
 			=> new SimplePattern<TInput>(_ => true);
-		
+
+		/// <summary>
+		/// Returns a pattern which is matched successfully when the input value is <see langword="null" />.
+		/// </summary>
+		/// <typeparam name="TInput">The type of the input value of the expression.</typeparam>
+		/// <returns>A pattern which is matched successfully when the input value is <see langword="null" />.</returns>
+		public static SimplePattern<TInput> Null<TInput>()
+			where TInput : class
+			=> new SimplePattern<TInput>(input => input == null);
+
+		/// <summary>
+		/// Returns a pattern which is matched successfully when the input value is <see langword="null" />.
+		/// </summary>
+		/// <typeparam name="TInput">The type of the input value of the expression.</typeparam>
+		/// <returns>A pattern which is matched successfully when the input value is <see langword="null" />.</returns>
+		public static SimplePattern<TInput?> StructNull<TInput>()
+			where TInput : struct
+			=> new SimplePattern<TInput?>(input => input == null);
+
 		/// <summary>
 		/// Returns a pattern which is matched successfully when the input value
 		/// is equal to the specified value.
@@ -204,7 +222,7 @@ namespace PatternMatching
 		/// </remarks>
 		public static Pattern<TInput, TType> Type<TInput, TType>()
 			where TType : TInput
-			=> new Pattern<TInput, TType>(input => input is TType result ? Some(result) : None);
+			=> new Pattern<TInput, TType>(input => input is TType result ? SomeUnsafe(result) : None);
 
 		/// <summary>
 		/// Returns a pattern which is matched successfully

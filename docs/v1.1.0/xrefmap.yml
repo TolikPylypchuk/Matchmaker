@@ -740,6 +740,38 @@ references:
   fullName.vb: PatternMatching.Pattern.Not(Of TInput, TMatchResult)(PatternMatching.IPattern(Of TInput, TMatchResult))
   nameWithType: Pattern.Not<TInput, TMatchResult>(IPattern<TInput, TMatchResult>)
   nameWithType.vb: Pattern.Not(Of TInput, TMatchResult)(IPattern(Of TInput, TMatchResult))
+- uid: PatternMatching.Pattern.Null*
+  name: "Null"
+  href: api/PatternMatching.Pattern.html#PatternMatching_Pattern_Null_
+  commentId: Overload:PatternMatching.Pattern.Null
+  isSpec: "True"
+  fullName: PatternMatching.Pattern.Null
+  nameWithType: Pattern.Null
+- uid: PatternMatching.Pattern.Null``1
+  name: Null<TInput>()
+  href: api/PatternMatching.Pattern.html#PatternMatching_Pattern_Null__1
+  commentId: M:PatternMatching.Pattern.Null``1
+  name.vb: Null(Of TInput)()
+  fullName: PatternMatching.Pattern.Null<TInput>()
+  fullName.vb: PatternMatching.Pattern.Null(Of TInput)()
+  nameWithType: Pattern.Null<TInput>()
+  nameWithType.vb: Pattern.Null(Of TInput)()
+- uid: PatternMatching.Pattern.StructNull*
+  name: StructNull
+  href: api/PatternMatching.Pattern.html#PatternMatching_Pattern_StructNull_
+  commentId: Overload:PatternMatching.Pattern.StructNull
+  isSpec: "True"
+  fullName: PatternMatching.Pattern.StructNull
+  nameWithType: Pattern.StructNull
+- uid: PatternMatching.Pattern.StructNull``1
+  name: StructNull<TInput>()
+  href: api/PatternMatching.Pattern.html#PatternMatching_Pattern_StructNull__1
+  commentId: M:PatternMatching.Pattern.StructNull``1
+  name.vb: StructNull(Of TInput)()
+  fullName: PatternMatching.Pattern.StructNull<TInput>()
+  fullName.vb: PatternMatching.Pattern.StructNull(Of TInput)()
+  nameWithType: Pattern.StructNull<TInput>()
+  nameWithType.vb: Pattern.StructNull(Of TInput)()
 - uid: PatternMatching.Pattern.Type*
   name: Type
   href: api/PatternMatching.Pattern.html#PatternMatching_Pattern_Type_
@@ -765,15 +797,15 @@ references:
   fullName.vb: PatternMatching.Pattern(Of TInput, TMatchResult)
   nameWithType: Pattern<TInput, TMatchResult>
   nameWithType.vb: Pattern(Of TInput, TMatchResult)
-- uid: PatternMatching.Pattern`2.#ctor(System.Func{`0,LanguageExt.Option{`1}})
-  name: Pattern(Func<TInput, Option<TMatchResult>>)
-  href: api/PatternMatching.Pattern-2.html#PatternMatching_Pattern_2__ctor_System_Func__0_LanguageExt_Option__1___
-  commentId: M:PatternMatching.Pattern`2.#ctor(System.Func{`0,LanguageExt.Option{`1}})
-  name.vb: Pattern(Func(Of TInput, Option(Of TMatchResult)))
-  fullName: PatternMatching.Pattern<TInput, TMatchResult>.Pattern(System.Func<TInput, LanguageExt.Option<TMatchResult>>)
-  fullName.vb: PatternMatching.Pattern(Of TInput, TMatchResult).Pattern(System.Func(Of TInput, LanguageExt.Option(Of TMatchResult)))
-  nameWithType: Pattern<TInput, TMatchResult>.Pattern(Func<TInput, Option<TMatchResult>>)
-  nameWithType.vb: Pattern(Of TInput, TMatchResult).Pattern(Func(Of TInput, Option(Of TMatchResult)))
+- uid: PatternMatching.Pattern`2.#ctor(System.Func{`0,LanguageExt.OptionUnsafe{`1}})
+  name: Pattern(Func<TInput, OptionUnsafe<TMatchResult>>)
+  href: api/PatternMatching.Pattern-2.html#PatternMatching_Pattern_2__ctor_System_Func__0_LanguageExt_OptionUnsafe__1___
+  commentId: M:PatternMatching.Pattern`2.#ctor(System.Func{`0,LanguageExt.OptionUnsafe{`1}})
+  name.vb: Pattern(Func(Of TInput, OptionUnsafe(Of TMatchResult)))
+  fullName: PatternMatching.Pattern<TInput, TMatchResult>.Pattern(System.Func<TInput, LanguageExt.OptionUnsafe<TMatchResult>>)
+  fullName.vb: PatternMatching.Pattern(Of TInput, TMatchResult).Pattern(System.Func(Of TInput, LanguageExt.OptionUnsafe(Of TMatchResult)))
+  nameWithType: Pattern<TInput, TMatchResult>.Pattern(Func<TInput, OptionUnsafe<TMatchResult>>)
+  nameWithType.vb: Pattern(Of TInput, TMatchResult).Pattern(Func(Of TInput, OptionUnsafe(Of TMatchResult)))
 - uid: PatternMatching.Pattern`2.#ctor*
   name: Pattern
   href: api/PatternMatching.Pattern-2.html#PatternMatching_Pattern_2__ctor_

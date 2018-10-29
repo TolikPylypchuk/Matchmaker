@@ -151,14 +151,14 @@ namespace PatternMatching
 		/// </summary>
 		/// <param name="input">The input value of the expression.</param>
 		/// <returns>The result of the match expression, or nothing if no pattern was matched successfully.</returns>
-		public Option<TOutput> ExecuteNonStrict(TInput input)
+		public OptionUnsafe<TOutput> ExecuteNonStrict(TInput input)
 		{
 			foreach (var pattern in this.patterns)
 			{
 				var matchResult = pattern.Item1.Match(input);
 				if (matchResult.IsSome)
 				{
-					return Some(pattern.Item3(matchResult.ToList()[0]));
+					return SomeUnsafe(pattern.Item3(matchResult.ToList()[0]));
 				}
 			}
 
@@ -222,7 +222,7 @@ namespace PatternMatching
 		/// Returns a function which, when called, will match the specified value.
 		/// </summary>
 		/// <returns>A function which, when called, will match the specified value.</returns>
-		public Func<TInput, Option<TOutput>> ToNonStrictFunction()
+		public Func<TInput, OptionUnsafe<TOutput>> ToNonStrictFunction()
 			=> this.ExecuteNonStrict;
 
 		/// <summary>
