@@ -6,12 +6,12 @@ What's new in version 1.1:
 
 - `Matcher` classes renamed to `Match` (breaking change).
 - `OptionUnsafe` is now used instead of `Option` in patterns to fully support `null` values (breaking change).
+- `ExecuteOnStrict` in `Match<TInput>` renamed to `ExecuteStrict` (breaking change).
 - Implemented matching with fallthrough
 - Added two new patterns - `Null` for classes and `StructNull` for nullable structs.
 
 Although there are several breaking changes, the major version is not incremented, as these changes
-will probably not actually break anything, because they not that common and because not many people
-have used version 1.0 so far.
+will probably not actually break anything, because not many people have used version 1.0 so far.
 
 ## v1.0
 
