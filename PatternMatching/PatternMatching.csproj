@@ -10,10 +10,11 @@
     <Copyright>Copyright © 2018 Tolik Pylypchuk</Copyright>
     <PackageLicenseUrl>https://github.com/TolikPylypchuk/PatternMatching/blob/master/LICENSE</PackageLicenseUrl>
     <RepositoryUrl>https://github.com/TolikPylypchuk/PatternMatching</RepositoryUrl>
-    <PackageProjectUrl>https://tolikpylypchuk.github.io/PatternMatching</PackageProjectUrl>
+    <PackageProjectUrl>https://tolikpylypchuk.github.io/PatternMatching/v1.1.0</PackageProjectUrl>
     <RepositoryType>git</RepositoryType>
     <PackageIconUrl>https://github.com/TolikPylypchuk/PatternMatching/raw/master/logo.png</PackageIconUrl>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <Version>1.1.0</Version>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
