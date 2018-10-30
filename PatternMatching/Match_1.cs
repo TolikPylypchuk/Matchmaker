@@ -20,7 +20,7 @@ namespace PatternMatching
 		/// This list contains value tuples which contain the pattern, the fallthrough behaviour,
 		/// and the action which is to be executed if the pattern is matched successfully.
 		/// </remarks>
-		private readonly Lst<dynamic> patterns;
+		private readonly Lst<(dynamic, bool, dynamic)> patterns;
 
 		/// <summary>
 		/// The default fallthrough behaviour.
@@ -40,7 +40,7 @@ namespace PatternMatching
 		/// </summary>
 		/// <param name="patterns">The patterns of this expression.</param>
 		/// <param name="fallthroughByDefault">The default fallthrough behaviour.</param>
-		private Match(Lst<dynamic> patterns, bool fallthroughByDefault)
+		private Match(Lst<(dynamic, bool, dynamic)> patterns, bool fallthroughByDefault)
 			=> (this.patterns, this.fallthroughByDefault) = (patterns, fallthroughByDefault);
 
 		/// <summary>
@@ -127,12 +127,12 @@ namespace PatternMatching
 		/// </returns>
 		public bool ExecuteOn(TInput input)
 		{
-			foreach (var pattern in this.patterns)
+			foreach ((dynamic pattern, _, dynamic action) in this.patterns)
 			{
-				var matchResult = pattern.Item1.Match(input);
+				var matchResult = pattern.Match(input);
 				if (matchResult.IsSome)
 				{
-					pattern.Item3(matchResult.ToList()[0]);
+					action(matchResult.ToList()[0]);
 					return true;
 				}
 			}
@@ -168,13 +168,13 @@ namespace PatternMatching
 		{
 			int numberOfMatches = 0;
 
-			foreach (var pattern in this.patterns)
+			foreach ((dynamic pattern, bool fallthrough, dynamic action) in this.patterns)
 			{
-				var matchResult = pattern.Item1.Match(input);
+				var matchResult = pattern.Match(input);
 				if (matchResult.IsSome)
 				{
-					pattern.Item3(matchResult.ToList()[0]);
-					if (!pattern.Item2)
+					action(matchResult.ToList()[0]);
+					if (!fallthrough)
 					{
 						break;
 					}

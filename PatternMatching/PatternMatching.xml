@@ -182,7 +182,7 @@
             </summary>
             <param name="fallthroughByDefault">The default fallthrough behaviour.</param>
         </member>
-        <member name="M:PatternMatching.Match`1.#ctor(LanguageExt.Lst{System.Object},System.Boolean)">
+        <member name="M:PatternMatching.Match`1.#ctor(LanguageExt.Lst{System.ValueTuple{System.Object,System.Boolean,System.Object}},System.Boolean)">
             <summary>
             Initializes a new instance of the <see cref="T:PatternMatching.Match`1" /> class
             with the specified patterns.
@@ -348,7 +348,7 @@
             </summary>
             <param name="fallthroughByDefault">The default fallthrough behaviour.</param>
         </member>
-        <member name="M:PatternMatching.Match`2.#ctor(LanguageExt.Lst{System.Object},System.Boolean)">
+        <member name="M:PatternMatching.Match`2.#ctor(LanguageExt.Lst{System.ValueTuple{System.Object,System.Boolean,System.Object}},System.Boolean)">
             <summary>
             Initializes a new instance of the <see cref="T:PatternMatching.Match`2" /> class
             with the specified patterns.
