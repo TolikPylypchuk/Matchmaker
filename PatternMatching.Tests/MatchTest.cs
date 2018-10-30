@@ -95,13 +95,13 @@ namespace PatternMatching.Tests
 		{
 			SimplePattern<int> divisibleBy(int n) => new SimplePattern<int>(input => input % n == 0);
 
-			var result = Enumerable.Range(0, 15).Select(num =>
-				Match.Create<int, string>(fallthroughByDefault: true)
+			var result = Enumerable.Range(0, 15)
+				.Select(Match.Create<int, string>(fallthroughByDefault: true)
 					.Case(divisibleBy(3), _ => "Fizz")
 					.Case(divisibleBy(5), _ => "Buzz")
 					.Case(Not(divisibleBy(3) | divisibleBy(5)), n => n.ToString())
-					.ExecuteWithFallthrough(num)
-					.Aggregate(String.Concat));
+					.ToFunctionWithFallthrough())
+				.Select(items => items.Aggregate(String.Concat));
 
 			var expectedList = List("FizzBuzz", "1", "2", "Fizz", "4", "Buzz", "Fizz", "7", "8", "Fizz", "Buzz", "11", "Fizz", "13", "14", "FizzBuzz");
 
