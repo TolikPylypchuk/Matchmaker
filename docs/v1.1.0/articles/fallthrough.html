@@ -120,13 +120,13 @@ A strict version will throw an exception in that case.</p>
 <p>Here's the implementation of the famous fizz-buzz program which uses nondeterministic matching:</p>
 <pre><code>SimplePattern&lt;int&gt; divisibleBy(int n) =&gt; new SimplePattern&lt;int&gt;(input =&gt; input % n == 0);
 
-var result = Enumerable.Range(0, 15).Select(num =&gt;
-    Match.Create&lt;int, string&gt;(fallthroughByDefault: true)
+var result = Enumerable.Range(0, 15)
+    .Select(Match.Create&lt;int, string&gt;(fallthroughByDefault: true)
         .Case(divisibleBy(3), _ =&gt; &quot;Fizz&quot;)
         .Case(divisibleBy(5), _ =&gt; &quot;Buzz&quot;)
         .Case(Not(divisibleBy(3) | divisibleBy(5)), n =&gt; n.ToString())
-        .ExecuteWithFallthrough(num)
-        .Aggregate(String.Concat));
+        .ToFunctionWithFallthrough())
+    .Select(items =&gt; items.Aggregate(String.Concat));
 
 // The result is List(&quot;FizzBuzz&quot;, &quot;1&quot;, &quot;2&quot;, &quot;Fizz&quot;, &quot;4&quot;, &quot;Buzz&quot;, &quot;Fizz&quot;, &quot;7&quot;, &quot;8&quot;, &quot;Fizz&quot;, &quot;Buzz&quot;, &quot;11&quot;, &quot;Fizz&quot;, &quot;13&quot;, &quot;14&quot;, &quot;FizzBuzz&quot;);
 </code></pre>
