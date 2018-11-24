@@ -81,6 +81,14 @@ The documentation can be found here:
  - Version 1.1.0: https://tolikpylypchuk.github.io/PatternMatching/v1.1.0
  - Version 1.0.0: https://tolikpylypchuk.github.io/PatternMatching/v1.0.0
 
+## Is this library still maintained?
+
+The answer is definitely yes. But it will most likely not receive new features
+any time soon. This is because I believe it has all the features it needs. That
+said, you can still open issues and PRs for bugs and feature suggestions. I will
+review them, fix the bugs and maybe even add the suggested features if they are
+sensible enough.
+
 ## License
 
 [MIT License](https://github.com/TolikPylypchuk/PatternMatching/blob/master/LICENSE)
