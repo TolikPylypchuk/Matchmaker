@@ -129,7 +129,7 @@ the <code>Any</code> pattern should always come last.</p>
 <p>One of two central ideas of this library is a <em>pattern</em>. A pattern is an
 object which implements the <code>IPattern&lt;TInput, TMatchResult&gt;</code>
 interface. This interface contains only one method -
-<code>Option&lt;TMatchResult&gt; Match(Tinput input)</code>. The <code>Match</code> method
+<code>OptionUnsafe&lt;TMatchResult&gt; Match(Tinput input)</code>. The <code>Match</code> method
 actually does two things:</p>
 <ul>
 <li><p>Matches the input value with the pattern and returns a non-empty option
@@ -258,7 +258,7 @@ and a match statement contains the <code>ExecuteOn</code> and <code>ExecuteStric
 <p>I didn't perform any benchmarks, but I can guess that pattern matching here is
 much, <em>much</em> slower than the traditional <code>switch</code> statements. This is because
 the matches use dynamic values internally.</p>
-<p>The matches contain a list of pairs of patterns and functions to execute.
+<p>The matches contain a list of tuples of patterns and functions to execute.
 This list has dynamic items in it because the match expression knows nothing about
 transformations of the patterns. If it did, then the information about each type
 of the pattern transformation would be required, and that would render the match

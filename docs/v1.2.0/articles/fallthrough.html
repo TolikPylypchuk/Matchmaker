@@ -118,13 +118,14 @@ A non-strict version will return an empty list if no patterns were matched succe
 A strict version will throw an exception in that case.</p>
 <h2 id="an-example">An Example</h2>
 <p>Here's the implementation of the famous fizz-buzz program which uses nondeterministic matching:</p>
-<pre><code>SimplePattern&lt;int&gt; divisibleBy(int n) =&gt; new SimplePattern&lt;int&gt;(input =&gt; input % n == 0);
+<pre><code>SimplePattern&lt;int&gt; DivisibleBy(int n)
+    =&gt; new SimplePattern&lt;int&gt;(input =&gt; input % n == 0);
 
 var result = Enumerable.Range(0, 15)
     .Select(Match.Create&lt;int, string&gt;(fallthroughByDefault: true)
-        .Case(divisibleBy(3), _ =&gt; &quot;Fizz&quot;)
-        .Case(divisibleBy(5), _ =&gt; &quot;Buzz&quot;)
-        .Case(Not(divisibleBy(3) | divisibleBy(5)), n =&gt; n.ToString())
+        .Case(DivisibleBy(3), _ =&gt; &quot;Fizz&quot;)
+        .Case(DivisibleBy(5), _ =&gt; &quot;Buzz&quot;)
+        .Case(Not(DivisibleBy(3) | DivisibleBy(5)), n =&gt; n.ToString())
         .ToFunctionWithFallthrough())
     .Select(items =&gt; items.Aggregate(String.Concat));
 

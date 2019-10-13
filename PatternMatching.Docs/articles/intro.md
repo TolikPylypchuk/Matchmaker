@@ -68,7 +68,7 @@ the `Any` pattern should always come last.
 One of two central ideas of this library is a _pattern_. A pattern is an
 object which implements the `IPattern<TInput, TMatchResult>`
 interface. This interface contains only one method -
-`Option<TMatchResult> Match(Tinput input)`. The `Match` method
+`OptionUnsafe<TMatchResult> Match(Tinput input)`. The `Match` method
 actually does two things:
 
  - Matches the input value with the pattern and returns a non-empty option
@@ -220,7 +220,7 @@ I didn't perform any benchmarks, but I can guess that pattern matching here is
 much, _much_ slower than the traditional `switch` statements. This is because
 the matches use dynamic values internally.
 
-The matches contain a list of pairs of patterns and functions to execute.
+The matches contain a list of tuples of patterns and functions to execute.
 This list has dynamic items in it because the match expression knows nothing about
 transformations of the patterns. If it did, then the information about each type
 of the pattern transformation would be required, and that would render the match

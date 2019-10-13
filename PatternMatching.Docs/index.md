@@ -9,3 +9,9 @@ to find out more about this library, or dive into the
 [API reference](https://tolikpylypchuk.github.io/PatternMatching/v1.1.0/api/index.html).
 
 https://github.com/TolikPylypchuk/PatternMatching
+
+## Installation
+
+```
+Install-Package CSharpStuff.PatternMatching -Version 1.2.0
+```

@@ -8,7 +8,7 @@ than is currently available in the `switch` statement.
 ## Installation
 
 ```
-Install-Package CSharpStuff.PatternMatching -Version 1.1.0
+Install-Package CSharpStuff.PatternMatching -Version 1.2.0
 ```
 
 ## A simple example
@@ -78,6 +78,7 @@ the `Any` pattern should always come last.
 
 The documentation can be found here:
 
+ - Version 1.2.0: https://tolikpylypchuk.github.io/PatternMatching/v1.2.0
  - Version 1.1.0: https://tolikpylypchuk.github.io/PatternMatching/v1.1.0
  - Version 1.0.0: https://tolikpylypchuk.github.io/PatternMatching/v1.0.0
 

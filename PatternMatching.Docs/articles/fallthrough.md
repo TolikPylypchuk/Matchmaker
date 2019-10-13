@@ -1,4 +1,4 @@
-﻿# Matching with Fallthrough
+# Matching with Fallthrough
 
 C and C++ support fallthrough in `switch` expressions.
 So does this library, although it works differently here.
@@ -60,13 +60,14 @@ A strict version will throw an exception in that case.
 Here's the implementation of the famous fizz-buzz program which uses nondeterministic matching:
 
 ```
-SimplePattern<int> divisibleBy(int n) => new SimplePattern<int>(input => input % n == 0);
+SimplePattern<int> DivisibleBy(int n)
+    => new SimplePattern<int>(input => input % n == 0);
 
 var result = Enumerable.Range(0, 15)
     .Select(Match.Create<int, string>(fallthroughByDefault: true)
-        .Case(divisibleBy(3), _ => "Fizz")
-        .Case(divisibleBy(5), _ => "Buzz")
-        .Case(Not(divisibleBy(3) | divisibleBy(5)), n => n.ToString())
+        .Case(DivisibleBy(3), _ => "Fizz")
+        .Case(DivisibleBy(5), _ => "Buzz")
+        .Case(Not(DivisibleBy(3) | DivisibleBy(5)), n => n.ToString())
         .ToFunctionWithFallthrough())
     .Select(items => items.Aggregate(String.Concat));
 
