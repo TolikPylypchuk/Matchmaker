@@ -1,5 +1,13 @@
 # Changelog
 
+## v1.2
+
+The changes in this release are much smaller compared to changes in v1.1.
+What's new in version 1.2:
+
+- Fixed a bug which made strict matching with fallthrough unusable
+- Minor code refactoring
+
 ## v1.1
 
 What's new in version 1.1:
