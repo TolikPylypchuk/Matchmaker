@@ -1,0 +1,299 @@
+{
+  "homepages": [],
+  "source_base_path": "C:/Users/Tolik/OneDrive/Documents/Projects/PatternMatching/PatternMatching.Docs",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PatternMatching.ConditionalPattern-3.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PatternMatching.ConditionalPattern-3.html",
+          "hash": "49rPoeUsBqW3/LS+yydr9A=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PatternMatching.IPattern-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PatternMatching.IPattern-2.html",
+          "hash": "oa+/z0oY83aEtzaOYcOkqg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PatternMatching.Match-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PatternMatching.Match-1.html",
+          "hash": "paC1s7Wj4IC+L63dIgZexQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PatternMatching.Match-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PatternMatching.Match-2.html",
+          "hash": "rly77pdEC+1vqO9t42Vgyw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PatternMatching.Match.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PatternMatching.Match.html",
+          "hash": "YtqdH/Cxuw8BpLV8J9JO5Q=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PatternMatching.MatchException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PatternMatching.MatchException.html",
+          "hash": "FpD58QHwcNX5bzL3wYsssg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PatternMatching.Pattern-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PatternMatching.Pattern-2.html",
+          "hash": "hO/bb9Cv33XpxUs3rompyA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PatternMatching.Pattern.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PatternMatching.Pattern.html",
+          "hash": "Oplr56FrTPSlJDgs3Pz/Qg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PatternMatching.SimplePattern-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PatternMatching.SimplePattern-1.html",
+          "hash": "4G8K4Jaur3Rn1P0QQf4aVQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PatternMatching.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PatternMatching.html",
+          "hash": "izHnmwtV76Cfi1GHqeuq1A=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "api/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "api/index.html",
+          "hash": "728bzR+1H4dhyxLpzoqa/A=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "api/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/toc.html",
+          "hash": "gFtqhbHpLkJHiiym0AZcPQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/fallthrough.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/fallthrough.html",
+          "hash": "yS6THcKjIvAlY3R+2D/abw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/intro.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/intro.html",
+          "hash": "605v2eyIW0RkJwVzwjdtaA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "articles/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "articles/toc.html",
+          "hash": "lo9RpKLNTMaCnpMKd/Z7+w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/unions.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/unions.html",
+          "hash": "s7HHY1Od5Hms3CJpH8BVSg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "favicon.ico",
+      "output": {
+        "resource": {
+          "relative_path": "favicon.ico"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html",
+          "hash": "VkKiLgtfN8f3Cy/CULVgIQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "logo.svg",
+      "output": {
+        "resource": {
+          "relative_path": "logo.svg"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "toc.html",
+          "hash": "k+/dkjFuwAVS32HduMpmBw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    }
+  ],
+  "incremental_info": [
+    {
+      "status": {
+        "can_incremental": true,
+        "incrementalPhase": "build",
+        "total_file_count": 0,
+        "skipped_file_count": 0
+      },
+      "processors": {
+        "ResourceDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor ResourceDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "incrementalPhase": "build",
+          "total_file_count": 0,
+          "skipped_file_count": 0
+        },
+        "TocDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor TocDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "incrementalPhase": "build",
+          "total_file_count": 0,
+          "skipped_file_count": 0
+        },
+        "ConceptualDocumentProcessor": {
+          "can_incremental": true,
+          "incrementalPhase": "build",
+          "total_file_count": 5,
+          "skipped_file_count": 5
+        },
+        "ManagedReferenceDocumentProcessor": {
+          "can_incremental": true,
+          "incrementalPhase": "build",
+          "total_file_count": 10,
+          "skipped_file_count": 10
+        }
+      }
+    },
+    {
+      "status": {
+        "can_incremental": true,
+        "details": "Can support incremental post processing.",
+        "incrementalPhase": "postProcessing",
+        "total_file_count": 0,
+        "skipped_file_count": 0
+      },
+      "processors": {}
+    }
+  ],
+  "version_info": {},
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}

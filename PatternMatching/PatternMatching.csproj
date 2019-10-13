@@ -1,8 +1,8 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <LangVersion>latest</LangVersion>
+    <LangVersion>8.0</LangVersion>
     <PackageTags>csharp pattern-matching functional-programming</PackageTags>
     <PackageId>CSharpStuff.PatternMatching</PackageId>
     <Authors>tolik-pylypchuk</Authors>
@@ -14,7 +14,7 @@
     <RepositoryType>git</RepositoryType>
     <PackageIconUrl>https://github.com/TolikPylypchuk/PatternMatching/raw/master/logo.png</PackageIconUrl>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
-    <Version>1.1.0</Version>
+    <Version>1.2.0</Version>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -22,7 +22,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="LanguageExt.Core" Version="3.0.28" />
+    <PackageReference Include="LanguageExt.Core" Version="3.3.28" />
     <PackageReference Include="System.Dynamic.Runtime" Version="4.3.0" />
   </ItemGroup>
 
