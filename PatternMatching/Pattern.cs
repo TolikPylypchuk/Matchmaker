@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 using static LanguageExt.Prelude;
 
@@ -53,7 +54,7 @@ namespace PatternMatching
         /// </returns>
         public static SimplePattern<TInput> EqualTo<TInput>(TInput value)
             where TInput : IEquatable<TInput>
-            => new SimplePattern<TInput>(input => input == null && value == null || input.Equals(value));
+            => new SimplePattern<TInput>(input => Equals(input, value));
 
         /// <summary>
         /// Returns a pattern which is matched successfully when the input value
@@ -71,11 +72,7 @@ namespace PatternMatching
         public static SimplePattern<TInput> EqualTo<TInput>(Func<TInput> valueProvider)
             where TInput : IEquatable<TInput>
             => valueProvider != null
-                ? new SimplePattern<TInput>(input =>
-                {
-                    var value = valueProvider();
-                    return input == null && value == null || input.Equals(value);
-                })
+                ? new SimplePattern<TInput>(input => Equals(input, valueProvider()))
                 : throw new ArgumentNullException(nameof(valueProvider));
 
         /// <summary>
@@ -90,7 +87,7 @@ namespace PatternMatching
         /// </returns>
         public static SimplePattern<TInput> LessThan<TInput>(TInput value)
             where TInput : IComparable<TInput>
-            => new SimplePattern<TInput>(input => input.CompareTo(value) < 0);
+            => new SimplePattern<TInput>(input => Comparer<TInput>.Default.Compare(input, value) < 0);
 
         /// <summary>
         /// Returns a pattern which is matched successfully when the input value
@@ -108,7 +105,7 @@ namespace PatternMatching
         public static SimplePattern<TInput> LessThan<TInput>(Func<TInput> valueProvider)
             where TInput : IComparable<TInput>
             => valueProvider != null
-                ? new SimplePattern<TInput>(input => input.CompareTo(valueProvider()) < 0)
+                ? new SimplePattern<TInput>(input => Comparer<TInput>.Default.Compare(input, valueProvider()) < 0)
                 : throw new ArgumentNullException(nameof(valueProvider));
 
         /// <summary>
@@ -123,7 +120,7 @@ namespace PatternMatching
         /// </returns>
         public static SimplePattern<TInput> LessOrEqual<TInput>(TInput value)
             where TInput : IComparable<TInput>
-            => new SimplePattern<TInput>(input => input.CompareTo(value) <= 0);
+            => new SimplePattern<TInput>(input => Comparer<TInput>.Default.Compare(input, value) <= 0);
 
         /// <summary>
         /// Returns a pattern which is matched successfully when the input value
@@ -141,7 +138,7 @@ namespace PatternMatching
         public static SimplePattern<TInput> LessOrEqual<TInput>(Func<TInput> valueProvider)
             where TInput : IComparable<TInput>
             => valueProvider != null
-                ? new SimplePattern<TInput>(input => input.CompareTo(valueProvider()) <= 0)
+                ? new SimplePattern<TInput>(input => Comparer<TInput>.Default.Compare(input, valueProvider()) <= 0)
                 : throw new ArgumentNullException(nameof(valueProvider));
 
         /// <summary>
@@ -156,7 +153,7 @@ namespace PatternMatching
         /// </returns>
         public static SimplePattern<TInput> GreaterThan<TInput>(TInput value)
             where TInput : IComparable<TInput>
-            => new SimplePattern<TInput>(input => input.CompareTo(value) > 0);
+            => new SimplePattern<TInput>(input => Comparer<TInput>.Default.Compare(input, value) > 0);
 
         /// <summary>
         /// Returns a pattern which is matched successfully when the input value
@@ -174,7 +171,7 @@ namespace PatternMatching
         public static SimplePattern<TInput> GreaterThan<TInput>(Func<TInput> valueProvider)
             where TInput : IComparable<TInput>
             => valueProvider != null
-                ? new SimplePattern<TInput>(input => input.CompareTo(valueProvider()) > 0)
+                ? new SimplePattern<TInput>(input => Comparer<TInput>.Default.Compare(input, valueProvider()) > 0)
                 : throw new ArgumentNullException(nameof(valueProvider));
 
         /// <summary>
@@ -189,7 +186,7 @@ namespace PatternMatching
         /// </returns>
         public static SimplePattern<TInput> GreaterOrEqual<TInput>(TInput value)
             where TInput : IComparable<TInput>
-            => new SimplePattern<TInput>(input => input.CompareTo(value) >= 0);
+            => new SimplePattern<TInput>(input => Comparer<TInput>.Default.Compare(input, value) >= 0);
 
         /// <summary>
         /// Returns a pattern which is matched successfully when the input value
@@ -207,7 +204,7 @@ namespace PatternMatching
         public static SimplePattern<TInput> GreaterOrEqual<TInput>(Func<TInput> valueProvider)
             where TInput : IComparable<TInput>
             => valueProvider != null
-                ? new SimplePattern<TInput>(input => input.CompareTo(valueProvider()) >= 0)
+                ? new SimplePattern<TInput>(input => Comparer<TInput>.Default.Compare(input, valueProvider()) >= 0)
                 : throw new ArgumentNullException(nameof(valueProvider));
 
         /// <summary>
