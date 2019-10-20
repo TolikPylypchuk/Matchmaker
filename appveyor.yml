@@ -24,6 +24,6 @@ test_script:
 deploy_script:
 - pwsh: git config --global credential.helper store
 - pwsh: Add-Content "$env:USERPROFILE\.git-credentials" "https://$($env:github_access_token):x-oauth-basic@github.com`n"
-- pwsh: git config --global user.email %github_email%
+- pwsh: git config --global user.email "$($env:github_email)"
 - pwsh: git config --global user.name "Tolik Pylypchuk"
 - pwsh: bash ./release-docs.sh

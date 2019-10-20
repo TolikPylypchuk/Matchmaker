@@ -19,10 +19,12 @@ echo "Clearing the docs directory"
 cd $TEMP_REPO_DIR
 
 if [ ! -d "$VERSION" ]; then
-  mkdir $VERSION
+  mkdir "$VERSION"
 fi
 
-git rm -rf $VERSION/* || true
+git rm -rf "$VERSION/*" || true
+
+cd "$VERSION"
 
 echo "Copying documentation into the repo"
 cp -r $SOURCE_DIR/docs/* .
