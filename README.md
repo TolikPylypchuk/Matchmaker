@@ -8,7 +8,7 @@ than is currently available in the `switch` statement.
 ## Installation
 
 ```
-Install-Package CSharpStuff.PatternMatching -Version 1.2.0
+Install-Package CSharpStuff.PatternMatching -Version 1.1.0
 ```
 
 ## A simple example
@@ -78,15 +78,18 @@ the `Any` pattern should always come last.
 
 The documentation can be found here:
 
- - Version 1.2.0: https://tolikpylypchuk.github.io/PatternMatching/v1.2.0
+ - Version 1.2.0 (WIP): https://tolikpylypchuk.github.io/PatternMatching/v1.2.0
  - Version 1.1.0: https://tolikpylypchuk.github.io/PatternMatching/v1.1.0
  - Version 1.0.0: https://tolikpylypchuk.github.io/PatternMatching/v1.0.0
 
 ## Is this library still maintained?
 
-The answer is definitely yes. But it will most likely not receive new features
-any time soon. This is because I believe it has all the features it needs. That
-said, you can still open issues and PRs for bugs and feature suggestions. I will
+The answer is definitely yes. I'm currently working on version 1.2, which will add
+some new features, fix a couple bugs and include lots of tests for everything.
+After that I'm planning on working on version 2.0, which will drop the dependency on
+language-ext (major breaking changes coming), and version 2.1, which will add support
+for nullable reference types and as such, will target .NET Standard 2.1.
+You can open issues and PRs for bugs and feature suggestions. I will
 review them, fix the bugs and maybe even add the suggested features if they are
 sensible enough.
 
