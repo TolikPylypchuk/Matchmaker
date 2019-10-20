@@ -1,3 +1,4 @@
 version: 1.2.{build}
+image: Visual Studio 2019
 build_script:
 - pwsh: dotnet build
