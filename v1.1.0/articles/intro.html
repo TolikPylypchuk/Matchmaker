@@ -1,0 +1,311 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Introduction </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Introduction ">
+    <meta name="generator" content="docfx 2.39.2.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="introduction">Introduction</h1>
+
+<h2 id="a-simple-example">A Simple Example</h2>
+<p>This is what the simplest match expression looks like:</p>
+<pre><code>using static PatternMatching.Pattern;
+
+// ...
+
+string result =
+    Match.Create&lt;int, string&gt;()
+        .Case(EqualTo(1), _ =&gt; &quot;one&quot;)
+        .Case(EqualTo(2), _ =&gt; &quot;two&quot;)
+        .Case(EqualTo(3), _ =&gt; &quot;three&quot;)
+        .Case(EqualTo(4), _ =&gt; &quot;four&quot;)
+        .Case(Any&lt;int&gt;(), i =&gt; i.ToString())
+        .ExecuteOn(5);
+</code></pre>
+<p><code>EqualTo</code> is a predefined pattern.</p>
+<p>This is what an equivalent <code>switch</code> statement looks like:</p>
+<pre><code>string result;
+int i = 5;
+
+switch (i)
+{
+    case 1:
+        result = &quot;one&quot;;
+        break;
+    case 2:
+        result = &quot;two&quot;;
+        break;
+    case 3:
+        result = &quot;three&quot;;
+        break;
+    case 4:
+        result = &quot;four&quot;;
+        break;
+    default:
+        result = i.ToString();
+        break;
+}
+</code></pre>
+<p>While this example doesn't show the full power of pattern matching, there are
+a few things to note here:</p>
+<ul>
+<li><p>The match expression yields a result. We don't have to assign the result
+explicitly in each case.</p>
+</li>
+<li><p>The input of the match expression is specified <em>after</em> all the cases. This
+allows us to save the match expression in an object, and use it multiple times
+on different input values.</p>
+</li>
+<li><p>The default case is a pattern, just like any other. It's called <code>Any</code> and
+is always matched successfully.</p>
+</li>
+<li><p>Like in <code>switch</code> the patterns are tried out sequentially. This means that
+the <code>Any</code> pattern should always come last.</p>
+</li>
+</ul>
+<h2 id="patterns">Patterns</h2>
+<p>One of two central ideas of this library is a <em>pattern</em>. A pattern is an
+object which implements the <code>IPattern&lt;TInput, TMatchResult&gt;</code>
+interface. This interface contains only one method -
+<code>Option&lt;TMatchResult&gt; Match(Tinput input)</code>. The <code>Match</code> method
+actually does two things:</p>
+<ul>
+<li><p>Matches the input value with the pattern and returns a non-empty option
+if the match is successful</p>
+</li>
+<li><p>Transforms the input value. The returned option contains the result of
+the transformation.</p>
+</li>
+</ul>
+<p>Since options are not supported in C#,
+<a href="https://github.com/louthy/language-ext">language-ext</a> is used.</p>
+<p>The definition of patterns is similar to F#'s active patterns.</p>
+<p>Usually one does not have to implement the <code>IPattern</code> interface directly.
+Some predefined patterns are available and can be used in most situations:</p>
+<ul>
+<li><p><code>ConditionalPattern&lt;TInput, TOutput&gt;</code> is an abstract class, which
+enables adding additional conditions to the pattern.</p>
+</li>
+<li><p><code>Pattern&lt;TInput, TMatchResult&gt;</code> is a pattern, which can be constructed
+from a function with the same signature as <code>Match</code>. This class extends the
+<code>ConditionalPattern&lt;TInput, TOutput&gt;</code>.</p>
+</li>
+<li><p><code>SimplePattern&lt;TInput&gt;</code> is a non-transforming pattern, which can be
+constructed from a predicate. This class extends the
+<code>ConditionalPattern&lt;TInput, TOutput&gt;</code>.</p>
+</li>
+<li><p>Several objects of type <code>SimplePattern&lt;TInput&gt;</code>and
+<code>Pattern&lt;TInput, TMatchResult&gt;</code> are defined in the static <code>Pattern</code> class.</p>
+</li>
+</ul>
+<p><code>SimplePattern</code> can be easily combined with any other <code>SimplePattern</code>.
+Methods, such as <code>And</code>, <code>Or</code> and others are defined (and operators,
+such as <code>&amp;</code> and <code>|</code>).</p>
+<h2 id="match-expressions">Match Expressions</h2>
+<p>The second central idea is the match expression itself. It is represented
+by two classes: <code>Match&lt;TInput, TOutput&gt;</code> and <code>Match&lt;TInput&gt;</code>. The difference
+between them is that the former represents a match expression, which yields
+a result, and the latter represents a match expression, which doesn't yield
+a result (also known as match statement).</p>
+<p>A match expression can be created using the <code>Create</code> methods of the static
+class <code>Match</code>.</p>
+<p>The <code>Match</code> classes include a <code>Case</code> method which is used to add a
+pattern and a function, which is executed if the match is successful, to
+the expression.</p>
+<p>To execute a match expression, the <code>ExecuteOn</code> method is used. It takes the
+input value to match. In the <code>Match&lt;TInput, TOutput&gt;</code> class this method
+returns the result of the match, or throws a <code>MatchException</code> if no successful
+match was found. In the <code>Match&lt;TInput&gt;</code> class this method returns a boolean
+value, which signifies whether the match was successful. This class also contains
+the <code>ExecuteOnStrict</code> method, which also throws the <code>MatchException</code> if
+the match is not successful.</p>
+<p>The <code>ToFunction</code> method is also available. It returns a function which, when
+called, will execute the match expression.</p>
+<h2 id="a-more-complex-example">A more complex example</h2>
+<p>Let's consider another example of match expressions:</p>
+<pre><code>string result =
+    Match.Create&lt;int, string&gt;()
+        .Case(
+            LessThan(1),
+            _ =&gt; &quot;x &lt; 1&quot;)
+        .Case(
+            GreaterOrEqual(1) &amp; LessThan(2),
+            _ =&gt; &quot;1 &lt;= x &lt; 2&quot;)
+        .Case(
+             GreaterOrEqual(2) &amp; LessThan(3),
+             _ =&gt; &quot;2 &lt;= x &lt; 3&quot;)
+        .Case(
+            GreaterOrEqual(3) &amp; LessThan(4),
+            _ =&gt; &quot;3 &lt;= x &lt; 4&quot;)
+        .Case(
+            GreaterOrEqual(4) &amp; Not(GreaterThan(5)),
+            _ =&gt; &quot;4 &lt;= x &lt;= 5&quot;)
+        .Case(
+            Any&lt;int&gt;(),
+            _ =&gt; &quot;5 &lt; x&quot;)
+        .ExecuteOn(5);
+</code></pre>
+<p>This is what an equivalent <code>switch</code> statement looks like:</p>
+<pre><code>string result;
+int i = 5;
+
+switch (i)
+{
+    case var _ when i &lt; 1:
+        result = &quot;x &lt; 1&quot;;
+        break;
+    case var _ when 1 &lt;= i &amp;&amp; i &lt; 2:
+        result = &quot;1 &lt;= x &lt; 2&quot;;
+        break;
+    case var _ when 2 &lt;= i &amp;&amp; i &lt; 3:
+        result = &quot;2 &lt;= x &lt; 3&quot;;
+        break;
+    case var _ when 3 &lt;= i &amp;&amp; i &lt; 4:
+        result = &quot;2 &lt;= x &lt; 3&quot;;
+        break;
+    case var _ when 4 &lt;= i &amp;&amp; !(i &gt; 5):
+        result = &quot;4 &lt;= x &lt;= 5&quot;;
+        break;
+    default:
+        result = &quot;5 &lt; x&quot;;
+        break;
+}
+</code></pre>
+<p>This is some very non-idiomatic usage of <code>switch</code> statements, but can easily
+be rewritten using the <code>if-else-if</code> statement, which is still a statement,
+and thus cannot yield a result.</p>
+<p>There are also lazy equivalents of these patterns, which take value providers
+instead of values, for example <code>EqualTo(() =&gt; 1)</code>. They are useful, when the
+value to compare to is obtained with a long-running computation.</p>
+<h2 id="null-values">Null Values</h2>
+<p>This library uses unsafe options, which can store <code>null</code> values, so these values
+are fully supported. There are the <code>Null</code> and <code>StructNull</code> patterns to match
+a class or a nullable struct respectively.</p>
+<h2 id="strict-mode-vs-non-strict-mode">Strict Mode vs. Non-Strict Mode</h2>
+<p>Both match expressions and match statements have two modes: strict and non-strict.
+When matching in strict mode, an exception is thrown if no successful patterns
+are found in a match expression. On the other hand, when matching in non-strict
+mode, no exceptions will be thrown. This means that a match expression has to
+return an optional value.</p>
+<p><em>Note</em>: The default mode in a match expression is strict, because one would
+usually want a result. The default mode in a match statement is non-strict,
+because one would usually not care whether a successful match was actually found.
+That's why a match expression contains the <code>ExecuteOn</code> and <code>ExecuteNonStrict</code> methods
+and a match statement contains the <code>ExecuteOn</code> and <code>ExecuteStrict</code> methods.</p>
+<h2 id="performance">Performance</h2>
+<p>I didn't perform any benchmarks, but I can guess that pattern matching here is
+much, <em>much</em> slower than the traditional <code>switch</code> statements. This is because
+the matches use dynamic values internally.</p>
+<p>The matches contain a list of pairs of patterns and functions to execute.
+This list has dynamic items in it because the match expression knows nothing about
+transformations of the patterns. If it did, then the information about each type
+of the pattern transformation would be required, and that would render the match
+either unusable, because of the many types which will have to be specified, or
+impossible, because there would always be a finite amount of match types
+(each with information about one more match result type than the previous).</p>
+<p>The type safety is not compromised this way, because the match result type is
+needed only between the execution of the pattern match and the execution of
+the function, and is not visible to the outside world.</p>
+<p>This incurs a performance overhead, but it must be compromised in order
+for this to work.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/TolikPylypchuk/PatternMatching/blob/master/PatternMatching.Docs/articles/intro.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            <div>Copyright (c) 2018 Tolik Pylypchuk</div><span>Generated by <strong>DocFx</strong>.</span> <span>Icons made by <a href="https" ://www.flaticon.com/authors/roundicons"="" title="Roundicons">Roundicons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></span>
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>
