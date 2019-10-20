@@ -22,7 +22,7 @@ if [ ! -d "$VERSION" ]; then
   mkdir $VERSION
 fi
 
-git rm -r $VERSION/*
+git rm -rf $VERSION/*
 
 echo "Copying documentation into the repo"
 cp -r $SOURCE_DIR/docs/* .
