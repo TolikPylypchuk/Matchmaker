@@ -1,11 +1,11 @@
 # Changelog
 
-## v1.2
+## v1.2 (Work in Progress)
 
-The changes in this release are much smaller compared to changes in v1.1.
 What's new in version 1.2:
 
 - Fixed a bug which made strict matching with fallthrough unusable
+- Fixed null handling in some predefined patterns
 - Minor code refactoring
 
 ## v1.1

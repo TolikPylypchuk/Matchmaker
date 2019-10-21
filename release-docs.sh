@@ -18,11 +18,11 @@ echo "Clearing the docs directory"
 
 cd $TEMP_REPO_DIR
 
-if [ ! -d "$VERSION" ]; then
-  mkdir "$VERSION"
+if [ -d "$VERSION" ]; then
+    git rm -rf "$VERSION/*" || true
 fi
 
-git rm -rf "$VERSION/*" || true
+mkdir "$VERSION"
 
 cd "$VERSION"
 
