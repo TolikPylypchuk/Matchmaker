@@ -16,7 +16,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		CHANGELOG.md = CHANGELOG.md
 		LICENSE = LICENSE
 		README.md = README.md
-		release-docs.sh = release-docs.sh
+		Release-Docs.ps1 = Release-Docs.ps1
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PatternMatching.Tests", "PatternMatching.Tests\PatternMatching.Tests.csproj", "{974CAC8F-12B0-4D10-A813-080092A1148E}"
