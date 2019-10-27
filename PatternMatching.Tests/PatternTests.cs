@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 
 using FluentAssertions;
 
@@ -107,57 +108,45 @@ namespace PatternMatching
             Pattern.Type<object, object>().Match(null).IsSome.Should().BeFalse();
         }
 
-        [Property]
-        public Property NotAnyShouldAlwaysFail(string x)
-            => Pattern.Not(Pattern.Any<string>()).Match(x).IsNone.ToProperty();
+        [Property(Arbitrary = new[] { typeof(Generators) })]
+        public Property AndPatternShouldBeSameAsBothPatterns(SimplePattern<string> pattern1, SimplePattern<string> pattern2, string x)
+            => (pattern1.Match(x).IsNone || pattern2.Match(x).IsNone == pattern1.And(pattern2).Match(x).IsNone).ToProperty();
+
+        [Property(Arbitrary = new[] { typeof(Generators) })]
+        public Property OperatorAndPatternShouldBeSameAsBothPatterns(SimplePattern<string> pattern1, SimplePattern<string> pattern2, string x)
+            => (pattern1.Match(x).IsNone || pattern2.Match(x).IsNone == (pattern1 & pattern2).Match(x).IsNone).ToProperty();
+
+        [Property(Arbitrary = new[] { typeof(Generators) })]
+        public Property OrPatternShouldBeSameAsEitherPattern(SimplePattern<string> pattern1, SimplePattern<string> pattern2, string x)
+            => (pattern1.Match(x).IsSome || pattern2.Match(x).IsSome == pattern1.Or(pattern2).Match(x).IsSome).ToProperty();
+
+        [Property(Arbitrary = new[] { typeof(Generators) })]
+        public Property OperatorOrPatternShouldBeSameAsEitherPattern(SimplePattern<string> pattern1, SimplePattern<string> pattern2, string x)
+            => (pattern1.Match(x).IsSome || pattern2.Match(x).IsSome == (pattern1 | pattern2).Match(x).IsSome).ToProperty();
+
+        [Property(Arbitrary = new[] { typeof(Generators) })]
+        public Property XorPatternShouldBeSameAsExcusiveEitherPattern(SimplePattern<string> pattern1, SimplePattern<string> pattern2, string x)
+            => (pattern1.Match(x).IsSome ^ pattern2.Match(x).IsSome == pattern1.Xor(pattern2).Match(x).IsSome).ToProperty();
+
+        [Property(Arbitrary = new[] { typeof(Generators) })]
+        public Property OperatorXorPatternShouldBeSameAsExlusiveEitherPattern(SimplePattern<string> pattern1, SimplePattern<string> pattern2, string x)
+            => (pattern1.Match(x).IsSome ^ pattern2.Match(x).IsSome == (pattern1 ^ pattern2).Match(x).IsSome).ToProperty();
+
+        [Property(Arbitrary = new[] { typeof(Generators) })]
+        public Property NotPatternShouldBeOppositeToPattern(SimplePattern<string> pattern, string x)
+            => (pattern.Match(x).IsSome == Pattern.Not(pattern).Match(x).IsNone).ToProperty();
 
         [Property]
-        public Property NotNullShouldFailOnlyOnNull(string x)
-            => (x is null == Pattern.Not(Pattern.Null<string>()).Match(x).IsNone).ToProperty();
+        public Property NotStructNullShouldBeOppositeToStructNull(int? x)
+            => (Pattern.StructNull<int>().Match(x).IsSome == Pattern.Not(Pattern.StructNull<int>()).Match(x).IsNone).ToProperty();
+
+        [Property(Arbitrary = new[] { typeof(Generators) })]
+        public Property OperatorNotPatternShouldBeOppositeToPattern(SimplePattern<string> pattern, string x)
+            => (pattern.Match(x).IsSome == (~pattern).Match(x).IsNone).ToProperty();
 
         [Property]
-        public Property NotStructNullShouldFailOnlyOnNull(int? x)
-            => (x is null == Pattern.Not(Pattern.StructNull<int>()).Match(x).IsNone).ToProperty();
-
-        [Property]
-        public Property NotEqualToShouldFailOnlyOnEqualObjects(string x, string y)
-            => (Equals(x, y) == Pattern.Not(Pattern.EqualTo(y)).Match(x).IsNone).ToProperty();
-
-        [Property]
-        public Property NotLazyEqualToShouldFailOnlyOnEqualObjects(string x, string y)
-            => (Equals(x, y) == Pattern.Not(Pattern.EqualTo(() => y)).Match(x).IsNone).ToProperty();
-
-        [Property]
-        public Property NotLessThanShouldFailOnlyWhenValueIsLess(string x, string y)
-            => (Comparer<string>.Default.Compare(x, y) < 0 == Pattern.Not(Pattern.LessThan(y)).Match(x).IsNone).ToProperty();
-
-        [Property]
-        public Property NotLazyLessThanShouldFailOnlyWhenValueIsLess(string x, string y)
-            => (Comparer<string>.Default.Compare(x, y) < 0 == Pattern.Not(Pattern.LessThan(() => y)).Match(x).IsNone).ToProperty();
-
-        [Property]
-        public Property NotLessOrEqualShouldFailOnlyWhenValueIsLessOrEqual(string x, string y)
-            => (Comparer<string>.Default.Compare(x, y) <= 0 == Pattern.Not(Pattern.LessOrEqual(y)).Match(x).IsNone).ToProperty();
-
-        [Property]
-        public Property NotLazyLessOrEqualShouldFailOnlyWhenValueIsLessOrEqual(string x, string y)
-            => (Comparer<string>.Default.Compare(x, y) <= 0 == Pattern.Not(Pattern.LessOrEqual(() => y)).Match(x).IsNone).ToProperty();
-
-        [Property]
-        public Property NotGreaterThanShouldFailOnlyWhenValueIsLGreater(string x, string y)
-            => (Comparer<string>.Default.Compare(x, y) > 0 == Pattern.Not(Pattern.GreaterThan(y)).Match(x).IsNone).ToProperty();
-
-        [Property]
-        public Property NotLazyGreaterThanShouldFailOnlyWhenValueIsGreater(string x, string y)
-            => (Comparer<string>.Default.Compare(x, y) > 0 == Pattern.Not(Pattern.GreaterThan(() => y)).Match(x).IsNone).ToProperty();
-
-        [Property]
-        public Property NotGreaterOrEqualShouldFailOnlyWhenValueIsGreaterOrEqual(string x, string y)
-            => (Comparer<string>.Default.Compare(x, y) >= 0 == Pattern.Not(Pattern.GreaterOrEqual(y)).Match(x).IsNone).ToProperty();
-
-        [Property]
-        public Property NotLazyGreaterOrEqualShouldFailOnlyWhenValueIsGreaterOrEqual(string x, string y)
-            => (Comparer<string>.Default.Compare(x, y) >= 0 == Pattern.Not(Pattern.GreaterOrEqual(() => y)).Match(x).IsNone).ToProperty();
+        public Property OperatorNotStructNullShouldBeOppositeToStructNull(int? x)
+            => (Pattern.StructNull<int>().Match(x).IsSome == (~Pattern.StructNull<int>()).Match(x).IsNone).ToProperty();
 
         [Fact]
         public void NotTypeShouldFailOnlyWhenTheValueHasType()
@@ -171,6 +160,23 @@ namespace PatternMatching
         public void NotShouldThrowIfPatternIsNull()
         {
             Action action = () => Pattern.Not<object, object>(null);
+            action.Should().Throw<ArgumentNullException>();
+        }
+
+        [Fact]
+        public void OperatorNotTypeShouldFailOnlyWhenTheValueHasType()
+        {
+            (~Pattern.Type<object, int>()).Match(1).IsSome.Should().BeFalse();
+            (~Pattern.Type<object, string>()).Match("string").IsSome.Should().BeFalse();
+            (~Pattern.Type<object, object>()).Match(null).IsSome.Should().BeTrue();
+        }
+
+        [Fact]
+        [SuppressMessage("ReSharper", "ExpressionIsAlwaysNull")]
+        public void OperatorNotShouldThrowIfPatternIsNull()
+        {
+            Pattern<object, object> pattern = null;
+            Action action = () => { var _ = ~pattern; };
             action.Should().Throw<ArgumentNullException>();
         }
     }
