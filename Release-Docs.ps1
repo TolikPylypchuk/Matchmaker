@@ -14,7 +14,7 @@ if (Test-Path "$TempRepoDir")
     Remove-Item $TempRepoDir -Recurse -ErrorAction Ignore
 }
 
-New-Item -Name $TempRepoDir -ItemType Directory
+New-Item -Path "$TempRepoDir" -ItemType Directory
 
 Write-Output "Cloning the repo on the gh-pages branch"
 git clone https://github.com/TolikPylypchuk/PatternMatching.git --branch gh-pages $TempRepoDir
