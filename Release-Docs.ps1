@@ -1,30 +1,39 @@
 git config --global credential.helper store
-Add-Content "$env:USERPROFILE\.git-credentials" "https://$($env:github_access_token):x-oauth-basic@github.com`n"
+Add-Content "$env:USERPROFILE/.git-credentials" "https://$($env:github_access_token):x-oauth-basic@github.com`n"
 git config --global user.email "$($env:github_email)"
 git config --global user.name "Tolik Pylypchuk"
 
 docfx ./PatternMatching.Docs/docfx.json
 
 $SourceDir = $PSScriptRoot
-$TempRepoDir = "$PSScriptRoot\..\patternmatching-gh-pages"
-$Version = 'v1.2.0'
+$TempRepoDir = "$PSScriptRoot/../patternmatching-gh-pages"
 
-Write-Output "Removing the temporary doc directory $TempRepoDir"
+if (Test-Path "$TempRepoDir")
+{
+    Write-Output "Removing the temporary doc directory $TempRepoDir"
+    Remove-Item $TempRepoDir -Recurse -ErrorAction Ignore
+}
+
+New-Item -Name $TempRepoDir -ItemType Directory
+
+Write-Output "Cloning the repo on the gh-pages branch"
 git clone https://github.com/TolikPylypchuk/PatternMatching.git --branch gh-pages $TempRepoDir
-
-Write-Output "Clearing the docs directory"
 
 Set-Location "$TempRepoDir"
 
-if (-not (Test-Path ".\$Version"))
+if (Test-Path "$($env:version)")
 {
-    git rm -rf "$Version/*"
+    Write-Output "Clearing the docs directory"
+    git rm -rf "$($env:version)/*"
+} else
+{
+    New-Item -Name "$env:version" -ItemType Directory
 }
 
 Write-Output "Copying documentation into the repo"
-Copy-Item -Path "$SourceDir\docs" -Destination ".\$Version" -Recurse
+Copy-Item -Path "$SourceDir/docs" -Destination "$env:version" -Recurse
 
 Write-Output "Pushing the new docs to the remote branch"
 git add . -A
-git commit -m "Update generated documentation for version $VERSION"
+git commit -m "Update generated documentation for version $env:version"
 git push origin gh-pages
