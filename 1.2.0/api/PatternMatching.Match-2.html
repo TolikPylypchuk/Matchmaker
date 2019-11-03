@@ -5,12 +5,12 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Class Match&lt;TInput&gt;
+    <title>Class Match&lt;TInput, TOutput&gt;
    </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Class Match&lt;TInput&gt;
+    <meta name="title" content="Class Match&lt;TInput, TOutput&gt;
    ">
-    <meta name="generator" content="docfx 2.46.0.0">
+    <meta name="generator" content="docfx 2.47.0.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -68,18 +68,18 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="PatternMatching.Match`1">
+            <article class="content wrap" id="_content" data-uid="PatternMatching.Match`2">
   
   
-  <h1 id="PatternMatching_Match_1" data-uid="PatternMatching.Match`1" class="text-break">Class Match&lt;TInput&gt;
+  <h1 id="PatternMatching_Match_2" data-uid="PatternMatching.Match`2" class="text-break">Class Match&lt;TInput, TOutput&gt;
   </h1>
-  <div class="markdown level0 summary"><p>Represents a match expression, which doesn't yield a value.</p>
+  <div class="markdown level0 summary"><p>Represents a match expression.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><span class="xref">System.Object</span></div>
-    <div class="level1"><span class="xref">Match&lt;TInput&gt;</span></div>
+    <div class="level1"><span class="xref">Match&lt;TInput, TOutput&gt;</span></div>
   </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
@@ -107,9 +107,9 @@
   </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="PatternMatching.html">PatternMatching</a></h6>
   <h6><strong>Assembly</strong>: PatternMatching.dll</h6>
-  <h5 id="PatternMatching_Match_1_syntax">Syntax</h5>
+  <h5 id="PatternMatching_Match_2_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public sealed class Match&lt;TInput&gt;</code></pre>
+    <pre><code class="lang-csharp hljs">public sealed class Match&lt;TInput, TOutput&gt;</code></pre>
   </div>
   <h5 class="typeParameters">Type Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -125,29 +125,31 @@
         <td><p>The type of the input value of the expression.</p>
 </td>
       </tr>
+      <tr>
+        <td><span class="parametername">TOutput</span></td>
+        <td><p>The type of the output value of the expression.</p>
+</td>
+      </tr>
     </tbody>
   </table>
-  <h5 id="PatternMatching_Match_1_remarks"><strong>Remarks</strong></h5>
-  <div class="markdown level0 remarks"><p>A match expression which doesn't yield a value is also known as a match statement.</p>
-</div>
   <h3 id="methods">Methods
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/PatternMatching/new/master/apiSpec/new?filename=PatternMatching_Match_1_Case__1_PatternMatching_IPattern__0___0__System_Action___0__.md&amp;value=---%0Auid%3A%20PatternMatching.Match%601.Case%60%601(PatternMatching.IPattern%7B%600%2C%60%600%7D%2CSystem.Action%7B%60%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/TolikPylypchuk/PatternMatching/new/master/apiSpec/new?filename=PatternMatching_Match_2_Case__1_PatternMatching_IPattern__0___0__System_Boolean_System_Func___0__1__.md&amp;value=---%0Auid%3A%20PatternMatching.Match%602.Case%60%601(PatternMatching.IPattern%7B%600%2C%60%600%7D%2CSystem.Boolean%2CSystem.Func%7B%60%600%2C%601%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/PatternMatching/blob/master/PatternMatching/Match_1.cs/#L61">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/PatternMatching/blob/master/PatternMatching/Match_2.cs/#L83">View Source</a>
   </span>
-  <a id="PatternMatching_Match_1_Case_" data-uid="PatternMatching.Match`1.Case*"></a>
-  <h4 id="PatternMatching_Match_1_Case__1_PatternMatching_IPattern__0___0__System_Action___0__" data-uid="PatternMatching.Match`1.Case``1(PatternMatching.IPattern{`0,``0},System.Action{``0})">Case&lt;TMatchResult&gt;(IPattern&lt;TInput, TMatchResult&gt;, Action&lt;TMatchResult&gt;)</h4>
-  <div class="markdown level1 summary"><p>Returns a new matcher which includes the specified pattern and action to execute if this
+  <a id="PatternMatching_Match_2_Case_" data-uid="PatternMatching.Match`2.Case*"></a>
+  <h4 id="PatternMatching_Match_2_Case__1_PatternMatching_IPattern__0___0__System_Boolean_System_Func___0__1__" data-uid="PatternMatching.Match`2.Case``1(PatternMatching.IPattern{`0,``0},System.Boolean,System.Func{``0,`1})">Case&lt;TMatchResult&gt;(IPattern&lt;TInput, TMatchResult&gt;, Boolean, Func&lt;TMatchResult, TOutput&gt;)</h4>
+  <div class="markdown level1 summary"><p>Returns a new matcher which includes the specified pattern and function to execute if this
 pattern is matched successfully.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Match&lt;TInput&gt; Case&lt;TMatchResult&gt;(IPattern&lt;TInput, TMatchResult&gt; pattern, Action&lt;TMatchResult&gt; action)</code></pre>
+    <pre><code class="lang-csharp hljs">public Match&lt;TInput, TOutput&gt; Case&lt;TMatchResult&gt;(IPattern&lt;TInput, TMatchResult&gt; pattern, bool fallthrough, Func&lt;TMatchResult, TOutput&gt; func)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -166,9 +168,15 @@ pattern is matched successfully.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.Action</span>&lt;TMatchResult&gt;</td>
-        <td><span class="parametername">action</span></td>
-        <td><p>The action to execute if the match is successful.</p>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">fallthrough</span></td>
+        <td><p>The fallthrough behaviour.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Func</span>&lt;TMatchResult, TOutput&gt;</td>
+        <td><span class="parametername">func</span></td>
+        <td><p>The function to execute if the match is successful.</p>
 </td>
       </tr>
     </tbody>
@@ -183,8 +191,8 @@ pattern is matched successfully.</p>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="PatternMatching.Match-1.html">Match</a>&lt;TInput&gt;</td>
-        <td><p>A new matcher which includes the specified pattern and action to execute if this
+        <td><a class="xref" href="PatternMatching.Match-2.html">Match</a>&lt;TInput, TOutput&gt;</td>
+        <td><p>A new matcher which includes the specified pattern and function to execute if this
 pattern is matched successfully.</p>
 </td>
       </tr>
@@ -217,27 +225,27 @@ pattern is matched successfully.</p>
     <tbody>
       <tr>
         <td><span class="xref">System.ArgumentNullException</span></td>
-        <td><p><code data-dev-comment-type="paramref" class="paramref">pattern</code> or <code data-dev-comment-type="paramref" class="paramref">action</code> is <span class="xref">null</span>.</p>
+        <td><p><code data-dev-comment-type="paramref" class="paramref">pattern</code> or <code data-dev-comment-type="paramref" class="paramref">func</code> is <span class="xref">null</span>.</p>
 </td>
       </tr>
     </tbody>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/PatternMatching/new/master/apiSpec/new?filename=PatternMatching_Match_1_Case__1_PatternMatching_IPattern__0___0__System_Boolean_System_Action___0__.md&amp;value=---%0Auid%3A%20PatternMatching.Match%601.Case%60%601(PatternMatching.IPattern%7B%600%2C%60%600%7D%2CSystem.Boolean%2CSystem.Action%7B%60%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/TolikPylypchuk/PatternMatching/new/master/apiSpec/new?filename=PatternMatching_Match_2_Case__1_PatternMatching_IPattern__0___0__System_Func___0__1__.md&amp;value=---%0Auid%3A%20PatternMatching.Match%602.Case%60%601(PatternMatching.IPattern%7B%600%2C%60%600%7D%2CSystem.Func%7B%60%600%2C%601%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/PatternMatching/blob/master/PatternMatching/Match_1.cs/#L79">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/PatternMatching/blob/master/PatternMatching/Match_2.cs/#L63">View Source</a>
   </span>
-  <a id="PatternMatching_Match_1_Case_" data-uid="PatternMatching.Match`1.Case*"></a>
-  <h4 id="PatternMatching_Match_1_Case__1_PatternMatching_IPattern__0___0__System_Boolean_System_Action___0__" data-uid="PatternMatching.Match`1.Case``1(PatternMatching.IPattern{`0,``0},System.Boolean,System.Action{``0})">Case&lt;TMatchResult&gt;(IPattern&lt;TInput, TMatchResult&gt;, Boolean, Action&lt;TMatchResult&gt;)</h4>
-  <div class="markdown level1 summary"><p>Returns a new matcher which includes the specified pattern and action to execute if this
+  <a id="PatternMatching_Match_2_Case_" data-uid="PatternMatching.Match`2.Case*"></a>
+  <h4 id="PatternMatching_Match_2_Case__1_PatternMatching_IPattern__0___0__System_Func___0__1__" data-uid="PatternMatching.Match`2.Case``1(PatternMatching.IPattern{`0,``0},System.Func{``0,`1})">Case&lt;TMatchResult&gt;(IPattern&lt;TInput, TMatchResult&gt;, Func&lt;TMatchResult, TOutput&gt;)</h4>
+  <div class="markdown level1 summary"><p>Returns a new matcher which includes the specified pattern and function to execute if this
 pattern is matched successfully.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Match&lt;TInput&gt; Case&lt;TMatchResult&gt;(IPattern&lt;TInput, TMatchResult&gt; pattern, bool fallthrough, Action&lt;TMatchResult&gt; action)</code></pre>
+    <pre><code class="lang-csharp hljs">public Match&lt;TInput, TOutput&gt; Case&lt;TMatchResult&gt;(IPattern&lt;TInput, TMatchResult&gt; pattern, Func&lt;TMatchResult, TOutput&gt; func)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -256,15 +264,9 @@ pattern is matched successfully.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td><span class="parametername">fallthrough</span></td>
-        <td><p>The fallthrough behaviour.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Action</span>&lt;TMatchResult&gt;</td>
-        <td><span class="parametername">action</span></td>
-        <td><p>The action to execute if the match is successful.</p>
+        <td><span class="xref">System.Func</span>&lt;TMatchResult, TOutput&gt;</td>
+        <td><span class="parametername">func</span></td>
+        <td><p>The function to execute if the match is successful.</p>
 </td>
       </tr>
     </tbody>
@@ -279,8 +281,8 @@ pattern is matched successfully.</p>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="PatternMatching.Match-1.html">Match</a>&lt;TInput&gt;</td>
-        <td><p>A new matcher which includes the specified pattern and action to execute if this
+        <td><a class="xref" href="PatternMatching.Match-2.html">Match</a>&lt;TInput, TOutput&gt;</td>
+        <td><p>A new matcher which includes the specified pattern and function to execute if this
 pattern is matched successfully.</p>
 </td>
       </tr>
@@ -313,112 +315,27 @@ pattern is matched successfully.</p>
     <tbody>
       <tr>
         <td><span class="xref">System.ArgumentNullException</span></td>
-        <td><p><code data-dev-comment-type="paramref" class="paramref">pattern</code> or <code data-dev-comment-type="paramref" class="paramref">action</code> is <span class="xref">null</span>.</p>
+        <td><p><code data-dev-comment-type="paramref" class="paramref">pattern</code> or <code data-dev-comment-type="paramref" class="paramref">func</code> is <span class="xref">null</span>.</p>
 </td>
       </tr>
     </tbody>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/PatternMatching/new/master/apiSpec/new?filename=PatternMatching_Match_1_Case__1_System_Action___0__.md&amp;value=---%0Auid%3A%20PatternMatching.Match%601.Case%60%601(System.Action%7B%60%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/TolikPylypchuk/PatternMatching/new/master/apiSpec/new?filename=PatternMatching_Match_2_Case__1_System_Boolean_System_Func___0__1__.md&amp;value=---%0Auid%3A%20PatternMatching.Match%602.Case%60%601(System.Boolean%2CSystem.Func%7B%60%600%2C%601%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/PatternMatching/blob/master/PatternMatching/Match_1.cs/#L102">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/PatternMatching/blob/master/PatternMatching/Match_2.cs/#L124">View Source</a>
   </span>
-  <a id="PatternMatching_Match_1_Case_" data-uid="PatternMatching.Match`1.Case*"></a>
-  <h4 id="PatternMatching_Match_1_Case__1_System_Action___0__" data-uid="PatternMatching.Match`1.Case``1(System.Action{``0})">Case&lt;TType&gt;(Action&lt;TType&gt;)</h4>
-  <div class="markdown level1 summary"><p>Returns a new matcher which includes the pattern for the specified type and action to execute if this
+  <a id="PatternMatching_Match_2_Case_" data-uid="PatternMatching.Match`2.Case*"></a>
+  <h4 id="PatternMatching_Match_2_Case__1_System_Boolean_System_Func___0__1__" data-uid="PatternMatching.Match`2.Case``1(System.Boolean,System.Func{``0,`1})">Case&lt;TType&gt;(Boolean, Func&lt;TType, TOutput&gt;)</h4>
+  <div class="markdown level1 summary"><p>Returns a new matcher which includes the pattern for the specified type and function to execute if this
 pattern is matched successfully.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Match&lt;TInput&gt; Case&lt;TType&gt;(Action&lt;TType&gt; action)
-    where TType : TInput</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Action</span>&lt;TType&gt;</td>
-        <td><span class="parametername">action</span></td>
-        <td><p>The action to execute if the match is successful.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="PatternMatching.Match-1.html">Match</a>&lt;TInput&gt;</td>
-        <td><p>A new matcher which includes the type pattern and action to execute if this
-pattern is matched successfully.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="parametername">TType</span></td>
-        <td><p>The type of the result of the pattern's match.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.ArgumentNullException</span></td>
-        <td><p><code data-dev-comment-type="paramref" class="paramref">action</code> is <span class="xref">null</span>.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/PatternMatching/new/master/apiSpec/new?filename=PatternMatching_Match_1_Case__1_System_Boolean_System_Action___0__.md&amp;value=---%0Auid%3A%20PatternMatching.Match%601.Case%60%601(System.Boolean%2CSystem.Action%7B%60%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/PatternMatching/blob/master/PatternMatching/Match_1.cs/#L120">View Source</a>
-  </span>
-  <a id="PatternMatching_Match_1_Case_" data-uid="PatternMatching.Match`1.Case*"></a>
-  <h4 id="PatternMatching_Match_1_Case__1_System_Boolean_System_Action___0__" data-uid="PatternMatching.Match`1.Case``1(System.Boolean,System.Action{``0})">Case&lt;TType&gt;(Boolean, Action&lt;TType&gt;)</h4>
-  <div class="markdown level1 summary"><p>Returns a new matcher which includes the pattern for the specified type and action to execute if this
-pattern is matched successfully.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Match&lt;TInput&gt; Case&lt;TType&gt;(bool fallthrough, Action&lt;TType&gt; action)
+    <pre><code class="lang-csharp hljs">public Match&lt;TInput, TOutput&gt; Case&lt;TType&gt;(bool fallthrough, Func&lt;TType, TOutput&gt; func)
     where TType : TInput</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -438,9 +355,9 @@ pattern is matched successfully.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.Action</span>&lt;TType&gt;</td>
-        <td><span class="parametername">action</span></td>
-        <td><p>The action to execute if the match is successful.</p>
+        <td><span class="xref">System.Func</span>&lt;TType, TOutput&gt;</td>
+        <td><span class="parametername">func</span></td>
+        <td><p>The function to execute if the match is successful.</p>
 </td>
       </tr>
     </tbody>
@@ -455,8 +372,8 @@ pattern is matched successfully.</p>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="PatternMatching.Match-1.html">Match</a>&lt;TInput&gt;</td>
-        <td><p>A new matcher which includes the type pattern and action to execute if this
+        <td><a class="xref" href="PatternMatching.Match-2.html">Match</a>&lt;TInput, TOutput&gt;</td>
+        <td><p>A new matcher which includes the type pattern and function to execute if this
 pattern is matched successfully.</p>
 </td>
       </tr>
@@ -489,26 +406,111 @@ pattern is matched successfully.</p>
     <tbody>
       <tr>
         <td><span class="xref">System.ArgumentNullException</span></td>
-        <td><p><code data-dev-comment-type="paramref" class="paramref">action</code> is <span class="xref">null</span>.</p>
+        <td><p><code data-dev-comment-type="paramref" class="paramref">func</code> is <span class="xref">null</span>.</p>
 </td>
       </tr>
     </tbody>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/PatternMatching/new/master/apiSpec/new?filename=PatternMatching_Match_1_ExecuteOn__0_.md&amp;value=---%0Auid%3A%20PatternMatching.Match%601.ExecuteOn(%600)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/TolikPylypchuk/PatternMatching/new/master/apiSpec/new?filename=PatternMatching_Match_2_Case__1_System_Func___0__1__.md&amp;value=---%0Auid%3A%20PatternMatching.Match%602.Case%60%601(System.Func%7B%60%600%2C%601%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/PatternMatching/blob/master/PatternMatching/Match_1.cs/#L132">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/PatternMatching/blob/master/PatternMatching/Match_2.cs/#L106">View Source</a>
   </span>
-  <a id="PatternMatching_Match_1_ExecuteOn_" data-uid="PatternMatching.Match`1.ExecuteOn*"></a>
-  <h4 id="PatternMatching_Match_1_ExecuteOn__0_" data-uid="PatternMatching.Match`1.ExecuteOn(`0)">ExecuteOn(TInput)</h4>
-  <div class="markdown level1 summary"><p>Executes the match expression on the specified input.</p>
+  <a id="PatternMatching_Match_2_Case_" data-uid="PatternMatching.Match`2.Case*"></a>
+  <h4 id="PatternMatching_Match_2_Case__1_System_Func___0__1__" data-uid="PatternMatching.Match`2.Case``1(System.Func{``0,`1})">Case&lt;TType&gt;(Func&lt;TType, TOutput&gt;)</h4>
+  <div class="markdown level1 summary"><p>Returns a new matcher which includes the pattern for the specified type and function to execute if this
+pattern is matched successfully.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool ExecuteOn(TInput input)</code></pre>
+    <pre><code class="lang-csharp hljs">public Match&lt;TInput, TOutput&gt; Case&lt;TType&gt;(Func&lt;TType, TOutput&gt; func)
+    where TType : TInput</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Func</span>&lt;TType, TOutput&gt;</td>
+        <td><span class="parametername">func</span></td>
+        <td><p>The function to execute if the match is successful.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="PatternMatching.Match-2.html">Match</a>&lt;TInput, TOutput&gt;</td>
+        <td><p>A new matcher which includes the type pattern and function to execute if this
+pattern is matched successfully.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TType</span></td>
+        <td><p>The type of the result of the pattern's match.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.ArgumentNullException</span></td>
+        <td><p><code data-dev-comment-type="paramref" class="paramref">func</code> is <span class="xref">null</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TolikPylypchuk/PatternMatching/new/master/apiSpec/new?filename=PatternMatching_Match_2_ExecuteNonStrict__0_.md&amp;value=---%0Auid%3A%20PatternMatching.Match%602.ExecuteNonStrict(%600)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TolikPylypchuk/PatternMatching/blob/master/PatternMatching/Match_2.cs/#L144">View Source</a>
+  </span>
+  <a id="PatternMatching_Match_2_ExecuteNonStrict_" data-uid="PatternMatching.Match`2.ExecuteNonStrict*"></a>
+  <h4 id="PatternMatching_Match_2_ExecuteNonStrict__0_" data-uid="PatternMatching.Match`2.ExecuteNonStrict(`0)">ExecuteNonStrict(TInput)</h4>
+  <div class="markdown level1 summary"><p>Executes the match expression on the specified input and returns the result.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public OptionUnsafe&lt;TOutput&gt; ExecuteNonStrict(TInput input)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -538,28 +540,27 @@ pattern is matched successfully.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td><p><span class="xref">true</span>, if the match was successful.
-Otherwise, <span class="xref">false</span>.</p>
+        <td><span class="xref">LanguageExt.OptionUnsafe</span>&lt;TOutput&gt;</td>
+        <td><p>The result of the match expression, or nothing if no pattern was matched successfully.</p>
 </td>
       </tr>
     </tbody>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/PatternMatching/new/master/apiSpec/new?filename=PatternMatching_Match_1_ExecuteStrict__0_.md&amp;value=---%0Auid%3A%20PatternMatching.Match%601.ExecuteStrict(%600)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/TolikPylypchuk/PatternMatching/new/master/apiSpec/new?filename=PatternMatching_Match_2_ExecuteNonStrictWithFallthrough__0_.md&amp;value=---%0Auid%3A%20PatternMatching.Match%602.ExecuteNonStrictWithFallthrough(%600)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/PatternMatching/blob/master/PatternMatching/Match_1.cs/#L154">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/PatternMatching/blob/master/PatternMatching/Match_2.cs/#L185">View Source</a>
   </span>
-  <a id="PatternMatching_Match_1_ExecuteStrict_" data-uid="PatternMatching.Match`1.ExecuteStrict*"></a>
-  <h4 id="PatternMatching_Match_1_ExecuteStrict__0_" data-uid="PatternMatching.Match`1.ExecuteStrict(`0)">ExecuteStrict(TInput)</h4>
-  <div class="markdown level1 summary"><p>Executes the match expression strictly on the specified input.</p>
+  <a id="PatternMatching_Match_2_ExecuteNonStrictWithFallthrough_" data-uid="PatternMatching.Match`2.ExecuteNonStrictWithFallthrough*"></a>
+  <h4 id="PatternMatching_Match_2_ExecuteNonStrictWithFallthrough__0_" data-uid="PatternMatching.Match`2.ExecuteNonStrictWithFallthrough(`0)">ExecuteNonStrictWithFallthrough(TInput)</h4>
+  <div class="markdown level1 summary"><p>Executes the match expression on the specified input with fallthrough and returns a list of results.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void ExecuteStrict(TInput input)</code></pre>
+    <pre><code class="lang-csharp hljs">public Lst&lt;TOutput&gt; ExecuteNonStrictWithFallthrough(TInput input)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -575,6 +576,72 @@ Otherwise, <span class="xref">false</span>.</p>
         <td><span class="xref">TInput</span></td>
         <td><span class="parametername">input</span></td>
         <td><p>The input value of the expression.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">LanguageExt.Lst</span>&lt;TOutput&gt;</td>
+        <td><p>The list of results of the match expression, which is empty if no pattern is matched successfully.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TolikPylypchuk/PatternMatching/new/master/apiSpec/new?filename=PatternMatching_Match_2_ExecuteOn__0_.md&amp;value=---%0Auid%3A%20PatternMatching.Match%602.ExecuteOn(%600)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TolikPylypchuk/PatternMatching/blob/master/PatternMatching/Match_2.cs/#L136">View Source</a>
+  </span>
+  <a id="PatternMatching_Match_2_ExecuteOn_" data-uid="PatternMatching.Match`2.ExecuteOn*"></a>
+  <h4 id="PatternMatching_Match_2_ExecuteOn__0_" data-uid="PatternMatching.Match`2.ExecuteOn(`0)">ExecuteOn(TInput)</h4>
+  <div class="markdown level1 summary"><p>Executes the match expression on the specified input and returns the result.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TOutput ExecuteOn(TInput input)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TInput</span></td>
+        <td><span class="parametername">input</span></td>
+        <td><p>The input value of the expression.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TOutput</span></td>
+        <td><p>The result of the match expression.</p>
 </td>
       </tr>
     </tbody>
@@ -597,19 +664,19 @@ Otherwise, <span class="xref">false</span>.</p>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/PatternMatching/new/master/apiSpec/new?filename=PatternMatching_Match_1_ExecuteStrictWithFallthrough__0_.md&amp;value=---%0Auid%3A%20PatternMatching.Match%601.ExecuteStrictWithFallthrough(%600)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/TolikPylypchuk/PatternMatching/new/master/apiSpec/new?filename=PatternMatching_Match_2_ExecuteWithFallthrough__0_.md&amp;value=---%0Auid%3A%20PatternMatching.Match%602.ExecuteWithFallthrough(%600)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/PatternMatching/blob/master/PatternMatching/Match_1.cs/#L203">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/PatternMatching/blob/master/PatternMatching/Match_2.cs/#L166">View Source</a>
   </span>
-  <a id="PatternMatching_Match_1_ExecuteStrictWithFallthrough_" data-uid="PatternMatching.Match`1.ExecuteStrictWithFallthrough*"></a>
-  <h4 id="PatternMatching_Match_1_ExecuteStrictWithFallthrough__0_" data-uid="PatternMatching.Match`1.ExecuteStrictWithFallthrough(`0)">ExecuteStrictWithFallthrough(TInput)</h4>
-  <div class="markdown level1 summary"><p>Executes the match expression strictly on the specified input with fallthrough.</p>
+  <a id="PatternMatching_Match_2_ExecuteWithFallthrough_" data-uid="PatternMatching.Match`2.ExecuteWithFallthrough*"></a>
+  <h4 id="PatternMatching_Match_2_ExecuteWithFallthrough__0_" data-uid="PatternMatching.Match`2.ExecuteWithFallthrough(`0)">ExecuteWithFallthrough(TInput)</h4>
+  <div class="markdown level1 summary"><p>Executes the match expression on the specified input with fallthrough and returns a list of results.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public int ExecuteStrictWithFallthrough(TInput input)</code></pre>
+    <pre><code class="lang-csharp hljs">public Lst&lt;TOutput&gt; ExecuteWithFallthrough(TInput input)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -639,8 +706,8 @@ Otherwise, <span class="xref">false</span>.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Int32</span></td>
-        <td><p>The number of patterns that were matched successfully.</p>
+        <td><span class="xref">LanguageExt.Lst</span>&lt;TOutput&gt;</td>
+        <td><p>The list of results of the match expression.</p>
 </td>
       </tr>
     </tbody>
@@ -663,69 +730,19 @@ Otherwise, <span class="xref">false</span>.</p>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/PatternMatching/new/master/apiSpec/new?filename=PatternMatching_Match_1_ExecuteWithFallthrough__0_.md&amp;value=---%0Auid%3A%20PatternMatching.Match%601.ExecuteWithFallthrough(%600)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/TolikPylypchuk/PatternMatching/new/master/apiSpec/new?filename=PatternMatching_Match_2_ToFunction.md&amp;value=---%0Auid%3A%20PatternMatching.Match%602.ToFunction%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/PatternMatching/blob/master/PatternMatching/Match_1.cs/#L171">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/PatternMatching/blob/master/PatternMatching/Match_2.cs/#L208">View Source</a>
   </span>
-  <a id="PatternMatching_Match_1_ExecuteWithFallthrough_" data-uid="PatternMatching.Match`1.ExecuteWithFallthrough*"></a>
-  <h4 id="PatternMatching_Match_1_ExecuteWithFallthrough__0_" data-uid="PatternMatching.Match`1.ExecuteWithFallthrough(`0)">ExecuteWithFallthrough(TInput)</h4>
-  <div class="markdown level1 summary"><p>Executes the match expression on the specified input with fallthrough.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public int ExecuteWithFallthrough(TInput input)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">TInput</span></td>
-        <td><span class="parametername">input</span></td>
-        <td><p>The input value of the expression.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Int32</span></td>
-        <td><p>The number of patterns that were matched successfully.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/PatternMatching/new/master/apiSpec/new?filename=PatternMatching_Match_1_ToFunction.md&amp;value=---%0Auid%3A%20PatternMatching.Match%601.ToFunction%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/PatternMatching/blob/master/PatternMatching/Match_1.cs/#L219">View Source</a>
-  </span>
-  <a id="PatternMatching_Match_1_ToFunction_" data-uid="PatternMatching.Match`1.ToFunction*"></a>
-  <h4 id="PatternMatching_Match_1_ToFunction" data-uid="PatternMatching.Match`1.ToFunction">ToFunction()</h4>
+  <a id="PatternMatching_Match_2_ToFunction_" data-uid="PatternMatching.Match`2.ToFunction*"></a>
+  <h4 id="PatternMatching_Match_2_ToFunction" data-uid="PatternMatching.Match`2.ToFunction">ToFunction()</h4>
   <div class="markdown level1 summary"><p>Returns a function which, when called, will match the specified value.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Func&lt;TInput, bool&gt; ToFunction()</code></pre>
+    <pre><code class="lang-csharp hljs">public Func&lt;TInput, TOutput&gt; ToFunction()</code></pre>
   </div>
   <h5 class="returns">Returns</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -737,7 +754,7 @@ Otherwise, <span class="xref">false</span>.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Func</span>&lt;TInput, <span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="xref">System.Func</span>&lt;TInput, TOutput&gt;</td>
         <td><p>A function which, when called, will match the specified value.</p>
 </td>
       </tr>
@@ -745,19 +762,19 @@ Otherwise, <span class="xref">false</span>.</p>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/PatternMatching/new/master/apiSpec/new?filename=PatternMatching_Match_1_ToFunctionWithFallthrough.md&amp;value=---%0Auid%3A%20PatternMatching.Match%601.ToFunctionWithFallthrough%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/TolikPylypchuk/PatternMatching/new/master/apiSpec/new?filename=PatternMatching_Match_2_ToFunctionWithFallthrough.md&amp;value=---%0Auid%3A%20PatternMatching.Match%602.ToFunctionWithFallthrough%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/PatternMatching/blob/master/PatternMatching/Match_1.cs/#L233">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/PatternMatching/blob/master/PatternMatching/Match_2.cs/#L222">View Source</a>
   </span>
-  <a id="PatternMatching_Match_1_ToFunctionWithFallthrough_" data-uid="PatternMatching.Match`1.ToFunctionWithFallthrough*"></a>
-  <h4 id="PatternMatching_Match_1_ToFunctionWithFallthrough" data-uid="PatternMatching.Match`1.ToFunctionWithFallthrough">ToFunctionWithFallthrough()</h4>
-  <div class="markdown level1 summary"><p>Returns a function which, when called, will match the specified value with fallthrough.</p>
+  <a id="PatternMatching_Match_2_ToFunctionWithFallthrough_" data-uid="PatternMatching.Match`2.ToFunctionWithFallthrough*"></a>
+  <h4 id="PatternMatching_Match_2_ToFunctionWithFallthrough" data-uid="PatternMatching.Match`2.ToFunctionWithFallthrough">ToFunctionWithFallthrough()</h4>
+  <div class="markdown level1 summary"><p>Returns a function which, when called, will match the specified value.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Func&lt;TInput, int&gt; ToFunctionWithFallthrough()</code></pre>
+    <pre><code class="lang-csharp hljs">public Func&lt;TInput, Lst&lt;TOutput&gt;&gt; ToFunctionWithFallthrough()</code></pre>
   </div>
   <h5 class="returns">Returns</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -769,27 +786,27 @@ Otherwise, <span class="xref">false</span>.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Func</span>&lt;TInput, <span class="xref">System.Int32</span>&gt;</td>
-        <td><p>A function which, when called, will match the specified value with fallthrough.</p>
+        <td><span class="xref">System.Func</span>&lt;TInput, <span class="xref">LanguageExt.Lst</span>&lt;TOutput&gt;&gt;</td>
+        <td><p>A function which, when called, will match the specified value.</p>
 </td>
       </tr>
     </tbody>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/PatternMatching/new/master/apiSpec/new?filename=PatternMatching_Match_1_ToStrictFunction.md&amp;value=---%0Auid%3A%20PatternMatching.Match%601.ToStrictFunction%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/TolikPylypchuk/PatternMatching/new/master/apiSpec/new?filename=PatternMatching_Match_2_ToNonStrictFunction.md&amp;value=---%0Auid%3A%20PatternMatching.Match%602.ToNonStrictFunction%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/PatternMatching/blob/master/PatternMatching/Match_1.cs/#L226">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/PatternMatching/blob/master/PatternMatching/Match_2.cs/#L215">View Source</a>
   </span>
-  <a id="PatternMatching_Match_1_ToStrictFunction_" data-uid="PatternMatching.Match`1.ToStrictFunction*"></a>
-  <h4 id="PatternMatching_Match_1_ToStrictFunction" data-uid="PatternMatching.Match`1.ToStrictFunction">ToStrictFunction()</h4>
-  <div class="markdown level1 summary"><p>Returns an action which, when called, will match the specified value strictly.</p>
+  <a id="PatternMatching_Match_2_ToNonStrictFunction_" data-uid="PatternMatching.Match`2.ToNonStrictFunction*"></a>
+  <h4 id="PatternMatching_Match_2_ToNonStrictFunction" data-uid="PatternMatching.Match`2.ToNonStrictFunction">ToNonStrictFunction()</h4>
+  <div class="markdown level1 summary"><p>Returns a function which, when called, will match the specified value.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Action&lt;TInput&gt; ToStrictFunction()</code></pre>
+    <pre><code class="lang-csharp hljs">public Func&lt;TInput, OptionUnsafe&lt;TOutput&gt;&gt; ToNonStrictFunction()</code></pre>
   </div>
   <h5 class="returns">Returns</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -801,27 +818,27 @@ Otherwise, <span class="xref">false</span>.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Action</span>&lt;TInput&gt;</td>
-        <td><p>An action which, when called, will match the specified value strictly.</p>
+        <td><span class="xref">System.Func</span>&lt;TInput, <span class="xref">LanguageExt.OptionUnsafe</span>&lt;TOutput&gt;&gt;</td>
+        <td><p>A function which, when called, will match the specified value.</p>
 </td>
       </tr>
     </tbody>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/PatternMatching/new/master/apiSpec/new?filename=PatternMatching_Match_1_ToStrictFunctionWithFallthrough.md&amp;value=---%0Auid%3A%20PatternMatching.Match%601.ToStrictFunctionWithFallthrough%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/TolikPylypchuk/PatternMatching/new/master/apiSpec/new?filename=PatternMatching_Match_2_ToNonStrictFunctionWithFallthrough.md&amp;value=---%0Auid%3A%20PatternMatching.Match%602.ToNonStrictFunctionWithFallthrough%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/PatternMatching/blob/master/PatternMatching/Match_1.cs/#L240">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/PatternMatching/blob/master/PatternMatching/Match_2.cs/#L229">View Source</a>
   </span>
-  <a id="PatternMatching_Match_1_ToStrictFunctionWithFallthrough_" data-uid="PatternMatching.Match`1.ToStrictFunctionWithFallthrough*"></a>
-  <h4 id="PatternMatching_Match_1_ToStrictFunctionWithFallthrough" data-uid="PatternMatching.Match`1.ToStrictFunctionWithFallthrough">ToStrictFunctionWithFallthrough()</h4>
-  <div class="markdown level1 summary"><p>Returns a function which, when called, will match the specified value strictly with fallthrough.</p>
+  <a id="PatternMatching_Match_2_ToNonStrictFunctionWithFallthrough_" data-uid="PatternMatching.Match`2.ToNonStrictFunctionWithFallthrough*"></a>
+  <h4 id="PatternMatching_Match_2_ToNonStrictFunctionWithFallthrough" data-uid="PatternMatching.Match`2.ToNonStrictFunctionWithFallthrough">ToNonStrictFunctionWithFallthrough()</h4>
+  <div class="markdown level1 summary"><p>Returns a function which, when called, will match the specified value.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Func&lt;TInput, int&gt; ToStrictFunctionWithFallthrough()</code></pre>
+    <pre><code class="lang-csharp hljs">public Func&lt;TInput, Lst&lt;TOutput&gt;&gt; ToNonStrictFunctionWithFallthrough()</code></pre>
   </div>
   <h5 class="returns">Returns</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -833,15 +850,15 @@ Otherwise, <span class="xref">false</span>.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Func</span>&lt;TInput, <span class="xref">System.Int32</span>&gt;</td>
-        <td><p>An action which, when called, will match the specified value strictly with fallthrough.</p>
+        <td><span class="xref">System.Func</span>&lt;TInput, <span class="xref">LanguageExt.Lst</span>&lt;TOutput&gt;&gt;</td>
+        <td><p>A function which, when called, will match the specified value.</p>
 </td>
       </tr>
     </tbody>
   </table>
   <h3 id="seealso">See Also</h3>
   <div class="seealso">
-      <div><a class="xref" href="PatternMatching.Match-2.html">Match</a>&lt;TInput, TOutput&gt;</div>
+      <div><a class="xref" href="PatternMatching.Match-1.html">Match</a>&lt;TInput&gt;</div>
       <div><a class="xref" href="PatternMatching.Match.html">Match</a></div>
       <div><a class="xref" href="PatternMatching.MatchException.html">MatchException</a></div>
   </div>
@@ -853,10 +870,10 @@ Otherwise, <span class="xref">false</span>.</p>
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/TolikPylypchuk/PatternMatching/new/master/apiSpec/new?filename=PatternMatching_Match_1.md&amp;value=---%0Auid%3A%20PatternMatching.Match%601%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/TolikPylypchuk/PatternMatching/new/master/apiSpec/new?filename=PatternMatching_Match_2.md&amp;value=---%0Auid%3A%20PatternMatching.Match%602%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/TolikPylypchuk/PatternMatching/blob/master/PatternMatching/Match_1.cs/#L15" class="contribution-link">View Source</a>
+                    <a href="https://github.com/TolikPylypchuk/PatternMatching/blob/master/PatternMatching/Match_2.cs/#L17" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>
