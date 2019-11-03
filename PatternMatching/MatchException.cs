@@ -1,4 +1,5 @@
-﻿using System;
+using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Runtime.Serialization;
 
 namespace PatternMatching
@@ -8,6 +9,7 @@ namespace PatternMatching
     /// </summary>
     /// <seealso cref="Match{TInput, TOutput}" />
     /// <seealso cref="Match{TInput}" />
+    [ExcludeFromCodeCoverage]
     public class MatchException : Exception
     {
         /// <summary>

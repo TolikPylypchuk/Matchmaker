@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 using LanguageExt;
 
@@ -25,7 +25,8 @@ namespace PatternMatching
         /// <paramref name="predicate" /> is <see langword="null" />.
         /// </exception>
         public SimplePattern(Func<TInput, bool> predicate)
-            : base(List(predicate ?? throw new ArgumentNullException(nameof(predicate)))) { }
+            : base(List(predicate ?? throw new ArgumentNullException(nameof(predicate))))
+        { }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="SimplePattern{TInput}" /> class
@@ -33,7 +34,8 @@ namespace PatternMatching
         /// </summary>
         /// <param name="predicates">The conditions of this pattern.</param>
         private SimplePattern(Lst<Func<TInput, bool>> predicates)
-            : base(predicates) { }
+            : base(predicates)
+        { }
 
         /// <summary>
         /// Matches the input with this pattern, and returns the input value.

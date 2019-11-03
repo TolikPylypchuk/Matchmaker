@@ -1,11 +1,14 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 
 using FluentAssertions;
 
 using FsCheck;
 using FsCheck.Xunit;
+
+using LanguageExt;
 
 using Xunit;
 
@@ -13,6 +16,59 @@ namespace PatternMatching
 {
     public class PatternTests
     {
+        [Property(Arbitrary = new[] { typeof(Generators) })]
+        public Property SimplePatternShouldMatchSameAsPredicate(Func<string, bool> predicate, string input)
+            => (new SimplePattern<string>(predicate).Match(input).IsSome == predicate(input)).ToProperty();
+
+        [Property(Arbitrary = new[] { typeof(Generators) })]
+        public Property PatternShouldMatchSameAsMatcher(Func<string, OptionUnsafe<string>> matcher, string input)
+            => (new Pattern<string, string>(matcher).Match(input) == matcher(input)).ToProperty();
+
+        [Fact]
+        public void SimplePatternConstructorShouldThrowForNull()
+        {
+            Action action = () => { var _ = new SimplePattern<string>(null); };
+            action.Should().Throw<ArgumentNullException>();
+        }
+
+        [Fact]
+        public void PatternConstructorShouldThrowForNull()
+        {
+            Action action = () => { var _ = new Pattern<string, string>(null); };
+            action.Should().Throw<ArgumentNullException>();
+        }
+
+        [Property(Arbitrary = new[] { typeof(Generators) })]
+        public Property SimplePatternWithWhenShouldMatchSameAsPredicates(
+            List<Func<string, bool>> predicates,
+            string input)
+        {
+            Func<bool> property = () => predicates
+                .Skip(1)
+                .Aggregate(
+                    new SimplePattern<string>(predicates.First()),
+                    (pattern, predicate) => pattern.When(predicate))
+                .Match(input)
+                .IsSome == predicates.All(predicate => predicate(input));
+
+            return property.When(predicates != null && predicates.Count > 1);
+        }
+
+        [Property(Arbitrary = new[] { typeof(Generators) })]
+        public Property PatternWithWhenShouldMatchSameAsMatcherAndPredicates(
+            Func<string, OptionUnsafe<string>> matcher,
+            List<Func<string, bool>> predicates,
+            string input)
+        {
+            Func<bool> property = () => predicates
+                .Aggregate(
+                    new Pattern<string, string>(matcher),
+                    (pattern, predicate) => pattern.When(predicate))
+                .Match(input) == matcher(input).Filter(i => predicates.All(predicate => predicate(i)));
+
+            return property.When(matcher != null && predicates != null && predicates.Count > 1);
+        }
+
         [Property]
         public Property AnyShouldAlwaysSucceed(string x)
             => Pattern.Any<string>().Match(x).IsSome.ToProperty();

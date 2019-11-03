@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 using LanguageExt;
 
@@ -25,8 +25,11 @@ namespace PatternMatching
         /// with the specified matcher function.
         /// </summary>
         /// <param name="matcher">The matcher function.</param>
+        /// <exception cref="ArgumentNullException">
+        /// <paramref name="matcher" /> is <see langword="null" />.
+        /// </exception>
         public Pattern(Func<TInput, OptionUnsafe<TMatchResult>> matcher)
-            => this.matcher = matcher;
+            => this.matcher = matcher ?? throw new ArgumentNullException(nameof(matcher));
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Pattern{TInput, TMatchResult}" /> class
