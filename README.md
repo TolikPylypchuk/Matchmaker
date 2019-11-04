@@ -4,7 +4,7 @@
 [![Build status](https://ci.appveyor.com/api/projects/status/2scf378j79k6xe7f/branch/master?svg=true)](https://ci.appveyor.com/project/TolikPylypchuk/patternmatching/branch/master)
 
 A library which enables more powerful pattern matching
-than is currently available in the `switch` statement.
+than is currently available in the C#'s `switch` statement.
 
 ## Installation
 
@@ -85,10 +85,10 @@ The documentation can be found here:
 
 ## Is this library still maintained?
 
-The answer is definitely yes. I'm currently working on version 1.2, which will add
-some new features, fix a couple bugs and include lots of tests for everything.
-After that I'm planning on working on version 2.0, which will drop the dependency on
-language-ext (major breaking changes coming), and version 2.1, which will add support
+The answer is definitely yes. I'm currently working on version 1.2, which will fix
+a couple bugs and include lots of tests for everything. After that I'm planning on
+working on version 2.0, which will drop the dependency on language-ext
+(major breaking changes coming), and version 2.1, which will add support
 for nullable reference types and as such, will target .NET Standard 2.1.
 You can open issues and PRs for bugs and feature suggestions. I will
 review them, fix the bugs and maybe even add the suggested features if they are

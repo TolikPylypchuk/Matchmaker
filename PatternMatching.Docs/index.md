@@ -1,7 +1,7 @@
 # PatternMatching
 
 A library which enables more powerful pattern matching
-than is currently available in the `switch` statement.
+than is currently available in the C#'s `switch` statement.
 
 You can look through the
 [articles](https://tolikpylypchuk.github.io/PatternMatching/v1.1.0/articles/intro.html)
