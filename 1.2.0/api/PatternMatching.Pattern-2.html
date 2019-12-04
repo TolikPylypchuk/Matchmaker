@@ -95,28 +95,7 @@
       <a class="xref" href="PatternMatching.ConditionalPattern-3.html#PatternMatching_ConditionalPattern_3_Match__0_">ConditionalPattern&lt;TInput, TMatchResult, Pattern&lt;TInput, TMatchResult&gt;&gt;.Match(TInput)</a>
     </div>
     <div>
-      <a class="xref" href="PatternMatching.ConditionalPattern-3.html#PatternMatching_ConditionalPattern_3_When_System_Func__1_System_Boolean__">ConditionalPattern&lt;TInput, TMatchResult, Pattern&lt;TInput, TMatchResult&gt;&gt;.When(Func&lt;TMatchResult, Boolean&gt;)</a>
-    </div>
-    <div>
-      <span class="xref">System.Object.Equals(System.Object)</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.GetHashCode()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.GetType()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.MemberwiseClone()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.ToString()</span>
+      <a class="xref" href="PatternMatching.ConditionalPattern-3.html#PatternMatching_ConditionalPattern_3_When_Func__1_System_Boolean__">ConditionalPattern&lt;TInput, TMatchResult, Pattern&lt;TInput, TMatchResult&gt;&gt;.When(Func&lt;TMatchResult, Boolean&gt;)</a>
     </div>
   </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="PatternMatching.html">PatternMatching</a></h6>
@@ -150,13 +129,13 @@
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/PatternMatching/new/master/apiSpec/new?filename=PatternMatching_Pattern_2__ctor_System_Func__0_LanguageExt_OptionUnsafe__1___.md&amp;value=---%0Auid%3A%20PatternMatching.Pattern%602.%23ctor(System.Func%7B%600%2CLanguageExt.OptionUnsafe%7B%601%7D%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/TolikPylypchuk/PatternMatching/new/master/apiSpec/new?filename=PatternMatching_Pattern_2__ctor_Func__0_OptionUnsafe__1___.md&amp;value=---%0Auid%3A%20PatternMatching.Pattern%602.%23ctor(Func%7B%600%2COptionUnsafe%7B%601%7D%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/TolikPylypchuk/PatternMatching/blob/master/PatternMatching/Pattern_2.cs/#L31">View Source</a>
   </span>
   <a id="PatternMatching_Pattern_2__ctor_" data-uid="PatternMatching.Pattern`2.#ctor*"></a>
-  <h4 id="PatternMatching_Pattern_2__ctor_System_Func__0_LanguageExt_OptionUnsafe__1___" data-uid="PatternMatching.Pattern`2.#ctor(System.Func{`0,LanguageExt.OptionUnsafe{`1}})">Pattern(Func&lt;TInput, OptionUnsafe&lt;TMatchResult&gt;&gt;)</h4>
+  <h4 id="PatternMatching_Pattern_2__ctor_Func__0_OptionUnsafe__1___" data-uid="PatternMatching.Pattern`2.#ctor(Func{`0,OptionUnsafe{`1}})">Pattern(Func&lt;TInput, OptionUnsafe&lt;TMatchResult&gt;&gt;)</h4>
   <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="PatternMatching.Pattern-2.html">Pattern&lt;TInput, TMatchResult&gt;</a> class
 with the specified matcher function.</p>
 </div>
@@ -176,25 +155,9 @@ with the specified matcher function.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Func</span>&lt;TInput, <span class="xref">LanguageExt.OptionUnsafe</span>&lt;TMatchResult&gt;&gt;</td>
+        <td><span class="xref">Func</span>&lt;TInput, <span class="xref">OptionUnsafe</span>&lt;TMatchResult&gt;&gt;</td>
         <td><span class="parametername">matcher</span></td>
         <td><p>The matcher function.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.ArgumentNullException</span></td>
-        <td><p><code data-dev-comment-type="paramref" class="paramref">matcher</code> is <span class="xref">null</span>.</p>
 </td>
       </tr>
     </tbody>
@@ -245,7 +208,7 @@ with the specified matcher function.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">LanguageExt.OptionUnsafe</span>&lt;TMatchResult&gt;</td>
+        <td><span class="xref">OptionUnsafe</span>&lt;TMatchResult&gt;</td>
         <td><p>A non-empty optional value, which contains the transformed result of the match,
 if this match is successful. Otherwise, an empty optional.</p>
 </td>
@@ -256,13 +219,13 @@ if this match is successful. Otherwise, an empty optional.</p>
   <div><span class="xref">PatternMatching.ConditionalPattern&lt;TInput, TMatchResult, PatternMatching.Pattern&lt;TInput, TMatchResult&gt;&gt;.Match(TInput)</span></div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/PatternMatching/new/master/apiSpec/new?filename=PatternMatching_Pattern_2_When_System_Func__1_System_Boolean__.md&amp;value=---%0Auid%3A%20PatternMatching.Pattern%602.When(System.Func%7B%601%2CSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/TolikPylypchuk/PatternMatching/new/master/apiSpec/new?filename=PatternMatching_Pattern_2_When_Func__1_System_Boolean__.md&amp;value=---%0Auid%3A%20PatternMatching.Pattern%602.When(Func%7B%601%2CSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/TolikPylypchuk/PatternMatching/blob/master/PatternMatching/Pattern_2.cs/#L60">View Source</a>
   </span>
   <a id="PatternMatching_Pattern_2_When_" data-uid="PatternMatching.Pattern`2.When*"></a>
-  <h4 id="PatternMatching_Pattern_2_When_System_Func__1_System_Boolean__" data-uid="PatternMatching.Pattern`2.When(System.Func{`1,System.Boolean})">When(Func&lt;TMatchResult, Boolean&gt;)</h4>
+  <h4 id="PatternMatching_Pattern_2_When_Func__1_System_Boolean__" data-uid="PatternMatching.Pattern`2.When(Func{`1,System.Boolean})">When(Func&lt;TMatchResult, Boolean&gt;)</h4>
   <div class="markdown level1 summary"><p>Returns a new pattern, which includes the specified condition.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -281,7 +244,7 @@ if this match is successful. Otherwise, an empty optional.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Func</span>&lt;TMatchResult, <span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="xref">Func</span>&lt;TMatchResult, <span class="xref">System.Boolean</span>&gt;</td>
         <td><span class="parametername">predicate</span></td>
         <td><p>The condition to add.</p>
 </td>
@@ -305,7 +268,7 @@ if this match is successful. Otherwise, an empty optional.</p>
     </tbody>
   </table>
   <h5 class="overrides">Overrides</h5>
-  <div><span class="xref">PatternMatching.ConditionalPattern&lt;TInput, TMatchResult, PatternMatching.Pattern&lt;TInput, TMatchResult&gt;&gt;.When(System.Func&lt;TMatchResult, System.Boolean&gt;)</span></div>
+  <div><span class="xref">PatternMatching.ConditionalPattern&lt;TInput, TMatchResult, PatternMatching.Pattern&lt;TInput, TMatchResult&gt;&gt;.When(Func&lt;TMatchResult, System.Boolean&gt;)</span></div>
   <h3 id="operators">Operators
   </h3>
   <span class="small pull-right mobile-hide">
@@ -364,22 +327,6 @@ when the specified pattern is not matched successfully.</p>
   <div class="markdown level1 remarks"><p>This pattern ignores the specified pattern's transformation
 and returns the input value if matched successfully.</p>
 </div>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.ArgumentNullException</span></td>
-        <td><p><code data-dev-comment-type="paramref" class="paramref">pattern</code> is <span class="xref">null</span>.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
   <h3 id="implements">Implements</h3>
   <div>
       <a class="xref" href="PatternMatching.IPattern-2.html">IPattern&lt;TInput, TMatchResult&gt;</a>

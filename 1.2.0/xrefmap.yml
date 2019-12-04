@@ -24,13 +24,13 @@ references:
   fullName.vb: PatternMatching.ConditionalPattern(Of TInput, TMatchResult, TPattern).ConditionalPattern()
   nameWithType: ConditionalPattern<TInput, TMatchResult, TPattern>.ConditionalPattern()
   nameWithType.vb: ConditionalPattern(Of TInput, TMatchResult, TPattern).ConditionalPattern()
-- uid: PatternMatching.ConditionalPattern`3.#ctor(LanguageExt.Lst{System.Func{`1,System.Boolean}})
+- uid: PatternMatching.ConditionalPattern`3.#ctor(Lst{Func{`1,System.Boolean}})
   name: ConditionalPattern(Lst<Func<TMatchResult, Boolean>>)
-  href: api/PatternMatching.ConditionalPattern-3.html#PatternMatching_ConditionalPattern_3__ctor_LanguageExt_Lst_System_Func__1_System_Boolean___
-  commentId: M:PatternMatching.ConditionalPattern`3.#ctor(LanguageExt.Lst{System.Func{`1,System.Boolean}})
+  href: api/PatternMatching.ConditionalPattern-3.html#PatternMatching_ConditionalPattern_3__ctor_Lst_Func__1_System_Boolean___
+  commentId: M:PatternMatching.ConditionalPattern`3.#ctor(Lst{Func{`1,System.Boolean}})
   name.vb: ConditionalPattern(Lst(Of Func(Of TMatchResult, Boolean)))
-  fullName: PatternMatching.ConditionalPattern<TInput, TMatchResult, TPattern>.ConditionalPattern(LanguageExt.Lst<System.Func<TMatchResult, System.Boolean>>)
-  fullName.vb: PatternMatching.ConditionalPattern(Of TInput, TMatchResult, TPattern).ConditionalPattern(LanguageExt.Lst(Of System.Func(Of TMatchResult, System.Boolean)))
+  fullName: PatternMatching.ConditionalPattern<TInput, TMatchResult, TPattern>.ConditionalPattern(Lst<Func<TMatchResult, System.Boolean>>)
+  fullName.vb: PatternMatching.ConditionalPattern(Of TInput, TMatchResult, TPattern).ConditionalPattern(Lst(Of Func(Of TMatchResult, System.Boolean)))
   nameWithType: ConditionalPattern<TInput, TMatchResult, TPattern>.ConditionalPattern(Lst<Func<TMatchResult, Boolean>>)
   nameWithType.vb: ConditionalPattern(Of TInput, TMatchResult, TPattern).ConditionalPattern(Lst(Of Func(Of TMatchResult, Boolean)))
 - uid: PatternMatching.ConditionalPattern`3.#ctor*
@@ -67,13 +67,13 @@ references:
   fullName.vb: PatternMatching.ConditionalPattern(Of TInput, TMatchResult, TPattern).Predicates
   nameWithType: ConditionalPattern<TInput, TMatchResult, TPattern>.Predicates
   nameWithType.vb: ConditionalPattern(Of TInput, TMatchResult, TPattern).Predicates
-- uid: PatternMatching.ConditionalPattern`3.When(System.Func{`1,System.Boolean})
+- uid: PatternMatching.ConditionalPattern`3.When(Func{`1,System.Boolean})
   name: When(Func<TMatchResult, Boolean>)
-  href: api/PatternMatching.ConditionalPattern-3.html#PatternMatching_ConditionalPattern_3_When_System_Func__1_System_Boolean__
-  commentId: M:PatternMatching.ConditionalPattern`3.When(System.Func{`1,System.Boolean})
+  href: api/PatternMatching.ConditionalPattern-3.html#PatternMatching_ConditionalPattern_3_When_Func__1_System_Boolean__
+  commentId: M:PatternMatching.ConditionalPattern`3.When(Func{`1,System.Boolean})
   name.vb: When(Func(Of TMatchResult, Boolean))
-  fullName: PatternMatching.ConditionalPattern<TInput, TMatchResult, TPattern>.When(System.Func<TMatchResult, System.Boolean>)
-  fullName.vb: PatternMatching.ConditionalPattern(Of TInput, TMatchResult, TPattern).When(System.Func(Of TMatchResult, System.Boolean))
+  fullName: PatternMatching.ConditionalPattern<TInput, TMatchResult, TPattern>.When(Func<TMatchResult, System.Boolean>)
+  fullName.vb: PatternMatching.ConditionalPattern(Of TInput, TMatchResult, TPattern).When(Func(Of TMatchResult, System.Boolean))
   nameWithType: ConditionalPattern<TInput, TMatchResult, TPattern>.When(Func<TMatchResult, Boolean>)
   nameWithType.vb: ConditionalPattern(Of TInput, TMatchResult, TPattern).When(Func(Of TMatchResult, Boolean))
 - uid: PatternMatching.ConditionalPattern`3.When*
@@ -178,40 +178,40 @@ references:
   fullName.vb: PatternMatching.Match(Of TInput).Case
   nameWithType: Match<TInput>.Case
   nameWithType.vb: Match(Of TInput).Case
-- uid: PatternMatching.Match`1.Case``1(PatternMatching.IPattern{`0,``0},System.Action{``0})
-  name: Case<TMatchResult>(IPattern<TInput, TMatchResult>, Action<TMatchResult>)
-  href: api/PatternMatching.Match-1.html#PatternMatching_Match_1_Case__1_PatternMatching_IPattern__0___0__System_Action___0__
-  commentId: M:PatternMatching.Match`1.Case``1(PatternMatching.IPattern{`0,``0},System.Action{``0})
-  name.vb: Case(Of TMatchResult)(IPattern(Of TInput, TMatchResult), Action(Of TMatchResult))
-  fullName: PatternMatching.Match<TInput>.Case<TMatchResult>(PatternMatching.IPattern<TInput, TMatchResult>, System.Action<TMatchResult>)
-  fullName.vb: PatternMatching.Match(Of TInput).Case(Of TMatchResult)(PatternMatching.IPattern(Of TInput, TMatchResult), System.Action(Of TMatchResult))
-  nameWithType: Match<TInput>.Case<TMatchResult>(IPattern<TInput, TMatchResult>, Action<TMatchResult>)
-  nameWithType.vb: Match(Of TInput).Case(Of TMatchResult)(IPattern(Of TInput, TMatchResult), Action(Of TMatchResult))
-- uid: PatternMatching.Match`1.Case``1(PatternMatching.IPattern{`0,``0},System.Boolean,System.Action{``0})
-  name: Case<TMatchResult>(IPattern<TInput, TMatchResult>, Boolean, Action<TMatchResult>)
-  href: api/PatternMatching.Match-1.html#PatternMatching_Match_1_Case__1_PatternMatching_IPattern__0___0__System_Boolean_System_Action___0__
-  commentId: M:PatternMatching.Match`1.Case``1(PatternMatching.IPattern{`0,``0},System.Boolean,System.Action{``0})
-  name.vb: Case(Of TMatchResult)(IPattern(Of TInput, TMatchResult), Boolean, Action(Of TMatchResult))
-  fullName: PatternMatching.Match<TInput>.Case<TMatchResult>(PatternMatching.IPattern<TInput, TMatchResult>, System.Boolean, System.Action<TMatchResult>)
-  fullName.vb: PatternMatching.Match(Of TInput).Case(Of TMatchResult)(PatternMatching.IPattern(Of TInput, TMatchResult), System.Boolean, System.Action(Of TMatchResult))
-  nameWithType: Match<TInput>.Case<TMatchResult>(IPattern<TInput, TMatchResult>, Boolean, Action<TMatchResult>)
-  nameWithType.vb: Match(Of TInput).Case(Of TMatchResult)(IPattern(Of TInput, TMatchResult), Boolean, Action(Of TMatchResult))
-- uid: PatternMatching.Match`1.Case``1(System.Action{``0})
+- uid: PatternMatching.Match`1.Case``1(Action{``0})
   name: Case<TType>(Action<TType>)
-  href: api/PatternMatching.Match-1.html#PatternMatching_Match_1_Case__1_System_Action___0__
-  commentId: M:PatternMatching.Match`1.Case``1(System.Action{``0})
+  href: api/PatternMatching.Match-1.html#PatternMatching_Match_1_Case__1_Action___0__
+  commentId: M:PatternMatching.Match`1.Case``1(Action{``0})
   name.vb: Case(Of TType)(Action(Of TType))
-  fullName: PatternMatching.Match<TInput>.Case<TType>(System.Action<TType>)
-  fullName.vb: PatternMatching.Match(Of TInput).Case(Of TType)(System.Action(Of TType))
+  fullName: PatternMatching.Match<TInput>.Case<TType>(Action<TType>)
+  fullName.vb: PatternMatching.Match(Of TInput).Case(Of TType)(Action(Of TType))
   nameWithType: Match<TInput>.Case<TType>(Action<TType>)
   nameWithType.vb: Match(Of TInput).Case(Of TType)(Action(Of TType))
-- uid: PatternMatching.Match`1.Case``1(System.Boolean,System.Action{``0})
+- uid: PatternMatching.Match`1.Case``1(PatternMatching.IPattern{`0,``0},Action{``0})
+  name: Case<TMatchResult>(IPattern<TInput, TMatchResult>, Action<TMatchResult>)
+  href: api/PatternMatching.Match-1.html#PatternMatching_Match_1_Case__1_PatternMatching_IPattern__0___0__Action___0__
+  commentId: M:PatternMatching.Match`1.Case``1(PatternMatching.IPattern{`0,``0},Action{``0})
+  name.vb: Case(Of TMatchResult)(IPattern(Of TInput, TMatchResult), Action(Of TMatchResult))
+  fullName: PatternMatching.Match<TInput>.Case<TMatchResult>(PatternMatching.IPattern<TInput, TMatchResult>, Action<TMatchResult>)
+  fullName.vb: PatternMatching.Match(Of TInput).Case(Of TMatchResult)(PatternMatching.IPattern(Of TInput, TMatchResult), Action(Of TMatchResult))
+  nameWithType: Match<TInput>.Case<TMatchResult>(IPattern<TInput, TMatchResult>, Action<TMatchResult>)
+  nameWithType.vb: Match(Of TInput).Case(Of TMatchResult)(IPattern(Of TInput, TMatchResult), Action(Of TMatchResult))
+- uid: PatternMatching.Match`1.Case``1(PatternMatching.IPattern{`0,``0},System.Boolean,Action{``0})
+  name: Case<TMatchResult>(IPattern<TInput, TMatchResult>, Boolean, Action<TMatchResult>)
+  href: api/PatternMatching.Match-1.html#PatternMatching_Match_1_Case__1_PatternMatching_IPattern__0___0__System_Boolean_Action___0__
+  commentId: M:PatternMatching.Match`1.Case``1(PatternMatching.IPattern{`0,``0},System.Boolean,Action{``0})
+  name.vb: Case(Of TMatchResult)(IPattern(Of TInput, TMatchResult), Boolean, Action(Of TMatchResult))
+  fullName: PatternMatching.Match<TInput>.Case<TMatchResult>(PatternMatching.IPattern<TInput, TMatchResult>, System.Boolean, Action<TMatchResult>)
+  fullName.vb: PatternMatching.Match(Of TInput).Case(Of TMatchResult)(PatternMatching.IPattern(Of TInput, TMatchResult), System.Boolean, Action(Of TMatchResult))
+  nameWithType: Match<TInput>.Case<TMatchResult>(IPattern<TInput, TMatchResult>, Boolean, Action<TMatchResult>)
+  nameWithType.vb: Match(Of TInput).Case(Of TMatchResult)(IPattern(Of TInput, TMatchResult), Boolean, Action(Of TMatchResult))
+- uid: PatternMatching.Match`1.Case``1(System.Boolean,Action{``0})
   name: Case<TType>(Boolean, Action<TType>)
-  href: api/PatternMatching.Match-1.html#PatternMatching_Match_1_Case__1_System_Boolean_System_Action___0__
-  commentId: M:PatternMatching.Match`1.Case``1(System.Boolean,System.Action{``0})
+  href: api/PatternMatching.Match-1.html#PatternMatching_Match_1_Case__1_System_Boolean_Action___0__
+  commentId: M:PatternMatching.Match`1.Case``1(System.Boolean,Action{``0})
   name.vb: Case(Of TType)(Boolean, Action(Of TType))
-  fullName: PatternMatching.Match<TInput>.Case<TType>(System.Boolean, System.Action<TType>)
-  fullName.vb: PatternMatching.Match(Of TInput).Case(Of TType)(System.Boolean, System.Action(Of TType))
+  fullName: PatternMatching.Match<TInput>.Case<TType>(System.Boolean, Action<TType>)
+  fullName.vb: PatternMatching.Match(Of TInput).Case(Of TType)(System.Boolean, Action(Of TType))
   nameWithType: Match<TInput>.Case<TType>(Boolean, Action<TType>)
   nameWithType.vb: Match(Of TInput).Case(Of TType)(Boolean, Action(Of TType))
 - uid: PatternMatching.Match`1.ExecuteOn(`0)
@@ -368,42 +368,42 @@ references:
   fullName.vb: PatternMatching.Match(Of TInput, TOutput).Case
   nameWithType: Match<TInput, TOutput>.Case
   nameWithType.vb: Match(Of TInput, TOutput).Case
-- uid: PatternMatching.Match`2.Case``1(PatternMatching.IPattern{`0,``0},System.Boolean,System.Func{``0,`1})
-  name: Case<TMatchResult>(IPattern<TInput, TMatchResult>, Boolean, Func<TMatchResult, TOutput>)
-  href: api/PatternMatching.Match-2.html#PatternMatching_Match_2_Case__1_PatternMatching_IPattern__0___0__System_Boolean_System_Func___0__1__
-  commentId: M:PatternMatching.Match`2.Case``1(PatternMatching.IPattern{`0,``0},System.Boolean,System.Func{``0,`1})
-  name.vb: Case(Of TMatchResult)(IPattern(Of TInput, TMatchResult), Boolean, Func(Of TMatchResult, TOutput))
-  fullName: PatternMatching.Match<TInput, TOutput>.Case<TMatchResult>(PatternMatching.IPattern<TInput, TMatchResult>, System.Boolean, System.Func<TMatchResult, TOutput>)
-  fullName.vb: PatternMatching.Match(Of TInput, TOutput).Case(Of TMatchResult)(PatternMatching.IPattern(Of TInput, TMatchResult), System.Boolean, System.Func(Of TMatchResult, TOutput))
-  nameWithType: Match<TInput, TOutput>.Case<TMatchResult>(IPattern<TInput, TMatchResult>, Boolean, Func<TMatchResult, TOutput>)
-  nameWithType.vb: Match(Of TInput, TOutput).Case(Of TMatchResult)(IPattern(Of TInput, TMatchResult), Boolean, Func(Of TMatchResult, TOutput))
-- uid: PatternMatching.Match`2.Case``1(PatternMatching.IPattern{`0,``0},System.Func{``0,`1})
-  name: Case<TMatchResult>(IPattern<TInput, TMatchResult>, Func<TMatchResult, TOutput>)
-  href: api/PatternMatching.Match-2.html#PatternMatching_Match_2_Case__1_PatternMatching_IPattern__0___0__System_Func___0__1__
-  commentId: M:PatternMatching.Match`2.Case``1(PatternMatching.IPattern{`0,``0},System.Func{``0,`1})
-  name.vb: Case(Of TMatchResult)(IPattern(Of TInput, TMatchResult), Func(Of TMatchResult, TOutput))
-  fullName: PatternMatching.Match<TInput, TOutput>.Case<TMatchResult>(PatternMatching.IPattern<TInput, TMatchResult>, System.Func<TMatchResult, TOutput>)
-  fullName.vb: PatternMatching.Match(Of TInput, TOutput).Case(Of TMatchResult)(PatternMatching.IPattern(Of TInput, TMatchResult), System.Func(Of TMatchResult, TOutput))
-  nameWithType: Match<TInput, TOutput>.Case<TMatchResult>(IPattern<TInput, TMatchResult>, Func<TMatchResult, TOutput>)
-  nameWithType.vb: Match(Of TInput, TOutput).Case(Of TMatchResult)(IPattern(Of TInput, TMatchResult), Func(Of TMatchResult, TOutput))
-- uid: PatternMatching.Match`2.Case``1(System.Boolean,System.Func{``0,`1})
-  name: Case<TType>(Boolean, Func<TType, TOutput>)
-  href: api/PatternMatching.Match-2.html#PatternMatching_Match_2_Case__1_System_Boolean_System_Func___0__1__
-  commentId: M:PatternMatching.Match`2.Case``1(System.Boolean,System.Func{``0,`1})
-  name.vb: Case(Of TType)(Boolean, Func(Of TType, TOutput))
-  fullName: PatternMatching.Match<TInput, TOutput>.Case<TType>(System.Boolean, System.Func<TType, TOutput>)
-  fullName.vb: PatternMatching.Match(Of TInput, TOutput).Case(Of TType)(System.Boolean, System.Func(Of TType, TOutput))
-  nameWithType: Match<TInput, TOutput>.Case<TType>(Boolean, Func<TType, TOutput>)
-  nameWithType.vb: Match(Of TInput, TOutput).Case(Of TType)(Boolean, Func(Of TType, TOutput))
-- uid: PatternMatching.Match`2.Case``1(System.Func{``0,`1})
+- uid: PatternMatching.Match`2.Case``1(Func{``0,`1})
   name: Case<TType>(Func<TType, TOutput>)
-  href: api/PatternMatching.Match-2.html#PatternMatching_Match_2_Case__1_System_Func___0__1__
-  commentId: M:PatternMatching.Match`2.Case``1(System.Func{``0,`1})
+  href: api/PatternMatching.Match-2.html#PatternMatching_Match_2_Case__1_Func___0__1__
+  commentId: M:PatternMatching.Match`2.Case``1(Func{``0,`1})
   name.vb: Case(Of TType)(Func(Of TType, TOutput))
-  fullName: PatternMatching.Match<TInput, TOutput>.Case<TType>(System.Func<TType, TOutput>)
-  fullName.vb: PatternMatching.Match(Of TInput, TOutput).Case(Of TType)(System.Func(Of TType, TOutput))
+  fullName: PatternMatching.Match<TInput, TOutput>.Case<TType>(Func<TType, TOutput>)
+  fullName.vb: PatternMatching.Match(Of TInput, TOutput).Case(Of TType)(Func(Of TType, TOutput))
   nameWithType: Match<TInput, TOutput>.Case<TType>(Func<TType, TOutput>)
   nameWithType.vb: Match(Of TInput, TOutput).Case(Of TType)(Func(Of TType, TOutput))
+- uid: PatternMatching.Match`2.Case``1(PatternMatching.IPattern{`0,``0},Func{``0,`1})
+  name: Case<TMatchResult>(IPattern<TInput, TMatchResult>, Func<TMatchResult, TOutput>)
+  href: api/PatternMatching.Match-2.html#PatternMatching_Match_2_Case__1_PatternMatching_IPattern__0___0__Func___0__1__
+  commentId: M:PatternMatching.Match`2.Case``1(PatternMatching.IPattern{`0,``0},Func{``0,`1})
+  name.vb: Case(Of TMatchResult)(IPattern(Of TInput, TMatchResult), Func(Of TMatchResult, TOutput))
+  fullName: PatternMatching.Match<TInput, TOutput>.Case<TMatchResult>(PatternMatching.IPattern<TInput, TMatchResult>, Func<TMatchResult, TOutput>)
+  fullName.vb: PatternMatching.Match(Of TInput, TOutput).Case(Of TMatchResult)(PatternMatching.IPattern(Of TInput, TMatchResult), Func(Of TMatchResult, TOutput))
+  nameWithType: Match<TInput, TOutput>.Case<TMatchResult>(IPattern<TInput, TMatchResult>, Func<TMatchResult, TOutput>)
+  nameWithType.vb: Match(Of TInput, TOutput).Case(Of TMatchResult)(IPattern(Of TInput, TMatchResult), Func(Of TMatchResult, TOutput))
+- uid: PatternMatching.Match`2.Case``1(PatternMatching.IPattern{`0,``0},System.Boolean,Func{``0,`1})
+  name: Case<TMatchResult>(IPattern<TInput, TMatchResult>, Boolean, Func<TMatchResult, TOutput>)
+  href: api/PatternMatching.Match-2.html#PatternMatching_Match_2_Case__1_PatternMatching_IPattern__0___0__System_Boolean_Func___0__1__
+  commentId: M:PatternMatching.Match`2.Case``1(PatternMatching.IPattern{`0,``0},System.Boolean,Func{``0,`1})
+  name.vb: Case(Of TMatchResult)(IPattern(Of TInput, TMatchResult), Boolean, Func(Of TMatchResult, TOutput))
+  fullName: PatternMatching.Match<TInput, TOutput>.Case<TMatchResult>(PatternMatching.IPattern<TInput, TMatchResult>, System.Boolean, Func<TMatchResult, TOutput>)
+  fullName.vb: PatternMatching.Match(Of TInput, TOutput).Case(Of TMatchResult)(PatternMatching.IPattern(Of TInput, TMatchResult), System.Boolean, Func(Of TMatchResult, TOutput))
+  nameWithType: Match<TInput, TOutput>.Case<TMatchResult>(IPattern<TInput, TMatchResult>, Boolean, Func<TMatchResult, TOutput>)
+  nameWithType.vb: Match(Of TInput, TOutput).Case(Of TMatchResult)(IPattern(Of TInput, TMatchResult), Boolean, Func(Of TMatchResult, TOutput))
+- uid: PatternMatching.Match`2.Case``1(System.Boolean,Func{``0,`1})
+  name: Case<TType>(Boolean, Func<TType, TOutput>)
+  href: api/PatternMatching.Match-2.html#PatternMatching_Match_2_Case__1_System_Boolean_Func___0__1__
+  commentId: M:PatternMatching.Match`2.Case``1(System.Boolean,Func{``0,`1})
+  name.vb: Case(Of TType)(Boolean, Func(Of TType, TOutput))
+  fullName: PatternMatching.Match<TInput, TOutput>.Case<TType>(System.Boolean, Func<TType, TOutput>)
+  fullName.vb: PatternMatching.Match(Of TInput, TOutput).Case(Of TType)(System.Boolean, Func(Of TType, TOutput))
+  nameWithType: Match<TInput, TOutput>.Case<TType>(Boolean, Func<TType, TOutput>)
+  nameWithType.vb: Match(Of TInput, TOutput).Case(Of TType)(Boolean, Func(Of TType, TOutput))
 - uid: PatternMatching.Match`2.ExecuteNonStrict(`0)
   name: ExecuteNonStrict(TInput)
   href: api/PatternMatching.Match-2.html#PatternMatching_Match_2_ExecuteNonStrict__0_
@@ -552,11 +552,11 @@ references:
   commentId: M:PatternMatching.MatchException.#ctor
   fullName: PatternMatching.MatchException.MatchException()
   nameWithType: MatchException.MatchException()
-- uid: PatternMatching.MatchException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+- uid: PatternMatching.MatchException.#ctor(SerializationInfo,StreamingContext)
   name: MatchException(SerializationInfo, StreamingContext)
-  href: api/PatternMatching.MatchException.html#PatternMatching_MatchException__ctor_System_Runtime_Serialization_SerializationInfo_System_Runtime_Serialization_StreamingContext_
-  commentId: M:PatternMatching.MatchException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
-  fullName: PatternMatching.MatchException.MatchException(System.Runtime.Serialization.SerializationInfo, System.Runtime.Serialization.StreamingContext)
+  href: api/PatternMatching.MatchException.html#PatternMatching_MatchException__ctor_SerializationInfo_StreamingContext_
+  commentId: M:PatternMatching.MatchException.#ctor(SerializationInfo,StreamingContext)
+  fullName: PatternMatching.MatchException.MatchException(SerializationInfo, StreamingContext)
   nameWithType: MatchException.MatchException(SerializationInfo, StreamingContext)
 - uid: PatternMatching.MatchException.#ctor(System.String)
   name: MatchException(String)
@@ -564,11 +564,11 @@ references:
   commentId: M:PatternMatching.MatchException.#ctor(System.String)
   fullName: PatternMatching.MatchException.MatchException(System.String)
   nameWithType: MatchException.MatchException(String)
-- uid: PatternMatching.MatchException.#ctor(System.String,System.Exception)
+- uid: PatternMatching.MatchException.#ctor(System.String,Exception)
   name: MatchException(String, Exception)
-  href: api/PatternMatching.MatchException.html#PatternMatching_MatchException__ctor_System_String_System_Exception_
-  commentId: M:PatternMatching.MatchException.#ctor(System.String,System.Exception)
-  fullName: PatternMatching.MatchException.MatchException(System.String, System.Exception)
+  href: api/PatternMatching.MatchException.html#PatternMatching_MatchException__ctor_System_String_Exception_
+  commentId: M:PatternMatching.MatchException.#ctor(System.String,Exception)
+  fullName: PatternMatching.MatchException.MatchException(System.String, Exception)
   nameWithType: MatchException.MatchException(String, Exception)
 - uid: PatternMatching.MatchException.#ctor*
   name: MatchException
@@ -615,13 +615,13 @@ references:
   fullName.vb: PatternMatching.Pattern.EqualTo(Of TInput)(TInput)
   nameWithType: Pattern.EqualTo<TInput>(TInput)
   nameWithType.vb: Pattern.EqualTo(Of TInput)(TInput)
-- uid: PatternMatching.Pattern.EqualTo``1(System.Func{``0})
+- uid: PatternMatching.Pattern.EqualTo``1(Func{``0})
   name: EqualTo<TInput>(Func<TInput>)
-  href: api/PatternMatching.Pattern.html#PatternMatching_Pattern_EqualTo__1_System_Func___0__
-  commentId: M:PatternMatching.Pattern.EqualTo``1(System.Func{``0})
+  href: api/PatternMatching.Pattern.html#PatternMatching_Pattern_EqualTo__1_Func___0__
+  commentId: M:PatternMatching.Pattern.EqualTo``1(Func{``0})
   name.vb: EqualTo(Of TInput)(Func(Of TInput))
-  fullName: PatternMatching.Pattern.EqualTo<TInput>(System.Func<TInput>)
-  fullName.vb: PatternMatching.Pattern.EqualTo(Of TInput)(System.Func(Of TInput))
+  fullName: PatternMatching.Pattern.EqualTo<TInput>(Func<TInput>)
+  fullName.vb: PatternMatching.Pattern.EqualTo(Of TInput)(Func(Of TInput))
   nameWithType: Pattern.EqualTo<TInput>(Func<TInput>)
   nameWithType.vb: Pattern.EqualTo(Of TInput)(Func(Of TInput))
 - uid: PatternMatching.Pattern.GreaterOrEqual*
@@ -640,13 +640,13 @@ references:
   fullName.vb: PatternMatching.Pattern.GreaterOrEqual(Of TInput)(TInput)
   nameWithType: Pattern.GreaterOrEqual<TInput>(TInput)
   nameWithType.vb: Pattern.GreaterOrEqual(Of TInput)(TInput)
-- uid: PatternMatching.Pattern.GreaterOrEqual``1(System.Func{``0})
+- uid: PatternMatching.Pattern.GreaterOrEqual``1(Func{``0})
   name: GreaterOrEqual<TInput>(Func<TInput>)
-  href: api/PatternMatching.Pattern.html#PatternMatching_Pattern_GreaterOrEqual__1_System_Func___0__
-  commentId: M:PatternMatching.Pattern.GreaterOrEqual``1(System.Func{``0})
+  href: api/PatternMatching.Pattern.html#PatternMatching_Pattern_GreaterOrEqual__1_Func___0__
+  commentId: M:PatternMatching.Pattern.GreaterOrEqual``1(Func{``0})
   name.vb: GreaterOrEqual(Of TInput)(Func(Of TInput))
-  fullName: PatternMatching.Pattern.GreaterOrEqual<TInput>(System.Func<TInput>)
-  fullName.vb: PatternMatching.Pattern.GreaterOrEqual(Of TInput)(System.Func(Of TInput))
+  fullName: PatternMatching.Pattern.GreaterOrEqual<TInput>(Func<TInput>)
+  fullName.vb: PatternMatching.Pattern.GreaterOrEqual(Of TInput)(Func(Of TInput))
   nameWithType: Pattern.GreaterOrEqual<TInput>(Func<TInput>)
   nameWithType.vb: Pattern.GreaterOrEqual(Of TInput)(Func(Of TInput))
 - uid: PatternMatching.Pattern.GreaterThan*
@@ -665,13 +665,13 @@ references:
   fullName.vb: PatternMatching.Pattern.GreaterThan(Of TInput)(TInput)
   nameWithType: Pattern.GreaterThan<TInput>(TInput)
   nameWithType.vb: Pattern.GreaterThan(Of TInput)(TInput)
-- uid: PatternMatching.Pattern.GreaterThan``1(System.Func{``0})
+- uid: PatternMatching.Pattern.GreaterThan``1(Func{``0})
   name: GreaterThan<TInput>(Func<TInput>)
-  href: api/PatternMatching.Pattern.html#PatternMatching_Pattern_GreaterThan__1_System_Func___0__
-  commentId: M:PatternMatching.Pattern.GreaterThan``1(System.Func{``0})
+  href: api/PatternMatching.Pattern.html#PatternMatching_Pattern_GreaterThan__1_Func___0__
+  commentId: M:PatternMatching.Pattern.GreaterThan``1(Func{``0})
   name.vb: GreaterThan(Of TInput)(Func(Of TInput))
-  fullName: PatternMatching.Pattern.GreaterThan<TInput>(System.Func<TInput>)
-  fullName.vb: PatternMatching.Pattern.GreaterThan(Of TInput)(System.Func(Of TInput))
+  fullName: PatternMatching.Pattern.GreaterThan<TInput>(Func<TInput>)
+  fullName.vb: PatternMatching.Pattern.GreaterThan(Of TInput)(Func(Of TInput))
   nameWithType: Pattern.GreaterThan<TInput>(Func<TInput>)
   nameWithType.vb: Pattern.GreaterThan(Of TInput)(Func(Of TInput))
 - uid: PatternMatching.Pattern.LessOrEqual*
@@ -690,13 +690,13 @@ references:
   fullName.vb: PatternMatching.Pattern.LessOrEqual(Of TInput)(TInput)
   nameWithType: Pattern.LessOrEqual<TInput>(TInput)
   nameWithType.vb: Pattern.LessOrEqual(Of TInput)(TInput)
-- uid: PatternMatching.Pattern.LessOrEqual``1(System.Func{``0})
+- uid: PatternMatching.Pattern.LessOrEqual``1(Func{``0})
   name: LessOrEqual<TInput>(Func<TInput>)
-  href: api/PatternMatching.Pattern.html#PatternMatching_Pattern_LessOrEqual__1_System_Func___0__
-  commentId: M:PatternMatching.Pattern.LessOrEqual``1(System.Func{``0})
+  href: api/PatternMatching.Pattern.html#PatternMatching_Pattern_LessOrEqual__1_Func___0__
+  commentId: M:PatternMatching.Pattern.LessOrEqual``1(Func{``0})
   name.vb: LessOrEqual(Of TInput)(Func(Of TInput))
-  fullName: PatternMatching.Pattern.LessOrEqual<TInput>(System.Func<TInput>)
-  fullName.vb: PatternMatching.Pattern.LessOrEqual(Of TInput)(System.Func(Of TInput))
+  fullName: PatternMatching.Pattern.LessOrEqual<TInput>(Func<TInput>)
+  fullName.vb: PatternMatching.Pattern.LessOrEqual(Of TInput)(Func(Of TInput))
   nameWithType: Pattern.LessOrEqual<TInput>(Func<TInput>)
   nameWithType.vb: Pattern.LessOrEqual(Of TInput)(Func(Of TInput))
 - uid: PatternMatching.Pattern.LessThan*
@@ -715,13 +715,13 @@ references:
   fullName.vb: PatternMatching.Pattern.LessThan(Of TInput)(TInput)
   nameWithType: Pattern.LessThan<TInput>(TInput)
   nameWithType.vb: Pattern.LessThan(Of TInput)(TInput)
-- uid: PatternMatching.Pattern.LessThan``1(System.Func{``0})
+- uid: PatternMatching.Pattern.LessThan``1(Func{``0})
   name: LessThan<TInput>(Func<TInput>)
-  href: api/PatternMatching.Pattern.html#PatternMatching_Pattern_LessThan__1_System_Func___0__
-  commentId: M:PatternMatching.Pattern.LessThan``1(System.Func{``0})
+  href: api/PatternMatching.Pattern.html#PatternMatching_Pattern_LessThan__1_Func___0__
+  commentId: M:PatternMatching.Pattern.LessThan``1(Func{``0})
   name.vb: LessThan(Of TInput)(Func(Of TInput))
-  fullName: PatternMatching.Pattern.LessThan<TInput>(System.Func<TInput>)
-  fullName.vb: PatternMatching.Pattern.LessThan(Of TInput)(System.Func(Of TInput))
+  fullName: PatternMatching.Pattern.LessThan<TInput>(Func<TInput>)
+  fullName.vb: PatternMatching.Pattern.LessThan(Of TInput)(Func(Of TInput))
   nameWithType: Pattern.LessThan<TInput>(Func<TInput>)
   nameWithType.vb: Pattern.LessThan(Of TInput)(Func(Of TInput))
 - uid: PatternMatching.Pattern.Not*
@@ -797,13 +797,13 @@ references:
   fullName.vb: PatternMatching.Pattern(Of TInput, TMatchResult)
   nameWithType: Pattern<TInput, TMatchResult>
   nameWithType.vb: Pattern(Of TInput, TMatchResult)
-- uid: PatternMatching.Pattern`2.#ctor(System.Func{`0,LanguageExt.OptionUnsafe{`1}})
+- uid: PatternMatching.Pattern`2.#ctor(Func{`0,OptionUnsafe{`1}})
   name: Pattern(Func<TInput, OptionUnsafe<TMatchResult>>)
-  href: api/PatternMatching.Pattern-2.html#PatternMatching_Pattern_2__ctor_System_Func__0_LanguageExt_OptionUnsafe__1___
-  commentId: M:PatternMatching.Pattern`2.#ctor(System.Func{`0,LanguageExt.OptionUnsafe{`1}})
+  href: api/PatternMatching.Pattern-2.html#PatternMatching_Pattern_2__ctor_Func__0_OptionUnsafe__1___
+  commentId: M:PatternMatching.Pattern`2.#ctor(Func{`0,OptionUnsafe{`1}})
   name.vb: Pattern(Func(Of TInput, OptionUnsafe(Of TMatchResult)))
-  fullName: PatternMatching.Pattern<TInput, TMatchResult>.Pattern(System.Func<TInput, LanguageExt.OptionUnsafe<TMatchResult>>)
-  fullName.vb: PatternMatching.Pattern(Of TInput, TMatchResult).Pattern(System.Func(Of TInput, LanguageExt.OptionUnsafe(Of TMatchResult)))
+  fullName: PatternMatching.Pattern<TInput, TMatchResult>.Pattern(Func<TInput, OptionUnsafe<TMatchResult>>)
+  fullName.vb: PatternMatching.Pattern(Of TInput, TMatchResult).Pattern(Func(Of TInput, OptionUnsafe(Of TMatchResult)))
   nameWithType: Pattern<TInput, TMatchResult>.Pattern(Func<TInput, OptionUnsafe<TMatchResult>>)
   nameWithType.vb: Pattern(Of TInput, TMatchResult).Pattern(Func(Of TInput, OptionUnsafe(Of TMatchResult)))
 - uid: PatternMatching.Pattern`2.#ctor*
@@ -850,13 +850,13 @@ references:
   fullName.vb: PatternMatching.Pattern(Of TInput, TMatchResult).OnesComplement
   nameWithType: Pattern<TInput, TMatchResult>.OnesComplement
   nameWithType.vb: Pattern(Of TInput, TMatchResult).OnesComplement
-- uid: PatternMatching.Pattern`2.When(System.Func{`1,System.Boolean})
+- uid: PatternMatching.Pattern`2.When(Func{`1,System.Boolean})
   name: When(Func<TMatchResult, Boolean>)
-  href: api/PatternMatching.Pattern-2.html#PatternMatching_Pattern_2_When_System_Func__1_System_Boolean__
-  commentId: M:PatternMatching.Pattern`2.When(System.Func{`1,System.Boolean})
+  href: api/PatternMatching.Pattern-2.html#PatternMatching_Pattern_2_When_Func__1_System_Boolean__
+  commentId: M:PatternMatching.Pattern`2.When(Func{`1,System.Boolean})
   name.vb: When(Func(Of TMatchResult, Boolean))
-  fullName: PatternMatching.Pattern<TInput, TMatchResult>.When(System.Func<TMatchResult, System.Boolean>)
-  fullName.vb: PatternMatching.Pattern(Of TInput, TMatchResult).When(System.Func(Of TMatchResult, System.Boolean))
+  fullName: PatternMatching.Pattern<TInput, TMatchResult>.When(Func<TMatchResult, System.Boolean>)
+  fullName.vb: PatternMatching.Pattern(Of TInput, TMatchResult).When(Func(Of TMatchResult, System.Boolean))
   nameWithType: Pattern<TInput, TMatchResult>.When(Func<TMatchResult, Boolean>)
   nameWithType.vb: Pattern(Of TInput, TMatchResult).When(Func(Of TMatchResult, Boolean))
 - uid: PatternMatching.Pattern`2.When*
@@ -877,13 +877,13 @@ references:
   fullName.vb: PatternMatching.SimplePattern(Of TInput)
   nameWithType: SimplePattern<TInput>
   nameWithType.vb: SimplePattern(Of TInput)
-- uid: PatternMatching.SimplePattern`1.#ctor(System.Func{`0,System.Boolean})
+- uid: PatternMatching.SimplePattern`1.#ctor(Func{`0,System.Boolean})
   name: SimplePattern(Func<TInput, Boolean>)
-  href: api/PatternMatching.SimplePattern-1.html#PatternMatching_SimplePattern_1__ctor_System_Func__0_System_Boolean__
-  commentId: M:PatternMatching.SimplePattern`1.#ctor(System.Func{`0,System.Boolean})
+  href: api/PatternMatching.SimplePattern-1.html#PatternMatching_SimplePattern_1__ctor_Func__0_System_Boolean__
+  commentId: M:PatternMatching.SimplePattern`1.#ctor(Func{`0,System.Boolean})
   name.vb: SimplePattern(Func(Of TInput, Boolean))
-  fullName: PatternMatching.SimplePattern<TInput>.SimplePattern(System.Func<TInput, System.Boolean>)
-  fullName.vb: PatternMatching.SimplePattern(Of TInput).SimplePattern(System.Func(Of TInput, System.Boolean))
+  fullName: PatternMatching.SimplePattern<TInput>.SimplePattern(Func<TInput, System.Boolean>)
+  fullName.vb: PatternMatching.SimplePattern(Of TInput).SimplePattern(Func(Of TInput, System.Boolean))
   nameWithType: SimplePattern<TInput>.SimplePattern(Func<TInput, Boolean>)
   nameWithType.vb: SimplePattern(Of TInput).SimplePattern(Func(Of TInput, Boolean))
 - uid: PatternMatching.SimplePattern`1.#ctor*
@@ -1020,13 +1020,13 @@ references:
   fullName.vb: PatternMatching.SimplePattern(Of TInput).Or
   nameWithType: SimplePattern<TInput>.Or
   nameWithType.vb: SimplePattern(Of TInput).Or
-- uid: PatternMatching.SimplePattern`1.When(System.Func{`0,System.Boolean})
+- uid: PatternMatching.SimplePattern`1.When(Func{`0,System.Boolean})
   name: When(Func<TInput, Boolean>)
-  href: api/PatternMatching.SimplePattern-1.html#PatternMatching_SimplePattern_1_When_System_Func__0_System_Boolean__
-  commentId: M:PatternMatching.SimplePattern`1.When(System.Func{`0,System.Boolean})
+  href: api/PatternMatching.SimplePattern-1.html#PatternMatching_SimplePattern_1_When_Func__0_System_Boolean__
+  commentId: M:PatternMatching.SimplePattern`1.When(Func{`0,System.Boolean})
   name.vb: When(Func(Of TInput, Boolean))
-  fullName: PatternMatching.SimplePattern<TInput>.When(System.Func<TInput, System.Boolean>)
-  fullName.vb: PatternMatching.SimplePattern(Of TInput).When(System.Func(Of TInput, System.Boolean))
+  fullName: PatternMatching.SimplePattern<TInput>.When(Func<TInput, System.Boolean>)
+  fullName.vb: PatternMatching.SimplePattern(Of TInput).When(Func(Of TInput, System.Boolean))
   nameWithType: SimplePattern<TInput>.When(Func<TInput, Boolean>)
   nameWithType.vb: SimplePattern(Of TInput).When(Func(Of TInput, Boolean))
 - uid: PatternMatching.SimplePattern`1.When*

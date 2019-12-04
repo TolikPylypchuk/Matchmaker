@@ -81,35 +81,11 @@
     <div class="level0"><span class="xref">System.Object</span></div>
     <div class="level1"><span class="xref">Pattern</span></div>
   </div>
-  <div class="inheritedMembers">
-    <h5>Inherited Members</h5>
-    <div>
-      <span class="xref">System.Object.Equals(System.Object)</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.GetHashCode()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.GetType()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.MemberwiseClone()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.ToString()</span>
-    </div>
-  </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="PatternMatching.html">PatternMatching</a></h6>
   <h6><strong>Assembly</strong>: PatternMatching.dll</h6>
   <h5 id="PatternMatching_Pattern_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static class Pattern</code></pre>
+    <pre><code class="lang-csharp hljs">public static class Pattern : object</code></pre>
   </div>
   <h3 id="methods">Methods
   </h3>
@@ -235,13 +211,13 @@ is equal to the specified value.</p>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/PatternMatching/new/master/apiSpec/new?filename=PatternMatching_Pattern_EqualTo__1_System_Func___0__.md&amp;value=---%0Auid%3A%20PatternMatching.Pattern.EqualTo%60%601(System.Func%7B%60%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/TolikPylypchuk/PatternMatching/new/master/apiSpec/new?filename=PatternMatching_Pattern_EqualTo__1_Func___0__.md&amp;value=---%0Auid%3A%20PatternMatching.Pattern.EqualTo%60%601(Func%7B%60%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/TolikPylypchuk/PatternMatching/blob/master/PatternMatching/Pattern.cs/#L72">View Source</a>
   </span>
   <a id="PatternMatching_Pattern_EqualTo_" data-uid="PatternMatching.Pattern.EqualTo*"></a>
-  <h4 id="PatternMatching_Pattern_EqualTo__1_System_Func___0__" data-uid="PatternMatching.Pattern.EqualTo``1(System.Func{``0})">EqualTo&lt;TInput&gt;(Func&lt;TInput&gt;)</h4>
+  <h4 id="PatternMatching_Pattern_EqualTo__1_Func___0__" data-uid="PatternMatching.Pattern.EqualTo``1(Func{``0})">EqualTo&lt;TInput&gt;(Func&lt;TInput&gt;)</h4>
   <div class="markdown level1 summary"><p>Returns a pattern which is matched successfully when the input value
 is equal to the provided value.</p>
 </div>
@@ -262,7 +238,7 @@ is equal to the provided value.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Func</span>&lt;TInput&gt;</td>
+        <td><span class="xref">Func</span>&lt;TInput&gt;</td>
         <td><span class="parametername">valueProvider</span></td>
         <td><p>The provider of the value to check for equality.</p>
 </td>
@@ -298,22 +274,6 @@ is equal to the provided value.</p>
       <tr>
         <td><span class="parametername">TInput</span></td>
         <td><p>The type of the input value of the expression.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.ArgumentNullException</span></td>
-        <td><p><code data-dev-comment-type="paramref" class="paramref">valueProvider</code> is <span class="xref">null</span>.</p>
 </td>
       </tr>
     </tbody>
@@ -389,13 +349,13 @@ is greater than or equal to the specified value.</p>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/PatternMatching/new/master/apiSpec/new?filename=PatternMatching_Pattern_GreaterOrEqual__1_System_Func___0__.md&amp;value=---%0Auid%3A%20PatternMatching.Pattern.GreaterOrEqual%60%601(System.Func%7B%60%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/TolikPylypchuk/PatternMatching/new/master/apiSpec/new?filename=PatternMatching_Pattern_GreaterOrEqual__1_Func___0__.md&amp;value=---%0Auid%3A%20PatternMatching.Pattern.GreaterOrEqual%60%601(Func%7B%60%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/TolikPylypchuk/PatternMatching/blob/master/PatternMatching/Pattern.cs/#L204">View Source</a>
   </span>
   <a id="PatternMatching_Pattern_GreaterOrEqual_" data-uid="PatternMatching.Pattern.GreaterOrEqual*"></a>
-  <h4 id="PatternMatching_Pattern_GreaterOrEqual__1_System_Func___0__" data-uid="PatternMatching.Pattern.GreaterOrEqual``1(System.Func{``0})">GreaterOrEqual&lt;TInput&gt;(Func&lt;TInput&gt;)</h4>
+  <h4 id="PatternMatching_Pattern_GreaterOrEqual__1_Func___0__" data-uid="PatternMatching.Pattern.GreaterOrEqual``1(Func{``0})">GreaterOrEqual&lt;TInput&gt;(Func&lt;TInput&gt;)</h4>
   <div class="markdown level1 summary"><p>Returns a pattern which is matched successfully when the input value
 is greater than or equal to the provided value.</p>
 </div>
@@ -416,7 +376,7 @@ is greater than or equal to the provided value.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Func</span>&lt;TInput&gt;</td>
+        <td><span class="xref">Func</span>&lt;TInput&gt;</td>
         <td><span class="parametername">valueProvider</span></td>
         <td><p>The provider of the value to compare with.</p>
 </td>
@@ -452,22 +412,6 @@ is greater than or equal to the provided value.</p>
       <tr>
         <td><span class="parametername">TInput</span></td>
         <td><p>The type of the input value of the expression.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.ArgumentNullException</span></td>
-        <td><p><code data-dev-comment-type="paramref" class="paramref">valueProvider</code> is <span class="xref">null</span>.</p>
 </td>
       </tr>
     </tbody>
@@ -543,13 +487,13 @@ is greater than the specified value.</p>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/PatternMatching/new/master/apiSpec/new?filename=PatternMatching_Pattern_GreaterThan__1_System_Func___0__.md&amp;value=---%0Auid%3A%20PatternMatching.Pattern.GreaterThan%60%601(System.Func%7B%60%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/TolikPylypchuk/PatternMatching/new/master/apiSpec/new?filename=PatternMatching_Pattern_GreaterThan__1_Func___0__.md&amp;value=---%0Auid%3A%20PatternMatching.Pattern.GreaterThan%60%601(Func%7B%60%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/TolikPylypchuk/PatternMatching/blob/master/PatternMatching/Pattern.cs/#L171">View Source</a>
   </span>
   <a id="PatternMatching_Pattern_GreaterThan_" data-uid="PatternMatching.Pattern.GreaterThan*"></a>
-  <h4 id="PatternMatching_Pattern_GreaterThan__1_System_Func___0__" data-uid="PatternMatching.Pattern.GreaterThan``1(System.Func{``0})">GreaterThan&lt;TInput&gt;(Func&lt;TInput&gt;)</h4>
+  <h4 id="PatternMatching_Pattern_GreaterThan__1_Func___0__" data-uid="PatternMatching.Pattern.GreaterThan``1(Func{``0})">GreaterThan&lt;TInput&gt;(Func&lt;TInput&gt;)</h4>
   <div class="markdown level1 summary"><p>Returns a pattern which is matched successfully when the input value
 is greater than the provided value.</p>
 </div>
@@ -570,7 +514,7 @@ is greater than the provided value.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Func</span>&lt;TInput&gt;</td>
+        <td><span class="xref">Func</span>&lt;TInput&gt;</td>
         <td><span class="parametername">valueProvider</span></td>
         <td><p>The provider of the value to compare with.</p>
 </td>
@@ -606,22 +550,6 @@ is greater than the provided value.</p>
       <tr>
         <td><span class="parametername">TInput</span></td>
         <td><p>The type of the input value of the expression.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.ArgumentNullException</span></td>
-        <td><p><code data-dev-comment-type="paramref" class="paramref">valueProvider</code> is <span class="xref">null</span>.</p>
 </td>
       </tr>
     </tbody>
@@ -697,13 +625,13 @@ is less than or equal to the specified value.</p>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/PatternMatching/new/master/apiSpec/new?filename=PatternMatching_Pattern_LessOrEqual__1_System_Func___0__.md&amp;value=---%0Auid%3A%20PatternMatching.Pattern.LessOrEqual%60%601(System.Func%7B%60%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/TolikPylypchuk/PatternMatching/new/master/apiSpec/new?filename=PatternMatching_Pattern_LessOrEqual__1_Func___0__.md&amp;value=---%0Auid%3A%20PatternMatching.Pattern.LessOrEqual%60%601(Func%7B%60%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/TolikPylypchuk/PatternMatching/blob/master/PatternMatching/Pattern.cs/#L138">View Source</a>
   </span>
   <a id="PatternMatching_Pattern_LessOrEqual_" data-uid="PatternMatching.Pattern.LessOrEqual*"></a>
-  <h4 id="PatternMatching_Pattern_LessOrEqual__1_System_Func___0__" data-uid="PatternMatching.Pattern.LessOrEqual``1(System.Func{``0})">LessOrEqual&lt;TInput&gt;(Func&lt;TInput&gt;)</h4>
+  <h4 id="PatternMatching_Pattern_LessOrEqual__1_Func___0__" data-uid="PatternMatching.Pattern.LessOrEqual``1(Func{``0})">LessOrEqual&lt;TInput&gt;(Func&lt;TInput&gt;)</h4>
   <div class="markdown level1 summary"><p>Returns a pattern which is matched successfully when the input value
 is less than or equal to the provided value.</p>
 </div>
@@ -724,7 +652,7 @@ is less than or equal to the provided value.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Func</span>&lt;TInput&gt;</td>
+        <td><span class="xref">Func</span>&lt;TInput&gt;</td>
         <td><span class="parametername">valueProvider</span></td>
         <td><p>The provider of the value to compare with.</p>
 </td>
@@ -760,22 +688,6 @@ is less than or equal to the provided value.</p>
       <tr>
         <td><span class="parametername">TInput</span></td>
         <td><p>The type of the input value of the expression.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.ArgumentNullException</span></td>
-        <td><p><code data-dev-comment-type="paramref" class="paramref">valueProvider</code> is <span class="xref">null</span>.</p>
 </td>
       </tr>
     </tbody>
@@ -851,13 +763,13 @@ is less than the specified value.</p>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/PatternMatching/new/master/apiSpec/new?filename=PatternMatching_Pattern_LessThan__1_System_Func___0__.md&amp;value=---%0Auid%3A%20PatternMatching.Pattern.LessThan%60%601(System.Func%7B%60%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/TolikPylypchuk/PatternMatching/new/master/apiSpec/new?filename=PatternMatching_Pattern_LessThan__1_Func___0__.md&amp;value=---%0Auid%3A%20PatternMatching.Pattern.LessThan%60%601(Func%7B%60%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/TolikPylypchuk/PatternMatching/blob/master/PatternMatching/Pattern.cs/#L105">View Source</a>
   </span>
   <a id="PatternMatching_Pattern_LessThan_" data-uid="PatternMatching.Pattern.LessThan*"></a>
-  <h4 id="PatternMatching_Pattern_LessThan__1_System_Func___0__" data-uid="PatternMatching.Pattern.LessThan``1(System.Func{``0})">LessThan&lt;TInput&gt;(Func&lt;TInput&gt;)</h4>
+  <h4 id="PatternMatching_Pattern_LessThan__1_Func___0__" data-uid="PatternMatching.Pattern.LessThan``1(Func{``0})">LessThan&lt;TInput&gt;(Func&lt;TInput&gt;)</h4>
   <div class="markdown level1 summary"><p>Returns a pattern which is matched successfully when the input value
 is less than the provided value.</p>
 </div>
@@ -878,7 +790,7 @@ is less than the provided value.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Func</span>&lt;TInput&gt;</td>
+        <td><span class="xref">Func</span>&lt;TInput&gt;</td>
         <td><span class="parametername">valueProvider</span></td>
         <td><p>The provider of the value to compare with.</p>
 </td>
@@ -914,22 +826,6 @@ is less than the provided value.</p>
       <tr>
         <td><span class="parametername">TInput</span></td>
         <td><p>The type of the input value of the expression.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.ArgumentNullException</span></td>
-        <td><p><code data-dev-comment-type="paramref" class="paramref">valueProvider</code> is <span class="xref">null</span>.</p>
 </td>
       </tr>
     </tbody>
@@ -1011,22 +907,6 @@ when the specified pattern is not matched successfully.</p>
   <div class="markdown level1 remarks"><p>This pattern ignores the specified pattern's transformation
 and returns the input value if matched successfully.</p>
 </div>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.ArgumentNullException</span></td>
-        <td><p><code data-dev-comment-type="paramref" class="paramref">pattern</code> is <span class="xref">null</span>.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/TolikPylypchuk/PatternMatching/new/master/apiSpec/new?filename=PatternMatching_Pattern_Null__1.md&amp;value=---%0Auid%3A%20PatternMatching.Pattern.Null%60%601%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
