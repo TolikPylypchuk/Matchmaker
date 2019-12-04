@@ -9,15 +9,11 @@ using static LanguageExt.Prelude;
 
 using static PatternMatching.Pattern;
 
-using Random = System.Random;
-
 namespace PatternMatching
 {
     [SuppressMessage("ReSharper", "ExpressionIsAlwaysNull")]
     public static class Generators
     {
-        private static readonly Random Random = new Random();
-
         public static Arbitrary<SimplePattern<string>> SimplePattern()
             => new ArbitrarySimplePattern();
 
@@ -31,6 +27,7 @@ namespace PatternMatching
         {
             public override Gen<SimplePattern<string>> Generator
                 => from input in Arb.Default.String().Generator
+                    from index in Gen.Choose(0, 10)
                     select new[]
                     {
                         EqualTo(input), EqualTo(() => input),
@@ -39,7 +36,7 @@ namespace PatternMatching
                         GreaterThan(input), GreaterThan(() => input),
                         GreaterOrEqual(() => input), GreaterOrEqual(() => input),
                         Any<string>()
-                    }[Random.Next(11)];
+                    }[index];
         }
 
         class ArbitraryPredicate : Arbitrary<Func<string, bool>>
