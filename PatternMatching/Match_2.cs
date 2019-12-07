@@ -1,5 +1,5 @@
-﻿using System;
-
+using System;
+using System.Diagnostics.CodeAnalysis;
 using LanguageExt;
 
 using static LanguageExt.Prelude;
@@ -141,6 +141,7 @@ namespace PatternMatching
         /// </summary>
         /// <param name="input">The input value of the expression.</param>
         /// <returns>The result of the match expression, or nothing if no pattern was matched successfully.</returns>
+        [SuppressMessage("ReSharper", "ExpressionIsAlwaysNull")]
         public OptionUnsafe<TOutput> ExecuteNonStrict(TInput input)
         {
             foreach (var (pattern, _, function) in this.patterns)
@@ -148,7 +149,26 @@ namespace PatternMatching
                 var matchResult = pattern.Match(input);
                 if (matchResult.IsSome)
                 {
-                    return SomeUnsafe(function(matchResult.ToList()[0]));
+                    var result = function(matchResult.ToList()[0]);
+
+                    if (result == null)
+                    {
+                        return SomeUnsafe((TOutput)result);
+                    }
+
+                    var underlyingType = Nullable.GetUnderlyingType(typeof(TOutput));
+
+                    if (underlyingType != null)
+                    {
+                        var nullableResult = typeof(Nullable<>)
+                            .MakeGenericType(underlyingType)
+                            .GetConstructor(new[] { underlyingType })
+                            .Invoke(new[] { result });
+
+                        return SomeUnsafe((TOutput)nullableResult);
+                    }
+
+                    return SomeUnsafe(result);
                 }
             }
 
@@ -190,7 +210,23 @@ namespace PatternMatching
                 var matchResult = pattern.Match(input);
                 if (matchResult.IsSome)
                 {
-                    results = results.Add(function(matchResult.ToList()[0]));
+                    var result = function(matchResult.ToList()[0]);
+
+                    var underlyingType = Nullable.GetUnderlyingType(typeof(TOutput));
+
+                    if (underlyingType == null)
+                    {
+                        results = results.Add(result);
+                    } else
+                    {
+                        var nullableResult = typeof(Nullable<>)
+                            .MakeGenericType(underlyingType)
+                            .GetConstructor(new[] { underlyingType })
+                            .Invoke(new[] { result });
+
+                        results = results.Add((TOutput)nullableResult);
+                    }
+
                     if (!fallthrough)
                     {
                         break;
