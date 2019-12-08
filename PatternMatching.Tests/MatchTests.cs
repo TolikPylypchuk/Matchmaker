@@ -69,7 +69,7 @@ namespace PatternMatching
         {
             var pattern = new SimplePattern<string>(predicate);
 
-            var matchSuccessful = Match.Create<string, bool>()
+            bool matchSuccessful = Match.Create<string, bool>()
                 .Case(pattern, _ => true)
                 .Case(Pattern.Any<string>(), _ => false)
                 .ExecuteNonStrict(value)
@@ -210,6 +210,102 @@ namespace PatternMatching
             {
                 action.Should().Throw<MatchException>();
             }
+        }
+
+        [Fact]
+        public void MatchExpressionShouldThrowIfPatternIsNull()
+        {
+            Action action = () =>
+                Match.Create<string, bool>()
+                    .Case<string>(null, _ => true);
+
+            action.Should().Throw<ArgumentNullException>();
+        }
+
+        [Fact]
+        public void MatchStatementShouldThrowIfPatternIsNull()
+        {
+            Action action = () =>
+                Match.Create<string>()
+                    .Case<string>(null, _ => { });
+
+            action.Should().Throw<ArgumentNullException>();
+        }
+
+        [Property(Arbitrary = new[] { typeof(Generators) })]
+        public void MatchExpressionShouldThrowIfCaseFunctionIsNull(Func<string, bool> predicate)
+        {
+            var pattern = new SimplePattern<string>(predicate);
+
+            Action action = () =>
+                Match.Create<string, bool>()
+                    .Case(pattern, null);
+
+            action.Should().Throw<ArgumentNullException>();
+        }
+
+        [Property(Arbitrary = new[] { typeof(Generators) })]
+        public void MatchStatementShouldThrowIfCaseFunctionIsNull(Func<string, bool> predicate)
+        {
+            var pattern = new SimplePattern<string>(predicate);
+
+            Action action = () =>
+                Match.Create<string>()
+                    .Case(pattern, null);
+
+            action.Should().Throw<ArgumentNullException>();
+        }
+
+        [Theory]
+        [InlineData(true)]
+        [InlineData(false)]
+        public void MatchExpressionShouldThrowIfPatternWithFallthroughIsNull(bool fallthrough)
+        {
+            Action action = () =>
+                Match.Create<string, bool>()
+                    .Case<string>(null, fallthrough, _ => true);
+
+            action.Should().Throw<ArgumentNullException>();
+        }
+
+        [Theory]
+        [InlineData(true)]
+        [InlineData(false)]
+        public void MatchStatementShouldThrowIfPatternWithFallthroughIsNull(bool fallthrough)
+        {
+            Action action = () =>
+                Match.Create<string>()
+                    .Case<string>(null, fallthrough, _ => { });
+
+            action.Should().Throw<ArgumentNullException>();
+        }
+
+        [Property(Arbitrary = new[] { typeof(Generators) })]
+        public void MatchExpressionShouldThrowIfCaseFunctionWithFallthroughIsNull(
+            Func<string, bool> predicate,
+            bool fallthrough)
+        {
+            var pattern = new SimplePattern<string>(predicate);
+
+            Action action = () =>
+                Match.Create<string, bool>()
+                    .Case(pattern, fallthrough, null);
+
+            action.Should().Throw<ArgumentNullException>();
+        }
+
+        [Property(Arbitrary = new[] { typeof(Generators) })]
+        public void MatchStatementShouldThrowIfCaseFunctionWithFallthroughIsNull(
+            Func<string, bool> predicate,
+            bool fallthrough)
+        {
+            var pattern = new SimplePattern<string>(predicate);
+
+            Action action = () =>
+                Match.Create<string>()
+                    .Case(pattern, fallthrough, null);
+
+            action.Should().Throw<ArgumentNullException>();
         }
     }
 }
