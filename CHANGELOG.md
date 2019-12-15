@@ -5,6 +5,7 @@
 What's new in version 1.2:
 
 - Added tests
+- Deprecated the `StructNull` pattern in favour of `ValueNull`
 - Fixed a bug which made strict matching with fallthrough unusable
 - Fixed null handling in some predefined patterns
 - Minor code refactoring

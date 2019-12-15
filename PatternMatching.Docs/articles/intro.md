@@ -197,7 +197,7 @@ value to compare to is obtained with a long-running computation.
 ## Null Values
 
 This library uses unsafe options, which can store `null` values, so these values
-are fully supported. There are the `Null` and `StructNull` patterns to match
+are fully supported. There are the `Null` and `ValueNull` patterns to match
 a class or a nullable struct respectively.
 
 ## Strict Mode vs. Non-Strict Mode

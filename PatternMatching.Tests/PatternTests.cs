@@ -78,8 +78,8 @@ namespace PatternMatching
             => (x is null == Pattern.Null<string>().Match(x).IsSome).ToProperty();
 
         [Property]
-        public Property StructNullShouldSucceedOnlyOnNull(int? x)
-            => (x is null == Pattern.StructNull<int>().Match(x).IsSome).ToProperty();
+        public Property ValueNullShouldSucceedOnlyOnNull(int? x)
+            => (x is null == Pattern.ValueNull<int>().Match(x).IsSome).ToProperty();
 
         [Property]
         public Property EqualToShouldSucceedOnlyOnEqualObjects(string x, string y)
@@ -193,16 +193,16 @@ namespace PatternMatching
             => (pattern.Match(x).IsSome == Pattern.Not(pattern).Match(x).IsNone).ToProperty();
 
         [Property]
-        public Property NotStructNullShouldBeOppositeToStructNull(int? x)
-            => (Pattern.StructNull<int>().Match(x).IsSome == Pattern.Not(Pattern.StructNull<int>()).Match(x).IsNone).ToProperty();
+        public Property NotValueNullShouldBeOppositeToValueNull(int? x)
+            => (Pattern.ValueNull<int>().Match(x).IsSome == Pattern.Not(Pattern.ValueNull<int>()).Match(x).IsNone).ToProperty();
 
         [Property(Arbitrary = new[] { typeof(Generators) })]
         public Property OperatorNotPatternShouldBeOppositeToPattern(SimplePattern<string> pattern, string x)
             => (pattern.Match(x).IsSome == (~pattern).Match(x).IsNone).ToProperty();
 
         [Property]
-        public Property OperatorNotStructNullShouldBeOppositeToStructNull(int? x)
-            => (Pattern.StructNull<int>().Match(x).IsSome == (~Pattern.StructNull<int>()).Match(x).IsNone).ToProperty();
+        public Property OperatorNotValueNullShouldBeOppositeToValueNull(int? x)
+            => (Pattern.ValueNull<int>().Match(x).IsSome == (~Pattern.ValueNull<int>()).Match(x).IsNone).ToProperty();
 
         [Fact]
         public void NotTypeShouldFailOnlyWhenTheValueHasType()

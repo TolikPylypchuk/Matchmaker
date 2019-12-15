@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 
 using static LanguageExt.Prelude;
 
@@ -29,6 +30,7 @@ namespace PatternMatching
         /// </summary>
         /// <typeparam name="TInput">The type of the input value of the expression.</typeparam>
         /// <returns>A pattern which is matched successfully when the input value is <see langword="null" />.</returns>
+        /// <seealso cref="ValueNull{TInput}" />
         public static SimplePattern<TInput> Null<TInput>()
             where TInput : class
             => new SimplePattern<TInput>(input => input == null);
@@ -38,7 +40,24 @@ namespace PatternMatching
         /// </summary>
         /// <typeparam name="TInput">The type of the input value of the expression.</typeparam>
         /// <returns>A pattern which is matched successfully when the input value is <see langword="null" />.</returns>
+        /// <remarks>
+        /// This pattern is obsolete and will be removed in version 2.0.
+        /// Use the <see cref="ValueNull{TInput}" /> pattern instead.
+        /// This change was done to match the naming of .NET types (e.g. <see cref="ValueTuple" />).
+        /// </remarks>
+        [ExcludeFromCodeCoverage]
+        [Obsolete("Use the ValueNull pattern instead")]
         public static SimplePattern<TInput?> StructNull<TInput>()
+            where TInput : struct
+            => new SimplePattern<TInput?>(input => input == null);
+
+        /// <summary>
+        /// Returns a pattern which is matched successfully when the input value is <see langword="null" />.
+        /// </summary>
+        /// <typeparam name="TInput">The type of the input value of the expression.</typeparam>
+        /// <returns>A pattern which is matched successfully when the input value is <see langword="null" />.</returns>
+        /// <seealso cref="Null{TInput}" />
+        public static SimplePattern<TInput?> ValueNull<TInput>()
             where TInput : struct
             => new SimplePattern<TInput?>(input => input == null);
 
@@ -52,6 +71,7 @@ namespace PatternMatching
         /// A pattern which is matched successfully when the input value
         /// is equal to the specified value.
         /// </returns>
+        /// <seealso cref="EqualTo{TInput}(Func{TInput})" />
         public static SimplePattern<TInput> EqualTo<TInput>(TInput value)
             where TInput : IEquatable<TInput>
             => new SimplePattern<TInput>(input => Equals(input, value));
@@ -69,6 +89,7 @@ namespace PatternMatching
         /// <exception cref="ArgumentNullException">
         /// <paramref name="valueProvider" /> is <see langword="null" />.
         /// </exception>
+        /// <seealso cref="EqualTo{TInput}(TInput)" />
         public static SimplePattern<TInput> EqualTo<TInput>(Func<TInput> valueProvider)
             where TInput : IEquatable<TInput>
             => valueProvider != null
@@ -85,6 +106,13 @@ namespace PatternMatching
         /// A pattern which is matched successfully when the input value
         /// is less than the specified value.
         /// </returns>
+        /// <seealso cref="LessThan{TInput}(Func{TInput})" />
+        /// <seealso cref="LessOrEqual{TInput}(TInput)" />
+        /// <seealso cref="LessOrEqual{TInput}(Func{TInput})" />
+        /// <seealso cref="GreaterThan{TInput}(TInput)" />
+        /// <seealso cref="GreaterThan{TInput}(Func{TInput})" />
+        /// <seealso cref="GreaterOrEqual{TInput}(TInput)" />
+        /// <seealso cref="GreaterOrEqual{TInput}(Func{TInput})" />
         public static SimplePattern<TInput> LessThan<TInput>(TInput value)
             where TInput : IComparable<TInput>
             => new SimplePattern<TInput>(input => Comparer<TInput>.Default.Compare(input, value) < 0);
@@ -102,6 +130,13 @@ namespace PatternMatching
         /// <exception cref="ArgumentNullException">
         /// <paramref name="valueProvider" /> is <see langword="null" />.
         /// </exception>
+        /// <seealso cref="LessThan{TInput}(TInput)" />
+        /// <seealso cref="LessOrEqual{TInput}(TInput)" />
+        /// <seealso cref="LessOrEqual{TInput}(Func{TInput})" />
+        /// <seealso cref="GreaterThan{TInput}(TInput)" />
+        /// <seealso cref="GreaterThan{TInput}(Func{TInput})" />
+        /// <seealso cref="GreaterOrEqual{TInput}(TInput)" />
+        /// <seealso cref="GreaterOrEqual{TInput}(Func{TInput})" />
         public static SimplePattern<TInput> LessThan<TInput>(Func<TInput> valueProvider)
             where TInput : IComparable<TInput>
             => valueProvider != null
@@ -118,6 +153,13 @@ namespace PatternMatching
         /// A pattern which is matched successfully when the input value
         /// is less than or equal to the specified value.
         /// </returns>
+        /// <seealso cref="LessThan{TInput}(TInput)" />
+        /// <seealso cref="LessThan{TInput}(Func{TInput})" />
+        /// <seealso cref="LessOrEqual{TInput}(Func{TInput})" />
+        /// <seealso cref="GreaterThan{TInput}(TInput)" />
+        /// <seealso cref="GreaterThan{TInput}(Func{TInput})" />
+        /// <seealso cref="GreaterOrEqual{TInput}(TInput)" />
+        /// <seealso cref="GreaterOrEqual{TInput}(Func{TInput})" />
         public static SimplePattern<TInput> LessOrEqual<TInput>(TInput value)
             where TInput : IComparable<TInput>
             => new SimplePattern<TInput>(input => Comparer<TInput>.Default.Compare(input, value) <= 0);
@@ -135,6 +177,13 @@ namespace PatternMatching
         /// <exception cref="ArgumentNullException">
         /// <paramref name="valueProvider" /> is <see langword="null" />.
         /// </exception>
+        /// <seealso cref="LessThan{TInput}(TInput)" />
+        /// <seealso cref="LessThan{TInput}(Func{TInput})" />
+        /// <seealso cref="LessOrEqual{TInput}(TInput)" />
+        /// <seealso cref="GreaterThan{TInput}(TInput)" />
+        /// <seealso cref="GreaterThan{TInput}(Func{TInput})" />
+        /// <seealso cref="GreaterOrEqual{TInput}(TInput)" />
+        /// <seealso cref="GreaterOrEqual{TInput}(Func{TInput})" />
         public static SimplePattern<TInput> LessOrEqual<TInput>(Func<TInput> valueProvider)
             where TInput : IComparable<TInput>
             => valueProvider != null
@@ -151,6 +200,13 @@ namespace PatternMatching
         /// A pattern which is matched successfully when the input value
         /// is greater than the specified value.
         /// </returns>
+        /// <seealso cref="LessThan{TInput}(TInput)" />
+        /// <seealso cref="LessThan{TInput}(Func{TInput})" />
+        /// <seealso cref="LessOrEqual{TInput}(TInput)" />
+        /// <seealso cref="LessOrEqual{TInput}(Func{TInput})" />
+        /// <seealso cref="GreaterThan{TInput}(Func{TInput})" />
+        /// <seealso cref="GreaterOrEqual{TInput}(TInput)" />
+        /// <seealso cref="GreaterOrEqual{TInput}(Func{TInput})" />
         public static SimplePattern<TInput> GreaterThan<TInput>(TInput value)
             where TInput : IComparable<TInput>
             => new SimplePattern<TInput>(input => Comparer<TInput>.Default.Compare(input, value) > 0);
@@ -168,6 +224,13 @@ namespace PatternMatching
         /// <exception cref="ArgumentNullException">
         /// <paramref name="valueProvider" /> is <see langword="null" />.
         /// </exception>
+        /// <seealso cref="LessThan{TInput}(TInput)" />
+        /// <seealso cref="LessThan{TInput}(Func{TInput})" />
+        /// <seealso cref="LessOrEqual{TInput}(TInput)" />
+        /// <seealso cref="LessOrEqual{TInput}(Func{TInput})" />
+        /// <seealso cref="GreaterThan{TInput}(TInput)" />
+        /// <seealso cref="GreaterOrEqual{TInput}(TInput)" />
+        /// <seealso cref="GreaterOrEqual{TInput}(Func{TInput})" />
         public static SimplePattern<TInput> GreaterThan<TInput>(Func<TInput> valueProvider)
             where TInput : IComparable<TInput>
             => valueProvider != null
@@ -184,6 +247,13 @@ namespace PatternMatching
         /// A pattern which is matched successfully when the input value
         /// is greater than or equal to the specified value.
         /// </returns>
+        /// <seealso cref="LessThan{TInput}(TInput)" />
+        /// <seealso cref="LessThan{TInput}(Func{TInput})" />
+        /// <seealso cref="LessOrEqual{TInput}(TInput)" />
+        /// <seealso cref="LessOrEqual{TInput}(Func{TInput})" />
+        /// <seealso cref="GreaterThan{TInput}(TInput)" />
+        /// <seealso cref="GreaterThan{TInput}(Func{TInput})" />
+        /// <seealso cref="GreaterOrEqual{TInput}(Func{TInput})" />
         public static SimplePattern<TInput> GreaterOrEqual<TInput>(TInput value)
             where TInput : IComparable<TInput>
             => new SimplePattern<TInput>(input => Comparer<TInput>.Default.Compare(input, value) >= 0);
@@ -201,6 +271,13 @@ namespace PatternMatching
         /// <exception cref="ArgumentNullException">
         /// <paramref name="valueProvider" /> is <see langword="null" />.
         /// </exception>
+        /// <seealso cref="LessThan{TInput}(TInput)" />
+        /// <seealso cref="LessThan{TInput}(Func{TInput})" />
+        /// <seealso cref="LessOrEqual{TInput}(TInput)" />
+        /// <seealso cref="LessOrEqual{TInput}(Func{TInput})" />
+        /// <seealso cref="GreaterThan{TInput}(TInput)" />
+        /// <seealso cref="GreaterThan{TInput}(Func{TInput})" />
+        /// <seealso cref="GreaterOrEqual{TInput}(TInput)" />
         public static SimplePattern<TInput> GreaterOrEqual<TInput>(Func<TInput> valueProvider)
             where TInput : IComparable<TInput>
             => valueProvider != null
