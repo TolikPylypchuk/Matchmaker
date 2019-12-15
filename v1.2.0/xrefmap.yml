@@ -788,6 +788,22 @@ references:
   fullName.vb: PatternMatching.Pattern.Type(Of TInput, TType)()
   nameWithType: Pattern.Type<TInput, TType>()
   nameWithType.vb: Pattern.Type(Of TInput, TType)()
+- uid: PatternMatching.Pattern.ValueNull*
+  name: ValueNull
+  href: api/PatternMatching.Pattern.html#PatternMatching_Pattern_ValueNull_
+  commentId: Overload:PatternMatching.Pattern.ValueNull
+  isSpec: "True"
+  fullName: PatternMatching.Pattern.ValueNull
+  nameWithType: Pattern.ValueNull
+- uid: PatternMatching.Pattern.ValueNull``1
+  name: ValueNull<TInput>()
+  href: api/PatternMatching.Pattern.html#PatternMatching_Pattern_ValueNull__1
+  commentId: M:PatternMatching.Pattern.ValueNull``1
+  name.vb: ValueNull(Of TInput)()
+  fullName: PatternMatching.Pattern.ValueNull<TInput>()
+  fullName.vb: PatternMatching.Pattern.ValueNull(Of TInput)()
+  nameWithType: Pattern.ValueNull<TInput>()
+  nameWithType.vb: Pattern.ValueNull(Of TInput)()
 - uid: PatternMatching.Pattern`2
   name: Pattern<TInput, TMatchResult>
   href: api/PatternMatching.Pattern-2.html
