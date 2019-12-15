@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class MatchException
    ">
-    <meta name="generator" content="docfx 2.47.0.0">
+    <meta name="generator" content="docfx 2.48.0.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -79,13 +79,75 @@
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><span class="xref">System.Object</span></div>
-    <div class="level1"><span class="xref">MatchException</span></div>
+    <div class="level1"><span class="xref">System.Exception</span></div>
+    <div class="level2"><span class="xref">MatchException</span></div>
+  </div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><span class="xref">System.Runtime.Serialization.ISerializable</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <span class="xref">System.Exception.GetBaseException()</span>
+    </div>
+    <div>
+      <span class="xref">System.Exception.GetObjectData(System.Runtime.Serialization.SerializationInfo, System.Runtime.Serialization.StreamingContext)</span>
+    </div>
+    <div>
+      <span class="xref">System.Exception.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Exception.ToString()</span>
+    </div>
+    <div>
+      <span class="xref">System.Exception.Data</span>
+    </div>
+    <div>
+      <span class="xref">System.Exception.HelpLink</span>
+    </div>
+    <div>
+      <span class="xref">System.Exception.HResult</span>
+    </div>
+    <div>
+      <span class="xref">System.Exception.InnerException</span>
+    </div>
+    <div>
+      <span class="xref">System.Exception.Message</span>
+    </div>
+    <div>
+      <span class="xref">System.Exception.Source</span>
+    </div>
+    <div>
+      <span class="xref">System.Exception.StackTrace</span>
+    </div>
+    <div>
+      <span class="xref">System.Exception.TargetSite</span>
+    </div>
+    <div>
+      <span class="xref">System.Exception.SerializeObjectState</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
   </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="PatternMatching.html">PatternMatching</a></h6>
   <h6><strong>Assembly</strong>: PatternMatching.dll</h6>
   <h5 id="PatternMatching_MatchException_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class MatchException : Exception</code></pre>
+    <pre><code class="lang-csharp hljs">public class MatchException : Exception, ISerializable</code></pre>
   </div>
   <h3 id="constructors">Constructors
   </h3>
@@ -107,13 +169,13 @@
   </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/PatternMatching/new/master/apiSpec/new?filename=PatternMatching_MatchException__ctor_SerializationInfo_StreamingContext_.md&amp;value=---%0Auid%3A%20PatternMatching.MatchException.%23ctor(SerializationInfo%2CStreamingContext)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/TolikPylypchuk/PatternMatching/new/master/apiSpec/new?filename=PatternMatching_MatchException__ctor_System_Runtime_Serialization_SerializationInfo_System_Runtime_Serialization_StreamingContext_.md&amp;value=---%0Auid%3A%20PatternMatching.MatchException.%23ctor(System.Runtime.Serialization.SerializationInfo%2CSystem.Runtime.Serialization.StreamingContext)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/TolikPylypchuk/PatternMatching/blob/master/PatternMatching/MatchException.cs/#L38">View Source</a>
   </span>
   <a id="PatternMatching_MatchException__ctor_" data-uid="PatternMatching.MatchException.#ctor*"></a>
-  <h4 id="PatternMatching_MatchException__ctor_SerializationInfo_StreamingContext_" data-uid="PatternMatching.MatchException.#ctor(SerializationInfo,StreamingContext)">MatchException(SerializationInfo, StreamingContext)</h4>
+  <h4 id="PatternMatching_MatchException__ctor_System_Runtime_Serialization_SerializationInfo_System_Runtime_Serialization_StreamingContext_" data-uid="PatternMatching.MatchException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">MatchException(SerializationInfo, StreamingContext)</h4>
   <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="PatternMatching.MatchException.html">MatchException</a> class.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -132,13 +194,13 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">SerializationInfo</span></td>
+        <td><span class="xref">System.Runtime.Serialization.SerializationInfo</span></td>
         <td><span class="parametername">info</span></td>
         <td><p>The serialization info.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">StreamingContext</span></td>
+        <td><span class="xref">System.Runtime.Serialization.StreamingContext</span></td>
         <td><span class="parametername">context</span></td>
         <td><p>The streaming context.</p>
 </td>
@@ -181,13 +243,13 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/PatternMatching/new/master/apiSpec/new?filename=PatternMatching_MatchException__ctor_System_String_Exception_.md&amp;value=---%0Auid%3A%20PatternMatching.MatchException.%23ctor(System.String%2CException)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/TolikPylypchuk/PatternMatching/new/master/apiSpec/new?filename=PatternMatching_MatchException__ctor_System_String_System_Exception_.md&amp;value=---%0Auid%3A%20PatternMatching.MatchException.%23ctor(System.String%2CSystem.Exception)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/TolikPylypchuk/PatternMatching/blob/master/PatternMatching/MatchException.cs/#L31">View Source</a>
   </span>
   <a id="PatternMatching_MatchException__ctor_" data-uid="PatternMatching.MatchException.#ctor*"></a>
-  <h4 id="PatternMatching_MatchException__ctor_System_String_Exception_" data-uid="PatternMatching.MatchException.#ctor(System.String,Exception)">MatchException(String, Exception)</h4>
+  <h4 id="PatternMatching_MatchException__ctor_System_String_System_Exception_" data-uid="PatternMatching.MatchException.#ctor(System.String,System.Exception)">MatchException(String, Exception)</h4>
   <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="PatternMatching.MatchException.html">MatchException</a> class.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -212,13 +274,17 @@
 </td>
       </tr>
       <tr>
-        <td><span class="xref">Exception</span></td>
+        <td><span class="xref">System.Exception</span></td>
         <td><span class="parametername">innerException</span></td>
         <td><p>The exception, which caused this exception.</p>
 </td>
       </tr>
     </tbody>
   </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <span class="xref">System.Runtime.Serialization.ISerializable</span>
+  </div>
   <h3 id="seealso">See Also</h3>
   <div class="seealso">
       <div><a class="xref" href="PatternMatching.Match-2.html">Match</a>&lt;TInput, TOutput&gt;</div>
