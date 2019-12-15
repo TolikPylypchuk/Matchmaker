@@ -21,17 +21,17 @@ git clone https://github.com/TolikPylypchuk/PatternMatching.git --branch gh-page
 
 Set-Location "$TempRepoDir"
 
-if (Test-Path "v.$($env:version)")
+if (Test-Path "v$($env:version)")
 {
     Write-Output "Clearing the docs directory"
-    git rm -rf "v.$($env:version)/*"
+    git rm -rf "v$($env:version)/*"
 } else
 {
-    New-Item -Name "v.$($env:version)" -ItemType Directory
+    New-Item -Name "v$($env:version)" -ItemType Directory
 }
 
 Write-Output "Copying documentation into the repo"
-Copy-Item -Path "$SourceDir/docs" -Destination "v.$($env:version)" -Recurse
+Copy-Item -Path "$SourceDir/docs" -Destination "v$($env:version)" -Recurse
 
 Write-Output "Pushing the new docs to the remote branch"
 git add . -A
