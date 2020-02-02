@@ -23,23 +23,26 @@ namespace PatternMatching
         public static Arbitrary<Func<string, OptionUnsafe<string>>> Matcher()
             => new ArbitraryMatcher();
 
-        class ArbitrarySimplePattern : Arbitrary<SimplePattern<string>>
+        private class ArbitrarySimplePattern : Arbitrary<SimplePattern<string>>
         {
             public override Gen<SimplePattern<string>> Generator
                 => from input in Arb.Default.String().Generator
-                    from index in Gen.Choose(0, 10)
-                    select new[]
-                    {
-                        EqualTo(input), EqualTo(() => input),
-                        LessThan(input), LessThan(() => input),
-                        LessOrEqual(input), LessOrEqual(() => input),
-                        GreaterThan(input), GreaterThan(() => input),
-                        GreaterOrEqual(() => input), GreaterOrEqual(() => input),
-                        Any<string>()
-                    }[index];
+                    from item in Gen.Elements(
+                        EqualTo(input),
+                        EqualTo(() => input),
+                        LessThan(input),
+                        LessThan(() => input),
+                        LessOrEqual(input),
+                        LessOrEqual(() => input),
+                        GreaterThan(input),
+                        GreaterThan(() => input),
+                        GreaterOrEqual(() => input),
+                        GreaterOrEqual(() => input),
+                        Any<string>())
+                   select item;
         }
 
-        class ArbitraryPredicate : Arbitrary<Func<string, bool>>
+        private class ArbitraryPredicate : Arbitrary<Func<string, bool>>
         {
             public override Gen<Func<string, bool>> Generator
                 => Gen.Elements<Func<string, bool>>(
@@ -49,7 +52,7 @@ namespace PatternMatching
                         str => str != null && str == str.ToLower());
         }
 
-        class ArbitraryMatcher : Arbitrary<Func<string, OptionUnsafe<string>>>
+        private class ArbitraryMatcher : Arbitrary<Func<string, OptionUnsafe<string>>>
         {
             public override Gen<Func<string, OptionUnsafe<string>>> Generator
                 => Gen.Elements<Func<string, OptionUnsafe<string>>>(
