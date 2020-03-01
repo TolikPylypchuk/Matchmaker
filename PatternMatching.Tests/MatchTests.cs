@@ -212,6 +212,195 @@ namespace PatternMatching
             }
         }
 
+        [Property(Arbitrary = new[] { typeof(Generators) })]
+        public Property MatchExpressionToFunctionShouldMatchPatternsCorrectly(
+            Func<string, bool> predicate,
+            string value)
+        {
+            var pattern = new SimplePattern<string>(predicate);
+
+            bool matchSuccessful = Match.Create<string, bool>()
+                .Case(pattern, _ => true)
+                .Case(Pattern.Any<string>(), _ => false)
+                .ToFunction()(value);
+
+            return (matchSuccessful == pattern.Match(value).IsSome).ToProperty();
+        }
+
+        [Property(Arbitrary = new[] { typeof(Generators) })]
+        public Property MatchStatementToFunctionShouldMatchPatternsCorrectly(
+            Func<string, bool> predicate,
+            string value)
+        {
+            var pattern = new SimplePattern<string>(predicate);
+            bool matchSuccessful = false;
+
+            Match.Create<string>()
+                .Case(pattern, _ => matchSuccessful = true)
+                .Case(Pattern.Any<string>(), _ => matchSuccessful = false)
+                .ToFunction()(value);
+
+            return (matchSuccessful == pattern.Match(value).IsSome).ToProperty();
+        }
+
+        [Property(Arbitrary = new[] { typeof(Generators) })]
+        public Property NonStrictMatchExpressionToFunctionShouldMatchPatternsCorrectly(
+            Func<string, bool> predicate,
+            string value)
+        {
+            var pattern = new SimplePattern<string>(predicate);
+
+            bool matchSuccessful = Match.Create<string, bool>()
+                .Case(pattern, _ => true)
+                .Case(Pattern.Any<string>(), _ => false)
+                .ToNonStrictFunction()(value)
+                .IfNoneUnsafe(() => false);
+
+            return (matchSuccessful == pattern.Match(value).IsSome).ToProperty();
+        }
+
+        [Property(Arbitrary = new[] { typeof(Generators) })]
+        public Property NonStrictMatchExpressionToFunctionShouldMatchPatternsCorrectlyWithNull(
+            Func<string, bool> predicate,
+            string value)
+        {
+            var pattern = new SimplePattern<string>(predicate);
+
+            var matchSuccessful = Match.Create<string, bool?>()
+                .Case(pattern, _ => true)
+                .Case(Pattern.Any<string>(), _ => null)
+                .ToNonStrictFunction()(value)
+                .IfNoneUnsafe(() => false);
+
+            return (matchSuccessful == true == pattern.Match(value).IsSome).ToProperty();
+        }
+
+        [Property(Arbitrary = new[] { typeof(Generators) })]
+        public Property NonStrictMatchExpressionToFunctionShouldMatchPatternsCorrectlyWithNullable(
+            Func<string, bool> predicate,
+            string value)
+        {
+            var pattern = new SimplePattern<string>(predicate);
+
+            var matchSuccessful = Match.Create<string, bool?>()
+                .Case(pattern, _ => true)
+                .Case(Pattern.Any<string>(), _ => false)
+                .ToNonStrictFunction()(value)
+                .IfNoneUnsafe(() => null);
+
+            return (matchSuccessful == pattern.Match(value).IsSome).ToProperty();
+        }
+
+        [Property(Arbitrary = new[] { typeof(Generators) })]
+        public Property StrictMatchStatementToFunctionShouldMatchPatternsCorrectly(
+            Func<string, bool> predicate,
+            string value)
+        {
+            var pattern = new SimplePattern<string>(predicate);
+            bool matchSuccessful = false;
+
+            Match.Create<string>()
+                .Case(pattern, _ => matchSuccessful = true)
+                .Case(Pattern.Any<string>(), _ => matchSuccessful = false)
+                .ToStrictFunction()(value);
+
+            return (matchSuccessful == pattern.Match(value).IsSome).ToProperty();
+        }
+
+        [Property(Arbitrary = new[] { typeof(Generators) })]
+        public Property NonStrictMatchExpressionToFunctionShouldReturnNothingIfNoMatchFound(
+            Func<string, bool> predicate,
+            string value)
+        {
+            var pattern = new SimplePattern<string>(predicate);
+
+            var result = Match.Create<string, bool>()
+                    .Case(pattern, _ => true)
+                    .ToNonStrictFunction()(value);
+
+            return (result.IsSome == pattern.Match(value).IsSome).ToProperty();
+        }
+
+        [Property(Arbitrary = new[] { typeof(Generators) })]
+        public Property MatchStatementToFunctionShouldReturnFalseIfNoMatchFound(
+            Func<string, bool> predicate,
+            string value)
+        {
+            var pattern = new SimplePattern<string>(predicate);
+
+            bool matched = Match.Create<string>()
+                .Case(pattern, _ => { })
+                .ToFunction()(value);
+
+            return (matched == pattern.Match(value).IsSome).ToProperty();
+        }
+
+        [Property(Arbitrary = new[] { typeof(Generators) })]
+        public void MatchExpressionToFunctionShouldThrowIfNoMatchFound(Func<string, bool> predicate, string value)
+        {
+            var pattern = new SimplePattern<string>(predicate);
+
+            Action action = () =>
+                Match.Create<string, bool>()
+                    .Case(pattern, _ => true)
+                    .ToFunction()(value);
+
+            if (pattern.Match(value).IsSome)
+            {
+                action.Should().NotThrow<MatchException>();
+            } else
+            {
+                action.Should().Throw<MatchException>();
+            }
+        }
+
+        [Property(Arbitrary = new[] { typeof(Generators) })]
+        public void MatchStatementToFunctionShouldNotThrowIfNoMatchFound(Func<string, bool> predicate, string value)
+        {
+            var pattern = new SimplePattern<string>(predicate);
+
+            Action action = () =>
+                Match.Create<string>()
+                    .Case(pattern, _ => { })
+                    .ToFunction()(value);
+
+            action.Should().NotThrow<MatchException>();
+        }
+
+        [Property(Arbitrary = new[] { typeof(Generators) })]
+        public void NonStrictMatchExpressionToFunctionShouldNotThrowIfNoMatchFound(
+            Func<string, bool> predicate,
+            string value)
+        {
+            var pattern = new SimplePattern<string>(predicate);
+
+            Action action = () =>
+                Match.Create<string, bool>()
+                    .Case(pattern, _ => true)
+                    .ToNonStrictFunction()(value);
+
+            action.Should().NotThrow<MatchException>();
+        }
+
+        [Property(Arbitrary = new[] { typeof(Generators) })]
+        public void StrictMatchStatementToFunctionShouldThrowIfNoMatchFound(Func<string, bool> predicate, string value)
+        {
+            var pattern = new SimplePattern<string>(predicate);
+
+            Action action = () =>
+                Match.Create<string>()
+                    .Case(pattern, _ => { })
+                    .ToStrictFunction()(value);
+
+            if (pattern.Match(value).IsSome)
+            {
+                action.Should().NotThrow<MatchException>();
+            } else
+            {
+                action.Should().Throw<MatchException>();
+            }
+        }
+
         [Fact]
         public void MatchExpressionShouldThrowIfPatternIsNull()
         {
@@ -252,6 +441,26 @@ namespace PatternMatching
             Action action = () =>
                 Match.Create<string>()
                     .Case(pattern, null);
+
+            action.Should().Throw<ArgumentNullException>();
+        }
+
+        [Fact]
+        public void MatchExpressionShouldThrowIfCaseTypeFunctionIsNull()
+        {
+            Action action = () =>
+                Match.Create<string, bool>()
+                    .Case<string>(null);
+
+            action.Should().Throw<ArgumentNullException>();
+        }
+
+        [Fact]
+        public void MatchStatementShouldThrowIfCaseTypeFunctionIsNull()
+        {
+            Action action = () =>
+                Match.Create<string>()
+                    .Case<string>(null);
 
             action.Should().Throw<ArgumentNullException>();
         }
@@ -304,6 +513,26 @@ namespace PatternMatching
             Action action = () =>
                 Match.Create<string>()
                     .Case(pattern, fallthrough, null);
+
+            action.Should().Throw<ArgumentNullException>();
+        }
+
+        [Property(Arbitrary = new[] { typeof(Generators) })]
+        public void MatchExpressionShouldThrowIfCaseTypeFunctionWithFallthroughIsNull(bool fallthrough)
+        {
+            Action action = () =>
+                Match.Create<string, bool>()
+                    .Case<string>(fallthrough, null);
+
+            action.Should().Throw<ArgumentNullException>();
+        }
+
+        [Property(Arbitrary = new[] { typeof(Generators) })]
+        public void MatchStatementShouldThrowIfCaseTypeFunctionWithFallthroughIsNull(bool fallthrough)
+        {
+            Action action = () =>
+                Match.Create<string>()
+                    .Case<string>(fallthrough, null);
 
             action.Should().Throw<ArgumentNullException>();
         }
