@@ -1,4 +1,7 @@
 using System;
+using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 
 using FluentAssertions;
 
@@ -26,7 +29,7 @@ namespace PatternMatching
                 .NotBeNull();
 
         [Property(Arbitrary = new[] { typeof(Generators) })]
-        public Property MatchExpressionShouldMatchPatternsCorrectly(Func<string, bool> predicate, string value)
+        public Property MatchShouldMatchPatternsCorrectly(Func<string, bool> predicate, string value)
         {
             var pattern = new SimplePattern<string>(predicate);
 
@@ -39,7 +42,7 @@ namespace PatternMatching
         }
 
         [Property(Arbitrary = new[] { typeof(Generators) })]
-        public Property NonStrictMatchExpressionShouldMatchPatternsCorrectly(Func<string, bool> predicate, string value)
+        public Property NonStrictMatchShouldMatchPatternsCorrectly(Func<string, bool> predicate, string value)
         {
             var pattern = new SimplePattern<string>(predicate);
 
@@ -53,7 +56,7 @@ namespace PatternMatching
         }
 
         [Property(Arbitrary = new[] { typeof(Generators) })]
-        public Property NonStrictMatchExpressionShouldMatchPatternsCorrectlyWithNull(
+        public Property NonStrictMatchShouldMatchPatternsCorrectlyWithNull(
             Func<string, bool> predicate,
             string value)
         {
@@ -69,7 +72,7 @@ namespace PatternMatching
         }
 
         [Property(Arbitrary = new[] { typeof(Generators) })]
-        public Property NonStrictMatchExpressionShouldMatchPatternsCorrectlyWithNullable(
+        public Property NonStrictMatchShouldMatchPatternsCorrectlyWithNullable(
             Func<string, bool> predicate,
             string value)
         {
@@ -85,7 +88,7 @@ namespace PatternMatching
         }
 
         [Property(Arbitrary = new[] { typeof(Generators) })]
-        public Property NonStrictMatchExpressionShouldReturnNothingIfNoMatchFound(Func<string, bool> predicate, string value)
+        public Property NonStrictMatchShouldReturnNothingIfNoMatchFound(Func<string, bool> predicate, string value)
         {
             var pattern = new SimplePattern<string>(predicate);
 
@@ -97,7 +100,7 @@ namespace PatternMatching
         }
 
         [Property(Arbitrary = new[] { typeof(Generators) })]
-        public void MatchExpressionShouldThrowIfNoMatchFound(Func<string, bool> predicate, string value)
+        public void MatchShouldThrowIfNoMatchFound(Func<string, bool> predicate, string value)
         {
             var pattern = new SimplePattern<string>(predicate);
 
@@ -116,7 +119,7 @@ namespace PatternMatching
         }
 
         [Property(Arbitrary = new[] { typeof(Generators) })]
-        public void NonStrictMatchExpressionShouldNotThrowIfNoMatchFound(Func<string, bool> predicate, string value)
+        public void NonStrictMatchShouldNotThrowIfNoMatchFound(Func<string, bool> predicate, string value)
         {
             var pattern = new SimplePattern<string>(predicate);
 
@@ -129,7 +132,298 @@ namespace PatternMatching
         }
 
         [Property(Arbitrary = new[] { typeof(Generators) })]
-        public Property MatchExpressionToFunctionShouldMatchPatternsCorrectly(
+        public Property MatchWithFallthroughShouldMatchPatternsCorrectly(Func<string, bool> predicate, string value)
+        {
+            var pattern = new SimplePattern<string>(predicate);
+
+            var result = Match.Create<string, bool>(fallthroughByDefault: true)
+                .Case(pattern, _ => true)
+                .Case(Pattern.Any<string>(), _ => false)
+                .ExecuteWithFallthrough(value);
+
+            var success = new List<bool> { true, false };
+            var failure = new List<bool> { false };
+
+            return pattern.Match(value).IsSome
+                ? result.SequenceEqual(success).ToProperty()
+                : result.SequenceEqual(failure).ToProperty();
+        }
+
+        [Property(Arbitrary = new[] { typeof(Generators) })]
+        public Property MatchWithFallthroughShouldMatchPatternsCorrectlyWithNullable(
+            Func<string, bool> predicate,
+            string value)
+        {
+            var pattern = new SimplePattern<string>(predicate);
+
+            var result = Match.Create<string, bool?>(fallthroughByDefault: true)
+                .Case(pattern, _ => true)
+                .Case(Pattern.Any<string>(), _ => false)
+                .ExecuteWithFallthrough(value);
+
+            var success = new List<bool?> { true, false };
+            var failure = new List<bool?> { false };
+
+            return pattern.Match(value).IsSome
+                ? result.SequenceEqual(success).ToProperty()
+                : result.SequenceEqual(failure).ToProperty();
+        }
+
+        [Property(Arbitrary = new[] { typeof(Generators) })]
+        public Property MatchWithFallthroughFalseShouldMatchPatternsCorrectly(
+            Func<string, bool> predicate,
+            string value)
+        {
+            var pattern = new SimplePattern<string>(predicate);
+
+            var result = Match.Create<string, bool>(fallthroughByDefault: true)
+                .Case(pattern, fallthrough: false, _ => true)
+                .Case(Pattern.Any<string>(), _ => false)
+                .ExecuteWithFallthrough(value);
+
+            var success = new List<bool> { true };
+            var failure = new List<bool> { false };
+
+            return pattern.Match(value).IsSome
+                ? result.SequenceEqual(success).ToProperty()
+                : result.SequenceEqual(failure).ToProperty();
+        }
+
+        [Property(Arbitrary = new[] { typeof(Generators) })]
+        public Property MatchWithFallthroughFalseShouldMatchPatternsCorrectlyWithNullable(
+            Func<string, bool> predicate,
+            string value)
+        {
+            var pattern = new SimplePattern<string>(predicate);
+
+            var result = Match.Create<string, bool?>(fallthroughByDefault: true)
+                .Case(pattern, fallthrough: false, _ => true)
+                .Case(Pattern.Any<string>(), _ => false)
+                .ExecuteWithFallthrough(value);
+
+            var success = new List<bool?> { true };
+            var failure = new List<bool?> { false };
+
+            return pattern.Match(value).IsSome
+                ? result.SequenceEqual(success).ToProperty()
+                : result.SequenceEqual(failure).ToProperty();
+        }
+
+        [Property(Arbitrary = new[] { typeof(Generators) })]
+        public Property MatchWithFallthroughTrueShouldMatchPatternsCorrectly(
+            Func<string, bool> predicate,
+            string value)
+        {
+            var pattern = new SimplePattern<string>(predicate);
+
+            var result = Match.Create<string, bool>(fallthroughByDefault: false)
+                .Case(pattern, fallthrough: true, _ => true)
+                .Case(Pattern.Any<string>(), _ => false)
+                .ExecuteWithFallthrough(value);
+
+            var success = new List<bool> { true, false };
+            var failure = new List<bool> { false };
+
+            return pattern.Match(value).IsSome
+                ? result.SequenceEqual(success).ToProperty()
+                : result.SequenceEqual(failure).ToProperty();
+        }
+
+        [Property(Arbitrary = new[] { typeof(Generators) })]
+        public Property MatchWithFallthroughTrueShouldMatchPatternsCorrectlyWithNullable(
+            Func<string, bool> predicate,
+            string value)
+        {
+            var pattern = new SimplePattern<string>(predicate);
+
+            var result = Match.Create<string, bool?>(fallthroughByDefault: false)
+                .Case(pattern, fallthrough: true, _ => true)
+                .Case(Pattern.Any<string>(), _ => false)
+                .ExecuteWithFallthrough(value);
+
+            var success = new List<bool?> { true, false };
+            var failure = new List<bool?> { false };
+
+            return pattern.Match(value).IsSome
+                ? result.SequenceEqual(success).ToProperty()
+                : result.SequenceEqual(failure).ToProperty();
+        }
+
+        [Property(Arbitrary = new[] { typeof(Generators) })]
+        [SuppressMessage("ReSharper", "ConditionIsAlwaysTrueOrFalse")]
+        public Property MatchWithFallthroughShouldNeverReturnNull(Func<string, bool> predicate, string value)
+        {
+            var pattern = new SimplePattern<string>(predicate);
+
+            var result = Match.Create<string, bool>(fallthroughByDefault: true)
+                .Case(pattern, _ => true)
+                .Case(Pattern.Any<string>(), _ => false)
+                .ExecuteWithFallthrough(value);
+
+            return (result != null).ToProperty();
+        }
+
+        [Property(Arbitrary = new[] { typeof(Generators) })]
+        public void MatchWithFallthroughShouldThrowIfNoMatchFound(string value)
+        {
+            var pattern = new SimplePattern<string>(_ => false);
+
+            Action action = () =>
+                Match.Create<string, bool>(fallthroughByDefault: true)
+                    .Case(pattern, _ => true)
+                    .ExecuteWithFallthrough(value);
+
+            action.Should().Throw<MatchException>();
+        }
+
+        [Property(Arbitrary = new[] { typeof(Generators) })]
+        public Property NonStrictMatchWithFallthroughShouldMatchPatternsCorrectly(
+            Func<string, bool> predicate,
+            string value)
+        {
+            var pattern = new SimplePattern<string>(predicate);
+
+            var result = Match.Create<string, bool>(fallthroughByDefault: true)
+                .Case(pattern, _ => true)
+                .Case(Pattern.Any<string>(), _ => false)
+                .ExecuteNonStrictWithFallthrough(value);
+
+            var success = new List<bool> { true, false };
+            var failure = new List<bool> { false };
+
+            return pattern.Match(value).IsSome
+                ? result.SequenceEqual(success).ToProperty()
+                : result.SequenceEqual(failure).ToProperty();
+        }
+
+        [Property(Arbitrary = new[] { typeof(Generators) })]
+        public Property NonStrictMatchWithFallthroughShouldMatchPatternsCorrectlyWithNullable(
+            Func<string, bool> predicate,
+            string value)
+        {
+            var pattern = new SimplePattern<string>(predicate);
+
+            var result = Match.Create<string, bool?>(fallthroughByDefault: true)
+                .Case(pattern, _ => true)
+                .Case(Pattern.Any<string>(), _ => false)
+                .ExecuteNonStrictWithFallthrough(value);
+
+            var success = new List<bool?> { true, false };
+            var failure = new List<bool?> { false };
+
+            return pattern.Match(value).IsSome
+                ? result.SequenceEqual(success).ToProperty()
+                : result.SequenceEqual(failure).ToProperty();
+        }
+
+        [Property(Arbitrary = new[] { typeof(Generators) })]
+        public Property NonStrictMatchWithFallthroughFalseShouldMatchPatternsCorrectly(
+            Func<string, bool> predicate,
+            string value)
+        {
+            var pattern = new SimplePattern<string>(predicate);
+
+            var result = Match.Create<string, bool>(fallthroughByDefault: true)
+                .Case(pattern, fallthrough: false, _ => true)
+                .Case(Pattern.Any<string>(), _ => false)
+                .ExecuteNonStrictWithFallthrough(value);
+
+            var success = new List<bool> { true };
+            var failure = new List<bool> { false };
+
+            return pattern.Match(value).IsSome
+                ? result.SequenceEqual(success).ToProperty()
+                : result.SequenceEqual(failure).ToProperty();
+        }
+
+        [Property(Arbitrary = new[] { typeof(Generators) })]
+        public Property NonStrictMatchWithFallthroughFalseShouldMatchPatternsCorrectlyWithNullable(
+            Func<string, bool> predicate,
+            string value)
+        {
+            var pattern = new SimplePattern<string>(predicate);
+
+            var result = Match.Create<string, bool?>(fallthroughByDefault: true)
+                .Case(pattern, fallthrough: false, _ => true)
+                .Case(Pattern.Any<string>(), _ => false)
+                .ExecuteNonStrictWithFallthrough(value);
+
+            var success = new List<bool?> { true };
+            var failure = new List<bool?> { false };
+
+            return pattern.Match(value).IsSome
+                ? result.SequenceEqual(success).ToProperty()
+                : result.SequenceEqual(failure).ToProperty();
+        }
+
+        [Property(Arbitrary = new[] { typeof(Generators) })]
+        public Property NonStrictMatchWithFallthroughTrueShouldMatchPatternsCorrectly(
+            Func<string, bool> predicate,
+            string value)
+        {
+            var pattern = new SimplePattern<string>(predicate);
+
+            var result = Match.Create<string, bool>(fallthroughByDefault: false)
+                .Case(pattern, fallthrough: true, _ => true)
+                .Case(Pattern.Any<string>(), _ => false)
+                .ExecuteNonStrictWithFallthrough(value);
+
+            var success = new List<bool> { true, false };
+            var failure = new List<bool> { false };
+
+            return pattern.Match(value).IsSome
+                ? result.SequenceEqual(success).ToProperty()
+                : result.SequenceEqual(failure).ToProperty();
+        }
+
+        [Property(Arbitrary = new[] { typeof(Generators) })]
+        public Property NonStrictMatchWithFallthroughTrueShouldMatchPatternsCorrectlyWithNullable(
+            Func<string, bool> predicate,
+            string value)
+        {
+            var pattern = new SimplePattern<string>(predicate);
+
+            var result = Match.Create<string, bool?>(fallthroughByDefault: false)
+                .Case(pattern, fallthrough: true, _ => true)
+                .Case(Pattern.Any<string>(), _ => false)
+                .ExecuteNonStrictWithFallthrough(value);
+
+            var success = new List<bool?> { true, false };
+            var failure = new List<bool?> { false };
+
+            return pattern.Match(value).IsSome
+                ? result.SequenceEqual(success).ToProperty()
+                : result.SequenceEqual(failure).ToProperty();
+        }
+
+        [Property(Arbitrary = new[] { typeof(Generators) })]
+        [SuppressMessage("ReSharper", "ConditionIsAlwaysTrueOrFalse")]
+        public Property NonStrictMatchWithFallthroughShouldNeverReturnNull(Func<string, bool> predicate, string value)
+        {
+            var pattern = new SimplePattern<string>(predicate);
+
+            var result = Match.Create<string, bool>(fallthroughByDefault: true)
+                .Case(pattern, _ => true)
+                .Case(Pattern.Any<string>(), _ => false)
+                .ExecuteNonStrictWithFallthrough(value);
+
+            return (result != null).ToProperty();
+        }
+
+        [Property(Arbitrary = new[] { typeof(Generators) })]
+        public Property NonStrictMatchWithFallthroughShouldReturnEmptyListIfNoMatchFound(string value)
+        {
+            var pattern = new SimplePattern<string>(_ => false);
+
+            var result = Match.Create<string, bool>(fallthroughByDefault: true)
+                .Case(pattern, _ => true)
+                .ExecuteNonStrictWithFallthrough(value);
+
+            return result.SequenceEqual(Enumerable.Empty<bool>()).ToProperty();
+        }
+
+        [Property(Arbitrary = new[] { typeof(Generators) })]
+        public Property MatchToFunctionShouldMatchPatternsCorrectly(
             Func<string, bool> predicate,
             string value)
         {
@@ -144,7 +438,7 @@ namespace PatternMatching
         }
 
         [Property(Arbitrary = new[] { typeof(Generators) })]
-        public Property NonStrictMatchExpressionToFunctionShouldMatchPatternsCorrectly(
+        public Property NonStrictMatchToFunctionShouldMatchPatternsCorrectly(
             Func<string, bool> predicate,
             string value)
         {
@@ -160,7 +454,7 @@ namespace PatternMatching
         }
 
         [Property(Arbitrary = new[] { typeof(Generators) })]
-        public Property NonStrictMatchExpressionToFunctionShouldMatchPatternsCorrectlyWithNull(
+        public Property NonStrictMatchToFunctionShouldMatchPatternsCorrectlyWithNull(
             Func<string, bool> predicate,
             string value)
         {
@@ -176,7 +470,7 @@ namespace PatternMatching
         }
 
         [Property(Arbitrary = new[] { typeof(Generators) })]
-        public Property NonStrictMatchExpressionToFunctionShouldMatchPatternsCorrectlyWithNullable(
+        public Property NonStrictMatchToFunctionShouldMatchPatternsCorrectlyWithNullable(
             Func<string, bool> predicate,
             string value)
         {
@@ -192,7 +486,7 @@ namespace PatternMatching
         }
 
         [Property(Arbitrary = new[] { typeof(Generators) })]
-        public Property NonStrictMatchExpressionToFunctionShouldReturnNothingIfNoMatchFound(
+        public Property NonStrictMatchToFunctionShouldReturnNothingIfNoMatchFound(
             Func<string, bool> predicate,
             string value)
         {
@@ -206,7 +500,7 @@ namespace PatternMatching
         }
 
         [Property(Arbitrary = new[] { typeof(Generators) })]
-        public void MatchExpressionToFunctionShouldThrowIfNoMatchFound(Func<string, bool> predicate, string value)
+        public void MatchToFunctionShouldThrowIfNoMatchFound(Func<string, bool> predicate, string value)
         {
             var pattern = new SimplePattern<string>(predicate);
 
@@ -225,7 +519,7 @@ namespace PatternMatching
         }
 
         [Property(Arbitrary = new[] { typeof(Generators) })]
-        public void NonStrictMatchExpressionToFunctionShouldNotThrowIfNoMatchFound(
+        public void NonStrictMatchToFunctionShouldNotThrowIfNoMatchFound(
             Func<string, bool> predicate,
             string value)
         {
@@ -238,9 +532,303 @@ namespace PatternMatching
 
             action.Should().NotThrow<MatchException>();
         }
+        [Property(Arbitrary = new[] { typeof(Generators) })]
+        public Property MatchToFunctionWithFallthroughShouldMatchPatternsCorrectly(
+            Func<string, bool> predicate,
+            string value)
+        {
+            var pattern = new SimplePattern<string>(predicate);
+
+            var result = Match.Create<string, bool>(fallthroughByDefault: true)
+                .Case(pattern, _ => true)
+                .Case(Pattern.Any<string>(), _ => false)
+                .ToFunctionWithFallthrough()(value);
+
+            var success = new List<bool> { true, false };
+            var failure = new List<bool> { false };
+
+            return pattern.Match(value).IsSome
+                ? result.SequenceEqual(success).ToProperty()
+                : result.SequenceEqual(failure).ToProperty();
+        }
+
+        [Property(Arbitrary = new[] { typeof(Generators) })]
+        public Property MatchToFunctionWithFallthroughShouldMatchPatternsCorrectlyWithNullable(
+            Func<string, bool> predicate,
+            string value)
+        {
+            var pattern = new SimplePattern<string>(predicate);
+
+            var result = Match.Create<string, bool?>(fallthroughByDefault: true)
+                .Case(pattern, _ => true)
+                .Case(Pattern.Any<string>(), _ => false)
+                .ToFunctionWithFallthrough()(value);
+
+            var success = new List<bool?> { true, false };
+            var failure = new List<bool?> { false };
+
+            return pattern.Match(value).IsSome
+                ? result.SequenceEqual(success).ToProperty()
+                : result.SequenceEqual(failure).ToProperty();
+        }
+
+        [Property(Arbitrary = new[] { typeof(Generators) })]
+        public Property MatchToFunctionWithFallthroughFalseShouldMatchPatternsCorrectly(
+            Func<string, bool> predicate,
+            string value)
+        {
+            var pattern = new SimplePattern<string>(predicate);
+
+            var result = Match.Create<string, bool>(fallthroughByDefault: true)
+                .Case(pattern, fallthrough: false, _ => true)
+                .Case(Pattern.Any<string>(), _ => false)
+                .ToFunctionWithFallthrough()(value);
+
+            var success = new List<bool> { true };
+            var failure = new List<bool> { false };
+
+            return pattern.Match(value).IsSome
+                ? result.SequenceEqual(success).ToProperty()
+                : result.SequenceEqual(failure).ToProperty();
+        }
+
+        [Property(Arbitrary = new[] { typeof(Generators) })]
+        public Property MatchToFunctionWithFallthroughFalseShouldMatchPatternsCorrectlyWithNullable(
+            Func<string, bool> predicate,
+            string value)
+        {
+            var pattern = new SimplePattern<string>(predicate);
+
+            var result = Match.Create<string, bool?>(fallthroughByDefault: true)
+                .Case(pattern, fallthrough: false, _ => true)
+                .Case(Pattern.Any<string>(), _ => false)
+                .ToFunctionWithFallthrough()(value);
+
+            var success = new List<bool?> { true };
+            var failure = new List<bool?> { false };
+
+            return pattern.Match(value).IsSome
+                ? result.SequenceEqual(success).ToProperty()
+                : result.SequenceEqual(failure).ToProperty();
+        }
+
+        [Property(Arbitrary = new[] { typeof(Generators) })]
+        public Property MatchToFunctionWithFallthroughTrueShouldMatchPatternsCorrectly(
+            Func<string, bool> predicate,
+            string value)
+        {
+            var pattern = new SimplePattern<string>(predicate);
+
+            var result = Match.Create<string, bool>(fallthroughByDefault: false)
+                .Case(pattern, fallthrough: true, _ => true)
+                .Case(Pattern.Any<string>(), _ => false)
+                .ToFunctionWithFallthrough()(value);
+
+            var success = new List<bool> { true, false };
+            var failure = new List<bool> { false };
+
+            return pattern.Match(value).IsSome
+                ? result.SequenceEqual(success).ToProperty()
+                : result.SequenceEqual(failure).ToProperty();
+        }
+
+        [Property(Arbitrary = new[] { typeof(Generators) })]
+        public Property MatchToFunctionWithFallthroughTrueShouldMatchPatternsCorrectlyWithNullable(
+            Func<string, bool> predicate,
+            string value)
+        {
+            var pattern = new SimplePattern<string>(predicate);
+
+            var result = Match.Create<string, bool?>(fallthroughByDefault: false)
+                .Case(pattern, fallthrough: true, _ => true)
+                .Case(Pattern.Any<string>(), _ => false)
+                .ToFunctionWithFallthrough()(value);
+
+            var success = new List<bool?> { true, false };
+            var failure = new List<bool?> { false };
+
+            return pattern.Match(value).IsSome
+                ? result.SequenceEqual(success).ToProperty()
+                : result.SequenceEqual(failure).ToProperty();
+        }
+
+        [Property(Arbitrary = new[] { typeof(Generators) })]
+        [SuppressMessage("ReSharper", "ConditionIsAlwaysTrueOrFalse")]
+        public Property MatchToFunctionWithFallthroughShouldNeverReturnNull(Func<string, bool> predicate, string value)
+        {
+            var pattern = new SimplePattern<string>(predicate);
+
+            var result = Match.Create<string, bool>(fallthroughByDefault: true)
+                .Case(pattern, _ => true)
+                .Case(Pattern.Any<string>(), _ => false)
+                .ToFunctionWithFallthrough()(value);
+
+            return (result != null).ToProperty();
+        }
+
+        [Property(Arbitrary = new[] { typeof(Generators) })]
+        public void MatchToFunctionWithFallthroughShouldThrowIfNoMatchFound(string value)
+        {
+            var pattern = new SimplePattern<string>(_ => false);
+
+            Action action = () =>
+                Match.Create<string, bool>(fallthroughByDefault: true)
+                    .Case(pattern, _ => true)
+                    .ToFunctionWithFallthrough()(value);
+
+            action.Should().Throw<MatchException>();
+        }
+
+        [Property(Arbitrary = new[] { typeof(Generators) })]
+        public Property NonStrictMatchToFunctionWithFallthroughShouldMatchPatternsCorrectly(
+            Func<string, bool> predicate,
+            string value)
+        {
+            var pattern = new SimplePattern<string>(predicate);
+
+            var result = Match.Create<string, bool>(fallthroughByDefault: true)
+                .Case(pattern, _ => true)
+                .Case(Pattern.Any<string>(), _ => false)
+                .ToNonStrictFunctionWithFallthrough()(value);
+
+            var success = new List<bool> { true, false };
+            var failure = new List<bool> { false };
+
+            return pattern.Match(value).IsSome
+                ? result.SequenceEqual(success).ToProperty()
+                : result.SequenceEqual(failure).ToProperty();
+        }
+
+        [Property(Arbitrary = new[] { typeof(Generators) })]
+        public Property NonStrictMatchToFunctionWithFallthroughShouldMatchPatternsCorrectlyWithNullable(
+            Func<string, bool> predicate,
+            string value)
+        {
+            var pattern = new SimplePattern<string>(predicate);
+
+            var result = Match.Create<string, bool?>(fallthroughByDefault: true)
+                .Case(pattern, _ => true)
+                .Case(Pattern.Any<string>(), _ => false)
+                .ToNonStrictFunctionWithFallthrough()(value);
+
+            var success = new List<bool?> { true, false };
+            var failure = new List<bool?> { false };
+
+            return pattern.Match(value).IsSome
+                ? result.SequenceEqual(success).ToProperty()
+                : result.SequenceEqual(failure).ToProperty();
+        }
+
+        [Property(Arbitrary = new[] { typeof(Generators) })]
+        public Property NonStrictMatchToFunctionWithFallthroughFalseShouldMatchPatternsCorrectly(
+            Func<string, bool> predicate,
+            string value)
+        {
+            var pattern = new SimplePattern<string>(predicate);
+
+            var result = Match.Create<string, bool>(fallthroughByDefault: true)
+                .Case(pattern, fallthrough: false, _ => true)
+                .Case(Pattern.Any<string>(), _ => false)
+                .ToNonStrictFunctionWithFallthrough()(value);
+
+            var success = new List<bool> { true };
+            var failure = new List<bool> { false };
+
+            return pattern.Match(value).IsSome
+                ? result.SequenceEqual(success).ToProperty()
+                : result.SequenceEqual(failure).ToProperty();
+        }
+
+        [Property(Arbitrary = new[] { typeof(Generators) })]
+        public Property NonStrictMatchToFunctionWithFallthroughFalseShouldMatchPatternsCorrectlyWithNullable(
+            Func<string, bool> predicate,
+            string value)
+        {
+            var pattern = new SimplePattern<string>(predicate);
+
+            var result = Match.Create<string, bool?>(fallthroughByDefault: true)
+                .Case(pattern, fallthrough: false, _ => true)
+                .Case(Pattern.Any<string>(), _ => false)
+                .ToNonStrictFunctionWithFallthrough()(value);
+
+            var success = new List<bool?> { true };
+            var failure = new List<bool?> { false };
+
+            return pattern.Match(value).IsSome
+                ? result.SequenceEqual(success).ToProperty()
+                : result.SequenceEqual(failure).ToProperty();
+        }
+
+        [Property(Arbitrary = new[] { typeof(Generators) })]
+        public Property NonStrictMatchToFunctionWithFallthroughTrueShouldMatchPatternsCorrectly(
+            Func<string, bool> predicate,
+            string value)
+        {
+            var pattern = new SimplePattern<string>(predicate);
+
+            var result = Match.Create<string, bool>(fallthroughByDefault: false)
+                .Case(pattern, fallthrough: true, _ => true)
+                .Case(Pattern.Any<string>(), _ => false)
+                .ToNonStrictFunctionWithFallthrough()(value);
+
+            var success = new List<bool> { true, false };
+            var failure = new List<bool> { false };
+
+            return pattern.Match(value).IsSome
+                ? result.SequenceEqual(success).ToProperty()
+                : result.SequenceEqual(failure).ToProperty();
+        }
+
+        [Property(Arbitrary = new[] { typeof(Generators) })]
+        public Property NonStrictMatchToFunctionWithFallthroughTrueShouldMatchPatternsCorrectlyWithNullable(
+            Func<string, bool> predicate,
+            string value)
+        {
+            var pattern = new SimplePattern<string>(predicate);
+
+            var result = Match.Create<string, bool?>(fallthroughByDefault: false)
+                .Case(pattern, fallthrough: true, _ => true)
+                .Case(Pattern.Any<string>(), _ => false)
+                .ToNonStrictFunctionWithFallthrough()(value);
+
+            var success = new List<bool?> { true, false };
+            var failure = new List<bool?> { false };
+
+            return pattern.Match(value).IsSome
+                ? result.SequenceEqual(success).ToProperty()
+                : result.SequenceEqual(failure).ToProperty();
+        }
+
+        [Property(Arbitrary = new[] { typeof(Generators) })]
+        [SuppressMessage("ReSharper", "ConditionIsAlwaysTrueOrFalse")]
+        public Property NonStrictMatchToFunctionWithFallthroughShouldNeverReturnNull(
+            Func<string, bool> predicate,
+            string value)
+        {
+            var pattern = new SimplePattern<string>(predicate);
+
+            var result = Match.Create<string, bool>(fallthroughByDefault: true)
+                .Case(pattern, _ => true)
+                .Case(Pattern.Any<string>(), _ => false)
+                .ToNonStrictFunctionWithFallthrough()(value);
+
+            return (result != null).ToProperty();
+        }
+
+        [Property(Arbitrary = new[] { typeof(Generators) })]
+        public Property NonStrictMatchToFunctionWithFallthroughShouldReturnEmptyListIfNoMatchFound(string value)
+        {
+            var pattern = new SimplePattern<string>(_ => false);
+
+            var result = Match.Create<string, bool>(fallthroughByDefault: true)
+                .Case(pattern, _ => true)
+                .ToNonStrictFunctionWithFallthrough()(value);
+
+            return result.SequenceEqual(Enumerable.Empty<bool>()).ToProperty();
+        }
 
         [Fact]
-        public void MatchExpressionShouldThrowIfPatternIsNull()
+        public void MatchShouldThrowIfPatternIsNull()
         {
             Action action = () =>
                 Match.Create<string, bool>()
@@ -250,7 +838,7 @@ namespace PatternMatching
         }
 
         [Property(Arbitrary = new[] { typeof(Generators) })]
-        public void MatchExpressionShouldThrowIfCaseFunctionIsNull(Func<string, bool> predicate)
+        public void MatchShouldThrowIfCaseFunctionIsNull(Func<string, bool> predicate)
         {
             var pattern = new SimplePattern<string>(predicate);
 
@@ -262,7 +850,7 @@ namespace PatternMatching
         }
 
         [Fact]
-        public void MatchExpressionShouldThrowIfCaseTypeFunctionIsNull()
+        public void MatchShouldThrowIfCaseTypeFunctionIsNull()
         {
             Action action = () =>
                 Match.Create<string, bool>()
@@ -274,7 +862,7 @@ namespace PatternMatching
         [Theory]
         [InlineData(true)]
         [InlineData(false)]
-        public void MatchExpressionShouldThrowIfPatternWithFallthroughIsNull(bool fallthrough)
+        public void MatchShouldThrowIfPatternWithFallthroughIsNull(bool fallthrough)
         {
             Action action = () =>
                 Match.Create<string, bool>()
@@ -284,7 +872,7 @@ namespace PatternMatching
         }
 
         [Property(Arbitrary = new[] { typeof(Generators) })]
-        public void MatchExpressionShouldThrowIfCaseFunctionWithFallthroughIsNull(
+        public void MatchShouldThrowIfCaseFunctionWithFallthroughIsNull(
             Func<string, bool> predicate,
             bool fallthrough)
         {
@@ -298,7 +886,7 @@ namespace PatternMatching
         }
 
         [Property(Arbitrary = new[] { typeof(Generators) })]
-        public void MatchExpressionShouldThrowIfCaseTypeFunctionWithFallthroughIsNull(bool fallthrough)
+        public void MatchShouldThrowIfCaseTypeFunctionWithFallthroughIsNull(bool fallthrough)
         {
             Action action = () =>
                 Match.Create<string, bool>()
