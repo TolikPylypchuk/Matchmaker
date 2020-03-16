@@ -9,7 +9,7 @@
       "output": {
         ".html": {
           "relative_path": "api/PatternMatching.ConditionalPattern-3.html",
-          "hash": "Y4W9GLFsGVFBdP3c+0pppA=="
+          "hash": "H7TdQvkKH6vJOaFjqqZgNQ=="
         }
       },
       "is_incremental": false,
@@ -21,7 +21,7 @@
       "output": {
         ".html": {
           "relative_path": "api/PatternMatching.IPattern-2.html",
-          "hash": "LgQy8hBf1k+hzX3avvFR5Q=="
+          "hash": "FU41EmBs3UjVaAg7WrBomQ=="
         }
       },
       "is_incremental": false,
@@ -33,7 +33,7 @@
       "output": {
         ".html": {
           "relative_path": "api/PatternMatching.Match-1.html",
-          "hash": "KnKgs051uJ/Wi/A66hR7bQ=="
+          "hash": "ySn6Gs6+ew7SYcrshh7QTQ=="
         }
       },
       "is_incremental": false,
@@ -45,7 +45,7 @@
       "output": {
         ".html": {
           "relative_path": "api/PatternMatching.Match-2.html",
-          "hash": "AQ2N5opD9o64li5JpAs1Pw=="
+          "hash": "Ih5ObkfMRkUNOOy8v9bF+w=="
         }
       },
       "is_incremental": false,
@@ -57,7 +57,7 @@
       "output": {
         ".html": {
           "relative_path": "api/PatternMatching.Match.html",
-          "hash": "Xx21rEkyhKS00uoE+QuE6A=="
+          "hash": "U5LOgr/X0mwvLl9PKlR1MQ=="
         }
       },
       "is_incremental": false,
@@ -69,7 +69,7 @@
       "output": {
         ".html": {
           "relative_path": "api/PatternMatching.MatchException.html",
-          "hash": "Kx2ieQp+ew46+ZbaIyXl9g=="
+          "hash": "0FaLM5fMc2mNEMPGCdoCJg=="
         }
       },
       "is_incremental": false,
@@ -81,7 +81,7 @@
       "output": {
         ".html": {
           "relative_path": "api/PatternMatching.Pattern-2.html",
-          "hash": "/YTYEt9KsWjEGgKY+7LNFA=="
+          "hash": "qSKX/S3zmqFXMrqVDsps/Q=="
         }
       },
       "is_incremental": false,
@@ -93,7 +93,7 @@
       "output": {
         ".html": {
           "relative_path": "api/PatternMatching.Pattern.html",
-          "hash": "76q0A/gLwwB9h56EbLMTRA=="
+          "hash": "mhJa1ntVpA7WOBJOsp5zsQ=="
         }
       },
       "is_incremental": false,
@@ -105,7 +105,7 @@
       "output": {
         ".html": {
           "relative_path": "api/PatternMatching.SimplePattern-1.html",
-          "hash": "J+UE7D0sBfyd7xEs+yLlyA=="
+          "hash": "3gfeLzmzcyvLjTh3nHrl/Q=="
         }
       },
       "is_incremental": false,
@@ -117,7 +117,7 @@
       "output": {
         ".html": {
           "relative_path": "api/PatternMatching.html",
-          "hash": "2kGdvsY+oad26c0f/qI85w=="
+          "hash": "hJI0FGZG6LK+foWX1doEtQ=="
         }
       },
       "is_incremental": false,
@@ -129,7 +129,7 @@
       "output": {
         ".html": {
           "relative_path": "api/index.html",
-          "hash": "HXeP4TUceQVI4M6o+vkFUw=="
+          "hash": "323o9rUp9j6I27o1CJodpQ=="
         }
       },
       "is_incremental": false,
@@ -153,7 +153,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/fallthrough.html",
-          "hash": "6PzY+gRJ1yGS+J6tsEM81w=="
+          "hash": "LbSj1S612jnjqmZGmUWeWQ=="
         }
       },
       "is_incremental": false,
@@ -165,7 +165,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/intro.html",
-          "hash": "ztTdAnTRL/B7f4eqr4wrJQ=="
+          "hash": "0ioQk+PwsOrfkDoJVv92ow=="
         }
       },
       "is_incremental": false,
@@ -189,7 +189,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/unions.html",
-          "hash": "Y/WXF1nZ9jMWyw9YlvXwFQ=="
+          "hash": "nHWYo973FPWmzVAJttiAzA=="
         }
       },
       "is_incremental": false,
@@ -212,7 +212,7 @@
       "output": {
         ".html": {
           "relative_path": "index.html",
-          "hash": "aIZNfgKwLha2CGukrKlq3g=="
+          "hash": "O3hUYdFh/xe4rtEsRGi3Iw=="
         }
       },
       "is_incremental": false,
