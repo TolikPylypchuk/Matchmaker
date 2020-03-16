@@ -1,6 +1,6 @@
 # Changelog
 
-## v1.2 (Work in Progress)
+## v1.2
 
 What's new in version 1.2:
 
