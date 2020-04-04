@@ -85,7 +85,7 @@ string result =
         .ExecuteOn(5);
 </code></pre>
 <p><code>EqualTo</code> is a predefined pattern.</p>
-<p>This is what an equivalent <code>switch</code> statement looks like:</p>
+<p>This is what an equivalent <code>switch</code> statement looks like (pre-C# 8):</p>
 <pre><code>string result;
 int i = 5;
 
@@ -125,6 +125,11 @@ is always matched successfully.</p>
 the <code>Any</code> pattern should always come last.</p>
 </li>
 </ul>
+<p>The release C# 8.0 included a new way to write switch expressions which yield a value.
+While this drastically reduced the need for external libraries like this one
+for pattern matching, the language itself includes only the simplest patterns.
+This library lets the user define arbitrary patterns, which makes this library
+more powerful than the switch expressions.</p>
 <h2 id="patterns">Patterns</h2>
 <p>One of two central ideas of this library is a <em>pattern</em>. A pattern is an
 object which implements the <code>IPattern&lt;TInput, TMatchResult&gt;</code>
@@ -255,21 +260,15 @@ because one would usually not care whether a successful match was actually found
 That's why a match expression contains the <code>ExecuteOn</code> and <code>ExecuteNonStrict</code> methods
 and a match statement contains the <code>ExecuteOn</code> and <code>ExecuteStrict</code> methods.</p>
 <h2 id="performance">Performance</h2>
-<p>I didn't perform any benchmarks, but I can guess that pattern matching here is
-much, <em>much</em> slower than the traditional <code>switch</code> statements. This is because
-the matches use dynamic values internally.</p>
-<p>The matches contain a list of tuples of patterns and functions to execute.
-This list has dynamic items in it because the match expression knows nothing about
-transformations of the patterns. If it did, then the information about each type
-of the pattern transformation would be required, and that would render the match
-either unusable, because of the many types which will have to be specified, or
-impossible, because there would always be a finite amount of match types
-(each with information about one more match result type than the previous).</p>
-<p>The type safety is not compromised this way, because the match result type is
-needed only between the execution of the pattern match and the execution of
-the function, and is not visible to the outside world.</p>
-<p>This incurs a performance overhead, but it must be compromised in order
-for this to work.</p>
+<p>Versions 1.x used the DLR to provide type-safe pattern matching on any types
+without having to remember all those types. Thus the performance was <em>much</em>
+worse than C#'s switch statements/expressions (even though I didn't perform
+any benchmarks).</p>
+<p>Versions 2+ of this library don't use the DLR anymore - I've found a better way
+to do this, and frankly, I'm amazed I didn't think of this way before. So I'm
+guessing the performance of the new versions must be much better than versions 1.x.
+Maybe, I'll even implement some benchmarks in the future to compare the performance
+of this library in comparison to the switch statements/expressions.</p>
 </article>
           </div>
           

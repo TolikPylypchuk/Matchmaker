@@ -71,10 +71,10 @@
 
 <p>While discriminated unions are not directly supported in C#, they can be modelled
 using class hierarchies. But still, in order for them be user-friendly, a way to
-process the values has to be implemented, usually in the form of the Visitor pattern.</p>
+process the values has to be implemented, e.g. in the form of the Visitor pattern.</p>
 <p>Or, pattern matching can be used instead of visitors.</p>
-<p>Let's define a very simple list, implemented as cons cells. This list is not generic
-for simplicity.</p>
+<p>Let's define a very simple list, implemented as <a href="https://en.wikipedia.org/wiki/Cons">cons cells</a>.
+This list is not generic for simplicity.</p>
 <pre><code>public abstract class ConsList
 {
     private protected ConsList() { }
@@ -112,7 +112,7 @@ sum = Match.Create&lt;ConsList, int&gt;()
     .Case&lt;Empty&gt;(_ =&gt; 0)
     .ToFunction();
 </code></pre>
-<p>Here is the equivalent function implemented using the <code>switch</code> statement:</p>
+<p>Here is the equivalent function implemented using the <code>switch</code> statement (pre-C# 8):</p>
 <pre><code>public int Sum(ConsList list)
 {
     switch (list)
@@ -135,7 +135,7 @@ specifified type.</p>
 <p>As we can see, we have to throw an exception in the <code>switch</code> version, because
 C# can't know that <code>ConsCell</code> and <code>Empty</code> are the only possible subclasses
 of <code>ConsList</code>. And for that reason if we forget to define one of the cases
-in <code>switch</code> or in a match, we'll get an exception. In F# a warning is issued,
+in <code>switch</code> or in a match, we'll get an exception. In F# a warning is issued
 when the match is incomplete, but then again, C# doesn't have the notion of
 complete or incomplete matches. Of course, this match will fail if the
 provided list is <code>null</code>, but this can be handled using the <code>Null</code> pattern.</p>
