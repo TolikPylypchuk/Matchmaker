@@ -622,6 +622,183 @@ references:
   isSpec: "True"
   fullName: Matchmaker.MatchException.MatchException
   nameWithType: MatchException.MatchException
+- uid: Matchmaker.MatchResult
+  name: MatchResult
+  href: api/Matchmaker.MatchResult.html
+  commentId: T:Matchmaker.MatchResult
+  fullName: Matchmaker.MatchResult
+  nameWithType: MatchResult
+- uid: Matchmaker.MatchResult.Failure*
+  name: Failure
+  href: api/Matchmaker.MatchResult.html#Matchmaker_MatchResult_Failure_
+  commentId: Overload:Matchmaker.MatchResult.Failure
+  isSpec: "True"
+  fullName: Matchmaker.MatchResult.Failure
+  nameWithType: MatchResult.Failure
+- uid: Matchmaker.MatchResult.Failure``1
+  name: Failure<T>()
+  href: api/Matchmaker.MatchResult.html#Matchmaker_MatchResult_Failure__1
+  commentId: M:Matchmaker.MatchResult.Failure``1
+  name.vb: Failure(Of T)()
+  fullName: Matchmaker.MatchResult.Failure<T>()
+  fullName.vb: Matchmaker.MatchResult.Failure(Of T)()
+  nameWithType: MatchResult.Failure<T>()
+  nameWithType.vb: MatchResult.Failure(Of T)()
+- uid: Matchmaker.MatchResult.Success*
+  name: Success
+  href: api/Matchmaker.MatchResult.html#Matchmaker_MatchResult_Success_
+  commentId: Overload:Matchmaker.MatchResult.Success
+  isSpec: "True"
+  fullName: Matchmaker.MatchResult.Success
+  nameWithType: MatchResult.Success
+- uid: Matchmaker.MatchResult.Success``1(``0)
+  name: Success<T>(T)
+  href: api/Matchmaker.MatchResult.html#Matchmaker_MatchResult_Success__1___0_
+  commentId: M:Matchmaker.MatchResult.Success``1(``0)
+  name.vb: Success(Of T)(T)
+  fullName: Matchmaker.MatchResult.Success<T>(T)
+  fullName.vb: Matchmaker.MatchResult.Success(Of T)(T)
+  nameWithType: MatchResult.Success<T>(T)
+  nameWithType.vb: MatchResult.Success(Of T)(T)
+- uid: Matchmaker.MatchResult`1
+  name: MatchResult<T>
+  href: api/Matchmaker.MatchResult-1.html
+  commentId: T:Matchmaker.MatchResult`1
+  name.vb: MatchResult(Of T)
+  fullName: Matchmaker.MatchResult<T>
+  fullName.vb: Matchmaker.MatchResult(Of T)
+  nameWithType: MatchResult<T>
+  nameWithType.vb: MatchResult(Of T)
+- uid: Matchmaker.MatchResult`1.Equals(Matchmaker.MatchResult{`0})
+  name: Equals(MatchResult<T>)
+  href: api/Matchmaker.MatchResult-1.html#Matchmaker_MatchResult_1_Equals_Matchmaker_MatchResult__0__
+  commentId: M:Matchmaker.MatchResult`1.Equals(Matchmaker.MatchResult{`0})
+  name.vb: Equals(MatchResult(Of T))
+  fullName: Matchmaker.MatchResult<T>.Equals(Matchmaker.MatchResult<T>)
+  fullName.vb: Matchmaker.MatchResult(Of T).Equals(Matchmaker.MatchResult(Of T))
+  nameWithType: MatchResult<T>.Equals(MatchResult<T>)
+  nameWithType.vb: MatchResult(Of T).Equals(MatchResult(Of T))
+- uid: Matchmaker.MatchResult`1.Equals(System.Object)
+  name: Equals(Object)
+  href: api/Matchmaker.MatchResult-1.html#Matchmaker_MatchResult_1_Equals_System_Object_
+  commentId: M:Matchmaker.MatchResult`1.Equals(System.Object)
+  fullName: Matchmaker.MatchResult<T>.Equals(System.Object)
+  fullName.vb: Matchmaker.MatchResult(Of T).Equals(System.Object)
+  nameWithType: MatchResult<T>.Equals(Object)
+  nameWithType.vb: MatchResult(Of T).Equals(Object)
+- uid: Matchmaker.MatchResult`1.Equals*
+  name: Equals
+  href: api/Matchmaker.MatchResult-1.html#Matchmaker_MatchResult_1_Equals_
+  commentId: Overload:Matchmaker.MatchResult`1.Equals
+  isSpec: "True"
+  fullName: Matchmaker.MatchResult<T>.Equals
+  fullName.vb: Matchmaker.MatchResult(Of T).Equals
+  nameWithType: MatchResult<T>.Equals
+  nameWithType.vb: MatchResult(Of T).Equals
+- uid: Matchmaker.MatchResult`1.GetHashCode
+  name: GetHashCode()
+  href: api/Matchmaker.MatchResult-1.html#Matchmaker_MatchResult_1_GetHashCode
+  commentId: M:Matchmaker.MatchResult`1.GetHashCode
+  fullName: Matchmaker.MatchResult<T>.GetHashCode()
+  fullName.vb: Matchmaker.MatchResult(Of T).GetHashCode()
+  nameWithType: MatchResult<T>.GetHashCode()
+  nameWithType.vb: MatchResult(Of T).GetHashCode()
+- uid: Matchmaker.MatchResult`1.GetHashCode*
+  name: GetHashCode
+  href: api/Matchmaker.MatchResult-1.html#Matchmaker_MatchResult_1_GetHashCode_
+  commentId: Overload:Matchmaker.MatchResult`1.GetHashCode
+  isSpec: "True"
+  fullName: Matchmaker.MatchResult<T>.GetHashCode
+  fullName.vb: Matchmaker.MatchResult(Of T).GetHashCode
+  nameWithType: MatchResult<T>.GetHashCode
+  nameWithType.vb: MatchResult(Of T).GetHashCode
+- uid: Matchmaker.MatchResult`1.IsSuccessful
+  name: IsSuccessful
+  href: api/Matchmaker.MatchResult-1.html#Matchmaker_MatchResult_1_IsSuccessful
+  commentId: P:Matchmaker.MatchResult`1.IsSuccessful
+  fullName: Matchmaker.MatchResult<T>.IsSuccessful
+  fullName.vb: Matchmaker.MatchResult(Of T).IsSuccessful
+  nameWithType: MatchResult<T>.IsSuccessful
+  nameWithType.vb: MatchResult(Of T).IsSuccessful
+- uid: Matchmaker.MatchResult`1.IsSuccessful*
+  name: IsSuccessful
+  href: api/Matchmaker.MatchResult-1.html#Matchmaker_MatchResult_1_IsSuccessful_
+  commentId: Overload:Matchmaker.MatchResult`1.IsSuccessful
+  isSpec: "True"
+  fullName: Matchmaker.MatchResult<T>.IsSuccessful
+  fullName.vb: Matchmaker.MatchResult(Of T).IsSuccessful
+  nameWithType: MatchResult<T>.IsSuccessful
+  nameWithType.vb: MatchResult(Of T).IsSuccessful
+- uid: Matchmaker.MatchResult`1.op_Equality(Matchmaker.MatchResult{`0},Matchmaker.MatchResult{`0})
+  name: Equality(MatchResult<T>, MatchResult<T>)
+  href: api/Matchmaker.MatchResult-1.html#Matchmaker_MatchResult_1_op_Equality_Matchmaker_MatchResult__0__Matchmaker_MatchResult__0__
+  commentId: M:Matchmaker.MatchResult`1.op_Equality(Matchmaker.MatchResult{`0},Matchmaker.MatchResult{`0})
+  name.vb: Equality(MatchResult(Of T), MatchResult(Of T))
+  fullName: Matchmaker.MatchResult<T>.Equality(Matchmaker.MatchResult<T>, Matchmaker.MatchResult<T>)
+  fullName.vb: Matchmaker.MatchResult(Of T).Equality(Matchmaker.MatchResult(Of T), Matchmaker.MatchResult(Of T))
+  nameWithType: MatchResult<T>.Equality(MatchResult<T>, MatchResult<T>)
+  nameWithType.vb: MatchResult(Of T).Equality(MatchResult(Of T), MatchResult(Of T))
+- uid: Matchmaker.MatchResult`1.op_Equality*
+  name: Equality
+  href: api/Matchmaker.MatchResult-1.html#Matchmaker_MatchResult_1_op_Equality_
+  commentId: Overload:Matchmaker.MatchResult`1.op_Equality
+  isSpec: "True"
+  fullName: Matchmaker.MatchResult<T>.Equality
+  fullName.vb: Matchmaker.MatchResult(Of T).Equality
+  nameWithType: MatchResult<T>.Equality
+  nameWithType.vb: MatchResult(Of T).Equality
+- uid: Matchmaker.MatchResult`1.op_Inequality(Matchmaker.MatchResult{`0},Matchmaker.MatchResult{`0})
+  name: Inequality(MatchResult<T>, MatchResult<T>)
+  href: api/Matchmaker.MatchResult-1.html#Matchmaker_MatchResult_1_op_Inequality_Matchmaker_MatchResult__0__Matchmaker_MatchResult__0__
+  commentId: M:Matchmaker.MatchResult`1.op_Inequality(Matchmaker.MatchResult{`0},Matchmaker.MatchResult{`0})
+  name.vb: Inequality(MatchResult(Of T), MatchResult(Of T))
+  fullName: Matchmaker.MatchResult<T>.Inequality(Matchmaker.MatchResult<T>, Matchmaker.MatchResult<T>)
+  fullName.vb: Matchmaker.MatchResult(Of T).Inequality(Matchmaker.MatchResult(Of T), Matchmaker.MatchResult(Of T))
+  nameWithType: MatchResult<T>.Inequality(MatchResult<T>, MatchResult<T>)
+  nameWithType.vb: MatchResult(Of T).Inequality(MatchResult(Of T), MatchResult(Of T))
+- uid: Matchmaker.MatchResult`1.op_Inequality*
+  name: Inequality
+  href: api/Matchmaker.MatchResult-1.html#Matchmaker_MatchResult_1_op_Inequality_
+  commentId: Overload:Matchmaker.MatchResult`1.op_Inequality
+  isSpec: "True"
+  fullName: Matchmaker.MatchResult<T>.Inequality
+  fullName.vb: Matchmaker.MatchResult(Of T).Inequality
+  nameWithType: MatchResult<T>.Inequality
+  nameWithType.vb: MatchResult(Of T).Inequality
+- uid: Matchmaker.MatchResult`1.ToString
+  name: ToString()
+  href: api/Matchmaker.MatchResult-1.html#Matchmaker_MatchResult_1_ToString
+  commentId: M:Matchmaker.MatchResult`1.ToString
+  fullName: Matchmaker.MatchResult<T>.ToString()
+  fullName.vb: Matchmaker.MatchResult(Of T).ToString()
+  nameWithType: MatchResult<T>.ToString()
+  nameWithType.vb: MatchResult(Of T).ToString()
+- uid: Matchmaker.MatchResult`1.ToString*
+  name: ToString
+  href: api/Matchmaker.MatchResult-1.html#Matchmaker_MatchResult_1_ToString_
+  commentId: Overload:Matchmaker.MatchResult`1.ToString
+  isSpec: "True"
+  fullName: Matchmaker.MatchResult<T>.ToString
+  fullName.vb: Matchmaker.MatchResult(Of T).ToString
+  nameWithType: MatchResult<T>.ToString
+  nameWithType.vb: MatchResult(Of T).ToString
+- uid: Matchmaker.MatchResult`1.Value
+  name: Value
+  href: api/Matchmaker.MatchResult-1.html#Matchmaker_MatchResult_1_Value
+  commentId: P:Matchmaker.MatchResult`1.Value
+  fullName: Matchmaker.MatchResult<T>.Value
+  fullName.vb: Matchmaker.MatchResult(Of T).Value
+  nameWithType: MatchResult<T>.Value
+  nameWithType.vb: MatchResult(Of T).Value
+- uid: Matchmaker.MatchResult`1.Value*
+  name: Value
+  href: api/Matchmaker.MatchResult-1.html#Matchmaker_MatchResult_1_Value_
+  commentId: Overload:Matchmaker.MatchResult`1.Value
+  isSpec: "True"
+  fullName: Matchmaker.MatchResult<T>.Value
+  fullName.vb: Matchmaker.MatchResult(Of T).Value
+  nameWithType: MatchResult<T>.Value
+  nameWithType.vb: MatchResult(Of T).Value
 - uid: Matchmaker.Pattern
   name: Pattern
   href: api/Matchmaker.Pattern.html
@@ -801,22 +978,6 @@ references:
   fullName.vb: Matchmaker.Pattern.Null(Of TInput)()
   nameWithType: Pattern.Null<TInput>()
   nameWithType.vb: Pattern.Null(Of TInput)()
-- uid: Matchmaker.Pattern.StructNull*
-  name: StructNull
-  href: api/Matchmaker.Pattern.html#Matchmaker_Pattern_StructNull_
-  commentId: Overload:Matchmaker.Pattern.StructNull
-  isSpec: "True"
-  fullName: Matchmaker.Pattern.StructNull
-  nameWithType: Pattern.StructNull
-- uid: Matchmaker.Pattern.StructNull``1
-  name: StructNull<TInput>()
-  href: api/Matchmaker.Pattern.html#Matchmaker_Pattern_StructNull__1
-  commentId: M:Matchmaker.Pattern.StructNull``1
-  name.vb: StructNull(Of TInput)()
-  fullName: Matchmaker.Pattern.StructNull<TInput>()
-  fullName.vb: Matchmaker.Pattern.StructNull(Of TInput)()
-  nameWithType: Pattern.StructNull<TInput>()
-  nameWithType.vb: Pattern.StructNull(Of TInput)()
 - uid: Matchmaker.Pattern.Type*
   name: Type
   href: api/Matchmaker.Pattern.html#Matchmaker_Pattern_Type_
