@@ -6,6 +6,11 @@
 A library which enables more powerful pattern matching
 than is currently available in the C#'s `switch` statement/expression.
 
+## New version
+
+This repository is deprecated. Version 2+ can be found here:
+https://github.com/TolikPylypchuk/Matchmaker
+
 ## Installation
 
 ```
@@ -82,17 +87,6 @@ The documentation can be found here:
  - Version 1.2.0: https://tolikpylypchuk.github.io/PatternMatching/v1.2.0
  - Version 1.1.0: https://tolikpylypchuk.github.io/PatternMatching/v1.1.0
  - Version 1.0.0: https://tolikpylypchuk.github.io/PatternMatching/v1.0.0
-
-## Is this library still maintained?
-
-The answer is definitely yes. I've just released version 1.2, which fixed
-a couple bugs and included lots of tests for everything. After that I'm planning on
-working on version 2.0, which will drop the dependency on language-ext
-(major breaking changes coming), and version 2.1, which will add support
-for nullable reference types and as such, will target .NET Standard 2.1.
-You can open issues and PRs for bugs and feature suggestions. I will
-review them, fix the bugs and maybe even add the suggested features if they are
-sensible enough.
 
 ## License
 
