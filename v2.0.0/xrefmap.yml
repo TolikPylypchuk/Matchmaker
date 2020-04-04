@@ -24,15 +24,15 @@ references:
   fullName.vb: Matchmaker.ConditionalPattern(Of TInput, TMatchResult, TPattern).ConditionalPattern()
   nameWithType: ConditionalPattern<TInput, TMatchResult, TPattern>.ConditionalPattern()
   nameWithType.vb: ConditionalPattern(Of TInput, TMatchResult, TPattern).ConditionalPattern()
-- uid: Matchmaker.ConditionalPattern`3.#ctor(LanguageExt.Lst{System.Func{`1,System.Boolean}})
-  name: ConditionalPattern(Lst<Func<TMatchResult, Boolean>>)
-  href: api/Matchmaker.ConditionalPattern-3.html#Matchmaker_ConditionalPattern_3__ctor_LanguageExt_Lst_System_Func__1_System_Boolean___
-  commentId: M:Matchmaker.ConditionalPattern`3.#ctor(LanguageExt.Lst{System.Func{`1,System.Boolean}})
-  name.vb: ConditionalPattern(Lst(Of Func(Of TMatchResult, Boolean)))
-  fullName: Matchmaker.ConditionalPattern<TInput, TMatchResult, TPattern>.ConditionalPattern(LanguageExt.Lst<System.Func<TMatchResult, System.Boolean>>)
-  fullName.vb: Matchmaker.ConditionalPattern(Of TInput, TMatchResult, TPattern).ConditionalPattern(LanguageExt.Lst(Of System.Func(Of TMatchResult, System.Boolean)))
-  nameWithType: ConditionalPattern<TInput, TMatchResult, TPattern>.ConditionalPattern(Lst<Func<TMatchResult, Boolean>>)
-  nameWithType.vb: ConditionalPattern(Of TInput, TMatchResult, TPattern).ConditionalPattern(Lst(Of Func(Of TMatchResult, Boolean)))
+- uid: Matchmaker.ConditionalPattern`3.#ctor(System.Collections.Immutable.IImmutableList{System.Func{`1,System.Boolean}})
+  name: ConditionalPattern(IImmutableList<Func<TMatchResult, Boolean>>)
+  href: api/Matchmaker.ConditionalPattern-3.html#Matchmaker_ConditionalPattern_3__ctor_System_Collections_Immutable_IImmutableList_System_Func__1_System_Boolean___
+  commentId: M:Matchmaker.ConditionalPattern`3.#ctor(System.Collections.Immutable.IImmutableList{System.Func{`1,System.Boolean}})
+  name.vb: ConditionalPattern(IImmutableList(Of Func(Of TMatchResult, Boolean)))
+  fullName: Matchmaker.ConditionalPattern<TInput, TMatchResult, TPattern>.ConditionalPattern(System.Collections.Immutable.IImmutableList<System.Func<TMatchResult, System.Boolean>>)
+  fullName.vb: Matchmaker.ConditionalPattern(Of TInput, TMatchResult, TPattern).ConditionalPattern(System.Collections.Immutable.IImmutableList(Of System.Func(Of TMatchResult, System.Boolean)))
+  nameWithType: ConditionalPattern<TInput, TMatchResult, TPattern>.ConditionalPattern(IImmutableList<Func<TMatchResult, Boolean>>)
+  nameWithType.vb: ConditionalPattern(Of TInput, TMatchResult, TPattern).ConditionalPattern(IImmutableList(Of Func(Of TMatchResult, Boolean)))
 - uid: Matchmaker.ConditionalPattern`3.#ctor*
   name: ConditionalPattern
   href: api/Matchmaker.ConditionalPattern-3.html#Matchmaker_ConditionalPattern_3__ctor_
@@ -104,6 +104,28 @@ references:
   fullName.vb: Matchmaker.ConditionalPattern(Of TInput, TMatchResult, TPattern).When
   nameWithType: ConditionalPattern<TInput, TMatchResult, TPattern>.When
   nameWithType.vb: ConditionalPattern(Of TInput, TMatchResult, TPattern).When
+- uid: Matchmaker.Extensions
+  name: Extensions
+  href: api/Matchmaker.Extensions.html
+  commentId: T:Matchmaker.Extensions
+  fullName: Matchmaker.Extensions
+  nameWithType: Extensions
+- uid: Matchmaker.Extensions.Enumerate*
+  name: Enumerate
+  href: api/Matchmaker.Extensions.html#Matchmaker_Extensions_Enumerate_
+  commentId: Overload:Matchmaker.Extensions.Enumerate
+  isSpec: "True"
+  fullName: Matchmaker.Extensions.Enumerate
+  nameWithType: Extensions.Enumerate
+- uid: Matchmaker.Extensions.Enumerate``1(System.Collections.Generic.IEnumerable{``0})
+  name: Enumerate<T>(IEnumerable<T>)
+  href: api/Matchmaker.Extensions.html#Matchmaker_Extensions_Enumerate__1_System_Collections_Generic_IEnumerable___0__
+  commentId: M:Matchmaker.Extensions.Enumerate``1(System.Collections.Generic.IEnumerable{``0})
+  name.vb: Enumerate(Of T)(IEnumerable(Of T))
+  fullName: Matchmaker.Extensions.Enumerate<T>(System.Collections.Generic.IEnumerable<T>)
+  fullName.vb: Matchmaker.Extensions.Enumerate(Of T)(System.Collections.Generic.IEnumerable(Of T))
+  nameWithType: Extensions.Enumerate<T>(IEnumerable<T>)
+  nameWithType.vb: Extensions.Enumerate(Of T)(IEnumerable(Of T))
 - uid: Matchmaker.IPattern`1
   name: IPattern<TInput>
   href: api/Matchmaker.IPattern-1.html
@@ -293,23 +315,6 @@ references:
   fullName.vb: Matchmaker.Match(Of TInput).ExecuteStrict
   nameWithType: Match<TInput>.ExecuteStrict
   nameWithType.vb: Match(Of TInput).ExecuteStrict
-- uid: Matchmaker.Match`1.ExecuteStrictWithFallthrough(`0)
-  name: ExecuteStrictWithFallthrough(TInput)
-  href: api/Matchmaker.Match-1.html#Matchmaker_Match_1_ExecuteStrictWithFallthrough__0_
-  commentId: M:Matchmaker.Match`1.ExecuteStrictWithFallthrough(`0)
-  fullName: Matchmaker.Match<TInput>.ExecuteStrictWithFallthrough(TInput)
-  fullName.vb: Matchmaker.Match(Of TInput).ExecuteStrictWithFallthrough(TInput)
-  nameWithType: Match<TInput>.ExecuteStrictWithFallthrough(TInput)
-  nameWithType.vb: Match(Of TInput).ExecuteStrictWithFallthrough(TInput)
-- uid: Matchmaker.Match`1.ExecuteStrictWithFallthrough*
-  name: ExecuteStrictWithFallthrough
-  href: api/Matchmaker.Match-1.html#Matchmaker_Match_1_ExecuteStrictWithFallthrough_
-  commentId: Overload:Matchmaker.Match`1.ExecuteStrictWithFallthrough
-  isSpec: "True"
-  fullName: Matchmaker.Match<TInput>.ExecuteStrictWithFallthrough
-  fullName.vb: Matchmaker.Match(Of TInput).ExecuteStrictWithFallthrough
-  nameWithType: Match<TInput>.ExecuteStrictWithFallthrough
-  nameWithType.vb: Match(Of TInput).ExecuteStrictWithFallthrough
 - uid: Matchmaker.Match`1.ExecuteWithFallthrough(`0)
   name: ExecuteWithFallthrough(TInput)
   href: api/Matchmaker.Match-1.html#Matchmaker_Match_1_ExecuteWithFallthrough__0_
@@ -378,23 +383,6 @@ references:
   fullName.vb: Matchmaker.Match(Of TInput).ToStrictFunction
   nameWithType: Match<TInput>.ToStrictFunction
   nameWithType.vb: Match(Of TInput).ToStrictFunction
-- uid: Matchmaker.Match`1.ToStrictFunctionWithFallthrough
-  name: ToStrictFunctionWithFallthrough()
-  href: api/Matchmaker.Match-1.html#Matchmaker_Match_1_ToStrictFunctionWithFallthrough
-  commentId: M:Matchmaker.Match`1.ToStrictFunctionWithFallthrough
-  fullName: Matchmaker.Match<TInput>.ToStrictFunctionWithFallthrough()
-  fullName.vb: Matchmaker.Match(Of TInput).ToStrictFunctionWithFallthrough()
-  nameWithType: Match<TInput>.ToStrictFunctionWithFallthrough()
-  nameWithType.vb: Match(Of TInput).ToStrictFunctionWithFallthrough()
-- uid: Matchmaker.Match`1.ToStrictFunctionWithFallthrough*
-  name: ToStrictFunctionWithFallthrough
-  href: api/Matchmaker.Match-1.html#Matchmaker_Match_1_ToStrictFunctionWithFallthrough_
-  commentId: Overload:Matchmaker.Match`1.ToStrictFunctionWithFallthrough
-  isSpec: "True"
-  fullName: Matchmaker.Match<TInput>.ToStrictFunctionWithFallthrough
-  fullName.vb: Matchmaker.Match(Of TInput).ToStrictFunctionWithFallthrough
-  nameWithType: Match<TInput>.ToStrictFunctionWithFallthrough
-  nameWithType.vb: Match(Of TInput).ToStrictFunctionWithFallthrough
 - uid: Matchmaker.Match`2
   name: Match<TInput, TOutput>
   href: api/Matchmaker.Match-2.html
@@ -466,23 +454,6 @@ references:
   fullName.vb: Matchmaker.Match(Of TInput, TOutput).ExecuteNonStrict
   nameWithType: Match<TInput, TOutput>.ExecuteNonStrict
   nameWithType.vb: Match(Of TInput, TOutput).ExecuteNonStrict
-- uid: Matchmaker.Match`2.ExecuteNonStrictWithFallthrough(`0)
-  name: ExecuteNonStrictWithFallthrough(TInput)
-  href: api/Matchmaker.Match-2.html#Matchmaker_Match_2_ExecuteNonStrictWithFallthrough__0_
-  commentId: M:Matchmaker.Match`2.ExecuteNonStrictWithFallthrough(`0)
-  fullName: Matchmaker.Match<TInput, TOutput>.ExecuteNonStrictWithFallthrough(TInput)
-  fullName.vb: Matchmaker.Match(Of TInput, TOutput).ExecuteNonStrictWithFallthrough(TInput)
-  nameWithType: Match<TInput, TOutput>.ExecuteNonStrictWithFallthrough(TInput)
-  nameWithType.vb: Match(Of TInput, TOutput).ExecuteNonStrictWithFallthrough(TInput)
-- uid: Matchmaker.Match`2.ExecuteNonStrictWithFallthrough*
-  name: ExecuteNonStrictWithFallthrough
-  href: api/Matchmaker.Match-2.html#Matchmaker_Match_2_ExecuteNonStrictWithFallthrough_
-  commentId: Overload:Matchmaker.Match`2.ExecuteNonStrictWithFallthrough
-  isSpec: "True"
-  fullName: Matchmaker.Match<TInput, TOutput>.ExecuteNonStrictWithFallthrough
-  fullName.vb: Matchmaker.Match(Of TInput, TOutput).ExecuteNonStrictWithFallthrough
-  nameWithType: Match<TInput, TOutput>.ExecuteNonStrictWithFallthrough
-  nameWithType.vb: Match(Of TInput, TOutput).ExecuteNonStrictWithFallthrough
 - uid: Matchmaker.Match`2.ExecuteOn(`0)
   name: ExecuteOn(TInput)
   href: api/Matchmaker.Match-2.html#Matchmaker_Match_2_ExecuteOn__0_
@@ -568,23 +539,6 @@ references:
   fullName.vb: Matchmaker.Match(Of TInput, TOutput).ToNonStrictFunction
   nameWithType: Match<TInput, TOutput>.ToNonStrictFunction
   nameWithType.vb: Match(Of TInput, TOutput).ToNonStrictFunction
-- uid: Matchmaker.Match`2.ToNonStrictFunctionWithFallthrough
-  name: ToNonStrictFunctionWithFallthrough()
-  href: api/Matchmaker.Match-2.html#Matchmaker_Match_2_ToNonStrictFunctionWithFallthrough
-  commentId: M:Matchmaker.Match`2.ToNonStrictFunctionWithFallthrough
-  fullName: Matchmaker.Match<TInput, TOutput>.ToNonStrictFunctionWithFallthrough()
-  fullName.vb: Matchmaker.Match(Of TInput, TOutput).ToNonStrictFunctionWithFallthrough()
-  nameWithType: Match<TInput, TOutput>.ToNonStrictFunctionWithFallthrough()
-  nameWithType.vb: Match(Of TInput, TOutput).ToNonStrictFunctionWithFallthrough()
-- uid: Matchmaker.Match`2.ToNonStrictFunctionWithFallthrough*
-  name: ToNonStrictFunctionWithFallthrough
-  href: api/Matchmaker.Match-2.html#Matchmaker_Match_2_ToNonStrictFunctionWithFallthrough_
-  commentId: Overload:Matchmaker.Match`2.ToNonStrictFunctionWithFallthrough
-  isSpec: "True"
-  fullName: Matchmaker.Match<TInput, TOutput>.ToNonStrictFunctionWithFallthrough
-  fullName.vb: Matchmaker.Match(Of TInput, TOutput).ToNonStrictFunctionWithFallthrough
-  nameWithType: Match<TInput, TOutput>.ToNonStrictFunctionWithFallthrough
-  nameWithType.vb: Match(Of TInput, TOutput).ToNonStrictFunctionWithFallthrough
 - uid: Matchmaker.MatchException
   name: MatchException
   href: api/Matchmaker.MatchException.html
@@ -1019,15 +973,15 @@ references:
   fullName.vb: Matchmaker.Pattern(Of TInput, TMatchResult)
   nameWithType: Pattern<TInput, TMatchResult>
   nameWithType.vb: Pattern(Of TInput, TMatchResult)
-- uid: Matchmaker.Pattern`2.#ctor(System.Func{`0,LanguageExt.OptionUnsafe{`1}})
-  name: Pattern(Func<TInput, OptionUnsafe<TMatchResult>>)
-  href: api/Matchmaker.Pattern-2.html#Matchmaker_Pattern_2__ctor_System_Func__0_LanguageExt_OptionUnsafe__1___
-  commentId: M:Matchmaker.Pattern`2.#ctor(System.Func{`0,LanguageExt.OptionUnsafe{`1}})
-  name.vb: Pattern(Func(Of TInput, OptionUnsafe(Of TMatchResult)))
-  fullName: Matchmaker.Pattern<TInput, TMatchResult>.Pattern(System.Func<TInput, LanguageExt.OptionUnsafe<TMatchResult>>)
-  fullName.vb: Matchmaker.Pattern(Of TInput, TMatchResult).Pattern(System.Func(Of TInput, LanguageExt.OptionUnsafe(Of TMatchResult)))
-  nameWithType: Pattern<TInput, TMatchResult>.Pattern(Func<TInput, OptionUnsafe<TMatchResult>>)
-  nameWithType.vb: Pattern(Of TInput, TMatchResult).Pattern(Func(Of TInput, OptionUnsafe(Of TMatchResult)))
+- uid: Matchmaker.Pattern`2.#ctor(System.Func{`0,Matchmaker.MatchResult{`1}})
+  name: Pattern(Func<TInput, MatchResult<TMatchResult>>)
+  href: api/Matchmaker.Pattern-2.html#Matchmaker_Pattern_2__ctor_System_Func__0_Matchmaker_MatchResult__1___
+  commentId: M:Matchmaker.Pattern`2.#ctor(System.Func{`0,Matchmaker.MatchResult{`1}})
+  name.vb: Pattern(Func(Of TInput, MatchResult(Of TMatchResult)))
+  fullName: Matchmaker.Pattern<TInput, TMatchResult>.Pattern(System.Func<TInput, Matchmaker.MatchResult<TMatchResult>>)
+  fullName.vb: Matchmaker.Pattern(Of TInput, TMatchResult).Pattern(System.Func(Of TInput, Matchmaker.MatchResult(Of TMatchResult)))
+  nameWithType: Pattern<TInput, TMatchResult>.Pattern(Func<TInput, MatchResult<TMatchResult>>)
+  nameWithType.vb: Pattern(Of TInput, TMatchResult).Pattern(Func(Of TInput, MatchResult(Of TMatchResult)))
 - uid: Matchmaker.Pattern`2.#ctor*
   name: Pattern
   href: api/Matchmaker.Pattern-2.html#Matchmaker_Pattern_2__ctor_
