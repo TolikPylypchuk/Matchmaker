@@ -1,26 +1,26 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <LangVersion>8.0</LangVersion>
     <PackageTags>csharp pattern-matching functional-programming</PackageTags>
-    <PackageId>CSharpStuff.PatternMatching</PackageId>
+    <PackageId>Matchmaker</PackageId>
     <Authors>tolik-pylypchuk</Authors>
     <Description>A library which enables more powerful pattern matching than is currently available in the switch statement/expression.</Description>
     <Copyright>Copyright © 2018-2020 Tolik Pylypchuk</Copyright>
     <PackageLicenseUrl></PackageLicenseUrl>
-    <RepositoryUrl>https://github.com/TolikPylypchuk/PatternMatching</RepositoryUrl>
-    <PackageProjectUrl>https://tolikpylypchuk.github.io/PatternMatching</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/TolikPylypchuk/Matchmaker</RepositoryUrl>
+    <PackageProjectUrl>https://tolikpylypchuk.github.io/Matchmaker</PackageProjectUrl>
     <RepositoryType>git</RepositoryType>
     <PackageIconUrl></PackageIconUrl>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
-    <Version>1.2.0</Version>
+    <Version>2.0.0</Version>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <PackageIcon>logo.png</PackageIcon>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DocumentationFile>C:\Users\Tolik\OneDrive\Documents\Visual Studio 2017\Projects\PatternMatching\PatternMatching\PatternMatching.xml</DocumentationFile>
+    <DocumentationFile>.\Matchmaker.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>

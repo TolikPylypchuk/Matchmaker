@@ -12,7 +12,7 @@ using LanguageExt;
 
 using Xunit;
 
-namespace PatternMatching
+namespace Matchmaker
 {
     public class PatternTests
     {

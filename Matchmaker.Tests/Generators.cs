@@ -7,9 +7,9 @@ using LanguageExt;
 
 using static LanguageExt.Prelude;
 
-using static PatternMatching.Pattern;
+using static Matchmaker.Pattern;
 
-namespace PatternMatching
+namespace Matchmaker
 {
     [SuppressMessage("ReSharper", "ExpressionIsAlwaysNull")]
     public static class Generators

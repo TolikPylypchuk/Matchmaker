@@ -1,4 +1,4 @@
-﻿namespace PatternMatching
+﻿namespace Matchmaker
 {
     /// <summary>
     /// A static class which is used to create match expressions.

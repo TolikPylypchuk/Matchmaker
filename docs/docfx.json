@@ -10,7 +10,7 @@
             "**/bin/**",
             "**/obj/**"
           ],
-          "src": "../PatternMatching"
+          "src": "../Matchmaker"
         }
       ],
       "dest": "api",

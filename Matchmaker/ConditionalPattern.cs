@@ -2,7 +2,7 @@ using System;
 
 using LanguageExt;
 
-namespace PatternMatching
+namespace Matchmaker
 {
     /// <summary>
     /// Represents a pattern, to which additional conditions may be added.

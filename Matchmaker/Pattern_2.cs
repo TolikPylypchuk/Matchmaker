@@ -2,7 +2,7 @@ using System;
 
 using LanguageExt;
 
-namespace PatternMatching
+namespace Matchmaker
 {
     /// <summary>
     /// Represents a general transforming pattern.

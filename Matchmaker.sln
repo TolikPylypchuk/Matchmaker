@@ -3,9 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29409.12
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PatternMatching", "PatternMatching\PatternMatching.csproj", "{458EB6D8-B312-447E-B25F-0876B4AC99FE}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PatternMatching.Docs", "PatternMatching.Docs\PatternMatching.Docs.csproj", "{07BBB345-86EF-4CE6-A959-0270C725D4C2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Matchmaker", "Matchmaker\Matchmaker.csproj", "{458EB6D8-B312-447E-B25F-0876B4AC99FE}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{4A18FB0F-BAAE-4C47-9F9B-DFD05EE60DB9}"
 	ProjectSection(SolutionItems) = preProject
@@ -19,7 +17,31 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		Release-Docs.ps1 = Release-Docs.ps1
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PatternMatching.Tests", "PatternMatching.Tests\PatternMatching.Tests.csproj", "{974CAC8F-12B0-4D10-A813-080092A1148E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Matchmaker.Tests", "Matchmaker.Tests\Matchmaker.Tests.csproj", "{974CAC8F-12B0-4D10-A813-080092A1148E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{DFED7CFE-F433-4308-B866-BB78E33446B0}"
+	ProjectSection(SolutionItems) = preProject
+		docs\.gitignore = docs\.gitignore
+		docs\docfx.json = docs\docfx.json
+		docs\favicon.ico = docs\favicon.ico
+		docs\index.md = docs\index.md
+		docs\logo.svg = docs\logo.svg
+		docs\toc.yml = docs\toc.yml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "api", "api", "{BF410D83-3D41-4BF9-91E6-61FE25F65CC9}"
+	ProjectSection(SolutionItems) = preProject
+		docs\api\.gitignore = docs\api\.gitignore
+		docs\api\index.md = docs\api\index.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "articles", "articles", "{892A20B3-92F0-4283-BA15-A03A6D092763}"
+	ProjectSection(SolutionItems) = preProject
+		docs\articles\fallthrough.md = docs\articles\fallthrough.md
+		docs\articles\intro.md = docs\articles\intro.md
+		docs\articles\toc.yml = docs\articles\toc.yml
+		docs\articles\unions.md = docs\articles\unions.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,10 +53,6 @@ Global
 		{458EB6D8-B312-447E-B25F-0876B4AC99FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{458EB6D8-B312-447E-B25F-0876B4AC99FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{458EB6D8-B312-447E-B25F-0876B4AC99FE}.Release|Any CPU.Build.0 = Release|Any CPU
-		{07BBB345-86EF-4CE6-A959-0270C725D4C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{07BBB345-86EF-4CE6-A959-0270C725D4C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{07BBB345-86EF-4CE6-A959-0270C725D4C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{07BBB345-86EF-4CE6-A959-0270C725D4C2}.Release|Any CPU.Build.0 = Release|Any CPU
 		{974CAC8F-12B0-4D10-A813-080092A1148E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{974CAC8F-12B0-4D10-A813-080092A1148E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{974CAC8F-12B0-4D10-A813-080092A1148E}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -42,6 +60,11 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{DFED7CFE-F433-4308-B866-BB78E33446B0} = {4A18FB0F-BAAE-4C47-9F9B-DFD05EE60DB9}
+		{BF410D83-3D41-4BF9-91E6-61FE25F65CC9} = {DFED7CFE-F433-4308-B866-BB78E33446B0}
+		{892A20B3-92F0-4283-BA15-A03A6D092763} = {DFED7CFE-F433-4308-B866-BB78E33446B0}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6BDCB200-B126-44BC-AD63-6951B315ACAE}

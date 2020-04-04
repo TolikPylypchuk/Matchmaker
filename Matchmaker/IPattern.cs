@@ -1,6 +1,6 @@
 using LanguageExt;
 
-namespace PatternMatching
+namespace Matchmaker
 {
     /// <summary>
     /// Represents a pattern to match with in a match expression.

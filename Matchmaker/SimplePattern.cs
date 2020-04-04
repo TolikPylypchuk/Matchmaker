@@ -4,7 +4,7 @@ using LanguageExt;
 
 using static LanguageExt.Prelude;
 
-namespace PatternMatching
+namespace Matchmaker
 {
     /// <summary>
     /// Represents a general non-transforming pattern.

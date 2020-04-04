@@ -1,28 +1,25 @@
-# PatternMatching
+# Matchmaker
 
-[![NuGet](https://img.shields.io/nuget/v/CSharpStuff.PatternMatching.svg)](https://www.nuget.org/packages/CSharpStuff.PatternMatching/)
-[![Build status](https://ci.appveyor.com/api/projects/status/2scf378j79k6xe7f/branch/master?svg=true)](https://ci.appveyor.com/project/TolikPylypchuk/patternmatching/branch/master)
+[![Build status](https://ci.appveyor.com/api/projects/status/wptuo5d5mi4blss0?svg=true)](https://ci.appveyor.com/project/TolikPylypchuk/matchmaker)
 
 A library which enables more powerful pattern matching
 than is currently available in the C#'s `switch` statement/expression.
 
-## New version
-
-This repository is deprecated. Version 2+ can be found here:
-https://github.com/TolikPylypchuk/Matchmaker
+This library is a successor of
+[PatternMatching](https://github.com/TolikPylypchuk/PatternMatching).
+Version 1.x can be found there. This repository contains version 2+.
 
 ## Installation
 
-```
-Install-Package CSharpStuff.PatternMatching -Version 1.2.0
-```
+This library cannot be installed through NuGet until version 2.0 is released.
+For now you can install the [older version](https://www.nuget.org/packages/CSharpStuff.PatternMatching/).
 
 ## A simple example
 
 This is what the simplest match expression looks like:
 
 ```
-using static PatternMatching.Pattern;
+using static Matchmaker.Pattern;
 
 // ...
 
@@ -84,10 +81,8 @@ the `Any` pattern should always come last.
 
 The documentation can be found here:
 
- - Version 1.2.0: https://tolikpylypchuk.github.io/PatternMatching/v1.2.0
- - Version 1.1.0: https://tolikpylypchuk.github.io/PatternMatching/v1.1.0
- - Version 1.0.0: https://tolikpylypchuk.github.io/PatternMatching/v1.0.0
+ - Version 1.0.0: https://tolikpylypchuk.github.io/Matchmaker/v2.0.0
 
 ## License
 
-[MIT License](https://github.com/TolikPylypchuk/PatternMatching/blob/master/LICENSE)
+[MIT License](https://github.com/TolikPylypchuk/Matchmaker/blob/master/LICENSE)

@@ -3,10 +3,10 @@ Add-Content "$env:USERPROFILE/.git-credentials" "https://$($env:github_access_to
 git config --global user.email "$($env:github_email)"
 git config --global user.name "Tolik Pylypchuk"
 
-docfx ./PatternMatching.Docs/docfx.json
+docfx ./docs/docfx.json
 
 $SourceDir = $PSScriptRoot
-$TempRepoDir = "$PSScriptRoot/../patternmatching-gh-pages"
+$TempRepoDir = "$PSScriptRoot/../matchmaker-gh-pages"
 
 if (Test-Path "$TempRepoDir")
 {
@@ -17,7 +17,7 @@ if (Test-Path "$TempRepoDir")
 New-Item -Path "$TempRepoDir" -ItemType Directory
 
 Write-Output "Cloning the repo on the gh-pages branch"
-git clone https://github.com/TolikPylypchuk/PatternMatching.git --branch gh-pages $TempRepoDir
+git clone https://github.com/TolikPylypchuk/Matchmaker.git --branch gh-pages $TempRepoDir
 
 Set-Location "$TempRepoDir"
 

@@ -2,7 +2,7 @@ using System;
 using System.Diagnostics.CodeAnalysis;
 using System.Runtime.Serialization;
 
-namespace PatternMatching
+namespace Matchmaker
 {
     /// <summary>
     /// Represents an exception which is thrown when a match expression hasn't found a successful pattern.

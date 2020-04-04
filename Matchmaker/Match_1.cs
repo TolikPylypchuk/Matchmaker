@@ -2,7 +2,7 @@ using System;
 
 using LanguageExt;
 
-namespace PatternMatching
+namespace Matchmaker
 {
     /// <summary>
     /// Represents a match expression, which doesn't yield a value.

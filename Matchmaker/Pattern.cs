@@ -4,7 +4,7 @@ using System.Diagnostics.CodeAnalysis;
 
 using static LanguageExt.Prelude;
 
-namespace PatternMatching
+namespace Matchmaker
 {
     /// <summary>
     /// Contains some frequently used patterns.

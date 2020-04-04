@@ -1,5 +1,11 @@
 # Changelog
 
+# v2.0
+
+What's new in version 2.0:
+
+- Library renamed to Matchmaker
+
 ## v1.2
 
 What's new in version 1.2:
