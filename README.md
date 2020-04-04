@@ -81,7 +81,7 @@ the `Any` pattern should always come last.
 
 The documentation can be found here:
 
- - Version 1.0.0: https://tolikpylypchuk.github.io/Matchmaker/v2.0.0
+ - Version 2.0.0: https://tolikpylypchuk.github.io/Matchmaker/v2.0.0
 
 ## License
 

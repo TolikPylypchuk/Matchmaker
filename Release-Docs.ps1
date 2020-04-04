@@ -31,7 +31,7 @@ if (Test-Path "v$($env:version)")
 }
 
 Write-Output "Copying documentation into the repo"
-Copy-Item -Path "$SourceDir/docs" -Destination "v$($env:version)" -Recurse
+Copy-Item -Path "$SourceDir/docs-dest" -Destination "v$($env:version)" -Recurse
 
 Write-Output "Pushing the new docs to the remote branch"
 git add . -A
