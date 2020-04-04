@@ -15,26 +15,32 @@ namespace Matchmaker
         /// <summary>
         /// Initializes a new instance of the <see cref="MatchException" /> class.
         /// </summary>
-        public MatchException() { }
+        public MatchException()
+        { }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="MatchException" /> class.
         /// </summary>
         /// <param name="message">The message which describes this exception.</param>
-        public MatchException(string message) : base(message) { }
+        public MatchException(string message) : base(message)
+        { }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="MatchException" /> class.
         /// </summary>
         /// <param name="message">The message which describes this exception.</param>
         /// <param name="innerException">The exception, which caused this exception.</param>
-        public MatchException(string message, Exception innerException) : base(message, innerException) { }
+        public MatchException(string message, Exception innerException)
+            : base(message, innerException)
+        { }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="MatchException" /> class.
         /// </summary>
         /// <param name="info">The serialization info.</param>
         /// <param name="context">The streaming context.</param>
-        protected MatchException(SerializationInfo info, StreamingContext context) : base(info, context) { }
+        protected MatchException(SerializationInfo info, StreamingContext context)
+            : base(info, context)
+        { }
     }
 }

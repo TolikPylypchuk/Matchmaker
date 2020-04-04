@@ -1,27 +1,23 @@
 using System;
 
 using LanguageExt;
+using LanguageExt.UnsafeValueAccess;
 
 namespace Matchmaker
 {
     /// <summary>
-    /// Represents a match expression, which doesn't yield a value.
+    /// Represents a match statement - a match expression that doesn't yield a value.
     /// </summary>
     /// <typeparam name="TInput">The type of the input value of the expression.</typeparam>
-    /// <remarks>A match expression which doesn't yield a value is also known as a match statement.</remarks>
     /// <seealso cref="Match{TInput, TOutput}" />
     /// <seealso cref="Match" />
     /// <seealso cref="MatchException" />
     public sealed class Match<TInput>
     {
         /// <summary>
-        /// The list of patterns that will be matched in this expression.
+        /// The list of cases that will be matched in this expression.
         /// </summary>
-        /// <remarks>
-        /// This list contains value tuples which contain the pattern, the fallthrough behaviour,
-        /// and the action which is to be executed if the pattern is matched successfully.
-        /// </remarks>
-        private readonly Lst<(dynamic, bool, dynamic)> patterns;
+        private readonly Lst<CaseData> cases;
 
         /// <summary>
         /// The default fallthrough behaviour.
@@ -36,23 +32,25 @@ namespace Matchmaker
             => this.fallthroughByDefault = fallthroughByDefault;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Match{TInput}" /> class
-        /// with the specified patterns.
+        /// Initializes a new instance of the <see cref="Match{TInput}" /> class with the specified cases.
         /// </summary>
-        /// <param name="patterns">The patterns of this expression.</param>
+        /// <param name="cases">The cases of this statement.</param>
         /// <param name="fallthroughByDefault">The default fallthrough behaviour.</param>
-        private Match(Lst<(dynamic, bool, dynamic)> patterns, bool fallthroughByDefault)
-            => (this.patterns, this.fallthroughByDefault) = (patterns, fallthroughByDefault);
+        private Match(Lst<CaseData> cases, bool fallthroughByDefault)
+        {
+            this.cases = cases;
+            this.fallthroughByDefault = fallthroughByDefault;
+        }
 
         /// <summary>
-        /// Returns a new matcher which includes the specified pattern and action to execute if this
+        /// Returns a new match statement which includes the specified pattern and action to execute if this
         /// pattern is matched successfully.
         /// </summary>
         /// <typeparam name="TMatchResult">The type of the result of the pattern's match.</typeparam>
         /// <param name="pattern">The pattern to match with.</param>
         /// <param name="action">The action to execute if the match is successful.</param>
         /// <returns>
-        /// A new matcher which includes the specified pattern and action to execute if this
+        /// A new match statement which includes the specified pattern and action to execute if this
         /// pattern is matched successfully.
         /// </returns>
         /// <exception cref="ArgumentNullException">
@@ -62,7 +60,7 @@ namespace Matchmaker
             => this.Case(pattern, this.fallthroughByDefault, action);
 
         /// <summary>
-        /// Returns a new matcher which includes the specified pattern and action to execute if this
+        /// Returns a new match statement which includes the specified pattern and action to execute if this
         /// pattern is matched successfully.
         /// </summary>
         /// <typeparam name="TMatchResult">The type of the result of the pattern's match.</typeparam>
@@ -70,7 +68,7 @@ namespace Matchmaker
         /// <param name="fallthrough">The fallthrough behaviour.</param>
         /// <param name="action">The action to execute if the match is successful.</param>
         /// <returns>
-        /// A new matcher which includes the specified pattern and action to execute if this
+        /// A new match statement which includes the specified pattern and action to execute if this
         /// pattern is matched successfully.
         /// </returns>
         /// <exception cref="ArgumentNullException">
@@ -82,18 +80,20 @@ namespace Matchmaker
             Action<TMatchResult> action)
             => pattern != null
                 ? action != null
-                    ? new Match<TInput>(this.patterns.Add((pattern, fallthrough, action)), this.fallthroughByDefault)
+                    ? new Match<TInput>(
+                        this.cases.Add(new CaseData(pattern, fallthrough, value => action((TMatchResult)value))),
+                        this.fallthroughByDefault)
                     : throw new ArgumentNullException(nameof(action))
                 : throw new ArgumentNullException(nameof(pattern));
 
         /// <summary>
-        /// Returns a new matcher which includes the pattern for the specified type and action to execute if this
-        /// pattern is matched successfully.
+        /// Returns a new match statement which includes the pattern for the specified type
+        /// and action to execute if this pattern is matched successfully.
         /// </summary>
         /// <typeparam name="TType">The type of the result of the pattern's match.</typeparam>
         /// <param name="action">The action to execute if the match is successful.</param>
         /// <returns>
-        /// A new matcher which includes the type pattern and action to execute if this
+        /// A new match statement which includes the type pattern and action to execute if this
         /// pattern is matched successfully.
         /// </returns>
         /// <exception cref="ArgumentNullException">
@@ -104,14 +104,14 @@ namespace Matchmaker
             => this.Case(this.fallthroughByDefault, action);
 
         /// <summary>
-        /// Returns a new matcher which includes the pattern for the specified type and action to execute if this
-        /// pattern is matched successfully.
+        /// Returns a new match statement which includes the pattern for the specified type
+        /// and action to execute if this pattern is matched successfully.
         /// </summary>
         /// <typeparam name="TType">The type of the result of the pattern's match.</typeparam>
         /// <param name="fallthrough">The fallthrough behaviour.</param>
         /// <param name="action">The action to execute if the match is successful.</param>
         /// <returns>
-        /// A new matcher which includes the type pattern and action to execute if this
+        /// A new match statement which includes the type pattern and action to execute if this
         /// pattern is matched successfully.
         /// </returns>
         /// <exception cref="ArgumentNullException">
@@ -122,21 +122,21 @@ namespace Matchmaker
             => this.Case(Pattern.Type<TInput, TType>(), fallthrough, action);
 
         /// <summary>
-        /// Executes the match expression on the specified input.
+        /// Executes the match statement on the specified input.
         /// </summary>
-        /// <param name="input">The input value of the expression.</param>
+        /// <param name="input">The input value of the statement.</param>
         /// <returns>
         /// <see langword="true" />, if the match was successful.
         /// Otherwise, <see langword="false" />.
         /// </returns>
         public bool ExecuteOn(TInput input)
         {
-            foreach (var (pattern, _, action) in this.patterns)
+            foreach (var @case in this.cases)
             {
-                var matchResult = pattern.Match(input);
+                var matchResult = @case.Pattern.Match(input);
                 if (matchResult.IsSome)
                 {
-                    action(matchResult.ToList()[0]);
+                    @case.Action(matchResult.ValueUnsafe());
                     return true;
                 }
             }
@@ -145,9 +145,9 @@ namespace Matchmaker
         }
 
         /// <summary>
-        /// Executes the match expression strictly on the specified input.
+        /// Executes the match statement strictly on the specified input.
         /// </summary>
-        /// <param name="input">The input value of the expression.</param>
+        /// <param name="input">The input value of the statement.</param>
         /// <exception cref="MatchException">
         /// The match failed for all cases.
         /// </exception>
@@ -157,14 +157,14 @@ namespace Matchmaker
 
             if (!isMatched)
             {
-                throw new MatchException($"Cannot match {input}.");
+                throw new MatchException($"Could not match {input}.");
             }
         }
 
         /// <summary>
-        /// Executes the match expression on the specified input with fallthrough.
+        /// Executes the match statement on the specified input with fallthrough.
         /// </summary>
-        /// <param name="input">The input value of the expression.</param>
+        /// <param name="input">The input value of the statement.</param>
         /// <returns>
         /// The number of patterns that were matched successfully.
         /// </returns>
@@ -172,15 +172,15 @@ namespace Matchmaker
         {
             int numberOfMatches = 0;
 
-            foreach ((var pattern, bool fallthrough, var action) in this.patterns)
+            foreach (var @case in this.cases)
             {
-                var matchResult = pattern.Match(input);
+                var matchResult = @case.Pattern.Match(input);
                 if (matchResult.IsSome)
                 {
-                    action(matchResult.ToList()[0]);
+                    @case.Action(matchResult.ValueUnsafe());
                     numberOfMatches++;
 
-                    if (!fallthrough)
+                    if (!@case.Fallthrough)
                     {
                         break;
                     }
@@ -191,9 +191,9 @@ namespace Matchmaker
         }
 
         /// <summary>
-        /// Executes the match expression strictly on the specified input with fallthrough.
+        /// Executes the match statement strictly on the specified input with fallthrough.
         /// </summary>
-        /// <param name="input">The input value of the expression.</param>
+        /// <param name="input">The input value of the statement.</param>
         /// <returns>
         /// The number of patterns that were matched successfully.
         /// </returns>
@@ -206,7 +206,7 @@ namespace Matchmaker
 
             if (numberOfMatches == 0)
             {
-                throw new MatchException($"Cannot match {input}.");
+                throw new MatchException($"Could not match {input}.");
             }
 
             return numberOfMatches;
@@ -236,8 +236,42 @@ namespace Matchmaker
         /// <summary>
         /// Returns a function which, when called, will match the specified value strictly with fallthrough.
         /// </summary>
-        /// <returns>An action which, when called, will match the specified value strictly with fallthrough.</returns>
+        /// <returns>A function which, when called, will match the specified value strictly with fallthrough.</returns>
         public Func<TInput, int> ToStrictFunctionWithFallthrough()
             => this.ExecuteStrictWithFallthrough;
+
+        /// <summary>
+        /// Represents the data of a single case in a match statement.
+        /// </summary>
+        private class CaseData
+        {
+            /// <summary>
+            /// Initializes a new instance of the <see cref="CaseData" /> class.
+            /// </summary>
+            /// <param name="pattern">The pattern of the case.</param>
+            /// <param name="fallthrough">The fallthrough behaviour of the case.</param>
+            /// <param name="action">The action of the case.</param>
+            public CaseData(IPattern<TInput> pattern, bool fallthrough, Action<object> action)
+            {
+                this.Pattern = pattern;
+                this.Fallthrough = fallthrough;
+                this.Action = action;
+            }
+
+            /// <summary>
+            /// The pattern of the case.
+            /// </summary>
+            public IPattern<TInput> Pattern { get; }
+
+            /// <summary>
+            /// The fallthrough behaviour of the case.
+            /// </summary>
+            public bool Fallthrough { get; }
+
+            /// <summary>
+            /// The action of the case.
+            /// </summary>
+            public Action<object> Action { get; }
+        }
     }
 }

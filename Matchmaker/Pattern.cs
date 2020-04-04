@@ -20,7 +20,7 @@ namespace Matchmaker
         /// <typeparam name="TInput">The type of the input value of the expression.</typeparam>
         /// <returns>A pattern which is always matched successfully.</returns>
         /// <remarks>
-        /// This pattern should be used as the default case of the match expression, if one is needed.
+        /// This pattern should be used as the default case of a match expression, if one is needed.
         /// </remarks>
         public static SimplePattern<TInput> Any<TInput>()
             => new SimplePattern<TInput>(_ => true);
@@ -62,14 +62,12 @@ namespace Matchmaker
             => new SimplePattern<TInput?>(input => input == null);
 
         /// <summary>
-        /// Returns a pattern which is matched successfully when the input value
-        /// is equal to the specified value.
+        /// Returns a pattern which is matched successfully when the input value is equal to the specified value.
         /// </summary>
         /// <typeparam name="TInput">The type of the input value of the expression.</typeparam>
         /// <param name="value">The value to check for equality.</param>
         /// <returns>
-        /// A pattern which is matched successfully when the input value
-        /// is equal to the specified value.
+        /// A pattern which is matched successfully when the input value is equal to the specified value.
         /// </returns>
         /// <seealso cref="EqualTo{TInput}(Func{TInput})" />
         public static SimplePattern<TInput> EqualTo<TInput>(TInput value)
@@ -77,14 +75,12 @@ namespace Matchmaker
             => new SimplePattern<TInput>(input => Equals(input, value));
 
         /// <summary>
-        /// Returns a pattern which is matched successfully when the input value
-        /// is equal to the provided value.
+        /// Returns a pattern which is matched successfully when the input value is equal to the provided value.
         /// </summary>
         /// <typeparam name="TInput">The type of the input value of the expression.</typeparam>
         /// <param name="valueProvider">The provider of the value to check for equality.</param>
         /// <returns>
-        /// A pattern which is matched successfully when the input value
-        /// is equal to the provided value.
+        /// A pattern which is matched successfully when the input value is equal to the provided value.
         /// </returns>
         /// <exception cref="ArgumentNullException">
         /// <paramref name="valueProvider" /> is <see langword="null" />.
@@ -97,14 +93,12 @@ namespace Matchmaker
                 : throw new ArgumentNullException(nameof(valueProvider));
 
         /// <summary>
-        /// Returns a pattern which is matched successfully when the input value
-        /// is less than the specified value.
+        /// Returns a pattern which is matched successfully when the input value is less than the specified value.
         /// </summary>
         /// <typeparam name="TInput">The type of the input value of the expression.</typeparam>
         /// <param name="value">The value to compare with.</param>
         /// <returns>
-        /// A pattern which is matched successfully when the input value
-        /// is less than the specified value.
+        /// A pattern which is matched successfully when the input value is less than the specified value.
         /// </returns>
         /// <seealso cref="LessThan{TInput}(Func{TInput})" />
         /// <seealso cref="LessOrEqual{TInput}(TInput)" />
@@ -118,14 +112,12 @@ namespace Matchmaker
             => new SimplePattern<TInput>(input => Comparer<TInput>.Default.Compare(input, value) < 0);
 
         /// <summary>
-        /// Returns a pattern which is matched successfully when the input value
-        /// is less than the provided value.
+        /// Returns a pattern which is matched successfully when the input value is less than the provided value.
         /// </summary>
         /// <typeparam name="TInput">The type of the input value of the expression.</typeparam>
         /// <param name="valueProvider">The provider of the value to compare with.</param>
         /// <returns>
-        /// A pattern which is matched successfully when the input value
-        /// is less than the provided value.
+        /// A pattern which is matched successfully when the input value is less than the provided value.
         /// </returns>
         /// <exception cref="ArgumentNullException">
         /// <paramref name="valueProvider" /> is <see langword="null" />.
@@ -191,14 +183,12 @@ namespace Matchmaker
                 : throw new ArgumentNullException(nameof(valueProvider));
 
         /// <summary>
-        /// Returns a pattern which is matched successfully when the input value
-        /// is greater than the specified value.
+        /// Returns a pattern which is matched successfully when the input value is greater than the specified value.
         /// </summary>
         /// <typeparam name="TInput">The type of the input value of the expression.</typeparam>
         /// <param name="value">The value to compare with.</param>
         /// <returns>
-        /// A pattern which is matched successfully when the input value
-        /// is greater than the specified value.
+        /// A pattern which is matched successfully when the input value is greater than the specified value.
         /// </returns>
         /// <seealso cref="LessThan{TInput}(TInput)" />
         /// <seealso cref="LessThan{TInput}(Func{TInput})" />
@@ -212,14 +202,12 @@ namespace Matchmaker
             => new SimplePattern<TInput>(input => Comparer<TInput>.Default.Compare(input, value) > 0);
 
         /// <summary>
-        /// Returns a pattern which is matched successfully when the input value
-        /// is greater than the provided value.
+        /// Returns a pattern which is matched successfully when the input value is greater than the provided value.
         /// </summary>
         /// <typeparam name="TInput">The type of the input value of the expression.</typeparam>
         /// <param name="valueProvider">The provider of the value to compare with.</param>
         /// <returns>
-        /// A pattern which is matched successfully when the input value
-        /// is greater than the provided value.
+        /// A pattern which is matched successfully when the input value is greater than the provided value.
         /// </returns>
         /// <exception cref="ArgumentNullException">
         /// <paramref name="valueProvider" /> is <see langword="null" />.
@@ -285,33 +273,28 @@ namespace Matchmaker
                 : throw new ArgumentNullException(nameof(valueProvider));
 
         /// <summary>
-        /// Returns a pattern which is matched successfully when the input value
-        /// is of the specified type.
+        /// Returns a pattern which is matched successfully when the input value is of the specified type.
         /// </summary>
         /// <typeparam name="TInput">The type of the input value of the expression.</typeparam>
         /// <typeparam name="TType">The type to check for.</typeparam>
         /// <returns>
-        /// A pattern which is matched successfully when the input value
-        /// is of the specified type.
+        /// A pattern which is matched successfully when the input value is of the specified type.
         /// </returns>
         /// <remarks>
-        /// This pattern can be used to match discriminated unions, which are implemented
-        /// as class hierarchies.
+        /// This pattern can be used to match discriminated unions which are implemented as class hierarchies.
         /// </remarks>
         public static Pattern<TInput, TType> Type<TInput, TType>()
             where TType : TInput
             => new Pattern<TInput, TType>(input => input is TType result ? SomeUnsafe(result) : None);
 
         /// <summary>
-        /// Returns a pattern which is matched successfully
-        /// when the specified pattern is not matched successfully.
+        /// Returns a pattern which is matched successfully when the specified pattern is not matched successfully.
         /// </summary>
         /// <typeparam name="TInput">The type of the input value of the expression.</typeparam>
         /// <typeparam name="TMatchResult">The type of the result of this pattern's match.</typeparam>
         /// <param name="pattern">The pattern to invert.</param>
         /// <returns>
-        /// A pattern which is matched successfully
-        /// when the specified pattern is not matched successfully.
+        /// A pattern which is matched successfully when the specified pattern is not matched successfully.
         /// </returns>
         /// <remarks>
         /// This pattern ignores the specified pattern's transformation

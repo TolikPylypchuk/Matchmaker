@@ -1,6 +1,9 @@
 using System;
 
 using LanguageExt;
+using LanguageExt.UnsafeValueAccess;
+
+using static LanguageExt.Prelude;
 
 namespace Matchmaker
 {
@@ -19,21 +22,22 @@ namespace Matchmaker
         /// <summary>
         /// A list of predicates, which specify the conditions of this pattern.
         /// </summary>
-        protected readonly Lst<Func<TMatchResult, bool>> Predicates;
+        protected readonly Lst<Func<TMatchResult, bool>> Conditions;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ConditionalPattern{TInput, TMatchResult, TPattern}" /> class
         /// without any conditions.
         /// </summary>
-        protected ConditionalPattern() { }
+        protected ConditionalPattern()
+        { }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ConditionalPattern{TInput, TMatchResult, TPattern}" /> class
         /// with the specified conditions.
         /// </summary>
-        /// <param name="predicates">The conditions of this pattern.</param>
-        protected ConditionalPattern(Lst<Func<TMatchResult, bool>> predicates)
-            => this.Predicates = predicates;
+        /// <param name="conditions">The conditions of this pattern.</param>
+        protected ConditionalPattern(Lst<Func<TMatchResult, bool>> conditions)
+            => this.Conditions = conditions;
 
         /// <summary>
         /// Matches the input with this pattern, and returns a transformed result.
@@ -48,11 +52,25 @@ namespace Matchmaker
         /// <summary>
         /// Returns a new pattern, which includes the specified condition.
         /// </summary>
-        /// <param name="predicate">The condition to add.</param>
+        /// <param name="condition">The condition to add.</param>
         /// <returns>A new pattern, which includes the specified condition.</returns>
         /// <exception cref="ArgumentNullException">
-        /// <paramref name="predicate" /> is <see langword="null" />.
+        /// <paramref name="condition" /> is <see langword="null" />.
         /// </exception>
-        public abstract TPattern When(Func<TMatchResult, bool> predicate);
+        public abstract TPattern When(Func<TMatchResult, bool> condition);
+
+        /// <summary>
+        /// Matches the input with this pattern, and returns a transformed result.
+        /// </summary>
+        /// <param name="input">The input value to match.</param>
+        /// <returns>
+        /// A non-empty optional value, which contains the transformed result of the match,
+        /// if this match is successful. Otherwise, an empty optional.
+        /// </returns>
+        OptionUnsafe<object> IPattern<TInput>.Match(TInput input)
+        {
+            var result = this.Match(input);
+            return result.IsSome ? SomeUnsafe<object>(result.ValueUnsafe()) : None;
+        }
     }
 }

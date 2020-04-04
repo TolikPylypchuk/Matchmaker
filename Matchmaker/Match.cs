@@ -1,4 +1,4 @@
-﻿namespace Matchmaker
+namespace Matchmaker
 {
     /// <summary>
     /// A static class which is used to create match expressions.
@@ -13,7 +13,7 @@
         /// <typeparam name="TInput">The type of the input value.</typeparam>
         /// <typeparam name="TOutput">The type of the result.</typeparam>
         /// <returns>
-        /// A matcher which specifies the patterns to match with and functions which are executed.
+        /// A match expression which specifies the patterns to match with and functions which are executed.
         /// </returns>
         public static Match<TInput, TOutput> Create<TInput, TOutput>()
             => new Match<TInput, TOutput>(fallthroughByDefault: false);
@@ -25,7 +25,7 @@
         /// <typeparam name="TOutput">The type of the result.</typeparam>
         /// <param name="fallthroughByDefault">The default fallthrough behaviour.</param>
         /// <returns>
-        /// A matcher which specifies the patterns to match with and functions which are executed.
+        /// A match expression which specifies the patterns to match with and functions which are executed.
         /// </returns>
         public static Match<TInput, TOutput> Create<TInput, TOutput>(bool fallthroughByDefault)
             => new Match<TInput, TOutput>(fallthroughByDefault);
@@ -35,7 +35,7 @@
         /// </summary>
         /// <typeparam name="TInput">The type of the input value.</typeparam>
         /// <returns>
-        /// A matcher which specifies the patterns to match with and actions which are executed.
+        /// A match statement which specifies the patterns to match with and actions which are executed.
         /// </returns>
         public static Match<TInput> Create<TInput>()
             => new Match<TInput>(fallthroughByDefault: false);
@@ -46,7 +46,7 @@
         /// <typeparam name="TInput">The type of the input value.</typeparam>
         /// <param name="fallthroughByDefault">The default fallthrough behaviour.</param>
         /// <returns>
-        /// A matcher which specifies the patterns to match with and actions which are executed.
+        /// A match statement which specifies the patterns to match with and actions which are executed.
         /// </returns>
         public static Match<TInput> Create<TInput>(bool fallthroughByDefault)
             => new Match<TInput>(fallthroughByDefault);

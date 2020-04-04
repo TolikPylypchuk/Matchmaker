@@ -13,7 +13,8 @@ namespace Matchmaker
     /// <seealso cref="ConditionalPattern{TInput, TMatchResult, TPattern}" />
     /// <seealso cref="SimplePattern{TInput}" />
     /// <seealso cref="Pattern" />
-    public sealed class Pattern<TInput, TMatchResult> : ConditionalPattern<TInput, TMatchResult, Pattern<TInput, TMatchResult>>
+    public sealed class Pattern<TInput, TMatchResult>
+        : ConditionalPattern<TInput, TMatchResult, Pattern<TInput, TMatchResult>>
     {
         /// <summary>
         /// The matcher function.
@@ -36,13 +37,13 @@ namespace Matchmaker
         /// with the specified matcher function and additional conditions.
         /// </summary>
         /// <param name="matcher">The matcher function.</param>
-        /// <param name="predicates">The additional conditions.</param>
-        private Pattern(Func<TInput, OptionUnsafe<TMatchResult>> matcher, Lst<Func<TMatchResult, bool>> predicates)
-            : base(predicates)
+        /// <param name="conditions">The additional conditions.</param>
+        private Pattern(Func<TInput, OptionUnsafe<TMatchResult>> matcher, Lst<Func<TMatchResult, bool>> conditions)
+            : base(conditions)
             => this.matcher = matcher;
 
         /// <summary>
-        /// Matches the input with this pattern, and returns a transformed result.
+        /// Matches the input with this pattern, and returns a transformed result if successful.
         /// </summary>
         /// <param name="input">The input value to match.</param>
         /// <returns>
@@ -50,15 +51,15 @@ namespace Matchmaker
         /// if this match is successful. Otherwise, an empty optional.
         /// </returns>
         public override OptionUnsafe<TMatchResult> Match(TInput input)
-            => this.matcher(input).Filter(result => this.Predicates.ForAll(predicate => predicate(result)));
+            => this.matcher(input).Filter(result => this.Conditions.ForAll(predicate => predicate(result)));
 
         /// <summary>
-        /// Returns a new pattern, which includes the specified condition.
+        /// Returns a new pattern which includes the specified condition.
         /// </summary>
-        /// <param name="predicate">The condition to add.</param>
-        /// <returns>A new pattern, which includes the specified condition.</returns>
-        public override Pattern<TInput, TMatchResult> When(Func<TMatchResult, bool> predicate)
-            => new Pattern<TInput, TMatchResult>(this.matcher, this.Predicates.Add(predicate));
+        /// <param name="condition">The condition to add.</param>
+        /// <returns>A new pattern which includes the specified condition.</returns>
+        public override Pattern<TInput, TMatchResult> When(Func<TMatchResult, bool> condition)
+            => new Pattern<TInput, TMatchResult>(this.matcher, this.Conditions.Add(condition));
 
         /// <summary>
         /// Returns a pattern which is matched successfully
