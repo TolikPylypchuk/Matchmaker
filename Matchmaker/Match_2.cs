@@ -250,17 +250,17 @@ namespace Matchmaker
             }
 
             /// <summary>
-            /// The pattern of the case.
+            /// Gets the pattern of the case.
             /// </summary>
             public IPattern<TInput> Pattern { get; }
 
             /// <summary>
-            /// The fallthrough behaviour of the case.
+            /// Gets the fallthrough behaviour of the case.
             /// </summary>
             public bool Fallthrough { get; }
 
             /// <summary>
-            /// The function of the case.
+            /// Gets the function of the case.
             /// </summary>
             public Func<object, TOutput> Function { get; }
         }

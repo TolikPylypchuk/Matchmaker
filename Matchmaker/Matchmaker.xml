@@ -184,6 +184,126 @@
             <param name="info">The serialization info.</param>
             <param name="context">The streaming context.</param>
         </member>
+        <member name="T:Matchmaker.MatchResult">
+            <summary>
+            A static class which is used to create match results.
+            </summary>
+            <seealso cref="T:Matchmaker.MatchResult`1" />
+        </member>
+        <member name="M:Matchmaker.MatchResult.Success``1(``0)">
+            <summary>
+            Creates a successful match result with the specified value.
+            </summary>
+            <param name="value">The value of the result.</param>
+            <returns>A successful match result with the specified value.</returns>
+            <seealso cref="M:Matchmaker.MatchResult.Failure``1" />
+        </member>
+        <member name="M:Matchmaker.MatchResult.Failure``1">
+            <summary>
+            Creates a failed match result.
+            </summary>
+            <returns>A failed match result.</returns>
+            <seealso cref="M:Matchmaker.MatchResult.Success``1(``0)" />
+        </member>
+        <member name="T:Matchmaker.MatchResult`1">
+            <summary>
+            Represents the result of a pattern match.
+            </summary>
+            <typeparam name="T">The type of the value contained in this class.</typeparam>
+            <seealso cref="T:Matchmaker.MatchResult" />
+        </member>
+        <member name="M:Matchmaker.MatchResult`1.#ctor(System.Boolean,`0)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Matchmaker.MatchResult`1" /> class.
+            </summary>
+            <param name="isSuccessful"></param>
+            <param name="value"></param>
+        </member>
+        <member name="P:Matchmaker.MatchResult`1.IsSuccessful">
+            <summary>
+            Gets the value which indicates whether the match result is successful.
+            </summary>
+        </member>
+        <member name="P:Matchmaker.MatchResult`1.Value">
+            <summary>
+            Gets the value if the match result is successful.
+            If it is not, then gets the defualt value of <typeparamref name="T"/>.
+            </summary>
+        </member>
+        <member name="M:Matchmaker.MatchResult`1.Equals(System.Object)">
+            <summary>
+            Compares this match result to another object.
+            </summary>
+            <param name="obj">The object to compare to.</param>
+            <returns>
+            <see langword="true" /> if this match result is equal to the other object.
+            Otherwise, <see langword="false" />.
+            </returns>
+            <seealso cref="M:Matchmaker.MatchResult`1.Equals(Matchmaker.MatchResult{`0})" />
+            <seealso cref="M:Matchmaker.MatchResult`1.GetHashCode" />
+            <seealso cref="M:Matchmaker.MatchResult`1.op_Equality(Matchmaker.MatchResult{`0},Matchmaker.MatchResult{`0})" />
+            <seealso cref="M:Matchmaker.MatchResult`1.op_Inequality(Matchmaker.MatchResult{`0},Matchmaker.MatchResult{`0})" />
+        </member>
+        <member name="M:Matchmaker.MatchResult`1.Equals(Matchmaker.MatchResult{`0})">
+            <summary>
+            Compares this match result to another match result.
+            </summary>
+            <param name="other">The match result to compare to.</param>
+            <returns>
+            <see langword="true" /> if this match result is equal to the other match result.
+            Otherwise, <see langword="false" />.
+            </returns>
+            <seealso cref="M:Matchmaker.MatchResult`1.Equals(System.Object)" />
+            <seealso cref="M:Matchmaker.MatchResult`1.GetHashCode" />
+            <seealso cref="M:Matchmaker.MatchResult`1.op_Equality(Matchmaker.MatchResult{`0},Matchmaker.MatchResult{`0})" />
+            <seealso cref="M:Matchmaker.MatchResult`1.op_Inequality(Matchmaker.MatchResult{`0},Matchmaker.MatchResult{`0})" />
+        </member>
+        <member name="M:Matchmaker.MatchResult`1.GetHashCode">
+            <summary>
+            Returns the hash code of this match result.
+            </summary>
+            <returns>The hash code of this match result.</returns>
+            <seealso cref="M:Matchmaker.MatchResult`1.Equals(System.Object)" />
+            <seealso cref="M:Matchmaker.MatchResult`1.Equals(Matchmaker.MatchResult{`0})" />
+            <seealso cref="M:Matchmaker.MatchResult`1.op_Equality(Matchmaker.MatchResult{`0},Matchmaker.MatchResult{`0})" />
+            <seealso cref="M:Matchmaker.MatchResult`1.op_Inequality(Matchmaker.MatchResult{`0},Matchmaker.MatchResult{`0})" />
+        </member>
+        <member name="M:Matchmaker.MatchResult`1.ToString">
+            <summary>
+            Returns the string representation of this match result.
+            </summary>
+            <returns>The string representation of this match result.</returns>
+        </member>
+        <member name="M:Matchmaker.MatchResult`1.op_Equality(Matchmaker.MatchResult{`0},Matchmaker.MatchResult{`0})">
+            <summary>
+            Compares two match results for equality.
+            </summary>
+            <param name="left">The left match result.</param>
+            <param name="right">The right match result.</param>
+            <returns>
+            <see langword="true" /> if the match results are equal.
+            Otherwise, <see langword="false" />
+            </returns>
+            <seealso cref="M:Matchmaker.MatchResult`1.Equals(System.Object)" />
+            <seealso cref="M:Matchmaker.MatchResult`1.Equals(Matchmaker.MatchResult{`0})" />
+            <seealso cref="M:Matchmaker.MatchResult`1.GetHashCode" />
+            <seealso cref="M:Matchmaker.MatchResult`1.op_Inequality(Matchmaker.MatchResult{`0},Matchmaker.MatchResult{`0})" />
+        </member>
+        <member name="M:Matchmaker.MatchResult`1.op_Inequality(Matchmaker.MatchResult{`0},Matchmaker.MatchResult{`0})">
+            <summary>
+            Compares two match results for inequality.
+            </summary>
+            <param name="left">The left match result.</param>
+            <param name="right">The right match result.</param>
+            <returns>
+            <see langword="true" /> if the match results are not equal.
+            Otherwise, <see langword="false" />
+            </returns>
+            <seealso cref="M:Matchmaker.MatchResult`1.Equals(System.Object)" />
+            <seealso cref="M:Matchmaker.MatchResult`1.Equals(Matchmaker.MatchResult{`0})" />
+            <seealso cref="M:Matchmaker.MatchResult`1.GetHashCode" />
+            <seealso cref="M:Matchmaker.MatchResult`1.op_Equality(Matchmaker.MatchResult{`0},Matchmaker.MatchResult{`0})" />
+        </member>
         <member name="T:Matchmaker.Match`1">
             <summary>
             Represents a match statement - a match expression that doesn't yield a value.
@@ -359,17 +479,17 @@
         </member>
         <member name="P:Matchmaker.Match`1.CaseData.Pattern">
             <summary>
-            The pattern of the case.
+            Gets the pattern of the case.
             </summary>
         </member>
         <member name="P:Matchmaker.Match`1.CaseData.Fallthrough">
             <summary>
-            The fallthrough behaviour of the case.
+            Gets the fallthrough behaviour of the case.
             </summary>
         </member>
         <member name="P:Matchmaker.Match`1.CaseData.Action">
             <summary>
-            The action of the case.
+            Gets the action of the case.
             </summary>
         </member>
         <member name="T:Matchmaker.Match`2">
@@ -544,17 +664,17 @@
         </member>
         <member name="P:Matchmaker.Match`2.CaseData.Pattern">
             <summary>
-            The pattern of the case.
+            Gets the pattern of the case.
             </summary>
         </member>
         <member name="P:Matchmaker.Match`2.CaseData.Fallthrough">
             <summary>
-            The fallthrough behaviour of the case.
+            Gets the fallthrough behaviour of the case.
             </summary>
         </member>
         <member name="P:Matchmaker.Match`2.CaseData.Function">
             <summary>
-            The function of the case.
+            Gets the function of the case.
             </summary>
         </member>
         <member name="T:Matchmaker.Pattern">
@@ -582,18 +702,6 @@
             <typeparam name="TInput">The type of the input value of the expression.</typeparam>
             <returns>A pattern which is matched successfully when the input value is <see langword="null" />.</returns>
             <seealso cref="M:Matchmaker.Pattern.ValueNull``1" />
-        </member>
-        <member name="M:Matchmaker.Pattern.StructNull``1">
-            <summary>
-            Returns a pattern which is matched successfully when the input value is <see langword="null" />.
-            </summary>
-            <typeparam name="TInput">The type of the input value of the expression.</typeparam>
-            <returns>A pattern which is matched successfully when the input value is <see langword="null" />.</returns>
-            <remarks>
-            This pattern is obsolete and will be removed in version 2.0.
-            Use the <see cref="M:Matchmaker.Pattern.ValueNull``1" /> pattern instead.
-            This change was done to match the naming of .NET types (e.g. <see cref="T:System.ValueTuple" />).
-            </remarks>
         </member>
         <member name="M:Matchmaker.Pattern.ValueNull``1">
             <summary>

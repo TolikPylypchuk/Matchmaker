@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
 
 using static LanguageExt.Prelude;
 
@@ -34,22 +33,6 @@ namespace Matchmaker
         public static SimplePattern<TInput> Null<TInput>()
             where TInput : class
             => new SimplePattern<TInput>(input => input == null);
-
-        /// <summary>
-        /// Returns a pattern which is matched successfully when the input value is <see langword="null" />.
-        /// </summary>
-        /// <typeparam name="TInput">The type of the input value of the expression.</typeparam>
-        /// <returns>A pattern which is matched successfully when the input value is <see langword="null" />.</returns>
-        /// <remarks>
-        /// This pattern is obsolete and will be removed in version 2.0.
-        /// Use the <see cref="ValueNull{TInput}" /> pattern instead.
-        /// This change was done to match the naming of .NET types (e.g. <see cref="ValueTuple" />).
-        /// </remarks>
-        [ExcludeFromCodeCoverage]
-        [Obsolete("Use the ValueNull pattern instead")]
-        public static SimplePattern<TInput?> StructNull<TInput>()
-            where TInput : struct
-            => new SimplePattern<TInput?>(input => input == null);
 
         /// <summary>
         /// Returns a pattern which is matched successfully when the input value is <see langword="null" />.

@@ -4,7 +4,10 @@
 
 What's new in version 2.0:
 
-- Library renamed to Matchmaker
+- Library renamed to Matchmaker (breaking change)
+- Stopped using the DLR for ignoring the intermediate types
+- Dropped the dependency on [language-ext](https://github.com/louthy/language-ext) (breaking change)
+- The deprecated `StructNull` pattern is removed (breaking change)
 
 ## v1.2
 
