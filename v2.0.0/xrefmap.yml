@@ -42,6 +42,14 @@ references:
   fullName.vb: Matchmaker.ConditionalPattern(Of TInput, TMatchResult, TPattern).ConditionalPattern
   nameWithType: ConditionalPattern<TInput, TMatchResult, TPattern>.ConditionalPattern
   nameWithType.vb: ConditionalPattern(Of TInput, TMatchResult, TPattern).ConditionalPattern
+- uid: Matchmaker.ConditionalPattern`3.Conditions
+  name: Conditions
+  href: api/Matchmaker.ConditionalPattern-3.html#Matchmaker_ConditionalPattern_3_Conditions
+  commentId: F:Matchmaker.ConditionalPattern`3.Conditions
+  fullName: Matchmaker.ConditionalPattern<TInput, TMatchResult, TPattern>.Conditions
+  fullName.vb: Matchmaker.ConditionalPattern(Of TInput, TMatchResult, TPattern).Conditions
+  nameWithType: ConditionalPattern<TInput, TMatchResult, TPattern>.Conditions
+  nameWithType.vb: ConditionalPattern(Of TInput, TMatchResult, TPattern).Conditions
 - uid: Matchmaker.ConditionalPattern`3.Match(`0)
   name: Match(TInput)
   href: api/Matchmaker.ConditionalPattern-3.html#Matchmaker_ConditionalPattern_3_Match__0_
@@ -59,14 +67,25 @@ references:
   fullName.vb: Matchmaker.ConditionalPattern(Of TInput, TMatchResult, TPattern).Match
   nameWithType: ConditionalPattern<TInput, TMatchResult, TPattern>.Match
   nameWithType.vb: ConditionalPattern(Of TInput, TMatchResult, TPattern).Match
-- uid: Matchmaker.ConditionalPattern`3.Predicates
-  name: Predicates
-  href: api/Matchmaker.ConditionalPattern-3.html#Matchmaker_ConditionalPattern_3_Predicates
-  commentId: F:Matchmaker.ConditionalPattern`3.Predicates
-  fullName: Matchmaker.ConditionalPattern<TInput, TMatchResult, TPattern>.Predicates
-  fullName.vb: Matchmaker.ConditionalPattern(Of TInput, TMatchResult, TPattern).Predicates
-  nameWithType: ConditionalPattern<TInput, TMatchResult, TPattern>.Predicates
-  nameWithType.vb: ConditionalPattern(Of TInput, TMatchResult, TPattern).Predicates
+- uid: Matchmaker.ConditionalPattern`3.Matchmaker#IPattern{TInput}#Match(`0)
+  name: IPattern<TInput>.Match(TInput)
+  href: api/Matchmaker.ConditionalPattern-3.html#Matchmaker_ConditionalPattern_3_Matchmaker_IPattern_TInput__Match__0_
+  commentId: M:Matchmaker.ConditionalPattern`3.Matchmaker#IPattern{TInput}#Match(`0)
+  name.vb: Matchmaker.IPattern<TInput>.Match(TInput)
+  fullName: Matchmaker.ConditionalPattern<TInput, TMatchResult, TPattern>.Matchmaker.IPattern<TInput>.Match(TInput)
+  fullName.vb: Matchmaker.ConditionalPattern(Of TInput, TMatchResult, TPattern).Matchmaker.IPattern<TInput>.Match(TInput)
+  nameWithType: ConditionalPattern<TInput, TMatchResult, TPattern>.IPattern<TInput>.Match(TInput)
+  nameWithType.vb: ConditionalPattern(Of TInput, TMatchResult, TPattern).Matchmaker.IPattern<TInput>.Match(TInput)
+- uid: Matchmaker.ConditionalPattern`3.Matchmaker#IPattern{TInput}#Match*
+  name: IPattern<TInput>.Match
+  href: api/Matchmaker.ConditionalPattern-3.html#Matchmaker_ConditionalPattern_3_Matchmaker_IPattern_TInput__Match_
+  commentId: Overload:Matchmaker.ConditionalPattern`3.Matchmaker#IPattern{TInput}#Match
+  isSpec: "True"
+  name.vb: Matchmaker.IPattern<TInput>.Match
+  fullName: Matchmaker.ConditionalPattern<TInput, TMatchResult, TPattern>.Matchmaker.IPattern<TInput>.Match
+  fullName.vb: Matchmaker.ConditionalPattern(Of TInput, TMatchResult, TPattern).Matchmaker.IPattern<TInput>.Match
+  nameWithType: ConditionalPattern<TInput, TMatchResult, TPattern>.IPattern<TInput>.Match
+  nameWithType.vb: ConditionalPattern(Of TInput, TMatchResult, TPattern).Matchmaker.IPattern<TInput>.Match
 - uid: Matchmaker.ConditionalPattern`3.When(System.Func{`1,System.Boolean})
   name: When(Func<TMatchResult, Boolean>)
   href: api/Matchmaker.ConditionalPattern-3.html#Matchmaker_ConditionalPattern_3_When_System_Func__1_System_Boolean__
@@ -85,6 +104,32 @@ references:
   fullName.vb: Matchmaker.ConditionalPattern(Of TInput, TMatchResult, TPattern).When
   nameWithType: ConditionalPattern<TInput, TMatchResult, TPattern>.When
   nameWithType.vb: ConditionalPattern(Of TInput, TMatchResult, TPattern).When
+- uid: Matchmaker.IPattern`1
+  name: IPattern<TInput>
+  href: api/Matchmaker.IPattern-1.html
+  commentId: T:Matchmaker.IPattern`1
+  name.vb: IPattern(Of TInput)
+  fullName: Matchmaker.IPattern<TInput>
+  fullName.vb: Matchmaker.IPattern(Of TInput)
+  nameWithType: IPattern<TInput>
+  nameWithType.vb: IPattern(Of TInput)
+- uid: Matchmaker.IPattern`1.Match(`0)
+  name: Match(TInput)
+  href: api/Matchmaker.IPattern-1.html#Matchmaker_IPattern_1_Match__0_
+  commentId: M:Matchmaker.IPattern`1.Match(`0)
+  fullName: Matchmaker.IPattern<TInput>.Match(TInput)
+  fullName.vb: Matchmaker.IPattern(Of TInput).Match(TInput)
+  nameWithType: IPattern<TInput>.Match(TInput)
+  nameWithType.vb: IPattern(Of TInput).Match(TInput)
+- uid: Matchmaker.IPattern`1.Match*
+  name: Match
+  href: api/Matchmaker.IPattern-1.html#Matchmaker_IPattern_1_Match_
+  commentId: Overload:Matchmaker.IPattern`1.Match
+  isSpec: "True"
+  fullName: Matchmaker.IPattern<TInput>.Match
+  fullName.vb: Matchmaker.IPattern(Of TInput).Match
+  nameWithType: IPattern<TInput>.Match
+  nameWithType.vb: IPattern(Of TInput).Match
 - uid: Matchmaker.IPattern`2
   name: IPattern<TInput, TMatchResult>
   href: api/Matchmaker.IPattern-2.html

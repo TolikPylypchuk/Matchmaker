@@ -84,7 +84,7 @@
       <section><p>A static class which is used to create match expressions.</p>
 </section>
       <h4><a class="xref" href="Matchmaker.Match-1.html">Match&lt;TInput&gt;</a></h4>
-      <section><p>Represents a match expression, which doesn't yield a value.</p>
+      <section><p>Represents a match statement - a match expression that doesn't yield a value.</p>
 </section>
       <h4><a class="xref" href="Matchmaker.Match-2.html">Match&lt;TInput, TOutput&gt;</a></h4>
       <section><p>Represents a match expression.</p>
@@ -103,6 +103,11 @@
 </section>
     <h3 id="interfaces">Interfaces
   </h3>
+      <h4><a class="xref" href="Matchmaker.IPattern-1.html">IPattern&lt;TInput&gt;</a></h4>
+      <section><p>Represents a pattern to match with in a match expression. This inteface is for internal use and
+should never be used directly by the users of the library. Instead, users should use
+<a class="xref" href="Matchmaker.IPattern-2.html">IPattern&lt;TInput, TMatchResult&gt;</a></p>
+</section>
       <h4><a class="xref" href="Matchmaker.IPattern-2.html">IPattern&lt;TInput, TMatchResult&gt;</a></h4>
       <section><p>Represents a pattern to match with in a match expression.</p>
 </section>

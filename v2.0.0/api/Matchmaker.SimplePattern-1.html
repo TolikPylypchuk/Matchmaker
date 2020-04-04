@@ -85,17 +85,21 @@
   <div classs="implements">
     <h5>Implements</h5>
     <div><a class="xref" href="Matchmaker.IPattern-2.html">IPattern</a>&lt;TInput, TInput&gt;</div>
+    <div><a class="xref" href="Matchmaker.IPattern-1.html">IPattern</a>&lt;TInput&gt;</div>
   </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
     <div>
-      <a class="xref" href="Matchmaker.ConditionalPattern-3.html#Matchmaker_ConditionalPattern_3_Predicates">ConditionalPattern&lt;TInput, TInput, SimplePattern&lt;TInput&gt;&gt;.Predicates</a>
+      <a class="xref" href="Matchmaker.ConditionalPattern-3.html#Matchmaker_ConditionalPattern_3_Conditions">ConditionalPattern&lt;TInput, TInput, SimplePattern&lt;TInput&gt;&gt;.Conditions</a>
     </div>
     <div>
       <a class="xref" href="Matchmaker.ConditionalPattern-3.html#Matchmaker_ConditionalPattern_3_Match__0_">ConditionalPattern&lt;TInput, TInput, SimplePattern&lt;TInput&gt;&gt;.Match(TInput)</a>
     </div>
     <div>
       <a class="xref" href="Matchmaker.ConditionalPattern-3.html#Matchmaker_ConditionalPattern_3_When_System_Func__1_System_Boolean__">ConditionalPattern&lt;TInput, TInput, SimplePattern&lt;TInput&gt;&gt;.When(Func&lt;TInput, Boolean&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="Matchmaker.ConditionalPattern-3.html#Matchmaker_ConditionalPattern_3_Matchmaker_IPattern_TInput__Match__0_">ConditionalPattern&lt;TInput, TInput, SimplePattern&lt;TInput&gt;&gt;.IPattern&lt;TInput&gt;.Match(TInput)</a>
     </div>
     <div>
       <span class="xref">System.Object.Equals(System.Object)</span>
@@ -123,7 +127,7 @@
   <h6><strong>Assembly</strong>: Matchmaker.dll</h6>
   <h5 id="Matchmaker_SimplePattern_1_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public sealed class SimplePattern&lt;TInput&gt; : ConditionalPattern&lt;TInput, TInput, SimplePattern&lt;TInput&gt;&gt;, IPattern&lt;TInput, TInput&gt;</code></pre>
+    <pre><code class="lang-csharp hljs">public sealed class SimplePattern&lt;TInput&gt; : ConditionalPattern&lt;TInput, TInput, SimplePattern&lt;TInput&gt;&gt;, IPattern&lt;TInput, TInput&gt;, IPattern&lt;TInput&gt;</code></pre>
   </div>
   <h5 class="typeParameters">Type Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -158,7 +162,7 @@ with the specified condition.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public SimplePattern(Func&lt;TInput, bool&gt; predicate)</code></pre>
+    <pre><code class="lang-csharp hljs">public SimplePattern(Func&lt;TInput, bool&gt; condition)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -172,7 +176,7 @@ with the specified condition.</p>
     <tbody>
       <tr>
         <td><span class="xref">System.Func</span>&lt;TInput, <span class="xref">System.Boolean</span>&gt;</td>
-        <td><span class="parametername">predicate</span></td>
+        <td><span class="parametername">condition</span></td>
         <td><p>The condition of this pattern.</p>
 </td>
       </tr>
@@ -189,7 +193,7 @@ with the specified condition.</p>
     <tbody>
       <tr>
         <td><span class="xref">System.ArgumentNullException</span></td>
-        <td><p><code data-dev-comment-type="paramref" class="paramref">predicate</code> is <span class="xref">null</span>.</p>
+        <td><p><code data-dev-comment-type="paramref" class="paramref">condition</code> is <span class="xref">null</span>.</p>
 </td>
       </tr>
     </tbody>
@@ -205,7 +209,7 @@ with the specified condition.</p>
   </span>
   <a id="Matchmaker_SimplePattern_1_And_" data-uid="Matchmaker.SimplePattern`1.And*"></a>
   <h4 id="Matchmaker_SimplePattern_1_And_Matchmaker_SimplePattern__0__" data-uid="Matchmaker.SimplePattern`1.And(Matchmaker.SimplePattern{`0})">And(SimplePattern&lt;TInput&gt;)</h4>
-  <div class="markdown level1 summary"><p>Returns a pattern, which is matched successfully only if both
+  <div class="markdown level1 summary"><p>Returns a pattern which is matched successfully only if both
 this and other pattern are matched successfully.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -242,7 +246,7 @@ this and other pattern are matched successfully.</p>
     <tbody>
       <tr>
         <td><a class="xref" href="Matchmaker.SimplePattern-1.html">SimplePattern</a>&lt;TInput&gt;</td>
-        <td><p>A pattern, which is matched successfully only if both
+        <td><p>A pattern which is matched successfully only if both
 this and other pattern are matched successfully.</p>
 </td>
       </tr>
@@ -276,7 +280,7 @@ this and other pattern are matched successfully.</p>
   </span>
   <a id="Matchmaker_SimplePattern_1_Match_" data-uid="Matchmaker.SimplePattern`1.Match*"></a>
   <h4 id="Matchmaker_SimplePattern_1_Match__0_" data-uid="Matchmaker.SimplePattern`1.Match(`0)">Match(TInput)</h4>
-  <div class="markdown level1 summary"><p>Matches the input with this pattern, and returns the input value.</p>
+  <div class="markdown level1 summary"><p>Matches the input with this pattern, and returns the input value if successful.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -312,7 +316,7 @@ this and other pattern are matched successfully.</p>
     <tbody>
       <tr>
         <td><span class="xref">LanguageExt.OptionUnsafe</span>&lt;TInput&gt;</td>
-        <td><p>A non-empty optional value, which contains the input value,
+        <td><p>A non-empty optional value which contains the input value,
 if this match is successful. Otherwise, an empty optional.</p>
 </td>
       </tr>
@@ -329,8 +333,8 @@ if this match is successful. Otherwise, an empty optional.</p>
   </span>
   <a id="Matchmaker_SimplePattern_1_Or_" data-uid="Matchmaker.SimplePattern`1.Or*"></a>
   <h4 id="Matchmaker_SimplePattern_1_Or_Matchmaker_SimplePattern__0__" data-uid="Matchmaker.SimplePattern`1.Or(Matchmaker.SimplePattern{`0})">Or(SimplePattern&lt;TInput&gt;)</h4>
-  <div class="markdown level1 summary"><p>Returns a pattern, which is matched successfully if
-this or other pattern is matched successfully.</p>
+  <div class="markdown level1 summary"><p>Returns a pattern which is matched successfully if
+either this or the other pattern is matched successfully.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -366,8 +370,8 @@ this or other pattern is matched successfully.</p>
     <tbody>
       <tr>
         <td><a class="xref" href="Matchmaker.SimplePattern-1.html">SimplePattern</a>&lt;TInput&gt;</td>
-        <td><p>A pattern, which is matched successfully if
-this or other pattern is matched successfully.</p>
+        <td><p>A pattern which is matched successfully if
+either this or the other pattern is matched successfully.</p>
 </td>
       </tr>
     </tbody>
@@ -400,12 +404,12 @@ this or other pattern is matched successfully.</p>
   </span>
   <a id="Matchmaker_SimplePattern_1_When_" data-uid="Matchmaker.SimplePattern`1.When*"></a>
   <h4 id="Matchmaker_SimplePattern_1_When_System_Func__0_System_Boolean__" data-uid="Matchmaker.SimplePattern`1.When(System.Func{`0,System.Boolean})">When(Func&lt;TInput, Boolean&gt;)</h4>
-  <div class="markdown level1 summary"><p>Returns a new pattern, which includes the specified condition.</p>
+  <div class="markdown level1 summary"><p>Returns a new pattern which includes the specified condition.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public override SimplePattern&lt;TInput&gt; When(Func&lt;TInput, bool&gt; predicate)</code></pre>
+    <pre><code class="lang-csharp hljs">public override SimplePattern&lt;TInput&gt; When(Func&lt;TInput, bool&gt; condition)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -419,7 +423,7 @@ this or other pattern is matched successfully.</p>
     <tbody>
       <tr>
         <td><span class="xref">System.Func</span>&lt;TInput, <span class="xref">System.Boolean</span>&gt;</td>
-        <td><span class="parametername">predicate</span></td>
+        <td><span class="parametername">condition</span></td>
         <td><p>The condition to add.</p>
 </td>
       </tr>
@@ -436,7 +440,7 @@ this or other pattern is matched successfully.</p>
     <tbody>
       <tr>
         <td><a class="xref" href="Matchmaker.SimplePattern-1.html">SimplePattern</a>&lt;TInput&gt;</td>
-        <td><p>A new pattern, which includes the specified condition.</p>
+        <td><p>A new pattern which includes the specified condition.</p>
 </td>
       </tr>
     </tbody>
@@ -454,7 +458,7 @@ this or other pattern is matched successfully.</p>
     <tbody>
       <tr>
         <td><span class="xref">System.ArgumentNullException</span></td>
-        <td><p><code data-dev-comment-type="paramref" class="paramref">predicate</code> is <span class="xref">null</span>.</p>
+        <td><p><code data-dev-comment-type="paramref" class="paramref">condition</code> is <span class="xref">null</span>.</p>
 </td>
       </tr>
     </tbody>
@@ -468,8 +472,8 @@ this or other pattern is matched successfully.</p>
   </span>
   <a id="Matchmaker_SimplePattern_1_Xor_" data-uid="Matchmaker.SimplePattern`1.Xor*"></a>
   <h4 id="Matchmaker_SimplePattern_1_Xor_Matchmaker_SimplePattern__0__" data-uid="Matchmaker.SimplePattern`1.Xor(Matchmaker.SimplePattern{`0})">Xor(SimplePattern&lt;TInput&gt;)</h4>
-  <div class="markdown level1 summary"><p>Returns a pattern, which is matched successfully if
-matches with this and other patterns yield different results.</p>
+  <div class="markdown level1 summary"><p>Returns a pattern which is matched successfully if
+matches with this pattern and the other pattern yield different results.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -505,8 +509,8 @@ matches with this and other patterns yield different results.</p>
     <tbody>
       <tr>
         <td><a class="xref" href="Matchmaker.SimplePattern-1.html">SimplePattern</a>&lt;TInput&gt;</td>
-        <td><p>A pattern, which is matched successfully if
-matches with this and other patterns yield different results.</p>
+        <td><p>A pattern which is matched successfully if
+matches with this pattern and the other pattern yield different results.</p>
 </td>
       </tr>
     </tbody>
@@ -538,8 +542,8 @@ matches with this and other patterns yield different results.</p>
   </span>
   <a id="Matchmaker_SimplePattern_1_op_BitwiseAnd_" data-uid="Matchmaker.SimplePattern`1.op_BitwiseAnd*"></a>
   <h4 id="Matchmaker_SimplePattern_1_op_BitwiseAnd_Matchmaker_SimplePattern__0__Matchmaker_SimplePattern__0__" data-uid="Matchmaker.SimplePattern`1.op_BitwiseAnd(Matchmaker.SimplePattern{`0},Matchmaker.SimplePattern{`0})">BitwiseAnd(SimplePattern&lt;TInput&gt;, SimplePattern&lt;TInput&gt;)</h4>
-  <div class="markdown level1 summary"><p>Returns a pattern, which is matched successfully only if both
-the first and second patterns are matched successfully.</p>
+  <div class="markdown level1 summary"><p>Returns a pattern which is matched successfully only if both
+the first pattern and the second pattern are matched successfully.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -581,8 +585,8 @@ the first and second patterns are matched successfully.</p>
     <tbody>
       <tr>
         <td><a class="xref" href="Matchmaker.SimplePattern-1.html">SimplePattern</a>&lt;TInput&gt;</td>
-        <td><p>A pattern, which is matched successfully only if both
-the first and second patterns are matched successfully.</p>
+        <td><p>A pattern which is matched successfully only if both
+the first pattern and the second pattern are matched successfully.</p>
 </td>
       </tr>
     </tbody>
@@ -615,8 +619,8 @@ the first and second patterns are matched successfully.</p>
   </span>
   <a id="Matchmaker_SimplePattern_1_op_BitwiseOr_" data-uid="Matchmaker.SimplePattern`1.op_BitwiseOr*"></a>
   <h4 id="Matchmaker_SimplePattern_1_op_BitwiseOr_Matchmaker_SimplePattern__0__Matchmaker_SimplePattern__0__" data-uid="Matchmaker.SimplePattern`1.op_BitwiseOr(Matchmaker.SimplePattern{`0},Matchmaker.SimplePattern{`0})">BitwiseOr(SimplePattern&lt;TInput&gt;, SimplePattern&lt;TInput&gt;)</h4>
-  <div class="markdown level1 summary"><p>Returns a pattern, which is matched successfully if
-the first or the second pattern is matched successfully.</p>
+  <div class="markdown level1 summary"><p>Returns a pattern which is matched successfully if
+either the first or the second pattern is matched successfully.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -658,8 +662,8 @@ the first or the second pattern is matched successfully.</p>
     <tbody>
       <tr>
         <td><a class="xref" href="Matchmaker.SimplePattern-1.html">SimplePattern</a>&lt;TInput&gt;</td>
-        <td><p>A pattern, which is matched successfully if
-the first or the second pattern is matched successfully.</p>
+        <td><p>A pattern which is matched successfully if
+either the first or the second pattern is matched successfully.</p>
 </td>
       </tr>
     </tbody>
@@ -692,8 +696,8 @@ the first or the second pattern is matched successfully.</p>
   </span>
   <a id="Matchmaker_SimplePattern_1_op_ExclusiveOr_" data-uid="Matchmaker.SimplePattern`1.op_ExclusiveOr*"></a>
   <h4 id="Matchmaker_SimplePattern_1_op_ExclusiveOr_Matchmaker_SimplePattern__0__Matchmaker_SimplePattern__0__" data-uid="Matchmaker.SimplePattern`1.op_ExclusiveOr(Matchmaker.SimplePattern{`0},Matchmaker.SimplePattern{`0})">ExclusiveOr(SimplePattern&lt;TInput&gt;, SimplePattern&lt;TInput&gt;)</h4>
-  <div class="markdown level1 summary"><p>Returns a pattern, which is matched successfully if
-matches with the first and second patterns yield different results.</p>
+  <div class="markdown level1 summary"><p>Returns a pattern which is matched successfully if
+matches with the first pattern and the second pattern yield different results.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -735,8 +739,8 @@ matches with the first and second patterns yield different results.</p>
     <tbody>
       <tr>
         <td><a class="xref" href="Matchmaker.SimplePattern-1.html">SimplePattern</a>&lt;TInput&gt;</td>
-        <td><p>A pattern, which is matched successfully if
-matches with the first and second patterns yield different results.</p>
+        <td><p>A pattern which is matched successfully if
+matches with the first pattern and the second pattern yield different results.</p>
 </td>
       </tr>
     </tbody>
@@ -828,6 +832,9 @@ when the specified pattern is not matched successfully.</p>
   <h3 id="implements">Implements</h3>
   <div>
       <a class="xref" href="Matchmaker.IPattern-2.html">IPattern&lt;TInput, TMatchResult&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="Matchmaker.IPattern-1.html">IPattern&lt;TInput&gt;</a>
   </div>
   <h3 id="seealso">See Also</h3>
   <div class="seealso">

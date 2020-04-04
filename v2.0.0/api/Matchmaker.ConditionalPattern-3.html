@@ -86,6 +86,7 @@
   <div classs="implements">
     <h5>Implements</h5>
     <div><a class="xref" href="Matchmaker.IPattern-2.html">IPattern</a>&lt;TInput, TMatchResult&gt;</div>
+    <div><a class="xref" href="Matchmaker.IPattern-1.html">IPattern</a>&lt;TInput&gt;</div>
   </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
@@ -115,7 +116,7 @@
   <h6><strong>Assembly</strong>: Matchmaker.dll</h6>
   <h5 id="Matchmaker_ConditionalPattern_3_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public abstract class ConditionalPattern&lt;TInput, TMatchResult, TPattern&gt; : IPattern&lt;TInput, TMatchResult&gt; where TPattern : ConditionalPattern&lt;TInput, TMatchResult, TPattern&gt;</code></pre>
+    <pre><code class="lang-csharp hljs">public abstract class ConditionalPattern&lt;TInput, TMatchResult, TPattern&gt; : IPattern&lt;TInput, TMatchResult&gt;, IPattern&lt;TInput&gt; where TPattern : ConditionalPattern&lt;TInput, TMatchResult, TPattern&gt;</code></pre>
   </div>
   <h5 class="typeParameters">Type Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -150,7 +151,7 @@
     <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_ConditionalPattern_3__ctor.md&amp;value=---%0Auid%3A%20Matchmaker.ConditionalPattern%603.%23ctor%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/ConditionalPattern.cs/#L28">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/ConditionalPattern.cs/#L31">View Source</a>
   </span>
   <a id="Matchmaker_ConditionalPattern_3__ctor_" data-uid="Matchmaker.ConditionalPattern`3.#ctor*"></a>
   <h4 id="Matchmaker_ConditionalPattern_3__ctor" data-uid="Matchmaker.ConditionalPattern`3.#ctor">ConditionalPattern()</h4>
@@ -167,7 +168,7 @@ without any conditions.</p>
     <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_ConditionalPattern_3__ctor_LanguageExt_Lst_System_Func__1_System_Boolean___.md&amp;value=---%0Auid%3A%20Matchmaker.ConditionalPattern%603.%23ctor(LanguageExt.Lst%7BSystem.Func%7B%601%2CSystem.Boolean%7D%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/ConditionalPattern.cs/#L35">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/ConditionalPattern.cs/#L39">View Source</a>
   </span>
   <a id="Matchmaker_ConditionalPattern_3__ctor_" data-uid="Matchmaker.ConditionalPattern`3.#ctor*"></a>
   <h4 id="Matchmaker_ConditionalPattern_3__ctor_LanguageExt_Lst_System_Func__1_System_Boolean___" data-uid="Matchmaker.ConditionalPattern`3.#ctor(LanguageExt.Lst{System.Func{`1,System.Boolean}})">ConditionalPattern(Lst&lt;Func&lt;TMatchResult, Boolean&gt;&gt;)</h4>
@@ -177,7 +178,7 @@ with the specified conditions.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected ConditionalPattern(Lst&lt;Func&lt;TMatchResult, bool&gt;&gt; predicates)</code></pre>
+    <pre><code class="lang-csharp hljs">protected ConditionalPattern(Lst&lt;Func&lt;TMatchResult, bool&gt;&gt; conditions)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -191,7 +192,7 @@ with the specified conditions.</p>
     <tbody>
       <tr>
         <td><span class="xref">LanguageExt.Lst</span>&lt;<span class="xref">System.Func</span>&lt;TMatchResult, <span class="xref">System.Boolean</span>&gt;&gt;</td>
-        <td><span class="parametername">predicates</span></td>
+        <td><span class="parametername">conditions</span></td>
         <td><p>The conditions of this pattern.</p>
 </td>
       </tr>
@@ -201,18 +202,18 @@ with the specified conditions.</p>
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_ConditionalPattern_3_Predicates.md&amp;value=---%0Auid%3A%20Matchmaker.ConditionalPattern%603.Predicates%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_ConditionalPattern_3_Conditions.md&amp;value=---%0Auid%3A%20Matchmaker.ConditionalPattern%603.Conditions%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/ConditionalPattern.cs/#L22">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/ConditionalPattern.cs/#L25">View Source</a>
   </span>
-  <h4 id="Matchmaker_ConditionalPattern_3_Predicates" data-uid="Matchmaker.ConditionalPattern`3.Predicates">Predicates</h4>
+  <h4 id="Matchmaker_ConditionalPattern_3_Conditions" data-uid="Matchmaker.ConditionalPattern`3.Conditions">Conditions</h4>
   <div class="markdown level1 summary"><p>A list of predicates, which specify the conditions of this pattern.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected readonly Lst&lt;Func&lt;TMatchResult, bool&gt;&gt; Predicates</code></pre>
+    <pre><code class="lang-csharp hljs">protected readonly Lst&lt;Func&lt;TMatchResult, bool&gt;&gt; Conditions</code></pre>
   </div>
   <h5 class="fieldValue">Field Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -236,7 +237,7 @@ with the specified conditions.</p>
     <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_ConditionalPattern_3_Match__0_.md&amp;value=---%0Auid%3A%20Matchmaker.ConditionalPattern%603.Match(%600)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/ConditionalPattern.cs/#L46">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/ConditionalPattern.cs/#L50">View Source</a>
   </span>
   <a id="Matchmaker_ConditionalPattern_3_Match_" data-uid="Matchmaker.ConditionalPattern`3.Match*"></a>
   <h4 id="Matchmaker_ConditionalPattern_3_Match__0_" data-uid="Matchmaker.ConditionalPattern`3.Match(`0)">Match(TInput)</h4>
@@ -287,7 +288,7 @@ if this match is successful. Otherwise, an empty optional.</p>
     <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_ConditionalPattern_3_When_System_Func__1_System_Boolean__.md&amp;value=---%0Auid%3A%20Matchmaker.ConditionalPattern%603.When(System.Func%7B%601%2CSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/ConditionalPattern.cs/#L56">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/ConditionalPattern.cs/#L60">View Source</a>
   </span>
   <a id="Matchmaker_ConditionalPattern_3_When_" data-uid="Matchmaker.ConditionalPattern`3.When*"></a>
   <h4 id="Matchmaker_ConditionalPattern_3_When_System_Func__1_System_Boolean__" data-uid="Matchmaker.ConditionalPattern`3.When(System.Func{`1,System.Boolean})">When(Func&lt;TMatchResult, Boolean&gt;)</h4>
@@ -296,7 +297,7 @@ if this match is successful. Otherwise, an empty optional.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public abstract TPattern When(Func&lt;TMatchResult, bool&gt; predicate)</code></pre>
+    <pre><code class="lang-csharp hljs">public abstract TPattern When(Func&lt;TMatchResult, bool&gt; condition)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -310,7 +311,7 @@ if this match is successful. Otherwise, an empty optional.</p>
     <tbody>
       <tr>
         <td><span class="xref">System.Func</span>&lt;TMatchResult, <span class="xref">System.Boolean</span>&gt;</td>
-        <td><span class="parametername">predicate</span></td>
+        <td><span class="parametername">condition</span></td>
         <td><p>The condition to add.</p>
 </td>
       </tr>
@@ -343,7 +344,60 @@ if this match is successful. Otherwise, an empty optional.</p>
     <tbody>
       <tr>
         <td><span class="xref">System.ArgumentNullException</span></td>
-        <td><p><code data-dev-comment-type="paramref" class="paramref">predicate</code> is <span class="xref">null</span>.</p>
+        <td><p><code data-dev-comment-type="paramref" class="paramref">condition</code> is <span class="xref">null</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="eii">Explicit Interface Implementations
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_ConditionalPattern_3_Matchmaker_IPattern_TInput__Match__0_.md&amp;value=---%0Auid%3A%20Matchmaker.ConditionalPattern%603.Matchmaker%23IPattern%7BTInput%7D%23Match(%600)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/ConditionalPattern.cs/#L70">View Source</a>
+  </span>
+  <a id="Matchmaker_ConditionalPattern_3_Matchmaker_IPattern_TInput__Match_" data-uid="Matchmaker.ConditionalPattern`3.Matchmaker#IPattern{TInput}#Match*"></a>
+  <h4 id="Matchmaker_ConditionalPattern_3_Matchmaker_IPattern_TInput__Match__0_" data-uid="Matchmaker.ConditionalPattern`3.Matchmaker#IPattern{TInput}#Match(`0)">IPattern&lt;TInput&gt;.Match(TInput)</h4>
+  <div class="markdown level1 summary"><p>Matches the input with this pattern, and returns a transformed result.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">OptionUnsafe&lt;object&gt; IPattern&lt;TInput&gt;.Match(TInput input)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TInput</span></td>
+        <td><span class="parametername">input</span></td>
+        <td><p>The input value to match.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">LanguageExt.OptionUnsafe</span>&lt;<span class="xref">System.Object</span>&gt;</td>
+        <td><p>A non-empty optional value, which contains the transformed result of the match,
+if this match is successful. Otherwise, an empty optional.</p>
 </td>
       </tr>
     </tbody>
@@ -351,6 +405,9 @@ if this match is successful. Otherwise, an empty optional.</p>
   <h3 id="implements">Implements</h3>
   <div>
       <a class="xref" href="Matchmaker.IPattern-2.html">IPattern&lt;TInput, TMatchResult&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="Matchmaker.IPattern-1.html">IPattern&lt;TInput&gt;</a>
   </div>
   <h3 id="seealso">See Also</h3>
   <div class="seealso">
@@ -369,7 +426,7 @@ if this match is successful. Otherwise, an empty optional.</p>
                     <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_ConditionalPattern_3.md&amp;value=---%0Auid%3A%20Matchmaker.ConditionalPattern%603%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/ConditionalPattern.cs/#L16" class="contribution-link">View Source</a>
+                    <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/ConditionalPattern.cs/#L19" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>
