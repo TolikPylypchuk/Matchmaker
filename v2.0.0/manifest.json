@@ -133,8 +133,7 @@
         }
       },
       "is_incremental": false,
-      "version": "",
-      "rawTitle": "<h1 id=\"matchmaker-api\" sourcefile=\"api/index.md\" sourcestartlinenumber=\"1\">Matchmaker API</h1>"
+      "version": ""
     },
     {
       "type": "Toc",
@@ -158,8 +157,7 @@
         }
       },
       "is_incremental": false,
-      "version": "",
-      "rawTitle": "<h1 id=\"matching-with-fallthrough\" sourcefile=\"articles/fallthrough.md\" sourcestartlinenumber=\"1\">Matching with Fallthrough</h1>"
+      "version": ""
     },
     {
       "type": "Conceptual",
@@ -171,8 +169,7 @@
         }
       },
       "is_incremental": false,
-      "version": "",
-      "rawTitle": "<h1 id=\"introduction\" sourcefile=\"articles/intro.md\" sourcestartlinenumber=\"1\">Introduction</h1>"
+      "version": ""
     },
     {
       "type": "Toc",
@@ -196,8 +193,7 @@
         }
       },
       "is_incremental": false,
-      "version": "",
-      "rawTitle": "<h1 id=\"discriminated-unions\" sourcefile=\"articles/unions.md\" sourcestartlinenumber=\"1\">Discriminated Unions</h1>"
+      "version": ""
     },
     {
       "type": "Resource",
@@ -220,8 +216,7 @@
         }
       },
       "is_incremental": false,
-      "version": "",
-      "rawTitle": "<h1 id=\"matchmaker\" sourcefile=\"index.md\" sourcestartlinenumber=\"1\">Matchmaker</h1>"
+      "version": ""
     },
     {
       "type": "Resource",

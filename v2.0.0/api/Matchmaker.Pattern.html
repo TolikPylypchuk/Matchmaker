@@ -1,0 +1,1386 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class Pattern
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class Pattern
+   ">
+    <meta name="generator" content="docfx 2.51.0.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Matchmaker.Pattern">
+  
+  
+  <h1 id="Matchmaker_Pattern" data-uid="Matchmaker.Pattern" class="text-break">Class Pattern
+  </h1>
+  <div class="markdown level0 summary"><p>Contains some frequently used patterns.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">Pattern</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ToString()</span>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Matchmaker.html">Matchmaker</a></h6>
+  <h6><strong>Assembly</strong>: Matchmaker.dll</h6>
+  <h5 id="Matchmaker_Pattern_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static class Pattern</code></pre>
+  </div>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Pattern_Any__1.md&amp;value=---%0Auid%3A%20Matchmaker.Pattern.Any%60%601%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/Pattern.cs/#L25">View Source</a>
+  </span>
+  <a id="Matchmaker_Pattern_Any_" data-uid="Matchmaker.Pattern.Any*"></a>
+  <h4 id="Matchmaker_Pattern_Any__1" data-uid="Matchmaker.Pattern.Any``1">Any&lt;TInput&gt;()</h4>
+  <div class="markdown level1 summary"><p>Returns a pattern which is always matched successfully.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static SimplePattern&lt;TInput&gt; Any&lt;TInput&gt;()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Matchmaker.SimplePattern-1.html">SimplePattern</a>&lt;TInput&gt;</td>
+        <td><p>A pattern which is always matched successfully.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TInput</span></td>
+        <td><p>The type of the input value of the expression.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Matchmaker_Pattern_Any__1_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>This pattern should be used as the default case of the match expression, if one is needed.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Pattern_EqualTo__1___0_.md&amp;value=---%0Auid%3A%20Matchmaker.Pattern.EqualTo%60%601(%60%600)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/Pattern.cs/#L75">View Source</a>
+  </span>
+  <a id="Matchmaker_Pattern_EqualTo_" data-uid="Matchmaker.Pattern.EqualTo*"></a>
+  <h4 id="Matchmaker_Pattern_EqualTo__1___0_" data-uid="Matchmaker.Pattern.EqualTo``1(``0)">EqualTo&lt;TInput&gt;(TInput)</h4>
+  <div class="markdown level1 summary"><p>Returns a pattern which is matched successfully when the input value
+is equal to the specified value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static SimplePattern&lt;TInput&gt; EqualTo&lt;TInput&gt;(TInput value)
+    where TInput : IEquatable&lt;TInput&gt;</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TInput</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The value to check for equality.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Matchmaker.SimplePattern-1.html">SimplePattern</a>&lt;TInput&gt;</td>
+        <td><p>A pattern which is matched successfully when the input value
+is equal to the specified value.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TInput</span></td>
+        <td><p>The type of the input value of the expression.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Matchmaker_Pattern_EqualTo__1___0__seealso">See Also</h5>
+  <div class="seealso">
+      <div><a class="xref" href="Matchmaker.Pattern.html#Matchmaker_Pattern_EqualTo__1_System_Func___0__">EqualTo&lt;TInput&gt;(Func&lt;TInput&gt;)</a></div>
+  </div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Pattern_EqualTo__1_System_Func___0__.md&amp;value=---%0Auid%3A%20Matchmaker.Pattern.EqualTo%60%601(System.Func%7B%60%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/Pattern.cs/#L93">View Source</a>
+  </span>
+  <a id="Matchmaker_Pattern_EqualTo_" data-uid="Matchmaker.Pattern.EqualTo*"></a>
+  <h4 id="Matchmaker_Pattern_EqualTo__1_System_Func___0__" data-uid="Matchmaker.Pattern.EqualTo``1(System.Func{``0})">EqualTo&lt;TInput&gt;(Func&lt;TInput&gt;)</h4>
+  <div class="markdown level1 summary"><p>Returns a pattern which is matched successfully when the input value
+is equal to the provided value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static SimplePattern&lt;TInput&gt; EqualTo&lt;TInput&gt;(Func&lt;TInput&gt; valueProvider)
+    where TInput : IEquatable&lt;TInput&gt;</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Func</span>&lt;TInput&gt;</td>
+        <td><span class="parametername">valueProvider</span></td>
+        <td><p>The provider of the value to check for equality.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Matchmaker.SimplePattern-1.html">SimplePattern</a>&lt;TInput&gt;</td>
+        <td><p>A pattern which is matched successfully when the input value
+is equal to the provided value.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TInput</span></td>
+        <td><p>The type of the input value of the expression.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.ArgumentNullException</span></td>
+        <td><p><code data-dev-comment-type="paramref" class="paramref">valueProvider</code> is <span class="xref">null</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Matchmaker_Pattern_EqualTo__1_System_Func___0___seealso">See Also</h5>
+  <div class="seealso">
+      <div><a class="xref" href="Matchmaker.Pattern.html#Matchmaker_Pattern_EqualTo__1___0_">EqualTo&lt;TInput&gt;(TInput)</a></div>
+  </div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Pattern_GreaterOrEqual__1___0_.md&amp;value=---%0Auid%3A%20Matchmaker.Pattern.GreaterOrEqual%60%601(%60%600)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/Pattern.cs/#L257">View Source</a>
+  </span>
+  <a id="Matchmaker_Pattern_GreaterOrEqual_" data-uid="Matchmaker.Pattern.GreaterOrEqual*"></a>
+  <h4 id="Matchmaker_Pattern_GreaterOrEqual__1___0_" data-uid="Matchmaker.Pattern.GreaterOrEqual``1(``0)">GreaterOrEqual&lt;TInput&gt;(TInput)</h4>
+  <div class="markdown level1 summary"><p>Returns a pattern which is matched successfully when the input value
+is greater than or equal to the specified value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static SimplePattern&lt;TInput&gt; GreaterOrEqual&lt;TInput&gt;(TInput value)
+    where TInput : IComparable&lt;TInput&gt;</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TInput</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The value to compare with.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Matchmaker.SimplePattern-1.html">SimplePattern</a>&lt;TInput&gt;</td>
+        <td><p>A pattern which is matched successfully when the input value
+is greater than or equal to the specified value.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TInput</span></td>
+        <td><p>The type of the input value of the expression.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Matchmaker_Pattern_GreaterOrEqual__1___0__seealso">See Also</h5>
+  <div class="seealso">
+      <div><a class="xref" href="Matchmaker.Pattern.html#Matchmaker_Pattern_LessThan__1___0_">LessThan&lt;TInput&gt;(TInput)</a></div>
+      <div><a class="xref" href="Matchmaker.Pattern.html#Matchmaker_Pattern_LessThan__1_System_Func___0__">LessThan&lt;TInput&gt;(Func&lt;TInput&gt;)</a></div>
+      <div><a class="xref" href="Matchmaker.Pattern.html#Matchmaker_Pattern_LessOrEqual__1___0_">LessOrEqual&lt;TInput&gt;(TInput)</a></div>
+      <div><a class="xref" href="Matchmaker.Pattern.html#Matchmaker_Pattern_LessOrEqual__1_System_Func___0__">LessOrEqual&lt;TInput&gt;(Func&lt;TInput&gt;)</a></div>
+      <div><a class="xref" href="Matchmaker.Pattern.html#Matchmaker_Pattern_GreaterThan__1___0_">GreaterThan&lt;TInput&gt;(TInput)</a></div>
+      <div><a class="xref" href="Matchmaker.Pattern.html#Matchmaker_Pattern_GreaterThan__1_System_Func___0__">GreaterThan&lt;TInput&gt;(Func&lt;TInput&gt;)</a></div>
+      <div><a class="xref" href="Matchmaker.Pattern.html#Matchmaker_Pattern_GreaterOrEqual__1_System_Func___0__">GreaterOrEqual&lt;TInput&gt;(Func&lt;TInput&gt;)</a></div>
+  </div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Pattern_GreaterOrEqual__1_System_Func___0__.md&amp;value=---%0Auid%3A%20Matchmaker.Pattern.GreaterOrEqual%60%601(System.Func%7B%60%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/Pattern.cs/#L281">View Source</a>
+  </span>
+  <a id="Matchmaker_Pattern_GreaterOrEqual_" data-uid="Matchmaker.Pattern.GreaterOrEqual*"></a>
+  <h4 id="Matchmaker_Pattern_GreaterOrEqual__1_System_Func___0__" data-uid="Matchmaker.Pattern.GreaterOrEqual``1(System.Func{``0})">GreaterOrEqual&lt;TInput&gt;(Func&lt;TInput&gt;)</h4>
+  <div class="markdown level1 summary"><p>Returns a pattern which is matched successfully when the input value
+is greater than or equal to the provided value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static SimplePattern&lt;TInput&gt; GreaterOrEqual&lt;TInput&gt;(Func&lt;TInput&gt; valueProvider)
+    where TInput : IComparable&lt;TInput&gt;</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Func</span>&lt;TInput&gt;</td>
+        <td><span class="parametername">valueProvider</span></td>
+        <td><p>The provider of the value to compare with.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Matchmaker.SimplePattern-1.html">SimplePattern</a>&lt;TInput&gt;</td>
+        <td><p>A pattern which is matched successfully when the input value
+is greater than or equal to the provided value.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TInput</span></td>
+        <td><p>The type of the input value of the expression.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.ArgumentNullException</span></td>
+        <td><p><code data-dev-comment-type="paramref" class="paramref">valueProvider</code> is <span class="xref">null</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Matchmaker_Pattern_GreaterOrEqual__1_System_Func___0___seealso">See Also</h5>
+  <div class="seealso">
+      <div><a class="xref" href="Matchmaker.Pattern.html#Matchmaker_Pattern_LessThan__1___0_">LessThan&lt;TInput&gt;(TInput)</a></div>
+      <div><a class="xref" href="Matchmaker.Pattern.html#Matchmaker_Pattern_LessThan__1_System_Func___0__">LessThan&lt;TInput&gt;(Func&lt;TInput&gt;)</a></div>
+      <div><a class="xref" href="Matchmaker.Pattern.html#Matchmaker_Pattern_LessOrEqual__1___0_">LessOrEqual&lt;TInput&gt;(TInput)</a></div>
+      <div><a class="xref" href="Matchmaker.Pattern.html#Matchmaker_Pattern_LessOrEqual__1_System_Func___0__">LessOrEqual&lt;TInput&gt;(Func&lt;TInput&gt;)</a></div>
+      <div><a class="xref" href="Matchmaker.Pattern.html#Matchmaker_Pattern_GreaterThan__1___0_">GreaterThan&lt;TInput&gt;(TInput)</a></div>
+      <div><a class="xref" href="Matchmaker.Pattern.html#Matchmaker_Pattern_GreaterThan__1_System_Func___0__">GreaterThan&lt;TInput&gt;(Func&lt;TInput&gt;)</a></div>
+      <div><a class="xref" href="Matchmaker.Pattern.html#Matchmaker_Pattern_GreaterOrEqual__1___0_">GreaterOrEqual&lt;TInput&gt;(TInput)</a></div>
+  </div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Pattern_GreaterThan__1___0_.md&amp;value=---%0Auid%3A%20Matchmaker.Pattern.GreaterThan%60%601(%60%600)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/Pattern.cs/#L210">View Source</a>
+  </span>
+  <a id="Matchmaker_Pattern_GreaterThan_" data-uid="Matchmaker.Pattern.GreaterThan*"></a>
+  <h4 id="Matchmaker_Pattern_GreaterThan__1___0_" data-uid="Matchmaker.Pattern.GreaterThan``1(``0)">GreaterThan&lt;TInput&gt;(TInput)</h4>
+  <div class="markdown level1 summary"><p>Returns a pattern which is matched successfully when the input value
+is greater than the specified value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static SimplePattern&lt;TInput&gt; GreaterThan&lt;TInput&gt;(TInput value)
+    where TInput : IComparable&lt;TInput&gt;</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TInput</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The value to compare with.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Matchmaker.SimplePattern-1.html">SimplePattern</a>&lt;TInput&gt;</td>
+        <td><p>A pattern which is matched successfully when the input value
+is greater than the specified value.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TInput</span></td>
+        <td><p>The type of the input value of the expression.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Matchmaker_Pattern_GreaterThan__1___0__seealso">See Also</h5>
+  <div class="seealso">
+      <div><a class="xref" href="Matchmaker.Pattern.html#Matchmaker_Pattern_LessThan__1___0_">LessThan&lt;TInput&gt;(TInput)</a></div>
+      <div><a class="xref" href="Matchmaker.Pattern.html#Matchmaker_Pattern_LessThan__1_System_Func___0__">LessThan&lt;TInput&gt;(Func&lt;TInput&gt;)</a></div>
+      <div><a class="xref" href="Matchmaker.Pattern.html#Matchmaker_Pattern_LessOrEqual__1___0_">LessOrEqual&lt;TInput&gt;(TInput)</a></div>
+      <div><a class="xref" href="Matchmaker.Pattern.html#Matchmaker_Pattern_LessOrEqual__1_System_Func___0__">LessOrEqual&lt;TInput&gt;(Func&lt;TInput&gt;)</a></div>
+      <div><a class="xref" href="Matchmaker.Pattern.html#Matchmaker_Pattern_GreaterThan__1_System_Func___0__">GreaterThan&lt;TInput&gt;(Func&lt;TInput&gt;)</a></div>
+      <div><a class="xref" href="Matchmaker.Pattern.html#Matchmaker_Pattern_GreaterOrEqual__1___0_">GreaterOrEqual&lt;TInput&gt;(TInput)</a></div>
+      <div><a class="xref" href="Matchmaker.Pattern.html#Matchmaker_Pattern_GreaterOrEqual__1_System_Func___0__">GreaterOrEqual&lt;TInput&gt;(Func&lt;TInput&gt;)</a></div>
+  </div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Pattern_GreaterThan__1_System_Func___0__.md&amp;value=---%0Auid%3A%20Matchmaker.Pattern.GreaterThan%60%601(System.Func%7B%60%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/Pattern.cs/#L234">View Source</a>
+  </span>
+  <a id="Matchmaker_Pattern_GreaterThan_" data-uid="Matchmaker.Pattern.GreaterThan*"></a>
+  <h4 id="Matchmaker_Pattern_GreaterThan__1_System_Func___0__" data-uid="Matchmaker.Pattern.GreaterThan``1(System.Func{``0})">GreaterThan&lt;TInput&gt;(Func&lt;TInput&gt;)</h4>
+  <div class="markdown level1 summary"><p>Returns a pattern which is matched successfully when the input value
+is greater than the provided value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static SimplePattern&lt;TInput&gt; GreaterThan&lt;TInput&gt;(Func&lt;TInput&gt; valueProvider)
+    where TInput : IComparable&lt;TInput&gt;</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Func</span>&lt;TInput&gt;</td>
+        <td><span class="parametername">valueProvider</span></td>
+        <td><p>The provider of the value to compare with.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Matchmaker.SimplePattern-1.html">SimplePattern</a>&lt;TInput&gt;</td>
+        <td><p>A pattern which is matched successfully when the input value
+is greater than the provided value.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TInput</span></td>
+        <td><p>The type of the input value of the expression.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.ArgumentNullException</span></td>
+        <td><p><code data-dev-comment-type="paramref" class="paramref">valueProvider</code> is <span class="xref">null</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Matchmaker_Pattern_GreaterThan__1_System_Func___0___seealso">See Also</h5>
+  <div class="seealso">
+      <div><a class="xref" href="Matchmaker.Pattern.html#Matchmaker_Pattern_LessThan__1___0_">LessThan&lt;TInput&gt;(TInput)</a></div>
+      <div><a class="xref" href="Matchmaker.Pattern.html#Matchmaker_Pattern_LessThan__1_System_Func___0__">LessThan&lt;TInput&gt;(Func&lt;TInput&gt;)</a></div>
+      <div><a class="xref" href="Matchmaker.Pattern.html#Matchmaker_Pattern_LessOrEqual__1___0_">LessOrEqual&lt;TInput&gt;(TInput)</a></div>
+      <div><a class="xref" href="Matchmaker.Pattern.html#Matchmaker_Pattern_LessOrEqual__1_System_Func___0__">LessOrEqual&lt;TInput&gt;(Func&lt;TInput&gt;)</a></div>
+      <div><a class="xref" href="Matchmaker.Pattern.html#Matchmaker_Pattern_GreaterThan__1___0_">GreaterThan&lt;TInput&gt;(TInput)</a></div>
+      <div><a class="xref" href="Matchmaker.Pattern.html#Matchmaker_Pattern_GreaterOrEqual__1___0_">GreaterOrEqual&lt;TInput&gt;(TInput)</a></div>
+      <div><a class="xref" href="Matchmaker.Pattern.html#Matchmaker_Pattern_GreaterOrEqual__1_System_Func___0__">GreaterOrEqual&lt;TInput&gt;(Func&lt;TInput&gt;)</a></div>
+  </div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Pattern_LessOrEqual__1___0_.md&amp;value=---%0Auid%3A%20Matchmaker.Pattern.LessOrEqual%60%601(%60%600)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/Pattern.cs/#L163">View Source</a>
+  </span>
+  <a id="Matchmaker_Pattern_LessOrEqual_" data-uid="Matchmaker.Pattern.LessOrEqual*"></a>
+  <h4 id="Matchmaker_Pattern_LessOrEqual__1___0_" data-uid="Matchmaker.Pattern.LessOrEqual``1(``0)">LessOrEqual&lt;TInput&gt;(TInput)</h4>
+  <div class="markdown level1 summary"><p>Returns a pattern which is matched successfully when the input value
+is less than or equal to the specified value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static SimplePattern&lt;TInput&gt; LessOrEqual&lt;TInput&gt;(TInput value)
+    where TInput : IComparable&lt;TInput&gt;</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TInput</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The value to compare with.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Matchmaker.SimplePattern-1.html">SimplePattern</a>&lt;TInput&gt;</td>
+        <td><p>A pattern which is matched successfully when the input value
+is less than or equal to the specified value.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TInput</span></td>
+        <td><p>The type of the input value of the expression.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Matchmaker_Pattern_LessOrEqual__1___0__seealso">See Also</h5>
+  <div class="seealso">
+      <div><a class="xref" href="Matchmaker.Pattern.html#Matchmaker_Pattern_LessThan__1___0_">LessThan&lt;TInput&gt;(TInput)</a></div>
+      <div><a class="xref" href="Matchmaker.Pattern.html#Matchmaker_Pattern_LessThan__1_System_Func___0__">LessThan&lt;TInput&gt;(Func&lt;TInput&gt;)</a></div>
+      <div><a class="xref" href="Matchmaker.Pattern.html#Matchmaker_Pattern_LessOrEqual__1_System_Func___0__">LessOrEqual&lt;TInput&gt;(Func&lt;TInput&gt;)</a></div>
+      <div><a class="xref" href="Matchmaker.Pattern.html#Matchmaker_Pattern_GreaterThan__1___0_">GreaterThan&lt;TInput&gt;(TInput)</a></div>
+      <div><a class="xref" href="Matchmaker.Pattern.html#Matchmaker_Pattern_GreaterThan__1_System_Func___0__">GreaterThan&lt;TInput&gt;(Func&lt;TInput&gt;)</a></div>
+      <div><a class="xref" href="Matchmaker.Pattern.html#Matchmaker_Pattern_GreaterOrEqual__1___0_">GreaterOrEqual&lt;TInput&gt;(TInput)</a></div>
+      <div><a class="xref" href="Matchmaker.Pattern.html#Matchmaker_Pattern_GreaterOrEqual__1_System_Func___0__">GreaterOrEqual&lt;TInput&gt;(Func&lt;TInput&gt;)</a></div>
+  </div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Pattern_LessOrEqual__1_System_Func___0__.md&amp;value=---%0Auid%3A%20Matchmaker.Pattern.LessOrEqual%60%601(System.Func%7B%60%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/Pattern.cs/#L187">View Source</a>
+  </span>
+  <a id="Matchmaker_Pattern_LessOrEqual_" data-uid="Matchmaker.Pattern.LessOrEqual*"></a>
+  <h4 id="Matchmaker_Pattern_LessOrEqual__1_System_Func___0__" data-uid="Matchmaker.Pattern.LessOrEqual``1(System.Func{``0})">LessOrEqual&lt;TInput&gt;(Func&lt;TInput&gt;)</h4>
+  <div class="markdown level1 summary"><p>Returns a pattern which is matched successfully when the input value
+is less than or equal to the provided value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static SimplePattern&lt;TInput&gt; LessOrEqual&lt;TInput&gt;(Func&lt;TInput&gt; valueProvider)
+    where TInput : IComparable&lt;TInput&gt;</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Func</span>&lt;TInput&gt;</td>
+        <td><span class="parametername">valueProvider</span></td>
+        <td><p>The provider of the value to compare with.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Matchmaker.SimplePattern-1.html">SimplePattern</a>&lt;TInput&gt;</td>
+        <td><p>A pattern which is matched successfully when the input value
+is less than or equal to the provided value.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TInput</span></td>
+        <td><p>The type of the input value of the expression.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.ArgumentNullException</span></td>
+        <td><p><code data-dev-comment-type="paramref" class="paramref">valueProvider</code> is <span class="xref">null</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Matchmaker_Pattern_LessOrEqual__1_System_Func___0___seealso">See Also</h5>
+  <div class="seealso">
+      <div><a class="xref" href="Matchmaker.Pattern.html#Matchmaker_Pattern_LessThan__1___0_">LessThan&lt;TInput&gt;(TInput)</a></div>
+      <div><a class="xref" href="Matchmaker.Pattern.html#Matchmaker_Pattern_LessThan__1_System_Func___0__">LessThan&lt;TInput&gt;(Func&lt;TInput&gt;)</a></div>
+      <div><a class="xref" href="Matchmaker.Pattern.html#Matchmaker_Pattern_LessOrEqual__1___0_">LessOrEqual&lt;TInput&gt;(TInput)</a></div>
+      <div><a class="xref" href="Matchmaker.Pattern.html#Matchmaker_Pattern_GreaterThan__1___0_">GreaterThan&lt;TInput&gt;(TInput)</a></div>
+      <div><a class="xref" href="Matchmaker.Pattern.html#Matchmaker_Pattern_GreaterThan__1_System_Func___0__">GreaterThan&lt;TInput&gt;(Func&lt;TInput&gt;)</a></div>
+      <div><a class="xref" href="Matchmaker.Pattern.html#Matchmaker_Pattern_GreaterOrEqual__1___0_">GreaterOrEqual&lt;TInput&gt;(TInput)</a></div>
+      <div><a class="xref" href="Matchmaker.Pattern.html#Matchmaker_Pattern_GreaterOrEqual__1_System_Func___0__">GreaterOrEqual&lt;TInput&gt;(Func&lt;TInput&gt;)</a></div>
+  </div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Pattern_LessThan__1___0_.md&amp;value=---%0Auid%3A%20Matchmaker.Pattern.LessThan%60%601(%60%600)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/Pattern.cs/#L116">View Source</a>
+  </span>
+  <a id="Matchmaker_Pattern_LessThan_" data-uid="Matchmaker.Pattern.LessThan*"></a>
+  <h4 id="Matchmaker_Pattern_LessThan__1___0_" data-uid="Matchmaker.Pattern.LessThan``1(``0)">LessThan&lt;TInput&gt;(TInput)</h4>
+  <div class="markdown level1 summary"><p>Returns a pattern which is matched successfully when the input value
+is less than the specified value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static SimplePattern&lt;TInput&gt; LessThan&lt;TInput&gt;(TInput value)
+    where TInput : IComparable&lt;TInput&gt;</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TInput</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The value to compare with.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Matchmaker.SimplePattern-1.html">SimplePattern</a>&lt;TInput&gt;</td>
+        <td><p>A pattern which is matched successfully when the input value
+is less than the specified value.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TInput</span></td>
+        <td><p>The type of the input value of the expression.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Matchmaker_Pattern_LessThan__1___0__seealso">See Also</h5>
+  <div class="seealso">
+      <div><a class="xref" href="Matchmaker.Pattern.html#Matchmaker_Pattern_LessThan__1_System_Func___0__">LessThan&lt;TInput&gt;(Func&lt;TInput&gt;)</a></div>
+      <div><a class="xref" href="Matchmaker.Pattern.html#Matchmaker_Pattern_LessOrEqual__1___0_">LessOrEqual&lt;TInput&gt;(TInput)</a></div>
+      <div><a class="xref" href="Matchmaker.Pattern.html#Matchmaker_Pattern_LessOrEqual__1_System_Func___0__">LessOrEqual&lt;TInput&gt;(Func&lt;TInput&gt;)</a></div>
+      <div><a class="xref" href="Matchmaker.Pattern.html#Matchmaker_Pattern_GreaterThan__1___0_">GreaterThan&lt;TInput&gt;(TInput)</a></div>
+      <div><a class="xref" href="Matchmaker.Pattern.html#Matchmaker_Pattern_GreaterThan__1_System_Func___0__">GreaterThan&lt;TInput&gt;(Func&lt;TInput&gt;)</a></div>
+      <div><a class="xref" href="Matchmaker.Pattern.html#Matchmaker_Pattern_GreaterOrEqual__1___0_">GreaterOrEqual&lt;TInput&gt;(TInput)</a></div>
+      <div><a class="xref" href="Matchmaker.Pattern.html#Matchmaker_Pattern_GreaterOrEqual__1_System_Func___0__">GreaterOrEqual&lt;TInput&gt;(Func&lt;TInput&gt;)</a></div>
+  </div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Pattern_LessThan__1_System_Func___0__.md&amp;value=---%0Auid%3A%20Matchmaker.Pattern.LessThan%60%601(System.Func%7B%60%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/Pattern.cs/#L140">View Source</a>
+  </span>
+  <a id="Matchmaker_Pattern_LessThan_" data-uid="Matchmaker.Pattern.LessThan*"></a>
+  <h4 id="Matchmaker_Pattern_LessThan__1_System_Func___0__" data-uid="Matchmaker.Pattern.LessThan``1(System.Func{``0})">LessThan&lt;TInput&gt;(Func&lt;TInput&gt;)</h4>
+  <div class="markdown level1 summary"><p>Returns a pattern which is matched successfully when the input value
+is less than the provided value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static SimplePattern&lt;TInput&gt; LessThan&lt;TInput&gt;(Func&lt;TInput&gt; valueProvider)
+    where TInput : IComparable&lt;TInput&gt;</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Func</span>&lt;TInput&gt;</td>
+        <td><span class="parametername">valueProvider</span></td>
+        <td><p>The provider of the value to compare with.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Matchmaker.SimplePattern-1.html">SimplePattern</a>&lt;TInput&gt;</td>
+        <td><p>A pattern which is matched successfully when the input value
+is less than the provided value.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TInput</span></td>
+        <td><p>The type of the input value of the expression.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.ArgumentNullException</span></td>
+        <td><p><code data-dev-comment-type="paramref" class="paramref">valueProvider</code> is <span class="xref">null</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Matchmaker_Pattern_LessThan__1_System_Func___0___seealso">See Also</h5>
+  <div class="seealso">
+      <div><a class="xref" href="Matchmaker.Pattern.html#Matchmaker_Pattern_LessThan__1___0_">LessThan&lt;TInput&gt;(TInput)</a></div>
+      <div><a class="xref" href="Matchmaker.Pattern.html#Matchmaker_Pattern_LessOrEqual__1___0_">LessOrEqual&lt;TInput&gt;(TInput)</a></div>
+      <div><a class="xref" href="Matchmaker.Pattern.html#Matchmaker_Pattern_LessOrEqual__1_System_Func___0__">LessOrEqual&lt;TInput&gt;(Func&lt;TInput&gt;)</a></div>
+      <div><a class="xref" href="Matchmaker.Pattern.html#Matchmaker_Pattern_GreaterThan__1___0_">GreaterThan&lt;TInput&gt;(TInput)</a></div>
+      <div><a class="xref" href="Matchmaker.Pattern.html#Matchmaker_Pattern_GreaterThan__1_System_Func___0__">GreaterThan&lt;TInput&gt;(Func&lt;TInput&gt;)</a></div>
+      <div><a class="xref" href="Matchmaker.Pattern.html#Matchmaker_Pattern_GreaterOrEqual__1___0_">GreaterOrEqual&lt;TInput&gt;(TInput)</a></div>
+      <div><a class="xref" href="Matchmaker.Pattern.html#Matchmaker_Pattern_GreaterOrEqual__1_System_Func___0__">GreaterOrEqual&lt;TInput&gt;(Func&lt;TInput&gt;)</a></div>
+  </div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Pattern_Not__2_Matchmaker_IPattern___0___1__.md&amp;value=---%0Auid%3A%20Matchmaker.Pattern.Not%60%602(Matchmaker.IPattern%7B%60%600%2C%60%601%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/Pattern.cs/#L323">View Source</a>
+  </span>
+  <a id="Matchmaker_Pattern_Not_" data-uid="Matchmaker.Pattern.Not*"></a>
+  <h4 id="Matchmaker_Pattern_Not__2_Matchmaker_IPattern___0___1__" data-uid="Matchmaker.Pattern.Not``2(Matchmaker.IPattern{``0,``1})">Not&lt;TInput, TMatchResult&gt;(IPattern&lt;TInput, TMatchResult&gt;)</h4>
+  <div class="markdown level1 summary"><p>Returns a pattern which is matched successfully
+when the specified pattern is not matched successfully.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static SimplePattern&lt;TInput&gt; Not&lt;TInput, TMatchResult&gt;(IPattern&lt;TInput, TMatchResult&gt; pattern)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Matchmaker.IPattern-2.html">IPattern</a>&lt;TInput, TMatchResult&gt;</td>
+        <td><span class="parametername">pattern</span></td>
+        <td><p>The pattern to invert.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Matchmaker.SimplePattern-1.html">SimplePattern</a>&lt;TInput&gt;</td>
+        <td><p>A pattern which is matched successfully
+when the specified pattern is not matched successfully.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TInput</span></td>
+        <td><p>The type of the input value of the expression.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TMatchResult</span></td>
+        <td><p>The type of the result of this pattern's match.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Matchmaker_Pattern_Not__2_Matchmaker_IPattern___0___1___remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>This pattern ignores the specified pattern's transformation
+and returns the input value if matched successfully.</p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.ArgumentNullException</span></td>
+        <td><p><code data-dev-comment-type="paramref" class="paramref">pattern</code> is <span class="xref">null</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Pattern_Null__1.md&amp;value=---%0Auid%3A%20Matchmaker.Pattern.Null%60%601%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/Pattern.cs/#L34">View Source</a>
+  </span>
+  <a id="Matchmaker_Pattern_Null_" data-uid="Matchmaker.Pattern.Null*"></a>
+  <h4 id="Matchmaker_Pattern_Null__1" data-uid="Matchmaker.Pattern.Null``1">Null&lt;TInput&gt;()</h4>
+  <div class="markdown level1 summary"><p>Returns a pattern which is matched successfully when the input value is <span class="xref">null</span>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static SimplePattern&lt;TInput&gt; Null&lt;TInput&gt;()
+    where TInput : class</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Matchmaker.SimplePattern-1.html">SimplePattern</a>&lt;TInput&gt;</td>
+        <td><p>A pattern which is matched successfully when the input value is <span class="xref">null</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TInput</span></td>
+        <td><p>The type of the input value of the expression.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Matchmaker_Pattern_Null__1_seealso">See Also</h5>
+  <div class="seealso">
+      <div><a class="xref" href="Matchmaker.Pattern.html#Matchmaker_Pattern_ValueNull__1">ValueNull&lt;TInput&gt;()</a></div>
+  </div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Pattern_StructNull__1.md&amp;value=---%0Auid%3A%20Matchmaker.Pattern.StructNull%60%601%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/Pattern.cs/#L48">View Source</a>
+  </span>
+  <a id="Matchmaker_Pattern_StructNull_" data-uid="Matchmaker.Pattern.StructNull*"></a>
+  <h4 id="Matchmaker_Pattern_StructNull__1" data-uid="Matchmaker.Pattern.StructNull``1">StructNull&lt;TInput&gt;()</h4>
+  <div class="markdown level1 summary"><p>Returns a pattern which is matched successfully when the input value is <span class="xref">null</span>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Use the ValueNull pattern instead&quot;)]
+public static SimplePattern&lt;TInput?&gt; StructNull&lt;TInput&gt;()
+    where TInput : struct</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Matchmaker.SimplePattern-1.html">SimplePattern</a>&lt;<span class="xref">System.Nullable</span>&lt;TInput&gt;&gt;</td>
+        <td><p>A pattern which is matched successfully when the input value is <span class="xref">null</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TInput</span></td>
+        <td><p>The type of the input value of the expression.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Matchmaker_Pattern_StructNull__1_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>This pattern is obsolete and will be removed in version 2.0.
+Use the <a class="xref" href="Matchmaker.Pattern.html#Matchmaker_Pattern_ValueNull__1">ValueNull&lt;TInput&gt;()</a> pattern instead.
+This change was done to match the naming of .NET types (e.g. <span class="xref">System.ValueTuple</span>).</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Pattern_Type__2.md&amp;value=---%0Auid%3A%20Matchmaker.Pattern.Type%60%602%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/Pattern.cs/#L301">View Source</a>
+  </span>
+  <a id="Matchmaker_Pattern_Type_" data-uid="Matchmaker.Pattern.Type*"></a>
+  <h4 id="Matchmaker_Pattern_Type__2" data-uid="Matchmaker.Pattern.Type``2">Type&lt;TInput, TType&gt;()</h4>
+  <div class="markdown level1 summary"><p>Returns a pattern which is matched successfully when the input value
+is of the specified type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Pattern&lt;TInput, TType&gt; Type&lt;TInput, TType&gt;()
+    where TType : TInput</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Matchmaker.Pattern-2.html">Pattern</a>&lt;TInput, TType&gt;</td>
+        <td><p>A pattern which is matched successfully when the input value
+is of the specified type.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TInput</span></td>
+        <td><p>The type of the input value of the expression.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TType</span></td>
+        <td><p>The type to check for.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Matchmaker_Pattern_Type__2_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>This pattern can be used to match discriminated unions, which are implemented
+as class hierarchies.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Pattern_ValueNull__1.md&amp;value=---%0Auid%3A%20Matchmaker.Pattern.ValueNull%60%601%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/Pattern.cs/#L60">View Source</a>
+  </span>
+  <a id="Matchmaker_Pattern_ValueNull_" data-uid="Matchmaker.Pattern.ValueNull*"></a>
+  <h4 id="Matchmaker_Pattern_ValueNull__1" data-uid="Matchmaker.Pattern.ValueNull``1">ValueNull&lt;TInput&gt;()</h4>
+  <div class="markdown level1 summary"><p>Returns a pattern which is matched successfully when the input value is <span class="xref">null</span>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static SimplePattern&lt;TInput?&gt; ValueNull&lt;TInput&gt;()
+    where TInput : struct</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Matchmaker.SimplePattern-1.html">SimplePattern</a>&lt;<span class="xref">System.Nullable</span>&lt;TInput&gt;&gt;</td>
+        <td><p>A pattern which is matched successfully when the input value is <span class="xref">null</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TInput</span></td>
+        <td><p>The type of the input value of the expression.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Matchmaker_Pattern_ValueNull__1_seealso">See Also</h5>
+  <div class="seealso">
+      <div><a class="xref" href="Matchmaker.Pattern.html#Matchmaker_Pattern_Null__1">Null&lt;TInput&gt;()</a></div>
+  </div>
+  <h3 id="seealso">See Also</h3>
+  <div class="seealso">
+      <div><a class="xref" href="Matchmaker.IPattern-2.html">IPattern</a>&lt;TInput, TMatchResult&gt;</div>
+      <div><a class="xref" href="Matchmaker.Pattern-2.html">Pattern</a>&lt;TInput, TMatchResult&gt;</div>
+      <div><a class="xref" href="Matchmaker.SimplePattern-1.html">SimplePattern</a>&lt;TInput&gt;</div>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Pattern.md&amp;value=---%0Auid%3A%20Matchmaker.Pattern%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/Pattern.cs/#L15" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            <div>Copyright (c) 2018-2020 Tolik Pylypchuk</div><span>Generated by <strong>DocFx</strong>.</span> <span>Icons made by <a href="https" ://www.flaticon.com/authors/roundicons"="" title="Roundicons">Roundicons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></span>
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>
