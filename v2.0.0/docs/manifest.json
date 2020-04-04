@@ -1,0 +1,306 @@
+{
+  "homepages": [],
+  "source_base_path": "C:/projects/matchmaker/docs",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Matchmaker.ConditionalPattern-3.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Matchmaker.ConditionalPattern-3.html",
+          "hash": "VRzjmKnpjX1CXU3BA5WVpQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Matchmaker.IPattern-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Matchmaker.IPattern-2.html",
+          "hash": "utsMA2s6/J5oMF6YpqceRw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Matchmaker.Match-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Matchmaker.Match-1.html",
+          "hash": "DBsPtToSe5m2VUpeteut0Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Matchmaker.Match-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Matchmaker.Match-2.html",
+          "hash": "ziMO3lDOovR0fUOLEKrT/g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Matchmaker.Match.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Matchmaker.Match.html",
+          "hash": "rF5cd3Calzfvo3SUJbSxtA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Matchmaker.MatchException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Matchmaker.MatchException.html",
+          "hash": "8EQMIrQ2S+2O7tWrwfXgyw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Matchmaker.Pattern-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Matchmaker.Pattern-2.html",
+          "hash": "t8e2tG+CeGlsY1z/YpSOTA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Matchmaker.Pattern.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Matchmaker.Pattern.html",
+          "hash": "XY3Jd7ovOwsQQRUZMM1kwQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Matchmaker.SimplePattern-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Matchmaker.SimplePattern-1.html",
+          "hash": "Yya7HW2+/jpen8uIEjOZQQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Matchmaker.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Matchmaker.html",
+          "hash": "l45d8wgNxMr4rzbZjOR69Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "api/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "api/index.html",
+          "hash": "co+Zd0In1utPYcCRNsgaBg=="
+        }
+      },
+      "is_incremental": false,
+      "version": "",
+      "rawTitle": "<h1 id=\"matchmaker-api\" sourcefile=\"api/index.md\" sourcestartlinenumber=\"1\">Matchmaker API</h1>"
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "api/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/toc.html",
+          "hash": "kFbljK+frOOXzvbpj0URLg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/fallthrough.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/fallthrough.html",
+          "hash": "Wg7LCy8n/CPTy08Ry+uORA=="
+        }
+      },
+      "is_incremental": false,
+      "version": "",
+      "rawTitle": "<h1 id=\"matching-with-fallthrough\" sourcefile=\"articles/fallthrough.md\" sourcestartlinenumber=\"1\">Matching with Fallthrough</h1>"
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/intro.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/intro.html",
+          "hash": "cjSLmgq7E8LxKC0xduY5qA=="
+        }
+      },
+      "is_incremental": false,
+      "version": "",
+      "rawTitle": "<h1 id=\"introduction\" sourcefile=\"articles/intro.md\" sourcestartlinenumber=\"1\">Introduction</h1>"
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "articles/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "articles/toc.html",
+          "hash": "+jaabzCFbf36go2LpH9Cew=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/unions.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/unions.html",
+          "hash": "XKNnVQcK4s8Gf0xmBL03ow=="
+        }
+      },
+      "is_incremental": false,
+      "version": "",
+      "rawTitle": "<h1 id=\"discriminated-unions\" sourcefile=\"articles/unions.md\" sourcestartlinenumber=\"1\">Discriminated Unions</h1>"
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "favicon.ico",
+      "output": {
+        "resource": {
+          "relative_path": "favicon.ico"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html",
+          "hash": "rKkcBKzQt/uqOrHguj1q3A=="
+        }
+      },
+      "is_incremental": false,
+      "version": "",
+      "rawTitle": "<h1 id=\"matchmaker\" sourcefile=\"index.md\" sourcestartlinenumber=\"1\">Matchmaker</h1>"
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "logo.svg",
+      "output": {
+        "resource": {
+          "relative_path": "logo.svg"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "toc.html",
+          "hash": "+rHUkRZHZRi5gd1aTU6lJA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    }
+  ],
+  "incremental_info": [
+    {
+      "status": {
+        "can_incremental": false,
+        "details": "Cannot build incrementally because last build info is missing.",
+        "incrementalPhase": "build",
+        "total_file_count": 0,
+        "skipped_file_count": 0,
+        "full_build_reason_code": "NoAvailableBuildCache"
+      },
+      "processors": {
+        "ConceptualDocumentProcessor": {
+          "can_incremental": false,
+          "incrementalPhase": "build",
+          "total_file_count": 5,
+          "skipped_file_count": 0
+        },
+        "ManagedReferenceDocumentProcessor": {
+          "can_incremental": false,
+          "incrementalPhase": "build",
+          "total_file_count": 10,
+          "skipped_file_count": 0
+        },
+        "ResourceDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor ResourceDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "incrementalPhase": "build",
+          "total_file_count": 0,
+          "skipped_file_count": 0
+        },
+        "TocDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor TocDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "incrementalPhase": "build",
+          "total_file_count": 0,
+          "skipped_file_count": 0
+        }
+      }
+    },
+    {
+      "status": {
+        "can_incremental": false,
+        "details": "Cannot support incremental post processing, the reason is: last post processor info is null.",
+        "incrementalPhase": "postProcessing",
+        "total_file_count": 0,
+        "skipped_file_count": 0
+      },
+      "processors": {}
+    }
+  ],
+  "version_info": {},
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}
