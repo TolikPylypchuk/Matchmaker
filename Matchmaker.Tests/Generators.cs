@@ -1,17 +1,11 @@
 using System;
-using System.Diagnostics.CodeAnalysis;
 
 using FsCheck;
-
-using LanguageExt;
-
-using static LanguageExt.Prelude;
 
 using static Matchmaker.Pattern;
 
 namespace Matchmaker
 {
-    [SuppressMessage("ReSharper", "ExpressionIsAlwaysNull")]
     public static class Generators
     {
         public static Arbitrary<SimplePattern<string>> SimplePattern()
@@ -20,7 +14,7 @@ namespace Matchmaker
         public static Arbitrary<Func<string, bool>> Predicate()
             => new ArbitraryPredicate();
 
-        public static Arbitrary<Func<string, OptionUnsafe<string>>> Matcher()
+        public static Arbitrary<Func<string, MatchResult<string>>> Matcher()
             => new ArbitraryMatcher();
 
         private class ArbitrarySimplePattern : Arbitrary<SimplePattern<string>>
@@ -52,14 +46,17 @@ namespace Matchmaker
                         str => str != null && str == str.ToLower());
         }
 
-        private class ArbitraryMatcher : Arbitrary<Func<string, OptionUnsafe<string>>>
+        private class ArbitraryMatcher : Arbitrary<Func<string, MatchResult<string>>>
         {
-            public override Gen<Func<string, OptionUnsafe<string>>> Generator
-                => Gen.Elements<Func<string, OptionUnsafe<string>>>(
-                    str => str == null ? SomeUnsafe(str) : None,
-                    str => String.IsNullOrEmpty(str) ? SomeUnsafe(str) : None,
-                    str => str == "abc" ? SomeUnsafe(str) : None,
-                    str => str != null && str == str.ToLower() ? SomeUnsafe(str) : None);
+            public override Gen<Func<string, MatchResult<string>>> Generator
+                => Gen.Elements(
+                    this.ResultFromPredicate(str => str == null),
+                    this.ResultFromPredicate(String.IsNullOrEmpty),
+                    this.ResultFromPredicate(str => str == "abc"),
+                    this.ResultFromPredicate(str => str != null && str == str.ToLower()));
+
+            private Func<string, MatchResult<string>> ResultFromPredicate(Func<string, bool> predicate)
+                => str => predicate(str) ? MatchResult.Success(str) : MatchResult.Failure<string>();
         }
     }
 }

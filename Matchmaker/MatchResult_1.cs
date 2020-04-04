@@ -32,6 +32,11 @@ namespace Matchmaker
         public T Value { get; }
 
         /// <summary>
+        /// Gets the instance of a failed match result.
+        /// </summary>
+        internal static MatchResult<T> Failure { get; } = new MatchResult<T>(false, default);
+
+        /// <summary>
         /// Compares this match result to another object.
         /// </summary>
         /// <param name="obj">The object to compare to.</param>
@@ -95,7 +100,7 @@ namespace Matchmaker
         /// <seealso cref="GetHashCode()" />
         /// <seealso cref="operator !=(MatchResult{T}, MatchResult{T})" />
         public static bool operator ==(MatchResult<T> left, MatchResult<T> right)
-            => Equals(left, right);
+            => left.Equals(right);
 
         /// <summary>
         /// Compares two match results for inequality.
@@ -111,6 +116,6 @@ namespace Matchmaker
         /// <seealso cref="GetHashCode()" />
         /// <seealso cref="operator ==(MatchResult{T}, MatchResult{T})" />
         public static bool operator !=(MatchResult<T> left, MatchResult<T> right)
-            => !Equals(left, right);
+            => !left.Equals(right);
     }
 }

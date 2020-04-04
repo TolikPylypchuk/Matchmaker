@@ -1,8 +1,6 @@
 using System;
-
-using LanguageExt;
-
-using static LanguageExt.Prelude;
+using System.Collections.Immutable;
+using System.Linq;
 
 namespace Matchmaker
 {
@@ -25,7 +23,8 @@ namespace Matchmaker
         /// <paramref name="condition" /> is <see langword="null" />.
         /// </exception>
         public SimplePattern(Func<TInput, bool> condition)
-            : base(List(condition ?? throw new ArgumentNullException(nameof(condition))))
+            : base(ImmutableList<Func<TInput, bool>>.Empty.Add(
+                condition ?? throw new ArgumentNullException(nameof(condition))))
         { }
 
         /// <summary>
@@ -33,7 +32,7 @@ namespace Matchmaker
         /// with the specified conditions.
         /// </summary>
         /// <param name="conditions">The conditions of this pattern.</param>
-        private SimplePattern(Lst<Func<TInput, bool>> conditions)
+        private SimplePattern(IImmutableList<Func<TInput, bool>> conditions)
             : base(conditions)
         { }
 
@@ -42,11 +41,13 @@ namespace Matchmaker
         /// </summary>
         /// <param name="input">The input value to match.</param>
         /// <returns>
-        /// A non-empty optional value which contains the input value,
-        /// if this match is successful. Otherwise, an empty optional.
+        /// A successful match result which contains the transformed result of the match,
+        /// if this match is successful. Otherwise, a failed match result.
         /// </returns>
-        public override OptionUnsafe<TInput> Match(TInput input)
-            => SomeUnsafe(input).Filter(result => this.Conditions.ForAll(predicate => predicate(result)));
+        public override MatchResult<TInput> Match(TInput input)
+            => this.Conditions.All(condition => condition(input))
+                ? MatchResult.Success(input)
+                : MatchResult.Failure<TInput>();
 
         /// <summary>
         /// Returns a new pattern which includes the specified condition.
@@ -76,7 +77,7 @@ namespace Matchmaker
         /// </exception>
         public SimplePattern<TInput> And(SimplePattern<TInput> other)
             => other != null
-                ? new SimplePattern<TInput>(this.Conditions.Append(other.Conditions))
+                ? new SimplePattern<TInput>(this.Conditions.AddRange(other.Conditions))
                 : throw new ArgumentNullException(nameof(other));
 
         /// <summary>
@@ -94,7 +95,7 @@ namespace Matchmaker
         /// </exception>
         public SimplePattern<TInput> Or(SimplePattern<TInput> other)
             => other != null
-                ? new SimplePattern<TInput>(input => this.Match(input).IsSome || other.Match(input).IsSome)
+                ? new SimplePattern<TInput>(input => this.Match(input).IsSuccessful || other.Match(input).IsSuccessful)
                 : throw new ArgumentNullException(nameof(other));
 
         /// <summary>
@@ -111,7 +112,7 @@ namespace Matchmaker
         /// </exception>
         public SimplePattern<TInput> Xor(SimplePattern<TInput> other)
             => other != null
-                ? new SimplePattern<TInput>(input => this.Match(input).IsSome ^ other.Match(input).IsSome)
+                ? new SimplePattern<TInput>(input => this.Match(input).IsSuccessful ^ other.Match(input).IsSuccessful)
                 : throw new ArgumentNullException(nameof(other));
 
         /// <summary>

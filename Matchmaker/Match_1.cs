@@ -1,7 +1,6 @@
 using System;
-
-using LanguageExt;
-using LanguageExt.UnsafeValueAccess;
+using System.Collections.Generic;
+using System.Collections.Immutable;
 
 namespace Matchmaker
 {
@@ -17,7 +16,7 @@ namespace Matchmaker
         /// <summary>
         /// The list of cases that will be matched in this expression.
         /// </summary>
-        private readonly Lst<CaseData> cases;
+        private readonly IImmutableList<CaseData> cases;
 
         /// <summary>
         /// The default fallthrough behaviour.
@@ -29,14 +28,17 @@ namespace Matchmaker
         /// </summary>
         /// <param name="fallthroughByDefault">The default fallthrough behaviour.</param>
         internal Match(bool fallthroughByDefault)
-            => this.fallthroughByDefault = fallthroughByDefault;
+        {
+            this.cases = ImmutableList<CaseData>.Empty;
+            this.fallthroughByDefault = fallthroughByDefault;
+        }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Match{TInput}" /> class with the specified cases.
         /// </summary>
         /// <param name="cases">The cases of this statement.</param>
         /// <param name="fallthroughByDefault">The default fallthrough behaviour.</param>
-        private Match(Lst<CaseData> cases, bool fallthroughByDefault)
+        private Match(IImmutableList<CaseData> cases, bool fallthroughByDefault)
         {
             this.cases = cases;
             this.fallthroughByDefault = fallthroughByDefault;
@@ -134,9 +136,9 @@ namespace Matchmaker
             foreach (var @case in this.cases)
             {
                 var matchResult = @case.Pattern.Match(input);
-                if (matchResult.IsSome)
+                if (matchResult.IsSuccessful)
                 {
-                    @case.Action(matchResult.ValueUnsafe());
+                    @case.Action(matchResult.Value);
                     return true;
                 }
             }
@@ -162,54 +164,29 @@ namespace Matchmaker
         }
 
         /// <summary>
-        /// Executes the match statement on the specified input with fallthrough.
+        /// Executes the match statement on the specified input with fallthrough lazily.
         /// </summary>
         /// <param name="input">The input value of the statement.</param>
         /// <returns>
-        /// The number of patterns that were matched successfully.
+        /// An enumerable of <see langword="null" /> objects which enables the execution to be lazy.
+        /// The number of items in this enumerable equals the number of successful cases.
         /// </returns>
-        public int ExecuteWithFallthrough(TInput input)
+        public IEnumerable<object> ExecuteWithFallthrough(TInput input)
         {
-            int numberOfMatches = 0;
-
             foreach (var @case in this.cases)
             {
                 var matchResult = @case.Pattern.Match(input);
-                if (matchResult.IsSome)
+                if (matchResult.IsSuccessful)
                 {
-                    @case.Action(matchResult.ValueUnsafe());
-                    numberOfMatches++;
+                    @case.Action(matchResult.Value);
+                    yield return null;
 
                     if (!@case.Fallthrough)
                     {
-                        break;
+                        yield break;
                     }
                 }
             }
-
-            return numberOfMatches;
-        }
-
-        /// <summary>
-        /// Executes the match statement strictly on the specified input with fallthrough.
-        /// </summary>
-        /// <param name="input">The input value of the statement.</param>
-        /// <returns>
-        /// The number of patterns that were matched successfully.
-        /// </returns>
-        /// <exception cref="MatchException">
-        /// The match failed for all cases.
-        /// </exception>
-        public int ExecuteStrictWithFallthrough(TInput input)
-        {
-            int numberOfMatches = this.ExecuteWithFallthrough(input);
-
-            if (numberOfMatches == 0)
-            {
-                throw new MatchException($"Could not match {input}.");
-            }
-
-            return numberOfMatches;
         }
 
         /// <summary>
@@ -230,15 +207,8 @@ namespace Matchmaker
         /// Returns a function which, when called, will match the specified value with fallthrough.
         /// </summary>
         /// <returns>A function which, when called, will match the specified value with fallthrough.</returns>
-        public Func<TInput, int> ToFunctionWithFallthrough()
+        public Func<TInput, IEnumerable<object>> ToFunctionWithFallthrough()
             => this.ExecuteWithFallthrough;
-
-        /// <summary>
-        /// Returns a function which, when called, will match the specified value strictly with fallthrough.
-        /// </summary>
-        /// <returns>A function which, when called, will match the specified value strictly with fallthrough.</returns>
-        public Func<TInput, int> ToStrictFunctionWithFallthrough()
-            => this.ExecuteStrictWithFallthrough;
 
         /// <summary>
         /// Represents the data of a single case in a match statement.

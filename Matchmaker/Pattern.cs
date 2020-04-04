@@ -1,8 +1,6 @@
 using System;
 using System.Collections.Generic;
 
-using static LanguageExt.Prelude;
-
 namespace Matchmaker
 {
     /// <summary>
@@ -268,7 +266,9 @@ namespace Matchmaker
         /// </remarks>
         public static Pattern<TInput, TType> Type<TInput, TType>()
             where TType : TInput
-            => new Pattern<TInput, TType>(input => input is TType result ? SomeUnsafe(result) : None);
+            => new Pattern<TInput, TType>(input => input is TType result
+                ? MatchResult.Success(result)
+                : MatchResult.Failure<TType>());
 
         /// <summary>
         /// Returns a pattern which is matched successfully when the specified pattern is not matched successfully.
@@ -288,7 +288,7 @@ namespace Matchmaker
         /// </exception>
         public static SimplePattern<TInput> Not<TInput, TMatchResult>(IPattern<TInput, TMatchResult> pattern)
             => pattern != null
-                ? new SimplePattern<TInput>(input => !pattern.Match(input).IsSome)
+                ? new SimplePattern<TInput>(input => !pattern.Match(input).IsSuccessful)
                 : throw new ArgumentNullException(nameof(pattern));
     }
 }

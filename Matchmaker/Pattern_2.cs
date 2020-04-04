@@ -1,6 +1,6 @@
 using System;
-
-using LanguageExt;
+using System.Collections.Immutable;
+using System.Linq;
 
 namespace Matchmaker
 {
@@ -19,7 +19,7 @@ namespace Matchmaker
         /// <summary>
         /// The matcher function.
         /// </summary>
-        private readonly Func<TInput, OptionUnsafe<TMatchResult>> matcher;
+        private readonly Func<TInput, MatchResult<TMatchResult>> matcher;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Pattern{TInput, TMatchResult}" /> class
@@ -29,7 +29,7 @@ namespace Matchmaker
         /// <exception cref="ArgumentNullException">
         /// <paramref name="matcher" /> is <see langword="null" />.
         /// </exception>
-        public Pattern(Func<TInput, OptionUnsafe<TMatchResult>> matcher)
+        public Pattern(Func<TInput, MatchResult<TMatchResult>> matcher)
             => this.matcher = matcher ?? throw new ArgumentNullException(nameof(matcher));
 
         /// <summary>
@@ -38,7 +38,9 @@ namespace Matchmaker
         /// </summary>
         /// <param name="matcher">The matcher function.</param>
         /// <param name="conditions">The additional conditions.</param>
-        private Pattern(Func<TInput, OptionUnsafe<TMatchResult>> matcher, Lst<Func<TMatchResult, bool>> conditions)
+        private Pattern(
+            Func<TInput, MatchResult<TMatchResult>> matcher,
+            IImmutableList<Func<TMatchResult, bool>> conditions)
             : base(conditions)
             => this.matcher = matcher;
 
@@ -47,11 +49,18 @@ namespace Matchmaker
         /// </summary>
         /// <param name="input">The input value to match.</param>
         /// <returns>
-        /// A non-empty optional value, which contains the transformed result of the match,
-        /// if this match is successful. Otherwise, an empty optional.
+        /// A successful match result which contains the transformed result of the match,
+        /// if this match is successful. Otherwise, a failed match result.
         /// </returns>
-        public override OptionUnsafe<TMatchResult> Match(TInput input)
-            => this.matcher(input).Filter(result => this.Conditions.ForAll(predicate => predicate(result)));
+        public override MatchResult<TMatchResult> Match(TInput input)
+        {
+            var result = this.matcher(input);
+            return result.IsSuccessful
+                ? this.Conditions.All(condition => condition(result.Value))
+                    ? result
+                    : MatchResult.Failure<TMatchResult>()
+                : MatchResult.Failure<TMatchResult>();
+        }
 
         /// <summary>
         /// Returns a new pattern which includes the specified condition.

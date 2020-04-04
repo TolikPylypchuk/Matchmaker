@@ -1,9 +1,6 @@
 using System;
-
-using LanguageExt;
-using LanguageExt.UnsafeValueAccess;
-
-using static LanguageExt.Prelude;
+using System.Collections.Generic;
+using System.Collections.Immutable;
 
 namespace Matchmaker
 {
@@ -20,7 +17,7 @@ namespace Matchmaker
         /// <summary>
         /// The list of cases that will be matched in this expression.
         /// </summary>
-        private readonly Lst<CaseData> cases;
+        private readonly IImmutableList<CaseData> cases;
 
         /// <summary>
         /// The default fallthrough behaviour.
@@ -32,14 +29,17 @@ namespace Matchmaker
         /// </summary>
         /// <param name="fallthroughByDefault">The default fallthrough behaviour.</param>
         internal Match(bool fallthroughByDefault)
-            => this.fallthroughByDefault = fallthroughByDefault;
+        {
+            this.cases = ImmutableList<CaseData>.Empty;
+            this.fallthroughByDefault = fallthroughByDefault;
+        }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Match{TInput, TOutput}" /> class with the specified cases.
         /// </summary>
         /// <param name="cases">The cases of this expression.</param>
         /// <param name="fallthroughByDefault">The default fallthrough behaviour.</param>
-        private Match(Lst<CaseData> cases, bool fallthroughByDefault)
+        private Match(IImmutableList<CaseData> cases, bool fallthroughByDefault)
         {
             this.cases = cases;
             this.fallthroughByDefault = fallthroughByDefault;
@@ -135,72 +135,58 @@ namespace Matchmaker
         /// The match failed for all cases.
         /// </exception>
         public TOutput ExecuteOn(TInput input)
-            => this.ExecuteNonStrict(input).IfNoneUnsafe(() => throw new MatchException($"Could not match {input}."));
+        {
+            var result = this.ExecuteNonStrict(input);
+            return result.IsSuccessful ? result.Value : throw new MatchException($"Could not match {input}.");
+        }
 
         /// <summary>
         /// Executes the match expression on the specified input and returns the result.
         /// </summary>
         /// <param name="input">The input value of the expression.</param>
-        /// <returns>The result of the match expression, or nothing if no pattern was matched successfully.</returns>
-        public OptionUnsafe<TOutput> ExecuteNonStrict(TInput input)
+        /// <returns>
+        /// The result of the match expression, or a failed result if no pattern was matched successfully.
+        /// </returns>
+        public MatchResult<TOutput> ExecuteNonStrict(TInput input)
         {
             foreach (var @case in this.cases)
             {
                 var matchResult = @case.Pattern.Match(input);
-                if (matchResult.IsSome)
+                if (matchResult.IsSuccessful)
                 {
-                    return SomeUnsafe(@case.Function(matchResult.ValueUnsafe()));
+                    return MatchResult.Success(@case.Function(matchResult.Value));
                 }
             }
 
-            return None;
+            return MatchResult.Failure<TOutput>();
         }
 
         /// <summary>
-        /// Executes the match expression on the specified input with fallthrough and returns the results.
-        /// </summary>
-        /// <param name="input">The input value of the expression.</param>
-        /// <returns>The results of the match expression.</returns>
-        /// <exception cref="MatchException">
-        /// The match failed for all cases.
-        /// </exception>
-        public Lst<TOutput> ExecuteWithFallthrough(TInput input)
-        {
-            var results = this.ExecuteNonStrictWithFallthrough(input);
-
-            if (results.Count == 0)
-            {
-                throw new MatchException($"Could not match {input}.");
-            }
-
-            return results;
-        }
-
-        /// <summary>
-        /// Executes the match expression on the specified input with fallthrough and returns the results.
+        /// Executes the match expression on the specified input with fallthrough and lazily returns the results.
         /// </summary>
         /// <param name="input">The input value of the expression.</param>
         /// <returns>
-        /// The results of the match expression, which is empty if no pattern is matched successfully.
+        /// The results of the match expression, empty if no pattern is matched successfully.
         /// </returns>
-        public Lst<TOutput> ExecuteNonStrictWithFallthrough(TInput input)
+        /// <remarks>
+        /// This method returns a lazy enumerable - it will check only as many patterns,
+        /// as are needed to return one result at a time.
+        /// </remarks>
+        public IEnumerable<TOutput> ExecuteWithFallthrough(TInput input)
         {
-            Lst<TOutput> results;
             foreach (var @case in this.cases)
             {
                 var matchResult = @case.Pattern.Match(input);
-                if (matchResult.IsSome)
+                if (matchResult.IsSuccessful)
                 {
-                    results = results.Add(@case.Function(matchResult.ToList()[0]));
+                    yield return @case.Function(matchResult.Value);
 
                     if (!@case.Fallthrough)
                     {
-                        break;
+                        yield break;
                     }
                 }
             }
-
-            return results;
         }
 
         /// <summary>
@@ -214,22 +200,15 @@ namespace Matchmaker
         /// Returns a function which, when called, will match the specified value.
         /// </summary>
         /// <returns>A function which, when called, will match the specified value.</returns>
-        public Func<TInput, OptionUnsafe<TOutput>> ToNonStrictFunction()
+        public Func<TInput, MatchResult<TOutput>> ToNonStrictFunction()
             => this.ExecuteNonStrict;
 
         /// <summary>
         /// Returns a function which, when called, will match the specified value.
         /// </summary>
         /// <returns>A function which, when called, will match the specified value.</returns>
-        public Func<TInput, Lst<TOutput>> ToFunctionWithFallthrough()
+        public Func<TInput, IEnumerable<TOutput>> ToFunctionWithFallthrough()
             => this.ExecuteWithFallthrough;
-
-        /// <summary>
-        /// Returns a function which, when called, will match the specified value.
-        /// </summary>
-        /// <returns>A function which, when called, will match the specified value.</returns>
-        public Func<TInput, Lst<TOutput>> ToNonStrictFunctionWithFallthrough()
-            => this.ExecuteNonStrictWithFallthrough;
 
         /// <summary>
         /// Represents the data of a single case in a match expression.

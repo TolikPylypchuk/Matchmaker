@@ -26,7 +26,7 @@
             without any conditions.
             </summary>
         </member>
-        <member name="M:Matchmaker.ConditionalPattern`3.#ctor(LanguageExt.Lst{System.Func{`1,System.Boolean}})">
+        <member name="M:Matchmaker.ConditionalPattern`3.#ctor(System.Collections.Immutable.IImmutableList{System.Func{`1,System.Boolean}})">
             <summary>
             Initializes a new instance of the <see cref="T:Matchmaker.ConditionalPattern`3" /> class
             with the specified conditions.
@@ -39,8 +39,8 @@
             </summary>
             <param name="input">The input value to match.</param>
             <returns>
-            A non-empty optional value, which contains the transformed result of the match,
-            if this match is successful. Otherwise, an empty optional.
+            A successful match result which contains the transformed result of the match,
+            if this match is successful. Otherwise, a failed match result.
             </returns>
         </member>
         <member name="M:Matchmaker.ConditionalPattern`3.When(System.Func{`1,System.Boolean})">
@@ -59,9 +59,21 @@
             </summary>
             <param name="input">The input value to match.</param>
             <returns>
-            A non-empty optional value, which contains the transformed result of the match,
-            if this match is successful. Otherwise, an empty optional.
+            A successful match result which contains the transformed result of the match,
+            if this match is successful. Otherwise, a failed match result.
             </returns>
+        </member>
+        <member name="T:Matchmaker.Extensions">
+            <summary>
+            A container class for extension methods.
+            </summary>
+        </member>
+        <member name="M:Matchmaker.Extensions.Enumerate``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Forces the enumeration of an <see cref="T:System.Collections.Generic.IEnumerable`1" /> and ignores the result.
+            </summary>
+            <typeparam name="T">The type of the items in the enumerate.</typeparam>
+            <param name="items">The enumerable to enumerate.</param>
         </member>
         <member name="T:Matchmaker.IPattern`1">
             <summary>
@@ -81,8 +93,8 @@
             </summary>
             <param name="input">The input value to match.</param>
             <returns>
-            A non-empty optional value, which contains the transformed result of the match,
-            if this match is successful. Otherwise, an empty optional.
+            A successful match result which contains the transformed result of the match,
+            if this match is successful. Otherwise, a failed match result.
             </returns>
         </member>
         <member name="T:Matchmaker.IPattern`2">
@@ -101,8 +113,8 @@
             </summary>
             <param name="input">The input value to match.</param>
             <returns>
-            A non-empty optional value, which contains the transformed result of the match,
-            if this match is successful. Otherwise, an empty optional.
+            A successful match result which contains the transformed result of the match,
+            if this match is successful. Otherwise, a failed match result.
             </returns>
         </member>
         <member name="T:Matchmaker.Match">
@@ -230,6 +242,11 @@
             If it is not, then gets the defualt value of <typeparamref name="T"/>.
             </summary>
         </member>
+        <member name="P:Matchmaker.MatchResult`1.Failure">
+            <summary>
+            Gets the instance of a failed match result.
+            </summary>
+        </member>
         <member name="M:Matchmaker.MatchResult`1.Equals(System.Object)">
             <summary>
             Compares this match result to another object.
@@ -329,7 +346,7 @@
             </summary>
             <param name="fallthroughByDefault">The default fallthrough behaviour.</param>
         </member>
-        <member name="M:Matchmaker.Match`1.#ctor(LanguageExt.Lst{Matchmaker.Match{`0}.CaseData},System.Boolean)">
+        <member name="M:Matchmaker.Match`1.#ctor(System.Collections.Immutable.IImmutableList{Matchmaker.Match{`0}.CaseData},System.Boolean)">
             <summary>
             Initializes a new instance of the <see cref="T:Matchmaker.Match`1" /> class with the specified cases.
             </summary>
@@ -421,24 +438,13 @@
         </member>
         <member name="M:Matchmaker.Match`1.ExecuteWithFallthrough(`0)">
             <summary>
-            Executes the match statement on the specified input with fallthrough.
+            Executes the match statement on the specified input with fallthrough lazily.
             </summary>
             <param name="input">The input value of the statement.</param>
             <returns>
-            The number of patterns that were matched successfully.
+            An enumerable of <see langword="null" /> objects which enables the execution to be lazy.
+            The number of items in this enumerable equals the number of successful cases.
             </returns>
-        </member>
-        <member name="M:Matchmaker.Match`1.ExecuteStrictWithFallthrough(`0)">
-            <summary>
-            Executes the match statement strictly on the specified input with fallthrough.
-            </summary>
-            <param name="input">The input value of the statement.</param>
-            <returns>
-            The number of patterns that were matched successfully.
-            </returns>
-            <exception cref="T:Matchmaker.MatchException">
-            The match failed for all cases.
-            </exception>
         </member>
         <member name="M:Matchmaker.Match`1.ToFunction">
             <summary>
@@ -457,12 +463,6 @@
             Returns a function which, when called, will match the specified value with fallthrough.
             </summary>
             <returns>A function which, when called, will match the specified value with fallthrough.</returns>
-        </member>
-        <member name="M:Matchmaker.Match`1.ToStrictFunctionWithFallthrough">
-            <summary>
-            Returns a function which, when called, will match the specified value strictly with fallthrough.
-            </summary>
-            <returns>A function which, when called, will match the specified value strictly with fallthrough.</returns>
         </member>
         <member name="T:Matchmaker.Match`1.CaseData">
             <summary>
@@ -518,7 +518,7 @@
             </summary>
             <param name="fallthroughByDefault">The default fallthrough behaviour.</param>
         </member>
-        <member name="M:Matchmaker.Match`2.#ctor(LanguageExt.Lst{Matchmaker.Match{`0,`1}.CaseData},System.Boolean)">
+        <member name="M:Matchmaker.Match`2.#ctor(System.Collections.Immutable.IImmutableList{Matchmaker.Match{`0,`1}.CaseData},System.Boolean)">
             <summary>
             Initializes a new instance of the <see cref="T:Matchmaker.Match`2" /> class with the specified cases.
             </summary>
@@ -604,26 +604,22 @@
             Executes the match expression on the specified input and returns the result.
             </summary>
             <param name="input">The input value of the expression.</param>
-            <returns>The result of the match expression, or nothing if no pattern was matched successfully.</returns>
+            <returns>
+            The result of the match expression, or a failed result if no pattern was matched successfully.
+            </returns>
         </member>
         <member name="M:Matchmaker.Match`2.ExecuteWithFallthrough(`0)">
             <summary>
-            Executes the match expression on the specified input with fallthrough and returns the results.
-            </summary>
-            <param name="input">The input value of the expression.</param>
-            <returns>The results of the match expression.</returns>
-            <exception cref="T:Matchmaker.MatchException">
-            The match failed for all cases.
-            </exception>
-        </member>
-        <member name="M:Matchmaker.Match`2.ExecuteNonStrictWithFallthrough(`0)">
-            <summary>
-            Executes the match expression on the specified input with fallthrough and returns the results.
+            Executes the match expression on the specified input with fallthrough and lazily returns the results.
             </summary>
             <param name="input">The input value of the expression.</param>
             <returns>
-            The results of the match expression, which is empty if no pattern is matched successfully.
+            The results of the match expression, empty if no pattern is matched successfully.
             </returns>
+            <remarks>
+            This method returns a lazy enumerable - it will check only as many patterns,
+            as are needed to return one result at a time.
+            </remarks>
         </member>
         <member name="M:Matchmaker.Match`2.ToFunction">
             <summary>
@@ -638,12 +634,6 @@
             <returns>A function which, when called, will match the specified value.</returns>
         </member>
         <member name="M:Matchmaker.Match`2.ToFunctionWithFallthrough">
-            <summary>
-            Returns a function which, when called, will match the specified value.
-            </summary>
-            <returns>A function which, when called, will match the specified value.</returns>
-        </member>
-        <member name="M:Matchmaker.Match`2.ToNonStrictFunctionWithFallthrough">
             <summary>
             Returns a function which, when called, will match the specified value.
             </summary>
@@ -939,7 +929,7 @@
             The matcher function.
             </summary>
         </member>
-        <member name="M:Matchmaker.Pattern`2.#ctor(System.Func{`0,LanguageExt.OptionUnsafe{`1}})">
+        <member name="M:Matchmaker.Pattern`2.#ctor(System.Func{`0,Matchmaker.MatchResult{`1}})">
             <summary>
             Initializes a new instance of the <see cref="T:Matchmaker.Pattern`2" /> class
             with the specified matcher function.
@@ -949,7 +939,7 @@
             <paramref name="matcher" /> is <see langword="null" />.
             </exception>
         </member>
-        <member name="M:Matchmaker.Pattern`2.#ctor(System.Func{`0,LanguageExt.OptionUnsafe{`1}},LanguageExt.Lst{System.Func{`1,System.Boolean}})">
+        <member name="M:Matchmaker.Pattern`2.#ctor(System.Func{`0,Matchmaker.MatchResult{`1}},System.Collections.Immutable.IImmutableList{System.Func{`1,System.Boolean}})">
             <summary>
             Initializes a new instance of the <see cref="T:Matchmaker.Pattern`2" /> class
             with the specified matcher function and additional conditions.
@@ -963,8 +953,8 @@
             </summary>
             <param name="input">The input value to match.</param>
             <returns>
-            A non-empty optional value, which contains the transformed result of the match,
-            if this match is successful. Otherwise, an empty optional.
+            A successful match result which contains the transformed result of the match,
+            if this match is successful. Otherwise, a failed match result.
             </returns>
         </member>
         <member name="M:Matchmaker.Pattern`2.When(System.Func{`1,System.Boolean})">
@@ -1012,7 +1002,7 @@
             <paramref name="condition" /> is <see langword="null" />.
             </exception>
         </member>
-        <member name="M:Matchmaker.SimplePattern`1.#ctor(LanguageExt.Lst{System.Func{`0,System.Boolean}})">
+        <member name="M:Matchmaker.SimplePattern`1.#ctor(System.Collections.Immutable.IImmutableList{System.Func{`0,System.Boolean}})">
             <summary>
             Initializes a new instance of the <see cref="T:Matchmaker.SimplePattern`1" /> class
             with the specified conditions.
@@ -1025,8 +1015,8 @@
             </summary>
             <param name="input">The input value to match.</param>
             <returns>
-            A non-empty optional value which contains the input value,
-            if this match is successful. Otherwise, an empty optional.
+            A successful match result which contains the transformed result of the match,
+            if this match is successful. Otherwise, a failed match result.
             </returns>
         </member>
         <member name="M:Matchmaker.SimplePattern`1.When(System.Func{`0,System.Boolean})">

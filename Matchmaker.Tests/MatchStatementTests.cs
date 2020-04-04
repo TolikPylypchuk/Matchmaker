@@ -1,5 +1,5 @@
 using System;
-
+using System.Linq;
 using FluentAssertions;
 
 using FsCheck;
@@ -36,7 +36,7 @@ namespace Matchmaker
                 .Case(Pattern.Any<string>(), _ => matchSuccessful = false)
                 .ExecuteOn(value);
 
-            return (matchSuccessful == pattern.Match(value).IsSome).ToProperty();
+            return (matchSuccessful == pattern.Match(value).IsSuccessful).ToProperty();
         }
 
         [Property(Arbitrary = new[] { typeof(Generators) })]
@@ -50,7 +50,7 @@ namespace Matchmaker
                 .Case(Pattern.Any<string>(), _ => matchSuccessful = false)
                 .ExecuteStrict(value);
 
-            return (matchSuccessful == pattern.Match(value).IsSome).ToProperty();
+            return (matchSuccessful == pattern.Match(value).IsSuccessful).ToProperty();
         }
 
         [Property(Arbitrary = new[] { typeof(Generators) })]
@@ -62,7 +62,7 @@ namespace Matchmaker
                 .Case(pattern, _ => { })
                 .ExecuteOn(value);
 
-            return (matched == pattern.Match(value).IsSome).ToProperty();
+            return (matched == pattern.Match(value).IsSuccessful).ToProperty();
         }
 
         [Property(Arbitrary = new[] { typeof(Generators) })]
@@ -88,7 +88,7 @@ namespace Matchmaker
                     .Case(pattern, _ => { })
                     .ExecuteStrict(value);
 
-            if (pattern.Match(value).IsSome)
+            if (pattern.Match(value).IsSuccessful)
             {
                 action.Should().NotThrow<MatchException>();
             } else
@@ -106,9 +106,10 @@ namespace Matchmaker
             int result = Match.Create<string>(fallthroughByDefault: true)
                 .Case(pattern, _ => { matchCount++; })
                 .Case(Pattern.Any<string>(), _ => { matchCount++; })
-                .ExecuteWithFallthrough(value);
+                .ExecuteWithFallthrough(value)
+                .Count();
 
-            return pattern.Match(value).IsSome
+            return pattern.Match(value).IsSuccessful
                 ? (result == 2 && matchCount == 2).ToProperty()
                 : (result == 1 && matchCount == 1).ToProperty();
         }
@@ -124,7 +125,8 @@ namespace Matchmaker
             int result = Match.Create<string>(fallthroughByDefault: true)
                 .Case(pattern, fallthrough: false, _ => { matchCount++; })
                 .Case(Pattern.Any<string>(), _ => { matchCount++; })
-                .ExecuteWithFallthrough(value);
+                .ExecuteWithFallthrough(value)
+                .Count();
 
             return (result == 1 && matchCount == 1).ToProperty();
         }
@@ -140,9 +142,10 @@ namespace Matchmaker
             int result = Match.Create<string>(fallthroughByDefault: false)
                 .Case(pattern, fallthrough: true, _ => { matchCount++; })
                 .Case(Pattern.Any<string>(), _ => { matchCount++; })
-                .ExecuteWithFallthrough(value);
+                .ExecuteWithFallthrough(value)
+                .Count();
 
-            return pattern.Match(value).IsSome
+            return pattern.Match(value).IsSuccessful
                 ? (result == 2 && matchCount == 2).ToProperty()
                 : (result == 1 && matchCount == 1).ToProperty();
         }
@@ -154,74 +157,10 @@ namespace Matchmaker
 
             int result = Match.Create<string>(fallthroughByDefault: true)
                 .Case(pattern, _ => { })
-                .ExecuteWithFallthrough(value);
+                .ExecuteWithFallthrough(value)
+                .Count();
 
             return (result == 0).ToProperty();
-        }
-
-        [Property(Arbitrary = new[] { typeof(Generators) })]
-        public Property StrictMatchWithFallthroughShouldMatchPatternsCorrectly(
-            Func<string, bool> predicate,
-            string value)
-        {
-            var pattern = new SimplePattern<string>(predicate);
-            int matchCount = 0;
-
-            int result = Match.Create<string>(fallthroughByDefault: true)
-                .Case(pattern, _ => { matchCount++; })
-                .Case(Pattern.Any<string>(), _ => { matchCount++; })
-                .ExecuteStrictWithFallthrough(value);
-
-            return pattern.Match(value).IsSome
-                ? (result == 2 && matchCount == 2).ToProperty()
-                : (result == 1 && matchCount == 1).ToProperty();
-        }
-
-        [Property(Arbitrary = new[] { typeof(Generators) })]
-        public Property StrictMatchWithFallthroughFalseShouldMatchPatternsCorrectly(
-            Func<string, bool> predicate,
-            string value)
-        {
-            var pattern = new SimplePattern<string>(predicate);
-            int matchCount = 0;
-
-            int result = Match.Create<string>(fallthroughByDefault: true)
-                .Case(pattern, fallthrough: false, _ => { matchCount++; })
-                .Case(Pattern.Any<string>(), _ => { matchCount++; })
-                .ExecuteStrictWithFallthrough(value);
-
-            return (result == 1 && matchCount == 1).ToProperty();
-        }
-
-        [Property(Arbitrary = new[] { typeof(Generators) })]
-        public Property StrictMatchWithFallthroughTrueShouldMatchPatternsCorrectly(
-            Func<string, bool> predicate,
-            string value)
-        {
-            var pattern = new SimplePattern<string>(predicate);
-            int matchCount = 0;
-
-            int result = Match.Create<string>(fallthroughByDefault: false)
-                .Case(pattern, fallthrough: true, _ => { matchCount++; })
-                .Case(Pattern.Any<string>(), _ => { matchCount++; })
-                .ExecuteStrictWithFallthrough(value);
-
-            return pattern.Match(value).IsSome
-                ? (result == 2 && matchCount == 2).ToProperty()
-                : (result == 1 && matchCount == 1).ToProperty();
-        }
-
-        [Property(Arbitrary = new[] { typeof(Generators) })]
-        public void StrictMatchWithFallthroughShouldThrowIfNoMatchFound(string value)
-        {
-            var pattern = new SimplePattern<string>(_ => false);
-
-            Action action = () =>
-                Match.Create<string>(fallthroughByDefault: true)
-                    .Case(pattern, _ => { })
-                    .ExecuteStrictWithFallthrough(value);
-
-            action.Should().Throw<MatchException>();
         }
 
         [Property(Arbitrary = new[] { typeof(Generators) })]
@@ -237,7 +176,7 @@ namespace Matchmaker
                 .Case(Pattern.Any<string>(), _ => matchSuccessful = false)
                 .ToFunction()(value);
 
-            return (matchSuccessful == pattern.Match(value).IsSome).ToProperty();
+            return (matchSuccessful == pattern.Match(value).IsSuccessful).ToProperty();
         }
 
         [Property(Arbitrary = new[] { typeof(Generators) })]
@@ -253,7 +192,7 @@ namespace Matchmaker
                 .Case(Pattern.Any<string>(), _ => matchSuccessful = false)
                 .ToStrictFunction()(value);
 
-            return (matchSuccessful == pattern.Match(value).IsSome).ToProperty();
+            return (matchSuccessful == pattern.Match(value).IsSuccessful).ToProperty();
         }
 
         [Property(Arbitrary = new[] { typeof(Generators) })]
@@ -267,7 +206,7 @@ namespace Matchmaker
                 .Case(pattern, _ => { })
                 .ToFunction()(value);
 
-            return (matched == pattern.Match(value).IsSome).ToProperty();
+            return (matched == pattern.Match(value).IsSuccessful).ToProperty();
         }
 
         [Property(Arbitrary = new[] { typeof(Generators) })]
@@ -293,7 +232,7 @@ namespace Matchmaker
                     .Case(pattern, _ => { })
                     .ToStrictFunction()(value);
 
-            if (pattern.Match(value).IsSome)
+            if (pattern.Match(value).IsSuccessful)
             {
                 action.Should().NotThrow<MatchException>();
             } else
@@ -313,9 +252,10 @@ namespace Matchmaker
             int result = Match.Create<string>(fallthroughByDefault: true)
                 .Case(pattern, _ => { matchCount++; })
                 .Case(Pattern.Any<string>(), _ => { matchCount++; })
-                .ToFunctionWithFallthrough()(value);
+                .ToFunctionWithFallthrough()(value)
+                .Count();
 
-            return pattern.Match(value).IsSome
+            return pattern.Match(value).IsSuccessful
                 ? (result == 2 && matchCount == 2).ToProperty()
                 : (result == 1 && matchCount == 1).ToProperty();
         }
@@ -331,7 +271,8 @@ namespace Matchmaker
             int result = Match.Create<string>(fallthroughByDefault: true)
                 .Case(pattern, fallthrough: false, _ => { matchCount++; })
                 .Case(Pattern.Any<string>(), _ => { matchCount++; })
-                .ToFunctionWithFallthrough()(value);
+                .ToFunctionWithFallthrough()(value)
+                .Count();
 
             return (result == 1 && matchCount == 1).ToProperty();
         }
@@ -347,9 +288,10 @@ namespace Matchmaker
             int result = Match.Create<string>(fallthroughByDefault: false)
                 .Case(pattern, fallthrough: true, _ => { matchCount++; })
                 .Case(Pattern.Any<string>(), _ => { matchCount++; })
-                .ToFunctionWithFallthrough()(value);
+                .ToFunctionWithFallthrough()(value)
+                .Count();
 
-            return pattern.Match(value).IsSome
+            return pattern.Match(value).IsSuccessful
                 ? (result == 2 && matchCount == 2).ToProperty()
                 : (result == 1 && matchCount == 1).ToProperty();
         }
@@ -361,61 +303,10 @@ namespace Matchmaker
 
             int result = Match.Create<string>(fallthroughByDefault: true)
                 .Case(pattern, _ => { })
-                .ToFunctionWithFallthrough()(value);
+                .ToFunctionWithFallthrough()(value)
+                .Count();
 
             return (result == 0).ToProperty();
-        }
-
-        [Property(Arbitrary = new[] { typeof(Generators) })]
-        public Property StrictMatchToFunctionWithFallthroughShouldMatchPatternsCorrectly(
-            Func<string, bool> predicate,
-            string value)
-        {
-            var pattern = new SimplePattern<string>(predicate);
-            int matchCount = 0;
-
-            int result = Match.Create<string>(fallthroughByDefault: true)
-                .Case(pattern, _ => { matchCount++; })
-                .Case(Pattern.Any<string>(), _ => { matchCount++; })
-                .ToStrictFunctionWithFallthrough()(value);
-
-            return pattern.Match(value).IsSome
-                ? (result == 2 && matchCount == 2).ToProperty()
-                : (result == 1 && matchCount == 1).ToProperty();
-        }
-
-        [Property(Arbitrary = new[] { typeof(Generators) })]
-        public Property StrictMatchToFunctionWithFallthroughFalseShouldMatchPatternsCorrectly(
-            Func<string, bool> predicate,
-            string value)
-        {
-            var pattern = new SimplePattern<string>(predicate);
-            int matchCount = 0;
-
-            int result = Match.Create<string>(fallthroughByDefault: true)
-                .Case(pattern, fallthrough: false, _ => { matchCount++; })
-                .Case(Pattern.Any<string>(), _ => { matchCount++; })
-                .ToStrictFunctionWithFallthrough()(value);
-
-            return (result == 1 && matchCount == 1).ToProperty();
-        }
-
-        [Property(Arbitrary = new[] { typeof(Generators) })]
-        public Property StrictMatchToFunctionWithFallthroughTrueShouldMatchPatternsCorrectly(
-            Func<string, bool> predicate,
-            string value)
-        {
-            var pattern = new SimplePattern<string>(predicate);
-            int matchCount = 0;
-
-            int result = Match.Create<string>(fallthroughByDefault: false)
-                .Case(pattern, fallthrough: true, _ => { matchCount++; })
-                .Case(Pattern.Any<string>(), _ => { matchCount++; })
-                .ToStrictFunctionWithFallthrough()(value);
-
-            return pattern.Match(value).IsSome
-                ? (result == 2 && matchCount == 2).ToProperty()
-                : (result == 1 && matchCount == 1).ToProperty();
         }
 
         [Fact]

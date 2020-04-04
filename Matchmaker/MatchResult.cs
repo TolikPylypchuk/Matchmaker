@@ -21,6 +21,6 @@ namespace Matchmaker
         /// <returns>A failed match result.</returns>
         /// <seealso cref="Success{T}(T)" />
         public static MatchResult<T> Failure<T>()
-            => new MatchResult<T>(true, default);
+            => MatchResult<T>.Failure;
     }
 }

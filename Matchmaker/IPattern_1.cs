@@ -1,5 +1,3 @@
-using LanguageExt;
-
 namespace Matchmaker
 {
     /// <summary>
@@ -19,9 +17,9 @@ namespace Matchmaker
         /// </summary>
         /// <param name="input">The input value to match.</param>
         /// <returns>
-        /// A non-empty optional value, which contains the transformed result of the match,
-        /// if this match is successful. Otherwise, an empty optional.
+        /// A successful match result which contains the transformed result of the match,
+        /// if this match is successful. Otherwise, a failed match result.
         /// </returns>
-        OptionUnsafe<object> Match(TInput input);
+        MatchResult<object> Match(TInput input);
     }
 }

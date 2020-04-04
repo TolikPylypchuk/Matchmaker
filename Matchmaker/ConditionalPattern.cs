@@ -1,9 +1,5 @@
 using System;
-
-using LanguageExt;
-using LanguageExt.UnsafeValueAccess;
-
-using static LanguageExt.Prelude;
+using System.Collections.Immutable;
 
 namespace Matchmaker
 {
@@ -22,21 +18,21 @@ namespace Matchmaker
         /// <summary>
         /// A list of predicates, which specify the conditions of this pattern.
         /// </summary>
-        protected readonly Lst<Func<TMatchResult, bool>> Conditions;
+        protected readonly IImmutableList<Func<TMatchResult, bool>> Conditions;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ConditionalPattern{TInput, TMatchResult, TPattern}" /> class
         /// without any conditions.
         /// </summary>
         protected ConditionalPattern()
-        { }
+            => this.Conditions = ImmutableList<Func<TMatchResult, bool>>.Empty;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ConditionalPattern{TInput, TMatchResult, TPattern}" /> class
         /// with the specified conditions.
         /// </summary>
         /// <param name="conditions">The conditions of this pattern.</param>
-        protected ConditionalPattern(Lst<Func<TMatchResult, bool>> conditions)
+        protected ConditionalPattern(IImmutableList<Func<TMatchResult, bool>> conditions)
             => this.Conditions = conditions;
 
         /// <summary>
@@ -44,10 +40,10 @@ namespace Matchmaker
         /// </summary>
         /// <param name="input">The input value to match.</param>
         /// <returns>
-        /// A non-empty optional value, which contains the transformed result of the match,
-        /// if this match is successful. Otherwise, an empty optional.
+        /// A successful match result which contains the transformed result of the match,
+        /// if this match is successful. Otherwise, a failed match result.
         /// </returns>
-        public abstract OptionUnsafe<TMatchResult> Match(TInput input);
+        public abstract MatchResult<TMatchResult> Match(TInput input);
 
         /// <summary>
         /// Returns a new pattern, which includes the specified condition.
@@ -64,13 +60,15 @@ namespace Matchmaker
         /// </summary>
         /// <param name="input">The input value to match.</param>
         /// <returns>
-        /// A non-empty optional value, which contains the transformed result of the match,
-        /// if this match is successful. Otherwise, an empty optional.
+        /// A successful match result which contains the transformed result of the match,
+        /// if this match is successful. Otherwise, a failed match result.
         /// </returns>
-        OptionUnsafe<object> IPattern<TInput>.Match(TInput input)
+        MatchResult<object> IPattern<TInput>.Match(TInput input)
         {
             var result = this.Match(input);
-            return result.IsSome ? SomeUnsafe<object>(result.ValueUnsafe()) : None;
+            return result.IsSuccessful
+                ? MatchResult.Success<object>(result.Value)
+                : MatchResult.Failure<object>();
         }
     }
 }
