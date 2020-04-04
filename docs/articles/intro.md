@@ -21,7 +21,7 @@ string result =
 
 `EqualTo` is a predefined pattern.
 
-This is what an equivalent `switch` statement looks like:
+This is what an equivalent `switch` statement looks like (pre-C# 8):
 
 ```
 string result;
@@ -62,6 +62,12 @@ is always matched successfully.
 
  - Like in `switch` the patterns are tried out sequentially. This means that
 the `Any` pattern should always come last.
+
+The release C# 8.0 included a new way to write switch expressions which yield a value.
+While this drastically reduced the need for external libraries like this one
+for pattern matching, the language itself includes only the simplest patterns.
+This library lets the user define arbitrary patterns, which makes this library
+more powerful than the switch expressions.
 
 ## Patterns
 
@@ -216,21 +222,13 @@ and a match statement contains the `ExecuteOn` and `ExecuteStrict` methods.
 
 ## Performance
 
-I didn't perform any benchmarks, but I can guess that pattern matching here is
-much, _much_ slower than the traditional `switch` statements. This is because
-the matches use dynamic values internally.
+Versions 1.x used the DLR to provide type-safe pattern matching on any types
+without having to remember all those types. Thus the performance was _much_
+worse than C#'s switch statements/expressions (even though I didn't perform
+any benchmarks).
 
-The matches contain a list of tuples of patterns and functions to execute.
-This list has dynamic items in it because the match expression knows nothing about
-transformations of the patterns. If it did, then the information about each type
-of the pattern transformation would be required, and that would render the match
-either unusable, because of the many types which will have to be specified, or
-impossible, because there would always be a finite amount of match types
-(each with information about one more match result type than the previous).
-
-The type safety is not compromised this way, because the match result type is
-needed only between the execution of the pattern match and the execution of
-the function, and is not visible to the outside world.
-
-This incurs a performance overhead, but it must be compromised in order
-for this to work.
+Versions 2+ of this library don't use the DLR anymore - I've found a better way
+to do this, and frankly, I'm amazed I didn't think of this way before. So I'm
+guessing the performance of the new versions must be much better than versions 1.x.
+Maybe, I'll even implement some benchmarks in the future to compare the performance
+of this library in comparison to the switch statements/expressions.

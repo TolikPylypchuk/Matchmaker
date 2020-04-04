@@ -35,7 +35,7 @@ string result =
 
 `EqualTo` is a predefined pattern.
 
-This is what an equivalent `switch` statement looks like:
+This is what an equivalent `switch` statement looks like (pre-C# 8):
 
 ```
 string result;
@@ -76,6 +76,12 @@ is always matched successfully.
 
  - Like in `switch` the patterns are tried out sequentially. This means that
 the `Any` pattern should always come last.
+
+The release C# 8.0 included a new way to write switch expressions which yield a value.
+While this drastically reduced the need for external libraries like this one
+for pattern matching, the language itself includes only the simplest patterns.
+This library lets the user define arbitrary patterns, which makes this library
+more powerful than the switch expressions.
 
 ## More Info
 

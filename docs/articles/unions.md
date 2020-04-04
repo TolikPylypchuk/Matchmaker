@@ -1,13 +1,13 @@
-﻿# Discriminated Unions
+# Discriminated Unions
 
 While discriminated unions are not directly supported in C#, they can be modelled
 using class hierarchies. But still, in order for them be user-friendly, a way to
-process the values has to be implemented, usually in the form of the Visitor pattern.
+process the values has to be implemented, e.g. in the form of the Visitor pattern.
 
 Or, pattern matching can be used instead of visitors.
 
-Let's define a very simple list, implemented as cons cells. This list is not generic
-for simplicity.
+Let's define a very simple list, implemented as [cons cells](https://en.wikipedia.org/wiki/Cons).
+This list is not generic for simplicity.
 
 ```
 public abstract class ConsList
@@ -51,7 +51,7 @@ sum = Match.Create<ConsList, int>()
     .ToFunction();
 ```
 
-Here is the equivalent function implemented using the `switch` statement:
+Here is the equivalent function implemented using the `switch` statement (pre-C# 8):
 
 ```
 public int Sum(ConsList list)
@@ -79,7 +79,7 @@ specifified type.
 As we can see, we have to throw an exception in the `switch` version, because
 C# can't know that `ConsCell` and `Empty` are the only possible subclasses
 of `ConsList`. And for that reason if we forget to define one of the cases
-in `switch` or in a match, we'll get an exception. In F# a warning is issued,
+in `switch` or in a match, we'll get an exception. In F# a warning is issued
 when the match is incomplete, but then again, C# doesn't have the notion of
 complete or incomplete matches. Of course, this match will fail if the
 provided list is `null`, but this can be handled using the `Null` pattern.
