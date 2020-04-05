@@ -4,7 +4,7 @@ using System.Collections.Immutable;
 namespace Matchmaker.Patterns
 {
     /// <summary>
-    /// Represents a pattern, to which additional conditions may be added.
+    /// Represents an abstract pattern with conditions and a description.
     /// </summary>
     /// <typeparam name="TInput">The type of the input value of the expression.</typeparam>
     /// <typeparam name="TMatchResult">The type of the result of this pattern's match.</typeparam>
