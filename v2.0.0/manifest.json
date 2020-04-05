@@ -5,59 +5,11 @@
   "files": [
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/Matchmaker.ConditionalPattern-3.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Matchmaker.ConditionalPattern-3.html",
-          "hash": "Uako2xskSNFX6HSawMxqNg=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Matchmaker.Extensions.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Matchmaker.Extensions.html",
-          "hash": "z8RNaRTtduL5FW9Df7aLmQ=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Matchmaker.IPattern-1.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Matchmaker.IPattern-1.html",
-          "hash": "UT/wwCxATXqLSTmA6N/w9w=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Matchmaker.IPattern-2.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Matchmaker.IPattern-2.html",
-          "hash": "TSnrOOFoY1S2t7Sa5YTwKw=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "api/Matchmaker.Match-1.yml",
       "output": {
         ".html": {
           "relative_path": "api/Matchmaker.Match-1.html",
-          "hash": "6pBCWq3V67LHoHRercfUXA=="
+          "hash": "O/TA4XXl2ml/puByZ2ZqvQ=="
         }
       },
       "is_incremental": false,
@@ -69,7 +21,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Matchmaker.Match-2.html",
-          "hash": "Al0vmNEizzzQAkCncg56cA=="
+          "hash": "89G/clkbwGK79M/TqiaUeQ=="
         }
       },
       "is_incremental": false,
@@ -101,6 +53,18 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/Matchmaker.MatchExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Matchmaker.MatchExtensions.html",
+          "hash": "QZRP/3LbKWWOWMyeeUHAIA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/Matchmaker.MatchResult-1.yml",
       "output": {
         ".html": {
@@ -125,11 +89,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/Matchmaker.Pattern-2.yml",
+      "source_relative_path": "api/Matchmaker.Patterns.IConditionalPattern-3.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Matchmaker.Pattern-2.html",
-          "hash": "Amkzvbf7Jqq6nImahe+ZQA=="
+          "relative_path": "api/Matchmaker.Patterns.IConditionalPattern-3.html",
+          "hash": "jRHhcueul0TE6LQUoaYXMQ=="
         }
       },
       "is_incremental": false,
@@ -137,11 +101,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/Matchmaker.Pattern.yml",
+      "source_relative_path": "api/Matchmaker.Patterns.IDescriptivePattern-2.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Matchmaker.Pattern.html",
-          "hash": "Ya9mGKYmA8f8d6fwsWmEOw=="
+          "relative_path": "api/Matchmaker.Patterns.IDescriptivePattern-2.html",
+          "hash": "48CyZZKGCFUVhEFIlPlESg=="
         }
       },
       "is_incremental": false,
@@ -149,11 +113,83 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/Matchmaker.SimplePattern-1.yml",
+      "source_relative_path": "api/Matchmaker.Patterns.IPattern-1.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Matchmaker.SimplePattern-1.html",
-          "hash": "/XNYxFqliy+VahbYqUVfug=="
+          "relative_path": "api/Matchmaker.Patterns.IPattern-1.html",
+          "hash": "szTZPnASvLWVC1LrHodGpA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Matchmaker.Patterns.IPattern-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Matchmaker.Patterns.IPattern-2.html",
+          "hash": "otCAwMJec8YQlRgAGhDJKw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Matchmaker.Patterns.Pattern-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Matchmaker.Patterns.Pattern-2.html",
+          "hash": "+pvJpaRnGcOOx8t4qCiZAg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Matchmaker.Patterns.Pattern.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Matchmaker.Patterns.Pattern.html",
+          "hash": "hWZk1iVF1KSmSKGawF008Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Matchmaker.Patterns.PatternBase-3.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Matchmaker.Patterns.PatternBase-3.html",
+          "hash": "BywSlC8HUBCZ3bU0ariQbQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Matchmaker.Patterns.SimplePattern-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Matchmaker.Patterns.SimplePattern-1.html",
+          "hash": "+W+9JiAWS+VbvIDkC3+lgQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Matchmaker.Patterns.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Matchmaker.Patterns.html",
+          "hash": "3cBqgJrOLE28PswMOPO8AQ=="
         }
       },
       "is_incremental": false,
@@ -165,7 +201,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Matchmaker.html",
-          "hash": "hpfRIQcGdERc9h+UfR07Pw=="
+          "hash": "VwLqMYn6C2Xy2mJXGBNWYg=="
         }
       },
       "is_incremental": false,
@@ -189,7 +225,7 @@
       "output": {
         ".html": {
           "relative_path": "api/toc.html",
-          "hash": "DWDthWj82u1zPKFbX7lgIg=="
+          "hash": "9c2ArpnYDI185mS8f+oqzg=="
         }
       },
       "is_incremental": false,
@@ -310,7 +346,7 @@
         "ManagedReferenceDocumentProcessor": {
           "can_incremental": false,
           "incrementalPhase": "build",
-          "total_file_count": 14,
+          "total_file_count": 17,
           "skipped_file_count": 0
         },
         "ResourceDocumentProcessor": {
