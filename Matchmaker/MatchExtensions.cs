@@ -5,7 +5,7 @@ namespace Matchmaker
     /// <summary>
     /// A container class for extension methods.
     /// </summary>
-    public static class Extensions
+    public static class MatchExtensions
     {
         /// <summary>
         /// Forces the enumeration of an <see cref="IEnumerable{T}" /> and ignores the result.

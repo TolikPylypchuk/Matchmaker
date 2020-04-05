@@ -6,7 +6,7 @@ using FsCheck.Xunit;
 
 namespace Matchmaker
 {
-    public class ExtensionsTests
+    public class MatchExtensionsTests
     {
         [Property]
         public Property EnumerableEnumerateForcesEnumeration(int count)

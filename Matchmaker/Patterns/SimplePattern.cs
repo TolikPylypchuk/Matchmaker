@@ -2,17 +2,17 @@ using System;
 using System.Collections.Immutable;
 using System.Linq;
 
-namespace Matchmaker
+namespace Matchmaker.Patterns
 {
     /// <summary>
     /// Represents a general non-transforming pattern.
     /// </summary>
     /// <typeparam name="TInput">The type of the input value of the expression.</typeparam>
     /// <seealso cref="IPattern{TInput, TMatchResult}" />
-    /// <seealso cref="ConditionalPattern{TInput, TMatchResult, TPattern}" />
+    /// <seealso cref="PatternBase{TInput, TMatchResult, TPattern}" />
     /// <seealso cref="Pattern{TInput, TMatchResult}" />
     /// <seealso cref="Pattern" />
-    public sealed class SimplePattern<TInput> : ConditionalPattern<TInput, TInput, SimplePattern<TInput>>
+    public sealed class SimplePattern<TInput> : PatternBase<TInput, TInput, SimplePattern<TInput>>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="SimplePattern{TInput}" /> class
@@ -29,11 +29,31 @@ namespace Matchmaker
 
         /// <summary>
         /// Initializes a new instance of the <see cref="SimplePattern{TInput}" /> class
+        /// with the specified condition.
+        /// </summary>
+        /// <param name="condition">The condition of this pattern.</param>
+        /// <param name="description">The description of this pattern.</param>
+        /// <exception cref="ArgumentNullException">
+        /// <paramref name="condition" /> or <paramref name="description" /> is <see langword="null" />.
+        /// </exception>
+        public SimplePattern(Func<TInput, bool> condition, string description)
+            : base(
+                ImmutableList<Func<TInput, bool>>.Empty.Add(
+                    condition ?? throw new ArgumentNullException(nameof(condition))),
+                description)
+        { }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SimplePattern{TInput}" /> class
         /// with the specified conditions.
         /// </summary>
         /// <param name="conditions">The conditions of this pattern.</param>
-        private SimplePattern(IImmutableList<Func<TInput, bool>> conditions)
-            : base(conditions)
+        /// <param name="description">The description of this pattern.</param>
+        /// <exception cref="ArgumentNullException">
+        /// <paramref name="conditions" /> or <paramref name="description" /> is <see langword="null" />.
+        /// </exception>
+        private SimplePattern(IImmutableList<Func<TInput, bool>> conditions, string description)
+            : base(conditions, description)
         { }
 
         /// <summary>
@@ -59,7 +79,7 @@ namespace Matchmaker
         /// </exception>
         public override SimplePattern<TInput> When(Func<TInput, bool> condition)
             => condition != null
-                ? new SimplePattern<TInput>(this.Conditions.Add(condition))
+                ? new SimplePattern<TInput>(this.Conditions.Add(condition), this.Description)
                 : throw new ArgumentNullException(nameof(condition));
 
         /// <summary>
@@ -77,7 +97,7 @@ namespace Matchmaker
         /// </exception>
         public SimplePattern<TInput> And(SimplePattern<TInput> other)
             => other != null
-                ? new SimplePattern<TInput>(this.Conditions.AddRange(other.Conditions))
+                ? new SimplePattern<TInput>(this.Conditions.AddRange(other.Conditions), this.Description)
                 : throw new ArgumentNullException(nameof(other));
 
         /// <summary>

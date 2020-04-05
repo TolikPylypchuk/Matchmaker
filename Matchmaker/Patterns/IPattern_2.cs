@@ -1,13 +1,15 @@
-namespace Matchmaker
+namespace Matchmaker.Patterns
 {
     /// <summary>
     /// Represents a pattern to match with in a match expression.
     /// </summary>
-    /// <typeparam name="TInput">The type of the input value of the expression.</typeparam>
+    /// <typeparam name="TInput">The type of the input value of the match expression.</typeparam>
     /// <typeparam name="TMatchResult">The type of the result of this pattern's match.</typeparam>
     /// <seealso cref="Pattern{TInput, TMatchResult}" />
     /// <seealso cref="SimplePattern{TInput}" />
     /// <seealso cref="Pattern" />
+    /// <seealso cref="IConditionalPattern{TInput, TMatchResult, TPattern}" />
+    /// <seealso cref="IDescriptivePattern{TInput, TMatchResult}" />
     public interface IPattern<in TInput, TMatchResult> : IPattern<TInput>
     {
         /// <summary>

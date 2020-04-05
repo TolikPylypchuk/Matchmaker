@@ -12,8 +12,8 @@ namespace Matchmaker
         /// <summary>
         /// Initializes a new instance of the <see cref="MatchResult{T}" /> class.
         /// </summary>
-        /// <param name="isSuccessful"></param>
-        /// <param name="value"></param>
+        /// <param name="isSuccessful">The value which indicates whether the match result is successful.</param>
+        /// <param name="value">The value of the result, if it is successful.</param>
         internal MatchResult(bool isSuccessful, T value)
         {
             this.IsSuccessful = isSuccessful;

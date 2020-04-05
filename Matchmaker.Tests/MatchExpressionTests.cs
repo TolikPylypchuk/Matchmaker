@@ -8,6 +8,8 @@ using FluentAssertions;
 using FsCheck;
 using FsCheck.Xunit;
 
+using Matchmaker.Patterns;
+
 using Xunit;
 
 namespace Matchmaker

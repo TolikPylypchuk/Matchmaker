@@ -2,7 +2,9 @@ using System;
 
 using FsCheck;
 
-using static Matchmaker.Pattern;
+using Matchmaker.Patterns;
+
+using static Matchmaker.Patterns.Pattern;
 
 namespace Matchmaker
 {

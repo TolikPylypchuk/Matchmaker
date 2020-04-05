@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Matchmaker
+namespace Matchmaker.Patterns
 {
     /// <summary>
     /// Contains some frequently used patterns.

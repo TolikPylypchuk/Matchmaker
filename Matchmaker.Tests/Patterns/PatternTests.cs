@@ -10,7 +10,7 @@ using FsCheck.Xunit;
 
 using Xunit;
 
-namespace Matchmaker
+namespace Matchmaker.Patterns
 {
     public class PatternTests
     {

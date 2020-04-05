@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Collections.Immutable;
 
+using Matchmaker.Patterns;
+
 namespace Matchmaker
 {
     /// <summary>
