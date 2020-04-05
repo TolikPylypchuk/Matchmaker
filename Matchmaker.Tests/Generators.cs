@@ -17,6 +17,9 @@ namespace Matchmaker
         public static Arbitrary<Func<string, MatchResult<string>>> Matcher()
             => new ArbitraryMatcher();
 
+        public static Arbitrary<MatchResult<string>> Result()
+            => new ArbitraryMatchResult();
+
         private class ArbitrarySimplePattern : Arbitrary<SimplePattern<string>>
         {
             public override Gen<SimplePattern<string>> Generator
@@ -57,6 +60,14 @@ namespace Matchmaker
 
             private Func<string, MatchResult<string>> ResultFromPredicate(Func<string, bool> predicate)
                 => str => predicate(str) ? MatchResult.Success(str) : MatchResult.Failure<string>();
+        }
+
+        private class ArbitraryMatchResult : Arbitrary<MatchResult<string>>
+        {
+            public override Gen<MatchResult<string>> Generator
+                => Gen.Frequency(
+                    Tuple.Create(9, Arb.Default.String().Generator.Select(MatchResult.Success)),
+                    Tuple.Create(1, Gen.Constant(MatchResult.Failure<string>())));
         }
     }
 }

@@ -1,5 +1,7 @@
 using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+
 using FluentAssertions;
 
 using FsCheck;
@@ -115,6 +117,22 @@ namespace Matchmaker
         }
 
         [Property(Arbitrary = new[] { typeof(Generators) })]
+        [SuppressMessage("ReSharper", "IteratorMethodResultIsIgnored")]
+        public Property MatchWithFallthroughShouldBeLazy(Func<string, bool> predicate, string value)
+        {
+            var pattern = new SimplePattern<string>(predicate);
+
+            int count = 0;
+
+            Match.Create<string>(fallthroughByDefault: true)
+                .Case(pattern, _ => count++)
+                .Case(Pattern.Any<string>(), _ => count++)
+                .ExecuteWithFallthrough(value);
+
+            return (count == 0).ToProperty();
+        }
+
+        [Property(Arbitrary = new[] { typeof(Generators) })]
         public Property MatchWithFallthroughFalseShouldMatchPatternsCorrectly(
             Func<string, bool> predicate,
             string value)
@@ -151,7 +169,23 @@ namespace Matchmaker
         }
 
         [Property(Arbitrary = new[] { typeof(Generators) })]
-        public Property MatchWithFallthroughShouldReturn0IfNoMatchFound(string value)
+        [SuppressMessage("ReSharper", "IteratorMethodResultIsIgnored")]
+        public Property MatchWithFallthroughTrueShouldBeLazy(Func<string, bool> predicate, string value)
+        {
+            var pattern = new SimplePattern<string>(predicate);
+
+            int count = 0;
+
+            Match.Create<string>(fallthroughByDefault: false)
+                .Case(pattern, fallthrough: true, _ => count++)
+                .Case(Pattern.Any<string>(), fallthrough: true, _ => count++)
+                .ExecuteWithFallthrough(value);
+
+            return (count == 0).ToProperty();
+        }
+
+        [Property(Arbitrary = new[] { typeof(Generators) })]
+        public Property MatchWithFallthroughShouldReturnEmptyEnumerableIfNoMatchFound(string value)
         {
             var pattern = new SimplePattern<string>(_ => false);
 
@@ -297,7 +331,7 @@ namespace Matchmaker
         }
 
         [Property(Arbitrary = new[] { typeof(Generators) })]
-        public Property MatchToFunctionWithFallthroughShouldReturn0IfNoMatchFound(string value)
+        public Property MatchToFunctionWithFallthroughShouldReturnEmptyEnumerableIfNoMatchFound(string value)
         {
             var pattern = new SimplePattern<string>(_ => false);
 

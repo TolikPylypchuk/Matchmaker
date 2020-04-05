@@ -64,7 +64,7 @@ namespace Matchmaker
         /// <seealso cref="operator ==(MatchResult{T}, MatchResult{T})" />
         /// <seealso cref="operator !=(MatchResult{T}, MatchResult{T})" />
         public bool Equals(MatchResult<T> other)
-            => this.IsSuccessful == other.IsSuccessful && Equals(this.Value, other.Value);
+            => (this.IsSuccessful == other.IsSuccessful) && Equals(this.Value, other.Value);
 
         /// <summary>
         /// Returns the hash code of this match result.
@@ -77,7 +77,7 @@ namespace Matchmaker
         public override int GetHashCode()
             => 13 * 7 +
                this.IsSuccessful.GetHashCode() * 7 +
-               (Equals(this.Value, default) ? this.Value.GetHashCode() : 0) * 7;
+               (!Equals(this.Value, default) ? this.Value.GetHashCode() : 0) * 7;
 
         /// <summary>
         /// Returns the string representation of this match result.

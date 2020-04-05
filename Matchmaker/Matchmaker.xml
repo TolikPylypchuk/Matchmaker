@@ -10,14 +10,14 @@
             </summary>
             <typeparam name="TInput">The type of the input value of the expression.</typeparam>
             <typeparam name="TMatchResult">The type of the result of this pattern's match.</typeparam>
-            <typeparam name="TPattern">The type of the pattern.</typeparam>
+            <typeparam name="TPattern">The actual type of the pattern.</typeparam>
             <seealso cref="T:Matchmaker.IPattern`2" />
             <seealso cref="T:Matchmaker.Pattern`2" />
             <seealso cref="T:Matchmaker.SimplePattern`1" />
         </member>
         <member name="F:Matchmaker.ConditionalPattern`3.Conditions">
             <summary>
-            A list of predicates, which specify the conditions of this pattern.
+            A list of conditions of this pattern.
             </summary>
         </member>
         <member name="M:Matchmaker.ConditionalPattern`3.#ctor">

@@ -8,7 +8,7 @@ namespace Matchmaker
     /// </summary>
     /// <typeparam name="TInput">The type of the input value of the expression.</typeparam>
     /// <typeparam name="TMatchResult">The type of the result of this pattern's match.</typeparam>
-    /// <typeparam name="TPattern">The type of the pattern.</typeparam>
+    /// <typeparam name="TPattern">The actual type of the pattern.</typeparam>
     /// <seealso cref="IPattern{TInput, TMatchResult}" />
     /// <seealso cref="Pattern{TInput, TMatchResult}" />
     /// <seealso cref="SimplePattern{TInput}" />
@@ -16,7 +16,7 @@ namespace Matchmaker
         where TPattern : ConditionalPattern<TInput, TMatchResult, TPattern>
     {
         /// <summary>
-        /// A list of predicates, which specify the conditions of this pattern.
+        /// A list of conditions of this pattern.
         /// </summary>
         protected readonly IImmutableList<Func<TMatchResult, bool>> Conditions;
 
