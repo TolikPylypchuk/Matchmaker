@@ -10,10 +10,12 @@ namespace Matchmaker.Patterns
     /// <typeparam name="TMatchResult">The type of the result of this pattern's match.</typeparam>
     /// <typeparam name="TPattern">The actual type of the pattern.</typeparam>
     /// <seealso cref="IPattern{TInput, TMatchResult}" />
+    /// <seealso cref="IConditionalPattern{TInput, TMatchResult, TPattern}" />
+    /// <seealso cref="IDescribablePattern{TInput, TMatchResult}" />
     /// <seealso cref="Pattern{TInput, TMatchResult}" />
     /// <seealso cref="SimplePattern{TInput}" />
     public abstract class PatternBase<TInput, TMatchResult, TPattern>
-        : IConditionalPattern<TInput, TMatchResult, TPattern>, IDescriptivePattern<TInput, TMatchResult>
+        : IConditionalPattern<TInput, TMatchResult, TPattern>, IDescribablePattern<TInput, TMatchResult>
         where TPattern : PatternBase<TInput, TMatchResult, TPattern>
     {
         /// <summary>

@@ -9,7 +9,8 @@ namespace Matchmaker.Patterns
     /// <seealso cref="SimplePattern{TInput}" />
     /// <seealso cref="Pattern" />
     /// <seealso cref="IConditionalPattern{TInput, TMatchResult, TPattern}" />
-    /// <seealso cref="IDescriptivePattern{TInput, TMatchResult}" />
+    /// <seealso cref="IDescribablePattern{TInput, TMatchResult}" />
+    /// <seealso cref="PatternBase{TInput, TMatchResult, TPattern}" />
     public interface IPattern<in TInput, TMatchResult> : IPattern<TInput>
     {
         /// <summary>

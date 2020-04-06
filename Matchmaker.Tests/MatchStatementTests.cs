@@ -32,7 +32,7 @@ namespace Matchmaker
         [Property(Arbitrary = new[] { typeof(Generators) })]
         public Property MatchShouldMatchPatternsCorrectly(Func<string, bool> predicate, string value)
         {
-            var pattern = new SimplePattern<string>(predicate);
+            var pattern = Pattern.Create(predicate);
             bool matchSuccessful = false;
 
             Match.Create<string>()
@@ -46,7 +46,7 @@ namespace Matchmaker
         [Property(Arbitrary = new[] { typeof(Generators) })]
         public Property StrictMatchShouldMatchPatternsCorrectly(Func<string, bool> predicate, string value)
         {
-            var pattern = new SimplePattern<string>(predicate);
+            var pattern = Pattern.Create(predicate);
             bool matchSuccessful = false;
 
             Match.Create<string>()
@@ -60,7 +60,7 @@ namespace Matchmaker
         [Property(Arbitrary = new[] { typeof(Generators) })]
         public Property MatchShouldReturnFalseIfNoMatchFound(Func<string, bool> predicate, string value)
         {
-            var pattern = new SimplePattern<string>(predicate);
+            var pattern = Pattern.Create(predicate);
 
             bool matched = Match.Create<string>()
                 .Case(pattern, _ => { })
@@ -72,7 +72,7 @@ namespace Matchmaker
         [Property(Arbitrary = new[] { typeof(Generators) })]
         public void MatchShouldNotThrowIfNoMatchFound(Func<string, bool> predicate, string value)
         {
-            var pattern = new SimplePattern<string>(predicate);
+            var pattern = Pattern.Create(predicate);
 
             Action action = () =>
                 Match.Create<string>()
@@ -85,7 +85,7 @@ namespace Matchmaker
         [Property(Arbitrary = new[] { typeof(Generators) })]
         public void StrictMatchShouldThrowIfNoMatchFound(Func<string, bool> predicate, string value)
         {
-            var pattern = new SimplePattern<string>(predicate);
+            var pattern = Pattern.Create(predicate);
 
             Action action = () =>
                 Match.Create<string>()
@@ -104,7 +104,7 @@ namespace Matchmaker
         [Property(Arbitrary = new[] { typeof(Generators) })]
         public Property MatchWithFallthroughShouldMatchPatternsCorrectly(Func<string, bool> predicate, string value)
         {
-            var pattern = new SimplePattern<string>(predicate);
+            var pattern = Pattern.Create(predicate);
             int matchCount = 0;
 
             int result = Match.Create<string>(fallthroughByDefault: true)
@@ -122,7 +122,7 @@ namespace Matchmaker
         [SuppressMessage("ReSharper", "IteratorMethodResultIsIgnored")]
         public Property MatchWithFallthroughShouldBeLazy(Func<string, bool> predicate, string value)
         {
-            var pattern = new SimplePattern<string>(predicate);
+            var pattern = Pattern.Create(predicate);
 
             int count = 0;
 
@@ -139,7 +139,7 @@ namespace Matchmaker
             Func<string, bool> predicate,
             string value)
         {
-            var pattern = new SimplePattern<string>(predicate);
+            var pattern = Pattern.Create(predicate);
             int matchCount = 0;
 
             int result = Match.Create<string>(fallthroughByDefault: true)
@@ -156,7 +156,7 @@ namespace Matchmaker
             Func<string, bool> predicate,
             string value)
         {
-            var pattern = new SimplePattern<string>(predicate);
+            var pattern = Pattern.Create(predicate);
             int matchCount = 0;
 
             int result = Match.Create<string>(fallthroughByDefault: false)
@@ -174,7 +174,7 @@ namespace Matchmaker
         [SuppressMessage("ReSharper", "IteratorMethodResultIsIgnored")]
         public Property MatchWithFallthroughTrueShouldBeLazy(Func<string, bool> predicate, string value)
         {
-            var pattern = new SimplePattern<string>(predicate);
+            var pattern = Pattern.Create(predicate);
 
             int count = 0;
 
@@ -189,7 +189,7 @@ namespace Matchmaker
         [Property(Arbitrary = new[] { typeof(Generators) })]
         public Property MatchWithFallthroughShouldReturnEmptyEnumerableIfNoMatchFound(string value)
         {
-            var pattern = new SimplePattern<string>(_ => false);
+            var pattern = Pattern.Create<string>(_ => false);
 
             int result = Match.Create<string>(fallthroughByDefault: true)
                 .Case(pattern, _ => { })
@@ -204,7 +204,7 @@ namespace Matchmaker
             Func<string, bool> predicate,
             string value)
         {
-            var pattern = new SimplePattern<string>(predicate);
+            var pattern = Pattern.Create(predicate);
             bool matchSuccessful = false;
 
             Match.Create<string>()
@@ -220,7 +220,7 @@ namespace Matchmaker
             Func<string, bool> predicate,
             string value)
         {
-            var pattern = new SimplePattern<string>(predicate);
+            var pattern = Pattern.Create(predicate);
             bool matchSuccessful = false;
 
             Match.Create<string>()
@@ -236,7 +236,7 @@ namespace Matchmaker
             Func<string, bool> predicate,
             string value)
         {
-            var pattern = new SimplePattern<string>(predicate);
+            var pattern = Pattern.Create(predicate);
 
             bool matched = Match.Create<string>()
                 .Case(pattern, _ => { })
@@ -248,7 +248,7 @@ namespace Matchmaker
         [Property(Arbitrary = new[] { typeof(Generators) })]
         public void MatchToFunctionShouldNotThrowIfNoMatchFound(Func<string, bool> predicate, string value)
         {
-            var pattern = new SimplePattern<string>(predicate);
+            var pattern = Pattern.Create(predicate);
 
             Action action = () =>
                 Match.Create<string>()
@@ -261,7 +261,7 @@ namespace Matchmaker
         [Property(Arbitrary = new[] { typeof(Generators) })]
         public void StrictMatchToFunctionShouldThrowIfNoMatchFound(Func<string, bool> predicate, string value)
         {
-            var pattern = new SimplePattern<string>(predicate);
+            var pattern = Pattern.Create(predicate);
 
             Action action = () =>
                 Match.Create<string>()
@@ -282,7 +282,7 @@ namespace Matchmaker
             Func<string, bool> predicate,
             string value)
         {
-            var pattern = new SimplePattern<string>(predicate);
+            var pattern = Pattern.Create(predicate);
             int matchCount = 0;
 
             int result = Match.Create<string>(fallthroughByDefault: true)
@@ -301,7 +301,7 @@ namespace Matchmaker
             Func<string, bool> predicate,
             string value)
         {
-            var pattern = new SimplePattern<string>(predicate);
+            var pattern = Pattern.Create(predicate);
             int matchCount = 0;
 
             int result = Match.Create<string>(fallthroughByDefault: true)
@@ -318,7 +318,7 @@ namespace Matchmaker
             Func<string, bool> predicate,
             string value)
         {
-            var pattern = new SimplePattern<string>(predicate);
+            var pattern = Pattern.Create(predicate);
             int matchCount = 0;
 
             int result = Match.Create<string>(fallthroughByDefault: false)
@@ -335,7 +335,7 @@ namespace Matchmaker
         [Property(Arbitrary = new[] { typeof(Generators) })]
         public Property MatchToFunctionWithFallthroughShouldReturnEmptyEnumerableIfNoMatchFound(string value)
         {
-            var pattern = new SimplePattern<string>(_ => false);
+            var pattern = Pattern.Create<string>(_ => false);
 
             int result = Match.Create<string>(fallthroughByDefault: true)
                 .Case(pattern, _ => { })
@@ -358,7 +358,7 @@ namespace Matchmaker
         [Property(Arbitrary = new[] { typeof(Generators) })]
         public void MatchShouldThrowIfCaseFunctionIsNull(Func<string, bool> predicate)
         {
-            var pattern = new SimplePattern<string>(predicate);
+            var pattern = Pattern.Create(predicate);
 
             Action action = () =>
                 Match.Create<string>()
@@ -394,7 +394,7 @@ namespace Matchmaker
             Func<string, bool> predicate,
             bool fallthrough)
         {
-            var pattern = new SimplePattern<string>(predicate);
+            var pattern = Pattern.Create(predicate);
 
             Action action = () =>
                 Match.Create<string>()

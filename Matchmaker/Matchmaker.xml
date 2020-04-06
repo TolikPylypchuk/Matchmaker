@@ -103,7 +103,7 @@
         </member>
         <member name="M:Matchmaker.MatchResult.Success``1(``0)">
             <summary>
-            Creates a successful match result with the specified value.
+            Returns a successful match result with the specified value.
             </summary>
             <param name="value">The value of the result.</param>
             <returns>A successful match result with the specified value.</returns>
@@ -111,7 +111,7 @@
         </member>
         <member name="M:Matchmaker.MatchResult.Failure``1">
             <summary>
-            Creates a failed match result.
+            Returns a failed match result.
             </summary>
             <returns>A failed match result.</returns>
             <seealso cref="M:Matchmaker.MatchResult.Success``1(``0)" />
@@ -574,7 +574,7 @@
             <typeparam name="TMatchResult">The type of the result of this pattern's match.</typeparam>
             <typeparam name="TPattern">The actual type of the pattern.</typeparam>
             <seealso cref="T:Matchmaker.Patterns.IPattern`2" />
-            <seealso cref="T:Matchmaker.Patterns.IDescriptivePattern`2" />
+            <seealso cref="T:Matchmaker.Patterns.IDescribablePattern`2" />
             <seealso cref="T:Matchmaker.Patterns.Pattern`2" />
             <seealso cref="T:Matchmaker.Patterns.SimplePattern`1" />
         </member>
@@ -588,7 +588,7 @@
             <paramref name="condition" /> is <see langword="null" />.
             </exception>
         </member>
-        <member name="T:Matchmaker.Patterns.IDescriptivePattern`2">
+        <member name="T:Matchmaker.Patterns.IDescribablePattern`2">
             <summary>
             Represents a pattern which has a description.
             </summary>
@@ -602,7 +602,7 @@
             <seealso cref="T:Matchmaker.Patterns.Pattern`2" />
             <seealso cref="T:Matchmaker.Patterns.SimplePattern`1" />
         </member>
-        <member name="P:Matchmaker.Patterns.IDescriptivePattern`2.Description">
+        <member name="P:Matchmaker.Patterns.IDescribablePattern`2.Description">
             <summary>
             Gets the description of this pattern.
             </summary>
@@ -621,6 +621,7 @@
             <see cref="T:Matchmaker.Patterns.IPattern`2" />, so type safety is not compromised.
             </remarks>
             <seealso cref="T:Matchmaker.Patterns.IPattern`2" />
+            <seealso cref="T:Matchmaker.Patterns.PatternBase`3" />
             <seealso cref="T:Matchmaker.Patterns.Pattern`2" />
             <seealso cref="T:Matchmaker.Patterns.SimplePattern`1" />
             <seealso cref="T:Matchmaker.Patterns.Pattern" />
@@ -645,7 +646,8 @@
             <seealso cref="T:Matchmaker.Patterns.SimplePattern`1" />
             <seealso cref="T:Matchmaker.Patterns.Pattern" />
             <seealso cref="T:Matchmaker.Patterns.IConditionalPattern`3" />
-            <seealso cref="T:Matchmaker.Patterns.IDescriptivePattern`2" />
+            <seealso cref="T:Matchmaker.Patterns.IDescribablePattern`2" />
+            <seealso cref="T:Matchmaker.Patterns.PatternBase`3" />
         </member>
         <member name="M:Matchmaker.Patterns.IPattern`2.Match(`0)">
             <summary>
@@ -659,11 +661,79 @@
         </member>
         <member name="T:Matchmaker.Patterns.Pattern">
             <summary>
-            Contains some frequently used patterns.
+            Contains factory methods for creating patterns and some frequently used patterns.
             </summary>
             <seealso cref="T:Matchmaker.Patterns.IPattern`2" />
             <seealso cref="T:Matchmaker.Patterns.Pattern`2" />
             <seealso cref="T:Matchmaker.Patterns.SimplePattern`1" />
+        </member>
+        <member name="M:Matchmaker.Patterns.Pattern.Create``2(System.Func{``0,Matchmaker.MatchResult{``1}})">
+            <summary>
+            Creates a pattern which uses a specified function to match its inputs.
+            </summary>
+            <typeparam name="TInput">The type of the pattern's inputs.</typeparam>
+            <typeparam name="TMatchResult">The type of the pattern's results.</typeparam>
+            <param name="matcher">The function which matches the inputs.</param>
+            <returns>
+            A pattern which matches its inputs according to the specified matcher function.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="matcher" /> is <see langword="null" />.
+            </exception>
+            <seealso cref="M:Matchmaker.Patterns.Pattern.Create``2(System.Func{``0,Matchmaker.MatchResult{``1}},System.String)" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.Create``1(System.Func{``0,System.Boolean})" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.Create``1(System.Func{``0,System.Boolean},System.String)" />
+        </member>
+        <member name="M:Matchmaker.Patterns.Pattern.Create``2(System.Func{``0,Matchmaker.MatchResult{``1}},System.String)">
+            <summary>
+            Creates a pattern which uses a specified function to match its inputs and has a specified description.
+            </summary>
+            <typeparam name="TInput">The type of the pattern's inputs.</typeparam>
+            <typeparam name="TMatchResult">The type of the pattern's results.</typeparam>
+            <param name="matcher">The function which matches the inputs.</param>
+            <param name="description">The pattern's description.</param>
+            <returns>
+            A pattern which matches its inputs according to the specified matcher function.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="matcher" /> or <paramref name="description" /> is <see langword="null" />.
+            </exception>
+            <seealso cref="M:Matchmaker.Patterns.Pattern.Create``2(System.Func{``0,Matchmaker.MatchResult{``1}})" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.Create``1(System.Func{``0,System.Boolean})" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.Create``1(System.Func{``0,System.Boolean},System.String)" />
+        </member>
+        <member name="M:Matchmaker.Patterns.Pattern.Create``1(System.Func{``0,System.Boolean})">
+            <summary>
+            Creates a pattern which uses a specified predicate to match its inputs.
+            </summary>
+            <typeparam name="TInput">The type of the pattern's inputs.</typeparam>
+            <param name="predicate">The predicate which matches the inputs.</param>
+            <returns>
+            A pattern which matches its inputs according to the specified predicate.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="predicate" /> is <see langword="null" />.
+            </exception>
+            <seealso cref="M:Matchmaker.Patterns.Pattern.Create``2(System.Func{``0,Matchmaker.MatchResult{``1}})" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.Create``2(System.Func{``0,Matchmaker.MatchResult{``1}},System.String)" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.Create``1(System.Func{``0,System.Boolean},System.String)" />
+        </member>
+        <member name="M:Matchmaker.Patterns.Pattern.Create``1(System.Func{``0,System.Boolean},System.String)">
+            <summary>
+            Creates a pattern which uses a specified predicate to match its inputs and has a specified description.
+            </summary>
+            <typeparam name="TInput">The type of the pattern's inputs.</typeparam>
+            <param name="predicate">The predicate which matches the inputs.</param>
+            <param name="description">The pattern's description.</param>
+            <returns>
+            A pattern which matches its inputs according to the specified predicate.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="predicate" /> or <paramref name="description" /> is <see langword="null" />.
+            </exception>
+            <seealso cref="M:Matchmaker.Patterns.Pattern.Create``2(System.Func{``0,Matchmaker.MatchResult{``1}})" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.Create``2(System.Func{``0,Matchmaker.MatchResult{``1}},System.String)" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.Create``1(System.Func{``0,System.Boolean})" />
         </member>
         <member name="M:Matchmaker.Patterns.Pattern.Any``1">
             <summary>
@@ -905,12 +975,14 @@
         </member>
         <member name="T:Matchmaker.Patterns.PatternBase`3">
             <summary>
-            Represents a pattern, to which additional conditions may be added.
+            Represents an abstract pattern with conditions and a description.
             </summary>
             <typeparam name="TInput">The type of the input value of the expression.</typeparam>
             <typeparam name="TMatchResult">The type of the result of this pattern's match.</typeparam>
             <typeparam name="TPattern">The actual type of the pattern.</typeparam>
             <seealso cref="T:Matchmaker.Patterns.IPattern`2" />
+            <seealso cref="T:Matchmaker.Patterns.IConditionalPattern`3" />
+            <seealso cref="T:Matchmaker.Patterns.IDescribablePattern`2" />
             <seealso cref="T:Matchmaker.Patterns.Pattern`2" />
             <seealso cref="T:Matchmaker.Patterns.SimplePattern`1" />
         </member>

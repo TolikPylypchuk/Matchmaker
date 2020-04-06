@@ -12,7 +12,7 @@ namespace Matchmaker.Patterns
     /// <seealso cref="IConditionalPattern{TInput, TMatchResult, TPattern}" />
     /// <seealso cref="Pattern{TInput, TMatchResult}" />
     /// <seealso cref="SimplePattern{TInput}" />
-    public interface IDescriptivePattern<in TInput, TMatchResult> : IPattern<TInput, TMatchResult>
+    public interface IDescribablePattern<in TInput, TMatchResult> : IPattern<TInput, TMatchResult>
     {
         /// <summary>
         /// Gets the description of this pattern.

@@ -22,7 +22,7 @@ namespace Matchmaker.Patterns
         /// <exception cref="ArgumentNullException">
         /// <paramref name="condition" /> is <see langword="null" />.
         /// </exception>
-        public SimplePattern(Func<TInput, bool> condition)
+        internal SimplePattern(Func<TInput, bool> condition)
             : base(ImmutableList<Func<TInput, bool>>.Empty.Add(
                 condition ?? throw new ArgumentNullException(nameof(condition))))
         { }
@@ -36,7 +36,7 @@ namespace Matchmaker.Patterns
         /// <exception cref="ArgumentNullException">
         /// <paramref name="condition" /> or <paramref name="description" /> is <see langword="null" />.
         /// </exception>
-        public SimplePattern(Func<TInput, bool> condition, string description)
+        internal SimplePattern(Func<TInput, bool> condition, string description)
             : base(
                 ImmutableList<Func<TInput, bool>>.Empty.Add(
                     condition ?? throw new ArgumentNullException(nameof(condition))),

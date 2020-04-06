@@ -28,7 +28,7 @@ namespace Matchmaker.Patterns
         /// <exception cref="ArgumentNullException">
         /// <paramref name="matcher" /> is <see langword="null" />.
         /// </exception>
-        public Pattern(Func<TInput, MatchResult<TMatchResult>> matcher)
+        internal Pattern(Func<TInput, MatchResult<TMatchResult>> matcher)
             => this.matcher = matcher ?? throw new ArgumentNullException(nameof(matcher));
 
         /// <summary>
@@ -40,7 +40,7 @@ namespace Matchmaker.Patterns
         /// <exception cref="ArgumentNullException">
         /// <paramref name="matcher" /> or <paramref name="description" /> is <see langword="null" />.
         /// </exception>
-        public Pattern(Func<TInput, MatchResult<TMatchResult>> matcher, string description)
+        internal Pattern(Func<TInput, MatchResult<TMatchResult>> matcher, string description)
             : base(description)
             => this.matcher = matcher ?? throw new ArgumentNullException(nameof(matcher));
 

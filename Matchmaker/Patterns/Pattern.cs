@@ -4,13 +4,90 @@ using System.Collections.Generic;
 namespace Matchmaker.Patterns
 {
     /// <summary>
-    /// Contains some frequently used patterns.
+    /// Contains factory methods for creating patterns and some frequently used patterns.
     /// </summary>
     /// <seealso cref="IPattern{TInput, TMatchResult}" />
     /// <seealso cref="Pattern{TInput, TMatchResult}" />
     /// <seealso cref="SimplePattern{TInput}" />
     public static class Pattern
     {
+        /// <summary>
+        /// Creates a pattern which uses a specified function to match its inputs.
+        /// </summary>
+        /// <typeparam name="TInput">The type of the pattern's inputs.</typeparam>
+        /// <typeparam name="TMatchResult">The type of the pattern's results.</typeparam>
+        /// <param name="matcher">The function which matches the inputs.</param>
+        /// <returns>
+        /// A pattern which matches its inputs according to the specified matcher function.
+        /// </returns>
+        /// <exception cref="ArgumentNullException">
+        /// <paramref name="matcher" /> is <see langword="null" />.
+        /// </exception>
+        /// <seealso cref="Create{TInput, TMatchResult}(Func{TInput, MatchResult{TMatchResult}}, string)" />
+        /// <seealso cref="Create{TInput}(Func{TInput, bool})" />
+        /// <seealso cref="Create{TInput}(Func{TInput, bool}, string)" />
+        public static Pattern<TInput, TMatchResult> Create<TInput, TMatchResult>(
+            Func<TInput, MatchResult<TMatchResult>> matcher)
+            => new Pattern<TInput, TMatchResult>(matcher);
+
+        /// <summary>
+        /// Creates a pattern which uses a specified function to match its inputs and has a specified description.
+        /// </summary>
+        /// <typeparam name="TInput">The type of the pattern's inputs.</typeparam>
+        /// <typeparam name="TMatchResult">The type of the pattern's results.</typeparam>
+        /// <param name="matcher">The function which matches the inputs.</param>
+        /// <param name="description">The pattern's description.</param>
+        /// <returns>
+        /// A pattern which matches its inputs according to the specified matcher function.
+        /// </returns>
+        /// <exception cref="ArgumentNullException">
+        /// <paramref name="matcher" /> or <paramref name="description" /> is <see langword="null" />.
+        /// </exception>
+        /// <seealso cref="Create{TInput, TMatchResult}(Func{TInput, MatchResult{TMatchResult}})" />
+        /// <seealso cref="Create{TInput}(Func{TInput, bool})" />
+        /// <seealso cref="Create{TInput}(Func{TInput, bool}, string)" />
+        public static Pattern<TInput, TMatchResult> Create<TInput, TMatchResult>(
+            Func<TInput, MatchResult<TMatchResult>> matcher,
+            string description)
+            => new Pattern<TInput, TMatchResult>(matcher, description);
+
+        /// <summary>
+        /// Creates a pattern which uses a specified predicate to match its inputs.
+        /// </summary>
+        /// <typeparam name="TInput">The type of the pattern's inputs.</typeparam>
+        /// <param name="predicate">The predicate which matches the inputs.</param>
+        /// <returns>
+        /// A pattern which matches its inputs according to the specified predicate.
+        /// </returns>
+        /// <exception cref="ArgumentNullException">
+        /// <paramref name="predicate" /> is <see langword="null" />.
+        /// </exception>
+        /// <seealso cref="Create{TInput, TMatchResult}(Func{TInput, MatchResult{TMatchResult}})" />
+        /// <seealso cref="Create{TInput, TMatchResult}(Func{TInput, MatchResult{TMatchResult}}, string)" />
+        /// <seealso cref="Create{TInput}(Func{TInput, bool}, string)" />
+        public static SimplePattern<TInput> Create<TInput>(Func<TInput, bool> predicate)
+            => new SimplePattern<TInput>(predicate);
+
+        /// <summary>
+        /// Creates a pattern which uses a specified predicate to match its inputs and has a specified description.
+        /// </summary>
+        /// <typeparam name="TInput">The type of the pattern's inputs.</typeparam>
+        /// <param name="predicate">The predicate which matches the inputs.</param>
+        /// <param name="description">The pattern's description.</param>
+        /// <returns>
+        /// A pattern which matches its inputs according to the specified predicate.
+        /// </returns>
+        /// <exception cref="ArgumentNullException">
+        /// <paramref name="predicate" /> or <paramref name="description" /> is <see langword="null" />.
+        /// </exception>
+        /// <seealso cref="Create{TInput, TMatchResult}(Func{TInput, MatchResult{TMatchResult}})" />
+        /// <seealso cref="Create{TInput, TMatchResult}(Func{TInput, MatchResult{TMatchResult}}, string)" />
+        /// <seealso cref="Create{TInput}(Func{TInput, bool})" />
+        public static SimplePattern<TInput> Create<TInput>(
+            Func<TInput, bool> predicate,
+            string description)
+            => new SimplePattern<TInput>(predicate, description);
+
         /// <summary>
         /// Returns a pattern which is always matched successfully.
         /// </summary>

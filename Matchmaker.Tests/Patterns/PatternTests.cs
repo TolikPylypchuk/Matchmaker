@@ -16,24 +16,112 @@ namespace Matchmaker.Patterns
     {
         [Property(Arbitrary = new[] { typeof(Generators) })]
         public Property SimplePatternShouldMatchSameAsPredicate(Func<string, bool> predicate, string input)
-            => (new SimplePattern<string>(predicate).Match(input).IsSuccessful == predicate(input)).ToProperty();
+            => (Pattern.Create(predicate).Match(input).IsSuccessful == predicate(input)).ToProperty();
 
         [Property(Arbitrary = new[] { typeof(Generators) })]
         public Property PatternShouldMatchSameAsMatcher(Func<string, MatchResult<string>> matcher, string input)
-            => (new Pattern<string, string>(matcher).Match(input) == matcher(input)).ToProperty();
+            => (Pattern.Create(matcher).Match(input) == matcher(input)).ToProperty();
 
-        [Fact]
-        public void SimplePatternConstructorShouldThrowForNull()
+        [Property(Arbitrary = new[] { typeof(Generators) })]
+        public Property SimplePatternShouldHaveCorrectDescription(Func<string, bool> predicate, string description)
         {
-            Action action = () => { var _ = new SimplePattern<string>(null); };
-            action.Should().Throw<ArgumentNullException>();
+            Func<bool> descriptionIsCorrect = () => Pattern.Create(predicate, description).Description == description;
+            return descriptionIsCorrect.When(description != null);
+        }
+
+        [Property(Arbitrary = new[] { typeof(Generators) })]
+        public Property SimplePatternShouldHaveEmptyDescriptionByDefault(Func<string, bool> predicate)
+            => (Pattern.Create(predicate).Description.Length == 0).ToProperty();
+
+        [Property(Arbitrary = new[] { typeof(Generators) })]
+        public Property PatternShouldHaveCorrectDescription(
+            Func<string, MatchResult<string>> matcher,
+            string description)
+        {
+            Func<bool> descriptionIsCorrect = () => Pattern.Create(matcher, description).Description == description;
+            return descriptionIsCorrect.When(description != null);
+        }
+
+        [Property(Arbitrary = new[] { typeof(Generators) })]
+        public Property PatternShouldHaveEmptyDescriptionByDefault(Func<string, MatchResult<string>> matcher)
+            => (Pattern.Create(matcher).Description.Length == 0).ToProperty();
+
+        [Property(Arbitrary = new[] { typeof(Generators) })]
+        public Property SimplePatternToStringShouldReturnToString(Func<string, bool> predicate, string description)
+        {
+            Func<bool> toStringIsCorrect = () => Pattern.Create(predicate, description).ToString() == description;
+            return toStringIsCorrect.When(!String.IsNullOrEmpty(description));
+        }
+
+        [Property(Arbitrary = new[] { typeof(Generators) })]
+        public Property SimplePatternToStringShouldReturnTypeWhenDescriptionIsEmpty(Func<string, bool> predicate)
+            => (Pattern.Create(predicate).ToString() == typeof(SimplePattern<string>).ToString()).ToProperty();
+
+        [Property(Arbitrary = new[] { typeof(Generators) })]
+        public Property PatternToStringShouldReturnToString(
+            Func<string, MatchResult<string>> matcher,
+            string description)
+        {
+            Func<bool> toStringIsCorrect = () => Pattern.Create(matcher, description).ToString() == description;
+            return toStringIsCorrect.When(!String.IsNullOrEmpty(description));
+        }
+
+        [Property(Arbitrary = new[] { typeof(Generators) })]
+        public Property PatternToStringShouldReturnTypeWhenDescriptionIsEmpty(Func<string, MatchResult<string>> matcher)
+            => (Pattern.Create(matcher).ToString() == typeof(Pattern<string, string>).ToString()).ToProperty();
+
+        [Property(Arbitrary = new[] { typeof(Generators) })]
+        public Property SimplePatternCreateShouldNeverReturnNull(Func<string, bool> predicate)
+            => (Pattern.Create(predicate) != null).ToProperty();
+
+        [Property(Arbitrary = new[] { typeof(Generators) })]
+        public Property SimplePatternCreateWithDescriptionShouldNeverReturnNull(
+            Func<string, bool> predicate,
+            string description)
+        {
+            Func<bool> patternIsNotNull = () => Pattern.Create(predicate, description) != null;
+            return patternIsNotNull.When(description != null);
+        }
+
+        [Property(Arbitrary = new[] { typeof(Generators) })]
+        public Property PatternCreateShouldNeverReturnNull(Func<string, MatchResult<string>> matcher)
+            => (Pattern.Create(matcher) != null).ToProperty();
+
+        [Property(Arbitrary = new[] { typeof(Generators) })]
+        public Property PatternCreateWithDescriptionShouldNeverReturnNull(
+            Func<string, MatchResult<string>> matcher,
+            string description)
+        {
+            Func<bool> patternIsNotNull = () => Pattern.Create(matcher, description) != null;
+            return patternIsNotNull.When(description != null);
         }
 
         [Fact]
-        public void PatternConstructorShouldThrowForNull()
+        public void SimplePatternCreateShouldThrowForNullPredicate()
         {
-            Action action = () => { var _ = new Pattern<string, string>(null); };
-            action.Should().Throw<ArgumentNullException>();
+            Action createWithNull = () => Pattern.Create<string>(null);
+            createWithNull.Should().Throw<ArgumentNullException>();
+        }
+
+        [Property(Arbitrary = new[] { typeof(Generators) })]
+        public void SimplePatternCreateShouldThrowForNullDescription(Func<string, bool> predicate)
+        {
+            Action createWithNull = () => Pattern.Create(predicate, null);
+            createWithNull.Should().Throw<ArgumentNullException>();
+        }
+
+        [Fact]
+        public void PatternCreateShouldThrowForNullMatcher()
+        {
+            Action createWithNull = () => Pattern.Create<string, string>(null);
+            createWithNull.Should().Throw<ArgumentNullException>();
+        }
+
+        [Property(Arbitrary = new[] { typeof(Generators) })]
+        public void PatternCreateShouldThrowForNullDescription(Func<string, MatchResult<string>> matcher)
+        {
+            Action createWithNull = () => Pattern.Create(matcher, null);
+            createWithNull.Should().Throw<ArgumentNullException>();
         }
 
         [Property(Arbitrary = new[] { typeof(Generators) })]
@@ -44,7 +132,7 @@ namespace Matchmaker.Patterns
             Func<bool> property = () => predicates
                 .Skip(1)
                 .Aggregate(
-                    new SimplePattern<string>(predicates.First()),
+                    Pattern.Create(predicates.First()),
                     (pattern, predicate) => pattern.When(predicate))
                 .Match(input)
                 .IsSuccessful == predicates.All(predicate => predicate(input));
@@ -69,7 +157,7 @@ namespace Matchmaker.Patterns
 
                 return predicates
                     .Aggregate(
-                        new Pattern<string, string>(matcher),
+                        Pattern.Create(matcher),
                         (pattern, predicate) => pattern.When(predicate))
                     .Match(input) == actualResult;
             };

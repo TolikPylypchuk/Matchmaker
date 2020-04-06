@@ -9,7 +9,7 @@ namespace Matchmaker.Patterns
     /// <typeparam name="TMatchResult">The type of the result of this pattern's match.</typeparam>
     /// <typeparam name="TPattern">The actual type of the pattern.</typeparam>
     /// <seealso cref="IPattern{TInput, TMatchResult}" />
-    /// <seealso cref="IDescriptivePattern{TInput, TMatchResult}" />
+    /// <seealso cref="IDescribablePattern{TInput, TMatchResult}" />
     /// <seealso cref="Pattern{TInput, TMatchResult}" />
     /// <seealso cref="SimplePattern{TInput}" />
     public interface IConditionalPattern<in TInput, TMatchResult, out TPattern> : IPattern<TInput, TMatchResult>
