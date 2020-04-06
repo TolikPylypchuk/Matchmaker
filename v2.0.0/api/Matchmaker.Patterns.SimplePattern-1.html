@@ -85,7 +85,7 @@
   <div classs="implements">
     <h5>Implements</h5>
     <div><a class="xref" href="Matchmaker.Patterns.IConditionalPattern-3.html">IConditionalPattern</a>&lt;TInput, TInput, <a class="xref" href="Matchmaker.Patterns.SimplePattern-1.html">SimplePattern</a>&lt;TInput&gt;&gt;</div>
-    <div><a class="xref" href="Matchmaker.Patterns.IDescriptivePattern-2.html">IDescriptivePattern</a>&lt;TInput, TInput&gt;</div>
+    <div><a class="xref" href="Matchmaker.Patterns.IDescribablePattern-2.html">IDescribablePattern</a>&lt;TInput, TInput&gt;</div>
     <div><a class="xref" href="Matchmaker.Patterns.IPattern-2.html">IPattern</a>&lt;TInput, TInput&gt;</div>
     <div><a class="xref" href="Matchmaker.Patterns.IPattern-1.html">IPattern</a>&lt;TInput&gt;</div>
   </div>
@@ -135,7 +135,7 @@
   <h6><strong>Assembly</strong>: Matchmaker.dll</h6>
   <h5 id="Matchmaker_Patterns_SimplePattern_1_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public sealed class SimplePattern&lt;TInput&gt; : PatternBase&lt;TInput, TInput, SimplePattern&lt;TInput&gt;&gt;, IConditionalPattern&lt;TInput, TInput, SimplePattern&lt;TInput&gt;&gt;, IDescriptivePattern&lt;TInput, TInput&gt;, IPattern&lt;TInput, TInput&gt;, IPattern&lt;TInput&gt;</code></pre>
+    <pre><code class="lang-csharp hljs">public sealed class SimplePattern&lt;TInput&gt; : PatternBase&lt;TInput, TInput, SimplePattern&lt;TInput&gt;&gt;, IConditionalPattern&lt;TInput, TInput, SimplePattern&lt;TInput&gt;&gt;, IDescribablePattern&lt;TInput, TInput&gt;, IPattern&lt;TInput, TInput&gt;, IPattern&lt;TInput&gt;</code></pre>
   </div>
   <h5 class="typeParameters">Type Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -149,116 +149,6 @@
       <tr>
         <td><span class="parametername">TInput</span></td>
         <td><p>The type of the input value of the expression.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h3 id="constructors">Constructors
-  </h3>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Patterns_SimplePattern_1__ctor_System_Func__0_System_Boolean__.md&amp;value=---%0Auid%3A%20Matchmaker.Patterns.SimplePattern%601.%23ctor(System.Func%7B%600%2CSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/Patterns/SimplePattern.cs/#L25">View Source</a>
-  </span>
-  <a id="Matchmaker_Patterns_SimplePattern_1__ctor_" data-uid="Matchmaker.Patterns.SimplePattern`1.#ctor*"></a>
-  <h4 id="Matchmaker_Patterns_SimplePattern_1__ctor_System_Func__0_System_Boolean__" data-uid="Matchmaker.Patterns.SimplePattern`1.#ctor(System.Func{`0,System.Boolean})">SimplePattern(Func&lt;TInput, Boolean&gt;)</h4>
-  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Matchmaker.Patterns.SimplePattern-1.html">SimplePattern&lt;TInput&gt;</a> class
-with the specified condition.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public SimplePattern(Func&lt;TInput, bool&gt; condition)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Func</span>&lt;TInput, <span class="xref">System.Boolean</span>&gt;</td>
-        <td><span class="parametername">condition</span></td>
-        <td><p>The condition of this pattern.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.ArgumentNullException</span></td>
-        <td><p><code data-dev-comment-type="paramref" class="paramref">condition</code> is <span class="xref">null</span>.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Patterns_SimplePattern_1__ctor_System_Func__0_System_Boolean__System_String_.md&amp;value=---%0Auid%3A%20Matchmaker.Patterns.SimplePattern%601.%23ctor(System.Func%7B%600%2CSystem.Boolean%7D%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/Patterns/SimplePattern.cs/#L39">View Source</a>
-  </span>
-  <a id="Matchmaker_Patterns_SimplePattern_1__ctor_" data-uid="Matchmaker.Patterns.SimplePattern`1.#ctor*"></a>
-  <h4 id="Matchmaker_Patterns_SimplePattern_1__ctor_System_Func__0_System_Boolean__System_String_" data-uid="Matchmaker.Patterns.SimplePattern`1.#ctor(System.Func{`0,System.Boolean},System.String)">SimplePattern(Func&lt;TInput, Boolean&gt;, String)</h4>
-  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Matchmaker.Patterns.SimplePattern-1.html">SimplePattern&lt;TInput&gt;</a> class
-with the specified condition.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public SimplePattern(Func&lt;TInput, bool&gt; condition, string description)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Func</span>&lt;TInput, <span class="xref">System.Boolean</span>&gt;</td>
-        <td><span class="parametername">condition</span></td>
-        <td><p>The condition of this pattern.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">description</span></td>
-        <td><p>The description of this pattern.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.ArgumentNullException</span></td>
-        <td><p><code data-dev-comment-type="paramref" class="paramref">condition</code> or <code data-dev-comment-type="paramref" class="paramref">description</code> is <span class="xref">null</span>.</p>
 </td>
       </tr>
     </tbody>
@@ -899,7 +789,7 @@ when the specified pattern is not matched successfully.</p>
       <a class="xref" href="Matchmaker.Patterns.IConditionalPattern-3.html">IConditionalPattern&lt;TInput, TMatchResult, TPattern&gt;</a>
   </div>
   <div>
-      <a class="xref" href="Matchmaker.Patterns.IDescriptivePattern-2.html">IDescriptivePattern&lt;TInput, TMatchResult&gt;</a>
+      <a class="xref" href="Matchmaker.Patterns.IDescribablePattern-2.html">IDescribablePattern&lt;TInput, TMatchResult&gt;</a>
   </div>
   <div>
       <a class="xref" href="Matchmaker.Patterns.IPattern-2.html">IPattern&lt;TInput, TMatchResult&gt;</a>

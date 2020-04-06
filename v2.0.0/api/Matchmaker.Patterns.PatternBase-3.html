@@ -86,7 +86,7 @@
   <div classs="implements">
     <h5>Implements</h5>
     <div><a class="xref" href="Matchmaker.Patterns.IConditionalPattern-3.html">IConditionalPattern</a>&lt;TInput, TMatchResult, TPattern&gt;</div>
-    <div><a class="xref" href="Matchmaker.Patterns.IDescriptivePattern-2.html">IDescriptivePattern</a>&lt;TInput, TMatchResult&gt;</div>
+    <div><a class="xref" href="Matchmaker.Patterns.IDescribablePattern-2.html">IDescribablePattern</a>&lt;TInput, TMatchResult&gt;</div>
     <div><a class="xref" href="Matchmaker.Patterns.IPattern-2.html">IPattern</a>&lt;TInput, TMatchResult&gt;</div>
     <div><a class="xref" href="Matchmaker.Patterns.IPattern-1.html">IPattern</a>&lt;TInput&gt;</div>
   </div>
@@ -115,7 +115,7 @@
   <h6><strong>Assembly</strong>: Matchmaker.dll</h6>
   <h5 id="Matchmaker_Patterns_PatternBase_3_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public abstract class PatternBase&lt;TInput, TMatchResult, TPattern&gt; : IConditionalPattern&lt;TInput, TMatchResult, TPattern&gt;, IDescriptivePattern&lt;TInput, TMatchResult&gt;, IPattern&lt;TInput, TMatchResult&gt;, IPattern&lt;TInput&gt; where TPattern : PatternBase&lt;TInput, TMatchResult, TPattern&gt;</code></pre>
+    <pre><code class="lang-csharp hljs">public abstract class PatternBase&lt;TInput, TMatchResult, TPattern&gt; : IConditionalPattern&lt;TInput, TMatchResult, TPattern&gt;, IDescribablePattern&lt;TInput, TMatchResult&gt;, IPattern&lt;TInput, TMatchResult&gt;, IPattern&lt;TInput&gt; where TPattern : PatternBase&lt;TInput, TMatchResult, TPattern&gt;</code></pre>
   </div>
   <h5 class="typeParameters">Type Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -150,7 +150,7 @@
     <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Patterns_PatternBase_3__ctor.md&amp;value=---%0Auid%3A%20Matchmaker.Patterns.PatternBase%603.%23ctor%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/Patterns/PatternBase.cs/#L28">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/Patterns/PatternBase.cs/#L30">View Source</a>
   </span>
   <a id="Matchmaker_Patterns_PatternBase_3__ctor_" data-uid="Matchmaker.Patterns.PatternBase`3.#ctor*"></a>
   <h4 id="Matchmaker_Patterns_PatternBase_3__ctor" data-uid="Matchmaker.Patterns.PatternBase`3.#ctor">PatternBase()</h4>
@@ -167,7 +167,7 @@ without any conditions.</p>
     <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Patterns_PatternBase_3__ctor_System_Collections_Immutable_IImmutableList_System_Func__1_System_Boolean___.md&amp;value=---%0Auid%3A%20Matchmaker.Patterns.PatternBase%603.%23ctor(System.Collections.Immutable.IImmutableList%7BSystem.Func%7B%601%2CSystem.Boolean%7D%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/Patterns/PatternBase.cs/#L40">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/Patterns/PatternBase.cs/#L42">View Source</a>
   </span>
   <a id="Matchmaker_Patterns_PatternBase_3__ctor_" data-uid="Matchmaker.Patterns.PatternBase`3.#ctor*"></a>
   <h4 id="Matchmaker_Patterns_PatternBase_3__ctor_System_Collections_Immutable_IImmutableList_System_Func__1_System_Boolean___" data-uid="Matchmaker.Patterns.PatternBase`3.#ctor(System.Collections.Immutable.IImmutableList{System.Func{`1,System.Boolean}})">PatternBase(IImmutableList&lt;Func&lt;TMatchResult, Boolean&gt;&gt;)</h4>
@@ -218,7 +218,7 @@ with the specified conditions.</p>
     <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Patterns_PatternBase_3__ctor_System_Collections_Immutable_IImmutableList_System_Func__1_System_Boolean___System_String_.md&amp;value=---%0Auid%3A%20Matchmaker.Patterns.PatternBase%603.%23ctor(System.Collections.Immutable.IImmutableList%7BSystem.Func%7B%601%2CSystem.Boolean%7D%7D%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/Patterns/PatternBase.cs/#L65">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/Patterns/PatternBase.cs/#L67">View Source</a>
   </span>
   <a id="Matchmaker_Patterns_PatternBase_3__ctor_" data-uid="Matchmaker.Patterns.PatternBase`3.#ctor*"></a>
   <h4 id="Matchmaker_Patterns_PatternBase_3__ctor_System_Collections_Immutable_IImmutableList_System_Func__1_System_Boolean___System_String_" data-uid="Matchmaker.Patterns.PatternBase`3.#ctor(System.Collections.Immutable.IImmutableList{System.Func{`1,System.Boolean}},System.String)">PatternBase(IImmutableList&lt;Func&lt;TMatchResult, Boolean&gt;&gt;, String)</h4>
@@ -275,7 +275,7 @@ with the specified conditions and description.</p>
     <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Patterns_PatternBase_3__ctor_System_String_.md&amp;value=---%0Auid%3A%20Matchmaker.Patterns.PatternBase%603.%23ctor(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/Patterns/PatternBase.cs/#L52">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/Patterns/PatternBase.cs/#L54">View Source</a>
   </span>
   <a id="Matchmaker_Patterns_PatternBase_3__ctor_" data-uid="Matchmaker.Patterns.PatternBase`3.#ctor*"></a>
   <h4 id="Matchmaker_Patterns_PatternBase_3__ctor_System_String_" data-uid="Matchmaker.Patterns.PatternBase`3.#ctor(System.String)">PatternBase(String)</h4>
@@ -328,7 +328,7 @@ with the specified description.</p>
     <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Patterns_PatternBase_3_Conditions.md&amp;value=---%0Auid%3A%20Matchmaker.Patterns.PatternBase%603.Conditions%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/Patterns/PatternBase.cs/#L22">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/Patterns/PatternBase.cs/#L24">View Source</a>
   </span>
   <h4 id="Matchmaker_Patterns_PatternBase_3_Conditions" data-uid="Matchmaker.Patterns.PatternBase`3.Conditions">Conditions</h4>
   <div class="markdown level1 summary"><p>A list of conditions of this pattern.</p>
@@ -360,7 +360,7 @@ with the specified description.</p>
     <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Patterns_PatternBase_3_Description.md&amp;value=---%0Auid%3A%20Matchmaker.Patterns.PatternBase%603.Description%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/Patterns/PatternBase.cs/#L74">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/Patterns/PatternBase.cs/#L76">View Source</a>
   </span>
   <a id="Matchmaker_Patterns_PatternBase_3_Description_" data-uid="Matchmaker.Patterns.PatternBase`3.Description*"></a>
   <h4 id="Matchmaker_Patterns_PatternBase_3_Description" data-uid="Matchmaker.Patterns.PatternBase`3.Description">Description</h4>
@@ -393,7 +393,7 @@ with the specified description.</p>
     <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Patterns_PatternBase_3_Match__0_.md&amp;value=---%0Auid%3A%20Matchmaker.Patterns.PatternBase%603.Match(%600)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/Patterns/PatternBase.cs/#L84">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/Patterns/PatternBase.cs/#L86">View Source</a>
   </span>
   <a id="Matchmaker_Patterns_PatternBase_3_Match_" data-uid="Matchmaker.Patterns.PatternBase`3.Match*"></a>
   <h4 id="Matchmaker_Patterns_PatternBase_3_Match__0_" data-uid="Matchmaker.Patterns.PatternBase`3.Match(`0)">Match(TInput)</h4>
@@ -444,7 +444,7 @@ if this match is successful. Otherwise, a failed match result.</p>
     <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Patterns_PatternBase_3_ToString.md&amp;value=---%0Auid%3A%20Matchmaker.Patterns.PatternBase%603.ToString%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/Patterns/PatternBase.cs/#L103">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/Patterns/PatternBase.cs/#L105">View Source</a>
   </span>
   <a id="Matchmaker_Patterns_PatternBase_3_ToString_" data-uid="Matchmaker.Patterns.PatternBase`3.ToString*"></a>
   <h4 id="Matchmaker_Patterns_PatternBase_3_ToString" data-uid="Matchmaker.Patterns.PatternBase`3.ToString">ToString()</h4>
@@ -479,7 +479,7 @@ If it doesn't, then returns the name of this pattern's type.</p>
     <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Patterns_PatternBase_3_When_System_Func__1_System_Boolean__.md&amp;value=---%0Auid%3A%20Matchmaker.Patterns.PatternBase%603.When(System.Func%7B%601%2CSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/Patterns/PatternBase.cs/#L94">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/Patterns/PatternBase.cs/#L96">View Source</a>
   </span>
   <a id="Matchmaker_Patterns_PatternBase_3_When_" data-uid="Matchmaker.Patterns.PatternBase`3.When*"></a>
   <h4 id="Matchmaker_Patterns_PatternBase_3_When_System_Func__1_System_Boolean__" data-uid="Matchmaker.Patterns.PatternBase`3.When(System.Func{`1,System.Boolean})">When(Func&lt;TMatchResult, Boolean&gt;)</h4>
@@ -547,7 +547,7 @@ If it doesn't, then returns the name of this pattern's type.</p>
     <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Patterns_PatternBase_3_Matchmaker_Patterns_IPattern_TInput__Match__0_.md&amp;value=---%0Auid%3A%20Matchmaker.Patterns.PatternBase%603.Matchmaker%23Patterns%23IPattern%7BTInput%7D%23Match(%600)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/Patterns/PatternBase.cs/#L114">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/Patterns/PatternBase.cs/#L116">View Source</a>
   </span>
   <a id="Matchmaker_Patterns_PatternBase_3_Matchmaker_Patterns_IPattern_TInput__Match_" data-uid="Matchmaker.Patterns.PatternBase`3.Matchmaker#Patterns#IPattern{TInput}#Match*"></a>
   <h4 id="Matchmaker_Patterns_PatternBase_3_Matchmaker_Patterns_IPattern_TInput__Match__0_" data-uid="Matchmaker.Patterns.PatternBase`3.Matchmaker#Patterns#IPattern{TInput}#Match(`0)">IPattern&lt;TInput&gt;.Match(TInput)</h4>
@@ -598,7 +598,7 @@ if this match is successful. Otherwise, a failed match result.</p>
       <a class="xref" href="Matchmaker.Patterns.IConditionalPattern-3.html">IConditionalPattern&lt;TInput, TMatchResult, TPattern&gt;</a>
   </div>
   <div>
-      <a class="xref" href="Matchmaker.Patterns.IDescriptivePattern-2.html">IDescriptivePattern&lt;TInput, TMatchResult&gt;</a>
+      <a class="xref" href="Matchmaker.Patterns.IDescribablePattern-2.html">IDescribablePattern&lt;TInput, TMatchResult&gt;</a>
   </div>
   <div>
       <a class="xref" href="Matchmaker.Patterns.IPattern-2.html">IPattern&lt;TInput, TMatchResult&gt;</a>
@@ -609,6 +609,8 @@ if this match is successful. Otherwise, a failed match result.</p>
   <h3 id="seealso">See Also</h3>
   <div class="seealso">
       <div><a class="xref" href="Matchmaker.Patterns.IPattern-2.html">IPattern</a>&lt;TInput, TMatchResult&gt;</div>
+      <div><a class="xref" href="Matchmaker.Patterns.IConditionalPattern-3.html">IConditionalPattern</a>&lt;TInput, TMatchResult, TPattern&gt;</div>
+      <div><a class="xref" href="Matchmaker.Patterns.IDescribablePattern-2.html">IDescribablePattern</a>&lt;TInput, TMatchResult&gt;</div>
       <div><a class="xref" href="Matchmaker.Patterns.Pattern-2.html">Pattern</a>&lt;TInput, TMatchResult&gt;</div>
       <div><a class="xref" href="Matchmaker.Patterns.SimplePattern-1.html">SimplePattern</a>&lt;TInput&gt;</div>
   </div>
@@ -623,7 +625,7 @@ if this match is successful. Otherwise, a failed match result.</p>
                     <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Patterns_PatternBase_3.md&amp;value=---%0Auid%3A%20Matchmaker.Patterns.PatternBase%603%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/Patterns/PatternBase.cs/#L15" class="contribution-link">View Source</a>
+                    <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/Patterns/PatternBase.cs/#L17" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>
