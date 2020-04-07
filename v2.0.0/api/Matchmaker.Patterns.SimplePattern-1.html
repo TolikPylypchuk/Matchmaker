@@ -228,6 +228,83 @@ this and other pattern are matched successfully.</p>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Patterns_SimplePattern_1_And_Matchmaker_Patterns_SimplePattern__0__System_String_.md&amp;value=---%0Auid%3A%20Matchmaker.Patterns.SimplePattern%601.And(Matchmaker.Patterns.SimplePattern%7B%600%7D%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/Patterns/SimplePattern.cs/#L121">View Source</a>
+  </span>
+  <a id="Matchmaker_Patterns_SimplePattern_1_And_" data-uid="Matchmaker.Patterns.SimplePattern`1.And*"></a>
+  <h4 id="Matchmaker_Patterns_SimplePattern_1_And_Matchmaker_Patterns_SimplePattern__0__System_String_" data-uid="Matchmaker.Patterns.SimplePattern`1.And(Matchmaker.Patterns.SimplePattern{`0},System.String)">And(SimplePattern&lt;TInput&gt;, String)</h4>
+  <div class="markdown level1 summary"><p>Returns a pattern which is matched successfully only if both
+this and other pattern are matched successfully.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SimplePattern&lt;TInput&gt; And(SimplePattern&lt;TInput&gt; other, string description)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Matchmaker.Patterns.SimplePattern-1.html">SimplePattern</a>&lt;TInput&gt;</td>
+        <td><span class="parametername">other</span></td>
+        <td><p>The other pattern.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">description</span></td>
+        <td><p>The description of the pattern.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Matchmaker.Patterns.SimplePattern-1.html">SimplePattern</a>&lt;TInput&gt;</td>
+        <td><p>A pattern which is matched successfully only if both
+this and other pattern are matched successfully.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Matchmaker_Patterns_SimplePattern_1_And_Matchmaker_Patterns_SimplePattern__0__System_String__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>This is a short-circuiting operation.</p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.ArgumentNullException</span></td>
+        <td><p><code data-dev-comment-type="paramref" class="paramref">other</code> or <code data-dev-comment-type="paramref" class="paramref">description</code> is <span class="xref">null</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
     <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Patterns_SimplePattern_1_Match__0_.md&amp;value=---%0Auid%3A%20Matchmaker.Patterns.SimplePattern%601.Match(%600)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
@@ -284,7 +361,7 @@ if this match is successful. Otherwise, a failed match result.</p>
     <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Patterns_SimplePattern_1_Or_Matchmaker_Patterns_SimplePattern__0__.md&amp;value=---%0Auid%3A%20Matchmaker.Patterns.SimplePattern%601.Or(Matchmaker.Patterns.SimplePattern%7B%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/Patterns/SimplePattern.cs/#L116">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/Patterns/SimplePattern.cs/#L141">View Source</a>
   </span>
   <a id="Matchmaker_Patterns_SimplePattern_1_Or_" data-uid="Matchmaker.Patterns.SimplePattern`1.Or*"></a>
   <h4 id="Matchmaker_Patterns_SimplePattern_1_Or_Matchmaker_Patterns_SimplePattern__0__" data-uid="Matchmaker.Patterns.SimplePattern`1.Or(Matchmaker.Patterns.SimplePattern{`0})">Or(SimplePattern&lt;TInput&gt;)</h4>
@@ -346,6 +423,83 @@ either this or the other pattern is matched successfully.</p>
       <tr>
         <td><span class="xref">System.ArgumentNullException</span></td>
         <td><p><code data-dev-comment-type="paramref" class="paramref">other</code> is <span class="xref">null</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Patterns_SimplePattern_1_Or_Matchmaker_Patterns_SimplePattern__0__System_String_.md&amp;value=---%0Auid%3A%20Matchmaker.Patterns.SimplePattern%601.Or(Matchmaker.Patterns.SimplePattern%7B%600%7D%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/Patterns/SimplePattern.cs/#L164">View Source</a>
+  </span>
+  <a id="Matchmaker_Patterns_SimplePattern_1_Or_" data-uid="Matchmaker.Patterns.SimplePattern`1.Or*"></a>
+  <h4 id="Matchmaker_Patterns_SimplePattern_1_Or_Matchmaker_Patterns_SimplePattern__0__System_String_" data-uid="Matchmaker.Patterns.SimplePattern`1.Or(Matchmaker.Patterns.SimplePattern{`0},System.String)">Or(SimplePattern&lt;TInput&gt;, String)</h4>
+  <div class="markdown level1 summary"><p>Returns a pattern which is matched successfully if
+either this or the other pattern is matched successfully.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SimplePattern&lt;TInput&gt; Or(SimplePattern&lt;TInput&gt; other, string description)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Matchmaker.Patterns.SimplePattern-1.html">SimplePattern</a>&lt;TInput&gt;</td>
+        <td><span class="parametername">other</span></td>
+        <td><p>The other pattern.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">description</span></td>
+        <td><p>The description of the pattern.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Matchmaker.Patterns.SimplePattern-1.html">SimplePattern</a>&lt;TInput&gt;</td>
+        <td><p>A pattern which is matched successfully if
+either this or the other pattern is matched successfully.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Matchmaker_Patterns_SimplePattern_1_Or_Matchmaker_Patterns_SimplePattern__0__System_String__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>This is a short-circuiting operation.</p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.ArgumentNullException</span></td>
+        <td><p><code data-dev-comment-type="paramref" class="paramref">other</code> or <code data-dev-comment-type="paramref" class="paramref">description</code> is <span class="xref">null</span>.</p>
 </td>
       </tr>
     </tbody>
@@ -423,7 +577,7 @@ either this or the other pattern is matched successfully.</p>
     <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Patterns_SimplePattern_1_Xor_Matchmaker_Patterns_SimplePattern__0__.md&amp;value=---%0Auid%3A%20Matchmaker.Patterns.SimplePattern%601.Xor(Matchmaker.Patterns.SimplePattern%7B%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/Patterns/SimplePattern.cs/#L133">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/Patterns/SimplePattern.cs/#L183">View Source</a>
   </span>
   <a id="Matchmaker_Patterns_SimplePattern_1_Xor_" data-uid="Matchmaker.Patterns.SimplePattern`1.Xor*"></a>
   <h4 id="Matchmaker_Patterns_SimplePattern_1_Xor_Matchmaker_Patterns_SimplePattern__0__" data-uid="Matchmaker.Patterns.SimplePattern`1.Xor(Matchmaker.Patterns.SimplePattern{`0})">Xor(SimplePattern&lt;TInput&gt;)</h4>
@@ -486,6 +640,80 @@ matches with this pattern and the other pattern yield different results.</p>
       </tr>
     </tbody>
   </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Patterns_SimplePattern_1_Xor_Matchmaker_Patterns_SimplePattern__0__System_String_.md&amp;value=---%0Auid%3A%20Matchmaker.Patterns.SimplePattern%601.Xor(Matchmaker.Patterns.SimplePattern%7B%600%7D%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/Patterns/SimplePattern.cs/#L205">View Source</a>
+  </span>
+  <a id="Matchmaker_Patterns_SimplePattern_1_Xor_" data-uid="Matchmaker.Patterns.SimplePattern`1.Xor*"></a>
+  <h4 id="Matchmaker_Patterns_SimplePattern_1_Xor_Matchmaker_Patterns_SimplePattern__0__System_String_" data-uid="Matchmaker.Patterns.SimplePattern`1.Xor(Matchmaker.Patterns.SimplePattern{`0},System.String)">Xor(SimplePattern&lt;TInput&gt;, String)</h4>
+  <div class="markdown level1 summary"><p>Returns a pattern which is matched successfully if
+matches with this pattern and the other pattern yield different results.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SimplePattern&lt;TInput&gt; Xor(SimplePattern&lt;TInput&gt; other, string description)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Matchmaker.Patterns.SimplePattern-1.html">SimplePattern</a>&lt;TInput&gt;</td>
+        <td><span class="parametername">other</span></td>
+        <td><p>The other pattern.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">description</span></td>
+        <td><p>The description of the pattern.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Matchmaker.Patterns.SimplePattern-1.html">SimplePattern</a>&lt;TInput&gt;</td>
+        <td><p>A pattern which is matched successfully if
+matches with this pattern and the other pattern yield different results.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.ArgumentNullException</span></td>
+        <td><p><code data-dev-comment-type="paramref" class="paramref">other</code> or <code data-dev-comment-type="paramref" class="paramref">description</code> is <span class="xref">null</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
   <h3 id="operators">Operators
   </h3>
   <span class="small pull-right mobile-hide">
@@ -493,7 +721,7 @@ matches with this pattern and the other pattern yield different results.</p>
     <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Patterns_SimplePattern_1_op_BitwiseAnd_Matchmaker_Patterns_SimplePattern__0__Matchmaker_Patterns_SimplePattern__0__.md&amp;value=---%0Auid%3A%20Matchmaker.Patterns.SimplePattern%601.op_BitwiseAnd(Matchmaker.Patterns.SimplePattern%7B%600%7D%2CMatchmaker.Patterns.SimplePattern%7B%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/Patterns/SimplePattern.cs/#L152">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/Patterns/SimplePattern.cs/#L226">View Source</a>
   </span>
   <a id="Matchmaker_Patterns_SimplePattern_1_op_BitwiseAnd_" data-uid="Matchmaker.Patterns.SimplePattern`1.op_BitwiseAnd*"></a>
   <h4 id="Matchmaker_Patterns_SimplePattern_1_op_BitwiseAnd_Matchmaker_Patterns_SimplePattern__0__Matchmaker_Patterns_SimplePattern__0__" data-uid="Matchmaker.Patterns.SimplePattern`1.op_BitwiseAnd(Matchmaker.Patterns.SimplePattern{`0},Matchmaker.Patterns.SimplePattern{`0})">BitwiseAnd(SimplePattern&lt;TInput&gt;, SimplePattern&lt;TInput&gt;)</h4>
@@ -570,7 +798,7 @@ the first pattern and the second pattern are matched successfully.</p>
     <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Patterns_SimplePattern_1_op_BitwiseOr_Matchmaker_Patterns_SimplePattern__0__Matchmaker_Patterns_SimplePattern__0__.md&amp;value=---%0Auid%3A%20Matchmaker.Patterns.SimplePattern%601.op_BitwiseOr(Matchmaker.Patterns.SimplePattern%7B%600%7D%2CMatchmaker.Patterns.SimplePattern%7B%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/Patterns/SimplePattern.cs/#L173">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/Patterns/SimplePattern.cs/#L247">View Source</a>
   </span>
   <a id="Matchmaker_Patterns_SimplePattern_1_op_BitwiseOr_" data-uid="Matchmaker.Patterns.SimplePattern`1.op_BitwiseOr*"></a>
   <h4 id="Matchmaker_Patterns_SimplePattern_1_op_BitwiseOr_Matchmaker_Patterns_SimplePattern__0__Matchmaker_Patterns_SimplePattern__0__" data-uid="Matchmaker.Patterns.SimplePattern`1.op_BitwiseOr(Matchmaker.Patterns.SimplePattern{`0},Matchmaker.Patterns.SimplePattern{`0})">BitwiseOr(SimplePattern&lt;TInput&gt;, SimplePattern&lt;TInput&gt;)</h4>
@@ -647,7 +875,7 @@ either the first or the second pattern is matched successfully.</p>
     <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Patterns_SimplePattern_1_op_ExclusiveOr_Matchmaker_Patterns_SimplePattern__0__Matchmaker_Patterns_SimplePattern__0__.md&amp;value=---%0Auid%3A%20Matchmaker.Patterns.SimplePattern%601.op_ExclusiveOr(Matchmaker.Patterns.SimplePattern%7B%600%7D%2CMatchmaker.Patterns.SimplePattern%7B%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/Patterns/SimplePattern.cs/#L193">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/Patterns/SimplePattern.cs/#L267">View Source</a>
   </span>
   <a id="Matchmaker_Patterns_SimplePattern_1_op_ExclusiveOr_" data-uid="Matchmaker.Patterns.SimplePattern`1.op_ExclusiveOr*"></a>
   <h4 id="Matchmaker_Patterns_SimplePattern_1_op_ExclusiveOr_Matchmaker_Patterns_SimplePattern__0__Matchmaker_Patterns_SimplePattern__0__" data-uid="Matchmaker.Patterns.SimplePattern`1.op_ExclusiveOr(Matchmaker.Patterns.SimplePattern{`0},Matchmaker.Patterns.SimplePattern{`0})">ExclusiveOr(SimplePattern&lt;TInput&gt;, SimplePattern&lt;TInput&gt;)</h4>
@@ -721,7 +949,7 @@ matches with the first pattern and the second pattern yield different results.</
     <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Patterns_SimplePattern_1_op_OnesComplement_Matchmaker_Patterns_SimplePattern__0__.md&amp;value=---%0Auid%3A%20Matchmaker.Patterns.SimplePattern%601.op_OnesComplement(Matchmaker.Patterns.SimplePattern%7B%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/Patterns/SimplePattern.cs/#L212">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/Patterns/SimplePattern.cs/#L286">View Source</a>
   </span>
   <a id="Matchmaker_Patterns_SimplePattern_1_op_OnesComplement_" data-uid="Matchmaker.Patterns.SimplePattern`1.op_OnesComplement*"></a>
   <h4 id="Matchmaker_Patterns_SimplePattern_1_op_OnesComplement_Matchmaker_Patterns_SimplePattern__0__" data-uid="Matchmaker.Patterns.SimplePattern`1.op_OnesComplement(Matchmaker.Patterns.SimplePattern{`0})">OnesComplement(SimplePattern&lt;TInput&gt;)</h4>
