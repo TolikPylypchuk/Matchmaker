@@ -667,6 +667,119 @@
             <seealso cref="T:Matchmaker.Patterns.Pattern`2" />
             <seealso cref="T:Matchmaker.Patterns.SimplePattern`1" />
         </member>
+        <member name="F:Matchmaker.Patterns.Pattern.DefaultAnyDescription">
+            <summary>
+            The default description of the 'any' pattern.
+            </summary>
+            <seealso cref="M:Matchmaker.Patterns.Pattern.Any``1" />
+        </member>
+        <member name="F:Matchmaker.Patterns.Pattern.DefaultNullDescription">
+            <summary>
+            The default description of 'null' patterns.
+            </summary>
+            <seealso cref="M:Matchmaker.Patterns.Pattern.Null``1" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.ValueNull``1" />
+        </member>
+        <member name="F:Matchmaker.Patterns.Pattern.DefaultEqualToDescriptionFormat">
+            <summary>
+            The default description of equality patterns.
+            </summary>
+            <seealso cref="M:Matchmaker.Patterns.Pattern.EqualTo``1(``0)" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.EqualTo``1(``0,System.Collections.Generic.IEqualityComparer{``0})" />
+        </member>
+        <member name="F:Matchmaker.Patterns.Pattern.DefaultLazyEqualToDescription">
+            <summary>
+            The default description of lazy equality patterns.
+            </summary>
+            <seealso cref="M:Matchmaker.Patterns.Pattern.EqualTo``1(System.Func{``0})" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.EqualTo``1(System.Func{``0},System.Collections.Generic.IEqualityComparer{``0})" />
+        </member>
+        <member name="F:Matchmaker.Patterns.Pattern.DefaultLessThanDescriptionFormat">
+            <summary>
+            The default description of less-than patterns.
+            </summary>
+            <seealso cref="M:Matchmaker.Patterns.Pattern.LessThan``1(``0)" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.LessThan``1(``0,System.Collections.Generic.IComparer{``0})" />
+        </member>
+        <member name="F:Matchmaker.Patterns.Pattern.DefaultLazyLessThanDescription">
+            <summary>
+            The default description of lazy less-than patterns.
+            </summary>
+            <seealso cref="M:Matchmaker.Patterns.Pattern.LessThan``1(System.Func{``0})" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.LessThan``1(System.Func{``0},System.Collections.Generic.IComparer{``0})" />
+        </member>
+        <member name="F:Matchmaker.Patterns.Pattern.DefaultLessOrEqualDescriptionFormat">
+            <summary>
+            The default description of less-or-equal patterns.
+            </summary>
+            <seealso cref="M:Matchmaker.Patterns.Pattern.LessOrEqual``1(``0)" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.LessOrEqual``1(``0,System.Collections.Generic.IComparer{``0})" />
+        </member>
+        <member name="F:Matchmaker.Patterns.Pattern.DefaultLazyLessOrEqualDescription">
+            <summary>
+            The default description of lazy less-or-equal patterns.
+            </summary>
+            <seealso cref="M:Matchmaker.Patterns.Pattern.LessOrEqual``1(``0)" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.LessOrEqual``1(``0,System.Collections.Generic.IComparer{``0})" />
+        </member>
+        <member name="F:Matchmaker.Patterns.Pattern.DefaultGreaterThanDescriptionFormat">
+            <summary>
+            The default description of greater-than patterns.
+            </summary>
+            <seealso cref="M:Matchmaker.Patterns.Pattern.GreaterThan``1(``0)" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.GreaterThan``1(``0,System.Collections.Generic.IComparer{``0})" />
+        </member>
+        <member name="F:Matchmaker.Patterns.Pattern.DefaultLazyGreaterThanDescription">
+            <summary>
+            The default description of lazy greater-than patterns.
+            </summary>
+            <seealso cref="M:Matchmaker.Patterns.Pattern.GreaterThan``1(System.Func{``0})" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.GreaterThan``1(System.Func{``0},System.Collections.Generic.IComparer{``0})" />
+        </member>
+        <member name="F:Matchmaker.Patterns.Pattern.DefaultGreaterOrEqualDescriptionFormat">
+            <summary>
+            The default description of greater-or-equal patterns.
+            </summary>
+            <seealso cref="M:Matchmaker.Patterns.Pattern.GreaterOrEqual``1(``0)" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.GreaterOrEqual``1(``0,System.Collections.Generic.IComparer{``0})" />
+        </member>
+        <member name="F:Matchmaker.Patterns.Pattern.DefaultLazyGreaterOrEqualDescription">
+            <summary>
+            The default description of lazy greater-or-equal patterns.
+            </summary>
+            <seealso cref="M:Matchmaker.Patterns.Pattern.GreaterOrEqual``1(System.Func{``0})" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.GreaterOrEqual``1(System.Func{``0},System.Collections.Generic.IComparer{``0})" />
+        </member>
+        <member name="F:Matchmaker.Patterns.Pattern.DefaultTypeDescriptionFormat">
+            <summary>
+            The default description of type patterns.
+            </summary>
+            <seealso cref="M:Matchmaker.Patterns.Pattern.Type``2" />
+        </member>
+        <member name="F:Matchmaker.Patterns.Pattern.DefaultAndDescriptionFormat">
+            <summary>
+            The default description of the 'and' pattern combinator.
+            </summary>
+            <seealso cref="M:Matchmaker.Patterns.SimplePattern`1.And(Matchmaker.Patterns.SimplePattern{`0})" />
+        </member>
+        <member name="F:Matchmaker.Patterns.Pattern.DefaultOrDescriptionFormat">
+            <summary>
+            The default description of the 'or' pattern combinator.
+            </summary>
+            <seealso cref="M:Matchmaker.Patterns.SimplePattern`1.Or(Matchmaker.Patterns.SimplePattern{`0})" />
+        </member>
+        <member name="F:Matchmaker.Patterns.Pattern.DefaultXorDescriptionFormat">
+            <summary>
+            The default description of the 'xor' pattern combinator.
+            </summary>
+            <seealso cref="M:Matchmaker.Patterns.SimplePattern`1.Xor(Matchmaker.Patterns.SimplePattern{`0})" />
+        </member>
+        <member name="F:Matchmaker.Patterns.Pattern.DefaultNotDescriptionFormat">
+            <summary>
+            The default description of 'not' patterns.
+            </summary>
+            <seealso cref="M:Matchmaker.Patterns.Pattern.Not``2(Matchmaker.Patterns.IDescribablePattern{``0,``1})" />
+        </member>
         <member name="M:Matchmaker.Patterns.Pattern.Create``2(System.Func{``0,Matchmaker.MatchResult{``1}})">
             <summary>
             Creates a pattern which uses a specified function to match its inputs.
@@ -745,13 +858,43 @@
             This pattern should be used as the default case of a match expression, if one is needed.
             </remarks>
         </member>
+        <member name="M:Matchmaker.Patterns.Pattern.Any``1(System.String)">
+            <summary>
+            Returns a pattern which is always matched successfully.
+            </summary>
+            <typeparam name="TInput">The type of the input value of the expression.</typeparam>
+            <param name="description">The description of the pattern.</param>
+            <returns>A pattern which is always matched successfully.</returns>
+            <remarks>
+            This pattern should be used as the default case of a match expression, if one is needed.
+            </remarks>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="description" /> is <see langword="null" />.
+            </exception>
+        </member>
         <member name="M:Matchmaker.Patterns.Pattern.Null``1">
             <summary>
             Returns a pattern which is matched successfully when the input value is <see langword="null" />.
             </summary>
             <typeparam name="TInput">The type of the input value of the expression.</typeparam>
             <returns>A pattern which is matched successfully when the input value is <see langword="null" />.</returns>
+            <seealso cref="M:Matchmaker.Patterns.Pattern.Null``1(System.String)" />
             <seealso cref="M:Matchmaker.Patterns.Pattern.ValueNull``1" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.ValueNull``1(System.String)" />
+        </member>
+        <member name="M:Matchmaker.Patterns.Pattern.Null``1(System.String)">
+            <summary>
+            Returns a pattern which is matched successfully when the input value is <see langword="null" />.
+            </summary>
+            <typeparam name="TInput">The type of the input value of the expression.</typeparam>
+            <param name="description">The description of the pattern.</param>
+            <returns>A pattern which is matched successfully when the input value is <see langword="null" />.</returns>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="description" /> is <see langword="null" />.
+            </exception>
+            <seealso cref="M:Matchmaker.Patterns.Pattern.Null``1" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.ValueNull``1" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.ValueNull``1(System.String)" />
         </member>
         <member name="M:Matchmaker.Patterns.Pattern.ValueNull``1">
             <summary>
@@ -760,6 +903,22 @@
             <typeparam name="TInput">The type of the input value of the expression.</typeparam>
             <returns>A pattern which is matched successfully when the input value is <see langword="null" />.</returns>
             <seealso cref="M:Matchmaker.Patterns.Pattern.Null``1" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.Null``1(System.String)" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.ValueNull``1(System.String)" />
+        </member>
+        <member name="M:Matchmaker.Patterns.Pattern.ValueNull``1(System.String)">
+            <summary>
+            Returns a pattern which is matched successfully when the input value is <see langword="null" />.
+            </summary>
+            <typeparam name="TInput">The type of the input value of the expression.</typeparam>
+            <param name="description">The description of the pattern.</param>
+            <returns>A pattern which is matched successfully when the input value is <see langword="null" />.</returns>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="description" /> is <see langword="null" />.
+            </exception>
+            <seealso cref="M:Matchmaker.Patterns.Pattern.Null``1" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.Null``1(System.String)" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.ValueNull``1" />
         </member>
         <member name="M:Matchmaker.Patterns.Pattern.EqualTo``1(``0)">
             <summary>
@@ -771,6 +930,12 @@
             A pattern which is matched successfully when the input value is equal to the specified value.
             </returns>
             <seealso cref="M:Matchmaker.Patterns.Pattern.EqualTo``1(System.Func{``0})" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.EqualTo``1(``0,System.Collections.Generic.IEqualityComparer{``0})" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.EqualTo``1(System.Func{``0},System.Collections.Generic.IEqualityComparer{``0})" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.EqualTo``1(``0,System.String)" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.EqualTo``1(System.Func{``0},System.String)" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.EqualTo``1(``0,System.Collections.Generic.IEqualityComparer{``0},System.String)" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.EqualTo``1(System.Func{``0},System.Collections.Generic.IEqualityComparer{``0},System.String)" />
         </member>
         <member name="M:Matchmaker.Patterns.Pattern.EqualTo``1(System.Func{``0})">
             <summary>
@@ -785,6 +950,144 @@
             <paramref name="valueProvider" /> is <see langword="null" />.
             </exception>
             <seealso cref="M:Matchmaker.Patterns.Pattern.EqualTo``1(``0)" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.EqualTo``1(``0,System.Collections.Generic.IEqualityComparer{``0})" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.EqualTo``1(System.Func{``0},System.Collections.Generic.IEqualityComparer{``0})" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.EqualTo``1(``0,System.String)" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.EqualTo``1(System.Func{``0},System.String)" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.EqualTo``1(``0,System.Collections.Generic.IEqualityComparer{``0},System.String)" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.EqualTo``1(System.Func{``0},System.Collections.Generic.IEqualityComparer{``0},System.String)" />
+        </member>
+        <member name="M:Matchmaker.Patterns.Pattern.EqualTo``1(``0,System.Collections.Generic.IEqualityComparer{``0})">
+            <summary>
+            Returns a pattern which is matched successfully when the input value is equal to the specified value
+            according to the specified equality comparer.
+            </summary>
+            <typeparam name="TInput">The type of the input value of the expression.</typeparam>
+            <param name="value">The value to check for equality.</param>
+            <param name="comparer">The equality comparer to use for checking equality.</param>
+            <returns>
+            A pattern which is matched successfully when the input value is equal to the specified value.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="comparer" /> is <see langword="null" />.
+            </exception>
+            <seealso cref="M:Matchmaker.Patterns.Pattern.EqualTo``1(``0)" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.EqualTo``1(System.Func{``0})" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.EqualTo``1(System.Func{``0},System.Collections.Generic.IEqualityComparer{``0})" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.EqualTo``1(``0,System.String)" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.EqualTo``1(System.Func{``0},System.String)" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.EqualTo``1(``0,System.Collections.Generic.IEqualityComparer{``0},System.String)" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.EqualTo``1(System.Func{``0},System.Collections.Generic.IEqualityComparer{``0},System.String)" />
+        </member>
+        <member name="M:Matchmaker.Patterns.Pattern.EqualTo``1(System.Func{``0},System.Collections.Generic.IEqualityComparer{``0})">
+            <summary>
+            Returns a pattern which is matched successfully when the input value is equal to the provided value
+            according to the specified equality comparer.
+            </summary>
+            <typeparam name="TInput">The type of the input value of the expression.</typeparam>
+            <param name="valueProvider">The provider of the value to check for equality.</param>
+            <param name="comparer">The equality comparer to use for checking equality.</param>
+            <returns>
+            A pattern which is matched successfully when the input value is equal to the provided value.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="valueProvider" /> or <paramref name="comparer" /> is <see langword="null" />.
+            </exception>
+            <seealso cref="M:Matchmaker.Patterns.Pattern.EqualTo``1(``0)" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.EqualTo``1(System.Func{``0})" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.EqualTo``1(``0,System.Collections.Generic.IEqualityComparer{``0})" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.EqualTo``1(``0,System.String)" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.EqualTo``1(System.Func{``0},System.String)" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.EqualTo``1(``0,System.Collections.Generic.IEqualityComparer{``0},System.String)" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.EqualTo``1(System.Func{``0},System.Collections.Generic.IEqualityComparer{``0},System.String)" />
+        </member>
+        <member name="M:Matchmaker.Patterns.Pattern.EqualTo``1(``0,System.String)">
+            <summary>
+            Returns a pattern which is matched successfully when the input value is equal to the specified value.
+            </summary>
+            <typeparam name="TInput">The type of the input value of the expression.</typeparam>
+            <param name="value">The value to check for equality.</param>
+            <param name="description">The description of the pattern.</param>
+            <returns>
+            A pattern which is matched successfully when the input value is equal to the specified value.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="description" /> is <see langword="null" />.
+            </exception>
+            <seealso cref="M:Matchmaker.Patterns.Pattern.EqualTo``1(``0)" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.EqualTo``1(System.Func{``0})" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.EqualTo``1(``0,System.Collections.Generic.IEqualityComparer{``0})" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.EqualTo``1(System.Func{``0},System.Collections.Generic.IEqualityComparer{``0})" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.EqualTo``1(System.Func{``0},System.String)" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.EqualTo``1(``0,System.Collections.Generic.IEqualityComparer{``0},System.String)" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.EqualTo``1(System.Func{``0},System.Collections.Generic.IEqualityComparer{``0},System.String)" />
+        </member>
+        <member name="M:Matchmaker.Patterns.Pattern.EqualTo``1(System.Func{``0},System.String)">
+            <summary>
+            Returns a pattern which is matched successfully when the input value is equal to the provided value.
+            </summary>
+            <typeparam name="TInput">The type of the input value of the expression.</typeparam>
+            <param name="valueProvider">The provider of the value to check for equality.</param>
+            <param name="description">The description of the pattern.</param>
+            <returns>
+            A pattern which is matched successfully when the input value is equal to the provided value.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="valueProvider" /> or <paramref name="description" /> is <see langword="null" />.
+            </exception>
+            <seealso cref="M:Matchmaker.Patterns.Pattern.EqualTo``1(``0)" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.EqualTo``1(System.Func{``0})" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.EqualTo``1(``0,System.Collections.Generic.IEqualityComparer{``0})" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.EqualTo``1(System.Func{``0},System.Collections.Generic.IEqualityComparer{``0})" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.EqualTo``1(``0,System.String)" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.EqualTo``1(``0,System.Collections.Generic.IEqualityComparer{``0},System.String)" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.EqualTo``1(System.Func{``0},System.Collections.Generic.IEqualityComparer{``0},System.String)" />
+        </member>
+        <member name="M:Matchmaker.Patterns.Pattern.EqualTo``1(``0,System.Collections.Generic.IEqualityComparer{``0},System.String)">
+            <summary>
+            Returns a pattern which is matched successfully when the input value is equal to the specified value
+            according to the specified equality comparer.
+            </summary>
+            <typeparam name="TInput">The type of the input value of the expression.</typeparam>
+            <param name="value">The value to check for equality.</param>
+            <param name="comparer">The equality comparer to use for checking equality.</param>
+            <param name="description">The description of the pattern.</param>
+            <returns>
+            A pattern which is matched successfully when the input value is equal to the specified value.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="comparer" /> or <paramref name="description" /> is <see langword="null" />.
+            </exception>
+            <seealso cref="M:Matchmaker.Patterns.Pattern.EqualTo``1(``0)" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.EqualTo``1(System.Func{``0})" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.EqualTo``1(``0,System.Collections.Generic.IEqualityComparer{``0})" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.EqualTo``1(System.Func{``0},System.Collections.Generic.IEqualityComparer{``0})" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.EqualTo``1(``0,System.String)" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.EqualTo``1(System.Func{``0},System.String)" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.EqualTo``1(``0,System.Collections.Generic.IEqualityComparer{``0},System.String)" />
+        </member>
+        <member name="M:Matchmaker.Patterns.Pattern.EqualTo``1(System.Func{``0},System.Collections.Generic.IEqualityComparer{``0},System.String)">
+            <summary>
+            Returns a pattern which is matched successfully when the input value is equal to the provided value.
+            </summary>
+            <typeparam name="TInput">The type of the input value of the expression.</typeparam>
+            <param name="valueProvider">The provider of the value to check for equality.</param>
+            <param name="comparer">The equality comparer to use for checking equality.</param>
+            <param name="description">The description of the pattern.</param>
+            <returns>
+            A pattern which is matched successfully when the input value is equal to the provided value.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="valueProvider" />, <paramref name="comparer" /> or <paramref name="description" />
+            is <see langword="null" />.
+            </exception>
+            <seealso cref="M:Matchmaker.Patterns.Pattern.EqualTo``1(``0)" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.EqualTo``1(System.Func{``0})" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.EqualTo``1(``0,System.Collections.Generic.IEqualityComparer{``0})" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.EqualTo``1(System.Func{``0},System.Collections.Generic.IEqualityComparer{``0})" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.EqualTo``1(``0,System.String)" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.EqualTo``1(System.Func{``0},System.String)" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.EqualTo``1(``0,System.Collections.Generic.IEqualityComparer{``0},System.String)" />
         </member>
         <member name="M:Matchmaker.Patterns.Pattern.LessThan``1(``0)">
             <summary>
@@ -796,12 +1099,12 @@
             A pattern which is matched successfully when the input value is less than the specified value.
             </returns>
             <seealso cref="M:Matchmaker.Patterns.Pattern.LessThan``1(System.Func{``0})" />
-            <seealso cref="M:Matchmaker.Patterns.Pattern.LessOrEqual``1(``0)" />
-            <seealso cref="M:Matchmaker.Patterns.Pattern.LessOrEqual``1(System.Func{``0})" />
-            <seealso cref="M:Matchmaker.Patterns.Pattern.GreaterThan``1(``0)" />
-            <seealso cref="M:Matchmaker.Patterns.Pattern.GreaterThan``1(System.Func{``0})" />
-            <seealso cref="M:Matchmaker.Patterns.Pattern.GreaterOrEqual``1(``0)" />
-            <seealso cref="M:Matchmaker.Patterns.Pattern.GreaterOrEqual``1(System.Func{``0})" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.LessThan``1(``0,System.Collections.Generic.IComparer{``0})" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.LessThan``1(System.Func{``0},System.Collections.Generic.IComparer{``0})" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.LessThan``1(``0,System.String)" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.LessThan``1(System.Func{``0},System.String)" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.LessThan``1(``0,System.Collections.Generic.IComparer{``0},System.String)" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.LessThan``1(System.Func{``0},System.Collections.Generic.IComparer{``0},System.String)" />
         </member>
         <member name="M:Matchmaker.Patterns.Pattern.LessThan``1(System.Func{``0})">
             <summary>
@@ -816,53 +1119,319 @@
             <paramref name="valueProvider" /> is <see langword="null" />.
             </exception>
             <seealso cref="M:Matchmaker.Patterns.Pattern.LessThan``1(``0)" />
-            <seealso cref="M:Matchmaker.Patterns.Pattern.LessOrEqual``1(``0)" />
-            <seealso cref="M:Matchmaker.Patterns.Pattern.LessOrEqual``1(System.Func{``0})" />
-            <seealso cref="M:Matchmaker.Patterns.Pattern.GreaterThan``1(``0)" />
-            <seealso cref="M:Matchmaker.Patterns.Pattern.GreaterThan``1(System.Func{``0})" />
-            <seealso cref="M:Matchmaker.Patterns.Pattern.GreaterOrEqual``1(``0)" />
-            <seealso cref="M:Matchmaker.Patterns.Pattern.GreaterOrEqual``1(System.Func{``0})" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.LessThan``1(``0,System.Collections.Generic.IComparer{``0})" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.LessThan``1(System.Func{``0},System.Collections.Generic.IComparer{``0})" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.LessThan``1(``0,System.String)" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.LessThan``1(System.Func{``0},System.String)" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.LessThan``1(``0,System.Collections.Generic.IComparer{``0},System.String)" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.LessThan``1(System.Func{``0},System.Collections.Generic.IComparer{``0},System.String)" />
+        </member>
+        <member name="M:Matchmaker.Patterns.Pattern.LessThan``1(``0,System.Collections.Generic.IComparer{``0})">
+            <summary>
+            Returns a pattern which is matched successfully when the input value is less than the specified value
+            according to the specified comparer.
+            </summary>
+            <typeparam name="TInput">The type of the input value of the expression.</typeparam>
+            <param name="value">The value to compare with.</param>
+            <param name="comparer">The comparer to use for comparison.</param>
+            <returns>
+            A pattern which is matched successfully when the input value is less than the specified value.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="comparer" /> is <see langword="null" />.
+            </exception>
+            <seealso cref="M:Matchmaker.Patterns.Pattern.LessThan``1(``0)" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.LessThan``1(System.Func{``0})" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.LessThan``1(System.Func{``0},System.Collections.Generic.IComparer{``0})" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.LessThan``1(``0,System.String)" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.LessThan``1(System.Func{``0},System.String)" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.LessThan``1(``0,System.Collections.Generic.IComparer{``0},System.String)" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.LessThan``1(System.Func{``0},System.Collections.Generic.IComparer{``0},System.String)" />
+        </member>
+        <member name="M:Matchmaker.Patterns.Pattern.LessThan``1(System.Func{``0},System.Collections.Generic.IComparer{``0})">
+            <summary>
+            Returns a pattern which is matched successfully when the input value is less than the provided value
+            according to the specified comparer.
+            </summary>
+            <typeparam name="TInput">The type of the input value of the expression.</typeparam>
+            <param name="valueProvider">The provider of the value to compare with.</param>
+            <param name="comparer">The comparer to use for comparison.</param>
+            <returns>
+            A pattern which is matched successfully when the input value is less than the provided value.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="valueProvider" /> or <paramref name="comparer" /> is <see langword="null" />.
+            </exception>
+            <seealso cref="M:Matchmaker.Patterns.Pattern.LessThan``1(``0)" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.LessThan``1(System.Func{``0})" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.LessThan``1(``0,System.Collections.Generic.IComparer{``0})" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.LessThan``1(``0,System.String)" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.LessThan``1(System.Func{``0},System.String)" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.LessThan``1(``0,System.Collections.Generic.IComparer{``0},System.String)" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.LessThan``1(System.Func{``0},System.Collections.Generic.IComparer{``0},System.String)" />
+        </member>
+        <member name="M:Matchmaker.Patterns.Pattern.LessThan``1(``0,System.String)">
+            <summary>
+            Returns a pattern which is matched successfully when the input value is less than the specified value.
+            </summary>
+            <typeparam name="TInput">The type of the input value of the expression.</typeparam>
+            <param name="value">The value to compare with.</param>
+            <param name="description">The description of the pattern.</param>
+            <returns>
+            A pattern which is matched successfully when the input value is less than the specified value.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="description" /> is <see langword="null" />.
+            </exception>
+            <seealso cref="M:Matchmaker.Patterns.Pattern.LessThan``1(``0)" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.LessThan``1(System.Func{``0})" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.LessThan``1(``0,System.Collections.Generic.IComparer{``0})" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.LessThan``1(System.Func{``0},System.Collections.Generic.IComparer{``0})" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.LessThan``1(System.Func{``0},System.String)" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.LessThan``1(``0,System.Collections.Generic.IComparer{``0},System.String)" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.LessThan``1(System.Func{``0},System.Collections.Generic.IComparer{``0},System.String)" />
+        </member>
+        <member name="M:Matchmaker.Patterns.Pattern.LessThan``1(System.Func{``0},System.String)">
+            <summary>
+            Returns a pattern which is matched successfully when the input value is less than the provided value.
+            </summary>
+            <typeparam name="TInput">The type of the input value of the expression.</typeparam>
+            <param name="valueProvider">The provider of the value to compare with.</param>
+            <param name="description">The description of the pattern.</param>
+            <returns>
+            A pattern which is matched successfully when the input value is less than the provided value.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="valueProvider" /> or <paramref name="description" /> is <see langword="null" />.
+            </exception>
+            <seealso cref="M:Matchmaker.Patterns.Pattern.LessThan``1(``0)" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.LessThan``1(System.Func{``0})" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.LessThan``1(``0,System.Collections.Generic.IComparer{``0})" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.LessThan``1(System.Func{``0},System.Collections.Generic.IComparer{``0})" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.LessThan``1(``0,System.String)" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.LessThan``1(``0,System.Collections.Generic.IComparer{``0},System.String)" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.LessThan``1(System.Func{``0},System.Collections.Generic.IComparer{``0},System.String)" />
+        </member>
+        <member name="M:Matchmaker.Patterns.Pattern.LessThan``1(``0,System.Collections.Generic.IComparer{``0},System.String)">
+            <summary>
+            Returns a pattern which is matched successfully when the input value is less than the specified value
+            according to the specified comparer.
+            </summary>
+            <typeparam name="TInput">The type of the input value of the expression.</typeparam>
+            <param name="value">The value to compare with.</param>
+            <param name="comparer">The comparer to use for comparison.</param>
+            <param name="description">The description of the pattern.</param>
+            <returns>
+            A pattern which is matched successfully when the input value is less than the specified value.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="comparer" /> or <paramref name="description" /> is <see langword="null" />.
+            </exception>
+            <seealso cref="M:Matchmaker.Patterns.Pattern.LessThan``1(``0)" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.LessThan``1(System.Func{``0})" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.LessThan``1(``0,System.Collections.Generic.IComparer{``0})" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.LessThan``1(System.Func{``0},System.Collections.Generic.IComparer{``0})" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.LessThan``1(``0,System.String)" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.LessThan``1(System.Func{``0},System.String)" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.LessThan``1(System.Func{``0},System.Collections.Generic.IComparer{``0},System.String)" />
+        </member>
+        <member name="M:Matchmaker.Patterns.Pattern.LessThan``1(System.Func{``0},System.Collections.Generic.IComparer{``0},System.String)">
+            <summary>
+            Returns a pattern which is matched successfully when the input value is less than the provided value
+            according to the specified comparer.
+            </summary>
+            <typeparam name="TInput">The type of the input value of the expression.</typeparam>
+            <param name="valueProvider">The provider of the value to compare with.</param>
+            <param name="comparer">The comparer to use for comparison.</param>
+            <param name="description">The description of the pattern.</param>
+            <returns>
+            A pattern which is matched successfully when the input value is less than the provided value.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="valueProvider" />, <paramref name="comparer" /> or <paramref name="description" />
+            is <see langword="null" />.
+            </exception>
+            <seealso cref="M:Matchmaker.Patterns.Pattern.LessThan``1(``0)" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.LessThan``1(System.Func{``0})" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.LessThan``1(``0,System.Collections.Generic.IComparer{``0})" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.LessThan``1(System.Func{``0},System.Collections.Generic.IComparer{``0})" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.LessThan``1(``0,System.String)" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.LessThan``1(System.Func{``0},System.String)" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.LessThan``1(``0,System.Collections.Generic.IComparer{``0},System.String)" />
         </member>
         <member name="M:Matchmaker.Patterns.Pattern.LessOrEqual``1(``0)">
             <summary>
-            Returns a pattern which is matched successfully when the input value
-            is less than or equal to the specified value.
+            Returns a pattern which is matched successfully when the input value is less than or equal
+            to the specified value.
             </summary>
             <typeparam name="TInput">The type of the input value of the expression.</typeparam>
             <param name="value">The value to compare with.</param>
             <returns>
-            A pattern which is matched successfully when the input value
-            is less than or equal to the specified value.
+            A pattern which is matched successfully when the input value is less than or equal to the specified value.
             </returns>
-            <seealso cref="M:Matchmaker.Patterns.Pattern.LessThan``1(``0)" />
-            <seealso cref="M:Matchmaker.Patterns.Pattern.LessThan``1(System.Func{``0})" />
             <seealso cref="M:Matchmaker.Patterns.Pattern.LessOrEqual``1(System.Func{``0})" />
-            <seealso cref="M:Matchmaker.Patterns.Pattern.GreaterThan``1(``0)" />
-            <seealso cref="M:Matchmaker.Patterns.Pattern.GreaterThan``1(System.Func{``0})" />
-            <seealso cref="M:Matchmaker.Patterns.Pattern.GreaterOrEqual``1(``0)" />
-            <seealso cref="M:Matchmaker.Patterns.Pattern.GreaterOrEqual``1(System.Func{``0})" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.LessOrEqual``1(``0,System.Collections.Generic.IComparer{``0})" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.LessOrEqual``1(System.Func{``0},System.Collections.Generic.IComparer{``0})" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.LessOrEqual``1(``0,System.String)" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.LessOrEqual``1(System.Func{``0},System.String)" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.LessOrEqual``1(``0,System.Collections.Generic.IComparer{``0},System.String)" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.LessOrEqual``1(System.Func{``0},System.Collections.Generic.IComparer{``0},System.String)" />
         </member>
         <member name="M:Matchmaker.Patterns.Pattern.LessOrEqual``1(System.Func{``0})">
             <summary>
-            Returns a pattern which is matched successfully when the input value
-            is less than or equal to the provided value.
+            Returns a pattern which is matched successfully when the input value is less than or equal to
+            the provided value.
             </summary>
             <typeparam name="TInput">The type of the input value of the expression.</typeparam>
             <param name="valueProvider">The provider of the value to compare with.</param>
             <returns>
-            A pattern which is matched successfully when the input value
-            is less than or equal to the provided value.
+            A pattern which is matched successfully when the input value is less than or equal to the provided value.
             </returns>
             <exception cref="T:System.ArgumentNullException">
             <paramref name="valueProvider" /> is <see langword="null" />.
             </exception>
-            <seealso cref="M:Matchmaker.Patterns.Pattern.LessThan``1(``0)" />
-            <seealso cref="M:Matchmaker.Patterns.Pattern.LessThan``1(System.Func{``0})" />
             <seealso cref="M:Matchmaker.Patterns.Pattern.LessOrEqual``1(``0)" />
-            <seealso cref="M:Matchmaker.Patterns.Pattern.GreaterThan``1(``0)" />
-            <seealso cref="M:Matchmaker.Patterns.Pattern.GreaterThan``1(System.Func{``0})" />
-            <seealso cref="M:Matchmaker.Patterns.Pattern.GreaterOrEqual``1(``0)" />
-            <seealso cref="M:Matchmaker.Patterns.Pattern.GreaterOrEqual``1(System.Func{``0})" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.LessOrEqual``1(``0,System.Collections.Generic.IComparer{``0})" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.LessOrEqual``1(System.Func{``0},System.Collections.Generic.IComparer{``0})" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.LessOrEqual``1(``0,System.String)" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.LessOrEqual``1(System.Func{``0},System.String)" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.LessOrEqual``1(``0,System.Collections.Generic.IComparer{``0},System.String)" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.LessOrEqual``1(System.Func{``0},System.Collections.Generic.IComparer{``0},System.String)" />
+        </member>
+        <member name="M:Matchmaker.Patterns.Pattern.LessOrEqual``1(``0,System.Collections.Generic.IComparer{``0})">
+            <summary>
+            Returns a pattern which is matched successfully when the input value is less than or equal
+            to the specified value according to the specified comparer.
+            </summary>
+            <typeparam name="TInput">The type of the input value of the expression.</typeparam>
+            <param name="value">The value to compare with.</param>
+            <param name="comparer">The comparer to use for comparison.</param>
+            <returns>
+            A pattern which is matched successfully when the input value is less than or equal to the specified value.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="comparer" /> is <see langword="null" />.
+            </exception>
+            <seealso cref="M:Matchmaker.Patterns.Pattern.LessOrEqual``1(``0)" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.LessOrEqual``1(System.Func{``0})" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.LessOrEqual``1(System.Func{``0},System.Collections.Generic.IComparer{``0})" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.LessOrEqual``1(``0,System.String)" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.LessOrEqual``1(System.Func{``0},System.String)" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.LessOrEqual``1(``0,System.Collections.Generic.IComparer{``0},System.String)" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.LessOrEqual``1(System.Func{``0},System.Collections.Generic.IComparer{``0},System.String)" />
+        </member>
+        <member name="M:Matchmaker.Patterns.Pattern.LessOrEqual``1(System.Func{``0},System.Collections.Generic.IComparer{``0})">
+            <summary>
+            Returns a pattern which is matched successfully when the input value is less than or equal to
+            the provided value according to the specified comparer.
+            </summary>
+            <typeparam name="TInput">The type of the input value of the expression.</typeparam>
+            <param name="valueProvider">The provider of the value to compare with.</param>
+            <param name="comparer">The comparer to use for comparison.</param>
+            <returns>
+            A pattern which is matched successfully when the input value is less than or equal to the provided value.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="valueProvider" /> or <paramref name="comparer" /> is <see langword="null" />.
+            </exception>
+            <seealso cref="M:Matchmaker.Patterns.Pattern.LessOrEqual``1(``0)" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.LessOrEqual``1(System.Func{``0})" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.LessOrEqual``1(``0,System.Collections.Generic.IComparer{``0})" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.LessOrEqual``1(``0,System.String)" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.LessOrEqual``1(System.Func{``0},System.String)" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.LessOrEqual``1(``0,System.Collections.Generic.IComparer{``0},System.String)" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.LessOrEqual``1(System.Func{``0},System.Collections.Generic.IComparer{``0},System.String)" />
+        </member>
+        <member name="M:Matchmaker.Patterns.Pattern.LessOrEqual``1(``0,System.String)">
+            <summary>
+            Returns a pattern which is matched successfully when the input value is less than or equal
+            to the specified value.
+            </summary>
+            <typeparam name="TInput">The type of the input value of the expression.</typeparam>
+            <param name="value">The value to compare with.</param>
+            <param name="description">The description of the pattern.</param>
+            <returns>
+            A pattern which is matched successfully when the input value is less than or equal to the specified value.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="description" /> is <see langword="null" />.
+            </exception>
+            <seealso cref="M:Matchmaker.Patterns.Pattern.LessOrEqual``1(``0)" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.LessOrEqual``1(System.Func{``0})" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.LessOrEqual``1(``0,System.Collections.Generic.IComparer{``0})" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.LessOrEqual``1(System.Func{``0},System.Collections.Generic.IComparer{``0})" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.LessOrEqual``1(System.Func{``0},System.String)" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.LessOrEqual``1(``0,System.Collections.Generic.IComparer{``0},System.String)" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.LessOrEqual``1(System.Func{``0},System.Collections.Generic.IComparer{``0},System.String)" />
+        </member>
+        <member name="M:Matchmaker.Patterns.Pattern.LessOrEqual``1(System.Func{``0},System.String)">
+            <summary>
+            Returns a pattern which is matched successfully when the input value is less than or equal
+            to the provided value.
+            </summary>
+            <typeparam name="TInput">The type of the input value of the expression.</typeparam>
+            <param name="valueProvider">The provider of the value to compare with.</param>
+            <param name="description">The description of the pattern.</param>
+            <returns>
+            A pattern which is matched successfully when the input value is less than or equal to the provided value.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="valueProvider" /> or <paramref name="description" /> is <see langword="null" />.
+            </exception>
+            <seealso cref="M:Matchmaker.Patterns.Pattern.LessOrEqual``1(``0)" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.LessOrEqual``1(System.Func{``0})" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.LessOrEqual``1(``0,System.Collections.Generic.IComparer{``0})" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.LessOrEqual``1(System.Func{``0},System.Collections.Generic.IComparer{``0})" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.LessOrEqual``1(``0,System.String)" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.LessOrEqual``1(``0,System.Collections.Generic.IComparer{``0},System.String)" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.LessOrEqual``1(System.Func{``0},System.Collections.Generic.IComparer{``0},System.String)" />
+        </member>
+        <member name="M:Matchmaker.Patterns.Pattern.LessOrEqual``1(``0,System.Collections.Generic.IComparer{``0},System.String)">
+            <summary>
+            Returns a pattern which is matched successfully when the input value is less than or equal
+            to the specified value according to the specified comparer.
+            </summary>
+            <typeparam name="TInput">The type of the input value of the expression.</typeparam>
+            <param name="value">The value to compare with.</param>
+            <param name="comparer">The comparer to use for comparison.</param>
+            <param name="description">The description of the pattern.</param>
+            <returns>
+            A pattern which is matched successfully when the input value is less than or equal to the specified value.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="comparer" /> or <paramref name="description" /> is <see langword="null" />.
+            </exception>
+            <seealso cref="M:Matchmaker.Patterns.Pattern.LessOrEqual``1(``0)" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.LessOrEqual``1(System.Func{``0})" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.LessOrEqual``1(``0,System.Collections.Generic.IComparer{``0})" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.LessOrEqual``1(System.Func{``0},System.Collections.Generic.IComparer{``0})" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.LessOrEqual``1(``0,System.String)" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.LessOrEqual``1(System.Func{``0},System.String)" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.LessOrEqual``1(System.Func{``0},System.Collections.Generic.IComparer{``0},System.String)" />
+        </member>
+        <member name="M:Matchmaker.Patterns.Pattern.LessOrEqual``1(System.Func{``0},System.Collections.Generic.IComparer{``0},System.String)">
+            <summary>
+            Returns a pattern which is matched successfully when the input value is less than or equal
+            to the provided value according to the specified comparer.
+            </summary>
+            <typeparam name="TInput">The type of the input value of the expression.</typeparam>
+            <param name="valueProvider">The provider of the value to compare with.</param>
+            <param name="comparer">The comparer to use for comparison.</param>
+            <param name="description">The description of the pattern.</param>
+            <returns>
+            A pattern which is matched successfully when the input value is less than or equal to the provided value.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="valueProvider" />, <paramref name="comparer" /> or <paramref name="description" />
+            is <see langword="null" />.
+            </exception>
+            <seealso cref="M:Matchmaker.Patterns.Pattern.LessOrEqual``1(``0)" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.LessOrEqual``1(System.Func{``0})" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.LessOrEqual``1(``0,System.Collections.Generic.IComparer{``0})" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.LessOrEqual``1(System.Func{``0},System.Collections.Generic.IComparer{``0})" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.LessOrEqual``1(``0,System.String)" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.LessOrEqual``1(System.Func{``0},System.String)" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.LessOrEqual``1(``0,System.Collections.Generic.IComparer{``0},System.String)" />
         </member>
         <member name="M:Matchmaker.Patterns.Pattern.GreaterThan``1(``0)">
             <summary>
@@ -873,13 +1442,13 @@
             <returns>
             A pattern which is matched successfully when the input value is greater than the specified value.
             </returns>
-            <seealso cref="M:Matchmaker.Patterns.Pattern.LessThan``1(``0)" />
-            <seealso cref="M:Matchmaker.Patterns.Pattern.LessThan``1(System.Func{``0})" />
-            <seealso cref="M:Matchmaker.Patterns.Pattern.LessOrEqual``1(``0)" />
-            <seealso cref="M:Matchmaker.Patterns.Pattern.LessOrEqual``1(System.Func{``0})" />
             <seealso cref="M:Matchmaker.Patterns.Pattern.GreaterThan``1(System.Func{``0})" />
-            <seealso cref="M:Matchmaker.Patterns.Pattern.GreaterOrEqual``1(``0)" />
-            <seealso cref="M:Matchmaker.Patterns.Pattern.GreaterOrEqual``1(System.Func{``0})" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.GreaterThan``1(``0,System.Collections.Generic.IComparer{``0})" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.GreaterThan``1(System.Func{``0},System.Collections.Generic.IComparer{``0})" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.GreaterThan``1(``0,System.String)" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.GreaterThan``1(System.Func{``0},System.String)" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.GreaterThan``1(``0,System.Collections.Generic.IComparer{``0},System.String)" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.GreaterThan``1(System.Func{``0},System.Collections.Generic.IComparer{``0},System.String)" />
         </member>
         <member name="M:Matchmaker.Patterns.Pattern.GreaterThan``1(System.Func{``0})">
             <summary>
@@ -893,54 +1462,328 @@
             <exception cref="T:System.ArgumentNullException">
             <paramref name="valueProvider" /> is <see langword="null" />.
             </exception>
-            <seealso cref="M:Matchmaker.Patterns.Pattern.LessThan``1(``0)" />
-            <seealso cref="M:Matchmaker.Patterns.Pattern.LessThan``1(System.Func{``0})" />
-            <seealso cref="M:Matchmaker.Patterns.Pattern.LessOrEqual``1(``0)" />
-            <seealso cref="M:Matchmaker.Patterns.Pattern.LessOrEqual``1(System.Func{``0})" />
             <seealso cref="M:Matchmaker.Patterns.Pattern.GreaterThan``1(``0)" />
-            <seealso cref="M:Matchmaker.Patterns.Pattern.GreaterOrEqual``1(``0)" />
-            <seealso cref="M:Matchmaker.Patterns.Pattern.GreaterOrEqual``1(System.Func{``0})" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.GreaterThan``1(``0,System.Collections.Generic.IComparer{``0})" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.GreaterThan``1(System.Func{``0},System.Collections.Generic.IComparer{``0})" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.GreaterThan``1(``0,System.String)" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.GreaterThan``1(System.Func{``0},System.String)" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.GreaterThan``1(``0,System.Collections.Generic.IComparer{``0},System.String)" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.GreaterThan``1(System.Func{``0},System.Collections.Generic.IComparer{``0},System.String)" />
+        </member>
+        <member name="M:Matchmaker.Patterns.Pattern.GreaterThan``1(``0,System.Collections.Generic.IComparer{``0})">
+            <summary>
+            Returns a pattern which is matched successfully when the input value is greater than the specified value
+            according to the specified comparer.
+            </summary>
+            <typeparam name="TInput">The type of the input value of the expression.</typeparam>
+            <param name="value">The value to compare with.</param>
+            <param name="comparer">The comparer to use for comparison.</param>
+            <returns>
+            A pattern which is matched successfully when the input value is greater than the specified value.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="comparer" /> is <see langword="null" />.
+            </exception>
+            <seealso cref="M:Matchmaker.Patterns.Pattern.GreaterThan``1(``0)" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.GreaterThan``1(System.Func{``0})" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.GreaterThan``1(System.Func{``0},System.Collections.Generic.IComparer{``0})" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.GreaterThan``1(``0,System.String)" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.GreaterThan``1(System.Func{``0},System.String)" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.GreaterThan``1(``0,System.Collections.Generic.IComparer{``0},System.String)" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.GreaterThan``1(System.Func{``0},System.Collections.Generic.IComparer{``0},System.String)" />
+        </member>
+        <member name="M:Matchmaker.Patterns.Pattern.GreaterThan``1(System.Func{``0},System.Collections.Generic.IComparer{``0})">
+            <summary>
+            Returns a pattern which is matched successfully when the input value is greater than the provided value
+            according to the specified comparer.
+            </summary>
+            <typeparam name="TInput">The type of the input value of the expression.</typeparam>
+            <param name="valueProvider">The provider of the value to compare with.</param>
+            <param name="comparer">The comparer to use for comparison.</param>
+            <returns>
+            A pattern which is matched successfully when the input value is greater than the provided value.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="valueProvider" /> or <paramref name="comparer" /> is <see langword="null" />.
+            </exception>
+            <seealso cref="M:Matchmaker.Patterns.Pattern.GreaterThan``1(``0)" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.GreaterThan``1(System.Func{``0})" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.GreaterThan``1(``0,System.Collections.Generic.IComparer{``0})" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.GreaterThan``1(``0,System.String)" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.GreaterThan``1(System.Func{``0},System.String)" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.GreaterThan``1(``0,System.Collections.Generic.IComparer{``0},System.String)" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.GreaterThan``1(System.Func{``0},System.Collections.Generic.IComparer{``0},System.String)" />
+        </member>
+        <member name="M:Matchmaker.Patterns.Pattern.GreaterThan``1(``0,System.String)">
+            <summary>
+            Returns a pattern which is matched successfully when the input value is greater than the specified value.
+            </summary>
+            <typeparam name="TInput">The type of the input value of the expression.</typeparam>
+            <param name="value">The value to compare with.</param>
+            <param name="description">The description of the pattern.</param>
+            <returns>
+            A pattern which is matched successfully when the input value is greater than the specified value.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="description" /> is <see langword="null" />.
+            </exception>
+            <seealso cref="M:Matchmaker.Patterns.Pattern.GreaterThan``1(``0)" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.GreaterThan``1(System.Func{``0})" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.GreaterThan``1(``0,System.Collections.Generic.IComparer{``0})" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.GreaterThan``1(System.Func{``0},System.Collections.Generic.IComparer{``0})" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.GreaterThan``1(System.Func{``0},System.String)" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.GreaterThan``1(``0,System.Collections.Generic.IComparer{``0},System.String)" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.GreaterThan``1(System.Func{``0},System.Collections.Generic.IComparer{``0},System.String)" />
+        </member>
+        <member name="M:Matchmaker.Patterns.Pattern.GreaterThan``1(System.Func{``0},System.String)">
+            <summary>
+            Returns a pattern which is matched successfully when the input value is greater than the provided value.
+            </summary>
+            <typeparam name="TInput">The type of the input value of the expression.</typeparam>
+            <param name="valueProvider">The provider of the value to compare with.</param>
+            <param name="description">The description of the pattern.</param>
+            <returns>
+            A pattern which is matched successfully when the input value is greater than the provided value.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="valueProvider" /> or <paramref name="description" /> is <see langword="null" />.
+            </exception>
+            <seealso cref="M:Matchmaker.Patterns.Pattern.GreaterThan``1(``0)" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.GreaterThan``1(System.Func{``0})" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.GreaterThan``1(``0,System.Collections.Generic.IComparer{``0})" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.GreaterThan``1(System.Func{``0},System.Collections.Generic.IComparer{``0})" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.GreaterThan``1(``0,System.String)" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.GreaterThan``1(``0,System.Collections.Generic.IComparer{``0},System.String)" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.GreaterThan``1(System.Func{``0},System.Collections.Generic.IComparer{``0},System.String)" />
+        </member>
+        <member name="M:Matchmaker.Patterns.Pattern.GreaterThan``1(``0,System.Collections.Generic.IComparer{``0},System.String)">
+            <summary>
+            Returns a pattern which is matched successfully when the input value is greater than the specified value
+            according to the specified comparer.
+            </summary>
+            <typeparam name="TInput">The type of the input value of the expression.</typeparam>
+            <param name="value">The value to compare with.</param>
+            <param name="comparer">The comparer to use for comparison.</param>
+            <param name="description">The description of the pattern.</param>
+            <returns>
+            A pattern which is matched successfully when the input value is greater than the specified value.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="comparer" /> or <paramref name="description" /> is <see langword="null" />.
+            </exception>
+            <seealso cref="M:Matchmaker.Patterns.Pattern.GreaterThan``1(``0)" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.GreaterThan``1(System.Func{``0})" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.GreaterThan``1(``0,System.Collections.Generic.IComparer{``0})" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.GreaterThan``1(System.Func{``0},System.Collections.Generic.IComparer{``0})" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.GreaterThan``1(``0,System.String)" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.GreaterThan``1(System.Func{``0},System.String)" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.GreaterThan``1(System.Func{``0},System.Collections.Generic.IComparer{``0},System.String)" />
+        </member>
+        <member name="M:Matchmaker.Patterns.Pattern.GreaterThan``1(System.Func{``0},System.Collections.Generic.IComparer{``0},System.String)">
+            <summary>
+            Returns a pattern which is matched successfully when the input value is greater than the provided value
+            according to the specified comparer.
+            </summary>
+            <typeparam name="TInput">The type of the input value of the expression.</typeparam>
+            <param name="valueProvider">The provider of the value to compare with.</param>
+            <param name="comparer">The comparer to use for comparison.</param>
+            <param name="description">The description of the pattern.</param>
+            <returns>
+            A pattern which is matched successfully when the input value is greater than the provided value.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="valueProvider" />, <paramref name="comparer" /> or <paramref name="description" />
+            is <see langword="null" />.
+            </exception>
+            <seealso cref="M:Matchmaker.Patterns.Pattern.GreaterThan``1(``0)" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.GreaterThan``1(System.Func{``0})" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.GreaterThan``1(``0,System.Collections.Generic.IComparer{``0})" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.GreaterThan``1(System.Func{``0},System.Collections.Generic.IComparer{``0})" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.GreaterThan``1(``0,System.String)" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.GreaterThan``1(System.Func{``0},System.String)" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.GreaterThan``1(``0,System.Collections.Generic.IComparer{``0},System.String)" />
         </member>
         <member name="M:Matchmaker.Patterns.Pattern.GreaterOrEqual``1(``0)">
             <summary>
-            Returns a pattern which is matched successfully when the input value
-            is greater than or equal to the specified value.
+            Returns a pattern which is matched successfully when the input value is greater than or equal
+            to the specified value.
             </summary>
             <typeparam name="TInput">The type of the input value of the expression.</typeparam>
             <param name="value">The value to compare with.</param>
             <returns>
-            A pattern which is matched successfully when the input value
-            is greater than or equal to the specified value.
+            A pattern which is matched successfully when the input value is greater than
+            or equal to the specified value.
             </returns>
-            <seealso cref="M:Matchmaker.Patterns.Pattern.LessThan``1(``0)" />
-            <seealso cref="M:Matchmaker.Patterns.Pattern.LessThan``1(System.Func{``0})" />
-            <seealso cref="M:Matchmaker.Patterns.Pattern.LessOrEqual``1(``0)" />
-            <seealso cref="M:Matchmaker.Patterns.Pattern.LessOrEqual``1(System.Func{``0})" />
-            <seealso cref="M:Matchmaker.Patterns.Pattern.GreaterThan``1(``0)" />
-            <seealso cref="M:Matchmaker.Patterns.Pattern.GreaterThan``1(System.Func{``0})" />
             <seealso cref="M:Matchmaker.Patterns.Pattern.GreaterOrEqual``1(System.Func{``0})" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.GreaterOrEqual``1(``0,System.Collections.Generic.IComparer{``0})" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.GreaterOrEqual``1(System.Func{``0},System.Collections.Generic.IComparer{``0})" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.GreaterOrEqual``1(``0,System.String)" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.GreaterOrEqual``1(System.Func{``0},System.String)" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.GreaterOrEqual``1(``0,System.Collections.Generic.IComparer{``0},System.String)" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.GreaterOrEqual``1(System.Func{``0},System.Collections.Generic.IComparer{``0},System.String)" />
         </member>
         <member name="M:Matchmaker.Patterns.Pattern.GreaterOrEqual``1(System.Func{``0})">
             <summary>
-            Returns a pattern which is matched successfully when the input value
-            is greater than or equal to the provided value.
+            Returns a pattern which is matched successfully when the input value is greater than or equal to
+            the provided value.
             </summary>
             <typeparam name="TInput">The type of the input value of the expression.</typeparam>
             <param name="valueProvider">The provider of the value to compare with.</param>
             <returns>
-            A pattern which is matched successfully when the input value
-            is greater than or equal to the provided value.
+            A pattern which is matched successfully when the input value is greater than
+            or equal to the provided value.
             </returns>
             <exception cref="T:System.ArgumentNullException">
             <paramref name="valueProvider" /> is <see langword="null" />.
             </exception>
-            <seealso cref="M:Matchmaker.Patterns.Pattern.LessThan``1(``0)" />
-            <seealso cref="M:Matchmaker.Patterns.Pattern.LessThan``1(System.Func{``0})" />
-            <seealso cref="M:Matchmaker.Patterns.Pattern.LessOrEqual``1(``0)" />
-            <seealso cref="M:Matchmaker.Patterns.Pattern.LessOrEqual``1(System.Func{``0})" />
-            <seealso cref="M:Matchmaker.Patterns.Pattern.GreaterThan``1(``0)" />
-            <seealso cref="M:Matchmaker.Patterns.Pattern.GreaterThan``1(System.Func{``0})" />
             <seealso cref="M:Matchmaker.Patterns.Pattern.GreaterOrEqual``1(``0)" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.GreaterOrEqual``1(``0,System.Collections.Generic.IComparer{``0})" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.GreaterOrEqual``1(System.Func{``0},System.Collections.Generic.IComparer{``0})" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.GreaterOrEqual``1(``0,System.String)" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.GreaterOrEqual``1(System.Func{``0},System.String)" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.GreaterOrEqual``1(``0,System.Collections.Generic.IComparer{``0},System.String)" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.GreaterOrEqual``1(System.Func{``0},System.Collections.Generic.IComparer{``0},System.String)" />
+        </member>
+        <member name="M:Matchmaker.Patterns.Pattern.GreaterOrEqual``1(``0,System.Collections.Generic.IComparer{``0})">
+            <summary>
+            Returns a pattern which is matched successfully when the input value is greater than or equal
+            to the specified value according to the specified comparer.
+            </summary>
+            <typeparam name="TInput">The type of the input value of the expression.</typeparam>
+            <param name="value">The value to compare with.</param>
+            <param name="comparer">The comparer to use for comparison.</param>
+            <returns>
+            A pattern which is matched successfully when the input value is greater than
+            or equal to the specified value.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="comparer" /> is <see langword="null" />.
+            </exception>
+            <seealso cref="M:Matchmaker.Patterns.Pattern.GreaterOrEqual``1(``0)" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.GreaterOrEqual``1(System.Func{``0})" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.GreaterOrEqual``1(System.Func{``0},System.Collections.Generic.IComparer{``0})" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.GreaterOrEqual``1(``0,System.String)" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.GreaterOrEqual``1(System.Func{``0},System.String)" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.GreaterOrEqual``1(``0,System.Collections.Generic.IComparer{``0},System.String)" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.GreaterOrEqual``1(System.Func{``0},System.Collections.Generic.IComparer{``0},System.String)" />
+        </member>
+        <member name="M:Matchmaker.Patterns.Pattern.GreaterOrEqual``1(System.Func{``0},System.Collections.Generic.IComparer{``0})">
+            <summary>
+            Returns a pattern which is matched successfully when the input value is greater than or equal to
+            the provided value according to the specified comparer.
+            </summary>
+            <typeparam name="TInput">The type of the input value of the expression.</typeparam>
+            <param name="valueProvider">The provider of the value to compare with.</param>
+            <param name="comparer">The comparer to use for comparison.</param>
+            <returns>
+            A pattern which is matched successfully when the input value is greater than
+            or equal to the provided value.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="valueProvider" /> or <paramref name="comparer" /> is <see langword="null" />.
+            </exception>
+            <seealso cref="M:Matchmaker.Patterns.Pattern.GreaterOrEqual``1(``0)" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.GreaterOrEqual``1(System.Func{``0})" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.GreaterOrEqual``1(``0,System.Collections.Generic.IComparer{``0})" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.GreaterOrEqual``1(``0,System.String)" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.GreaterOrEqual``1(System.Func{``0},System.String)" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.GreaterOrEqual``1(``0,System.Collections.Generic.IComparer{``0},System.String)" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.GreaterOrEqual``1(System.Func{``0},System.Collections.Generic.IComparer{``0},System.String)" />
+        </member>
+        <member name="M:Matchmaker.Patterns.Pattern.GreaterOrEqual``1(``0,System.String)">
+            <summary>
+            Returns a pattern which is matched successfully when the input value is greater than or equal
+            to the specified value.
+            </summary>
+            <typeparam name="TInput">The type of the input value of the expression.</typeparam>
+            <param name="value">The value to compare with.</param>
+            <param name="description">The description of the pattern.</param>
+            <returns>
+            A pattern which is matched successfully when the input value is greater than
+            or equal to the specified value.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="description" /> is <see langword="null" />.
+            </exception>
+            <seealso cref="M:Matchmaker.Patterns.Pattern.GreaterOrEqual``1(``0)" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.GreaterOrEqual``1(System.Func{``0})" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.GreaterOrEqual``1(``0,System.Collections.Generic.IComparer{``0})" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.GreaterOrEqual``1(System.Func{``0},System.Collections.Generic.IComparer{``0})" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.GreaterOrEqual``1(System.Func{``0},System.String)" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.GreaterOrEqual``1(``0,System.Collections.Generic.IComparer{``0},System.String)" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.GreaterOrEqual``1(System.Func{``0},System.Collections.Generic.IComparer{``0},System.String)" />
+        </member>
+        <member name="M:Matchmaker.Patterns.Pattern.GreaterOrEqual``1(System.Func{``0},System.String)">
+            <summary>
+            Returns a pattern which is matched successfully when the input value is greater than or equal
+            to the provided value.
+            </summary>
+            <typeparam name="TInput">The type of the input value of the expression.</typeparam>
+            <param name="valueProvider">The provider of the value to compare with.</param>
+            <param name="description">The description of the pattern.</param>
+            <returns>
+            A pattern which is matched successfully when the input value is greater than
+            or equal to the provided value.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="valueProvider" /> or <paramref name="description" /> is <see langword="null" />.
+            </exception>
+            <seealso cref="M:Matchmaker.Patterns.Pattern.GreaterOrEqual``1(``0)" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.GreaterOrEqual``1(System.Func{``0})" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.GreaterOrEqual``1(``0,System.Collections.Generic.IComparer{``0})" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.GreaterOrEqual``1(System.Func{``0},System.Collections.Generic.IComparer{``0})" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.GreaterOrEqual``1(``0,System.String)" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.GreaterOrEqual``1(``0,System.Collections.Generic.IComparer{``0},System.String)" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.GreaterOrEqual``1(System.Func{``0},System.Collections.Generic.IComparer{``0},System.String)" />
+        </member>
+        <member name="M:Matchmaker.Patterns.Pattern.GreaterOrEqual``1(``0,System.Collections.Generic.IComparer{``0},System.String)">
+            <summary>
+            Returns a pattern which is matched successfully when the input value is greater than or equal
+            to the specified value according to the specified comparer.
+            </summary>
+            <typeparam name="TInput">The type of the input value of the expression.</typeparam>
+            <param name="value">The value to compare with.</param>
+            <param name="comparer">The comparer to use for comparison.</param>
+            <param name="description">The description of the pattern.</param>
+            <returns>
+            A pattern which is matched successfully when the input value is greater than
+            or equal to the specified value.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="comparer" /> or <paramref name="description" /> is <see langword="null" />.
+            </exception>
+            <seealso cref="M:Matchmaker.Patterns.Pattern.GreaterOrEqual``1(``0)" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.GreaterOrEqual``1(System.Func{``0})" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.GreaterOrEqual``1(``0,System.Collections.Generic.IComparer{``0})" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.GreaterOrEqual``1(System.Func{``0},System.Collections.Generic.IComparer{``0})" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.GreaterOrEqual``1(``0,System.String)" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.GreaterOrEqual``1(System.Func{``0},System.String)" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.GreaterOrEqual``1(System.Func{``0},System.Collections.Generic.IComparer{``0},System.String)" />
+        </member>
+        <member name="M:Matchmaker.Patterns.Pattern.GreaterOrEqual``1(System.Func{``0},System.Collections.Generic.IComparer{``0},System.String)">
+            <summary>
+            Returns a pattern which is matched successfully when the input value is greater than or equal
+            to the provided value according to the specified comparer.
+            </summary>
+            <typeparam name="TInput">The type of the input value of the expression.</typeparam>
+            <param name="valueProvider">The provider of the value to compare with.</param>
+            <param name="comparer">The comparer to use for comparison.</param>
+            <param name="description">The description of the pattern.</param>
+            <returns>
+            A pattern which is matched successfully when the input value is greater than
+            or equal to the provided value.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="valueProvider" />, <paramref name="comparer" /> or <paramref name="description" />
+            is <see langword="null" />.
+            </exception>
+            <seealso cref="M:Matchmaker.Patterns.Pattern.GreaterOrEqual``1(``0)" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.GreaterOrEqual``1(System.Func{``0})" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.GreaterOrEqual``1(``0,System.Collections.Generic.IComparer{``0})" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.GreaterOrEqual``1(System.Func{``0},System.Collections.Generic.IComparer{``0})" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.GreaterOrEqual``1(``0,System.String)" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.GreaterOrEqual``1(System.Func{``0},System.String)" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.GreaterOrEqual``1(``0,System.Collections.Generic.IComparer{``0},System.String)" />
         </member>
         <member name="M:Matchmaker.Patterns.Pattern.Type``2">
             <summary>
@@ -954,6 +1797,25 @@
             <remarks>
             This pattern can be used to match discriminated unions which are implemented as class hierarchies.
             </remarks>
+            <seealso cref="M:Matchmaker.Patterns.Pattern.Type``2(System.String)" />
+        </member>
+        <member name="M:Matchmaker.Patterns.Pattern.Type``2(System.String)">
+            <summary>
+            Returns a pattern which is matched successfully when the input value is of the specified type.
+            </summary>
+            <typeparam name="TInput">The type of the input value of the expression.</typeparam>
+            <typeparam name="TType">The type to check for.</typeparam>
+            <param name="description">The description of the pattern.</param>
+            <returns>
+            A pattern which is matched successfully when the input value is of the specified type.
+            </returns>
+            <remarks>
+            This pattern can be used to match discriminated unions which are implemented as class hierarchies.
+            </remarks>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="description" /> is <see langword="null" />.
+            </exception>
+            <seealso cref="M:Matchmaker.Patterns.Pattern.Type``2" />
         </member>
         <member name="M:Matchmaker.Patterns.Pattern.Not``2(Matchmaker.Patterns.IPattern{``0,``1})">
             <summary>
@@ -972,6 +1834,49 @@
             <exception cref="T:System.ArgumentNullException">
             <paramref name="pattern" /> is <see langword="null" />.
             </exception>
+            <seealso cref="M:Matchmaker.Patterns.Pattern.Not``2(Matchmaker.Patterns.IDescribablePattern{``0,``1})" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.Not``2(Matchmaker.Patterns.IPattern{``0,``1},System.String)" />
+        </member>
+        <member name="M:Matchmaker.Patterns.Pattern.Not``2(Matchmaker.Patterns.IDescribablePattern{``0,``1})">
+            <summary>
+            Returns a pattern which is matched successfully when the specified pattern is not matched successfully.
+            </summary>
+            <typeparam name="TInput">The type of the input value of the expression.</typeparam>
+            <typeparam name="TMatchResult">The type of the result of this pattern's match.</typeparam>
+            <param name="pattern">The pattern to invert.</param>
+            <returns>
+            A pattern which is matched successfully when the specified pattern is not matched successfully.
+            </returns>
+            <remarks>
+            This pattern ignores the specified pattern's transformation
+            and returns the input value if matched successfully.
+            </remarks>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="pattern" /> is <see langword="null" />.
+            </exception>
+            <seealso cref="M:Matchmaker.Patterns.Pattern.Not``2(Matchmaker.Patterns.IPattern{``0,``1})" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.Not``2(Matchmaker.Patterns.IPattern{``0,``1},System.String)" />
+        </member>
+        <member name="M:Matchmaker.Patterns.Pattern.Not``2(Matchmaker.Patterns.IPattern{``0,``1},System.String)">
+            <summary>
+            Returns a pattern which is matched successfully when the specified pattern is not matched successfully.
+            </summary>
+            <typeparam name="TInput">The type of the input value of the expression.</typeparam>
+            <typeparam name="TMatchResult">The type of the result of this pattern's match.</typeparam>
+            <param name="pattern">The pattern to invert.</param>
+            <param name="description">The description of the pattern.</param>
+            <returns>
+            A pattern which is matched successfully when the specified pattern is not matched successfully.
+            </returns>
+            <remarks>
+            This pattern ignores the specified pattern's transformation
+            and returns the input value if matched successfully.
+            </remarks>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="pattern" /> or <paramref name="description" /> is <see langword="null" />.
+            </exception>
+            <seealso cref="M:Matchmaker.Patterns.Pattern.Not``2(Matchmaker.Patterns.IPattern{``0,``1})" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.Not``2(Matchmaker.Patterns.IDescribablePattern{``0,``1})" />
         </member>
         <member name="T:Matchmaker.Patterns.PatternBase`3">
             <summary>
@@ -1234,6 +2139,22 @@
             <paramref name="other" /> is <see langword="null" />.
             </exception>
         </member>
+        <member name="M:Matchmaker.Patterns.SimplePattern`1.And(Matchmaker.Patterns.SimplePattern{`0},System.String)">
+            <summary>
+            Returns a pattern which is matched successfully only if both
+            this and other pattern are matched successfully.
+            </summary>
+            <param name="other">The other pattern.</param>
+            <param name="description">The description of the pattern.</param>
+            <returns>
+            A pattern which is matched successfully only if both
+            this and other pattern are matched successfully.
+            </returns>
+            <remarks>This is a short-circuiting operation.</remarks>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="other" /> or <paramref name="description" /> is <see langword="null" />.
+            </exception>
+        </member>
         <member name="M:Matchmaker.Patterns.SimplePattern`1.Or(Matchmaker.Patterns.SimplePattern{`0})">
             <summary>
             Returns a pattern which is matched successfully if
@@ -1249,6 +2170,22 @@
             <paramref name="other" /> is <see langword="null" />.
             </exception>
         </member>
+        <member name="M:Matchmaker.Patterns.SimplePattern`1.Or(Matchmaker.Patterns.SimplePattern{`0},System.String)">
+            <summary>
+            Returns a pattern which is matched successfully if
+            either this or the other pattern is matched successfully.
+            </summary>
+            <param name="other">The other pattern.</param>
+            <param name="description">The description of the pattern.</param>
+            <returns>
+            A pattern which is matched successfully if
+            either this or the other pattern is matched successfully.
+            </returns>
+            <remarks>This is a short-circuiting operation.</remarks>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="other" /> or <paramref name="description" /> is <see langword="null" />.
+            </exception>
+        </member>
         <member name="M:Matchmaker.Patterns.SimplePattern`1.Xor(Matchmaker.Patterns.SimplePattern{`0})">
             <summary>
             Returns a pattern which is matched successfully if
@@ -1261,6 +2198,21 @@
             </returns>
             <exception cref="T:System.ArgumentNullException">
             <paramref name="other" /> is <see langword="null" />.
+            </exception>
+        </member>
+        <member name="M:Matchmaker.Patterns.SimplePattern`1.Xor(Matchmaker.Patterns.SimplePattern{`0},System.String)">
+            <summary>
+            Returns a pattern which is matched successfully if
+            matches with this pattern and the other pattern yield different results.
+            </summary>
+            <param name="other">The other pattern.</param>
+            <param name="description">The description of the pattern.</param>
+            <returns>
+            A pattern which is matched successfully if
+            matches with this pattern and the other pattern yield different results.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="other" /> or <paramref name="description" /> is <see langword="null" />.
             </exception>
         </member>
         <member name="M:Matchmaker.Patterns.SimplePattern`1.op_BitwiseAnd(Matchmaker.Patterns.SimplePattern{`0},Matchmaker.Patterns.SimplePattern{`0})">

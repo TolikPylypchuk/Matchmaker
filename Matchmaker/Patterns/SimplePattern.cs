@@ -97,7 +97,32 @@ namespace Matchmaker.Patterns
         /// </exception>
         public SimplePattern<TInput> And(SimplePattern<TInput> other)
             => other != null
-                ? new SimplePattern<TInput>(this.Conditions.AddRange(other.Conditions), this.Description)
+                ? new SimplePattern<TInput>(
+                    this.Conditions.AddRange(other.Conditions),
+                    this.Description.Length + other.Description.Length > 0
+                        ? String.Format(Pattern.DefaultAndDescriptionFormat, this.Description, other.Description)
+                        : String.Empty)
+                : throw new ArgumentNullException(nameof(other));
+
+        /// <summary>
+        /// Returns a pattern which is matched successfully only if both
+        /// this and other pattern are matched successfully.
+        /// </summary>
+        /// <param name="other">The other pattern.</param>
+        /// <param name="description">The description of the pattern.</param>
+        /// <returns>
+        /// A pattern which is matched successfully only if both
+        /// this and other pattern are matched successfully.
+        /// </returns>
+        /// <remarks>This is a short-circuiting operation.</remarks>
+        /// <exception cref="ArgumentNullException">
+        /// <paramref name="other" /> or <paramref name="description" /> is <see langword="null" />.
+        /// </exception>
+        public SimplePattern<TInput> And(SimplePattern<TInput> other, string description)
+            => other != null
+                ? new SimplePattern<TInput>(
+                    this.Conditions.AddRange(other.Conditions),
+                    description ?? throw new ArgumentNullException(nameof(description)))
                 : throw new ArgumentNullException(nameof(other));
 
         /// <summary>
@@ -115,7 +140,32 @@ namespace Matchmaker.Patterns
         /// </exception>
         public SimplePattern<TInput> Or(SimplePattern<TInput> other)
             => other != null
-                ? new SimplePattern<TInput>(input => this.Match(input).IsSuccessful || other.Match(input).IsSuccessful)
+                ? new SimplePattern<TInput>(
+                    input => this.Match(input).IsSuccessful || other.Match(input).IsSuccessful,
+                    this.Description.Length + other.Description.Length > 0
+                        ? String.Format(Pattern.DefaultOrDescriptionFormat, this.Description, other.Description)
+                        : String.Empty)
+                : throw new ArgumentNullException(nameof(other));
+
+        /// <summary>
+        /// Returns a pattern which is matched successfully if
+        /// either this or the other pattern is matched successfully.
+        /// </summary>
+        /// <param name="other">The other pattern.</param>
+        /// <param name="description">The description of the pattern.</param>
+        /// <returns>
+        /// A pattern which is matched successfully if
+        /// either this or the other pattern is matched successfully.
+        /// </returns>
+        /// <remarks>This is a short-circuiting operation.</remarks>
+        /// <exception cref="ArgumentNullException">
+        /// <paramref name="other" /> or <paramref name="description" /> is <see langword="null" />.
+        /// </exception>
+        public SimplePattern<TInput> Or(SimplePattern<TInput> other, string description)
+            => other != null
+                ? new SimplePattern<TInput>(
+                    input => this.Match(input).IsSuccessful || other.Match(input).IsSuccessful,
+                    description ?? throw new ArgumentNullException(nameof(description)))
                 : throw new ArgumentNullException(nameof(other));
 
         /// <summary>
@@ -132,7 +182,31 @@ namespace Matchmaker.Patterns
         /// </exception>
         public SimplePattern<TInput> Xor(SimplePattern<TInput> other)
             => other != null
-                ? new SimplePattern<TInput>(input => this.Match(input).IsSuccessful ^ other.Match(input).IsSuccessful)
+                ? new SimplePattern<TInput>(
+                    input => this.Match(input).IsSuccessful ^ other.Match(input).IsSuccessful,
+                    this.Description.Length + other.Description.Length > 0
+                        ? String.Format(Pattern.DefaultXorDescriptionFormat, this.Description, other.Description)
+                        : String.Empty)
+                : throw new ArgumentNullException(nameof(other));
+
+        /// <summary>
+        /// Returns a pattern which is matched successfully if
+        /// matches with this pattern and the other pattern yield different results.
+        /// </summary>
+        /// <param name="other">The other pattern.</param>
+        /// <param name="description">The description of the pattern.</param>
+        /// <returns>
+        /// A pattern which is matched successfully if
+        /// matches with this pattern and the other pattern yield different results.
+        /// </returns>
+        /// <exception cref="ArgumentNullException">
+        /// <paramref name="other" /> or <paramref name="description" /> is <see langword="null" />.
+        /// </exception>
+        public SimplePattern<TInput> Xor(SimplePattern<TInput> other, string description)
+            => other != null
+                ? new SimplePattern<TInput>(
+                    input => this.Match(input).IsSuccessful ^ other.Match(input).IsSuccessful,
+                    description ?? throw new ArgumentNullException(nameof(description)))
                 : throw new ArgumentNullException(nameof(other));
 
         /// <summary>

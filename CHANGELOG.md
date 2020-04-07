@@ -8,8 +8,10 @@ What's new in version 2.0:
 - Stopped using the DLR for ignoring the intermediate types
 - Dropped the dependency on [language-ext](https://github.com/louthy/language-ext) (breaking change)
 - The deprecated `StructNull` pattern is removed (breaking change)
-- Matching with fallthrough became lazy in the match expression
+- Matching with fallthrough became lazy
 - Strict matching with fallthrough was removed (breaking change)
+- Descriptions were added to patterns
+- Creating custom patterns became possible through factory methods (breaking change)
 
 ## v1.2
 
