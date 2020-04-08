@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Immutable;
-using System.Linq;
 
 namespace Matchmaker.Patterns
 {
@@ -71,14 +70,7 @@ namespace Matchmaker.Patterns
         /// if this match is successful. Otherwise, a failed match result.
         /// </returns>
         public override MatchResult<TMatchResult> Match(TInput input)
-        {
-            var result = this.matcher(input);
-            return result.IsSuccessful
-                ? this.Conditions.All(condition => condition(result.Value))
-                    ? result
-                    : MatchResult.Failure<TMatchResult>()
-                : MatchResult.Failure<TMatchResult>();
-        }
+            => this.CheckConditions(this.matcher(input));
 
         /// <summary>
         /// Returns a new pattern which includes the specified condition.

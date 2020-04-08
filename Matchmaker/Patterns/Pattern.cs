@@ -15,7 +15,7 @@ namespace Matchmaker.Patterns
         /// The default description of the 'any' pattern.
         /// </summary>
         /// <seealso cref="Any{TInput}()" />
-        public static readonly string DefaultAnyDescription = "Any x";
+        public static readonly string DefaultAnyDescription = "any x";
 
         /// <summary>
         /// The default description of 'null' patterns.
@@ -119,10 +119,10 @@ namespace Matchmaker.Patterns
         public static readonly string DefaultXorDescriptionFormat = "({0}) xor ({1})";
 
         /// <summary>
-        /// The default description of 'not' patterns.
+        /// The default description of the 'not' pattern combinators.
         /// </summary>
         /// <seealso cref="Not{TInput, TMatchResult}(IDescribablePattern{TInput, TMatchResult})" />
-        public static readonly string DefaultNotDescriptionFormat = "Not ({0})";
+        public static readonly string DefaultNotDescriptionFormat = "not ({0})";
 
         /// <summary>
         /// Creates a pattern which uses a specified function to match its inputs.
@@ -136,10 +136,10 @@ namespace Matchmaker.Patterns
         /// <exception cref="ArgumentNullException">
         /// <paramref name="matcher" /> is <see langword="null" />.
         /// </exception>
-        /// <seealso cref="Create{TInput, TMatchResult}(Func{TInput, MatchResult{TMatchResult}}, string)" />
-        /// <seealso cref="Create{TInput}(Func{TInput, bool})" />
-        /// <seealso cref="Create{TInput}(Func{TInput, bool}, string)" />
-        public static Pattern<TInput, TMatchResult> Create<TInput, TMatchResult>(
+        /// <seealso cref="CreatePattern{TInput, TMatchResult}(Func{TInput, MatchResult{TMatchResult}}, string)" />
+        /// <seealso cref="CreatePattern{TInput}(Func{TInput, bool})" />
+        /// <seealso cref="CreatePattern{TInput}(Func{TInput, bool}, string)" />
+        public static Pattern<TInput, TMatchResult> CreatePattern<TInput, TMatchResult>(
             Func<TInput, MatchResult<TMatchResult>> matcher)
             => new Pattern<TInput, TMatchResult>(matcher);
 
@@ -156,10 +156,10 @@ namespace Matchmaker.Patterns
         /// <exception cref="ArgumentNullException">
         /// <paramref name="matcher" /> or <paramref name="description" /> is <see langword="null" />.
         /// </exception>
-        /// <seealso cref="Create{TInput, TMatchResult}(Func{TInput, MatchResult{TMatchResult}})" />
-        /// <seealso cref="Create{TInput}(Func{TInput, bool})" />
-        /// <seealso cref="Create{TInput}(Func{TInput, bool}, string)" />
-        public static Pattern<TInput, TMatchResult> Create<TInput, TMatchResult>(
+        /// <seealso cref="CreatePattern{TInput, TMatchResult}(Func{TInput, MatchResult{TMatchResult}})" />
+        /// <seealso cref="CreatePattern{TInput}(Func{TInput, bool})" />
+        /// <seealso cref="CreatePattern{TInput}(Func{TInput, bool}, string)" />
+        public static Pattern<TInput, TMatchResult> CreatePattern<TInput, TMatchResult>(
             Func<TInput, MatchResult<TMatchResult>> matcher,
             string description)
             => new Pattern<TInput, TMatchResult>(matcher, description);
@@ -175,10 +175,10 @@ namespace Matchmaker.Patterns
         /// <exception cref="ArgumentNullException">
         /// <paramref name="predicate" /> is <see langword="null" />.
         /// </exception>
-        /// <seealso cref="Create{TInput, TMatchResult}(Func{TInput, MatchResult{TMatchResult}})" />
-        /// <seealso cref="Create{TInput, TMatchResult}(Func{TInput, MatchResult{TMatchResult}}, string)" />
-        /// <seealso cref="Create{TInput}(Func{TInput, bool}, string)" />
-        public static SimplePattern<TInput> Create<TInput>(Func<TInput, bool> predicate)
+        /// <seealso cref="CreatePattern{TInput, TMatchResult}(Func{TInput, MatchResult{TMatchResult}})" />
+        /// <seealso cref="CreatePattern{TInput, TMatchResult}(Func{TInput, MatchResult{TMatchResult}}, string)" />
+        /// <seealso cref="CreatePattern{TInput}(Func{TInput, bool}, string)" />
+        public static SimplePattern<TInput> CreatePattern<TInput>(Func<TInput, bool> predicate)
             => new SimplePattern<TInput>(predicate);
 
         /// <summary>
@@ -193,10 +193,10 @@ namespace Matchmaker.Patterns
         /// <exception cref="ArgumentNullException">
         /// <paramref name="predicate" /> or <paramref name="description" /> is <see langword="null" />.
         /// </exception>
-        /// <seealso cref="Create{TInput, TMatchResult}(Func{TInput, MatchResult{TMatchResult}})" />
-        /// <seealso cref="Create{TInput, TMatchResult}(Func{TInput, MatchResult{TMatchResult}}, string)" />
-        /// <seealso cref="Create{TInput}(Func{TInput, bool})" />
-        public static SimplePattern<TInput> Create<TInput>(
+        /// <seealso cref="CreatePattern{TInput, TMatchResult}(Func{TInput, MatchResult{TMatchResult}})" />
+        /// <seealso cref="CreatePattern{TInput, TMatchResult}(Func{TInput, MatchResult{TMatchResult}}, string)" />
+        /// <seealso cref="CreatePattern{TInput}(Func{TInput, bool})" />
+        public static SimplePattern<TInput> CreatePattern<TInput>(
             Func<TInput, bool> predicate,
             string description)
             => new SimplePattern<TInput>(predicate, description);
@@ -394,9 +394,7 @@ namespace Matchmaker.Patterns
         /// <seealso cref="EqualTo{TInput}(TInput, IEqualityComparer{TInput}, string)" />
         /// <seealso cref="EqualTo{TInput}(Func{TInput}, IEqualityComparer{TInput}, string)" />
         public static SimplePattern<TInput> EqualTo<TInput>(TInput value, string description)
-            => new SimplePattern<TInput>(
-                input => Equals(input, value),
-                description ?? throw new ArgumentNullException(nameof(description)));
+            => EqualTo(value, EqualityComparer<TInput>.Default, description);
 
         /// <summary>
         /// Returns a pattern which is matched successfully when the input value is equal to the provided value.
@@ -418,11 +416,7 @@ namespace Matchmaker.Patterns
         /// <seealso cref="EqualTo{TInput}(TInput, IEqualityComparer{TInput}, string)" />
         /// <seealso cref="EqualTo{TInput}(Func{TInput}, IEqualityComparer{TInput}, string)" />
         public static SimplePattern<TInput> EqualTo<TInput>(Func<TInput> valueProvider, string description)
-            => valueProvider != null
-                ? new SimplePattern<TInput>(
-                    input => Equals(input, valueProvider()),
-                    description ?? throw new ArgumentNullException(nameof(description)))
-                : throw new ArgumentNullException(nameof(valueProvider));
+            => EqualTo(valueProvider, EqualityComparer<TInput>.Default, description);
 
         /// <summary>
         /// Returns a pattern which is matched successfully when the input value is equal to the specified value

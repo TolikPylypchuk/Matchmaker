@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Immutable;
+using System.Linq;
 
 namespace Matchmaker.Patterns
 {
@@ -104,6 +105,22 @@ namespace Matchmaker.Patterns
         /// </returns>
         public override string ToString()
             => String.IsNullOrEmpty(this.Description) ? base.ToString() : this.Description;
+
+        /// <summary>
+        /// Checks the pattern's conditions and returns a successful result only if the specified result
+        /// is successful and all conditions are true.
+        /// </summary>
+        /// <param name="result">The result to check.</param>
+        /// <returns>
+        /// If the specified result is successful and all conditions are <see langword="true" />,
+        /// then a successful result. Otherwise, a failed result.
+        /// </returns>
+        protected MatchResult<TMatchResult> CheckConditions(MatchResult<TMatchResult> result)
+            => result.IsSuccessful
+                ? this.Conditions.All(condition => condition(result.Value))
+                    ? result
+                    : MatchResult.Failure<TMatchResult>()
+                : MatchResult.Failure<TMatchResult>();
 
         /// <summary>
         /// Matches the input with this pattern, and returns a transformed result.

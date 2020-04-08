@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Immutable;
-using System.Linq;
 
 namespace Matchmaker.Patterns
 {
@@ -65,9 +64,7 @@ namespace Matchmaker.Patterns
         /// if this match is successful. Otherwise, a failed match result.
         /// </returns>
         public override MatchResult<TInput> Match(TInput input)
-            => this.Conditions.All(condition => condition(input))
-                ? MatchResult.Success(input)
-                : MatchResult.Failure<TInput>();
+            => this.CheckConditions(MatchResult.Success(input));
 
         /// <summary>
         /// Returns a new pattern which includes the specified condition.
@@ -99,7 +96,7 @@ namespace Matchmaker.Patterns
             => other != null
                 ? new SimplePattern<TInput>(
                     this.Conditions.AddRange(other.Conditions),
-                    this.Description.Length + other.Description.Length > 0
+                    this.Description.Length > 0 && other.Description.Length > 0
                         ? String.Format(Pattern.DefaultAndDescriptionFormat, this.Description, other.Description)
                         : String.Empty)
                 : throw new ArgumentNullException(nameof(other));
@@ -142,7 +139,7 @@ namespace Matchmaker.Patterns
             => other != null
                 ? new SimplePattern<TInput>(
                     input => this.Match(input).IsSuccessful || other.Match(input).IsSuccessful,
-                    this.Description.Length + other.Description.Length > 0
+                    this.Description.Length > 0 && other.Description.Length > 0
                         ? String.Format(Pattern.DefaultOrDescriptionFormat, this.Description, other.Description)
                         : String.Empty)
                 : throw new ArgumentNullException(nameof(other));
@@ -184,7 +181,7 @@ namespace Matchmaker.Patterns
             => other != null
                 ? new SimplePattern<TInput>(
                     input => this.Match(input).IsSuccessful ^ other.Match(input).IsSuccessful,
-                    this.Description.Length + other.Description.Length > 0
+                    this.Description.Length > 0 && other.Description.Length > 0
                         ? String.Format(Pattern.DefaultXorDescriptionFormat, this.Description, other.Description)
                         : String.Empty)
                 : throw new ArgumentNullException(nameof(other));

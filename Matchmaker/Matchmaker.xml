@@ -776,11 +776,11 @@
         </member>
         <member name="F:Matchmaker.Patterns.Pattern.DefaultNotDescriptionFormat">
             <summary>
-            The default description of 'not' patterns.
+            The default description of the 'not' pattern combinators.
             </summary>
             <seealso cref="M:Matchmaker.Patterns.Pattern.Not``2(Matchmaker.Patterns.IDescribablePattern{``0,``1})" />
         </member>
-        <member name="M:Matchmaker.Patterns.Pattern.Create``2(System.Func{``0,Matchmaker.MatchResult{``1}})">
+        <member name="M:Matchmaker.Patterns.Pattern.CreatePattern``2(System.Func{``0,Matchmaker.MatchResult{``1}})">
             <summary>
             Creates a pattern which uses a specified function to match its inputs.
             </summary>
@@ -793,11 +793,11 @@
             <exception cref="T:System.ArgumentNullException">
             <paramref name="matcher" /> is <see langword="null" />.
             </exception>
-            <seealso cref="M:Matchmaker.Patterns.Pattern.Create``2(System.Func{``0,Matchmaker.MatchResult{``1}},System.String)" />
-            <seealso cref="M:Matchmaker.Patterns.Pattern.Create``1(System.Func{``0,System.Boolean})" />
-            <seealso cref="M:Matchmaker.Patterns.Pattern.Create``1(System.Func{``0,System.Boolean},System.String)" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.CreatePattern``2(System.Func{``0,Matchmaker.MatchResult{``1}},System.String)" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.CreatePattern``1(System.Func{``0,System.Boolean})" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.CreatePattern``1(System.Func{``0,System.Boolean},System.String)" />
         </member>
-        <member name="M:Matchmaker.Patterns.Pattern.Create``2(System.Func{``0,Matchmaker.MatchResult{``1}},System.String)">
+        <member name="M:Matchmaker.Patterns.Pattern.CreatePattern``2(System.Func{``0,Matchmaker.MatchResult{``1}},System.String)">
             <summary>
             Creates a pattern which uses a specified function to match its inputs and has a specified description.
             </summary>
@@ -811,11 +811,11 @@
             <exception cref="T:System.ArgumentNullException">
             <paramref name="matcher" /> or <paramref name="description" /> is <see langword="null" />.
             </exception>
-            <seealso cref="M:Matchmaker.Patterns.Pattern.Create``2(System.Func{``0,Matchmaker.MatchResult{``1}})" />
-            <seealso cref="M:Matchmaker.Patterns.Pattern.Create``1(System.Func{``0,System.Boolean})" />
-            <seealso cref="M:Matchmaker.Patterns.Pattern.Create``1(System.Func{``0,System.Boolean},System.String)" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.CreatePattern``2(System.Func{``0,Matchmaker.MatchResult{``1}})" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.CreatePattern``1(System.Func{``0,System.Boolean})" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.CreatePattern``1(System.Func{``0,System.Boolean},System.String)" />
         </member>
-        <member name="M:Matchmaker.Patterns.Pattern.Create``1(System.Func{``0,System.Boolean})">
+        <member name="M:Matchmaker.Patterns.Pattern.CreatePattern``1(System.Func{``0,System.Boolean})">
             <summary>
             Creates a pattern which uses a specified predicate to match its inputs.
             </summary>
@@ -827,11 +827,11 @@
             <exception cref="T:System.ArgumentNullException">
             <paramref name="predicate" /> is <see langword="null" />.
             </exception>
-            <seealso cref="M:Matchmaker.Patterns.Pattern.Create``2(System.Func{``0,Matchmaker.MatchResult{``1}})" />
-            <seealso cref="M:Matchmaker.Patterns.Pattern.Create``2(System.Func{``0,Matchmaker.MatchResult{``1}},System.String)" />
-            <seealso cref="M:Matchmaker.Patterns.Pattern.Create``1(System.Func{``0,System.Boolean},System.String)" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.CreatePattern``2(System.Func{``0,Matchmaker.MatchResult{``1}})" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.CreatePattern``2(System.Func{``0,Matchmaker.MatchResult{``1}},System.String)" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.CreatePattern``1(System.Func{``0,System.Boolean},System.String)" />
         </member>
-        <member name="M:Matchmaker.Patterns.Pattern.Create``1(System.Func{``0,System.Boolean},System.String)">
+        <member name="M:Matchmaker.Patterns.Pattern.CreatePattern``1(System.Func{``0,System.Boolean},System.String)">
             <summary>
             Creates a pattern which uses a specified predicate to match its inputs and has a specified description.
             </summary>
@@ -844,9 +844,9 @@
             <exception cref="T:System.ArgumentNullException">
             <paramref name="predicate" /> or <paramref name="description" /> is <see langword="null" />.
             </exception>
-            <seealso cref="M:Matchmaker.Patterns.Pattern.Create``2(System.Func{``0,Matchmaker.MatchResult{``1}})" />
-            <seealso cref="M:Matchmaker.Patterns.Pattern.Create``2(System.Func{``0,Matchmaker.MatchResult{``1}},System.String)" />
-            <seealso cref="M:Matchmaker.Patterns.Pattern.Create``1(System.Func{``0,System.Boolean})" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.CreatePattern``2(System.Func{``0,Matchmaker.MatchResult{``1}})" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.CreatePattern``2(System.Func{``0,Matchmaker.MatchResult{``1}},System.String)" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.CreatePattern``1(System.Func{``0,System.Boolean})" />
         </member>
         <member name="M:Matchmaker.Patterns.Pattern.Any``1">
             <summary>
@@ -1965,6 +1965,17 @@
             <returns>
             The description of this pattern, if it has one.
             If it doesn't, then returns the name of this pattern's type.
+            </returns>
+        </member>
+        <member name="M:Matchmaker.Patterns.PatternBase`3.CheckConditions(Matchmaker.MatchResult{`1})">
+            <summary>
+            Checks the pattern's conditions and returns a successful result only if the specified result
+            is successful and all conditions are true.
+            </summary>
+            <param name="result">The result to check.</param>
+            <returns>
+            If the specified result is successful and all conditions are <see langword="true" />,
+            then a successful result. Otherwise, a failed result.
             </returns>
         </member>
         <member name="M:Matchmaker.Patterns.PatternBase`3.Matchmaker#Patterns#IPattern{TInput}#Match(`0)">

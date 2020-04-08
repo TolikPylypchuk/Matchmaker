@@ -13,6 +13,9 @@ namespace Matchmaker
         public static Arbitrary<SimplePattern<string>> SimplePattern()
             => new ArbitrarySimplePattern();
 
+        public static Arbitrary<Pattern<string, string>> Pattern()
+            => new ArbitraryPattern();
+
         public static Arbitrary<Func<string, bool>> Predicate()
             => new ArbitraryPredicate();
 
@@ -39,6 +42,12 @@ namespace Matchmaker
                         GreaterOrEqual(() => input),
                         Any<string>())
                    select item;
+        }
+
+        private class ArbitraryPattern : Arbitrary<Pattern<string, string>>
+        {
+            public override Gen<Pattern<string, string>> Generator
+                => Matcher().Generator.Select(CreatePattern);
         }
 
         private class ArbitraryPredicate : Arbitrary<Func<string, bool>>
