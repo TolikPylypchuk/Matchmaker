@@ -7,6 +7,277 @@ references:
   commentId: N:Matchmaker
   fullName: Matchmaker
   nameWithType: Matchmaker
+- uid: Matchmaker.Linq
+  name: Matchmaker.Linq
+  href: api/Matchmaker.Linq.html
+  commentId: N:Matchmaker.Linq
+  fullName: Matchmaker.Linq
+  nameWithType: Matchmaker.Linq
+- uid: Matchmaker.Linq.MatchExtensions
+  name: MatchExtensions
+  href: api/Matchmaker.Linq.MatchExtensions.html
+  commentId: T:Matchmaker.Linq.MatchExtensions
+  fullName: Matchmaker.Linq.MatchExtensions
+  nameWithType: MatchExtensions
+- uid: Matchmaker.Linq.MatchExtensions.And*
+  name: And
+  href: api/Matchmaker.Linq.MatchExtensions.html#Matchmaker_Linq_MatchExtensions_And_
+  commentId: Overload:Matchmaker.Linq.MatchExtensions.And
+  isSpec: "True"
+  fullName: Matchmaker.Linq.MatchExtensions.And
+  nameWithType: MatchExtensions.And
+- uid: Matchmaker.Linq.MatchExtensions.And``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0})
+  name: And<T>(IPattern<T, T>, IPattern<T, T>)
+  href: api/Matchmaker.Linq.MatchExtensions.html#Matchmaker_Linq_MatchExtensions_And__1_Matchmaker_Patterns_IPattern___0___0__Matchmaker_Patterns_IPattern___0___0__
+  commentId: M:Matchmaker.Linq.MatchExtensions.And``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0})
+  name.vb: And(Of T)(IPattern(Of T, T), IPattern(Of T, T))
+  fullName: Matchmaker.Linq.MatchExtensions.And<T>(Matchmaker.Patterns.IPattern<T, T>, Matchmaker.Patterns.IPattern<T, T>)
+  fullName.vb: Matchmaker.Linq.MatchExtensions.And(Of T)(Matchmaker.Patterns.IPattern(Of T, T), Matchmaker.Patterns.IPattern(Of T, T))
+  nameWithType: MatchExtensions.And<T>(IPattern<T, T>, IPattern<T, T>)
+  nameWithType.vb: MatchExtensions.And(Of T)(IPattern(Of T, T), IPattern(Of T, T))
+- uid: Matchmaker.Linq.MatchExtensions.And``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0},System.String)
+  name: And<T>(IPattern<T, T>, IPattern<T, T>, String)
+  href: api/Matchmaker.Linq.MatchExtensions.html#Matchmaker_Linq_MatchExtensions_And__1_Matchmaker_Patterns_IPattern___0___0__Matchmaker_Patterns_IPattern___0___0__System_String_
+  commentId: M:Matchmaker.Linq.MatchExtensions.And``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0},System.String)
+  name.vb: And(Of T)(IPattern(Of T, T), IPattern(Of T, T), String)
+  fullName: Matchmaker.Linq.MatchExtensions.And<T>(Matchmaker.Patterns.IPattern<T, T>, Matchmaker.Patterns.IPattern<T, T>, System.String)
+  fullName.vb: Matchmaker.Linq.MatchExtensions.And(Of T)(Matchmaker.Patterns.IPattern(Of T, T), Matchmaker.Patterns.IPattern(Of T, T), System.String)
+  nameWithType: MatchExtensions.And<T>(IPattern<T, T>, IPattern<T, T>, String)
+  nameWithType.vb: MatchExtensions.And(Of T)(IPattern(Of T, T), IPattern(Of T, T), String)
+- uid: Matchmaker.Linq.MatchExtensions.Bind*
+  name: Bind
+  href: api/Matchmaker.Linq.MatchExtensions.html#Matchmaker_Linq_MatchExtensions_Bind_
+  commentId: Overload:Matchmaker.Linq.MatchExtensions.Bind
+  isSpec: "True"
+  fullName: Matchmaker.Linq.MatchExtensions.Bind
+  nameWithType: MatchExtensions.Bind
+- uid: Matchmaker.Linq.MatchExtensions.Bind``3(Matchmaker.Patterns.IPattern{``0,``1},System.Func{``1,Matchmaker.Patterns.Pattern{``0,``2}})
+  name: Bind<TInput, TIntermediateResult, TMatchResult>(IPattern<TInput, TIntermediateResult>, Func<TIntermediateResult, Pattern<TInput, TMatchResult>>)
+  href: api/Matchmaker.Linq.MatchExtensions.html#Matchmaker_Linq_MatchExtensions_Bind__3_Matchmaker_Patterns_IPattern___0___1__System_Func___1_Matchmaker_Patterns_Pattern___0___2___
+  commentId: M:Matchmaker.Linq.MatchExtensions.Bind``3(Matchmaker.Patterns.IPattern{``0,``1},System.Func{``1,Matchmaker.Patterns.Pattern{``0,``2}})
+  name.vb: Bind(Of TInput, TIntermediateResult, TMatchResult)(IPattern(Of TInput, TIntermediateResult), Func(Of TIntermediateResult, Pattern(Of TInput, TMatchResult)))
+  fullName: Matchmaker.Linq.MatchExtensions.Bind<TInput, TIntermediateResult, TMatchResult>(Matchmaker.Patterns.IPattern<TInput, TIntermediateResult>, System.Func<TIntermediateResult, Matchmaker.Patterns.Pattern<TInput, TMatchResult>>)
+  fullName.vb: Matchmaker.Linq.MatchExtensions.Bind(Of TInput, TIntermediateResult, TMatchResult)(Matchmaker.Patterns.IPattern(Of TInput, TIntermediateResult), System.Func(Of TIntermediateResult, Matchmaker.Patterns.Pattern(Of TInput, TMatchResult)))
+  nameWithType: MatchExtensions.Bind<TInput, TIntermediateResult, TMatchResult>(IPattern<TInput, TIntermediateResult>, Func<TIntermediateResult, Pattern<TInput, TMatchResult>>)
+  nameWithType.vb: MatchExtensions.Bind(Of TInput, TIntermediateResult, TMatchResult)(IPattern(Of TInput, TIntermediateResult), Func(Of TIntermediateResult, Pattern(Of TInput, TMatchResult)))
+- uid: Matchmaker.Linq.MatchExtensions.Bind``3(Matchmaker.Patterns.IPattern{``0,``1},System.Func{``1,Matchmaker.Patterns.Pattern{``0,``2}},System.String)
+  name: Bind<TInput, TIntermediateResult, TMatchResult>(IPattern<TInput, TIntermediateResult>, Func<TIntermediateResult, Pattern<TInput, TMatchResult>>, String)
+  href: api/Matchmaker.Linq.MatchExtensions.html#Matchmaker_Linq_MatchExtensions_Bind__3_Matchmaker_Patterns_IPattern___0___1__System_Func___1_Matchmaker_Patterns_Pattern___0___2___System_String_
+  commentId: M:Matchmaker.Linq.MatchExtensions.Bind``3(Matchmaker.Patterns.IPattern{``0,``1},System.Func{``1,Matchmaker.Patterns.Pattern{``0,``2}},System.String)
+  name.vb: Bind(Of TInput, TIntermediateResult, TMatchResult)(IPattern(Of TInput, TIntermediateResult), Func(Of TIntermediateResult, Pattern(Of TInput, TMatchResult)), String)
+  fullName: Matchmaker.Linq.MatchExtensions.Bind<TInput, TIntermediateResult, TMatchResult>(Matchmaker.Patterns.IPattern<TInput, TIntermediateResult>, System.Func<TIntermediateResult, Matchmaker.Patterns.Pattern<TInput, TMatchResult>>, System.String)
+  fullName.vb: Matchmaker.Linq.MatchExtensions.Bind(Of TInput, TIntermediateResult, TMatchResult)(Matchmaker.Patterns.IPattern(Of TInput, TIntermediateResult), System.Func(Of TIntermediateResult, Matchmaker.Patterns.Pattern(Of TInput, TMatchResult)), System.String)
+  nameWithType: MatchExtensions.Bind<TInput, TIntermediateResult, TMatchResult>(IPattern<TInput, TIntermediateResult>, Func<TIntermediateResult, Pattern<TInput, TMatchResult>>, String)
+  nameWithType.vb: MatchExtensions.Bind(Of TInput, TIntermediateResult, TMatchResult)(IPattern(Of TInput, TIntermediateResult), Func(Of TIntermediateResult, Pattern(Of TInput, TMatchResult)), String)
+- uid: Matchmaker.Linq.MatchExtensions.Cast*
+  name: Cast
+  href: api/Matchmaker.Linq.MatchExtensions.html#Matchmaker_Linq_MatchExtensions_Cast_
+  commentId: Overload:Matchmaker.Linq.MatchExtensions.Cast
+  isSpec: "True"
+  fullName: Matchmaker.Linq.MatchExtensions.Cast
+  nameWithType: MatchExtensions.Cast
+- uid: Matchmaker.Linq.MatchExtensions.Cast``3(Matchmaker.Patterns.IPattern{``0,``1})
+  name: Cast<TInput, TIntermediateResult, TMatchResult>(IPattern<TInput, TIntermediateResult>)
+  href: api/Matchmaker.Linq.MatchExtensions.html#Matchmaker_Linq_MatchExtensions_Cast__3_Matchmaker_Patterns_IPattern___0___1__
+  commentId: M:Matchmaker.Linq.MatchExtensions.Cast``3(Matchmaker.Patterns.IPattern{``0,``1})
+  name.vb: Cast(Of TInput, TIntermediateResult, TMatchResult)(IPattern(Of TInput, TIntermediateResult))
+  fullName: Matchmaker.Linq.MatchExtensions.Cast<TInput, TIntermediateResult, TMatchResult>(Matchmaker.Patterns.IPattern<TInput, TIntermediateResult>)
+  fullName.vb: Matchmaker.Linq.MatchExtensions.Cast(Of TInput, TIntermediateResult, TMatchResult)(Matchmaker.Patterns.IPattern(Of TInput, TIntermediateResult))
+  nameWithType: MatchExtensions.Cast<TInput, TIntermediateResult, TMatchResult>(IPattern<TInput, TIntermediateResult>)
+  nameWithType.vb: MatchExtensions.Cast(Of TInput, TIntermediateResult, TMatchResult)(IPattern(Of TInput, TIntermediateResult))
+- uid: Matchmaker.Linq.MatchExtensions.Cast``3(Matchmaker.Patterns.IPattern{``0,``1},System.String)
+  name: Cast<TInput, TIntermediateResult, TMatchResult>(IPattern<TInput, TIntermediateResult>, String)
+  href: api/Matchmaker.Linq.MatchExtensions.html#Matchmaker_Linq_MatchExtensions_Cast__3_Matchmaker_Patterns_IPattern___0___1__System_String_
+  commentId: M:Matchmaker.Linq.MatchExtensions.Cast``3(Matchmaker.Patterns.IPattern{``0,``1},System.String)
+  name.vb: Cast(Of TInput, TIntermediateResult, TMatchResult)(IPattern(Of TInput, TIntermediateResult), String)
+  fullName: Matchmaker.Linq.MatchExtensions.Cast<TInput, TIntermediateResult, TMatchResult>(Matchmaker.Patterns.IPattern<TInput, TIntermediateResult>, System.String)
+  fullName.vb: Matchmaker.Linq.MatchExtensions.Cast(Of TInput, TIntermediateResult, TMatchResult)(Matchmaker.Patterns.IPattern(Of TInput, TIntermediateResult), System.String)
+  nameWithType: MatchExtensions.Cast<TInput, TIntermediateResult, TMatchResult>(IPattern<TInput, TIntermediateResult>, String)
+  nameWithType.vb: MatchExtensions.Cast(Of TInput, TIntermediateResult, TMatchResult)(IPattern(Of TInput, TIntermediateResult), String)
+- uid: Matchmaker.Linq.MatchExtensions.Compose*
+  name: Compose
+  href: api/Matchmaker.Linq.MatchExtensions.html#Matchmaker_Linq_MatchExtensions_Compose_
+  commentId: Overload:Matchmaker.Linq.MatchExtensions.Compose
+  isSpec: "True"
+  fullName: Matchmaker.Linq.MatchExtensions.Compose
+  nameWithType: MatchExtensions.Compose
+- uid: Matchmaker.Linq.MatchExtensions.Compose``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.PatternComposition)
+  name: Compose<T>(IPattern<T, T>, IPattern<T, T>, PatternComposition)
+  href: api/Matchmaker.Linq.MatchExtensions.html#Matchmaker_Linq_MatchExtensions_Compose__1_Matchmaker_Patterns_IPattern___0___0__Matchmaker_Patterns_IPattern___0___0__Matchmaker_Patterns_PatternComposition_
+  commentId: M:Matchmaker.Linq.MatchExtensions.Compose``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.PatternComposition)
+  name.vb: Compose(Of T)(IPattern(Of T, T), IPattern(Of T, T), PatternComposition)
+  fullName: Matchmaker.Linq.MatchExtensions.Compose<T>(Matchmaker.Patterns.IPattern<T, T>, Matchmaker.Patterns.IPattern<T, T>, Matchmaker.Patterns.PatternComposition)
+  fullName.vb: Matchmaker.Linq.MatchExtensions.Compose(Of T)(Matchmaker.Patterns.IPattern(Of T, T), Matchmaker.Patterns.IPattern(Of T, T), Matchmaker.Patterns.PatternComposition)
+  nameWithType: MatchExtensions.Compose<T>(IPattern<T, T>, IPattern<T, T>, PatternComposition)
+  nameWithType.vb: MatchExtensions.Compose(Of T)(IPattern(Of T, T), IPattern(Of T, T), PatternComposition)
+- uid: Matchmaker.Linq.MatchExtensions.Compose``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.PatternComposition,System.String)
+  name: Compose<T>(IPattern<T, T>, IPattern<T, T>, PatternComposition, String)
+  href: api/Matchmaker.Linq.MatchExtensions.html#Matchmaker_Linq_MatchExtensions_Compose__1_Matchmaker_Patterns_IPattern___0___0__Matchmaker_Patterns_IPattern___0___0__Matchmaker_Patterns_PatternComposition_System_String_
+  commentId: M:Matchmaker.Linq.MatchExtensions.Compose``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.PatternComposition,System.String)
+  name.vb: Compose(Of T)(IPattern(Of T, T), IPattern(Of T, T), PatternComposition, String)
+  fullName: Matchmaker.Linq.MatchExtensions.Compose<T>(Matchmaker.Patterns.IPattern<T, T>, Matchmaker.Patterns.IPattern<T, T>, Matchmaker.Patterns.PatternComposition, System.String)
+  fullName.vb: Matchmaker.Linq.MatchExtensions.Compose(Of T)(Matchmaker.Patterns.IPattern(Of T, T), Matchmaker.Patterns.IPattern(Of T, T), Matchmaker.Patterns.PatternComposition, System.String)
+  nameWithType: MatchExtensions.Compose<T>(IPattern<T, T>, IPattern<T, T>, PatternComposition, String)
+  nameWithType.vb: MatchExtensions.Compose(Of T)(IPattern(Of T, T), IPattern(Of T, T), PatternComposition, String)
+- uid: Matchmaker.Linq.MatchExtensions.Enumerate*
+  name: Enumerate
+  href: api/Matchmaker.Linq.MatchExtensions.html#Matchmaker_Linq_MatchExtensions_Enumerate_
+  commentId: Overload:Matchmaker.Linq.MatchExtensions.Enumerate
+  isSpec: "True"
+  fullName: Matchmaker.Linq.MatchExtensions.Enumerate
+  nameWithType: MatchExtensions.Enumerate
+- uid: Matchmaker.Linq.MatchExtensions.Enumerate``1(System.Collections.Generic.IEnumerable{``0})
+  name: Enumerate<T>(IEnumerable<T>)
+  href: api/Matchmaker.Linq.MatchExtensions.html#Matchmaker_Linq_MatchExtensions_Enumerate__1_System_Collections_Generic_IEnumerable___0__
+  commentId: M:Matchmaker.Linq.MatchExtensions.Enumerate``1(System.Collections.Generic.IEnumerable{``0})
+  name.vb: Enumerate(Of T)(IEnumerable(Of T))
+  fullName: Matchmaker.Linq.MatchExtensions.Enumerate<T>(System.Collections.Generic.IEnumerable<T>)
+  fullName.vb: Matchmaker.Linq.MatchExtensions.Enumerate(Of T)(System.Collections.Generic.IEnumerable(Of T))
+  nameWithType: MatchExtensions.Enumerate<T>(IEnumerable<T>)
+  nameWithType.vb: MatchExtensions.Enumerate(Of T)(IEnumerable(Of T))
+- uid: Matchmaker.Linq.MatchExtensions.Or*
+  name: Or
+  href: api/Matchmaker.Linq.MatchExtensions.html#Matchmaker_Linq_MatchExtensions_Or_
+  commentId: Overload:Matchmaker.Linq.MatchExtensions.Or
+  isSpec: "True"
+  fullName: Matchmaker.Linq.MatchExtensions.Or
+  nameWithType: MatchExtensions.Or
+- uid: Matchmaker.Linq.MatchExtensions.Or``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0})
+  name: Or<T>(IPattern<T, T>, IPattern<T, T>)
+  href: api/Matchmaker.Linq.MatchExtensions.html#Matchmaker_Linq_MatchExtensions_Or__1_Matchmaker_Patterns_IPattern___0___0__Matchmaker_Patterns_IPattern___0___0__
+  commentId: M:Matchmaker.Linq.MatchExtensions.Or``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0})
+  name.vb: Or(Of T)(IPattern(Of T, T), IPattern(Of T, T))
+  fullName: Matchmaker.Linq.MatchExtensions.Or<T>(Matchmaker.Patterns.IPattern<T, T>, Matchmaker.Patterns.IPattern<T, T>)
+  fullName.vb: Matchmaker.Linq.MatchExtensions.Or(Of T)(Matchmaker.Patterns.IPattern(Of T, T), Matchmaker.Patterns.IPattern(Of T, T))
+  nameWithType: MatchExtensions.Or<T>(IPattern<T, T>, IPattern<T, T>)
+  nameWithType.vb: MatchExtensions.Or(Of T)(IPattern(Of T, T), IPattern(Of T, T))
+- uid: Matchmaker.Linq.MatchExtensions.Or``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0},System.String)
+  name: Or<T>(IPattern<T, T>, IPattern<T, T>, String)
+  href: api/Matchmaker.Linq.MatchExtensions.html#Matchmaker_Linq_MatchExtensions_Or__1_Matchmaker_Patterns_IPattern___0___0__Matchmaker_Patterns_IPattern___0___0__System_String_
+  commentId: M:Matchmaker.Linq.MatchExtensions.Or``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0},System.String)
+  name.vb: Or(Of T)(IPattern(Of T, T), IPattern(Of T, T), String)
+  fullName: Matchmaker.Linq.MatchExtensions.Or<T>(Matchmaker.Patterns.IPattern<T, T>, Matchmaker.Patterns.IPattern<T, T>, System.String)
+  fullName.vb: Matchmaker.Linq.MatchExtensions.Or(Of T)(Matchmaker.Patterns.IPattern(Of T, T), Matchmaker.Patterns.IPattern(Of T, T), System.String)
+  nameWithType: MatchExtensions.Or<T>(IPattern<T, T>, IPattern<T, T>, String)
+  nameWithType.vb: MatchExtensions.Or(Of T)(IPattern(Of T, T), IPattern(Of T, T), String)
+- uid: Matchmaker.Linq.MatchExtensions.Pipe*
+  name: Pipe
+  href: api/Matchmaker.Linq.MatchExtensions.html#Matchmaker_Linq_MatchExtensions_Pipe_
+  commentId: Overload:Matchmaker.Linq.MatchExtensions.Pipe
+  isSpec: "True"
+  fullName: Matchmaker.Linq.MatchExtensions.Pipe
+  nameWithType: MatchExtensions.Pipe
+- uid: Matchmaker.Linq.MatchExtensions.Pipe``3(Matchmaker.Patterns.IPattern{``0,``1},Matchmaker.Patterns.IPattern{``1,``2})
+  name: Pipe<TInput, TIntermediateResult, TMatchResult>(IPattern<TInput, TIntermediateResult>, IPattern<TIntermediateResult, TMatchResult>)
+  href: api/Matchmaker.Linq.MatchExtensions.html#Matchmaker_Linq_MatchExtensions_Pipe__3_Matchmaker_Patterns_IPattern___0___1__Matchmaker_Patterns_IPattern___1___2__
+  commentId: M:Matchmaker.Linq.MatchExtensions.Pipe``3(Matchmaker.Patterns.IPattern{``0,``1},Matchmaker.Patterns.IPattern{``1,``2})
+  name.vb: Pipe(Of TInput, TIntermediateResult, TMatchResult)(IPattern(Of TInput, TIntermediateResult), IPattern(Of TIntermediateResult, TMatchResult))
+  fullName: Matchmaker.Linq.MatchExtensions.Pipe<TInput, TIntermediateResult, TMatchResult>(Matchmaker.Patterns.IPattern<TInput, TIntermediateResult>, Matchmaker.Patterns.IPattern<TIntermediateResult, TMatchResult>)
+  fullName.vb: Matchmaker.Linq.MatchExtensions.Pipe(Of TInput, TIntermediateResult, TMatchResult)(Matchmaker.Patterns.IPattern(Of TInput, TIntermediateResult), Matchmaker.Patterns.IPattern(Of TIntermediateResult, TMatchResult))
+  nameWithType: MatchExtensions.Pipe<TInput, TIntermediateResult, TMatchResult>(IPattern<TInput, TIntermediateResult>, IPattern<TIntermediateResult, TMatchResult>)
+  nameWithType.vb: MatchExtensions.Pipe(Of TInput, TIntermediateResult, TMatchResult)(IPattern(Of TInput, TIntermediateResult), IPattern(Of TIntermediateResult, TMatchResult))
+- uid: Matchmaker.Linq.MatchExtensions.Pipe``3(Matchmaker.Patterns.IPattern{``0,``1},Matchmaker.Patterns.IPattern{``1,``2},System.String)
+  name: Pipe<TInput, TIntermediateResult, TMatchResult>(IPattern<TInput, TIntermediateResult>, IPattern<TIntermediateResult, TMatchResult>, String)
+  href: api/Matchmaker.Linq.MatchExtensions.html#Matchmaker_Linq_MatchExtensions_Pipe__3_Matchmaker_Patterns_IPattern___0___1__Matchmaker_Patterns_IPattern___1___2__System_String_
+  commentId: M:Matchmaker.Linq.MatchExtensions.Pipe``3(Matchmaker.Patterns.IPattern{``0,``1},Matchmaker.Patterns.IPattern{``1,``2},System.String)
+  name.vb: Pipe(Of TInput, TIntermediateResult, TMatchResult)(IPattern(Of TInput, TIntermediateResult), IPattern(Of TIntermediateResult, TMatchResult), String)
+  fullName: Matchmaker.Linq.MatchExtensions.Pipe<TInput, TIntermediateResult, TMatchResult>(Matchmaker.Patterns.IPattern<TInput, TIntermediateResult>, Matchmaker.Patterns.IPattern<TIntermediateResult, TMatchResult>, System.String)
+  fullName.vb: Matchmaker.Linq.MatchExtensions.Pipe(Of TInput, TIntermediateResult, TMatchResult)(Matchmaker.Patterns.IPattern(Of TInput, TIntermediateResult), Matchmaker.Patterns.IPattern(Of TIntermediateResult, TMatchResult), System.String)
+  nameWithType: MatchExtensions.Pipe<TInput, TIntermediateResult, TMatchResult>(IPattern<TInput, TIntermediateResult>, IPattern<TIntermediateResult, TMatchResult>, String)
+  nameWithType.vb: MatchExtensions.Pipe(Of TInput, TIntermediateResult, TMatchResult)(IPattern(Of TInput, TIntermediateResult), IPattern(Of TIntermediateResult, TMatchResult), String)
+- uid: Matchmaker.Linq.MatchExtensions.Pipe``3(Matchmaker.Patterns.IPattern{``0,``1},System.Func{``1,Matchmaker.MatchResult{``2}})
+  name: Pipe<TInput, TIntermediateResult, TMatchResult>(IPattern<TInput, TIntermediateResult>, Func<TIntermediateResult, MatchResult<TMatchResult>>)
+  href: api/Matchmaker.Linq.MatchExtensions.html#Matchmaker_Linq_MatchExtensions_Pipe__3_Matchmaker_Patterns_IPattern___0___1__System_Func___1_Matchmaker_MatchResult___2___
+  commentId: M:Matchmaker.Linq.MatchExtensions.Pipe``3(Matchmaker.Patterns.IPattern{``0,``1},System.Func{``1,Matchmaker.MatchResult{``2}})
+  name.vb: Pipe(Of TInput, TIntermediateResult, TMatchResult)(IPattern(Of TInput, TIntermediateResult), Func(Of TIntermediateResult, MatchResult(Of TMatchResult)))
+  fullName: Matchmaker.Linq.MatchExtensions.Pipe<TInput, TIntermediateResult, TMatchResult>(Matchmaker.Patterns.IPattern<TInput, TIntermediateResult>, System.Func<TIntermediateResult, Matchmaker.MatchResult<TMatchResult>>)
+  fullName.vb: Matchmaker.Linq.MatchExtensions.Pipe(Of TInput, TIntermediateResult, TMatchResult)(Matchmaker.Patterns.IPattern(Of TInput, TIntermediateResult), System.Func(Of TIntermediateResult, Matchmaker.MatchResult(Of TMatchResult)))
+  nameWithType: MatchExtensions.Pipe<TInput, TIntermediateResult, TMatchResult>(IPattern<TInput, TIntermediateResult>, Func<TIntermediateResult, MatchResult<TMatchResult>>)
+  nameWithType.vb: MatchExtensions.Pipe(Of TInput, TIntermediateResult, TMatchResult)(IPattern(Of TInput, TIntermediateResult), Func(Of TIntermediateResult, MatchResult(Of TMatchResult)))
+- uid: Matchmaker.Linq.MatchExtensions.Pipe``3(Matchmaker.Patterns.IPattern{``0,``1},System.Func{``1,Matchmaker.MatchResult{``2}},System.String)
+  name: Pipe<TInput, TIntermediateResult, TMatchResult>(IPattern<TInput, TIntermediateResult>, Func<TIntermediateResult, MatchResult<TMatchResult>>, String)
+  href: api/Matchmaker.Linq.MatchExtensions.html#Matchmaker_Linq_MatchExtensions_Pipe__3_Matchmaker_Patterns_IPattern___0___1__System_Func___1_Matchmaker_MatchResult___2___System_String_
+  commentId: M:Matchmaker.Linq.MatchExtensions.Pipe``3(Matchmaker.Patterns.IPattern{``0,``1},System.Func{``1,Matchmaker.MatchResult{``2}},System.String)
+  name.vb: Pipe(Of TInput, TIntermediateResult, TMatchResult)(IPattern(Of TInput, TIntermediateResult), Func(Of TIntermediateResult, MatchResult(Of TMatchResult)), String)
+  fullName: Matchmaker.Linq.MatchExtensions.Pipe<TInput, TIntermediateResult, TMatchResult>(Matchmaker.Patterns.IPattern<TInput, TIntermediateResult>, System.Func<TIntermediateResult, Matchmaker.MatchResult<TMatchResult>>, System.String)
+  fullName.vb: Matchmaker.Linq.MatchExtensions.Pipe(Of TInput, TIntermediateResult, TMatchResult)(Matchmaker.Patterns.IPattern(Of TInput, TIntermediateResult), System.Func(Of TIntermediateResult, Matchmaker.MatchResult(Of TMatchResult)), System.String)
+  nameWithType: MatchExtensions.Pipe<TInput, TIntermediateResult, TMatchResult>(IPattern<TInput, TIntermediateResult>, Func<TIntermediateResult, MatchResult<TMatchResult>>, String)
+  nameWithType.vb: MatchExtensions.Pipe(Of TInput, TIntermediateResult, TMatchResult)(IPattern(Of TInput, TIntermediateResult), Func(Of TIntermediateResult, MatchResult(Of TMatchResult)), String)
+- uid: Matchmaker.Linq.MatchExtensions.Select*
+  name: Select
+  href: api/Matchmaker.Linq.MatchExtensions.html#Matchmaker_Linq_MatchExtensions_Select_
+  commentId: Overload:Matchmaker.Linq.MatchExtensions.Select
+  isSpec: "True"
+  fullName: Matchmaker.Linq.MatchExtensions.Select
+  nameWithType: MatchExtensions.Select
+- uid: Matchmaker.Linq.MatchExtensions.Select``3(Matchmaker.Patterns.IPattern{``0,``1},System.Func{``1,``2})
+  name: Select<TInput, TIntermediateResult, TMatchResult>(IPattern<TInput, TIntermediateResult>, Func<TIntermediateResult, TMatchResult>)
+  href: api/Matchmaker.Linq.MatchExtensions.html#Matchmaker_Linq_MatchExtensions_Select__3_Matchmaker_Patterns_IPattern___0___1__System_Func___1___2__
+  commentId: M:Matchmaker.Linq.MatchExtensions.Select``3(Matchmaker.Patterns.IPattern{``0,``1},System.Func{``1,``2})
+  name.vb: Select(Of TInput, TIntermediateResult, TMatchResult)(IPattern(Of TInput, TIntermediateResult), Func(Of TIntermediateResult, TMatchResult))
+  fullName: Matchmaker.Linq.MatchExtensions.Select<TInput, TIntermediateResult, TMatchResult>(Matchmaker.Patterns.IPattern<TInput, TIntermediateResult>, System.Func<TIntermediateResult, TMatchResult>)
+  fullName.vb: Matchmaker.Linq.MatchExtensions.Select(Of TInput, TIntermediateResult, TMatchResult)(Matchmaker.Patterns.IPattern(Of TInput, TIntermediateResult), System.Func(Of TIntermediateResult, TMatchResult))
+  nameWithType: MatchExtensions.Select<TInput, TIntermediateResult, TMatchResult>(IPattern<TInput, TIntermediateResult>, Func<TIntermediateResult, TMatchResult>)
+  nameWithType.vb: MatchExtensions.Select(Of TInput, TIntermediateResult, TMatchResult)(IPattern(Of TInput, TIntermediateResult), Func(Of TIntermediateResult, TMatchResult))
+- uid: Matchmaker.Linq.MatchExtensions.Select``3(Matchmaker.Patterns.IPattern{``0,``1},System.Func{``1,``2},System.String)
+  name: Select<TInput, TIntermediateResult, TMatchResult>(IPattern<TInput, TIntermediateResult>, Func<TIntermediateResult, TMatchResult>, String)
+  href: api/Matchmaker.Linq.MatchExtensions.html#Matchmaker_Linq_MatchExtensions_Select__3_Matchmaker_Patterns_IPattern___0___1__System_Func___1___2__System_String_
+  commentId: M:Matchmaker.Linq.MatchExtensions.Select``3(Matchmaker.Patterns.IPattern{``0,``1},System.Func{``1,``2},System.String)
+  name.vb: Select(Of TInput, TIntermediateResult, TMatchResult)(IPattern(Of TInput, TIntermediateResult), Func(Of TIntermediateResult, TMatchResult), String)
+  fullName: Matchmaker.Linq.MatchExtensions.Select<TInput, TIntermediateResult, TMatchResult>(Matchmaker.Patterns.IPattern<TInput, TIntermediateResult>, System.Func<TIntermediateResult, TMatchResult>, System.String)
+  fullName.vb: Matchmaker.Linq.MatchExtensions.Select(Of TInput, TIntermediateResult, TMatchResult)(Matchmaker.Patterns.IPattern(Of TInput, TIntermediateResult), System.Func(Of TIntermediateResult, TMatchResult), System.String)
+  nameWithType: MatchExtensions.Select<TInput, TIntermediateResult, TMatchResult>(IPattern<TInput, TIntermediateResult>, Func<TIntermediateResult, TMatchResult>, String)
+  nameWithType.vb: MatchExtensions.Select(Of TInput, TIntermediateResult, TMatchResult)(IPattern(Of TInput, TIntermediateResult), Func(Of TIntermediateResult, TMatchResult), String)
+- uid: Matchmaker.Linq.MatchExtensions.Where*
+  name: Where
+  href: api/Matchmaker.Linq.MatchExtensions.html#Matchmaker_Linq_MatchExtensions_Where_
+  commentId: Overload:Matchmaker.Linq.MatchExtensions.Where
+  isSpec: "True"
+  fullName: Matchmaker.Linq.MatchExtensions.Where
+  nameWithType: MatchExtensions.Where
+- uid: Matchmaker.Linq.MatchExtensions.Where``2(Matchmaker.Patterns.IPattern{``0,``1},System.Func{``1,System.Boolean})
+  name: Where<TInput, TMatchResult>(IPattern<TInput, TMatchResult>, Func<TMatchResult, Boolean>)
+  href: api/Matchmaker.Linq.MatchExtensions.html#Matchmaker_Linq_MatchExtensions_Where__2_Matchmaker_Patterns_IPattern___0___1__System_Func___1_System_Boolean__
+  commentId: M:Matchmaker.Linq.MatchExtensions.Where``2(Matchmaker.Patterns.IPattern{``0,``1},System.Func{``1,System.Boolean})
+  name.vb: Where(Of TInput, TMatchResult)(IPattern(Of TInput, TMatchResult), Func(Of TMatchResult, Boolean))
+  fullName: Matchmaker.Linq.MatchExtensions.Where<TInput, TMatchResult>(Matchmaker.Patterns.IPattern<TInput, TMatchResult>, System.Func<TMatchResult, System.Boolean>)
+  fullName.vb: Matchmaker.Linq.MatchExtensions.Where(Of TInput, TMatchResult)(Matchmaker.Patterns.IPattern(Of TInput, TMatchResult), System.Func(Of TMatchResult, System.Boolean))
+  nameWithType: MatchExtensions.Where<TInput, TMatchResult>(IPattern<TInput, TMatchResult>, Func<TMatchResult, Boolean>)
+  nameWithType.vb: MatchExtensions.Where(Of TInput, TMatchResult)(IPattern(Of TInput, TMatchResult), Func(Of TMatchResult, Boolean))
+- uid: Matchmaker.Linq.MatchExtensions.Where``2(Matchmaker.Patterns.IPattern{``0,``1},System.Func{``1,System.Boolean},System.String)
+  name: Where<TInput, TMatchResult>(IPattern<TInput, TMatchResult>, Func<TMatchResult, Boolean>, String)
+  href: api/Matchmaker.Linq.MatchExtensions.html#Matchmaker_Linq_MatchExtensions_Where__2_Matchmaker_Patterns_IPattern___0___1__System_Func___1_System_Boolean__System_String_
+  commentId: M:Matchmaker.Linq.MatchExtensions.Where``2(Matchmaker.Patterns.IPattern{``0,``1},System.Func{``1,System.Boolean},System.String)
+  name.vb: Where(Of TInput, TMatchResult)(IPattern(Of TInput, TMatchResult), Func(Of TMatchResult, Boolean), String)
+  fullName: Matchmaker.Linq.MatchExtensions.Where<TInput, TMatchResult>(Matchmaker.Patterns.IPattern<TInput, TMatchResult>, System.Func<TMatchResult, System.Boolean>, System.String)
+  fullName.vb: Matchmaker.Linq.MatchExtensions.Where(Of TInput, TMatchResult)(Matchmaker.Patterns.IPattern(Of TInput, TMatchResult), System.Func(Of TMatchResult, System.Boolean), System.String)
+  nameWithType: MatchExtensions.Where<TInput, TMatchResult>(IPattern<TInput, TMatchResult>, Func<TMatchResult, Boolean>, String)
+  nameWithType.vb: MatchExtensions.Where(Of TInput, TMatchResult)(IPattern(Of TInput, TMatchResult), Func(Of TMatchResult, Boolean), String)
+- uid: Matchmaker.Linq.MatchExtensions.Xor*
+  name: Xor
+  href: api/Matchmaker.Linq.MatchExtensions.html#Matchmaker_Linq_MatchExtensions_Xor_
+  commentId: Overload:Matchmaker.Linq.MatchExtensions.Xor
+  isSpec: "True"
+  fullName: Matchmaker.Linq.MatchExtensions.Xor
+  nameWithType: MatchExtensions.Xor
+- uid: Matchmaker.Linq.MatchExtensions.Xor``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0})
+  name: Xor<T>(IPattern<T, T>, IPattern<T, T>)
+  href: api/Matchmaker.Linq.MatchExtensions.html#Matchmaker_Linq_MatchExtensions_Xor__1_Matchmaker_Patterns_IPattern___0___0__Matchmaker_Patterns_IPattern___0___0__
+  commentId: M:Matchmaker.Linq.MatchExtensions.Xor``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0})
+  name.vb: Xor(Of T)(IPattern(Of T, T), IPattern(Of T, T))
+  fullName: Matchmaker.Linq.MatchExtensions.Xor<T>(Matchmaker.Patterns.IPattern<T, T>, Matchmaker.Patterns.IPattern<T, T>)
+  fullName.vb: Matchmaker.Linq.MatchExtensions.Xor(Of T)(Matchmaker.Patterns.IPattern(Of T, T), Matchmaker.Patterns.IPattern(Of T, T))
+  nameWithType: MatchExtensions.Xor<T>(IPattern<T, T>, IPattern<T, T>)
+  nameWithType.vb: MatchExtensions.Xor(Of T)(IPattern(Of T, T), IPattern(Of T, T))
+- uid: Matchmaker.Linq.MatchExtensions.Xor``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0},System.String)
+  name: Xor<T>(IPattern<T, T>, IPattern<T, T>, String)
+  href: api/Matchmaker.Linq.MatchExtensions.html#Matchmaker_Linq_MatchExtensions_Xor__1_Matchmaker_Patterns_IPattern___0___0__Matchmaker_Patterns_IPattern___0___0__System_String_
+  commentId: M:Matchmaker.Linq.MatchExtensions.Xor``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0},System.String)
+  name.vb: Xor(Of T)(IPattern(Of T, T), IPattern(Of T, T), String)
+  fullName: Matchmaker.Linq.MatchExtensions.Xor<T>(Matchmaker.Patterns.IPattern<T, T>, Matchmaker.Patterns.IPattern<T, T>, System.String)
+  fullName.vb: Matchmaker.Linq.MatchExtensions.Xor(Of T)(Matchmaker.Patterns.IPattern(Of T, T), Matchmaker.Patterns.IPattern(Of T, T), System.String)
+  nameWithType: MatchExtensions.Xor<T>(IPattern<T, T>, IPattern<T, T>, String)
+  nameWithType.vb: MatchExtensions.Xor(Of T)(IPattern(Of T, T), IPattern(Of T, T), String)
 - uid: Matchmaker.Match
   name: Match
   href: api/Matchmaker.Match.html
@@ -405,28 +676,6 @@ references:
   isSpec: "True"
   fullName: Matchmaker.MatchException.MatchException
   nameWithType: MatchException.MatchException
-- uid: Matchmaker.MatchExtensions
-  name: MatchExtensions
-  href: api/Matchmaker.MatchExtensions.html
-  commentId: T:Matchmaker.MatchExtensions
-  fullName: Matchmaker.MatchExtensions
-  nameWithType: MatchExtensions
-- uid: Matchmaker.MatchExtensions.Enumerate*
-  name: Enumerate
-  href: api/Matchmaker.MatchExtensions.html#Matchmaker_MatchExtensions_Enumerate_
-  commentId: Overload:Matchmaker.MatchExtensions.Enumerate
-  isSpec: "True"
-  fullName: Matchmaker.MatchExtensions.Enumerate
-  nameWithType: MatchExtensions.Enumerate
-- uid: Matchmaker.MatchExtensions.Enumerate``1(System.Collections.Generic.IEnumerable{``0})
-  name: Enumerate<T>(IEnumerable<T>)
-  href: api/Matchmaker.MatchExtensions.html#Matchmaker_MatchExtensions_Enumerate__1_System_Collections_Generic_IEnumerable___0__
-  commentId: M:Matchmaker.MatchExtensions.Enumerate``1(System.Collections.Generic.IEnumerable{``0})
-  name.vb: Enumerate(Of T)(IEnumerable(Of T))
-  fullName: Matchmaker.MatchExtensions.Enumerate<T>(System.Collections.Generic.IEnumerable<T>)
-  fullName.vb: Matchmaker.MatchExtensions.Enumerate(Of T)(System.Collections.Generic.IEnumerable(Of T))
-  nameWithType: MatchExtensions.Enumerate<T>(IEnumerable<T>)
-  nameWithType.vb: MatchExtensions.Enumerate(Of T)(IEnumerable(Of T))
 - uid: Matchmaker.MatchResult
   name: MatchResult
   href: api/Matchmaker.MatchResult.html
@@ -610,59 +859,32 @@ references:
   commentId: N:Matchmaker.Patterns
   fullName: Matchmaker.Patterns
   nameWithType: Matchmaker.Patterns
-- uid: Matchmaker.Patterns.IConditionalPattern`3
-  name: IConditionalPattern<TInput, TMatchResult, TPattern>
-  href: api/Matchmaker.Patterns.IConditionalPattern-3.html
-  commentId: T:Matchmaker.Patterns.IConditionalPattern`3
-  name.vb: IConditionalPattern(Of TInput, TMatchResult, TPattern)
-  fullName: Matchmaker.Patterns.IConditionalPattern<TInput, TMatchResult, TPattern>
-  fullName.vb: Matchmaker.Patterns.IConditionalPattern(Of TInput, TMatchResult, TPattern)
-  nameWithType: IConditionalPattern<TInput, TMatchResult, TPattern>
-  nameWithType.vb: IConditionalPattern(Of TInput, TMatchResult, TPattern)
-- uid: Matchmaker.Patterns.IConditionalPattern`3.When(System.Func{`1,System.Boolean})
-  name: When(Func<TMatchResult, Boolean>)
-  href: api/Matchmaker.Patterns.IConditionalPattern-3.html#Matchmaker_Patterns_IConditionalPattern_3_When_System_Func__1_System_Boolean__
-  commentId: M:Matchmaker.Patterns.IConditionalPattern`3.When(System.Func{`1,System.Boolean})
-  name.vb: When(Func(Of TMatchResult, Boolean))
-  fullName: Matchmaker.Patterns.IConditionalPattern<TInput, TMatchResult, TPattern>.When(System.Func<TMatchResult, System.Boolean>)
-  fullName.vb: Matchmaker.Patterns.IConditionalPattern(Of TInput, TMatchResult, TPattern).When(System.Func(Of TMatchResult, System.Boolean))
-  nameWithType: IConditionalPattern<TInput, TMatchResult, TPattern>.When(Func<TMatchResult, Boolean>)
-  nameWithType.vb: IConditionalPattern(Of TInput, TMatchResult, TPattern).When(Func(Of TMatchResult, Boolean))
-- uid: Matchmaker.Patterns.IConditionalPattern`3.When*
-  name: When
-  href: api/Matchmaker.Patterns.IConditionalPattern-3.html#Matchmaker_Patterns_IConditionalPattern_3_When_
-  commentId: Overload:Matchmaker.Patterns.IConditionalPattern`3.When
+- uid: Matchmaker.Patterns.BindingPattern`3
+  name: BindingPattern<TInput, TIntermediateResult, TMatchResult>
+  href: api/Matchmaker.Patterns.BindingPattern-3.html
+  commentId: T:Matchmaker.Patterns.BindingPattern`3
+  name.vb: BindingPattern(Of TInput, TIntermediateResult, TMatchResult)
+  fullName: Matchmaker.Patterns.BindingPattern<TInput, TIntermediateResult, TMatchResult>
+  fullName.vb: Matchmaker.Patterns.BindingPattern(Of TInput, TIntermediateResult, TMatchResult)
+  nameWithType: BindingPattern<TInput, TIntermediateResult, TMatchResult>
+  nameWithType.vb: BindingPattern(Of TInput, TIntermediateResult, TMatchResult)
+- uid: Matchmaker.Patterns.BindingPattern`3.Match(`0)
+  name: Match(TInput)
+  href: api/Matchmaker.Patterns.BindingPattern-3.html#Matchmaker_Patterns_BindingPattern_3_Match__0_
+  commentId: M:Matchmaker.Patterns.BindingPattern`3.Match(`0)
+  fullName: Matchmaker.Patterns.BindingPattern<TInput, TIntermediateResult, TMatchResult>.Match(TInput)
+  fullName.vb: Matchmaker.Patterns.BindingPattern(Of TInput, TIntermediateResult, TMatchResult).Match(TInput)
+  nameWithType: BindingPattern<TInput, TIntermediateResult, TMatchResult>.Match(TInput)
+  nameWithType.vb: BindingPattern(Of TInput, TIntermediateResult, TMatchResult).Match(TInput)
+- uid: Matchmaker.Patterns.BindingPattern`3.Match*
+  name: Match
+  href: api/Matchmaker.Patterns.BindingPattern-3.html#Matchmaker_Patterns_BindingPattern_3_Match_
+  commentId: Overload:Matchmaker.Patterns.BindingPattern`3.Match
   isSpec: "True"
-  fullName: Matchmaker.Patterns.IConditionalPattern<TInput, TMatchResult, TPattern>.When
-  fullName.vb: Matchmaker.Patterns.IConditionalPattern(Of TInput, TMatchResult, TPattern).When
-  nameWithType: IConditionalPattern<TInput, TMatchResult, TPattern>.When
-  nameWithType.vb: IConditionalPattern(Of TInput, TMatchResult, TPattern).When
-- uid: Matchmaker.Patterns.IDescribablePattern`2
-  name: IDescribablePattern<TInput, TMatchResult>
-  href: api/Matchmaker.Patterns.IDescribablePattern-2.html
-  commentId: T:Matchmaker.Patterns.IDescribablePattern`2
-  name.vb: IDescribablePattern(Of TInput, TMatchResult)
-  fullName: Matchmaker.Patterns.IDescribablePattern<TInput, TMatchResult>
-  fullName.vb: Matchmaker.Patterns.IDescribablePattern(Of TInput, TMatchResult)
-  nameWithType: IDescribablePattern<TInput, TMatchResult>
-  nameWithType.vb: IDescribablePattern(Of TInput, TMatchResult)
-- uid: Matchmaker.Patterns.IDescribablePattern`2.Description
-  name: Description
-  href: api/Matchmaker.Patterns.IDescribablePattern-2.html#Matchmaker_Patterns_IDescribablePattern_2_Description
-  commentId: P:Matchmaker.Patterns.IDescribablePattern`2.Description
-  fullName: Matchmaker.Patterns.IDescribablePattern<TInput, TMatchResult>.Description
-  fullName.vb: Matchmaker.Patterns.IDescribablePattern(Of TInput, TMatchResult).Description
-  nameWithType: IDescribablePattern<TInput, TMatchResult>.Description
-  nameWithType.vb: IDescribablePattern(Of TInput, TMatchResult).Description
-- uid: Matchmaker.Patterns.IDescribablePattern`2.Description*
-  name: Description
-  href: api/Matchmaker.Patterns.IDescribablePattern-2.html#Matchmaker_Patterns_IDescribablePattern_2_Description_
-  commentId: Overload:Matchmaker.Patterns.IDescribablePattern`2.Description
-  isSpec: "True"
-  fullName: Matchmaker.Patterns.IDescribablePattern<TInput, TMatchResult>.Description
-  fullName.vb: Matchmaker.Patterns.IDescribablePattern(Of TInput, TMatchResult).Description
-  nameWithType: IDescribablePattern<TInput, TMatchResult>.Description
-  nameWithType.vb: IDescribablePattern(Of TInput, TMatchResult).Description
+  fullName: Matchmaker.Patterns.BindingPattern<TInput, TIntermediateResult, TMatchResult>.Match
+  fullName.vb: Matchmaker.Patterns.BindingPattern(Of TInput, TIntermediateResult, TMatchResult).Match
+  nameWithType: BindingPattern<TInput, TIntermediateResult, TMatchResult>.Match
+  nameWithType.vb: BindingPattern(Of TInput, TIntermediateResult, TMatchResult).Match
 - uid: Matchmaker.Patterns.IPattern`1
   name: IPattern<TInput>
   href: api/Matchmaker.Patterns.IPattern-1.html
@@ -698,6 +920,23 @@ references:
   fullName.vb: Matchmaker.Patterns.IPattern(Of TInput, TMatchResult)
   nameWithType: IPattern<TInput, TMatchResult>
   nameWithType.vb: IPattern(Of TInput, TMatchResult)
+- uid: Matchmaker.Patterns.IPattern`2.Description
+  name: Description
+  href: api/Matchmaker.Patterns.IPattern-2.html#Matchmaker_Patterns_IPattern_2_Description
+  commentId: P:Matchmaker.Patterns.IPattern`2.Description
+  fullName: Matchmaker.Patterns.IPattern<TInput, TMatchResult>.Description
+  fullName.vb: Matchmaker.Patterns.IPattern(Of TInput, TMatchResult).Description
+  nameWithType: IPattern<TInput, TMatchResult>.Description
+  nameWithType.vb: IPattern(Of TInput, TMatchResult).Description
+- uid: Matchmaker.Patterns.IPattern`2.Description*
+  name: Description
+  href: api/Matchmaker.Patterns.IPattern-2.html#Matchmaker_Patterns_IPattern_2_Description_
+  commentId: Overload:Matchmaker.Patterns.IPattern`2.Description
+  isSpec: "True"
+  fullName: Matchmaker.Patterns.IPattern<TInput, TMatchResult>.Description
+  fullName.vb: Matchmaker.Patterns.IPattern(Of TInput, TMatchResult).Description
+  nameWithType: IPattern<TInput, TMatchResult>.Description
+  nameWithType.vb: IPattern(Of TInput, TMatchResult).Description
 - uid: Matchmaker.Patterns.IPattern`2.Match(`0)
   name: Match(TInput)
   href: api/Matchmaker.Patterns.IPattern-2.html#Matchmaker_Patterns_IPattern_2_Match__0_
@@ -879,6 +1118,12 @@ references:
   commentId: F:Matchmaker.Patterns.Pattern.DefaultOrDescriptionFormat
   fullName: Matchmaker.Patterns.Pattern.DefaultOrDescriptionFormat
   nameWithType: Pattern.DefaultOrDescriptionFormat
+- uid: Matchmaker.Patterns.Pattern.DefaultPipeDescriptionFormat
+  name: DefaultPipeDescriptionFormat
+  href: api/Matchmaker.Patterns.Pattern.html#Matchmaker_Patterns_Pattern_DefaultPipeDescriptionFormat
+  commentId: F:Matchmaker.Patterns.Pattern.DefaultPipeDescriptionFormat
+  fullName: Matchmaker.Patterns.Pattern.DefaultPipeDescriptionFormat
+  nameWithType: Pattern.DefaultPipeDescriptionFormat
 - uid: Matchmaker.Patterns.Pattern.DefaultTypeDescriptionFormat
   name: DefaultTypeDescriptionFormat
   href: api/Matchmaker.Patterns.Pattern.html#Matchmaker_Patterns_Pattern_DefaultTypeDescriptionFormat
@@ -1293,15 +1538,6 @@ references:
   isSpec: "True"
   fullName: Matchmaker.Patterns.Pattern.Not
   nameWithType: Pattern.Not
-- uid: Matchmaker.Patterns.Pattern.Not``2(Matchmaker.Patterns.IDescribablePattern{``0,``1})
-  name: Not<TInput, TMatchResult>(IDescribablePattern<TInput, TMatchResult>)
-  href: api/Matchmaker.Patterns.Pattern.html#Matchmaker_Patterns_Pattern_Not__2_Matchmaker_Patterns_IDescribablePattern___0___1__
-  commentId: M:Matchmaker.Patterns.Pattern.Not``2(Matchmaker.Patterns.IDescribablePattern{``0,``1})
-  name.vb: Not(Of TInput, TMatchResult)(IDescribablePattern(Of TInput, TMatchResult))
-  fullName: Matchmaker.Patterns.Pattern.Not<TInput, TMatchResult>(Matchmaker.Patterns.IDescribablePattern<TInput, TMatchResult>)
-  fullName.vb: Matchmaker.Patterns.Pattern.Not(Of TInput, TMatchResult)(Matchmaker.Patterns.IDescribablePattern(Of TInput, TMatchResult))
-  nameWithType: Pattern.Not<TInput, TMatchResult>(IDescribablePattern<TInput, TMatchResult>)
-  nameWithType.vb: Pattern.Not(Of TInput, TMatchResult)(IDescribablePattern(Of TInput, TMatchResult))
 - uid: Matchmaker.Patterns.Pattern.Not``2(Matchmaker.Patterns.IPattern{``0,``1})
   name: Not<TInput, TMatchResult>(IPattern<TInput, TMatchResult>)
   href: api/Matchmaker.Patterns.Pattern.html#Matchmaker_Patterns_Pattern_Not__2_Matchmaker_Patterns_IPattern___0___1__
@@ -1404,6 +1640,48 @@ references:
   fullName.vb: Matchmaker.Patterns.Pattern(Of TInput, TMatchResult)
   nameWithType: Pattern<TInput, TMatchResult>
   nameWithType.vb: Pattern(Of TInput, TMatchResult)
+- uid: Matchmaker.Patterns.Pattern`2.#ctor
+  name: Pattern()
+  href: api/Matchmaker.Patterns.Pattern-2.html#Matchmaker_Patterns_Pattern_2__ctor
+  commentId: M:Matchmaker.Patterns.Pattern`2.#ctor
+  fullName: Matchmaker.Patterns.Pattern<TInput, TMatchResult>.Pattern()
+  fullName.vb: Matchmaker.Patterns.Pattern(Of TInput, TMatchResult).Pattern()
+  nameWithType: Pattern<TInput, TMatchResult>.Pattern()
+  nameWithType.vb: Pattern(Of TInput, TMatchResult).Pattern()
+- uid: Matchmaker.Patterns.Pattern`2.#ctor(System.String)
+  name: Pattern(String)
+  href: api/Matchmaker.Patterns.Pattern-2.html#Matchmaker_Patterns_Pattern_2__ctor_System_String_
+  commentId: M:Matchmaker.Patterns.Pattern`2.#ctor(System.String)
+  fullName: Matchmaker.Patterns.Pattern<TInput, TMatchResult>.Pattern(System.String)
+  fullName.vb: Matchmaker.Patterns.Pattern(Of TInput, TMatchResult).Pattern(System.String)
+  nameWithType: Pattern<TInput, TMatchResult>.Pattern(String)
+  nameWithType.vb: Pattern(Of TInput, TMatchResult).Pattern(String)
+- uid: Matchmaker.Patterns.Pattern`2.#ctor*
+  name: Pattern
+  href: api/Matchmaker.Patterns.Pattern-2.html#Matchmaker_Patterns_Pattern_2__ctor_
+  commentId: Overload:Matchmaker.Patterns.Pattern`2.#ctor
+  isSpec: "True"
+  fullName: Matchmaker.Patterns.Pattern<TInput, TMatchResult>.Pattern
+  fullName.vb: Matchmaker.Patterns.Pattern(Of TInput, TMatchResult).Pattern
+  nameWithType: Pattern<TInput, TMatchResult>.Pattern
+  nameWithType.vb: Pattern(Of TInput, TMatchResult).Pattern
+- uid: Matchmaker.Patterns.Pattern`2.Description
+  name: Description
+  href: api/Matchmaker.Patterns.Pattern-2.html#Matchmaker_Patterns_Pattern_2_Description
+  commentId: P:Matchmaker.Patterns.Pattern`2.Description
+  fullName: Matchmaker.Patterns.Pattern<TInput, TMatchResult>.Description
+  fullName.vb: Matchmaker.Patterns.Pattern(Of TInput, TMatchResult).Description
+  nameWithType: Pattern<TInput, TMatchResult>.Description
+  nameWithType.vb: Pattern(Of TInput, TMatchResult).Description
+- uid: Matchmaker.Patterns.Pattern`2.Description*
+  name: Description
+  href: api/Matchmaker.Patterns.Pattern-2.html#Matchmaker_Patterns_Pattern_2_Description_
+  commentId: Overload:Matchmaker.Patterns.Pattern`2.Description
+  isSpec: "True"
+  fullName: Matchmaker.Patterns.Pattern<TInput, TMatchResult>.Description
+  fullName.vb: Matchmaker.Patterns.Pattern(Of TInput, TMatchResult).Description
+  nameWithType: Pattern<TInput, TMatchResult>.Description
+  nameWithType.vb: Pattern(Of TInput, TMatchResult).Description
 - uid: Matchmaker.Patterns.Pattern`2.Match(`0)
   name: Match(TInput)
   href: api/Matchmaker.Patterns.Pattern-2.html#Matchmaker_Patterns_Pattern_2_Match__0_
@@ -1421,402 +1699,63 @@ references:
   fullName.vb: Matchmaker.Patterns.Pattern(Of TInput, TMatchResult).Match
   nameWithType: Pattern<TInput, TMatchResult>.Match
   nameWithType.vb: Pattern(Of TInput, TMatchResult).Match
-- uid: Matchmaker.Patterns.Pattern`2.op_OnesComplement(Matchmaker.Patterns.Pattern{`0,`1})
-  name: OnesComplement(Pattern<TInput, TMatchResult>)
-  href: api/Matchmaker.Patterns.Pattern-2.html#Matchmaker_Patterns_Pattern_2_op_OnesComplement_Matchmaker_Patterns_Pattern__0__1__
-  commentId: M:Matchmaker.Patterns.Pattern`2.op_OnesComplement(Matchmaker.Patterns.Pattern{`0,`1})
-  name.vb: OnesComplement(Pattern(Of TInput, TMatchResult))
-  fullName: Matchmaker.Patterns.Pattern<TInput, TMatchResult>.OnesComplement(Matchmaker.Patterns.Pattern<TInput, TMatchResult>)
-  fullName.vb: Matchmaker.Patterns.Pattern(Of TInput, TMatchResult).OnesComplement(Matchmaker.Patterns.Pattern(Of TInput, TMatchResult))
-  nameWithType: Pattern<TInput, TMatchResult>.OnesComplement(Pattern<TInput, TMatchResult>)
-  nameWithType.vb: Pattern(Of TInput, TMatchResult).OnesComplement(Pattern(Of TInput, TMatchResult))
-- uid: Matchmaker.Patterns.Pattern`2.op_OnesComplement*
-  name: OnesComplement
-  href: api/Matchmaker.Patterns.Pattern-2.html#Matchmaker_Patterns_Pattern_2_op_OnesComplement_
-  commentId: Overload:Matchmaker.Patterns.Pattern`2.op_OnesComplement
-  isSpec: "True"
-  fullName: Matchmaker.Patterns.Pattern<TInput, TMatchResult>.OnesComplement
-  fullName.vb: Matchmaker.Patterns.Pattern(Of TInput, TMatchResult).OnesComplement
-  nameWithType: Pattern<TInput, TMatchResult>.OnesComplement
-  nameWithType.vb: Pattern(Of TInput, TMatchResult).OnesComplement
-- uid: Matchmaker.Patterns.Pattern`2.When(System.Func{`1,System.Boolean})
-  name: When(Func<TMatchResult, Boolean>)
-  href: api/Matchmaker.Patterns.Pattern-2.html#Matchmaker_Patterns_Pattern_2_When_System_Func__1_System_Boolean__
-  commentId: M:Matchmaker.Patterns.Pattern`2.When(System.Func{`1,System.Boolean})
-  name.vb: When(Func(Of TMatchResult, Boolean))
-  fullName: Matchmaker.Patterns.Pattern<TInput, TMatchResult>.When(System.Func<TMatchResult, System.Boolean>)
-  fullName.vb: Matchmaker.Patterns.Pattern(Of TInput, TMatchResult).When(System.Func(Of TMatchResult, System.Boolean))
-  nameWithType: Pattern<TInput, TMatchResult>.When(Func<TMatchResult, Boolean>)
-  nameWithType.vb: Pattern(Of TInput, TMatchResult).When(Func(Of TMatchResult, Boolean))
-- uid: Matchmaker.Patterns.Pattern`2.When*
-  name: When
-  href: api/Matchmaker.Patterns.Pattern-2.html#Matchmaker_Patterns_Pattern_2_When_
-  commentId: Overload:Matchmaker.Patterns.Pattern`2.When
-  isSpec: "True"
-  fullName: Matchmaker.Patterns.Pattern<TInput, TMatchResult>.When
-  fullName.vb: Matchmaker.Patterns.Pattern(Of TInput, TMatchResult).When
-  nameWithType: Pattern<TInput, TMatchResult>.When
-  nameWithType.vb: Pattern(Of TInput, TMatchResult).When
-- uid: Matchmaker.Patterns.PatternBase`3
-  name: PatternBase<TInput, TMatchResult, TPattern>
-  href: api/Matchmaker.Patterns.PatternBase-3.html
-  commentId: T:Matchmaker.Patterns.PatternBase`3
-  name.vb: PatternBase(Of TInput, TMatchResult, TPattern)
-  fullName: Matchmaker.Patterns.PatternBase<TInput, TMatchResult, TPattern>
-  fullName.vb: Matchmaker.Patterns.PatternBase(Of TInput, TMatchResult, TPattern)
-  nameWithType: PatternBase<TInput, TMatchResult, TPattern>
-  nameWithType.vb: PatternBase(Of TInput, TMatchResult, TPattern)
-- uid: Matchmaker.Patterns.PatternBase`3.#ctor
-  name: PatternBase()
-  href: api/Matchmaker.Patterns.PatternBase-3.html#Matchmaker_Patterns_PatternBase_3__ctor
-  commentId: M:Matchmaker.Patterns.PatternBase`3.#ctor
-  fullName: Matchmaker.Patterns.PatternBase<TInput, TMatchResult, TPattern>.PatternBase()
-  fullName.vb: Matchmaker.Patterns.PatternBase(Of TInput, TMatchResult, TPattern).PatternBase()
-  nameWithType: PatternBase<TInput, TMatchResult, TPattern>.PatternBase()
-  nameWithType.vb: PatternBase(Of TInput, TMatchResult, TPattern).PatternBase()
-- uid: Matchmaker.Patterns.PatternBase`3.#ctor(System.Collections.Immutable.IImmutableList{System.Func{`1,System.Boolean}})
-  name: PatternBase(IImmutableList<Func<TMatchResult, Boolean>>)
-  href: api/Matchmaker.Patterns.PatternBase-3.html#Matchmaker_Patterns_PatternBase_3__ctor_System_Collections_Immutable_IImmutableList_System_Func__1_System_Boolean___
-  commentId: M:Matchmaker.Patterns.PatternBase`3.#ctor(System.Collections.Immutable.IImmutableList{System.Func{`1,System.Boolean}})
-  name.vb: PatternBase(IImmutableList(Of Func(Of TMatchResult, Boolean)))
-  fullName: Matchmaker.Patterns.PatternBase<TInput, TMatchResult, TPattern>.PatternBase(System.Collections.Immutable.IImmutableList<System.Func<TMatchResult, System.Boolean>>)
-  fullName.vb: Matchmaker.Patterns.PatternBase(Of TInput, TMatchResult, TPattern).PatternBase(System.Collections.Immutable.IImmutableList(Of System.Func(Of TMatchResult, System.Boolean)))
-  nameWithType: PatternBase<TInput, TMatchResult, TPattern>.PatternBase(IImmutableList<Func<TMatchResult, Boolean>>)
-  nameWithType.vb: PatternBase(Of TInput, TMatchResult, TPattern).PatternBase(IImmutableList(Of Func(Of TMatchResult, Boolean)))
-- uid: Matchmaker.Patterns.PatternBase`3.#ctor(System.Collections.Immutable.IImmutableList{System.Func{`1,System.Boolean}},System.String)
-  name: PatternBase(IImmutableList<Func<TMatchResult, Boolean>>, String)
-  href: api/Matchmaker.Patterns.PatternBase-3.html#Matchmaker_Patterns_PatternBase_3__ctor_System_Collections_Immutable_IImmutableList_System_Func__1_System_Boolean___System_String_
-  commentId: M:Matchmaker.Patterns.PatternBase`3.#ctor(System.Collections.Immutable.IImmutableList{System.Func{`1,System.Boolean}},System.String)
-  name.vb: PatternBase(IImmutableList(Of Func(Of TMatchResult, Boolean)), String)
-  fullName: Matchmaker.Patterns.PatternBase<TInput, TMatchResult, TPattern>.PatternBase(System.Collections.Immutable.IImmutableList<System.Func<TMatchResult, System.Boolean>>, System.String)
-  fullName.vb: Matchmaker.Patterns.PatternBase(Of TInput, TMatchResult, TPattern).PatternBase(System.Collections.Immutable.IImmutableList(Of System.Func(Of TMatchResult, System.Boolean)), System.String)
-  nameWithType: PatternBase<TInput, TMatchResult, TPattern>.PatternBase(IImmutableList<Func<TMatchResult, Boolean>>, String)
-  nameWithType.vb: PatternBase(Of TInput, TMatchResult, TPattern).PatternBase(IImmutableList(Of Func(Of TMatchResult, Boolean)), String)
-- uid: Matchmaker.Patterns.PatternBase`3.#ctor(System.String)
-  name: PatternBase(String)
-  href: api/Matchmaker.Patterns.PatternBase-3.html#Matchmaker_Patterns_PatternBase_3__ctor_System_String_
-  commentId: M:Matchmaker.Patterns.PatternBase`3.#ctor(System.String)
-  fullName: Matchmaker.Patterns.PatternBase<TInput, TMatchResult, TPattern>.PatternBase(System.String)
-  fullName.vb: Matchmaker.Patterns.PatternBase(Of TInput, TMatchResult, TPattern).PatternBase(System.String)
-  nameWithType: PatternBase<TInput, TMatchResult, TPattern>.PatternBase(String)
-  nameWithType.vb: PatternBase(Of TInput, TMatchResult, TPattern).PatternBase(String)
-- uid: Matchmaker.Patterns.PatternBase`3.#ctor*
-  name: PatternBase
-  href: api/Matchmaker.Patterns.PatternBase-3.html#Matchmaker_Patterns_PatternBase_3__ctor_
-  commentId: Overload:Matchmaker.Patterns.PatternBase`3.#ctor
-  isSpec: "True"
-  fullName: Matchmaker.Patterns.PatternBase<TInput, TMatchResult, TPattern>.PatternBase
-  fullName.vb: Matchmaker.Patterns.PatternBase(Of TInput, TMatchResult, TPattern).PatternBase
-  nameWithType: PatternBase<TInput, TMatchResult, TPattern>.PatternBase
-  nameWithType.vb: PatternBase(Of TInput, TMatchResult, TPattern).PatternBase
-- uid: Matchmaker.Patterns.PatternBase`3.CheckConditions(Matchmaker.MatchResult{`1})
-  name: CheckConditions(MatchResult<TMatchResult>)
-  href: api/Matchmaker.Patterns.PatternBase-3.html#Matchmaker_Patterns_PatternBase_3_CheckConditions_Matchmaker_MatchResult__1__
-  commentId: M:Matchmaker.Patterns.PatternBase`3.CheckConditions(Matchmaker.MatchResult{`1})
-  name.vb: CheckConditions(MatchResult(Of TMatchResult))
-  fullName: Matchmaker.Patterns.PatternBase<TInput, TMatchResult, TPattern>.CheckConditions(Matchmaker.MatchResult<TMatchResult>)
-  fullName.vb: Matchmaker.Patterns.PatternBase(Of TInput, TMatchResult, TPattern).CheckConditions(Matchmaker.MatchResult(Of TMatchResult))
-  nameWithType: PatternBase<TInput, TMatchResult, TPattern>.CheckConditions(MatchResult<TMatchResult>)
-  nameWithType.vb: PatternBase(Of TInput, TMatchResult, TPattern).CheckConditions(MatchResult(Of TMatchResult))
-- uid: Matchmaker.Patterns.PatternBase`3.CheckConditions*
-  name: CheckConditions
-  href: api/Matchmaker.Patterns.PatternBase-3.html#Matchmaker_Patterns_PatternBase_3_CheckConditions_
-  commentId: Overload:Matchmaker.Patterns.PatternBase`3.CheckConditions
-  isSpec: "True"
-  fullName: Matchmaker.Patterns.PatternBase<TInput, TMatchResult, TPattern>.CheckConditions
-  fullName.vb: Matchmaker.Patterns.PatternBase(Of TInput, TMatchResult, TPattern).CheckConditions
-  nameWithType: PatternBase<TInput, TMatchResult, TPattern>.CheckConditions
-  nameWithType.vb: PatternBase(Of TInput, TMatchResult, TPattern).CheckConditions
-- uid: Matchmaker.Patterns.PatternBase`3.Conditions
-  name: Conditions
-  href: api/Matchmaker.Patterns.PatternBase-3.html#Matchmaker_Patterns_PatternBase_3_Conditions
-  commentId: F:Matchmaker.Patterns.PatternBase`3.Conditions
-  fullName: Matchmaker.Patterns.PatternBase<TInput, TMatchResult, TPattern>.Conditions
-  fullName.vb: Matchmaker.Patterns.PatternBase(Of TInput, TMatchResult, TPattern).Conditions
-  nameWithType: PatternBase<TInput, TMatchResult, TPattern>.Conditions
-  nameWithType.vb: PatternBase(Of TInput, TMatchResult, TPattern).Conditions
-- uid: Matchmaker.Patterns.PatternBase`3.Description
-  name: Description
-  href: api/Matchmaker.Patterns.PatternBase-3.html#Matchmaker_Patterns_PatternBase_3_Description
-  commentId: P:Matchmaker.Patterns.PatternBase`3.Description
-  fullName: Matchmaker.Patterns.PatternBase<TInput, TMatchResult, TPattern>.Description
-  fullName.vb: Matchmaker.Patterns.PatternBase(Of TInput, TMatchResult, TPattern).Description
-  nameWithType: PatternBase<TInput, TMatchResult, TPattern>.Description
-  nameWithType.vb: PatternBase(Of TInput, TMatchResult, TPattern).Description
-- uid: Matchmaker.Patterns.PatternBase`3.Description*
-  name: Description
-  href: api/Matchmaker.Patterns.PatternBase-3.html#Matchmaker_Patterns_PatternBase_3_Description_
-  commentId: Overload:Matchmaker.Patterns.PatternBase`3.Description
-  isSpec: "True"
-  fullName: Matchmaker.Patterns.PatternBase<TInput, TMatchResult, TPattern>.Description
-  fullName.vb: Matchmaker.Patterns.PatternBase(Of TInput, TMatchResult, TPattern).Description
-  nameWithType: PatternBase<TInput, TMatchResult, TPattern>.Description
-  nameWithType.vb: PatternBase(Of TInput, TMatchResult, TPattern).Description
-- uid: Matchmaker.Patterns.PatternBase`3.Match(`0)
-  name: Match(TInput)
-  href: api/Matchmaker.Patterns.PatternBase-3.html#Matchmaker_Patterns_PatternBase_3_Match__0_
-  commentId: M:Matchmaker.Patterns.PatternBase`3.Match(`0)
-  fullName: Matchmaker.Patterns.PatternBase<TInput, TMatchResult, TPattern>.Match(TInput)
-  fullName.vb: Matchmaker.Patterns.PatternBase(Of TInput, TMatchResult, TPattern).Match(TInput)
-  nameWithType: PatternBase<TInput, TMatchResult, TPattern>.Match(TInput)
-  nameWithType.vb: PatternBase(Of TInput, TMatchResult, TPattern).Match(TInput)
-- uid: Matchmaker.Patterns.PatternBase`3.Match*
-  name: Match
-  href: api/Matchmaker.Patterns.PatternBase-3.html#Matchmaker_Patterns_PatternBase_3_Match_
-  commentId: Overload:Matchmaker.Patterns.PatternBase`3.Match
-  isSpec: "True"
-  fullName: Matchmaker.Patterns.PatternBase<TInput, TMatchResult, TPattern>.Match
-  fullName.vb: Matchmaker.Patterns.PatternBase(Of TInput, TMatchResult, TPattern).Match
-  nameWithType: PatternBase<TInput, TMatchResult, TPattern>.Match
-  nameWithType.vb: PatternBase(Of TInput, TMatchResult, TPattern).Match
-- uid: Matchmaker.Patterns.PatternBase`3.Matchmaker#Patterns#IPattern{TInput}#Match(`0)
+- uid: Matchmaker.Patterns.Pattern`2.Matchmaker#Patterns#IPattern{TInput}#Match(`0)
   name: IPattern<TInput>.Match(TInput)
-  href: api/Matchmaker.Patterns.PatternBase-3.html#Matchmaker_Patterns_PatternBase_3_Matchmaker_Patterns_IPattern_TInput__Match__0_
-  commentId: M:Matchmaker.Patterns.PatternBase`3.Matchmaker#Patterns#IPattern{TInput}#Match(`0)
+  href: api/Matchmaker.Patterns.Pattern-2.html#Matchmaker_Patterns_Pattern_2_Matchmaker_Patterns_IPattern_TInput__Match__0_
+  commentId: M:Matchmaker.Patterns.Pattern`2.Matchmaker#Patterns#IPattern{TInput}#Match(`0)
   name.vb: Matchmaker.Patterns.IPattern<TInput>.Match(TInput)
-  fullName: Matchmaker.Patterns.PatternBase<TInput, TMatchResult, TPattern>.Matchmaker.Patterns.IPattern<TInput>.Match(TInput)
-  fullName.vb: Matchmaker.Patterns.PatternBase(Of TInput, TMatchResult, TPattern).Matchmaker.Patterns.IPattern<TInput>.Match(TInput)
-  nameWithType: PatternBase<TInput, TMatchResult, TPattern>.IPattern<TInput>.Match(TInput)
-  nameWithType.vb: PatternBase(Of TInput, TMatchResult, TPattern).Matchmaker.Patterns.IPattern<TInput>.Match(TInput)
-- uid: Matchmaker.Patterns.PatternBase`3.Matchmaker#Patterns#IPattern{TInput}#Match*
+  fullName: Matchmaker.Patterns.Pattern<TInput, TMatchResult>.Matchmaker.Patterns.IPattern<TInput>.Match(TInput)
+  fullName.vb: Matchmaker.Patterns.Pattern(Of TInput, TMatchResult).Matchmaker.Patterns.IPattern<TInput>.Match(TInput)
+  nameWithType: Pattern<TInput, TMatchResult>.IPattern<TInput>.Match(TInput)
+  nameWithType.vb: Pattern(Of TInput, TMatchResult).Matchmaker.Patterns.IPattern<TInput>.Match(TInput)
+- uid: Matchmaker.Patterns.Pattern`2.Matchmaker#Patterns#IPattern{TInput}#Match*
   name: IPattern<TInput>.Match
-  href: api/Matchmaker.Patterns.PatternBase-3.html#Matchmaker_Patterns_PatternBase_3_Matchmaker_Patterns_IPattern_TInput__Match_
-  commentId: Overload:Matchmaker.Patterns.PatternBase`3.Matchmaker#Patterns#IPattern{TInput}#Match
+  href: api/Matchmaker.Patterns.Pattern-2.html#Matchmaker_Patterns_Pattern_2_Matchmaker_Patterns_IPattern_TInput__Match_
+  commentId: Overload:Matchmaker.Patterns.Pattern`2.Matchmaker#Patterns#IPattern{TInput}#Match
   isSpec: "True"
   name.vb: Matchmaker.Patterns.IPattern<TInput>.Match
-  fullName: Matchmaker.Patterns.PatternBase<TInput, TMatchResult, TPattern>.Matchmaker.Patterns.IPattern<TInput>.Match
-  fullName.vb: Matchmaker.Patterns.PatternBase(Of TInput, TMatchResult, TPattern).Matchmaker.Patterns.IPattern<TInput>.Match
-  nameWithType: PatternBase<TInput, TMatchResult, TPattern>.IPattern<TInput>.Match
-  nameWithType.vb: PatternBase(Of TInput, TMatchResult, TPattern).Matchmaker.Patterns.IPattern<TInput>.Match
-- uid: Matchmaker.Patterns.PatternBase`3.ToString
+  fullName: Matchmaker.Patterns.Pattern<TInput, TMatchResult>.Matchmaker.Patterns.IPattern<TInput>.Match
+  fullName.vb: Matchmaker.Patterns.Pattern(Of TInput, TMatchResult).Matchmaker.Patterns.IPattern<TInput>.Match
+  nameWithType: Pattern<TInput, TMatchResult>.IPattern<TInput>.Match
+  nameWithType.vb: Pattern(Of TInput, TMatchResult).Matchmaker.Patterns.IPattern<TInput>.Match
+- uid: Matchmaker.Patterns.Pattern`2.ToString
   name: ToString()
-  href: api/Matchmaker.Patterns.PatternBase-3.html#Matchmaker_Patterns_PatternBase_3_ToString
-  commentId: M:Matchmaker.Patterns.PatternBase`3.ToString
-  fullName: Matchmaker.Patterns.PatternBase<TInput, TMatchResult, TPattern>.ToString()
-  fullName.vb: Matchmaker.Patterns.PatternBase(Of TInput, TMatchResult, TPattern).ToString()
-  nameWithType: PatternBase<TInput, TMatchResult, TPattern>.ToString()
-  nameWithType.vb: PatternBase(Of TInput, TMatchResult, TPattern).ToString()
-- uid: Matchmaker.Patterns.PatternBase`3.ToString*
+  href: api/Matchmaker.Patterns.Pattern-2.html#Matchmaker_Patterns_Pattern_2_ToString
+  commentId: M:Matchmaker.Patterns.Pattern`2.ToString
+  fullName: Matchmaker.Patterns.Pattern<TInput, TMatchResult>.ToString()
+  fullName.vb: Matchmaker.Patterns.Pattern(Of TInput, TMatchResult).ToString()
+  nameWithType: Pattern<TInput, TMatchResult>.ToString()
+  nameWithType.vb: Pattern(Of TInput, TMatchResult).ToString()
+- uid: Matchmaker.Patterns.Pattern`2.ToString*
   name: ToString
-  href: api/Matchmaker.Patterns.PatternBase-3.html#Matchmaker_Patterns_PatternBase_3_ToString_
-  commentId: Overload:Matchmaker.Patterns.PatternBase`3.ToString
+  href: api/Matchmaker.Patterns.Pattern-2.html#Matchmaker_Patterns_Pattern_2_ToString_
+  commentId: Overload:Matchmaker.Patterns.Pattern`2.ToString
   isSpec: "True"
-  fullName: Matchmaker.Patterns.PatternBase<TInput, TMatchResult, TPattern>.ToString
-  fullName.vb: Matchmaker.Patterns.PatternBase(Of TInput, TMatchResult, TPattern).ToString
-  nameWithType: PatternBase<TInput, TMatchResult, TPattern>.ToString
-  nameWithType.vb: PatternBase(Of TInput, TMatchResult, TPattern).ToString
-- uid: Matchmaker.Patterns.PatternBase`3.When(System.Func{`1,System.Boolean})
-  name: When(Func<TMatchResult, Boolean>)
-  href: api/Matchmaker.Patterns.PatternBase-3.html#Matchmaker_Patterns_PatternBase_3_When_System_Func__1_System_Boolean__
-  commentId: M:Matchmaker.Patterns.PatternBase`3.When(System.Func{`1,System.Boolean})
-  name.vb: When(Func(Of TMatchResult, Boolean))
-  fullName: Matchmaker.Patterns.PatternBase<TInput, TMatchResult, TPattern>.When(System.Func<TMatchResult, System.Boolean>)
-  fullName.vb: Matchmaker.Patterns.PatternBase(Of TInput, TMatchResult, TPattern).When(System.Func(Of TMatchResult, System.Boolean))
-  nameWithType: PatternBase<TInput, TMatchResult, TPattern>.When(Func<TMatchResult, Boolean>)
-  nameWithType.vb: PatternBase(Of TInput, TMatchResult, TPattern).When(Func(Of TMatchResult, Boolean))
-- uid: Matchmaker.Patterns.PatternBase`3.When*
-  name: When
-  href: api/Matchmaker.Patterns.PatternBase-3.html#Matchmaker_Patterns_PatternBase_3_When_
-  commentId: Overload:Matchmaker.Patterns.PatternBase`3.When
-  isSpec: "True"
-  fullName: Matchmaker.Patterns.PatternBase<TInput, TMatchResult, TPattern>.When
-  fullName.vb: Matchmaker.Patterns.PatternBase(Of TInput, TMatchResult, TPattern).When
-  nameWithType: PatternBase<TInput, TMatchResult, TPattern>.When
-  nameWithType.vb: PatternBase(Of TInput, TMatchResult, TPattern).When
-- uid: Matchmaker.Patterns.SimplePattern`1
-  name: SimplePattern<TInput>
-  href: api/Matchmaker.Patterns.SimplePattern-1.html
-  commentId: T:Matchmaker.Patterns.SimplePattern`1
-  name.vb: SimplePattern(Of TInput)
-  fullName: Matchmaker.Patterns.SimplePattern<TInput>
-  fullName.vb: Matchmaker.Patterns.SimplePattern(Of TInput)
-  nameWithType: SimplePattern<TInput>
-  nameWithType.vb: SimplePattern(Of TInput)
-- uid: Matchmaker.Patterns.SimplePattern`1.And(Matchmaker.Patterns.SimplePattern{`0})
-  name: And(SimplePattern<TInput>)
-  href: api/Matchmaker.Patterns.SimplePattern-1.html#Matchmaker_Patterns_SimplePattern_1_And_Matchmaker_Patterns_SimplePattern__0__
-  commentId: M:Matchmaker.Patterns.SimplePattern`1.And(Matchmaker.Patterns.SimplePattern{`0})
-  name.vb: And(SimplePattern(Of TInput))
-  fullName: Matchmaker.Patterns.SimplePattern<TInput>.And(Matchmaker.Patterns.SimplePattern<TInput>)
-  fullName.vb: Matchmaker.Patterns.SimplePattern(Of TInput).And(Matchmaker.Patterns.SimplePattern(Of TInput))
-  nameWithType: SimplePattern<TInput>.And(SimplePattern<TInput>)
-  nameWithType.vb: SimplePattern(Of TInput).And(SimplePattern(Of TInput))
-- uid: Matchmaker.Patterns.SimplePattern`1.And(Matchmaker.Patterns.SimplePattern{`0},System.String)
-  name: And(SimplePattern<TInput>, String)
-  href: api/Matchmaker.Patterns.SimplePattern-1.html#Matchmaker_Patterns_SimplePattern_1_And_Matchmaker_Patterns_SimplePattern__0__System_String_
-  commentId: M:Matchmaker.Patterns.SimplePattern`1.And(Matchmaker.Patterns.SimplePattern{`0},System.String)
-  name.vb: And(SimplePattern(Of TInput), String)
-  fullName: Matchmaker.Patterns.SimplePattern<TInput>.And(Matchmaker.Patterns.SimplePattern<TInput>, System.String)
-  fullName.vb: Matchmaker.Patterns.SimplePattern(Of TInput).And(Matchmaker.Patterns.SimplePattern(Of TInput), System.String)
-  nameWithType: SimplePattern<TInput>.And(SimplePattern<TInput>, String)
-  nameWithType.vb: SimplePattern(Of TInput).And(SimplePattern(Of TInput), String)
-- uid: Matchmaker.Patterns.SimplePattern`1.And*
+  fullName: Matchmaker.Patterns.Pattern<TInput, TMatchResult>.ToString
+  fullName.vb: Matchmaker.Patterns.Pattern(Of TInput, TMatchResult).ToString
+  nameWithType: Pattern<TInput, TMatchResult>.ToString
+  nameWithType.vb: Pattern(Of TInput, TMatchResult).ToString
+- uid: Matchmaker.Patterns.PatternComposition
+  name: PatternComposition
+  href: api/Matchmaker.Patterns.PatternComposition.html
+  commentId: T:Matchmaker.Patterns.PatternComposition
+  fullName: Matchmaker.Patterns.PatternComposition
+  nameWithType: PatternComposition
+- uid: Matchmaker.Patterns.PatternComposition.And
   name: And
-  href: api/Matchmaker.Patterns.SimplePattern-1.html#Matchmaker_Patterns_SimplePattern_1_And_
-  commentId: Overload:Matchmaker.Patterns.SimplePattern`1.And
-  isSpec: "True"
-  fullName: Matchmaker.Patterns.SimplePattern<TInput>.And
-  fullName.vb: Matchmaker.Patterns.SimplePattern(Of TInput).And
-  nameWithType: SimplePattern<TInput>.And
-  nameWithType.vb: SimplePattern(Of TInput).And
-- uid: Matchmaker.Patterns.SimplePattern`1.Match(`0)
-  name: Match(TInput)
-  href: api/Matchmaker.Patterns.SimplePattern-1.html#Matchmaker_Patterns_SimplePattern_1_Match__0_
-  commentId: M:Matchmaker.Patterns.SimplePattern`1.Match(`0)
-  fullName: Matchmaker.Patterns.SimplePattern<TInput>.Match(TInput)
-  fullName.vb: Matchmaker.Patterns.SimplePattern(Of TInput).Match(TInput)
-  nameWithType: SimplePattern<TInput>.Match(TInput)
-  nameWithType.vb: SimplePattern(Of TInput).Match(TInput)
-- uid: Matchmaker.Patterns.SimplePattern`1.Match*
-  name: Match
-  href: api/Matchmaker.Patterns.SimplePattern-1.html#Matchmaker_Patterns_SimplePattern_1_Match_
-  commentId: Overload:Matchmaker.Patterns.SimplePattern`1.Match
-  isSpec: "True"
-  fullName: Matchmaker.Patterns.SimplePattern<TInput>.Match
-  fullName.vb: Matchmaker.Patterns.SimplePattern(Of TInput).Match
-  nameWithType: SimplePattern<TInput>.Match
-  nameWithType.vb: SimplePattern(Of TInput).Match
-- uid: Matchmaker.Patterns.SimplePattern`1.op_BitwiseAnd(Matchmaker.Patterns.SimplePattern{`0},Matchmaker.Patterns.SimplePattern{`0})
-  name: BitwiseAnd(SimplePattern<TInput>, SimplePattern<TInput>)
-  href: api/Matchmaker.Patterns.SimplePattern-1.html#Matchmaker_Patterns_SimplePattern_1_op_BitwiseAnd_Matchmaker_Patterns_SimplePattern__0__Matchmaker_Patterns_SimplePattern__0__
-  commentId: M:Matchmaker.Patterns.SimplePattern`1.op_BitwiseAnd(Matchmaker.Patterns.SimplePattern{`0},Matchmaker.Patterns.SimplePattern{`0})
-  name.vb: BitwiseAnd(SimplePattern(Of TInput), SimplePattern(Of TInput))
-  fullName: Matchmaker.Patterns.SimplePattern<TInput>.BitwiseAnd(Matchmaker.Patterns.SimplePattern<TInput>, Matchmaker.Patterns.SimplePattern<TInput>)
-  fullName.vb: Matchmaker.Patterns.SimplePattern(Of TInput).BitwiseAnd(Matchmaker.Patterns.SimplePattern(Of TInput), Matchmaker.Patterns.SimplePattern(Of TInput))
-  nameWithType: SimplePattern<TInput>.BitwiseAnd(SimplePattern<TInput>, SimplePattern<TInput>)
-  nameWithType.vb: SimplePattern(Of TInput).BitwiseAnd(SimplePattern(Of TInput), SimplePattern(Of TInput))
-- uid: Matchmaker.Patterns.SimplePattern`1.op_BitwiseAnd*
-  name: BitwiseAnd
-  href: api/Matchmaker.Patterns.SimplePattern-1.html#Matchmaker_Patterns_SimplePattern_1_op_BitwiseAnd_
-  commentId: Overload:Matchmaker.Patterns.SimplePattern`1.op_BitwiseAnd
-  isSpec: "True"
-  fullName: Matchmaker.Patterns.SimplePattern<TInput>.BitwiseAnd
-  fullName.vb: Matchmaker.Patterns.SimplePattern(Of TInput).BitwiseAnd
-  nameWithType: SimplePattern<TInput>.BitwiseAnd
-  nameWithType.vb: SimplePattern(Of TInput).BitwiseAnd
-- uid: Matchmaker.Patterns.SimplePattern`1.op_BitwiseOr(Matchmaker.Patterns.SimplePattern{`0},Matchmaker.Patterns.SimplePattern{`0})
-  name: BitwiseOr(SimplePattern<TInput>, SimplePattern<TInput>)
-  href: api/Matchmaker.Patterns.SimplePattern-1.html#Matchmaker_Patterns_SimplePattern_1_op_BitwiseOr_Matchmaker_Patterns_SimplePattern__0__Matchmaker_Patterns_SimplePattern__0__
-  commentId: M:Matchmaker.Patterns.SimplePattern`1.op_BitwiseOr(Matchmaker.Patterns.SimplePattern{`0},Matchmaker.Patterns.SimplePattern{`0})
-  name.vb: BitwiseOr(SimplePattern(Of TInput), SimplePattern(Of TInput))
-  fullName: Matchmaker.Patterns.SimplePattern<TInput>.BitwiseOr(Matchmaker.Patterns.SimplePattern<TInput>, Matchmaker.Patterns.SimplePattern<TInput>)
-  fullName.vb: Matchmaker.Patterns.SimplePattern(Of TInput).BitwiseOr(Matchmaker.Patterns.SimplePattern(Of TInput), Matchmaker.Patterns.SimplePattern(Of TInput))
-  nameWithType: SimplePattern<TInput>.BitwiseOr(SimplePattern<TInput>, SimplePattern<TInput>)
-  nameWithType.vb: SimplePattern(Of TInput).BitwiseOr(SimplePattern(Of TInput), SimplePattern(Of TInput))
-- uid: Matchmaker.Patterns.SimplePattern`1.op_BitwiseOr*
-  name: BitwiseOr
-  href: api/Matchmaker.Patterns.SimplePattern-1.html#Matchmaker_Patterns_SimplePattern_1_op_BitwiseOr_
-  commentId: Overload:Matchmaker.Patterns.SimplePattern`1.op_BitwiseOr
-  isSpec: "True"
-  fullName: Matchmaker.Patterns.SimplePattern<TInput>.BitwiseOr
-  fullName.vb: Matchmaker.Patterns.SimplePattern(Of TInput).BitwiseOr
-  nameWithType: SimplePattern<TInput>.BitwiseOr
-  nameWithType.vb: SimplePattern(Of TInput).BitwiseOr
-- uid: Matchmaker.Patterns.SimplePattern`1.op_ExclusiveOr(Matchmaker.Patterns.SimplePattern{`0},Matchmaker.Patterns.SimplePattern{`0})
-  name: ExclusiveOr(SimplePattern<TInput>, SimplePattern<TInput>)
-  href: api/Matchmaker.Patterns.SimplePattern-1.html#Matchmaker_Patterns_SimplePattern_1_op_ExclusiveOr_Matchmaker_Patterns_SimplePattern__0__Matchmaker_Patterns_SimplePattern__0__
-  commentId: M:Matchmaker.Patterns.SimplePattern`1.op_ExclusiveOr(Matchmaker.Patterns.SimplePattern{`0},Matchmaker.Patterns.SimplePattern{`0})
-  name.vb: ExclusiveOr(SimplePattern(Of TInput), SimplePattern(Of TInput))
-  fullName: Matchmaker.Patterns.SimplePattern<TInput>.ExclusiveOr(Matchmaker.Patterns.SimplePattern<TInput>, Matchmaker.Patterns.SimplePattern<TInput>)
-  fullName.vb: Matchmaker.Patterns.SimplePattern(Of TInput).ExclusiveOr(Matchmaker.Patterns.SimplePattern(Of TInput), Matchmaker.Patterns.SimplePattern(Of TInput))
-  nameWithType: SimplePattern<TInput>.ExclusiveOr(SimplePattern<TInput>, SimplePattern<TInput>)
-  nameWithType.vb: SimplePattern(Of TInput).ExclusiveOr(SimplePattern(Of TInput), SimplePattern(Of TInput))
-- uid: Matchmaker.Patterns.SimplePattern`1.op_ExclusiveOr*
-  name: ExclusiveOr
-  href: api/Matchmaker.Patterns.SimplePattern-1.html#Matchmaker_Patterns_SimplePattern_1_op_ExclusiveOr_
-  commentId: Overload:Matchmaker.Patterns.SimplePattern`1.op_ExclusiveOr
-  isSpec: "True"
-  fullName: Matchmaker.Patterns.SimplePattern<TInput>.ExclusiveOr
-  fullName.vb: Matchmaker.Patterns.SimplePattern(Of TInput).ExclusiveOr
-  nameWithType: SimplePattern<TInput>.ExclusiveOr
-  nameWithType.vb: SimplePattern(Of TInput).ExclusiveOr
-- uid: Matchmaker.Patterns.SimplePattern`1.op_OnesComplement(Matchmaker.Patterns.SimplePattern{`0})
-  name: OnesComplement(SimplePattern<TInput>)
-  href: api/Matchmaker.Patterns.SimplePattern-1.html#Matchmaker_Patterns_SimplePattern_1_op_OnesComplement_Matchmaker_Patterns_SimplePattern__0__
-  commentId: M:Matchmaker.Patterns.SimplePattern`1.op_OnesComplement(Matchmaker.Patterns.SimplePattern{`0})
-  name.vb: OnesComplement(SimplePattern(Of TInput))
-  fullName: Matchmaker.Patterns.SimplePattern<TInput>.OnesComplement(Matchmaker.Patterns.SimplePattern<TInput>)
-  fullName.vb: Matchmaker.Patterns.SimplePattern(Of TInput).OnesComplement(Matchmaker.Patterns.SimplePattern(Of TInput))
-  nameWithType: SimplePattern<TInput>.OnesComplement(SimplePattern<TInput>)
-  nameWithType.vb: SimplePattern(Of TInput).OnesComplement(SimplePattern(Of TInput))
-- uid: Matchmaker.Patterns.SimplePattern`1.op_OnesComplement*
-  name: OnesComplement
-  href: api/Matchmaker.Patterns.SimplePattern-1.html#Matchmaker_Patterns_SimplePattern_1_op_OnesComplement_
-  commentId: Overload:Matchmaker.Patterns.SimplePattern`1.op_OnesComplement
-  isSpec: "True"
-  fullName: Matchmaker.Patterns.SimplePattern<TInput>.OnesComplement
-  fullName.vb: Matchmaker.Patterns.SimplePattern(Of TInput).OnesComplement
-  nameWithType: SimplePattern<TInput>.OnesComplement
-  nameWithType.vb: SimplePattern(Of TInput).OnesComplement
-- uid: Matchmaker.Patterns.SimplePattern`1.Or(Matchmaker.Patterns.SimplePattern{`0})
-  name: Or(SimplePattern<TInput>)
-  href: api/Matchmaker.Patterns.SimplePattern-1.html#Matchmaker_Patterns_SimplePattern_1_Or_Matchmaker_Patterns_SimplePattern__0__
-  commentId: M:Matchmaker.Patterns.SimplePattern`1.Or(Matchmaker.Patterns.SimplePattern{`0})
-  name.vb: Or(SimplePattern(Of TInput))
-  fullName: Matchmaker.Patterns.SimplePattern<TInput>.Or(Matchmaker.Patterns.SimplePattern<TInput>)
-  fullName.vb: Matchmaker.Patterns.SimplePattern(Of TInput).Or(Matchmaker.Patterns.SimplePattern(Of TInput))
-  nameWithType: SimplePattern<TInput>.Or(SimplePattern<TInput>)
-  nameWithType.vb: SimplePattern(Of TInput).Or(SimplePattern(Of TInput))
-- uid: Matchmaker.Patterns.SimplePattern`1.Or(Matchmaker.Patterns.SimplePattern{`0},System.String)
-  name: Or(SimplePattern<TInput>, String)
-  href: api/Matchmaker.Patterns.SimplePattern-1.html#Matchmaker_Patterns_SimplePattern_1_Or_Matchmaker_Patterns_SimplePattern__0__System_String_
-  commentId: M:Matchmaker.Patterns.SimplePattern`1.Or(Matchmaker.Patterns.SimplePattern{`0},System.String)
-  name.vb: Or(SimplePattern(Of TInput), String)
-  fullName: Matchmaker.Patterns.SimplePattern<TInput>.Or(Matchmaker.Patterns.SimplePattern<TInput>, System.String)
-  fullName.vb: Matchmaker.Patterns.SimplePattern(Of TInput).Or(Matchmaker.Patterns.SimplePattern(Of TInput), System.String)
-  nameWithType: SimplePattern<TInput>.Or(SimplePattern<TInput>, String)
-  nameWithType.vb: SimplePattern(Of TInput).Or(SimplePattern(Of TInput), String)
-- uid: Matchmaker.Patterns.SimplePattern`1.Or*
+  href: api/Matchmaker.Patterns.PatternComposition.html#Matchmaker_Patterns_PatternComposition_And
+  commentId: F:Matchmaker.Patterns.PatternComposition.And
+  fullName: Matchmaker.Patterns.PatternComposition.And
+  nameWithType: PatternComposition.And
+- uid: Matchmaker.Patterns.PatternComposition.Or
   name: Or
-  href: api/Matchmaker.Patterns.SimplePattern-1.html#Matchmaker_Patterns_SimplePattern_1_Or_
-  commentId: Overload:Matchmaker.Patterns.SimplePattern`1.Or
-  isSpec: "True"
-  fullName: Matchmaker.Patterns.SimplePattern<TInput>.Or
-  fullName.vb: Matchmaker.Patterns.SimplePattern(Of TInput).Or
-  nameWithType: SimplePattern<TInput>.Or
-  nameWithType.vb: SimplePattern(Of TInput).Or
-- uid: Matchmaker.Patterns.SimplePattern`1.When(System.Func{`0,System.Boolean})
-  name: When(Func<TInput, Boolean>)
-  href: api/Matchmaker.Patterns.SimplePattern-1.html#Matchmaker_Patterns_SimplePattern_1_When_System_Func__0_System_Boolean__
-  commentId: M:Matchmaker.Patterns.SimplePattern`1.When(System.Func{`0,System.Boolean})
-  name.vb: When(Func(Of TInput, Boolean))
-  fullName: Matchmaker.Patterns.SimplePattern<TInput>.When(System.Func<TInput, System.Boolean>)
-  fullName.vb: Matchmaker.Patterns.SimplePattern(Of TInput).When(System.Func(Of TInput, System.Boolean))
-  nameWithType: SimplePattern<TInput>.When(Func<TInput, Boolean>)
-  nameWithType.vb: SimplePattern(Of TInput).When(Func(Of TInput, Boolean))
-- uid: Matchmaker.Patterns.SimplePattern`1.When*
-  name: When
-  href: api/Matchmaker.Patterns.SimplePattern-1.html#Matchmaker_Patterns_SimplePattern_1_When_
-  commentId: Overload:Matchmaker.Patterns.SimplePattern`1.When
-  isSpec: "True"
-  fullName: Matchmaker.Patterns.SimplePattern<TInput>.When
-  fullName.vb: Matchmaker.Patterns.SimplePattern(Of TInput).When
-  nameWithType: SimplePattern<TInput>.When
-  nameWithType.vb: SimplePattern(Of TInput).When
-- uid: Matchmaker.Patterns.SimplePattern`1.Xor(Matchmaker.Patterns.SimplePattern{`0})
-  name: Xor(SimplePattern<TInput>)
-  href: api/Matchmaker.Patterns.SimplePattern-1.html#Matchmaker_Patterns_SimplePattern_1_Xor_Matchmaker_Patterns_SimplePattern__0__
-  commentId: M:Matchmaker.Patterns.SimplePattern`1.Xor(Matchmaker.Patterns.SimplePattern{`0})
-  name.vb: Xor(SimplePattern(Of TInput))
-  fullName: Matchmaker.Patterns.SimplePattern<TInput>.Xor(Matchmaker.Patterns.SimplePattern<TInput>)
-  fullName.vb: Matchmaker.Patterns.SimplePattern(Of TInput).Xor(Matchmaker.Patterns.SimplePattern(Of TInput))
-  nameWithType: SimplePattern<TInput>.Xor(SimplePattern<TInput>)
-  nameWithType.vb: SimplePattern(Of TInput).Xor(SimplePattern(Of TInput))
-- uid: Matchmaker.Patterns.SimplePattern`1.Xor(Matchmaker.Patterns.SimplePattern{`0},System.String)
-  name: Xor(SimplePattern<TInput>, String)
-  href: api/Matchmaker.Patterns.SimplePattern-1.html#Matchmaker_Patterns_SimplePattern_1_Xor_Matchmaker_Patterns_SimplePattern__0__System_String_
-  commentId: M:Matchmaker.Patterns.SimplePattern`1.Xor(Matchmaker.Patterns.SimplePattern{`0},System.String)
-  name.vb: Xor(SimplePattern(Of TInput), String)
-  fullName: Matchmaker.Patterns.SimplePattern<TInput>.Xor(Matchmaker.Patterns.SimplePattern<TInput>, System.String)
-  fullName.vb: Matchmaker.Patterns.SimplePattern(Of TInput).Xor(Matchmaker.Patterns.SimplePattern(Of TInput), System.String)
-  nameWithType: SimplePattern<TInput>.Xor(SimplePattern<TInput>, String)
-  nameWithType.vb: SimplePattern(Of TInput).Xor(SimplePattern(Of TInput), String)
-- uid: Matchmaker.Patterns.SimplePattern`1.Xor*
+  href: api/Matchmaker.Patterns.PatternComposition.html#Matchmaker_Patterns_PatternComposition_Or
+  commentId: F:Matchmaker.Patterns.PatternComposition.Or
+  fullName: Matchmaker.Patterns.PatternComposition.Or
+  nameWithType: PatternComposition.Or
+- uid: Matchmaker.Patterns.PatternComposition.Xor
   name: Xor
-  href: api/Matchmaker.Patterns.SimplePattern-1.html#Matchmaker_Patterns_SimplePattern_1_Xor_
-  commentId: Overload:Matchmaker.Patterns.SimplePattern`1.Xor
-  isSpec: "True"
-  fullName: Matchmaker.Patterns.SimplePattern<TInput>.Xor
-  fullName.vb: Matchmaker.Patterns.SimplePattern(Of TInput).Xor
-  nameWithType: SimplePattern<TInput>.Xor
-  nameWithType.vb: SimplePattern(Of TInput).Xor
+  href: api/Matchmaker.Patterns.PatternComposition.html#Matchmaker_Patterns_PatternComposition_Xor
+  commentId: F:Matchmaker.Patterns.PatternComposition.Xor
+  fullName: Matchmaker.Patterns.PatternComposition.Xor
+  nameWithType: PatternComposition.Xor

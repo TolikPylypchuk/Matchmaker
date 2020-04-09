@@ -5,6 +5,30 @@
   "files": [
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/Matchmaker.Linq.MatchExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Matchmaker.Linq.MatchExtensions.html",
+          "hash": "43OuIJ7UnduipU9wfgHu4w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Matchmaker.Linq.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Matchmaker.Linq.html",
+          "hash": "BeEuYdx2KBTR+78oZTOgqg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/Matchmaker.Match-1.yml",
       "output": {
         ".html": {
@@ -53,18 +77,6 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/Matchmaker.MatchExtensions.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Matchmaker.MatchExtensions.html",
-          "hash": "QZRP/3LbKWWOWMyeeUHAIA=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "api/Matchmaker.MatchResult-1.yml",
       "output": {
         ".html": {
@@ -89,23 +101,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/Matchmaker.Patterns.IConditionalPattern-3.yml",
+      "source_relative_path": "api/Matchmaker.Patterns.BindingPattern-3.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Matchmaker.Patterns.IConditionalPattern-3.html",
-          "hash": "hBpRxlvTs6mthhcmB4f1Iw=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Matchmaker.Patterns.IDescribablePattern-2.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Matchmaker.Patterns.IDescribablePattern-2.html",
-          "hash": "Dwwwx71oAdcgMA5gzgv65A=="
+          "relative_path": "api/Matchmaker.Patterns.BindingPattern-3.html",
+          "hash": "p643dkwQzonGtjWI3i/zsw=="
         }
       },
       "is_incremental": false,
@@ -117,7 +117,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Matchmaker.Patterns.IPattern-1.html",
-          "hash": "urByD5JB8jvzhreGi+tUaw=="
+          "hash": "nFre1vCo2/T7blz/eUoaaQ=="
         }
       },
       "is_incremental": false,
@@ -129,7 +129,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Matchmaker.Patterns.IPattern-2.html",
-          "hash": "9Etqv5fy4yC9ukPSp27zZw=="
+          "hash": "xjlu70hgtmPUmHVUd4bhjQ=="
         }
       },
       "is_incremental": false,
@@ -141,7 +141,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Matchmaker.Patterns.Pattern-2.html",
-          "hash": "cp7+ZS+qIft3xPwItblNdA=="
+          "hash": "dFU5uuL6bgFlRkALMQElag=="
         }
       },
       "is_incremental": false,
@@ -153,7 +153,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Matchmaker.Patterns.Pattern.html",
-          "hash": "nh83Xx4DLyzIkUd3G5V3Ng=="
+          "hash": "6aX1/AQDYj9G95wLZRQYEg=="
         }
       },
       "is_incremental": false,
@@ -161,23 +161,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/Matchmaker.Patterns.PatternBase-3.yml",
+      "source_relative_path": "api/Matchmaker.Patterns.PatternComposition.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Matchmaker.Patterns.PatternBase-3.html",
-          "hash": "56fP1wF8hwkFbJSWybT9hQ=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Matchmaker.Patterns.SimplePattern-1.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Matchmaker.Patterns.SimplePattern-1.html",
-          "hash": "5BXxJoNh2VILs5RBh3H4Yg=="
+          "relative_path": "api/Matchmaker.Patterns.PatternComposition.html",
+          "hash": "HTrvufiSsbcHy49B8tdxxg=="
         }
       },
       "is_incremental": false,
@@ -189,7 +177,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Matchmaker.Patterns.html",
-          "hash": "LyYkIEMRVXG077MmWOKjnA=="
+          "hash": "pTdNZyi8BesAw/C4lbBW1w=="
         }
       },
       "is_incremental": false,
@@ -201,7 +189,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Matchmaker.html",
-          "hash": "VwLqMYn6C2Xy2mJXGBNWYg=="
+          "hash": "db2Zg6kCT3Cx1PRv5D/ZDg=="
         }
       },
       "is_incremental": false,
@@ -225,7 +213,7 @@
       "output": {
         ".html": {
           "relative_path": "api/toc.html",
-          "hash": "vRd7HL+TbpkyTX2FON1BBw=="
+          "hash": "dOt0vkNi2YcDLk2iSflG9w=="
         }
       },
       "is_incremental": false,
@@ -346,7 +334,7 @@
         "ManagedReferenceDocumentProcessor": {
           "can_incremental": false,
           "incrementalPhase": "build",
-          "total_file_count": 17,
+          "total_file_count": 16,
           "skipped_file_count": 0
         },
         "ResourceDocumentProcessor": {
