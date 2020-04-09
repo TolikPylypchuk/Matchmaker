@@ -13,9 +13,7 @@ namespace Matchmaker.Patterns
     /// <see cref="IPattern{TInput, TMatchResult}" />, so type safety is not compromised.
     /// </remarks>
     /// <seealso cref="IPattern{TInput, TMatchResult}" />
-    /// <seealso cref="PatternBase{TInput, TMatchResult, TPattern}" />
     /// <seealso cref="Pattern{TInput, TMatchResult}" />
-    /// <seealso cref="SimplePattern{TInput}" />
     /// <seealso cref="Pattern" />
     public interface IPattern<in TInput>
     {

@@ -4,7 +4,7 @@ using System.Linq;
 using FsCheck;
 using FsCheck.Xunit;
 
-namespace Matchmaker
+namespace Matchmaker.Linq
 {
     public class MatchExtensionsTests
     {

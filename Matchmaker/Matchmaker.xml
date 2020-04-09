@@ -4,6 +4,426 @@
         <name>Matchmaker</name>
     </assembly>
     <members>
+        <member name="T:Matchmaker.Linq.MatchExtensions">
+            <summary>
+            A container class for extension methods.
+            </summary>
+        </member>
+        <member name="M:Matchmaker.Linq.MatchExtensions.Enumerate``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Forces the enumeration of an <see cref="T:System.Collections.Generic.IEnumerable`1" /> and ignores the result.
+            </summary>
+            <typeparam name="T">The type of the items in the enumerate.</typeparam>
+            <param name="items">The enumerable to enumerate.</param>
+        </member>
+        <member name="M:Matchmaker.Linq.MatchExtensions.Select``3(Matchmaker.Patterns.IPattern{``0,``1},System.Func{``1,``2})">
+            <summary>
+            Returns a pattern which maps the result of the specified pattern.
+            </summary>
+            <typeparam name="TInput">The type of the input value of the expression.</typeparam>
+            <typeparam name="TIntermediateResult">The type of the result of the specified pattern's match.</typeparam>
+            <typeparam name="TMatchResult">The type of the result of this pattern's match.</typeparam>
+            <param name="pattern">The pattern whose result should be mapped.</param>
+            <param name="mapper">The result mapping function.</param>
+            <returns>
+            A pattern which maps the result of the specified pattern when it's successful.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="pattern" /> or <paramref name="mapper" /> is <see langword="null" />.
+            </exception>
+        </member>
+        <member name="M:Matchmaker.Linq.MatchExtensions.Select``3(Matchmaker.Patterns.IPattern{``0,``1},System.Func{``1,``2},System.String)">
+            <summary>
+            Returns a pattern which maps the result of the specified pattern.
+            </summary>
+            <typeparam name="TInput">The type of the input value of the expression.</typeparam>
+            <typeparam name="TIntermediateResult">The type of the result of the specified pattern's match.</typeparam>
+            <typeparam name="TMatchResult">The type of the result of this pattern's match.</typeparam>
+            <param name="pattern">The pattern whose result should be mapped.</param>
+            <param name="mapper">The result mapping function.</param>
+            <param name="description">The description of this pattern.</param>
+            <returns>
+            A pattern which maps the result of the specified pattern when it's successful.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="pattern" />, <paramref name="mapper" /> or <paramref name="description" />
+            is <see langword="null" />.
+            </exception>
+        </member>
+        <member name="M:Matchmaker.Linq.MatchExtensions.Pipe``3(Matchmaker.Patterns.IPattern{``0,``1},Matchmaker.Patterns.IPattern{``1,``2})">
+            <summary>
+            Returns a pattern which pipes the result of one pattern to the other pattern.
+            </summary>
+            <typeparam name="TInput">The type of the input value of the expression.</typeparam>
+            <typeparam name="TIntermediateResult">The type of the result of the specified pattern's match.</typeparam>
+            <typeparam name="TMatchResult">The type of the result of this pattern's match.</typeparam>
+            <param name="firstPattern">The pattern whose result should be piped.</param>
+            <param name="secondPattern">The pattern whose input is the first pattern's output.</param>
+            <returns>
+            A pattern which pipes the result of one pattern to the other pattern when it's successful.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="firstPattern" /> or <paramref name="secondPattern" /> is <see langword="null" />.
+            </exception>
+        </member>
+        <member name="M:Matchmaker.Linq.MatchExtensions.Pipe``3(Matchmaker.Patterns.IPattern{``0,``1},Matchmaker.Patterns.IPattern{``1,``2},System.String)">
+            <summary>
+            Returns a pattern which pipes the result of one pattern to the other pattern.
+            </summary>
+            <typeparam name="TInput">The type of the input value of the expression.</typeparam>
+            <typeparam name="TIntermediateResult">The type of the result of the specified pattern's match.</typeparam>
+            <typeparam name="TMatchResult">The type of the result of this pattern's match.</typeparam>
+            <param name="firstPattern">The pattern whose result should be piped.</param>
+            <param name="secondPattern">The pattern whose input is the first pattern's output.</param>
+            <param name="description">The description of this pattern.</param>
+            <returns>
+            A pattern which pipes the result of one pattern to the other pattern when it's successful.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="firstPattern" />, <paramref name="secondPattern" /> or <paramref name="description" />
+            is <see langword="null" />.
+            </exception>
+        </member>
+        <member name="M:Matchmaker.Linq.MatchExtensions.Pipe``3(Matchmaker.Patterns.IPattern{``0,``1},System.Func{``1,Matchmaker.MatchResult{``2}})">
+            <summary>
+            Returns a pattern which pipes the result of one pattern to the pattern
+            created by the specified matcher function.
+            </summary>
+            <typeparam name="TInput">The type of the input value of the expression.</typeparam>
+            <typeparam name="TIntermediateResult">The type of the result of the specified pattern's match.</typeparam>
+            <typeparam name="TMatchResult">The type of the result of this pattern's match.</typeparam>
+            <param name="pattern">The pattern whose result should be piped.</param>
+            <param name="matcher">The pattern whose input is the first pattern's output.</param>
+            <returns>
+            A pattern which pipes the result of one pattern to the pattern
+            created by the specified matcher function.
+            </returns>
+            <remarks>
+            This method is functionally equivalent to the following:
+            <code>
+            pattern.Pipe(Pattern.CreatePattern(matcher))
+            </code>
+            </remarks>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="pattern" /> or <paramref name="matcher" /> is <see langword="null" />.
+            </exception>
+        </member>
+        <member name="M:Matchmaker.Linq.MatchExtensions.Pipe``3(Matchmaker.Patterns.IPattern{``0,``1},System.Func{``1,Matchmaker.MatchResult{``2}},System.String)">
+            <summary>
+            Returns a pattern which pipes the result of one pattern to the pattern
+            created by the specified matcher function.
+            </summary>
+            <typeparam name="TInput">The type of the input value of the expression.</typeparam>
+            <typeparam name="TIntermediateResult">The type of the result of the specified pattern's match.</typeparam>
+            <typeparam name="TMatchResult">The type of the result of this pattern's match.</typeparam>
+            <param name="pattern">The pattern whose result should be piped.</param>
+            <param name="matcher">The pattern whose input is the first pattern's output.</param>
+            <param name="description">The description of this pattern.</param>
+            <returns>
+            A pattern which pipes the result of one pattern to the pattern
+            created by the specified matcher function.
+            </returns>
+            <remarks>
+            This method is functionally equivalent to the following:
+            <code>
+            pattern.Pipe(Pattern.CreatePattern(matcher))
+            </code>
+            </remarks>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="pattern" />, <paramref name="matcher" /> or <paramref name="description" />
+            is <see langword="null" />.
+            </exception>
+        </member>
+        <member name="M:Matchmaker.Linq.MatchExtensions.Cast``3(Matchmaker.Patterns.IPattern{``0,``1})">
+            <summary>
+            Returns a pattern which casts the result of the specified pattern to another type.
+            </summary>
+            <typeparam name="TInput">The type of the input value of the expression.</typeparam>
+            <typeparam name="TIntermediateResult">The type of the result of the specified pattern's match.</typeparam>
+            <typeparam name="TMatchResult">The type of the result of this pattern's match.</typeparam>
+            <param name="pattern">The pattern whose result should be cast.</param>
+            <returns>
+            A pattern which casts the result of the specified pattern to another type.
+            </returns>
+            <remarks>
+            This method is functionally equivalent to the following:
+            <code>
+            pattern.Pipe(Pattern.Type&lt;TIntermediateResult, TMatchResult&gt;())
+            </code>
+            </remarks>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="pattern" /> is <see langword="null" />.
+            </exception>
+        </member>
+        <member name="M:Matchmaker.Linq.MatchExtensions.Cast``3(Matchmaker.Patterns.IPattern{``0,``1},System.String)">
+            <summary>
+            Returns a pattern which pipes the result of one pattern to the other pattern.
+            </summary>
+            <typeparam name="TInput">The type of the input value of the expression.</typeparam>
+            <typeparam name="TIntermediateResult">The type of the result of the specified pattern's match.</typeparam>
+            <typeparam name="TMatchResult">The type of the result of this pattern's match.</typeparam>
+            <param name="pattern">The pattern whose result should be cast.</param>
+            <param name="description">The description of this pattern.</param>
+            <returns>
+            A pattern which pipes the result of one pattern to the other pattern when it's successful.
+            </returns>
+            <remarks>
+            This method is functionally equivalent to the following:
+            <code>
+            pattern.Pipe(Pattern.Type&lt;TIntermediateResult, TMatchResult&gt;(), description)
+            </code>
+            </remarks>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="pattern" /> or <paramref name="description" /> is <see langword="null" />.
+            </exception>
+        </member>
+        <member name="M:Matchmaker.Linq.MatchExtensions.Bind``3(Matchmaker.Patterns.IPattern{``0,``1},System.Func{``1,Matchmaker.Patterns.Pattern{``0,``2}})">
+            <summary>
+            Returns a pattern which binds (flat-maps) the result of the specified pattern.
+            </summary>
+            <typeparam name="TInput">The type of the input value of the expression.</typeparam>
+            <typeparam name="TIntermediateResult">The type of the result of the specified pattern's match.</typeparam>
+            <typeparam name="TMatchResult">The type of the result of this pattern's match.</typeparam>
+            <param name="pattern">The pattern whose result should be mapped.</param>
+            <param name="binder">The result binding function.</param>
+            <returns>
+            A pattern which binds (flat-maps) the result of the specified pattern when it's successful.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="pattern" /> or <paramref name="binder" /> is <see langword="null" />.
+            </exception>
+        </member>
+        <member name="M:Matchmaker.Linq.MatchExtensions.Bind``3(Matchmaker.Patterns.IPattern{``0,``1},System.Func{``1,Matchmaker.Patterns.Pattern{``0,``2}},System.String)">
+            <summary>
+            Returns a pattern which binds (flat-maps) the result of the specified pattern.
+            </summary>
+            <typeparam name="TInput">The type of the input value of the expression.</typeparam>
+            <typeparam name="TIntermediateResult">The type of the result of the specified pattern's match.</typeparam>
+            <typeparam name="TMatchResult">The type of the result of this pattern's match.</typeparam>
+            <param name="pattern">The pattern whose result should be mapped.</param>
+            <param name="binder">The result binding function.</param>
+            <param name="description">The description of this pattern.</param>
+            <returns>
+            A pattern which binds (flat-maps) the result of the specified pattern when it's successful.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="pattern" />, <paramref name="binder" /> or <paramref name="description" />
+            is <see langword="null" />.
+            </exception>
+        </member>
+        <member name="M:Matchmaker.Linq.MatchExtensions.Where``2(Matchmaker.Patterns.IPattern{``0,``1},System.Func{``1,System.Boolean})">
+            <summary>
+            Returns a pattern which adds a condition to the specified pattern.
+            </summary>
+            <typeparam name="TInput">The type of the input value of the expression.</typeparam>
+            <typeparam name="TMatchResult">The type of the result of this pattern's match.</typeparam>
+            <param name="pattern">The pattern whose result should be mapped.</param>
+            <param name="predicate">The condition to add.</param>
+            <returns>
+            A pattern which adds a condition to the specified pattern.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="pattern" /> or <paramref name="predicate" /> is <see langword="null" />.
+            </exception>
+        </member>
+        <member name="M:Matchmaker.Linq.MatchExtensions.Where``2(Matchmaker.Patterns.IPattern{``0,``1},System.Func{``1,System.Boolean},System.String)">
+            <summary>
+            Returns a pattern which adds a condition to the specified pattern.
+            </summary>
+            <typeparam name="TInput">The type of the input value of the expression.</typeparam>
+            <typeparam name="TMatchResult">The type of the result of this pattern's match.</typeparam>
+            <param name="pattern">The pattern whose result should be mapped.</param>
+            <param name="predicate">The condition to add.</param>
+            <param name="description">The description of this pattern.</param>
+            <returns>
+            A pattern which adds a condition to the specified pattern.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="pattern" /> or <paramref name="predicate" /> is <see langword="null" />.
+            </exception>
+        </member>
+        <member name="M:Matchmaker.Linq.MatchExtensions.Compose``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.PatternComposition)">
+            <summary>
+            Returns a pattern which is composed of the two specified patterns.
+            </summary>
+            <typeparam name="T">
+            The type of the input value of the expression and also the type of the result of this pattern's match.
+            </typeparam>
+            <param name="leftPattern">The left pattern.</param>
+            <param name="rightPattern">The right pattern.</param>
+            <param name="composition">The composition which should be applied to the patterns.</param>
+            <returns>
+            A pattern which is composed of the two specified patterns.
+            </returns>
+            <remarks>
+            The resulting pattern ignores the patterns' transformations
+            and returns the input value if matched successfully.
+            </remarks>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="leftPattern" /> or <paramref name="rightPattern" /> is <see langword="null" />.
+            </exception>
+        </member>
+        <member name="M:Matchmaker.Linq.MatchExtensions.Compose``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.PatternComposition,System.String)">
+            <summary>
+            Returns a pattern which is composed of the two specified patterns.
+            </summary>
+            <typeparam name="T">
+            The type of the input value of the expression and also the type of the result of this pattern's match.
+            </typeparam>
+            <param name="leftPattern">The left pattern.</param>
+            <param name="rightPattern">The right pattern.</param>
+            <param name="composition">The composition which should be applied to the patterns.</param>
+            <param name="description">The description of this pattern.</param>
+            <returns>
+            A pattern which is composed of the two specified patterns.
+            </returns>
+            <remarks>
+            The resulting pattern ignores the patterns' transformations
+            and returns the input value if matched successfully.
+            </remarks>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="leftPattern" />, <paramref name="rightPattern" /> or <paramref name="description" />
+            is <see langword="null" />.
+            </exception>
+        </member>
+        <member name="M:Matchmaker.Linq.MatchExtensions.And``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0})">
+            <summary>
+            Returns a pattern which is composed of the two specified patterns such that the result is successful
+            only when both patterns' results are successful.
+            </summary>
+            <typeparam name="T">
+            The type of the input value of the expression and also the type of the result of this pattern's match.
+            </typeparam>
+            <param name="leftPattern">The left pattern.</param>
+            <param name="rightPattern">The right pattern.</param>
+            <returns>
+            A pattern which is composed of the two specified patterns such that the result is successful
+            only when both patterns' results are successful.
+            </returns>
+            <remarks>
+            The resulting pattern ignores the patterns' transformations
+            and returns the input value if matched successfully.
+            </remarks>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="leftPattern" /> or <paramref name="rightPattern" /> is <see langword="null" />.
+            </exception>
+        </member>
+        <member name="M:Matchmaker.Linq.MatchExtensions.And``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0},System.String)">
+            <summary>
+            Returns a pattern which is composed of the two specified patterns such that the result is successful
+            only when both patterns' results are successful.
+            </summary>
+            <typeparam name="T">
+            The type of the input value of the expression and also the type of the result of this pattern's match.
+            </typeparam>
+            <param name="leftPattern">The left pattern.</param>
+            <param name="rightPattern">The right pattern.</param>
+            <param name="description">The description of this pattern.</param>
+            <returns>
+            A pattern which is composed of the two specified patterns such that the result is successful
+            only when both patterns' results are successful.
+            </returns>
+            <remarks>
+            The resulting pattern ignores the patterns' transformations
+            and returns the input value if matched successfully.
+            </remarks>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="leftPattern" />, <paramref name="rightPattern" /> or <paramref name="description" />
+            is <see langword="null" />.
+            </exception>
+        </member>
+        <member name="M:Matchmaker.Linq.MatchExtensions.Or``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0})">
+            <summary>
+            Returns a pattern which is composed of the two specified patterns such that the result is successful
+            only when both patterns' results are successful.
+            </summary>
+            <typeparam name="T">
+            The type of the input value of the expression and also the type of the result of this pattern's match.
+            </typeparam>
+            <param name="leftPattern">The left pattern.</param>
+            <param name="rightPattern">The right pattern.</param>
+            <returns>
+            A pattern which is composed of the two specified patterns such that the result is successful
+            only when both patterns' results are successful.
+            </returns>
+            <remarks>
+            The resulting pattern ignores the patterns' transformations
+            and returns the input value if matched successfully.
+            </remarks>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="leftPattern" /> or <paramref name="rightPattern" /> is <see langword="null" />.
+            </exception>
+        </member>
+        <member name="M:Matchmaker.Linq.MatchExtensions.Or``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0},System.String)">
+            <summary>
+            Returns a pattern which is composed of the two specified patterns such that the result is successful
+            when either pattern's result is successful.
+            </summary>
+            <typeparam name="T">
+            The type of the input value of the expression and also the type of the result of this pattern's match.
+            </typeparam>
+            <param name="leftPattern">The left pattern.</param>
+            <param name="rightPattern">The right pattern.</param>
+            <param name="description">The description of this pattern.</param>
+            <returns>
+            A pattern which is composed of the two specified patterns such that the result is successful
+            when either pattern's result is successful.
+            </returns>
+            <remarks>
+            The resulting pattern ignores the patterns' transformations
+            and returns the input value if matched successfully.
+            </remarks>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="leftPattern" />, <paramref name="rightPattern" /> or <paramref name="description" />
+            is <see langword="null" />.
+            </exception>
+        </member>
+        <member name="M:Matchmaker.Linq.MatchExtensions.Xor``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0})">
+            <summary>
+            Returns a pattern which is composed of the two specified patterns such that the result is successful
+            only when both patterns' results are successful.
+            </summary>
+            <typeparam name="T">
+            The type of the input value of the expression and also the type of the result of this pattern's match.
+            </typeparam>
+            <param name="leftPattern">The left pattern.</param>
+            <param name="rightPattern">The right pattern.</param>
+            <returns>
+            A pattern which is composed of the two specified patterns such that the result is successful
+            only when both patterns' results are successful.
+            </returns>
+            <remarks>
+            The resulting pattern ignores the patterns' transformations
+            and returns the input value if matched successfully.
+            </remarks>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="leftPattern" /> or <paramref name="rightPattern" /> is <see langword="null" />.
+            </exception>
+        </member>
+        <member name="M:Matchmaker.Linq.MatchExtensions.Xor``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0},System.String)">
+            <summary>
+            Returns a pattern which is composed of the two specified patterns such that the result is successful
+            when only one pattern's result is successful.
+            </summary>
+            <typeparam name="T">
+            The type of the input value of the expression and also the type of the result of this pattern's match.
+            </typeparam>
+            <param name="leftPattern">The left pattern.</param>
+            <param name="rightPattern">The right pattern.</param>
+            <param name="description">The description of this pattern.</param>
+            <returns>
+            A pattern which is composed of the two specified patterns such that the result is successful
+            when only one pattern's result is successful.
+            </returns>
+            <remarks>
+            The resulting pattern ignores the patterns' transformations
+            and returns the input value if matched successfully.
+            </remarks>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="leftPattern" />, <paramref name="rightPattern" /> or <paramref name="description" />
+            is <see langword="null" />.
+            </exception>
+        </member>
         <member name="T:Matchmaker.Match">
             <summary>
             A static class which is used to create match expressions.
@@ -82,18 +502,6 @@
             </summary>
             <param name="info">The serialization info.</param>
             <param name="context">The streaming context.</param>
-        </member>
-        <member name="T:Matchmaker.MatchExtensions">
-            <summary>
-            A container class for extension methods.
-            </summary>
-        </member>
-        <member name="M:Matchmaker.MatchExtensions.Enumerate``1(System.Collections.Generic.IEnumerable{``0})">
-            <summary>
-            Forces the enumeration of an <see cref="T:System.Collections.Generic.IEnumerable`1" /> and ignores the result.
-            </summary>
-            <typeparam name="T">The type of the items in the enumerate.</typeparam>
-            <param name="items">The enumerable to enumerate.</param>
         </member>
         <member name="T:Matchmaker.MatchResult">
             <summary>
@@ -566,46 +974,164 @@
             Gets the function of the case.
             </summary>
         </member>
-        <member name="T:Matchmaker.Patterns.IConditionalPattern`3">
+        <member name="T:Matchmaker.Patterns.BindingPattern`3">
             <summary>
-            Represents a pattern, to which additional conditions may be added.
+            Represents a pattern which binds (flat-maps) another pattern's result.
             </summary>
             <typeparam name="TInput">The type of the input value of the expression.</typeparam>
+            <typeparam name="TIntermediateResult">The type of the result of the provided pattern's match.</typeparam>
             <typeparam name="TMatchResult">The type of the result of this pattern's match.</typeparam>
-            <typeparam name="TPattern">The actual type of the pattern.</typeparam>
             <seealso cref="T:Matchmaker.Patterns.IPattern`2" />
-            <seealso cref="T:Matchmaker.Patterns.IDescribablePattern`2" />
-            <seealso cref="T:Matchmaker.Patterns.Pattern`2" />
-            <seealso cref="T:Matchmaker.Patterns.SimplePattern`1" />
+            <seealso cref="T:Matchmaker.Patterns.Pattern" />
         </member>
-        <member name="M:Matchmaker.Patterns.IConditionalPattern`3.When(System.Func{`1,System.Boolean})">
+        <member name="F:Matchmaker.Patterns.BindingPattern`3.pattern">
             <summary>
-            Returns a new pattern which includes the specified condition.
+            The pattern whose result should be bound.
             </summary>
-            <param name="condition">The condition to add.</param>
-            <returns>A new pattern which includes the specified condition.</returns>
+        </member>
+        <member name="F:Matchmaker.Patterns.BindingPattern`3.binder">
+            <summary>
+            The result mapping function.
+            </summary>
+        </member>
+        <member name="M:Matchmaker.Patterns.BindingPattern`3.#ctor(Matchmaker.Patterns.IPattern{`0,`1},System.Func{`1,Matchmaker.Patterns.Pattern{`0,`2}})">
+            <summary>
+            Initializes a new instance of the
+            <see cref="T:Matchmaker.Patterns.BindingPattern`3" /> class.
+            </summary>
+            <param name="pattern">The pattern whose result should be mapped.</param>
+            <param name="binder">The result binding function.</param>
+        </member>
+        <member name="M:Matchmaker.Patterns.BindingPattern`3.#ctor(Matchmaker.Patterns.IPattern{`0,`1},System.Func{`1,Matchmaker.Patterns.Pattern{`0,`2}},System.String)">
+            <summary>
+            Initializes a new instance of the
+            <see cref="T:Matchmaker.Patterns.BindingPattern`3" /> class.
+            </summary>
+            <param name="pattern">The pattern whose result should be mapped.</param>
+            <param name="binder">The result binding function.</param>
+            <param name="description">The description of this pattern.</param>
             <exception cref="T:System.ArgumentNullException">
-            <paramref name="condition" /> is <see langword="null" />.
+            <paramref name="description" /> is <see langword="null" />.
             </exception>
         </member>
-        <member name="T:Matchmaker.Patterns.IDescribablePattern`2">
+        <member name="M:Matchmaker.Patterns.BindingPattern`3.Match(`0)">
             <summary>
-            Represents a pattern which has a description.
+            Matches the input with this pattern, and returns a transformed result.
+            </summary>
+            <param name="input">The input value to match.</param>
+            <returns>
+            A successful match result which contains the transformed result of the match,
+            if this match is successful. Otherwise, a failed match result.
+            </returns>
+        </member>
+        <member name="T:Matchmaker.Patterns.CompositePattern`1">
+            <summary>
+            Represents a pattern which is composed of two other patterns.
+            </summary>
+            <typeparam name="T">
+            The type of the input value of the expression and also the type of the result of this pattern's match.
+            </typeparam>
+        </member>
+        <member name="F:Matchmaker.Patterns.CompositePattern`1.leftPattern">
+            <summary>
+            The left pattern.
+            </summary>
+        </member>
+        <member name="F:Matchmaker.Patterns.CompositePattern`1.rightPattern">
+            <summary>
+            The right pattern.
+            </summary>
+        </member>
+        <member name="F:Matchmaker.Patterns.CompositePattern`1.composition">
+            <summary>
+            The composition which should be applied to the patterns.
+            </summary>
+        </member>
+        <member name="M:Matchmaker.Patterns.CompositePattern`1.#ctor(Matchmaker.Patterns.IPattern{`0,`0},Matchmaker.Patterns.IPattern{`0,`0},Matchmaker.Patterns.PatternComposition)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Matchmaker.Patterns.CompositePattern`1" /> class.
+            </summary>
+            <param name="leftPattern">The left pattern.</param>
+            <param name="rightPattern">The right pattern.</param>
+            <param name="composition">The composition which should be applied to the patterns.</param>
+        </member>
+        <member name="M:Matchmaker.Patterns.CompositePattern`1.#ctor(Matchmaker.Patterns.IPattern{`0,`0},Matchmaker.Patterns.IPattern{`0,`0},Matchmaker.Patterns.PatternComposition,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Matchmaker.Patterns.CompositePattern`1" /> class.
+            </summary>
+            <param name="leftPattern">The left pattern.</param>
+            <param name="rightPattern">The right pattern.</param>
+            <param name="composition">The composition which should be applied to the patterns.</param>
+            <param name="description">The description of this pattern.</param>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="description" /> is <see langword="null" />.
+            </exception>
+        </member>
+        <member name="M:Matchmaker.Patterns.CompositePattern`1.Match(`0)">
+            <summary>
+            Matches the input with this pattern, and returns a result.
+            </summary>
+            <param name="input">The input value to match.</param>
+            <returns>
+            A successful match result which contains the result of the match,
+            if this match is successful. Otherwise, a failed match result.
+            </returns>
+        </member>
+        <member name="M:Matchmaker.Patterns.CompositePattern`1.IsCompositionSuccessful(`0)">
+            <summary>
+            Determines whether the composition of the patterns yields a successful result.
+            </summary>
+            <param name="input">The input for the patterns to match.</param>
+            <returns>
+            <see langword="true" /> if the composition is successful. Otherwise, <see langword="false" />.
+            </returns>
+        </member>
+        <member name="T:Matchmaker.Patterns.ConditionalPattern`2">
+            <summary>
+            Represents a pattern with an additional condition.
             </summary>
             <typeparam name="TInput">The type of the input value of the expression.</typeparam>
             <typeparam name="TMatchResult">The type of the result of this pattern's match.</typeparam>
-            <remarks>
-            Description is not terribly important for patterns, but can be useful for debugging.
-            </remarks>
             <seealso cref="T:Matchmaker.Patterns.IPattern`2" />
-            <seealso cref="T:Matchmaker.Patterns.IConditionalPattern`3" />
-            <seealso cref="T:Matchmaker.Patterns.Pattern`2" />
-            <seealso cref="T:Matchmaker.Patterns.SimplePattern`1" />
+            <seealso cref="T:Matchmaker.Patterns.Pattern" />
         </member>
-        <member name="P:Matchmaker.Patterns.IDescribablePattern`2.Description">
+        <member name="F:Matchmaker.Patterns.ConditionalPattern`2.pattern">
             <summary>
-            Gets the description of this pattern.
+            The pattern to which the condition should be added.
             </summary>
+        </member>
+        <member name="F:Matchmaker.Patterns.ConditionalPattern`2.condition">
+            <summary>
+            The condition to add to the pattern.
+            </summary>
+        </member>
+        <member name="M:Matchmaker.Patterns.ConditionalPattern`2.#ctor(Matchmaker.Patterns.IPattern{`0,`1},System.Func{`1,System.Boolean})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Matchmaker.Patterns.ConditionalPattern`2" /> class.
+            </summary>
+            <param name="pattern">The pattern to which to add a condition.</param>
+            <param name="condition">The condition to add.</param>
+        </member>
+        <member name="M:Matchmaker.Patterns.ConditionalPattern`2.#ctor(Matchmaker.Patterns.IPattern{`0,`1},System.Func{`1,System.Boolean},System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Matchmaker.Patterns.ConditionalPattern`2" /> class.
+            </summary>
+            <param name="pattern">The pattern to which to add a condition.</param>
+            <param name="condition">The condition to add.</param>
+            <param name="description">The description of this pattern.</param>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="description" /> is <see langword="null" />.
+            </exception>
+        </member>
+        <member name="M:Matchmaker.Patterns.ConditionalPattern`2.Match(`0)">
+            <summary>
+            Matches the input with this pattern, and returns a transformed result.
+            </summary>
+            <param name="input">The input value to match.</param>
+            <returns>
+            A successful match result which contains the transformed result of the match,
+            if this match is successful. Otherwise, a failed match result.
+            </returns>
         </member>
         <member name="T:Matchmaker.Patterns.IPattern`1">
             <summary>
@@ -621,9 +1147,7 @@
             <see cref="T:Matchmaker.Patterns.IPattern`2" />, so type safety is not compromised.
             </remarks>
             <seealso cref="T:Matchmaker.Patterns.IPattern`2" />
-            <seealso cref="T:Matchmaker.Patterns.PatternBase`3" />
             <seealso cref="T:Matchmaker.Patterns.Pattern`2" />
-            <seealso cref="T:Matchmaker.Patterns.SimplePattern`1" />
             <seealso cref="T:Matchmaker.Patterns.Pattern" />
         </member>
         <member name="M:Matchmaker.Patterns.IPattern`1.Match(`0)">
@@ -643,11 +1167,17 @@
             <typeparam name="TInput">The type of the input value of the match expression.</typeparam>
             <typeparam name="TMatchResult">The type of the result of this pattern's match.</typeparam>
             <seealso cref="T:Matchmaker.Patterns.Pattern`2" />
-            <seealso cref="T:Matchmaker.Patterns.SimplePattern`1" />
             <seealso cref="T:Matchmaker.Patterns.Pattern" />
-            <seealso cref="T:Matchmaker.Patterns.IConditionalPattern`3" />
-            <seealso cref="T:Matchmaker.Patterns.IDescribablePattern`2" />
-            <seealso cref="T:Matchmaker.Patterns.PatternBase`3" />
+        </member>
+        <member name="P:Matchmaker.Patterns.IPattern`2.Description">
+            <summary>
+            Gets the description of this pattern.
+            </summary>
+            <remarks>
+            Description is not terribly important, but can be used for debugging.
+            The description may never be <see langword="null" />. An empty description
+            implies that a pattern doesn't have a description.
+            </remarks>
         </member>
         <member name="M:Matchmaker.Patterns.IPattern`2.Match(`0)">
             <summary>
@@ -659,13 +1189,62 @@
             if this match is successful. Otherwise, a failed match result.
             </returns>
         </member>
+        <member name="T:Matchmaker.Patterns.MappingPattern`3">
+            <summary>
+            Represents a pattern which maps another pattern's result.
+            </summary>
+            <typeparam name="TInput">The type of the input value of the expression.</typeparam>
+            <typeparam name="TIntermediateResult">The type of the result of the provided pattern's match.</typeparam>
+            <typeparam name="TMatchResult">The type of the result of this pattern's match.</typeparam>
+            <seealso cref="T:Matchmaker.Patterns.IPattern`2" />
+            <seealso cref="T:Matchmaker.Patterns.Pattern" />
+        </member>
+        <member name="F:Matchmaker.Patterns.MappingPattern`3.pattern">
+            <summary>
+            The pattern whose result should be mapped.
+            </summary>
+        </member>
+        <member name="F:Matchmaker.Patterns.MappingPattern`3.mapper">
+            <summary>
+            The result mapping function.
+            </summary>
+        </member>
+        <member name="M:Matchmaker.Patterns.MappingPattern`3.#ctor(Matchmaker.Patterns.IPattern{`0,`1},System.Func{`1,`2})">
+            <summary>
+            Initializes a new instance of the
+            <see cref="T:Matchmaker.Patterns.MappingPattern`3" /> class.
+            </summary>
+            <param name="pattern">The pattern whose result should be mapped.</param>
+            <param name="mapper">The result mapping function.</param>
+        </member>
+        <member name="M:Matchmaker.Patterns.MappingPattern`3.#ctor(Matchmaker.Patterns.IPattern{`0,`1},System.Func{`1,`2},System.String)">
+            <summary>
+            Initializes a new instance of the
+            <see cref="T:Matchmaker.Patterns.MappingPattern`3" /> class.
+            </summary>
+            <param name="pattern">The pattern whose result should be mapped.</param>
+            <param name="mapper">The result mapping function.</param>
+            <param name="description">The description of this pattern.</param>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="description" /> is <see langword="null" />.
+            </exception>
+        </member>
+        <member name="M:Matchmaker.Patterns.MappingPattern`3.Match(`0)">
+            <summary>
+            Matches the input with this pattern, and returns a transformed result.
+            </summary>
+            <param name="input">The input value to match.</param>
+            <returns>
+            A successful match result which contains the transformed result of the match,
+            if this match is successful. Otherwise, a failed match result.
+            </returns>
+        </member>
         <member name="T:Matchmaker.Patterns.Pattern">
             <summary>
-            Contains factory methods for creating patterns and some frequently used patterns.
+            Contains factory methods for creating patterns.
             </summary>
             <seealso cref="T:Matchmaker.Patterns.IPattern`2" />
             <seealso cref="T:Matchmaker.Patterns.Pattern`2" />
-            <seealso cref="T:Matchmaker.Patterns.SimplePattern`1" />
         </member>
         <member name="F:Matchmaker.Patterns.Pattern.DefaultAnyDescription">
             <summary>
@@ -756,29 +1335,31 @@
             </summary>
             <seealso cref="M:Matchmaker.Patterns.Pattern.Type``2" />
         </member>
+        <member name="F:Matchmaker.Patterns.Pattern.DefaultPipeDescriptionFormat">
+            <summary>
+            The default description of piping patterns.
+            </summary>
+        </member>
         <member name="F:Matchmaker.Patterns.Pattern.DefaultAndDescriptionFormat">
             <summary>
             The default description of the 'and' pattern combinator.
             </summary>
-            <seealso cref="M:Matchmaker.Patterns.SimplePattern`1.And(Matchmaker.Patterns.SimplePattern{`0})" />
         </member>
         <member name="F:Matchmaker.Patterns.Pattern.DefaultOrDescriptionFormat">
             <summary>
             The default description of the 'or' pattern combinator.
             </summary>
-            <seealso cref="M:Matchmaker.Patterns.SimplePattern`1.Or(Matchmaker.Patterns.SimplePattern{`0})" />
         </member>
         <member name="F:Matchmaker.Patterns.Pattern.DefaultXorDescriptionFormat">
             <summary>
             The default description of the 'xor' pattern combinator.
             </summary>
-            <seealso cref="M:Matchmaker.Patterns.SimplePattern`1.Xor(Matchmaker.Patterns.SimplePattern{`0})" />
         </member>
         <member name="F:Matchmaker.Patterns.Pattern.DefaultNotDescriptionFormat">
             <summary>
             The default description of the 'not' pattern combinators.
             </summary>
-            <seealso cref="M:Matchmaker.Patterns.Pattern.Not``2(Matchmaker.Patterns.IDescribablePattern{``0,``1})" />
+            <seealso cref="M:Matchmaker.Patterns.Pattern.Not``2(Matchmaker.Patterns.IPattern{``0,``1})" />
         </member>
         <member name="M:Matchmaker.Patterns.Pattern.CreatePattern``2(System.Func{``0,Matchmaker.MatchResult{``1}})">
             <summary>
@@ -1834,27 +2415,6 @@
             <exception cref="T:System.ArgumentNullException">
             <paramref name="pattern" /> is <see langword="null" />.
             </exception>
-            <seealso cref="M:Matchmaker.Patterns.Pattern.Not``2(Matchmaker.Patterns.IDescribablePattern{``0,``1})" />
-            <seealso cref="M:Matchmaker.Patterns.Pattern.Not``2(Matchmaker.Patterns.IPattern{``0,``1},System.String)" />
-        </member>
-        <member name="M:Matchmaker.Patterns.Pattern.Not``2(Matchmaker.Patterns.IDescribablePattern{``0,``1})">
-            <summary>
-            Returns a pattern which is matched successfully when the specified pattern is not matched successfully.
-            </summary>
-            <typeparam name="TInput">The type of the input value of the expression.</typeparam>
-            <typeparam name="TMatchResult">The type of the result of this pattern's match.</typeparam>
-            <param name="pattern">The pattern to invert.</param>
-            <returns>
-            A pattern which is matched successfully when the specified pattern is not matched successfully.
-            </returns>
-            <remarks>
-            This pattern ignores the specified pattern's transformation
-            and returns the input value if matched successfully.
-            </remarks>
-            <exception cref="T:System.ArgumentNullException">
-            <paramref name="pattern" /> is <see langword="null" />.
-            </exception>
-            <seealso cref="M:Matchmaker.Patterns.Pattern.Not``2(Matchmaker.Patterns.IPattern{``0,``1})" />
             <seealso cref="M:Matchmaker.Patterns.Pattern.Not``2(Matchmaker.Patterns.IPattern{``0,``1},System.String)" />
         </member>
         <member name="M:Matchmaker.Patterns.Pattern.Not``2(Matchmaker.Patterns.IPattern{``0,``1},System.String)">
@@ -1876,45 +2436,44 @@
             <paramref name="pattern" /> or <paramref name="description" /> is <see langword="null" />.
             </exception>
             <seealso cref="M:Matchmaker.Patterns.Pattern.Not``2(Matchmaker.Patterns.IPattern{``0,``1})" />
-            <seealso cref="M:Matchmaker.Patterns.Pattern.Not``2(Matchmaker.Patterns.IDescribablePattern{``0,``1})" />
         </member>
-        <member name="T:Matchmaker.Patterns.PatternBase`3">
+        <member name="T:Matchmaker.Patterns.PatternComposition">
             <summary>
-            Represents an abstract pattern with conditions and a description.
+            Represnts types of pattern composition.
+            </summary>
+        </member>
+        <member name="F:Matchmaker.Patterns.PatternComposition.And">
+            <summary>
+            Represents the 'and' composition - the result is successful only when both results are successful.
+            </summary>
+        </member>
+        <member name="F:Matchmaker.Patterns.PatternComposition.Or">
+            <summary>
+            Represents the 'or' composition - the result is successful when either of the results is successful.
+            </summary>
+        </member>
+        <member name="F:Matchmaker.Patterns.PatternComposition.Xor">
+            <summary>
+            Represents the 'xor' composition - the result is successful when only one of the results is successful.
+            </summary>
+        </member>
+        <member name="T:Matchmaker.Patterns.Pattern`2">
+            <summary>
+            Represents an base class for patterns.
             </summary>
             <typeparam name="TInput">The type of the input value of the expression.</typeparam>
             <typeparam name="TMatchResult">The type of the result of this pattern's match.</typeparam>
-            <typeparam name="TPattern">The actual type of the pattern.</typeparam>
             <seealso cref="T:Matchmaker.Patterns.IPattern`2" />
-            <seealso cref="T:Matchmaker.Patterns.IConditionalPattern`3" />
-            <seealso cref="T:Matchmaker.Patterns.IDescribablePattern`2" />
-            <seealso cref="T:Matchmaker.Patterns.Pattern`2" />
-            <seealso cref="T:Matchmaker.Patterns.SimplePattern`1" />
+            <seealso cref="T:Matchmaker.Patterns.Pattern" />
         </member>
-        <member name="F:Matchmaker.Patterns.PatternBase`3.Conditions">
+        <member name="M:Matchmaker.Patterns.Pattern`2.#ctor">
             <summary>
-            A list of conditions of this pattern.
+            Initializes a new instance of the <see cref="T:Matchmaker.Patterns.Pattern`2" /> class.
             </summary>
         </member>
-        <member name="M:Matchmaker.Patterns.PatternBase`3.#ctor">
+        <member name="M:Matchmaker.Patterns.Pattern`2.#ctor(System.String)">
             <summary>
-            Initializes a new instance of the <see cref="T:Matchmaker.Patterns.PatternBase`3" /> class
-            without any conditions.
-            </summary>
-        </member>
-        <member name="M:Matchmaker.Patterns.PatternBase`3.#ctor(System.Collections.Immutable.IImmutableList{System.Func{`1,System.Boolean}})">
-            <summary>
-            Initializes a new instance of the <see cref="T:Matchmaker.Patterns.PatternBase`3" /> class
-            with the specified conditions.
-            </summary>
-            <param name="conditions">The conditions of this pattern.</param>
-            <exception cref="T:System.ArgumentNullException">
-            <paramref name="conditions" /> is <see langword="null" />.
-            </exception>
-        </member>
-        <member name="M:Matchmaker.Patterns.PatternBase`3.#ctor(System.String)">
-            <summary>
-            Initializes a new instance of the <see cref="T:Matchmaker.Patterns.PatternBase`3" /> class
+            Initializes a new instance of the <see cref="T:Matchmaker.Patterns.Pattern`2" /> class
             with the specified description.
             </summary>
             <param name="description">The description of this pattern.</param>
@@ -1922,23 +2481,12 @@
             <paramref name="description" /> is <see langword="null" />.
             </exception>
         </member>
-        <member name="M:Matchmaker.Patterns.PatternBase`3.#ctor(System.Collections.Immutable.IImmutableList{System.Func{`1,System.Boolean}},System.String)">
-            <summary>
-            Initializes a new instance of the <see cref="T:Matchmaker.Patterns.PatternBase`3" /> class
-            with the specified conditions and description.
-            </summary>
-            <param name="conditions">The conditions of this pattern.</param>
-            <param name="description">The description of this pattern.</param>
-            <exception cref="T:System.ArgumentNullException">
-            <paramref name="conditions" /> of <paramref name="description" /> is <see langword="null" />.
-            </exception>
-        </member>
-        <member name="P:Matchmaker.Patterns.PatternBase`3.Description">
+        <member name="P:Matchmaker.Patterns.Pattern`2.Description">
             <summary>
             Gets the description of this pattern.
             </summary>
         </member>
-        <member name="M:Matchmaker.Patterns.PatternBase`3.Match(`0)">
+        <member name="M:Matchmaker.Patterns.Pattern`2.Match(`0)">
             <summary>
             Matches the input with this pattern, and returns a transformed result.
             </summary>
@@ -1948,37 +2496,16 @@
             if this match is successful. Otherwise, a failed match result.
             </returns>
         </member>
-        <member name="M:Matchmaker.Patterns.PatternBase`3.When(System.Func{`1,System.Boolean})">
-            <summary>
-            Returns a new pattern which includes the specified condition.
-            </summary>
-            <param name="condition">The condition to add.</param>
-            <returns>A new pattern which includes the specified condition.</returns>
-            <exception cref="T:System.ArgumentNullException">
-            <paramref name="condition" /> is <see langword="null" />.
-            </exception>
-        </member>
-        <member name="M:Matchmaker.Patterns.PatternBase`3.ToString">
+        <member name="M:Matchmaker.Patterns.Pattern`2.ToString">
             <summary>
             Returns the description of this pattern, if it has one.
             </summary>
             <returns>
             The description of this pattern, if it has one.
-            If it doesn't, then returns the name of this pattern's type.
+            If it doesn't, then the name of this pattern's type.
             </returns>
         </member>
-        <member name="M:Matchmaker.Patterns.PatternBase`3.CheckConditions(Matchmaker.MatchResult{`1})">
-            <summary>
-            Checks the pattern's conditions and returns a successful result only if the specified result
-            is successful and all conditions are true.
-            </summary>
-            <param name="result">The result to check.</param>
-            <returns>
-            If the specified result is successful and all conditions are <see langword="true" />,
-            then a successful result. Otherwise, a failed result.
-            </returns>
-        </member>
-        <member name="M:Matchmaker.Patterns.PatternBase`3.Matchmaker#Patterns#IPattern{TInput}#Match(`0)">
+        <member name="M:Matchmaker.Patterns.Pattern`2.Matchmaker#Patterns#IPattern{TInput}#Match(`0)">
             <summary>
             Matches the input with this pattern, and returns a transformed result.
             </summary>
@@ -1988,57 +2515,90 @@
             if this match is successful. Otherwise, a failed match result.
             </returns>
         </member>
-        <member name="T:Matchmaker.Patterns.Pattern`2">
+        <member name="T:Matchmaker.Patterns.PipingPattern`3">
             <summary>
-            Represents a general transforming pattern.
+            Represents a pattern which pipes another pattern's result to a different pattern.
+            </summary>
+            <typeparam name="TInput">The type of the input value of the expression.</typeparam>
+            <typeparam name="TIntermediateResult">The type of the result of the first pattern's match.</typeparam>
+            <typeparam name="TMatchResult">The type of the result of this pattern's match.</typeparam>
+            <seealso cref="T:Matchmaker.Patterns.IPattern`2" />
+            <seealso cref="T:Matchmaker.Patterns.Pattern" />
+        </member>
+        <member name="F:Matchmaker.Patterns.PipingPattern`3.firstPattern">
+            <summary>
+            The pattern whose result should be piped.
+            </summary>
+        </member>
+        <member name="F:Matchmaker.Patterns.PipingPattern`3.secondPattern">
+            <summary>
+            The pattern whose input is the first pattern's output.
+            </summary>
+        </member>
+        <member name="M:Matchmaker.Patterns.PipingPattern`3.#ctor(Matchmaker.Patterns.IPattern{`0,`1},Matchmaker.Patterns.IPattern{`1,`2})">
+            <summary>
+            Initializes a new instance of the
+            <see cref="T:Matchmaker.Patterns.PipingPattern`3" /> class.
+            </summary>
+            <param name="firstPattern">The pattern whose result should be piped.</param>
+            <param name="secondPattern">The pattern whose input is the first pattern's output.</param>
+        </member>
+        <member name="M:Matchmaker.Patterns.PipingPattern`3.#ctor(Matchmaker.Patterns.IPattern{`0,`1},Matchmaker.Patterns.IPattern{`1,`2},System.String)">
+            <summary>
+            Initializes a new instance of the
+            <see cref="T:Matchmaker.Patterns.PipingPattern`3" /> class.
+            </summary>
+            <param name="firstPattern">The pattern whose result should be piped.</param>
+            <param name="secondPattern">The pattern whose input is the first pattern's output.</param>
+            <param name="description">The description of this pattern.</param>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="description" /> is <see langword="null" />.
+            </exception>
+        </member>
+        <member name="M:Matchmaker.Patterns.PipingPattern`3.Match(`0)">
+            <summary>
+            Matches the input with this pattern, and returns a transformed result.
+            </summary>
+            <param name="input">The input value to match.</param>
+            <returns>
+            A successful match result which contains the transformed result of the match,
+            if this match is successful. Otherwise, a failed match result.
+            </returns>
+        </member>
+        <member name="T:Matchmaker.Patterns.SimplePattern`2">
+            <summary>
+            Represents a pattern which uses a function to match its inputs.
             </summary>
             <typeparam name="TInput">The type of the input value of the expression.</typeparam>
             <typeparam name="TMatchResult">The type of the result of this pattern's match.</typeparam>
             <seealso cref="T:Matchmaker.Patterns.IPattern`2" />
-            <seealso cref="T:Matchmaker.Patterns.PatternBase`3" />
-            <seealso cref="T:Matchmaker.Patterns.SimplePattern`1" />
+            <seealso cref="T:Matchmaker.Patterns.Pattern`2" />
             <seealso cref="T:Matchmaker.Patterns.Pattern" />
         </member>
-        <member name="F:Matchmaker.Patterns.Pattern`2.matcher">
+        <member name="F:Matchmaker.Patterns.SimplePattern`2.matcher">
             <summary>
             The matcher function.
             </summary>
         </member>
-        <member name="M:Matchmaker.Patterns.Pattern`2.#ctor(System.Func{`0,Matchmaker.MatchResult{`1}})">
+        <member name="M:Matchmaker.Patterns.SimplePattern`2.#ctor(System.Func{`0,Matchmaker.MatchResult{`1}})">
             <summary>
-            Initializes a new instance of the <see cref="T:Matchmaker.Patterns.Pattern`2" /> class
+            Initializes a new instance of the <see cref="T:Matchmaker.Patterns.SimplePattern`2" /> class
             with the specified matcher function.
             </summary>
             <param name="matcher">The matcher function.</param>
-            <exception cref="T:System.ArgumentNullException">
-            <paramref name="matcher" /> is <see langword="null" />.
-            </exception>
         </member>
-        <member name="M:Matchmaker.Patterns.Pattern`2.#ctor(System.Func{`0,Matchmaker.MatchResult{`1}},System.String)">
+        <member name="M:Matchmaker.Patterns.SimplePattern`2.#ctor(System.Func{`0,Matchmaker.MatchResult{`1}},System.String)">
             <summary>
-            Initializes a new instance of the <see cref="T:Matchmaker.Patterns.Pattern`2" /> class
-            with the specified matcher function.
+            Initializes a new instance of the <see cref="T:Matchmaker.Patterns.SimplePattern`2" /> class
+            with the specified matcher function and description.
             </summary>
             <param name="matcher">The matcher function.</param>
             <param name="description">The description of this pattern.</param>
             <exception cref="T:System.ArgumentNullException">
-            <paramref name="matcher" /> or <paramref name="description" /> is <see langword="null" />.
+            <paramref name="description" /> is <see langword="null" />.
             </exception>
         </member>
-        <member name="M:Matchmaker.Patterns.Pattern`2.#ctor(System.Func{`0,Matchmaker.MatchResult{`1}},System.Collections.Immutable.IImmutableList{System.Func{`1,System.Boolean}},System.String)">
-            <summary>
-            Initializes a new instance of the <see cref="T:Matchmaker.Patterns.Pattern`2" /> class
-            with the specified matcher function and additional conditions.
-            </summary>
-            <param name="matcher">The matcher function.</param>
-            <param name="conditions">The additional conditions.</param>
-            <param name="description">The description of this pattern.</param>
-            <exception cref="T:System.ArgumentNullException">
-            <paramref name="matcher" />, <paramref name="conditions" /> or <paramref name="description" />
-            is <see langword="null" />.
-            </exception>
-        </member>
-        <member name="M:Matchmaker.Patterns.Pattern`2.Match(`0)">
+        <member name="M:Matchmaker.Patterns.SimplePattern`2.Match(`0)">
             <summary>
             Matches the input with this pattern, and returns a transformed result if successful.
             </summary>
@@ -2047,245 +2607,6 @@
             A successful match result which contains the transformed result of the match,
             if this match is successful. Otherwise, a failed match result.
             </returns>
-        </member>
-        <member name="M:Matchmaker.Patterns.Pattern`2.When(System.Func{`1,System.Boolean})">
-            <summary>
-            Returns a new pattern which includes the specified condition.
-            </summary>
-            <param name="condition">The condition to add.</param>
-            <returns>A new pattern which includes the specified condition.</returns>
-        </member>
-        <member name="M:Matchmaker.Patterns.Pattern`2.op_OnesComplement(Matchmaker.Patterns.Pattern{`0,`1})">
-            <summary>
-            Returns a pattern which is matched successfully
-            when the specified pattern is not matched successfully.
-            </summary>
-            <param name="pattern">The pattern to invert.</param>
-            <returns>
-            A pattern which is matched successfully
-            when the specified pattern is not matched successfully.
-            </returns>
-            <remarks>
-            This pattern ignores the specified pattern's transformation
-            and returns the input value if matched successfully.
-            </remarks>
-            <exception cref="T:System.ArgumentNullException">
-            <paramref name="pattern" /> is <see langword="null" />.
-            </exception>
-        </member>
-        <member name="T:Matchmaker.Patterns.SimplePattern`1">
-            <summary>
-            Represents a general non-transforming pattern.
-            </summary>
-            <typeparam name="TInput">The type of the input value of the expression.</typeparam>
-            <seealso cref="T:Matchmaker.Patterns.IPattern`2" />
-            <seealso cref="T:Matchmaker.Patterns.PatternBase`3" />
-            <seealso cref="T:Matchmaker.Patterns.Pattern`2" />
-            <seealso cref="T:Matchmaker.Patterns.Pattern" />
-        </member>
-        <member name="M:Matchmaker.Patterns.SimplePattern`1.#ctor(System.Func{`0,System.Boolean})">
-            <summary>
-            Initializes a new instance of the <see cref="T:Matchmaker.Patterns.SimplePattern`1" /> class
-            with the specified condition.
-            </summary>
-            <param name="condition">The condition of this pattern.</param>
-            <exception cref="T:System.ArgumentNullException">
-            <paramref name="condition" /> is <see langword="null" />.
-            </exception>
-        </member>
-        <member name="M:Matchmaker.Patterns.SimplePattern`1.#ctor(System.Func{`0,System.Boolean},System.String)">
-            <summary>
-            Initializes a new instance of the <see cref="T:Matchmaker.Patterns.SimplePattern`1" /> class
-            with the specified condition.
-            </summary>
-            <param name="condition">The condition of this pattern.</param>
-            <param name="description">The description of this pattern.</param>
-            <exception cref="T:System.ArgumentNullException">
-            <paramref name="condition" /> or <paramref name="description" /> is <see langword="null" />.
-            </exception>
-        </member>
-        <member name="M:Matchmaker.Patterns.SimplePattern`1.#ctor(System.Collections.Immutable.IImmutableList{System.Func{`0,System.Boolean}},System.String)">
-            <summary>
-            Initializes a new instance of the <see cref="T:Matchmaker.Patterns.SimplePattern`1" /> class
-            with the specified conditions.
-            </summary>
-            <param name="conditions">The conditions of this pattern.</param>
-            <param name="description">The description of this pattern.</param>
-            <exception cref="T:System.ArgumentNullException">
-            <paramref name="conditions" /> or <paramref name="description" /> is <see langword="null" />.
-            </exception>
-        </member>
-        <member name="M:Matchmaker.Patterns.SimplePattern`1.Match(`0)">
-            <summary>
-            Matches the input with this pattern, and returns the input value if successful.
-            </summary>
-            <param name="input">The input value to match.</param>
-            <returns>
-            A successful match result which contains the transformed result of the match,
-            if this match is successful. Otherwise, a failed match result.
-            </returns>
-        </member>
-        <member name="M:Matchmaker.Patterns.SimplePattern`1.When(System.Func{`0,System.Boolean})">
-            <summary>
-            Returns a new pattern which includes the specified condition.
-            </summary>
-            <param name="condition">The condition to add.</param>
-            <returns>A new pattern which includes the specified condition.</returns>
-            <exception cref="T:System.ArgumentNullException">
-            <paramref name="condition" /> is <see langword="null" />.
-            </exception>
-        </member>
-        <member name="M:Matchmaker.Patterns.SimplePattern`1.And(Matchmaker.Patterns.SimplePattern{`0})">
-            <summary>
-            Returns a pattern which is matched successfully only if both
-            this and other pattern are matched successfully.
-            </summary>
-            <param name="other">The other pattern.</param>
-            <returns>
-            A pattern which is matched successfully only if both
-            this and other pattern are matched successfully.
-            </returns>
-            <remarks>This is a short-circuiting operation.</remarks>
-            <exception cref="T:System.ArgumentNullException">
-            <paramref name="other" /> is <see langword="null" />.
-            </exception>
-        </member>
-        <member name="M:Matchmaker.Patterns.SimplePattern`1.And(Matchmaker.Patterns.SimplePattern{`0},System.String)">
-            <summary>
-            Returns a pattern which is matched successfully only if both
-            this and other pattern are matched successfully.
-            </summary>
-            <param name="other">The other pattern.</param>
-            <param name="description">The description of the pattern.</param>
-            <returns>
-            A pattern which is matched successfully only if both
-            this and other pattern are matched successfully.
-            </returns>
-            <remarks>This is a short-circuiting operation.</remarks>
-            <exception cref="T:System.ArgumentNullException">
-            <paramref name="other" /> or <paramref name="description" /> is <see langword="null" />.
-            </exception>
-        </member>
-        <member name="M:Matchmaker.Patterns.SimplePattern`1.Or(Matchmaker.Patterns.SimplePattern{`0})">
-            <summary>
-            Returns a pattern which is matched successfully if
-            either this or the other pattern is matched successfully.
-            </summary>
-            <param name="other">The other pattern.</param>
-            <returns>
-            A pattern which is matched successfully if
-            either this or the other pattern is matched successfully.
-            </returns>
-            <remarks>This is a short-circuiting operation.</remarks>
-            <exception cref="T:System.ArgumentNullException">
-            <paramref name="other" /> is <see langword="null" />.
-            </exception>
-        </member>
-        <member name="M:Matchmaker.Patterns.SimplePattern`1.Or(Matchmaker.Patterns.SimplePattern{`0},System.String)">
-            <summary>
-            Returns a pattern which is matched successfully if
-            either this or the other pattern is matched successfully.
-            </summary>
-            <param name="other">The other pattern.</param>
-            <param name="description">The description of the pattern.</param>
-            <returns>
-            A pattern which is matched successfully if
-            either this or the other pattern is matched successfully.
-            </returns>
-            <remarks>This is a short-circuiting operation.</remarks>
-            <exception cref="T:System.ArgumentNullException">
-            <paramref name="other" /> or <paramref name="description" /> is <see langword="null" />.
-            </exception>
-        </member>
-        <member name="M:Matchmaker.Patterns.SimplePattern`1.Xor(Matchmaker.Patterns.SimplePattern{`0})">
-            <summary>
-            Returns a pattern which is matched successfully if
-            matches with this pattern and the other pattern yield different results.
-            </summary>
-            <param name="other">The other pattern.</param>
-            <returns>
-            A pattern which is matched successfully if
-            matches with this pattern and the other pattern yield different results.
-            </returns>
-            <exception cref="T:System.ArgumentNullException">
-            <paramref name="other" /> is <see langword="null" />.
-            </exception>
-        </member>
-        <member name="M:Matchmaker.Patterns.SimplePattern`1.Xor(Matchmaker.Patterns.SimplePattern{`0},System.String)">
-            <summary>
-            Returns a pattern which is matched successfully if
-            matches with this pattern and the other pattern yield different results.
-            </summary>
-            <param name="other">The other pattern.</param>
-            <param name="description">The description of the pattern.</param>
-            <returns>
-            A pattern which is matched successfully if
-            matches with this pattern and the other pattern yield different results.
-            </returns>
-            <exception cref="T:System.ArgumentNullException">
-            <paramref name="other" /> or <paramref name="description" /> is <see langword="null" />.
-            </exception>
-        </member>
-        <member name="M:Matchmaker.Patterns.SimplePattern`1.op_BitwiseAnd(Matchmaker.Patterns.SimplePattern{`0},Matchmaker.Patterns.SimplePattern{`0})">
-            <summary>
-            Returns a pattern which is matched successfully only if both
-            the first pattern and the second pattern are matched successfully.
-            </summary>
-            <param name="pattern1">The first pattern.</param>
-            <param name="pattern2">The second pattern.</param>
-            <returns>
-            A pattern which is matched successfully only if both
-            the first pattern and the second pattern are matched successfully.
-            </returns>
-            <remarks>This is a short-circuiting operator.</remarks>
-            <exception cref="T:System.ArgumentNullException">
-            <paramref name="pattern1" /> or <paramref name="pattern2" /> is <see langword="null" />.
-            </exception>
-        </member>
-        <member name="M:Matchmaker.Patterns.SimplePattern`1.op_BitwiseOr(Matchmaker.Patterns.SimplePattern{`0},Matchmaker.Patterns.SimplePattern{`0})">
-            <summary>
-            Returns a pattern which is matched successfully if
-            either the first or the second pattern is matched successfully.
-            </summary>
-            <param name="pattern1">The first pattern.</param>
-            <param name="pattern2">The second pattern.</param>
-            <returns>
-            A pattern which is matched successfully if
-            either the first or the second pattern is matched successfully.
-            </returns>
-            <remarks>This is a short-circuiting operator.</remarks>
-            <exception cref="T:System.ArgumentNullException">
-            <paramref name="pattern1" /> or <paramref name="pattern2" /> is <see langword="null" />.
-            </exception>
-        </member>
-        <member name="M:Matchmaker.Patterns.SimplePattern`1.op_ExclusiveOr(Matchmaker.Patterns.SimplePattern{`0},Matchmaker.Patterns.SimplePattern{`0})">
-            <summary>
-            Returns a pattern which is matched successfully if
-            matches with the first pattern and the second pattern yield different results.
-            </summary>
-            <param name="pattern1">The first pattern.</param>
-            <param name="pattern2">The second pattern.</param>
-            <returns>
-            A pattern which is matched successfully if
-            matches with the first pattern and the second pattern yield different results.
-            </returns>
-            <exception cref="T:System.ArgumentNullException">
-            <paramref name="pattern1" /> or <paramref name="pattern2" /> is <see langword="null" />.
-            </exception>
-        </member>
-        <member name="M:Matchmaker.Patterns.SimplePattern`1.op_OnesComplement(Matchmaker.Patterns.SimplePattern{`0})">
-            <summary>
-            Returns a pattern which is matched successfully
-            when the specified pattern is not matched successfully.
-            </summary>
-            <param name="pattern">The pattern to invert.</param>
-            <returns>
-            A pattern which is matched successfully
-            when the specified pattern is not matched successfully.
-            </returns>
-            <exception cref="T:System.ArgumentNullException">
-            <paramref name="pattern" /> is <see langword="null" />.
-            </exception>
         </member>
     </members>
 </doc>

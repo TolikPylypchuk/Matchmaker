@@ -10,10 +10,7 @@ namespace Matchmaker
 {
     public static class Generators
     {
-        public static Arbitrary<SimplePattern<string>> SimplePattern()
-            => new ArbitrarySimplePattern();
-
-        public static Arbitrary<Pattern<string, string>> Pattern()
+        public static Arbitrary<IPattern<string, string>> Pattern()
             => new ArbitraryPattern();
 
         public static Arbitrary<Func<string, bool>> Predicate()
@@ -25,9 +22,9 @@ namespace Matchmaker
         public static Arbitrary<MatchResult<string>> Result()
             => new ArbitraryMatchResult();
 
-        private class ArbitrarySimplePattern : Arbitrary<SimplePattern<string>>
+        private class ArbitraryPattern : Arbitrary<IPattern<string, string>>
         {
-            public override Gen<SimplePattern<string>> Generator
+            public override Gen<IPattern<string, string>> Generator
                 => from input in Arb.Default.String().Generator
                     from item in Gen.Elements(
                         EqualTo(input),
@@ -42,12 +39,6 @@ namespace Matchmaker
                         GreaterOrEqual(() => input),
                         Any<string>())
                    select item;
-        }
-
-        private class ArbitraryPattern : Arbitrary<Pattern<string, string>>
-        {
-            public override Gen<Pattern<string, string>> Generator
-                => Matcher().Generator.Select(CreatePattern);
         }
 
         private class ArbitraryPredicate : Arbitrary<Func<string, bool>>
