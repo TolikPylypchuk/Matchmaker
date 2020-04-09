@@ -198,10 +198,10 @@ namespace Matchmaker.Linq
         public static IPattern<TInput, TMatchResult> Cast<TInput, TIntermediateResult, TMatchResult>(
             this IPattern<TInput, TIntermediateResult> pattern)
             where TMatchResult : TIntermediateResult
-            => pattern.Pipe(Pattern.Type<TIntermediateResult, TMatchResult>());
+            => pattern.Pipe(Type<TIntermediateResult, TMatchResult>());
 
         /// <summary>
-        /// Returns a pattern which pipes the result of one pattern to the other pattern.
+        /// Returns a pattern which casts the result of the specified pattern to another type.
         /// </summary>
         /// <typeparam name="TInput">The type of the input value of the expression.</typeparam>
         /// <typeparam name="TIntermediateResult">The type of the result of the specified pattern's match.</typeparam>
@@ -224,7 +224,7 @@ namespace Matchmaker.Linq
             this IPattern<TInput, TIntermediateResult> pattern,
             string description)
             where TMatchResult : TIntermediateResult
-            => pattern.Pipe(Pattern.Type<TIntermediateResult, TMatchResult>(), description);
+            => pattern.Pipe(Type<TIntermediateResult, TMatchResult>(), description);
 
         /// <summary>
         /// Returns a pattern which binds (flat-maps) the result of the specified pattern.
@@ -389,8 +389,18 @@ namespace Matchmaker.Linq
         /// only when both patterns' results are successful.
         /// </returns>
         /// <remarks>
+        /// <list type="bullet">
+        /// <item>
         /// The resulting pattern ignores the patterns' transformations
         /// and returns the input value if matched successfully.
+        /// </item>
+        /// <item>
+        /// This method is functionally equivalent to the following:
+        /// <code>
+        /// leftPattern.Compose(rightPattern, PatternComposition.And)
+        /// </code>
+        /// </item>
+        /// </list>
         /// </remarks>
         /// <exception cref="ArgumentNullException">
         /// <paramref name="leftPattern" /> or <paramref name="rightPattern" /> is <see langword="null" />.
@@ -415,8 +425,18 @@ namespace Matchmaker.Linq
         /// only when both patterns' results are successful.
         /// </returns>
         /// <remarks>
+        /// <list type="bullet">
+        /// <item>
         /// The resulting pattern ignores the patterns' transformations
         /// and returns the input value if matched successfully.
+        /// </item>
+        /// <item>
+        /// This method is functionally equivalent to the following:
+        /// <code>
+        /// leftPattern.Compose(rightPattern, PatternComposition.And, description)
+        /// </code>
+        /// </item>
+        /// </list>
         /// </remarks>
         /// <exception cref="ArgumentNullException">
         /// <paramref name="leftPattern" />, <paramref name="rightPattern" /> or <paramref name="description" />
@@ -442,8 +462,18 @@ namespace Matchmaker.Linq
         /// only when both patterns' results are successful.
         /// </returns>
         /// <remarks>
+        /// <list type="bullet">
+        /// <item>
         /// The resulting pattern ignores the patterns' transformations
         /// and returns the input value if matched successfully.
+        /// </item>
+        /// <item>
+        /// This method is functionally equivalent to the following:
+        /// <code>
+        /// leftPattern.Compose(rightPattern, PatternComposition.Or)
+        /// </code>
+        /// </item>
+        /// </list>
         /// </remarks>
         /// <exception cref="ArgumentNullException">
         /// <paramref name="leftPattern" /> or <paramref name="rightPattern" /> is <see langword="null" />.
@@ -468,8 +498,18 @@ namespace Matchmaker.Linq
         /// when either pattern's result is successful.
         /// </returns>
         /// <remarks>
+        /// <list type="bullet">
+        /// <item>
         /// The resulting pattern ignores the patterns' transformations
         /// and returns the input value if matched successfully.
+        /// </item>
+        /// <item>
+        /// This method is functionally equivalent to the following:
+        /// <code>
+        /// leftPattern.Compose(rightPattern, PatternComposition.Or, description)
+        /// </code>
+        /// </item>
+        /// </list>
         /// </remarks>
         /// <exception cref="ArgumentNullException">
         /// <paramref name="leftPattern" />, <paramref name="rightPattern" /> or <paramref name="description" />
@@ -495,8 +535,18 @@ namespace Matchmaker.Linq
         /// only when both patterns' results are successful.
         /// </returns>
         /// <remarks>
+        /// <list type="bullet">
+        /// <item>
         /// The resulting pattern ignores the patterns' transformations
         /// and returns the input value if matched successfully.
+        /// </item>
+        /// <item>
+        /// This method is functionally equivalent to the following:
+        /// <code>
+        /// leftPattern.Compose(rightPattern, PatternComposition.Xor)
+        /// </code>
+        /// </item>
+        /// </list>
         /// </remarks>
         /// <exception cref="ArgumentNullException">
         /// <paramref name="leftPattern" /> or <paramref name="rightPattern" /> is <see langword="null" />.
@@ -521,8 +571,18 @@ namespace Matchmaker.Linq
         /// when only one pattern's result is successful.
         /// </returns>
         /// <remarks>
+        /// <list type="bullet">
+        /// <item>
         /// The resulting pattern ignores the patterns' transformations
         /// and returns the input value if matched successfully.
+        /// </item>
+        /// <item>
+        /// This method is functionally equivalent to the following:
+        /// <code>
+        /// leftPattern.Compose(rightPattern, PatternComposition.Xor, description)
+        /// </code>
+        /// </item>
+        /// </list>
         /// </remarks>
         /// <exception cref="ArgumentNullException">
         /// <paramref name="leftPattern" />, <paramref name="rightPattern" /> or <paramref name="description" />
