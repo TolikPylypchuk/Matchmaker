@@ -653,7 +653,7 @@
             </summary>
             <param name="fallthroughByDefault">The default fallthrough behaviour.</param>
         </member>
-        <member name="M:Matchmaker.Match`1.#ctor(System.Collections.Immutable.IImmutableList{Matchmaker.Match{`0}.CaseData},System.Boolean)">
+        <member name="M:Matchmaker.Match`1.#ctor(System.Collections.Generic.IReadOnlyCollection{Matchmaker.Match{`0}.CaseData},System.Boolean)">
             <summary>
             Initializes a new instance of the <see cref="T:Matchmaker.Match`1" /> class with the specified cases.
             </summary>
@@ -825,7 +825,7 @@
             </summary>
             <param name="fallthroughByDefault">The default fallthrough behaviour.</param>
         </member>
-        <member name="M:Matchmaker.Match`2.#ctor(System.Collections.Immutable.IImmutableList{Matchmaker.Match{`0,`1}.CaseData},System.Boolean)">
+        <member name="M:Matchmaker.Match`2.#ctor(System.Collections.Generic.IReadOnlyCollection{Matchmaker.Match{`0,`1}.CaseData},System.Boolean)">
             <summary>
             Initializes a new instance of the <see cref="T:Matchmaker.Match`2" /> class with the specified cases.
             </summary>

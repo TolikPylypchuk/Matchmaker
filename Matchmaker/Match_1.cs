@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Collections.Immutable;
 
 using Matchmaker.Patterns;
 
@@ -18,7 +17,7 @@ namespace Matchmaker
         /// <summary>
         /// The list of cases that will be matched in this expression.
         /// </summary>
-        private readonly IImmutableList<CaseData> cases;
+        private readonly IReadOnlyCollection<CaseData> cases;
 
         /// <summary>
         /// The default fallthrough behaviour.
@@ -31,7 +30,7 @@ namespace Matchmaker
         /// <param name="fallthroughByDefault">The default fallthrough behaviour.</param>
         internal Match(bool fallthroughByDefault)
         {
-            this.cases = ImmutableList<CaseData>.Empty;
+            this.cases = new List<CaseData>().AsReadOnly();
             this.fallthroughByDefault = fallthroughByDefault;
         }
 
@@ -40,7 +39,7 @@ namespace Matchmaker
         /// </summary>
         /// <param name="cases">The cases of this statement.</param>
         /// <param name="fallthroughByDefault">The default fallthrough behaviour.</param>
-        private Match(IImmutableList<CaseData> cases, bool fallthroughByDefault)
+        private Match(IReadOnlyCollection<CaseData> cases, bool fallthroughByDefault)
         {
             this.cases = cases;
             this.fallthroughByDefault = fallthroughByDefault;
@@ -85,7 +84,10 @@ namespace Matchmaker
             => pattern != null
                 ? action != null
                     ? new Match<TInput>(
-                        this.cases.Add(new CaseData(pattern, fallthrough, value => action((TMatchResult)value))),
+                        new List<CaseData>(this.cases)
+                        {
+                            new CaseData(pattern, fallthrough, value => action((TMatchResult)value))
+                        }.AsReadOnly(),
                         this.fallthroughByDefault)
                     : throw new ArgumentNullException(nameof(action))
                 : throw new ArgumentNullException(nameof(pattern));
