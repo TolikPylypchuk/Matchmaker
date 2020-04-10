@@ -10,7 +10,7 @@ namespace Matchmaker.Patterns
     /// <typeparam name="TMatchResult">The type of the result of this pattern's match.</typeparam>
     /// <seealso cref="IPattern{TInput, TMatchResult}" />
     /// <seealso cref="Pattern" />
-    public class BindingPattern<TInput, TIntermediateResult, TMatchResult> : Pattern<TInput, TMatchResult>
+    internal class BindingPattern<TInput, TIntermediateResult, TMatchResult> : Pattern<TInput, TMatchResult>
     {
         /// <summary>
         /// The pattern whose result should be bound.

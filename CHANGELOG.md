@@ -2,16 +2,18 @@
 
 # v2.0
 
-What's new in version 2.0:
+What's new in version 2.0 (almost all changes are breaking):
 
-- Library renamed to Matchmaker (breaking change)
+- Library renamed to Matchmaker
 - Stopped using the DLR for ignoring the intermediate types
-- Dropped the dependency on [language-ext](https://github.com/louthy/language-ext) (breaking change)
-- The deprecated `StructNull` pattern is removed (breaking change)
+- Dropped the dependency on [language-ext](https://github.com/louthy/language-ext)
+- Completely updated the pattern hierarchy and built-in patterns
+- The deprecated `StructNull` pattern is removed
 - Matching with fallthrough became lazy
-- Strict matching with fallthrough was removed (breaking change)
+- Strict matching with fallthrough was removed
 - Descriptions were added to patterns
-- Creating custom patterns became possible through factory methods (breaking change)
+- Creating custom patterns became possible through factory methods
+and extension methods
 
 ## v1.2
 

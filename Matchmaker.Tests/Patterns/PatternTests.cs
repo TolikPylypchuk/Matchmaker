@@ -1,13 +1,9 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
 
 using FluentAssertions;
 
 using FsCheck;
 using FsCheck.Xunit;
-
-using Matchmaker.Linq;
 
 using Xunit;
 
@@ -115,32 +111,6 @@ namespace Matchmaker.Patterns
             createWithNull.Should().Throw<ArgumentNullException>();
         }
 
-        [Property(Arbitrary = new[] { typeof(Generators) })]
-        public Property PatternWithWhereShouldMatchSameAsMatcherAndPredicates(
-            Func<string, MatchResult<string>> matcher,
-            List<Func<string, bool>> predicates,
-            string input)
-        {
-            Func<bool> patternWithWhenMatchesSameAsPredicates = () =>
-            {
-                var result = matcher(input);
-                var actualResult = result.IsSuccessful
-                    ? predicates.All(predicate => predicate(result.Value))
-                        ? result
-                        : MatchResult.Failure<string>()
-                    : MatchResult.Failure<string>();
-
-                return predicates
-                    .Aggregate(
-                        Pattern.CreatePattern(matcher),
-                        (pattern, predicate) => pattern.Where(predicate))
-                    .Match(input) == actualResult;
-            };
-
-            return patternWithWhenMatchesSameAsPredicates
-                .When(matcher != null && predicates != null && predicates.Count > 1);
-        }
-
         [Property]
         public Property AnyShouldAlwaysSucceed(string x)
             => Pattern.Any<string>().Match(x).IsSuccessful.ToProperty();
@@ -240,185 +210,6 @@ namespace Matchmaker.Patterns
         [Fact]
         public void TypeShouldFailOnNull()
             => Pattern.Type<object, object>().Match(null).IsSuccessful.Should().BeFalse();
-
-        [Property(Arbitrary = new[] { typeof(Generators) })]
-        public Property AndPatternShouldBeSameAsBothPatterns(
-            IPattern<string, string> pattern1,
-            IPattern<string, string> pattern2,
-            string x)
-            => ((pattern1.Match(x).IsSuccessful && pattern2.Match(x).IsSuccessful) ==
-                    pattern1.And(pattern2).Match(x).IsSuccessful)
-                .ToProperty();
-
-        [Property(Arbitrary = new[] { typeof(Generators) })]
-        public Property AndPatternWithDescriptionShouldBeSameAsBothPatterns(
-            IPattern<string, string> pattern1,
-            IPattern<string, string> pattern2,
-            string x,
-            string description)
-        {
-            Func<bool> andPatternIsSameAsBothPatterns = () =>
-                (pattern1.Match(x).IsSuccessful && pattern2.Match(x).IsSuccessful) ==
-                pattern1.And(pattern2, description).Match(x).IsSuccessful;
-            return andPatternIsSameAsBothPatterns.When(description != null);
-        }
-
-        [Property(Arbitrary = new[] { typeof(Generators) })]
-        public Property OrPatternShouldBeSameAsEitherPattern(
-            IPattern<string, string> pattern1,
-            IPattern<string, string> pattern2,
-            string x)
-            => ((pattern1.Match(x).IsSuccessful || pattern2.Match(x).IsSuccessful) ==
-                pattern1.Or(pattern2).Match(x).IsSuccessful)
-                .ToProperty();
-
-        [Property(Arbitrary = new[] { typeof(Generators) })]
-        public Property OrPatternWithDescriptionShouldBeSameAsBothPatterns(
-            IPattern<string, string> pattern1,
-            IPattern<string, string> pattern2,
-            string x,
-            string description)
-        {
-            Func<bool> orPatternIsSameAsBothPatterns = () =>
-                (pattern1.Match(x).IsSuccessful || pattern2.Match(x).IsSuccessful) ==
-                pattern1.Or(pattern2, description).Match(x).IsSuccessful;
-            return orPatternIsSameAsBothPatterns.When(description != null);
-        }
-
-        [Property(Arbitrary = new[] { typeof(Generators) })]
-        public Property XorPatternShouldBeSameAsExcusiveEitherPattern(
-            IPattern<string, string> pattern1,
-            IPattern<string, string> pattern2,
-            string x)
-            => ((pattern1.Match(x).IsSuccessful ^ pattern2.Match(x).IsSuccessful) ==
-                pattern1.Xor(pattern2).Match(x).IsSuccessful).ToProperty();
-
-        [Property(Arbitrary = new[] { typeof(Generators) })]
-        public Property XorPatternWithDescriptionShouldBeSameAsBothPatterns(
-            IPattern<string, string> pattern1,
-            IPattern<string, string> pattern2,
-            string x,
-            string description)
-        {
-            Func<bool> xorPatternIsSameAsBothPatterns = () =>
-                (pattern1.Match(x).IsSuccessful ^ pattern2.Match(x).IsSuccessful) ==
-                pattern1.Xor(pattern2, description).Match(x).IsSuccessful;
-            return xorPatternIsSameAsBothPatterns.When(description != null);
-        }
-
-        [Property(Arbitrary = new[] { typeof(Generators) })]
-        public Property AndPatternShouldHaveCorrectDescription(
-            IPattern<string, string> pattern1,
-            IPattern<string, string> pattern2)
-            => (pattern1.And(pattern2).Description ==
-                String.Format(Pattern.DefaultAndDescriptionFormat, pattern1.Description, pattern2.Description))
-                .ToProperty();
-
-        [Property(Arbitrary = new[] { typeof(Generators) })]
-        public Property AndPatternShouldHaveEmptyDescriptionIfFirstPatternHasEmptyDescription(
-            IPattern<string, string> pattern,
-            Func<string, bool> predicate)
-            => (Pattern.CreatePattern(predicate, String.Empty).And(pattern).Description.Length == 0).ToProperty();
-
-        [Property(Arbitrary = new[] { typeof(Generators) })]
-        public Property AndPatternShouldHaveEmptyDescriptionIfSecondPatternHasEmptyDescription(
-            IPattern<string, string> pattern,
-            Func<string, bool> predicate)
-            => (pattern.And(Pattern.CreatePattern(predicate, String.Empty)).Description.Length == 0).ToProperty();
-
-        [Property(Arbitrary = new[] { typeof(Generators) })]
-        public Property AndPatternShouldHaveEmptyDescriptionIfBothPatternsHaveEmptyDescription(
-            Func<string, bool> predicate1,
-            Func<string, bool> predicate2)
-            => (Pattern.CreatePattern(predicate1, String.Empty).And(Pattern.CreatePattern(predicate2, String.Empty))
-                .Description.Length == 0).ToProperty();
-
-        [Property(Arbitrary = new[] { typeof(Generators) })]
-        public Property AndPatternShouldHaveSpecifiedDescription(
-            IPattern<string, string> pattern1,
-            IPattern<string, string> pattern2,
-            string description)
-        {
-            Func<bool> andPatternHasSpecifiedDescription = () =>
-                pattern1.And(pattern2, description).Description == description;
-            return andPatternHasSpecifiedDescription.When(description != null);
-        }
-
-        [Property(Arbitrary = new[] { typeof(Generators) })]
-        public Property OrPatternShouldHaveCorrectDescription(
-            IPattern<string, string> pattern1,
-            IPattern<string, string> pattern2)
-            => (pattern1.Or(pattern2).Description ==
-                String.Format(Pattern.DefaultOrDescriptionFormat, pattern1.Description, pattern2.Description))
-                .ToProperty();
-
-        [Property(Arbitrary = new[] { typeof(Generators) })]
-        public Property OrPatternShouldHaveEmptyDescriptionIfFirstPatternHasEmptyDescription(
-            IPattern<string, string> pattern,
-            Func<string, bool> predicate)
-            => (Pattern.CreatePattern(predicate, String.Empty).Or(pattern).Description.Length == 0).ToProperty();
-
-        [Property(Arbitrary = new[] { typeof(Generators) })]
-        public Property OrPatternShouldHaveEmptyDescriptionIfSecondPatternHasEmptyDescription(
-            IPattern<string, string> pattern,
-            Func<string, bool> predicate)
-            => (pattern.Or(Pattern.CreatePattern(predicate, String.Empty)).Description.Length == 0).ToProperty();
-
-        [Property(Arbitrary = new[] { typeof(Generators) })]
-        public Property OrPatternShouldHaveEmptyDescriptionIfBothPatternsHaveEmptyDescription(
-            Func<string, bool> predicate1,
-            Func<string, bool> predicate2)
-            => (Pattern.CreatePattern(predicate1, String.Empty).Or(Pattern.CreatePattern(predicate2, String.Empty))
-                .Description.Length == 0).ToProperty();
-
-        [Property(Arbitrary = new[] { typeof(Generators) })]
-        public Property OrPatternShouldHaveSpecifiedDescription(
-            IPattern<string, string> pattern1,
-            IPattern<string, string> pattern2,
-            string description)
-        {
-            Func<bool> orPatternHasSpecifiedDescription = () =>
-                pattern1.Or(pattern2, description).Description == description;
-            return orPatternHasSpecifiedDescription.When(description != null);
-        }
-
-        [Property(Arbitrary = new[] { typeof(Generators) })]
-        public Property XorPatternShouldHaveCorrectDescription(
-            IPattern<string, string> pattern1,
-            IPattern<string, string> pattern2)
-            => (pattern1.Xor(pattern2).Description ==
-                String.Format(Pattern.DefaultXorDescriptionFormat, pattern1.Description, pattern2.Description))
-                .ToProperty();
-
-        [Property(Arbitrary = new[] { typeof(Generators) })]
-        public Property XorPatternShouldHaveEmptyDescriptionIfFirstPatternHasEmptyDescription(
-            IPattern<string, string> pattern,
-            Func<string, bool> predicate)
-            => (Pattern.CreatePattern(predicate, String.Empty).Xor(pattern).Description.Length == 0).ToProperty();
-
-        [Property(Arbitrary = new[] { typeof(Generators) })]
-        public Property XorPatternShouldHaveEmptyDescriptionIfSecondPatternHasEmptyDescription(
-            IPattern<string, string> pattern,
-            Func<string, bool> predicate)
-            => (pattern.Xor(Pattern.CreatePattern(predicate, String.Empty)).Description.Length == 0).ToProperty();
-
-        [Property(Arbitrary = new[] { typeof(Generators) })]
-        public Property XorPatternShouldHaveEmptyDescriptionIfBothPatternsHaveEmptyDescription(
-            Func<string, bool> predicate1,
-            Func<string, bool> predicate2)
-            => (Pattern.CreatePattern(predicate1, String.Empty).Xor(Pattern.CreatePattern(predicate2, String.Empty))
-                .Description.Length == 0).ToProperty();
-
-        [Property(Arbitrary = new[] { typeof(Generators) })]
-        public Property XorPatternShouldHaveSpecifiedDescription(
-            IPattern<string, string> pattern1,
-            IPattern<string, string> pattern2,
-            string description)
-        {
-            Func<bool> xorPatternHasSpecifiedDescription = () =>
-                pattern1.Xor(pattern2, description).Description == description;
-            return xorPatternHasSpecifiedDescription.When(description != null);
-        }
 
         [Property(Arbitrary = new[] { typeof(Generators) })]
         public Property NotShouldBeOppositeToSimplePattern(IPattern<string, string> pattern, string x)
