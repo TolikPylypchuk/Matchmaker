@@ -859,32 +859,6 @@ references:
   commentId: N:Matchmaker.Patterns
   fullName: Matchmaker.Patterns
   nameWithType: Matchmaker.Patterns
-- uid: Matchmaker.Patterns.BindingPattern`3
-  name: BindingPattern<TInput, TIntermediateResult, TMatchResult>
-  href: api/Matchmaker.Patterns.BindingPattern-3.html
-  commentId: T:Matchmaker.Patterns.BindingPattern`3
-  name.vb: BindingPattern(Of TInput, TIntermediateResult, TMatchResult)
-  fullName: Matchmaker.Patterns.BindingPattern<TInput, TIntermediateResult, TMatchResult>
-  fullName.vb: Matchmaker.Patterns.BindingPattern(Of TInput, TIntermediateResult, TMatchResult)
-  nameWithType: BindingPattern<TInput, TIntermediateResult, TMatchResult>
-  nameWithType.vb: BindingPattern(Of TInput, TIntermediateResult, TMatchResult)
-- uid: Matchmaker.Patterns.BindingPattern`3.Match(`0)
-  name: Match(TInput)
-  href: api/Matchmaker.Patterns.BindingPattern-3.html#Matchmaker_Patterns_BindingPattern_3_Match__0_
-  commentId: M:Matchmaker.Patterns.BindingPattern`3.Match(`0)
-  fullName: Matchmaker.Patterns.BindingPattern<TInput, TIntermediateResult, TMatchResult>.Match(TInput)
-  fullName.vb: Matchmaker.Patterns.BindingPattern(Of TInput, TIntermediateResult, TMatchResult).Match(TInput)
-  nameWithType: BindingPattern<TInput, TIntermediateResult, TMatchResult>.Match(TInput)
-  nameWithType.vb: BindingPattern(Of TInput, TIntermediateResult, TMatchResult).Match(TInput)
-- uid: Matchmaker.Patterns.BindingPattern`3.Match*
-  name: Match
-  href: api/Matchmaker.Patterns.BindingPattern-3.html#Matchmaker_Patterns_BindingPattern_3_Match_
-  commentId: Overload:Matchmaker.Patterns.BindingPattern`3.Match
-  isSpec: "True"
-  fullName: Matchmaker.Patterns.BindingPattern<TInput, TIntermediateResult, TMatchResult>.Match
-  fullName.vb: Matchmaker.Patterns.BindingPattern(Of TInput, TIntermediateResult, TMatchResult).Match
-  nameWithType: BindingPattern<TInput, TIntermediateResult, TMatchResult>.Match
-  nameWithType.vb: BindingPattern(Of TInput, TIntermediateResult, TMatchResult).Match
 - uid: Matchmaker.Patterns.IPattern`1
   name: IPattern<TInput>
   href: api/Matchmaker.Patterns.IPattern-1.html
