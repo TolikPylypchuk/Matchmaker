@@ -19,6 +19,9 @@ namespace Matchmaker
         public static Arbitrary<Func<string, MatchResult<string>>> Matcher()
             => new ArbitraryMatcher();
 
+        public static Arbitrary<Func<string, int>> Mapper()
+            => new ArbitraryMapper();
+
         public static Arbitrary<MatchResult<string>> Result()
             => new ArbitraryMatchResult();
 
@@ -62,6 +65,15 @@ namespace Matchmaker
 
             private Func<string, MatchResult<string>> ResultFromPredicate(Func<string, bool> predicate)
                 => str => predicate(str) ? MatchResult.Success(str) : MatchResult.Failure<string>();
+        }
+
+        private class ArbitraryMapper : Arbitrary<Func<string, int>>
+        {
+            public override Gen<Func<string, int>> Generator
+                => Gen.Elements<Func<string, int>>(
+                    str => str?.Length ?? -1,
+                    str => Int32.TryParse(str, out int result) ? result : 0,
+                    str => (str?.Length ?? -1) % 5);
         }
 
         private class ArbitraryMatchResult : Arbitrary<MatchResult<string>>

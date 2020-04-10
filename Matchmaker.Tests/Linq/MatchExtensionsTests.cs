@@ -1,6 +1,7 @@
 using System;
-using System.Collections.Generic;
 using System.Linq;
+
+using FluentAssertions;
 
 using FsCheck;
 using FsCheck.Xunit;
@@ -26,29 +27,225 @@ namespace Matchmaker.Linq
         }
 
         [Property(Arbitrary = new[] { typeof(Generators) })]
-        public Property PatternWithWhereShouldMatchSameAsMatcherAndPredicates(
-            Func<string, MatchResult<string>> matcher,
-            List<Func<string, bool>> predicates,
+        public Property SelectPatternShouldMatchSameAsPattern(
+            IPattern<string, string> pattern,
+            Func<string, int> mapper,
+            string input)
+            => (pattern.Select(mapper).Match(input).IsSuccessful == pattern.Match(input).IsSuccessful).ToProperty();
+
+        [Property(Arbitrary = new[] { typeof(Generators) })]
+        public Property SelectPatternShouldHaveMappedResultWhenSuccessful(
+            IPattern<string, string> pattern,
+            Func<string, int> mapper,
             string input)
         {
-            Func<bool> patternWithWhenMatchesSameAsPredicates = () =>
-            {
-                var result = matcher(input);
-                var actualResult = result.IsSuccessful
-                    ? predicates.All(predicate => predicate(result.Value))
-                        ? result
-                        : MatchResult.Failure<string>()
-                    : MatchResult.Failure<string>();
+            return pattern.Match(input).IsSuccessful.ImpliesThat(
+                    pattern.Select(mapper).Match(input).Value == mapper(pattern.Match(input).Value))
+                .ToProperty();
+        }
 
-                return predicates
-                    .Aggregate(
-                        Pattern.CreatePattern(matcher),
-                        (pattern, predicate) => pattern.Where(predicate))
-                    .Match(input) == actualResult;
+        [Property(Arbitrary = new[] { typeof(Generators) })]
+        public Property SelectPatternWithDescriptionShouldMatchSameAsPattern(
+            IPattern<string, string> pattern,
+            Func<string, int> mapper,
+            string input,
+            string description)
+        {
+            Func<bool> selectPatternMatchesSameAsPattern = () =>
+                pattern.Select(mapper, description).Match(input).IsSuccessful == pattern.Match(input).IsSuccessful;
+            return selectPatternMatchesSameAsPattern.When(description != null);
+        }
+
+        [Property(Arbitrary = new[] { typeof(Generators) })]
+        public Property SelectPatternWithDescriptionShouldHaveMappedResultWhenSuccessful(
+            IPattern<string, string> pattern,
+            Func<string, int> mapper,
+            string input,
+            string description)
+        {
+            Func<bool> selectPatternHasMappedResult = () =>
+                pattern.Match(input).IsSuccessful.ImpliesThat(
+                    pattern.Select(mapper, description).Match(input).Value == mapper(pattern.Match(input).Value));
+
+            return selectPatternHasMappedResult.When(description != null);
+        }
+
+        [Property(Arbitrary = new[] { typeof(Generators) })]
+        public Property SelectPatternShouldHaveSameDescriptionAsPattern(
+            IPattern<string, string> pattern,
+            Func<string, bool> mapper)
+            => (pattern.Select(mapper).Description == pattern.Description).ToProperty();
+
+        [Property(Arbitrary = new[] { typeof(Generators) })]
+        public Property SelectPatternWithDescriptionShouldHaveCorrectDescription(
+            IPattern<string, string> pattern,
+            Func<string, int> mapper,
+            string description)
+        {
+            Func<bool> selectPatternWithDescriptionHasCorrectDescription = () =>
+                pattern.Select(mapper, description).Description == description;
+            return selectPatternWithDescriptionHasCorrectDescription.When(description != null);
+        }
+
+        [Property(Arbitrary = new[] { typeof(Generators) })]
+        public void SelectPatternShouldThrowIfPatternIsNull(Func<string, int> mapper)
+        {
+            Action action = () => ((IPattern<string, string>)null).Select(mapper);
+            action.Should().Throw<ArgumentNullException>();
+        }
+
+        [Property(Arbitrary = new[] { typeof(Generators) })]
+        public void SelectPatternWithDescriptionShouldThrowIfPatternIsNull(
+            Func<string, int> mapper,
+            string description)
+        {
+            if (description != null)
+            {
+                Action action = () => ((IPattern<string, string>)null).Select(mapper, description);
+                action.Should().Throw<ArgumentNullException>();
+            }
+        }
+
+        [Property(Arbitrary = new[] { typeof(Generators) })]
+        public void SelectPatternShouldThrowIfMapperIsNull(IPattern<string, string> pattern)
+        {
+            Action action = () => pattern.Select<string, string, int>(null);
+            action.Should().Throw<ArgumentNullException>();
+        }
+
+        [Property(Arbitrary = new[] { typeof(Generators) })]
+        public void SelectPatternWithDescriptionShouldThrowIfMapperIsNull(
+            IPattern<string, string> pattern,
+            string description)
+        {
+            if (description != null)
+            {
+                Action action = () => pattern.Select<string, string, int>(null, description);
+                action.Should().Throw<ArgumentNullException>();
+            }
+        }
+
+        [Property(Arbitrary = new[] { typeof(Generators) })]
+        public void SelectPatternWithDescriptionShouldThrowIfDescriptionIsNull(
+            IPattern<string, string> pattern,
+            Func<string, int> mapper)
+        {
+            Action action = () => pattern.Select(mapper, null);
+            action.Should().Throw<ArgumentNullException>();
+        }
+
+        [Property(Arbitrary = new[] { typeof(Generators) })]
+        public Property WherePatternShouldMatchSameAsPatternAndPredicate(
+            IPattern<string, string> pattern,
+            Func<string, bool> predicate,
+            string input)
+            => (pattern.Where(predicate).Match(input).IsSuccessful ==
+                    (pattern.Match(input).IsSuccessful && predicate(input)))
+                .ToProperty();
+
+        [Property(Arbitrary = new[] { typeof(Generators) })]
+        public Property WherePatternShouldHaveSameResultAsPatternWhenSuccessful(
+            IPattern<string, string> pattern,
+            Func<string, bool> predicate,
+            string input)
+        {
+            var wherePattern = pattern.Where(predicate);
+            return wherePattern.Match(input).IsSuccessful.ImpliesThat(wherePattern.Match(input) == pattern.Match(input))
+                .ToProperty();
+        }
+
+        [Property(Arbitrary = new[] { typeof(Generators) })]
+        public Property WherePatternWithDescriptionShouldMatchSameAsPatternAndPredicate(
+            IPattern<string, string> pattern,
+            Func<string, bool> predicate,
+            string input,
+            string description)
+        {
+            Func<bool> wherePatternMatchesSameAsPatternAndPredicate = () =>
+                pattern.Where(predicate, description).Match(input).IsSuccessful ==
+                (pattern.Match(input).IsSuccessful && predicate(input));
+            return wherePatternMatchesSameAsPatternAndPredicate.When(description != null);
+        }
+
+        [Property(Arbitrary = new[] { typeof(Generators) })]
+        public Property WherePatternWithDescriptionShouldHaveSameResultAsPatternWhenSuccessful(
+            IPattern<string, string> pattern,
+            Func<string, bool> predicate,
+            string input,
+            string description)
+        {
+            Func<bool> wherePatternHasSameResult = () =>
+            {
+                var wherePattern = pattern.Where(predicate, description);
+                return wherePattern.Match(input).IsSuccessful.ImpliesThat(
+                    wherePattern.Match(input) == pattern.Match(input));
             };
 
-            return patternWithWhenMatchesSameAsPredicates
-                .When(matcher != null && predicates != null && predicates.Count > 1);
+            return wherePatternHasSameResult.When(description != null);
+        }
+
+        [Property(Arbitrary = new[] { typeof(Generators) })]
+        public Property WherePatternShouldHaveSameDescriptionAsPattern(
+            IPattern<string, string> pattern,
+            Func<string, bool> predicate)
+            => (pattern.Where(predicate).Description == pattern.Description).ToProperty();
+
+        [Property(Arbitrary = new[] { typeof(Generators) })]
+        public Property WherePatternWithDescriptionShouldHaveCorrectDescription(
+            IPattern<string, string> pattern,
+            Func<string, bool> predicate,
+            string description)
+        {
+            Func<bool> wherePatternWithDescriptionHasCorrectDescription = () =>
+                pattern.Where(predicate, description).Description == description;
+            return wherePatternWithDescriptionHasCorrectDescription.When(description != null);
+        }
+
+        [Property(Arbitrary = new[] { typeof(Generators) })]
+        public void WherePatternShouldThrowIfPatternIsNull(Func<string, bool> predicate)
+        {
+            Action action = () => ((IPattern<string, string>)null).Where(predicate);
+            action.Should().Throw<ArgumentNullException>();
+        }
+
+        [Property(Arbitrary = new[] { typeof(Generators) })]
+        public void WherePatternWithDescriptionShouldThrowIfPatternIsNull(
+            Func<string, bool> predicate,
+            string description)
+        {
+            if (description != null)
+            {
+                Action action = () => ((IPattern<string, string>)null).Where(predicate, description);
+                action.Should().Throw<ArgumentNullException>();
+            }
+        }
+
+        [Property(Arbitrary = new[] { typeof(Generators) })]
+        public void WherePatternShouldThrowIfPredicateIsNull(IPattern<string, string> pattern)
+        {
+            Action action = () => pattern.Where(null);
+            action.Should().Throw<ArgumentNullException>();
+        }
+
+        [Property(Arbitrary = new[] { typeof(Generators) })]
+        public void WherePatternWithDescriptionShouldThrowIfPredicateIsNull(
+            IPattern<string, string> pattern,
+            string description)
+        {
+            if (description != null)
+            {
+                Action action = () => pattern.Where(null, description);
+                action.Should().Throw<ArgumentNullException>();
+            }
+        }
+
+        [Property(Arbitrary = new[] { typeof(Generators) })]
+        public void WherePatternWithDescriptionShouldThrowIfDescriptionIsNull(
+            IPattern<string, string> pattern,
+            Func<string, bool> predicate)
+        {
+            Action action = () => pattern.Where(predicate, null);
+            action.Should().Throw<ArgumentNullException>();
         }
 
         [Property(Arbitrary = new[] { typeof(Generators) })]
