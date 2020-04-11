@@ -23,11 +23,9 @@ namespace Matchmaker.Linq
             IPattern<string, string> pattern,
             Func<string, int> mapper,
             string input)
-        {
-            return pattern.Match(input).IsSuccessful.ImpliesThat(
+            => pattern.Match(input).IsSuccessful.ImpliesThat(() =>
                     pattern.Select(mapper).Match(input).Value == mapper(pattern.Match(input).Value))
                 .ToProperty();
-        }
 
         [Property(Arbitrary = new[] { typeof(Generators) })]
         public Property SelectPatternWithDescriptionShouldMatchSameAsPattern(
@@ -49,7 +47,7 @@ namespace Matchmaker.Linq
             string description)
         {
             Func<bool> selectPatternHasMappedResult = () =>
-                pattern.Match(input).IsSuccessful.ImpliesThat(
+                pattern.Match(input).IsSuccessful.ImpliesThat(() =>
                     pattern.Select(mapper, description).Match(input).Value == mapper(pattern.Match(input).Value));
 
             return selectPatternHasMappedResult.When(description != null);

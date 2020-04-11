@@ -17,6 +17,18 @@ namespace Matchmaker.Patterns
         public static readonly string DefaultAnyDescription = "any x";
 
         /// <summary>
+        /// The default description of the 'return' pattern.
+        /// </summary>
+        /// <seealso cref="Return{TInput, TValue}(TValue)" />
+        public static readonly string DefaultReturnDescriptionFormat = "return {0}";
+
+        /// <summary>
+        /// The default description of the lazy 'return' pattern.
+        /// </summary>
+        /// <seealso cref="Return{TInput, TValue}(Func{TValue})" />
+        public static readonly string DefaultLazyReturnDescription = "return <provided value>";
+
+        /// <summary>
         /// The default description of 'null' patterns.
         /// </summary>
         /// <seealso cref="Null{TInput}()" />
@@ -240,6 +252,77 @@ namespace Matchmaker.Patterns
         /// </exception>
         public static IPattern<TInput, TInput> Any<TInput>(string description)
             => CreatePattern<TInput>(_ => true, description ?? throw new ArgumentNullException(nameof(description)));
+
+        /// <summary>
+        /// Returns a pattern which always successfully returns the specified value, discarding its input value.
+        /// </summary>
+        /// <typeparam name="TInput">The type of the input value of the expression.</typeparam>
+        /// <typeparam name="TValue">The type of the value to return.</typeparam>
+        /// <param name="value">The value to return.</param>
+        /// <returns>A pattern which always successfully returns the specified value.</returns>
+        /// <remarks>
+        /// This pattern is much like the <see cref="Any{TInput}()" /> pattern,
+        /// except it returns the specified value instead of the pattern's input.
+        /// </remarks>
+        public static IPattern<TInput, TValue> Return<TInput, TValue>(TValue value)
+            => Return<TInput, TValue>(value, String.Format(DefaultReturnDescriptionFormat, value));
+
+        /// <summary>
+        /// Returns a pattern which always successfully returns the specified value, discarding its input value.
+        /// </summary>
+        /// <typeparam name="TInput">The type of the input value of the expression.</typeparam>
+        /// <typeparam name="TValue">The type of the value to return.</typeparam>
+        /// <param name="value">The value to return.</param>
+        /// <param name="description">The description of the pattern.</param>
+        /// <returns>A pattern which always successfully returns the specified value.</returns>
+        /// <remarks>
+        /// This pattern is much like the <see cref="Any{TInput}(string)" /> pattern,
+        /// except it returns the specified value instead of the pattern's input.
+        /// </remarks>
+        /// <exception cref="ArgumentNullException">
+        /// <paramref name="description" /> is <see langword="null" />.
+        /// </exception>
+        public static IPattern<TInput, TValue> Return<TInput, TValue>(TValue value, string description)
+            => CreatePattern<TInput, TValue>(
+                _ => MatchResult.Success(value),
+                description ?? throw new ArgumentNullException(nameof(description)));
+
+        /// <summary>
+        /// Returns a pattern which always successfully returns the provided value, discarding its input value.
+        /// </summary>
+        /// <typeparam name="TInput">The type of the input value of the expression.</typeparam>
+        /// <typeparam name="TValue">The type of the value to return.</typeparam>
+        /// <param name="valueProvider">The provider of the value to return.</param>
+        /// <returns>A pattern which always successfully returns the provided value.</returns>
+        /// <remarks>
+        /// This pattern is much like the <see cref="Any{TInput}()" /> pattern,
+        /// except it returns the provided value instead of the pattern's input.
+        /// </remarks>
+        /// <exception cref="ArgumentNullException">
+        /// <paramref name="valueProvider"/> is <see langword="null" />.
+        /// </exception>
+        public static IPattern<TInput, TValue> Return<TInput, TValue>(Func<TValue> valueProvider)
+            => Return<TInput, TValue>(valueProvider, DefaultLazyReturnDescription);
+
+        /// <summary>
+        /// Returns a pattern which always successfully returns the provided value, discarding its input value.
+        /// </summary>
+        /// <typeparam name="TInput">The type of the input value of the expression.</typeparam>
+        /// <typeparam name="TValue">The type of the value to return.</typeparam>
+        /// <param name="valueProvider">The provider of the value to return.</param>
+        /// <param name="description">The description of the pattern.</param>
+        /// <returns>A pattern which always successfully returns the provided value.</returns>
+        /// <remarks>
+        /// This pattern is much like the <see cref="Any{TInput}(string)" /> pattern,
+        /// except it returns the provided value instead of the pattern's input.
+        /// </remarks>
+        /// <exception cref="ArgumentNullException">
+        /// <paramref name="valueProvider" /> or <paramref name="description" /> is <see langword="null" />.
+        /// </exception>
+        public static IPattern<TInput, TValue> Return<TInput, TValue>(Func<TValue> valueProvider, string description)
+            => CreatePattern<TInput, TValue>(
+                _ => MatchResult.Success(valueProvider()),
+                description ?? throw new ArgumentNullException(nameof(description)));
 
         /// <summary>
         /// Returns a pattern which is matched successfully when the input value is <see langword="null" />.

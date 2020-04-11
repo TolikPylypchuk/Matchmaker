@@ -20,7 +20,7 @@ namespace Matchmaker.Linq
             string input)
         {
             var result = firstPattern.Match(input);
-            return result.IsSuccessful.ImpliesThat(
+            return result.IsSuccessful.ImpliesThat(() =>
                     firstPattern.Pipe(secondPattern).Match(input) == secondPattern.Match(result.Value))
                 .ToProperty();
         }
@@ -35,7 +35,7 @@ namespace Matchmaker.Linq
             Func<bool> pipePatternMatchesSameAsPattern = () =>
             {
                 var result = firstPattern.Match(input);
-                return result.IsSuccessful.ImpliesThat(
+                return result.IsSuccessful.ImpliesThat(() =>
                     firstPattern.Pipe(secondPattern, description).Match(input) == secondPattern.Match(result.Value));
             };
 
@@ -46,7 +46,7 @@ namespace Matchmaker.Linq
         public Property PipePatternShouldHaveCorectDescription(
             IPattern<string, string> firstPattern,
             IPattern<string, string> secondPattern)
-            => (firstPattern.Description.Length > 0 && secondPattern.Description.Length > 0).ImpliesThat(
+            => (firstPattern.Description.Length > 0 && secondPattern.Description.Length > 0).ImpliesThat(() =>
                     firstPattern.Pipe(secondPattern).Description ==
                     String.Format(
                         Pattern.DefaultPipeDescriptionFormat, firstPattern.Description, secondPattern.Description))
@@ -138,7 +138,7 @@ namespace Matchmaker.Linq
             string input)
         {
             var result = pattern.Match(input);
-            return result.IsSuccessful.ImpliesThat(pattern.Pipe(matcher).Match(input) == matcher(result.Value))
+            return result.IsSuccessful.ImpliesThat(() => pattern.Pipe(matcher).Match(input) == matcher(result.Value))
                 .ToProperty();
         }
 
@@ -152,7 +152,7 @@ namespace Matchmaker.Linq
             Func<bool> pipePatternMatchesSameAsPattern = () =>
             {
                 var result = pattern.Match(input);
-                return result.IsSuccessful.ImpliesThat(
+                return result.IsSuccessful.ImpliesThat(() =>
                     pattern.Pipe(matcher, description).Match(input) == matcher(result.Value));
             };
 
@@ -229,7 +229,7 @@ namespace Matchmaker.Linq
             string input)
         {
             var result = pattern.Match(input);
-            return result.IsSuccessful.ImpliesThat(
+            return result.IsSuccessful.ImpliesThat(() =>
                     pattern.Cast<string, object, string>().Match(input) ==
                     Pattern.Type<object, string>().Match(result.Value))
                 .ToProperty();
@@ -244,7 +244,7 @@ namespace Matchmaker.Linq
             Func<bool> castPatternMatchesSameAsPattern = () =>
             {
                 var result = pattern.Match(input);
-                return result.IsSuccessful.ImpliesThat(
+                return result.IsSuccessful.ImpliesThat(() =>
                     pattern.Cast<string, object, string>(description).Match(input) ==
                     Pattern.Type<object, string>().Match(result.Value));
             };
@@ -254,7 +254,7 @@ namespace Matchmaker.Linq
 
         [Property(Arbitrary = new[] { typeof(Generators) })]
         public Property CastPatternShouldHaveCorectDescription(IPattern<string, object> pattern)
-            => (pattern.Description.Length > 0).ImpliesThat(
+            => (pattern.Description.Length > 0).ImpliesThat(() =>
                     pattern.Cast<string, object, string>().Description ==
                     String.Format(
                         Pattern.DefaultPipeDescriptionFormat,

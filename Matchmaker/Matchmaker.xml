@@ -6,7 +6,7 @@
     <members>
         <member name="T:Matchmaker.Linq.MatchExtensions">
             <summary>
-            A container class for extension methods.
+            A general container class for extension methods.
             </summary>
         </member>
         <member name="M:Matchmaker.Linq.MatchExtensions.Enumerate``1(System.Collections.Generic.IEnumerable{``0})">
@@ -19,7 +19,142 @@
             <paramref name="items" /> is <see langword="null" />.
             </exception>
         </member>
-        <member name="M:Matchmaker.Linq.MatchExtensions.Select``3(Matchmaker.Patterns.IPattern{``0,``1},System.Func{``1,``2})">
+        <member name="T:Matchmaker.Linq.MatchResultExtensions">
+            <summary>
+            A container class for extension methods for <see cref="T:Matchmaker.MatchResult`1" />.
+            </summary>
+            <seealso cref="T:Matchmaker.MatchResult`1" />
+        </member>
+        <member name="M:Matchmaker.Linq.MatchResultExtensions.GetValueOrDefault``1(Matchmaker.MatchResult{``0})">
+            <summary>
+            Returns the result's value if it's successful, or the default one otherwise.
+            </summary>
+            <typeparam name="T">The type of the result's value.</typeparam>
+            <param name="result">The result whose value should be mapped.</param>
+            <returns>
+            The result's value if it's successful, or the default one otherwise.
+            </returns>
+        </member>
+        <member name="M:Matchmaker.Linq.MatchResultExtensions.GetValueOrDefault``1(Matchmaker.MatchResult{``0},``0)">
+            <summary>
+            Returns the result's value if it's successful, or the default one otherwise.
+            </summary>
+            <typeparam name="T">The type of the result's value.</typeparam>
+            <param name="result">The result whose value should be mapped.</param>
+            <param name="defaultValue">The value to return if the result is not successful.</param>
+            <returns>
+            The result's value if it's successful, or the default one otherwise.
+            </returns>
+        </member>
+        <member name="M:Matchmaker.Linq.MatchResultExtensions.GetValueOrDefault``1(Matchmaker.MatchResult{``0},System.Func{``0})">
+            <summary>
+            Returns the result's value if it's successful, or the default one otherwise.
+            </summary>
+            <typeparam name="T">The type of the result's value.</typeparam>
+            <param name="result">The result whose value should be mapped.</param>
+            <param name="defaultValueProvider">
+            The function which provides the value to return if the result is not successful.
+            </param>
+            <returns>
+            The result's value if it's successful, or the default one otherwise.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="defaultValueProvider" /> is <see langword="null" />.
+            </exception>
+        </member>
+        <member name="M:Matchmaker.Linq.MatchResultExtensions.GetValueOrThrow``1(Matchmaker.MatchResult{``0},System.Func{System.Exception})">
+            <summary>
+            Returns the result's value if it's successful, or throws the provided exception otherwise.
+            </summary>
+            <typeparam name="T">The type of the result's value.</typeparam>
+            <param name="result">The result whose value should be mapped.</param>
+            <param name="exceptionProvider">
+            The function which provides the exception to throw if the result is not successful.
+            </param>
+            <returns>The result's value if it's successful.</returns>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="exceptionProvider" /> is <see langword="null" />.
+            </exception>
+        </member>
+        <member name="M:Matchmaker.Linq.MatchResultExtensions.Select``2(Matchmaker.MatchResult{``0},System.Func{``0,``1})">
+            <summary>
+            Returns a result which contains a mapped value if the specified result is successful.
+            </summary>
+            <typeparam name="T">The type of the result's value.</typeparam>
+            <typeparam name="TResult">The type of the returned result's value.</typeparam>
+            <param name="result">The result whose value should be mapped.</param>
+            <param name="mapper">The result mapping function.</param>
+            <returns>
+            A result which contains a mapped value if the specified result is successful. Otherwise, a failed result.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="mapper" /> is <see langword="null" />.
+            </exception>
+        </member>
+        <member name="M:Matchmaker.Linq.MatchResultExtensions.Bind``2(Matchmaker.MatchResult{``0},System.Func{``0,Matchmaker.MatchResult{``1}})">
+            <summary>
+            Returns a flat-mapped result if the specified result is successful.
+            </summary>
+            <typeparam name="T">The type of the result's value.</typeparam>
+            <typeparam name="TResult">The type of the returned result's value.</typeparam>
+            <param name="result">The result whose value should be flat-mapped.</param>
+            <param name="binder">The result binding function.</param>
+            <returns>
+            A flat-mapped result if the specified result is successful. Otherwise, a failed result.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="binder" /> is <see langword="null" />.
+            </exception>
+        </member>
+        <member name="M:Matchmaker.Linq.MatchResultExtensions.Where``1(Matchmaker.MatchResult{``0},System.Func{``0,System.Boolean})">
+            <summary>
+            Returns a successfult result only if the specified result is successful
+            and its value satisfies a specified predicate.
+            </summary>
+            <typeparam name="T">The type of the result's value.</typeparam>
+            <param name="result">The result whose value should be checked.</param>
+            <param name="predicate">The predicate to use to check the value.</param>
+            <returns>
+            A successfult result if the specified result is successful and its value satisfies a specified predicate.
+            Otherwise, a failed result.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="predicate" /> is <see langword="null" />.
+            </exception>
+        </member>
+        <member name="M:Matchmaker.Linq.MatchResultExtensions.Cast``2(Matchmaker.MatchResult{``0})">
+            <summary>
+            Returns a successful result if the specified result is successful
+            and contains a value that can be cast to <typeparamref name="TResult" />.
+            </summary>
+            <typeparam name="T">The type of the result's value.</typeparam>
+            <typeparam name="TResult">The type of the returned result's value.</typeparam>
+            <param name="result">The result whose value should be cast.</param>
+            <returns>
+            A successful result if the specified result is successful
+            and contains a value that can be cast to <typeparamref name="TResult" />.
+            Otherwise, a failed result.
+            </returns>
+        </member>
+        <member name="M:Matchmaker.Linq.MatchResultExtensions.Do``1(Matchmaker.MatchResult{``0},System.Action{``0})">
+            <summary>
+            Performs a specified action on the result's value if it's successful.
+            </summary>
+            <typeparam name="T">The type of the result's value.</typeparam>
+            <param name="result">The result whose value should be passed to the action.</param>
+            <param name="action">The action to perform.</param>
+            <returns>The result for which the action should be executed.</returns>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="action" /> is <see langword="null" />.
+            </exception>
+        </member>
+        <member name="T:Matchmaker.Linq.PatternExtensions">
+            <summary>
+            A container class for extension methods for <see cref="T:Matchmaker.Patterns.IPattern`2" />.
+            </summary>
+            <seealso cref="T:Matchmaker.Patterns.IPattern`2" />
+        </member>
+        <member name="M:Matchmaker.Linq.PatternExtensions.Select``3(Matchmaker.Patterns.IPattern{``0,``1},System.Func{``1,``2})">
             <summary>
             Returns a pattern which maps the result of the specified pattern.
             </summary>
@@ -34,9 +169,9 @@
             <exception cref="T:System.ArgumentNullException">
             <paramref name="pattern" /> or <paramref name="mapper" /> is <see langword="null" />.
             </exception>
-            <seealso cref="M:Matchmaker.Linq.MatchExtensions.Select``3(Matchmaker.Patterns.IPattern{``0,``1},System.Func{``1,``2},System.String)" />
+            <seealso cref="M:Matchmaker.Linq.PatternExtensions.Select``3(Matchmaker.Patterns.IPattern{``0,``1},System.Func{``1,``2},System.String)" />
         </member>
-        <member name="M:Matchmaker.Linq.MatchExtensions.Select``3(Matchmaker.Patterns.IPattern{``0,``1},System.Func{``1,``2},System.String)">
+        <member name="M:Matchmaker.Linq.PatternExtensions.Select``3(Matchmaker.Patterns.IPattern{``0,``1},System.Func{``1,``2},System.String)">
             <summary>
             Returns a pattern which maps the result of the specified pattern.
             </summary>
@@ -53,9 +188,9 @@
             <paramref name="pattern" />, <paramref name="mapper" /> or <paramref name="description" />
             is <see langword="null" />.
             </exception>
-            <seealso cref="M:Matchmaker.Linq.MatchExtensions.Select``3(Matchmaker.Patterns.IPattern{``0,``1},System.Func{``1,``2})" />
+            <seealso cref="M:Matchmaker.Linq.PatternExtensions.Select``3(Matchmaker.Patterns.IPattern{``0,``1},System.Func{``1,``2})" />
         </member>
-        <member name="M:Matchmaker.Linq.MatchExtensions.Pipe``3(Matchmaker.Patterns.IPattern{``0,``1},Matchmaker.Patterns.IPattern{``1,``2})">
+        <member name="M:Matchmaker.Linq.PatternExtensions.Pipe``3(Matchmaker.Patterns.IPattern{``0,``1},Matchmaker.Patterns.IPattern{``1,``2})">
             <summary>
             Returns a pattern which pipes the result of one pattern to the other pattern.
             </summary>
@@ -70,11 +205,11 @@
             <exception cref="T:System.ArgumentNullException">
             <paramref name="firstPattern" /> or <paramref name="secondPattern" /> is <see langword="null" />.
             </exception>
-            <seealso cref="M:Matchmaker.Linq.MatchExtensions.Pipe``3(Matchmaker.Patterns.IPattern{``0,``1},System.Func{``1,Matchmaker.MatchResult{``2}},System.String)" />
-            <seealso cref="M:Matchmaker.Linq.MatchExtensions.Pipe``3(Matchmaker.Patterns.IPattern{``0,``1},Matchmaker.Patterns.IPattern{``1,``2})" />
-            <seealso cref="M:Matchmaker.Linq.MatchExtensions.Pipe``3(Matchmaker.Patterns.IPattern{``0,``1},Matchmaker.Patterns.IPattern{``1,``2},System.String)" />
+            <seealso cref="M:Matchmaker.Linq.PatternExtensions.Pipe``3(Matchmaker.Patterns.IPattern{``0,``1},System.Func{``1,Matchmaker.MatchResult{``2}},System.String)" />
+            <seealso cref="M:Matchmaker.Linq.PatternExtensions.Pipe``3(Matchmaker.Patterns.IPattern{``0,``1},Matchmaker.Patterns.IPattern{``1,``2})" />
+            <seealso cref="M:Matchmaker.Linq.PatternExtensions.Pipe``3(Matchmaker.Patterns.IPattern{``0,``1},Matchmaker.Patterns.IPattern{``1,``2},System.String)" />
         </member>
-        <member name="M:Matchmaker.Linq.MatchExtensions.Pipe``3(Matchmaker.Patterns.IPattern{``0,``1},Matchmaker.Patterns.IPattern{``1,``2},System.String)">
+        <member name="M:Matchmaker.Linq.PatternExtensions.Pipe``3(Matchmaker.Patterns.IPattern{``0,``1},Matchmaker.Patterns.IPattern{``1,``2},System.String)">
             <summary>
             Returns a pattern which pipes the result of one pattern to the other pattern.
             </summary>
@@ -91,11 +226,11 @@
             <paramref name="firstPattern" />, <paramref name="secondPattern" /> or <paramref name="description" />
             is <see langword="null" />.
             </exception>
-            <seealso cref="M:Matchmaker.Linq.MatchExtensions.Pipe``3(Matchmaker.Patterns.IPattern{``0,``1},System.Func{``1,Matchmaker.MatchResult{``2}})" />
-            <seealso cref="M:Matchmaker.Linq.MatchExtensions.Pipe``3(Matchmaker.Patterns.IPattern{``0,``1},Matchmaker.Patterns.IPattern{``1,``2})" />
-            <seealso cref="M:Matchmaker.Linq.MatchExtensions.Pipe``3(Matchmaker.Patterns.IPattern{``0,``1},Matchmaker.Patterns.IPattern{``1,``2},System.String)" />
+            <seealso cref="M:Matchmaker.Linq.PatternExtensions.Pipe``3(Matchmaker.Patterns.IPattern{``0,``1},System.Func{``1,Matchmaker.MatchResult{``2}})" />
+            <seealso cref="M:Matchmaker.Linq.PatternExtensions.Pipe``3(Matchmaker.Patterns.IPattern{``0,``1},Matchmaker.Patterns.IPattern{``1,``2})" />
+            <seealso cref="M:Matchmaker.Linq.PatternExtensions.Pipe``3(Matchmaker.Patterns.IPattern{``0,``1},Matchmaker.Patterns.IPattern{``1,``2},System.String)" />
         </member>
-        <member name="M:Matchmaker.Linq.MatchExtensions.Pipe``3(Matchmaker.Patterns.IPattern{``0,``1},System.Func{``1,Matchmaker.MatchResult{``2}})">
+        <member name="M:Matchmaker.Linq.PatternExtensions.Pipe``3(Matchmaker.Patterns.IPattern{``0,``1},System.Func{``1,Matchmaker.MatchResult{``2}})">
             <summary>
             Returns a pattern which pipes the result of one pattern to the pattern
             created by the specified matcher function.
@@ -118,11 +253,11 @@
             <exception cref="T:System.ArgumentNullException">
             <paramref name="pattern" /> or <paramref name="matcher" /> is <see langword="null" />.
             </exception>
-            <seealso cref="M:Matchmaker.Linq.MatchExtensions.Pipe``3(Matchmaker.Patterns.IPattern{``0,``1},System.Func{``1,Matchmaker.MatchResult{``2}})" />
-            <seealso cref="M:Matchmaker.Linq.MatchExtensions.Pipe``3(Matchmaker.Patterns.IPattern{``0,``1},System.Func{``1,Matchmaker.MatchResult{``2}},System.String)" />
-            <seealso cref="M:Matchmaker.Linq.MatchExtensions.Pipe``3(Matchmaker.Patterns.IPattern{``0,``1},Matchmaker.Patterns.IPattern{``1,``2},System.String)" />
+            <seealso cref="M:Matchmaker.Linq.PatternExtensions.Pipe``3(Matchmaker.Patterns.IPattern{``0,``1},System.Func{``1,Matchmaker.MatchResult{``2}})" />
+            <seealso cref="M:Matchmaker.Linq.PatternExtensions.Pipe``3(Matchmaker.Patterns.IPattern{``0,``1},System.Func{``1,Matchmaker.MatchResult{``2}},System.String)" />
+            <seealso cref="M:Matchmaker.Linq.PatternExtensions.Pipe``3(Matchmaker.Patterns.IPattern{``0,``1},Matchmaker.Patterns.IPattern{``1,``2},System.String)" />
         </member>
-        <member name="M:Matchmaker.Linq.MatchExtensions.Pipe``3(Matchmaker.Patterns.IPattern{``0,``1},System.Func{``1,Matchmaker.MatchResult{``2}},System.String)">
+        <member name="M:Matchmaker.Linq.PatternExtensions.Pipe``3(Matchmaker.Patterns.IPattern{``0,``1},System.Func{``1,Matchmaker.MatchResult{``2}},System.String)">
             <summary>
             Returns a pattern which pipes the result of one pattern to the pattern
             created by the specified matcher function.
@@ -147,11 +282,11 @@
             <paramref name="pattern" />, <paramref name="matcher" /> or <paramref name="description" />
             is <see langword="null" />.
             </exception>
-            <seealso cref="M:Matchmaker.Linq.MatchExtensions.Pipe``3(Matchmaker.Patterns.IPattern{``0,``1},System.Func{``1,Matchmaker.MatchResult{``2}})" />
-            <seealso cref="M:Matchmaker.Linq.MatchExtensions.Pipe``3(Matchmaker.Patterns.IPattern{``0,``1},System.Func{``1,Matchmaker.MatchResult{``2}},System.String)" />
-            <seealso cref="M:Matchmaker.Linq.MatchExtensions.Pipe``3(Matchmaker.Patterns.IPattern{``0,``1},Matchmaker.Patterns.IPattern{``1,``2})" />
+            <seealso cref="M:Matchmaker.Linq.PatternExtensions.Pipe``3(Matchmaker.Patterns.IPattern{``0,``1},System.Func{``1,Matchmaker.MatchResult{``2}})" />
+            <seealso cref="M:Matchmaker.Linq.PatternExtensions.Pipe``3(Matchmaker.Patterns.IPattern{``0,``1},System.Func{``1,Matchmaker.MatchResult{``2}},System.String)" />
+            <seealso cref="M:Matchmaker.Linq.PatternExtensions.Pipe``3(Matchmaker.Patterns.IPattern{``0,``1},Matchmaker.Patterns.IPattern{``1,``2})" />
         </member>
-        <member name="M:Matchmaker.Linq.MatchExtensions.Cast``3(Matchmaker.Patterns.IPattern{``0,``1})">
+        <member name="M:Matchmaker.Linq.PatternExtensions.Cast``3(Matchmaker.Patterns.IPattern{``0,``1})">
             <summary>
             Returns a pattern which casts the result of the specified pattern to another type.
             </summary>
@@ -171,9 +306,9 @@
             <exception cref="T:System.ArgumentNullException">
             <paramref name="pattern" /> is <see langword="null" />.
             </exception>
-            <seealso cref="M:Matchmaker.Linq.MatchExtensions.Cast``3(Matchmaker.Patterns.IPattern{``0,``1},System.String)" />
+            <seealso cref="M:Matchmaker.Linq.PatternExtensions.Cast``3(Matchmaker.Patterns.IPattern{``0,``1},System.String)" />
         </member>
-        <member name="M:Matchmaker.Linq.MatchExtensions.Cast``3(Matchmaker.Patterns.IPattern{``0,``1},System.String)">
+        <member name="M:Matchmaker.Linq.PatternExtensions.Cast``3(Matchmaker.Patterns.IPattern{``0,``1},System.String)">
             <summary>
             Returns a pattern which casts the result of the specified pattern to another type.
             </summary>
@@ -194,9 +329,9 @@
             <exception cref="T:System.ArgumentNullException">
             <paramref name="pattern" /> or <paramref name="description" /> is <see langword="null" />.
             </exception>
-            <seealso cref="M:Matchmaker.Linq.MatchExtensions.Cast``3(Matchmaker.Patterns.IPattern{``0,``1})" />
+            <seealso cref="M:Matchmaker.Linq.PatternExtensions.Cast``3(Matchmaker.Patterns.IPattern{``0,``1})" />
         </member>
-        <member name="M:Matchmaker.Linq.MatchExtensions.Bind``3(Matchmaker.Patterns.IPattern{``0,``1},System.Func{``1,Matchmaker.Patterns.Pattern{``0,``2}})">
+        <member name="M:Matchmaker.Linq.PatternExtensions.Bind``3(Matchmaker.Patterns.IPattern{``0,``1},System.Func{``1,Matchmaker.Patterns.Pattern{``0,``2}})">
             <summary>
             Returns a pattern which binds (flat-maps) the result of the specified pattern.
             </summary>
@@ -211,9 +346,9 @@
             <exception cref="T:System.ArgumentNullException">
             <paramref name="pattern" /> or <paramref name="binder" /> is <see langword="null" />.
             </exception>
-            <seealso cref="M:Matchmaker.Linq.MatchExtensions.Bind``3(Matchmaker.Patterns.IPattern{``0,``1},System.Func{``1,Matchmaker.Patterns.Pattern{``0,``2}},System.String)" />
+            <seealso cref="M:Matchmaker.Linq.PatternExtensions.Bind``3(Matchmaker.Patterns.IPattern{``0,``1},System.Func{``1,Matchmaker.Patterns.Pattern{``0,``2}},System.String)" />
         </member>
-        <member name="M:Matchmaker.Linq.MatchExtensions.Bind``3(Matchmaker.Patterns.IPattern{``0,``1},System.Func{``1,Matchmaker.Patterns.Pattern{``0,``2}},System.String)">
+        <member name="M:Matchmaker.Linq.PatternExtensions.Bind``3(Matchmaker.Patterns.IPattern{``0,``1},System.Func{``1,Matchmaker.Patterns.Pattern{``0,``2}},System.String)">
             <summary>
             Returns a pattern which binds (flat-maps) the result of the specified pattern.
             </summary>
@@ -230,9 +365,9 @@
             <paramref name="pattern" />, <paramref name="binder" /> or <paramref name="description" />
             is <see langword="null" />.
             </exception>
-            <seealso cref="M:Matchmaker.Linq.MatchExtensions.Bind``3(Matchmaker.Patterns.IPattern{``0,``1},System.Func{``1,Matchmaker.Patterns.Pattern{``0,``2}})" />
+            <seealso cref="M:Matchmaker.Linq.PatternExtensions.Bind``3(Matchmaker.Patterns.IPattern{``0,``1},System.Func{``1,Matchmaker.Patterns.Pattern{``0,``2}})" />
         </member>
-        <member name="M:Matchmaker.Linq.MatchExtensions.Where``2(Matchmaker.Patterns.IPattern{``0,``1},System.Func{``1,System.Boolean})">
+        <member name="M:Matchmaker.Linq.PatternExtensions.Where``2(Matchmaker.Patterns.IPattern{``0,``1},System.Func{``1,System.Boolean})">
             <summary>
             Returns a pattern which adds a condition to the specified pattern.
             </summary>
@@ -246,9 +381,9 @@
             <exception cref="T:System.ArgumentNullException">
             <paramref name="pattern" /> or <paramref name="predicate" /> is <see langword="null" />.
             </exception>
-            <seealso cref="M:Matchmaker.Linq.MatchExtensions.Where``2(Matchmaker.Patterns.IPattern{``0,``1},System.Func{``1,System.Boolean},System.String)" />
+            <seealso cref="M:Matchmaker.Linq.PatternExtensions.Where``2(Matchmaker.Patterns.IPattern{``0,``1},System.Func{``1,System.Boolean},System.String)" />
         </member>
-        <member name="M:Matchmaker.Linq.MatchExtensions.Where``2(Matchmaker.Patterns.IPattern{``0,``1},System.Func{``1,System.Boolean},System.String)">
+        <member name="M:Matchmaker.Linq.PatternExtensions.Where``2(Matchmaker.Patterns.IPattern{``0,``1},System.Func{``1,System.Boolean},System.String)">
             <summary>
             Returns a pattern which adds a condition to the specified pattern.
             </summary>
@@ -263,9 +398,9 @@
             <exception cref="T:System.ArgumentNullException">
             <paramref name="pattern" /> or <paramref name="predicate" /> is <see langword="null" />.
             </exception>
-            <seealso cref="M:Matchmaker.Linq.MatchExtensions.Where``2(Matchmaker.Patterns.IPattern{``0,``1},System.Func{``1,System.Boolean})" />
+            <seealso cref="M:Matchmaker.Linq.PatternExtensions.Where``2(Matchmaker.Patterns.IPattern{``0,``1},System.Func{``1,System.Boolean})" />
         </member>
-        <member name="M:Matchmaker.Linq.MatchExtensions.Compose``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.PatternComposition)">
+        <member name="M:Matchmaker.Linq.PatternExtensions.Compose``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.PatternComposition)">
             <summary>
             Returns a pattern which is composed of the two specified patterns.
             </summary>
@@ -285,15 +420,15 @@
             <exception cref="T:System.ArgumentNullException">
             <paramref name="leftPattern" /> or <paramref name="rightPattern" /> is <see langword="null" />.
             </exception>
-            <seealso cref="M:Matchmaker.Linq.MatchExtensions.Compose``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.PatternComposition,System.String)" />
-            <seealso cref="M:Matchmaker.Linq.MatchExtensions.And``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0})" />
-            <seealso cref="M:Matchmaker.Linq.MatchExtensions.And``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0},System.String)" />
-            <seealso cref="M:Matchmaker.Linq.MatchExtensions.Or``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0})" />
-            <seealso cref="M:Matchmaker.Linq.MatchExtensions.Or``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0},System.String)" />
-            <seealso cref="M:Matchmaker.Linq.MatchExtensions.Xor``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0})" />
-            <seealso cref="M:Matchmaker.Linq.MatchExtensions.Xor``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0},System.String)" />
+            <seealso cref="M:Matchmaker.Linq.PatternExtensions.Compose``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.PatternComposition,System.String)" />
+            <seealso cref="M:Matchmaker.Linq.PatternExtensions.And``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0})" />
+            <seealso cref="M:Matchmaker.Linq.PatternExtensions.And``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0},System.String)" />
+            <seealso cref="M:Matchmaker.Linq.PatternExtensions.Or``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0})" />
+            <seealso cref="M:Matchmaker.Linq.PatternExtensions.Or``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0},System.String)" />
+            <seealso cref="M:Matchmaker.Linq.PatternExtensions.Xor``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0})" />
+            <seealso cref="M:Matchmaker.Linq.PatternExtensions.Xor``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0},System.String)" />
         </member>
-        <member name="M:Matchmaker.Linq.MatchExtensions.Compose``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.PatternComposition,System.String)">
+        <member name="M:Matchmaker.Linq.PatternExtensions.Compose``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.PatternComposition,System.String)">
             <summary>
             Returns a pattern which is composed of the two specified patterns.
             </summary>
@@ -315,15 +450,15 @@
             <paramref name="leftPattern" />, <paramref name="rightPattern" /> or <paramref name="description" />
             is <see langword="null" />.
             </exception>
-            <seealso cref="M:Matchmaker.Linq.MatchExtensions.Compose``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.PatternComposition)" />
-            <seealso cref="M:Matchmaker.Linq.MatchExtensions.And``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0})" />
-            <seealso cref="M:Matchmaker.Linq.MatchExtensions.And``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0},System.String)" />
-            <seealso cref="M:Matchmaker.Linq.MatchExtensions.Or``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0})" />
-            <seealso cref="M:Matchmaker.Linq.MatchExtensions.Or``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0},System.String)" />
-            <seealso cref="M:Matchmaker.Linq.MatchExtensions.Xor``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0})" />
-            <seealso cref="M:Matchmaker.Linq.MatchExtensions.Xor``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0},System.String)" />
+            <seealso cref="M:Matchmaker.Linq.PatternExtensions.Compose``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.PatternComposition)" />
+            <seealso cref="M:Matchmaker.Linq.PatternExtensions.And``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0})" />
+            <seealso cref="M:Matchmaker.Linq.PatternExtensions.And``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0},System.String)" />
+            <seealso cref="M:Matchmaker.Linq.PatternExtensions.Or``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0})" />
+            <seealso cref="M:Matchmaker.Linq.PatternExtensions.Or``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0},System.String)" />
+            <seealso cref="M:Matchmaker.Linq.PatternExtensions.Xor``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0})" />
+            <seealso cref="M:Matchmaker.Linq.PatternExtensions.Xor``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0},System.String)" />
         </member>
-        <member name="M:Matchmaker.Linq.MatchExtensions.And``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0})">
+        <member name="M:Matchmaker.Linq.PatternExtensions.And``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0})">
             <summary>
             Returns a pattern which is composed of the two specified patterns such that the result is successful
             only when both patterns' results are successful.
@@ -352,15 +487,15 @@
             <exception cref="T:System.ArgumentNullException">
             <paramref name="leftPattern" /> or <paramref name="rightPattern" /> is <see langword="null" />.
             </exception>
-            <seealso cref="M:Matchmaker.Linq.MatchExtensions.Compose``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.PatternComposition)" />
-            <seealso cref="M:Matchmaker.Linq.MatchExtensions.Compose``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.PatternComposition,System.String)" />
-            <seealso cref="M:Matchmaker.Linq.MatchExtensions.And``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0},System.String)" />
-            <seealso cref="M:Matchmaker.Linq.MatchExtensions.Or``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0})" />
-            <seealso cref="M:Matchmaker.Linq.MatchExtensions.Or``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0},System.String)" />
-            <seealso cref="M:Matchmaker.Linq.MatchExtensions.Xor``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0})" />
-            <seealso cref="M:Matchmaker.Linq.MatchExtensions.Xor``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0},System.String)" />
+            <seealso cref="M:Matchmaker.Linq.PatternExtensions.Compose``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.PatternComposition)" />
+            <seealso cref="M:Matchmaker.Linq.PatternExtensions.Compose``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.PatternComposition,System.String)" />
+            <seealso cref="M:Matchmaker.Linq.PatternExtensions.And``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0},System.String)" />
+            <seealso cref="M:Matchmaker.Linq.PatternExtensions.Or``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0})" />
+            <seealso cref="M:Matchmaker.Linq.PatternExtensions.Or``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0},System.String)" />
+            <seealso cref="M:Matchmaker.Linq.PatternExtensions.Xor``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0})" />
+            <seealso cref="M:Matchmaker.Linq.PatternExtensions.Xor``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0},System.String)" />
         </member>
-        <member name="M:Matchmaker.Linq.MatchExtensions.And``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0},System.String)">
+        <member name="M:Matchmaker.Linq.PatternExtensions.And``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0},System.String)">
             <summary>
             Returns a pattern which is composed of the two specified patterns such that the result is successful
             only when both patterns' results are successful.
@@ -391,15 +526,15 @@
             <paramref name="leftPattern" />, <paramref name="rightPattern" /> or <paramref name="description" />
             is <see langword="null" />.
             </exception>
-            <seealso cref="M:Matchmaker.Linq.MatchExtensions.Compose``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.PatternComposition)" />
-            <seealso cref="M:Matchmaker.Linq.MatchExtensions.Compose``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.PatternComposition,System.String)" />
-            <seealso cref="M:Matchmaker.Linq.MatchExtensions.And``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0})" />
-            <seealso cref="M:Matchmaker.Linq.MatchExtensions.Or``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0})" />
-            <seealso cref="M:Matchmaker.Linq.MatchExtensions.Or``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0},System.String)" />
-            <seealso cref="M:Matchmaker.Linq.MatchExtensions.Xor``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0})" />
-            <seealso cref="M:Matchmaker.Linq.MatchExtensions.Xor``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0},System.String)" />
+            <seealso cref="M:Matchmaker.Linq.PatternExtensions.Compose``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.PatternComposition)" />
+            <seealso cref="M:Matchmaker.Linq.PatternExtensions.Compose``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.PatternComposition,System.String)" />
+            <seealso cref="M:Matchmaker.Linq.PatternExtensions.And``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0})" />
+            <seealso cref="M:Matchmaker.Linq.PatternExtensions.Or``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0})" />
+            <seealso cref="M:Matchmaker.Linq.PatternExtensions.Or``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0},System.String)" />
+            <seealso cref="M:Matchmaker.Linq.PatternExtensions.Xor``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0})" />
+            <seealso cref="M:Matchmaker.Linq.PatternExtensions.Xor``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0},System.String)" />
         </member>
-        <member name="M:Matchmaker.Linq.MatchExtensions.Or``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0})">
+        <member name="M:Matchmaker.Linq.PatternExtensions.Or``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0})">
             <summary>
             Returns a pattern which is composed of the two specified patterns such that the result is successful
             only when both patterns' results are successful.
@@ -428,15 +563,15 @@
             <exception cref="T:System.ArgumentNullException">
             <paramref name="leftPattern" /> or <paramref name="rightPattern" /> is <see langword="null" />.
             </exception>
-            <seealso cref="M:Matchmaker.Linq.MatchExtensions.Compose``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.PatternComposition)" />
-            <seealso cref="M:Matchmaker.Linq.MatchExtensions.Compose``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.PatternComposition,System.String)" />
-            <seealso cref="M:Matchmaker.Linq.MatchExtensions.And``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0})" />
-            <seealso cref="M:Matchmaker.Linq.MatchExtensions.And``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0},System.String)" />
-            <seealso cref="M:Matchmaker.Linq.MatchExtensions.Or``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0},System.String)" />
-            <seealso cref="M:Matchmaker.Linq.MatchExtensions.Xor``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0})" />
-            <seealso cref="M:Matchmaker.Linq.MatchExtensions.Xor``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0},System.String)" />
+            <seealso cref="M:Matchmaker.Linq.PatternExtensions.Compose``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.PatternComposition)" />
+            <seealso cref="M:Matchmaker.Linq.PatternExtensions.Compose``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.PatternComposition,System.String)" />
+            <seealso cref="M:Matchmaker.Linq.PatternExtensions.And``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0})" />
+            <seealso cref="M:Matchmaker.Linq.PatternExtensions.And``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0},System.String)" />
+            <seealso cref="M:Matchmaker.Linq.PatternExtensions.Or``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0},System.String)" />
+            <seealso cref="M:Matchmaker.Linq.PatternExtensions.Xor``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0})" />
+            <seealso cref="M:Matchmaker.Linq.PatternExtensions.Xor``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0},System.String)" />
         </member>
-        <member name="M:Matchmaker.Linq.MatchExtensions.Or``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0},System.String)">
+        <member name="M:Matchmaker.Linq.PatternExtensions.Or``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0},System.String)">
             <summary>
             Returns a pattern which is composed of the two specified patterns such that the result is successful
             when either pattern's result is successful.
@@ -467,15 +602,15 @@
             <paramref name="leftPattern" />, <paramref name="rightPattern" /> or <paramref name="description" />
             is <see langword="null" />.
             </exception>
-            <seealso cref="M:Matchmaker.Linq.MatchExtensions.Compose``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.PatternComposition)" />
-            <seealso cref="M:Matchmaker.Linq.MatchExtensions.Compose``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.PatternComposition,System.String)" />
-            <seealso cref="M:Matchmaker.Linq.MatchExtensions.And``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0})" />
-            <seealso cref="M:Matchmaker.Linq.MatchExtensions.And``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0},System.String)" />
-            <seealso cref="M:Matchmaker.Linq.MatchExtensions.Or``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0})" />
-            <seealso cref="M:Matchmaker.Linq.MatchExtensions.Xor``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0})" />
-            <seealso cref="M:Matchmaker.Linq.MatchExtensions.Xor``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0},System.String)" />
+            <seealso cref="M:Matchmaker.Linq.PatternExtensions.Compose``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.PatternComposition)" />
+            <seealso cref="M:Matchmaker.Linq.PatternExtensions.Compose``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.PatternComposition,System.String)" />
+            <seealso cref="M:Matchmaker.Linq.PatternExtensions.And``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0})" />
+            <seealso cref="M:Matchmaker.Linq.PatternExtensions.And``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0},System.String)" />
+            <seealso cref="M:Matchmaker.Linq.PatternExtensions.Or``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0})" />
+            <seealso cref="M:Matchmaker.Linq.PatternExtensions.Xor``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0})" />
+            <seealso cref="M:Matchmaker.Linq.PatternExtensions.Xor``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0},System.String)" />
         </member>
-        <member name="M:Matchmaker.Linq.MatchExtensions.Xor``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0})">
+        <member name="M:Matchmaker.Linq.PatternExtensions.Xor``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0})">
             <summary>
             Returns a pattern which is composed of the two specified patterns such that the result is successful
             only when both patterns' results are successful.
@@ -504,15 +639,15 @@
             <exception cref="T:System.ArgumentNullException">
             <paramref name="leftPattern" /> or <paramref name="rightPattern" /> is <see langword="null" />.
             </exception>
-            <seealso cref="M:Matchmaker.Linq.MatchExtensions.Compose``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.PatternComposition)" />
-            <seealso cref="M:Matchmaker.Linq.MatchExtensions.Compose``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.PatternComposition,System.String)" />
-            <seealso cref="M:Matchmaker.Linq.MatchExtensions.And``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0})" />
-            <seealso cref="M:Matchmaker.Linq.MatchExtensions.And``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0},System.String)" />
-            <seealso cref="M:Matchmaker.Linq.MatchExtensions.Or``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0})" />
-            <seealso cref="M:Matchmaker.Linq.MatchExtensions.Or``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0},System.String)" />
-            <seealso cref="M:Matchmaker.Linq.MatchExtensions.Xor``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0},System.String)" />
+            <seealso cref="M:Matchmaker.Linq.PatternExtensions.Compose``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.PatternComposition)" />
+            <seealso cref="M:Matchmaker.Linq.PatternExtensions.Compose``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.PatternComposition,System.String)" />
+            <seealso cref="M:Matchmaker.Linq.PatternExtensions.And``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0})" />
+            <seealso cref="M:Matchmaker.Linq.PatternExtensions.And``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0},System.String)" />
+            <seealso cref="M:Matchmaker.Linq.PatternExtensions.Or``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0})" />
+            <seealso cref="M:Matchmaker.Linq.PatternExtensions.Or``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0},System.String)" />
+            <seealso cref="M:Matchmaker.Linq.PatternExtensions.Xor``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0},System.String)" />
         </member>
-        <member name="M:Matchmaker.Linq.MatchExtensions.Xor``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0},System.String)">
+        <member name="M:Matchmaker.Linq.PatternExtensions.Xor``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0},System.String)">
             <summary>
             Returns a pattern which is composed of the two specified patterns such that the result is successful
             when only one pattern's result is successful.
@@ -543,13 +678,13 @@
             <paramref name="leftPattern" />, <paramref name="rightPattern" /> or <paramref name="description" />
             is <see langword="null" />.
             </exception>
-            <seealso cref="M:Matchmaker.Linq.MatchExtensions.Compose``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.PatternComposition)" />
-            <seealso cref="M:Matchmaker.Linq.MatchExtensions.Compose``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.PatternComposition,System.String)" />
-            <seealso cref="M:Matchmaker.Linq.MatchExtensions.And``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0})" />
-            <seealso cref="M:Matchmaker.Linq.MatchExtensions.And``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0},System.String)" />
-            <seealso cref="M:Matchmaker.Linq.MatchExtensions.Or``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0})" />
-            <seealso cref="M:Matchmaker.Linq.MatchExtensions.Or``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0},System.String)" />
-            <seealso cref="M:Matchmaker.Linq.MatchExtensions.Xor``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0})" />
+            <seealso cref="M:Matchmaker.Linq.PatternExtensions.Compose``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.PatternComposition)" />
+            <seealso cref="M:Matchmaker.Linq.PatternExtensions.Compose``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.PatternComposition,System.String)" />
+            <seealso cref="M:Matchmaker.Linq.PatternExtensions.And``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0})" />
+            <seealso cref="M:Matchmaker.Linq.PatternExtensions.And``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0},System.String)" />
+            <seealso cref="M:Matchmaker.Linq.PatternExtensions.Or``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0})" />
+            <seealso cref="M:Matchmaker.Linq.PatternExtensions.Or``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0},System.String)" />
+            <seealso cref="M:Matchmaker.Linq.PatternExtensions.Xor``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0})" />
         </member>
         <member name="T:Matchmaker.Match">
             <summary>
@@ -657,6 +792,12 @@
             </summary>
             <typeparam name="T">The type of the value contained in this class.</typeparam>
             <seealso cref="T:Matchmaker.MatchResult" />
+            <seealso cref="T:Matchmaker.Linq.MatchResultExtensions" />
+        </member>
+        <member name="F:Matchmaker.MatchResult`1.value">
+            <summary>
+            The value of the result if it's successful.
+            </summary>
         </member>
         <member name="M:Matchmaker.MatchResult`1.#ctor(System.Boolean,`0)">
             <summary>
@@ -673,8 +814,11 @@
         <member name="P:Matchmaker.MatchResult`1.Value">
             <summary>
             Gets the value if the match result is successful.
-            If it is not, then gets the defualt value of <typeparamref name="T"/>.
+            If it is not, then throws <see cref="T:System.InvalidOperationException" />
             </summary>
+            <exception cref="T:System.InvalidOperationException">
+            The result is not successful.
+            </exception>
         </member>
         <member name="P:Matchmaker.MatchResult`1.Failure">
             <summary>
@@ -1296,6 +1440,7 @@
             <typeparam name="TMatchResult">The type of the result of this pattern's match.</typeparam>
             <seealso cref="T:Matchmaker.Patterns.Pattern`2" />
             <seealso cref="T:Matchmaker.Patterns.Pattern" />
+            <seealso cref="T:Matchmaker.Linq.PatternExtensions" />
         </member>
         <member name="P:Matchmaker.Patterns.IPattern`2.Description">
             <summary>
@@ -1379,6 +1524,18 @@
             The default description of the 'any' pattern.
             </summary>
             <seealso cref="M:Matchmaker.Patterns.Pattern.Any``1" />
+        </member>
+        <member name="F:Matchmaker.Patterns.Pattern.DefaultReturnDescriptionFormat">
+            <summary>
+            The default description of the 'return' pattern.
+            </summary>
+            <seealso cref="M:Matchmaker.Patterns.Pattern.Return``2(``1)" />
+        </member>
+        <member name="F:Matchmaker.Patterns.Pattern.DefaultLazyReturnDescription">
+            <summary>
+            The default description of the lazy 'return' pattern.
+            </summary>
+            <seealso cref="M:Matchmaker.Patterns.Pattern.Return``2(System.Func{``1})" />
         </member>
         <member name="F:Matchmaker.Patterns.Pattern.DefaultNullDescription">
             <summary>
@@ -1579,6 +1736,69 @@
             </remarks>
             <exception cref="T:System.ArgumentNullException">
             <paramref name="description" /> is <see langword="null" />.
+            </exception>
+        </member>
+        <member name="M:Matchmaker.Patterns.Pattern.Return``2(``1)">
+            <summary>
+            Returns a pattern which always successfully returns the specified value, discarding its input value.
+            </summary>
+            <typeparam name="TInput">The type of the input value of the expression.</typeparam>
+            <typeparam name="TValue">The type of the value to return.</typeparam>
+            <param name="value">The value to return.</param>
+            <returns>A pattern which always successfully returns the specified value.</returns>
+            <remarks>
+            This pattern is much like the <see cref="M:Matchmaker.Patterns.Pattern.Any``1" /> pattern,
+            except it returns the specified value instead of the pattern's input.
+            </remarks>
+        </member>
+        <member name="M:Matchmaker.Patterns.Pattern.Return``2(``1,System.String)">
+            <summary>
+            Returns a pattern which always successfully returns the specified value, discarding its input value.
+            </summary>
+            <typeparam name="TInput">The type of the input value of the expression.</typeparam>
+            <typeparam name="TValue">The type of the value to return.</typeparam>
+            <param name="value">The value to return.</param>
+            <param name="description">The description of the pattern.</param>
+            <returns>A pattern which always successfully returns the specified value.</returns>
+            <remarks>
+            This pattern is much like the <see cref="M:Matchmaker.Patterns.Pattern.Any``1(System.String)" /> pattern,
+            except it returns the specified value instead of the pattern's input.
+            </remarks>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="description" /> is <see langword="null" />.
+            </exception>
+        </member>
+        <member name="M:Matchmaker.Patterns.Pattern.Return``2(System.Func{``1})">
+            <summary>
+            Returns a pattern which always successfully returns the provided value, discarding its input value.
+            </summary>
+            <typeparam name="TInput">The type of the input value of the expression.</typeparam>
+            <typeparam name="TValue">The type of the value to return.</typeparam>
+            <param name="valueProvider">The provider of the value to return.</param>
+            <returns>A pattern which always successfully returns the provided value.</returns>
+            <remarks>
+            This pattern is much like the <see cref="M:Matchmaker.Patterns.Pattern.Any``1" /> pattern,
+            except it returns the provided value instead of the pattern's input.
+            </remarks>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="valueProvider"/> is <see langword="null" />.
+            </exception>
+        </member>
+        <member name="M:Matchmaker.Patterns.Pattern.Return``2(System.Func{``1},System.String)">
+            <summary>
+            Returns a pattern which always successfully returns the provided value, discarding its input value.
+            </summary>
+            <typeparam name="TInput">The type of the input value of the expression.</typeparam>
+            <typeparam name="TValue">The type of the value to return.</typeparam>
+            <param name="valueProvider">The provider of the value to return.</param>
+            <param name="description">The description of the pattern.</param>
+            <returns>A pattern which always successfully returns the provided value.</returns>
+            <remarks>
+            This pattern is much like the <see cref="M:Matchmaker.Patterns.Pattern.Any``1(System.String)" /> pattern,
+            except it returns the provided value instead of the pattern's input.
+            </remarks>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="valueProvider" /> or <paramref name="description" /> is <see langword="null" />.
             </exception>
         </member>
         <member name="M:Matchmaker.Patterns.Pattern.Null``1">

@@ -27,7 +27,8 @@ namespace Matchmaker.Linq
             string input)
         {
             var wherePattern = pattern.Where(predicate);
-            return wherePattern.Match(input).IsSuccessful.ImpliesThat(wherePattern.Match(input) == pattern.Match(input))
+            return wherePattern.Match(input).IsSuccessful.ImpliesThat(() =>
+                    wherePattern.Match(input) == pattern.Match(input))
                 .ToProperty();
         }
 
@@ -54,7 +55,7 @@ namespace Matchmaker.Linq
             Func<bool> wherePatternHasSameResult = () =>
             {
                 var wherePattern = pattern.Where(predicate, description);
-                return wherePattern.Match(input).IsSuccessful.ImpliesThat(
+                return wherePattern.Match(input).IsSuccessful.ImpliesThat(() =>
                     wherePattern.Match(input) == pattern.Match(input));
             };
 

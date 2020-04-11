@@ -1,7 +1,7 @@
 using System;
 
 using FluentAssertions;
-
+using FluentAssertions.Execution;
 using FsCheck;
 using FsCheck.Xunit;
 
@@ -127,7 +127,7 @@ namespace Matchmaker.Patterns
             => (Pattern.Any<string>().Description == Pattern.DefaultAnyDescription).ToProperty();
 
         [Property]
-        public Property AnyShouldHaveSpecifiedDescription(string description)
+        public Property AnyWithDescriptionShouldHaveSpecifiedDescription(string description)
         {
             Func<bool> anyHasSpecifiedDescription = () =>
                 Pattern.Any<string>(description).Description == description;
@@ -138,6 +138,106 @@ namespace Matchmaker.Patterns
         public void AnyShouldThrowIfDescriptionIsNull()
         {
             Action action = () => Pattern.Any<string>(null);
+            action.Should().Throw<ArgumentNullException>();
+        }
+
+        [Property]
+        public Property ReturnShouldAlwaysReturnSpecifiedValue(string x, string y)
+        {
+            var result = Pattern.Return<string, string>(y).Match(x);
+            return (result.IsSuccessful && result.Value == y).ToProperty();
+        }
+
+        [Property]
+        public Property ReturnWithDescriptionShouldAlwaysReturnSpecifiedValue(string x, string y, string description)
+        {
+            Func<bool> returnAlwaysReturnsSpecifiedValue = () =>
+            {
+                var result = Pattern.Return<string, string>(y, description).Match(x);
+                return result.IsSuccessful && result.Value == y;
+            };
+
+            return returnAlwaysReturnsSpecifiedValue.When(description != null);
+        }
+
+        [Property]
+        public Property ReturnShouldHaveCorrectDefaultDescription(string x)
+            => (Pattern.Return<string, string>(x).Description ==
+                String.Format(Pattern.DefaultReturnDescriptionFormat, x))
+                .ToProperty();
+
+        [Property]
+        public Property ReturnWithDescriptionShouldHaveSpecifiedDescription(string x, string description)
+        {
+            Func<bool> returnHasSpecifiedDescription = () =>
+                Pattern.Return<string, string>(x, description).Description == description;
+            return returnHasSpecifiedDescription.When(description != null);
+        }
+
+        [Property]
+        public void ReturnShouldThrowIfDescriptionIsNull(string x)
+        {
+            Action action = () => Pattern.Return<string, string>(x, null);
+            action.Should().Throw<ArgumentNullException>();
+        }
+
+        [Property]
+        public Property LazyReturnShouldAlwaysReturnSpecifiedValue(string x, string y)
+        {
+            var result = Pattern.Return<string, string>(() => y).Match(x);
+            return (result.IsSuccessful && result.Value == y).ToProperty();
+        }
+
+        [Property]
+        public Property LazyReturnWithDescriptionShouldAlwaysReturnSpecifiedValue(
+            string x,
+            string y,
+            string description)
+        {
+            Func<bool> returnAlwaysReturnsSpecifiedValue = () =>
+            {
+                var result = Pattern.Return<string, string>(() => y, description).Match(x);
+                return result.IsSuccessful && result.Value == y;
+            };
+
+            return returnAlwaysReturnsSpecifiedValue.When(description != null);
+        }
+
+        [Property]
+        public Property LazyReturnShouldHaveCorrectDefaultDescription(string x)
+            => (Pattern.Return<string, string>(() => x).Description == Pattern.DefaultLazyReturnDescription)
+                .ToProperty();
+
+        [Property]
+        public Property LazyReturnWithDescriptionShouldHaveSpecifiedDescription(string x, string description)
+        {
+            Func<bool> returnHasSpecifiedDescription = () =>
+                Pattern.Return<string, string>(() => x, description).Description == description;
+            return returnHasSpecifiedDescription.When(description != null);
+        }
+
+        [Fact]
+        public void LazyReturnShouldBeLazy()
+        {
+            Action action = () => Pattern.Return<string, string>(() => throw new AssertionFailedException("not lazy"));
+            action.Should().NotThrow<AssertionFailedException>();
+        }
+
+        [Property]
+        public void LazyReturnWithDescriptionShouldBeLazy(string description)
+        {
+            if (description != null)
+            {
+                Action action = () => Pattern.Return<string, string>(
+                    () => throw new AssertionFailedException("not lazy"), description);
+                action.Should().NotThrow<AssertionFailedException>();
+            }
+        }
+
+        [Property]
+        public void LazyReturnShouldThrowIfDescriptionIsNull(string x)
+        {
+            Action action = () => Pattern.Return<string, string>(() => x, null);
             action.Should().Throw<ArgumentNullException>();
         }
 

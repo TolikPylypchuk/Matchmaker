@@ -1,5 +1,7 @@
 using System;
 
+using Matchmaker.Linq;
+
 namespace Matchmaker.Patterns
 {
     /// <summary>
@@ -63,11 +65,7 @@ namespace Matchmaker.Patterns
         /// if this match is successful. Otherwise, a failed match result.
         /// </returns>
         public override MatchResult<TMatchResult> Match(TInput input)
-        {
-            var result = this.pattern.Match(input);
-            return result.IsSuccessful
-                ? MatchResult.Success(this.mapper(result.Value))
-                : MatchResult.Failure<TMatchResult>();
-        }
+            => this.pattern.Match(input)
+                .Select(this.mapper);
     }
 }

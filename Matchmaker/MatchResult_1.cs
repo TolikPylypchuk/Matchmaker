@@ -1,5 +1,7 @@
 using System;
 
+using Matchmaker.Linq;
+
 namespace Matchmaker
 {
     /// <summary>
@@ -7,8 +9,14 @@ namespace Matchmaker
     /// </summary>
     /// <typeparam name="T">The type of the value contained in this class.</typeparam>
     /// <seealso cref="MatchResult" />
+    /// <seealso cref="MatchResultExtensions" />
     public struct MatchResult<T> : IEquatable<MatchResult<T>>
     {
+        /// <summary>
+        /// The value of the result if it's successful.
+        /// </summary>
+        private readonly T value;
+
         /// <summary>
         /// Initializes a new instance of the <see cref="MatchResult{T}" /> class.
         /// </summary>
@@ -17,7 +25,7 @@ namespace Matchmaker
         internal MatchResult(bool isSuccessful, T value)
         {
             this.IsSuccessful = isSuccessful;
-            this.Value = value;
+            this.value = value;
         }
 
         /// <summary>
@@ -27,9 +35,13 @@ namespace Matchmaker
 
         /// <summary>
         /// Gets the value if the match result is successful.
-        /// If it is not, then gets the defualt value of <typeparamref name="T"/>.
+        /// If it is not, then throws <see cref="InvalidOperationException" />
         /// </summary>
-        public T Value { get; }
+        /// <exception cref="InvalidOperationException">
+        /// The result is not successful.
+        /// </exception>
+        public T Value
+            => this.IsSuccessful ? this.value : throw new InvalidOperationException("Result is not successful.");
 
         /// <summary>
         /// Gets the instance of a failed match result.
@@ -64,7 +76,7 @@ namespace Matchmaker
         /// <seealso cref="operator ==(MatchResult{T}, MatchResult{T})" />
         /// <seealso cref="operator !=(MatchResult{T}, MatchResult{T})" />
         public bool Equals(MatchResult<T> other)
-            => (this.IsSuccessful == other.IsSuccessful) && Equals(this.Value, other.Value);
+            => (this.IsSuccessful == other.IsSuccessful) && Equals(this.value, other.value);
 
         /// <summary>
         /// Returns the hash code of this match result.
@@ -77,7 +89,7 @@ namespace Matchmaker
         public override int GetHashCode()
             => 13 * 7 +
                this.IsSuccessful.GetHashCode() * 7 +
-               (!Equals(this.Value, default) ? this.Value.GetHashCode() : 0) * 7;
+               (!Equals(this.value, default) ? this.value.GetHashCode() : 0) * 7;
 
         /// <summary>
         /// Returns the string representation of this match result.

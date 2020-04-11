@@ -1,7 +1,12 @@
+using System;
 using System.Diagnostics.CodeAnalysis;
+
+using FluentAssertions;
 
 using FsCheck;
 using FsCheck.Xunit;
+
+using Xunit;
 
 namespace Matchmaker
 {
@@ -14,22 +19,28 @@ namespace Matchmaker
             return (result.IsSuccessful && result.Value == value).ToProperty();
         }
 
-        [Property]
-        public Property FailureConstructionShouldBeCorrect()
+        [Fact]
+        public void FailureConstructionShouldBeCorrect()
         {
             var result = MatchResult.Failure<string>();
-            return (!result.IsSuccessful && result.Value == default).ToProperty();
+            Action getValue = () => { string _ = result.Value; };
+
+            result.IsSuccessful.Should().BeFalse();
+            getValue.Should().Throw<InvalidOperationException>();
         }
 
         [Property(Arbitrary = new[] { typeof(Generators) })]
         public Property EqualsShouldWorkCorrectly(MatchResult<string> left, MatchResult<string> right)
-            => (left.Equals(right) == (left.IsSuccessful == right.IsSuccessful && Equals(left.Value, right.Value)))
+            => (left.Equals(right) ==
+                (left.IsSuccessful == right.IsSuccessful &&
+                 left.IsSuccessful.ImpliesThat(() => Equals(left.Value, right.Value))))
                 .ToProperty();
 
         [Property(Arbitrary = new[] { typeof(Generators) })]
         public Property ObjectEqualsShouldWorkCorrectly(MatchResult<string> left, MatchResult<string> right)
             => (left.Equals((object)right) ==
-                (left.IsSuccessful == right.IsSuccessful && Equals(left.Value, right.Value)))
+                (left.IsSuccessful == right.IsSuccessful &&
+                 left.IsSuccessful.ImpliesThat(() => Equals(left.Value, right.Value))))
                 .ToProperty();
 
         [Property(Arbitrary = new[] { typeof(Generators) })]

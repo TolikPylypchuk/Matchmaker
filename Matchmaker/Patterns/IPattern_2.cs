@@ -1,3 +1,5 @@
+using Matchmaker.Linq;
+
 namespace Matchmaker.Patterns
 {
     /// <summary>
@@ -7,6 +9,7 @@ namespace Matchmaker.Patterns
     /// <typeparam name="TMatchResult">The type of the result of this pattern's match.</typeparam>
     /// <seealso cref="Pattern{TInput, TMatchResult}" />
     /// <seealso cref="Pattern" />
+    /// <seealso cref="PatternExtensions" />
     public interface IPattern<in TInput, TMatchResult> : IPattern<TInput>
     {
         /// <summary>

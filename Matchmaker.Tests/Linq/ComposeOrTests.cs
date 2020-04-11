@@ -1,5 +1,7 @@
 using System;
+
 using FluentAssertions;
+
 using FsCheck;
 using FsCheck.Xunit;
 
@@ -35,7 +37,7 @@ namespace Matchmaker.Linq
         public Property ComposeOrPatternShouldHaveCorrectDescription(
             IPattern<string, string> pattern1,
             IPattern<string, string> pattern2)
-            => (pattern1.Description.Length > 0 && pattern2.Description.Length > 0).ImpliesThat(
+            => (pattern1.Description.Length > 0 && pattern2.Description.Length > 0).ImpliesThat(() =>
                     pattern1.Compose(pattern2, PatternComposition.Or).Description ==
                     String.Format(Pattern.DefaultOrDescriptionFormat, pattern1.Description, pattern2.Description))
                 .ToProperty();
@@ -149,7 +151,7 @@ namespace Matchmaker.Linq
         public Property OrPatternShouldHaveCorrectDescription(
             IPattern<string, string> pattern1,
             IPattern<string, string> pattern2)
-            => (pattern1.Description.Length > 0 && pattern2.Description.Length > 0).ImpliesThat(
+            => (pattern1.Description.Length > 0 && pattern2.Description.Length > 0).ImpliesThat(() =>
                     pattern1.Or(pattern2).Description ==
                     String.Format(Pattern.DefaultOrDescriptionFormat, pattern1.Description, pattern2.Description))
                 .ToProperty();
