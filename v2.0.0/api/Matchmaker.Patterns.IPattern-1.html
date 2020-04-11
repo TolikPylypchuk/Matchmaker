@@ -101,10 +101,20 @@ should never be used directly by the users of the library. Instead, users should
     </tbody>
   </table>
   <h5 id="Matchmaker_Patterns_IPattern_1_remarks"><strong>Remarks</strong></h5>
-  <div class="markdown level0 remarks"><p>This interface exists only for internal use in the <a class="xref" href="Matchmaker.Match-2.html">Match&lt;TInput, TOutput&gt;</a>
-and <a class="xref" href="Matchmaker.Match-1.html">Match&lt;TInput&gt;</a> classes, because they can't know about the types of
+  <div class="markdown level0 remarks"><p>
+This interface exists only for internal use in the <a class="xref" href="Matchmaker.Match-2.html">Match&lt;TInput, TOutput&gt;</a>
+and <a class="xref" href="Matchmaker.Match-1.html">Match&lt;TInput&gt;</a> classes, because they can&apos;t know about the types of
 the transformation results. The public API never uses this interface - it always uses
-<a class="xref" href="Matchmaker.Patterns.IPattern-2.html">IPattern&lt;TInput, TMatchResult&gt;</a>, so type safety is not compromised.</p>
+<a class="xref" href="Matchmaker.Patterns.IPattern-2.html">IPattern&lt;TInput, TMatchResult&gt;</a>, so type safety is not compromised.
+</p>
+<p>
+Classes shouldn&apos;t implement this interface directly - instead, they should implement
+<a class="xref" href="Matchmaker.Patterns.IPattern-2.html">IPattern&lt;TInput, TMatchResult&gt;</a> and the <a class="xref" href="Matchmaker.Patterns.IPattern-1.html#Matchmaker_Patterns_IPattern_1_Match__0_">Match(TInput)</a> method
+should always be implemented in terms of the more generic
+<a class="xref" href="Matchmaker.Patterns.IPattern-2.html#Matchmaker_Patterns_IPattern_2_Match__0_">Match(TInput)</a>:
+<pre><code>MatchResult&lt;object> IPattern&lt;TInput>.Match(TInput input)
+    => this.Match(input).Select(result => (object)result);</code></pre>
+</p>
 </div>
   <h3 id="methods">Methods
   </h3>
@@ -113,7 +123,7 @@ the transformation results. The public API never uses this interface - it always
     <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Patterns_IPattern_1_Match__0_.md&amp;value=---%0Auid%3A%20Matchmaker.Patterns.IPattern%601.Match(%600)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/Patterns/IPattern_1.cs/#L28">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/Patterns/IPattern_1.cs/#L40">View Source</a>
   </span>
   <a id="Matchmaker_Patterns_IPattern_1_Match_" data-uid="Matchmaker.Patterns.IPattern`1.Match*"></a>
   <h4 id="Matchmaker_Patterns_IPattern_1_Match__0_" data-uid="Matchmaker.Patterns.IPattern`1.Match(`0)">Match(TInput)</h4>
@@ -176,7 +186,7 @@ if this match is successful. Otherwise, a failed match result.</p>
                     <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Patterns_IPattern_1.md&amp;value=---%0Auid%3A%20Matchmaker.Patterns.IPattern%601%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/Patterns/IPattern_1.cs/#L18" class="contribution-link">View Source</a>
+                    <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/Patterns/IPattern_1.cs/#L30" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

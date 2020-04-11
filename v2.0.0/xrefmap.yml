@@ -209,24 +209,24 @@ references:
   isSpec: "True"
   fullName: Matchmaker.Linq.PatternExtensions.Bind
   nameWithType: PatternExtensions.Bind
-- uid: Matchmaker.Linq.PatternExtensions.Bind``3(Matchmaker.Patterns.IPattern{``0,``1},System.Func{``1,Matchmaker.Patterns.Pattern{``0,``2}})
-  name: Bind<TInput, TIntermediateResult, TMatchResult>(IPattern<TInput, TIntermediateResult>, Func<TIntermediateResult, Pattern<TInput, TMatchResult>>)
-  href: api/Matchmaker.Linq.PatternExtensions.html#Matchmaker_Linq_PatternExtensions_Bind__3_Matchmaker_Patterns_IPattern___0___1__System_Func___1_Matchmaker_Patterns_Pattern___0___2___
-  commentId: M:Matchmaker.Linq.PatternExtensions.Bind``3(Matchmaker.Patterns.IPattern{``0,``1},System.Func{``1,Matchmaker.Patterns.Pattern{``0,``2}})
-  name.vb: Bind(Of TInput, TIntermediateResult, TMatchResult)(IPattern(Of TInput, TIntermediateResult), Func(Of TIntermediateResult, Pattern(Of TInput, TMatchResult)))
-  fullName: Matchmaker.Linq.PatternExtensions.Bind<TInput, TIntermediateResult, TMatchResult>(Matchmaker.Patterns.IPattern<TInput, TIntermediateResult>, System.Func<TIntermediateResult, Matchmaker.Patterns.Pattern<TInput, TMatchResult>>)
-  fullName.vb: Matchmaker.Linq.PatternExtensions.Bind(Of TInput, TIntermediateResult, TMatchResult)(Matchmaker.Patterns.IPattern(Of TInput, TIntermediateResult), System.Func(Of TIntermediateResult, Matchmaker.Patterns.Pattern(Of TInput, TMatchResult)))
-  nameWithType: PatternExtensions.Bind<TInput, TIntermediateResult, TMatchResult>(IPattern<TInput, TIntermediateResult>, Func<TIntermediateResult, Pattern<TInput, TMatchResult>>)
-  nameWithType.vb: PatternExtensions.Bind(Of TInput, TIntermediateResult, TMatchResult)(IPattern(Of TInput, TIntermediateResult), Func(Of TIntermediateResult, Pattern(Of TInput, TMatchResult)))
-- uid: Matchmaker.Linq.PatternExtensions.Bind``3(Matchmaker.Patterns.IPattern{``0,``1},System.Func{``1,Matchmaker.Patterns.Pattern{``0,``2}},System.String)
-  name: Bind<TInput, TIntermediateResult, TMatchResult>(IPattern<TInput, TIntermediateResult>, Func<TIntermediateResult, Pattern<TInput, TMatchResult>>, String)
-  href: api/Matchmaker.Linq.PatternExtensions.html#Matchmaker_Linq_PatternExtensions_Bind__3_Matchmaker_Patterns_IPattern___0___1__System_Func___1_Matchmaker_Patterns_Pattern___0___2___System_String_
-  commentId: M:Matchmaker.Linq.PatternExtensions.Bind``3(Matchmaker.Patterns.IPattern{``0,``1},System.Func{``1,Matchmaker.Patterns.Pattern{``0,``2}},System.String)
-  name.vb: Bind(Of TInput, TIntermediateResult, TMatchResult)(IPattern(Of TInput, TIntermediateResult), Func(Of TIntermediateResult, Pattern(Of TInput, TMatchResult)), String)
-  fullName: Matchmaker.Linq.PatternExtensions.Bind<TInput, TIntermediateResult, TMatchResult>(Matchmaker.Patterns.IPattern<TInput, TIntermediateResult>, System.Func<TIntermediateResult, Matchmaker.Patterns.Pattern<TInput, TMatchResult>>, System.String)
-  fullName.vb: Matchmaker.Linq.PatternExtensions.Bind(Of TInput, TIntermediateResult, TMatchResult)(Matchmaker.Patterns.IPattern(Of TInput, TIntermediateResult), System.Func(Of TIntermediateResult, Matchmaker.Patterns.Pattern(Of TInput, TMatchResult)), System.String)
-  nameWithType: PatternExtensions.Bind<TInput, TIntermediateResult, TMatchResult>(IPattern<TInput, TIntermediateResult>, Func<TIntermediateResult, Pattern<TInput, TMatchResult>>, String)
-  nameWithType.vb: PatternExtensions.Bind(Of TInput, TIntermediateResult, TMatchResult)(IPattern(Of TInput, TIntermediateResult), Func(Of TIntermediateResult, Pattern(Of TInput, TMatchResult)), String)
+- uid: Matchmaker.Linq.PatternExtensions.Bind``3(Matchmaker.Patterns.IPattern{``0,``1},System.Func{``1,Matchmaker.Patterns.IPattern{``0,``2}})
+  name: Bind<TInput, TIntermediateResult, TMatchResult>(IPattern<TInput, TIntermediateResult>, Func<TIntermediateResult, IPattern<TInput, TMatchResult>>)
+  href: api/Matchmaker.Linq.PatternExtensions.html#Matchmaker_Linq_PatternExtensions_Bind__3_Matchmaker_Patterns_IPattern___0___1__System_Func___1_Matchmaker_Patterns_IPattern___0___2___
+  commentId: M:Matchmaker.Linq.PatternExtensions.Bind``3(Matchmaker.Patterns.IPattern{``0,``1},System.Func{``1,Matchmaker.Patterns.IPattern{``0,``2}})
+  name.vb: Bind(Of TInput, TIntermediateResult, TMatchResult)(IPattern(Of TInput, TIntermediateResult), Func(Of TIntermediateResult, IPattern(Of TInput, TMatchResult)))
+  fullName: Matchmaker.Linq.PatternExtensions.Bind<TInput, TIntermediateResult, TMatchResult>(Matchmaker.Patterns.IPattern<TInput, TIntermediateResult>, System.Func<TIntermediateResult, Matchmaker.Patterns.IPattern<TInput, TMatchResult>>)
+  fullName.vb: Matchmaker.Linq.PatternExtensions.Bind(Of TInput, TIntermediateResult, TMatchResult)(Matchmaker.Patterns.IPattern(Of TInput, TIntermediateResult), System.Func(Of TIntermediateResult, Matchmaker.Patterns.IPattern(Of TInput, TMatchResult)))
+  nameWithType: PatternExtensions.Bind<TInput, TIntermediateResult, TMatchResult>(IPattern<TInput, TIntermediateResult>, Func<TIntermediateResult, IPattern<TInput, TMatchResult>>)
+  nameWithType.vb: PatternExtensions.Bind(Of TInput, TIntermediateResult, TMatchResult)(IPattern(Of TInput, TIntermediateResult), Func(Of TIntermediateResult, IPattern(Of TInput, TMatchResult)))
+- uid: Matchmaker.Linq.PatternExtensions.Bind``3(Matchmaker.Patterns.IPattern{``0,``1},System.Func{``1,Matchmaker.Patterns.IPattern{``0,``2}},System.String)
+  name: Bind<TInput, TIntermediateResult, TMatchResult>(IPattern<TInput, TIntermediateResult>, Func<TIntermediateResult, IPattern<TInput, TMatchResult>>, String)
+  href: api/Matchmaker.Linq.PatternExtensions.html#Matchmaker_Linq_PatternExtensions_Bind__3_Matchmaker_Patterns_IPattern___0___1__System_Func___1_Matchmaker_Patterns_IPattern___0___2___System_String_
+  commentId: M:Matchmaker.Linq.PatternExtensions.Bind``3(Matchmaker.Patterns.IPattern{``0,``1},System.Func{``1,Matchmaker.Patterns.IPattern{``0,``2}},System.String)
+  name.vb: Bind(Of TInput, TIntermediateResult, TMatchResult)(IPattern(Of TInput, TIntermediateResult), Func(Of TIntermediateResult, IPattern(Of TInput, TMatchResult)), String)
+  fullName: Matchmaker.Linq.PatternExtensions.Bind<TInput, TIntermediateResult, TMatchResult>(Matchmaker.Patterns.IPattern<TInput, TIntermediateResult>, System.Func<TIntermediateResult, Matchmaker.Patterns.IPattern<TInput, TMatchResult>>, System.String)
+  fullName.vb: Matchmaker.Linq.PatternExtensions.Bind(Of TInput, TIntermediateResult, TMatchResult)(Matchmaker.Patterns.IPattern(Of TInput, TIntermediateResult), System.Func(Of TIntermediateResult, Matchmaker.Patterns.IPattern(Of TInput, TMatchResult)), System.String)
+  nameWithType: PatternExtensions.Bind<TInput, TIntermediateResult, TMatchResult>(IPattern<TInput, TIntermediateResult>, Func<TIntermediateResult, IPattern<TInput, TMatchResult>>, String)
+  nameWithType.vb: PatternExtensions.Bind(Of TInput, TIntermediateResult, TMatchResult)(IPattern(Of TInput, TIntermediateResult), Func(Of TIntermediateResult, IPattern(Of TInput, TMatchResult)), String)
 - uid: Matchmaker.Linq.PatternExtensions.Cast*
   name: Cast
   href: api/Matchmaker.Linq.PatternExtensions.html#Matchmaker_Linq_PatternExtensions_Cast_
