@@ -43,7 +43,7 @@ namespace Matchmaker.Linq
         }
 
         [Property(Arbitrary = new[] { typeof(Generators) })]
-        public Property PipePatternShouldHaveCorectDescription(
+        public Property PipePatternShouldHaveCorrectDescription(
             IPattern<string, string> firstPattern,
             IPattern<string, string> secondPattern)
             => (firstPattern.Description.Length > 0 && secondPattern.Description.Length > 0).ImpliesThat(() =>
@@ -253,7 +253,7 @@ namespace Matchmaker.Linq
         }
 
         [Property(Arbitrary = new[] { typeof(Generators) })]
-        public Property CastPatternShouldHaveCorectDescription(IPattern<string, object> pattern)
+        public Property CastPatternShouldHaveCorrectDescription(IPattern<string, object> pattern)
             => (pattern.Description.Length > 0).ImpliesThat(() =>
                     pattern.Cast<string, object, string>().Description ==
                     String.Format(

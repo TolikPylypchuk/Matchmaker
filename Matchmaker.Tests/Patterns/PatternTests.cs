@@ -2,6 +2,7 @@ using System;
 
 using FluentAssertions;
 using FluentAssertions.Execution;
+
 using FsCheck;
 using FsCheck.Xunit;
 
@@ -332,7 +333,7 @@ namespace Matchmaker.Patterns
 
         [Fact]
         public void TypeShouldHaveCorrectDefaultDescription()
-            => Pattern.Type<object, int>().Description.Should().BeEquivalentTo(
+            => Pattern.Type<object, int>().Description.Should().Be(
                 String.Format(Pattern.DefaultTypeDescriptionFormat, typeof(int)));
 
         [Property]

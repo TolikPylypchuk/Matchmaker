@@ -41,7 +41,9 @@ namespace Matchmaker
         /// The result is not successful.
         /// </exception>
         public T Value
-            => this.IsSuccessful ? this.value : throw new InvalidOperationException("Result is not successful.");
+            => this.IsSuccessful
+                ? this.value
+                : throw new InvalidOperationException("Cannot get the value - result is not successful.");
 
         /// <summary>
         /// Gets the instance of a failed match result.

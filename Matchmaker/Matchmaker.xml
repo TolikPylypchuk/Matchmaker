@@ -135,6 +135,9 @@
             and contains a value that can be cast to <typeparamref name="TResult" />.
             Otherwise, a failed result.
             </returns>
+            <remarks>
+            This method returns a failed result if the result contains <see langword="null" />.
+            </remarks>
         </member>
         <member name="M:Matchmaker.Linq.MatchResultExtensions.Do``1(Matchmaker.MatchResult{``0},System.Action{``0})">
             <summary>
@@ -302,6 +305,7 @@
             <code>
             pattern.Pipe(Pattern.Type&lt;TIntermediateResult, TMatchResult&gt;())
             </code>
+            As such, this pattern fails if the input is <see langword="null" />.
             </remarks>
             <exception cref="T:System.ArgumentNullException">
             <paramref name="pattern" /> is <see langword="null" />.
@@ -325,13 +329,14 @@
             <code>
             pattern.Pipe(Pattern.Type&lt;TIntermediateResult, TMatchResult&gt;(), description)
             </code>
+            As such, this pattern fails if the input is <see langword="null" />.
             </remarks>
             <exception cref="T:System.ArgumentNullException">
             <paramref name="pattern" /> or <paramref name="description" /> is <see langword="null" />.
             </exception>
             <seealso cref="M:Matchmaker.Linq.PatternExtensions.Cast``3(Matchmaker.Patterns.IPattern{``0,``1})" />
         </member>
-        <member name="M:Matchmaker.Linq.PatternExtensions.Bind``3(Matchmaker.Patterns.IPattern{``0,``1},System.Func{``1,Matchmaker.Patterns.Pattern{``0,``2}})">
+        <member name="M:Matchmaker.Linq.PatternExtensions.Bind``3(Matchmaker.Patterns.IPattern{``0,``1},System.Func{``1,Matchmaker.Patterns.IPattern{``0,``2}})">
             <summary>
             Returns a pattern which binds (flat-maps) the result of the specified pattern.
             </summary>
@@ -346,9 +351,9 @@
             <exception cref="T:System.ArgumentNullException">
             <paramref name="pattern" /> or <paramref name="binder" /> is <see langword="null" />.
             </exception>
-            <seealso cref="M:Matchmaker.Linq.PatternExtensions.Bind``3(Matchmaker.Patterns.IPattern{``0,``1},System.Func{``1,Matchmaker.Patterns.Pattern{``0,``2}},System.String)" />
+            <seealso cref="M:Matchmaker.Linq.PatternExtensions.Bind``3(Matchmaker.Patterns.IPattern{``0,``1},System.Func{``1,Matchmaker.Patterns.IPattern{``0,``2}},System.String)" />
         </member>
-        <member name="M:Matchmaker.Linq.PatternExtensions.Bind``3(Matchmaker.Patterns.IPattern{``0,``1},System.Func{``1,Matchmaker.Patterns.Pattern{``0,``2}},System.String)">
+        <member name="M:Matchmaker.Linq.PatternExtensions.Bind``3(Matchmaker.Patterns.IPattern{``0,``1},System.Func{``1,Matchmaker.Patterns.IPattern{``0,``2}},System.String)">
             <summary>
             Returns a pattern which binds (flat-maps) the result of the specified pattern.
             </summary>
@@ -365,7 +370,7 @@
             <paramref name="pattern" />, <paramref name="binder" /> or <paramref name="description" />
             is <see langword="null" />.
             </exception>
-            <seealso cref="M:Matchmaker.Linq.PatternExtensions.Bind``3(Matchmaker.Patterns.IPattern{``0,``1},System.Func{``1,Matchmaker.Patterns.Pattern{``0,``2}})" />
+            <seealso cref="M:Matchmaker.Linq.PatternExtensions.Bind``3(Matchmaker.Patterns.IPattern{``0,``1},System.Func{``1,Matchmaker.Patterns.IPattern{``0,``2}})" />
         </member>
         <member name="M:Matchmaker.Linq.PatternExtensions.Where``2(Matchmaker.Patterns.IPattern{``0,``1},System.Func{``1,System.Boolean})">
             <summary>
@@ -1265,7 +1270,7 @@
             The result mapping function.
             </summary>
         </member>
-        <member name="M:Matchmaker.Patterns.BindingPattern`3.#ctor(Matchmaker.Patterns.IPattern{`0,`1},System.Func{`1,Matchmaker.Patterns.Pattern{`0,`2}})">
+        <member name="M:Matchmaker.Patterns.BindingPattern`3.#ctor(Matchmaker.Patterns.IPattern{`0,`1},System.Func{`1,Matchmaker.Patterns.IPattern{`0,`2}})">
             <summary>
             Initializes a new instance of the
             <see cref="T:Matchmaker.Patterns.BindingPattern`3" /> class.
@@ -1273,7 +1278,7 @@
             <param name="pattern">The pattern whose result should be mapped.</param>
             <param name="binder">The result binding function.</param>
         </member>
-        <member name="M:Matchmaker.Patterns.BindingPattern`3.#ctor(Matchmaker.Patterns.IPattern{`0,`1},System.Func{`1,Matchmaker.Patterns.Pattern{`0,`2}},System.String)">
+        <member name="M:Matchmaker.Patterns.BindingPattern`3.#ctor(Matchmaker.Patterns.IPattern{`0,`1},System.Func{`1,Matchmaker.Patterns.IPattern{`0,`2}},System.String)">
             <summary>
             Initializes a new instance of the
             <see cref="T:Matchmaker.Patterns.BindingPattern`3" /> class.
@@ -1413,10 +1418,22 @@
             </summary>
             <typeparam name="TInput">The type of the input value of the match expression.</typeparam>
             <remarks>
+            <para>
             This interface exists only for internal use in the <see cref="T:Matchmaker.Match`2" />
             and <see cref="T:Matchmaker.Match`1" /> classes, because they can't know about the types of
             the transformation results. The public API never uses this interface - it always uses
             <see cref="T:Matchmaker.Patterns.IPattern`2" />, so type safety is not compromised.
+            </para>
+            <para>
+            Classes shouldn't implement this interface directly - instead, they should implement
+            <see cref="T:Matchmaker.Patterns.IPattern`2" /> and the <see cref="M:Matchmaker.Patterns.IPattern`1.Match(`0)" /> method
+            should always be implemented in terms of the more generic
+            <see cref="M:Matchmaker.Patterns.IPattern`2.Match(`0)" />:
+            <code>
+            MatchResult&lt;object&gt; IPattern&lt;TInput&gt;.Match(TInput input)
+                =&gt; this.Match(input).Select(result => (object)result);
+            </code>
+            </para>
             </remarks>
             <seealso cref="T:Matchmaker.Patterns.IPattern`2" />
             <seealso cref="T:Matchmaker.Patterns.Pattern`2" />
@@ -2724,7 +2741,12 @@
             A pattern which is matched successfully when the input value is of the specified type.
             </returns>
             <remarks>
+            <para>
+            This pattern fails if the input is <see langword="null" />.
+            </para>
+            <para>
             This pattern can be used to match discriminated unions which are implemented as class hierarchies.
+            </para>
             </remarks>
             <seealso cref="M:Matchmaker.Patterns.Pattern.Type``2(System.String)" />
         </member>
@@ -2739,7 +2761,12 @@
             A pattern which is matched successfully when the input value is of the specified type.
             </returns>
             <remarks>
+            <para>
+            This pattern fails if the input is <see langword="null" />.
+            </para>
+            <para>
             This pattern can be used to match discriminated unions which are implemented as class hierarchies.
+            </para>
             </remarks>
             <exception cref="T:System.ArgumentNullException">
             <paramref name="description" /> is <see langword="null" />.

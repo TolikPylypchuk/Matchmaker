@@ -22,7 +22,7 @@ namespace Matchmaker.Patterns
         /// <summary>
         /// The result mapping function.
         /// </summary>
-        private readonly Func<TIntermediateResult, Pattern<TInput, TMatchResult>> binder;
+        private readonly Func<TIntermediateResult, IPattern<TInput, TMatchResult>> binder;
 
         /// <summary>
         /// Initializes a new instance of the
@@ -32,7 +32,7 @@ namespace Matchmaker.Patterns
         /// <param name="binder">The result binding function.</param>
         internal BindingPattern(
             IPattern<TInput, TIntermediateResult> pattern,
-            Func<TIntermediateResult, Pattern<TInput, TMatchResult>> binder)
+            Func<TIntermediateResult, IPattern<TInput, TMatchResult>> binder)
             : this(pattern, binder, pattern.Description)
         { }
 
@@ -48,7 +48,7 @@ namespace Matchmaker.Patterns
         /// </exception>
         internal BindingPattern(
             IPattern<TInput, TIntermediateResult> pattern,
-            Func<TIntermediateResult, Pattern<TInput, TMatchResult>> binder,
+            Func<TIntermediateResult, IPattern<TInput, TMatchResult>> binder,
             string description)
             : base(description)
         {

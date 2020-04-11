@@ -1403,7 +1403,12 @@ namespace Matchmaker.Patterns
         /// A pattern which is matched successfully when the input value is of the specified type.
         /// </returns>
         /// <remarks>
+        /// <para>
+        /// This pattern fails if the input is <see langword="null" />.
+        /// </para>
+        /// <para>
         /// This pattern can be used to match discriminated unions which are implemented as class hierarchies.
+        /// </para>
         /// </remarks>
         /// <seealso cref="Type{TInput, TType}(string)" />
         public static IPattern<TInput, TType> Type<TInput, TType>()
@@ -1420,7 +1425,12 @@ namespace Matchmaker.Patterns
         /// A pattern which is matched successfully when the input value is of the specified type.
         /// </returns>
         /// <remarks>
+        /// <para>
+        /// This pattern fails if the input is <see langword="null" />.
+        /// </para>
+        /// <para>
         /// This pattern can be used to match discriminated unions which are implemented as class hierarchies.
+        /// </para>
         /// </remarks>
         /// <exception cref="ArgumentNullException">
         /// <paramref name="description" /> is <see langword="null" />.

@@ -1,5 +1,6 @@
 using System;
-
+using System.Collections.Generic;
+using System.Linq;
 using FsCheck;
 
 using Matchmaker.Linq;
@@ -26,25 +27,36 @@ namespace Matchmaker
         public static Arbitrary<Func<string, int>> Mapper()
             => new ArbitraryMapper();
 
+        public static Arbitrary<Func<string, IPattern<string, string>>> PatternBinder()
+            => new ArbitraryBinder();
+
         public static Arbitrary<MatchResult<string>> Result()
             => new ArbitraryMatchResult();
+
+        public static Arbitrary<Func<string, MatchResult<int>>> ResultBinder()
+            => new ArbitraryResultBinder();
+
+        private static IEnumerable<IPattern<string, string>> Patterns(string input)
+            => new List<IPattern<string, string>>
+            {
+                EqualTo(input),
+                EqualTo(() => input),
+                LessThan(input),
+                LessThan(() => input),
+                LessOrEqual(input),
+                LessOrEqual(() => input),
+                GreaterThan(input),
+                GreaterThan(() => input),
+                GreaterOrEqual(() => input),
+                GreaterOrEqual(() => input),
+                Any<string>()
+            };
 
         private class ArbitraryPattern : Arbitrary<IPattern<string, string>>
         {
             public override Gen<IPattern<string, string>> Generator
                 => from input in Arb.Default.String().Generator
-                    from item in Gen.Elements(
-                        EqualTo(input),
-                        EqualTo(() => input),
-                        LessThan(input),
-                        LessThan(() => input),
-                        LessOrEqual(input),
-                        LessOrEqual(() => input),
-                        GreaterThan(input),
-                        GreaterThan(() => input),
-                        GreaterOrEqual(() => input),
-                        GreaterOrEqual(() => input),
-                        Any<string>())
+                    from item in Gen.Elements(Patterns(input))
                    select item;
         }
 
@@ -99,12 +111,29 @@ namespace Matchmaker
                     str => (str?.Length ?? -1) % 5);
         }
 
+        private class ArbitraryBinder : Arbitrary<Func<string, IPattern<string, string>>>
+        {
+            public override Gen<Func<string, IPattern<string, string>>> Generator
+                => Gen.Choose(0, 10).Select<int, Func<string, IPattern<string, string>>>(
+                    index => str => Patterns(str).Skip(index).First());
+        }
+
         private class ArbitraryMatchResult : Arbitrary<MatchResult<string>>
         {
             public override Gen<MatchResult<string>> Generator
                 => Gen.Frequency(
                     Tuple.Create(9, Arb.Default.String().Generator.Select(MatchResult.Success)),
                     Tuple.Create(1, Gen.Constant(MatchResult.Failure<string>())));
+        }
+
+        private class ArbitraryResultBinder : Arbitrary<Func<string, MatchResult<int>>>
+        {
+            public override Gen<Func<string, MatchResult<int>>> Generator
+                => Gen.Elements<Func<string, MatchResult<int>>>(
+                    str => MatchResult.Failure<int>(),
+                    str => MatchResult.Success(str?.Length ?? -1),
+                    str => MatchResult.Success(Int32.TryParse(str, out int result) ? result : 0),
+                    str => MatchResult.Success((str?.Length ?? -1) % 5));
         }
     }
 }

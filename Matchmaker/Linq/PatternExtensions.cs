@@ -193,6 +193,7 @@ namespace Matchmaker.Linq
         /// <code>
         /// pattern.Pipe(Pattern.Type&lt;TIntermediateResult, TMatchResult&gt;())
         /// </code>
+        /// As such, this pattern fails if the input is <see langword="null" />.
         /// </remarks>
         /// <exception cref="ArgumentNullException">
         /// <paramref name="pattern" /> is <see langword="null" />.
@@ -219,6 +220,7 @@ namespace Matchmaker.Linq
         /// <code>
         /// pattern.Pipe(Pattern.Type&lt;TIntermediateResult, TMatchResult&gt;(), description)
         /// </code>
+        /// As such, this pattern fails if the input is <see langword="null" />.
         /// </remarks>
         /// <exception cref="ArgumentNullException">
         /// <paramref name="pattern" /> or <paramref name="description" /> is <see langword="null" />.
@@ -244,10 +246,10 @@ namespace Matchmaker.Linq
         /// <exception cref="ArgumentNullException">
         /// <paramref name="pattern" /> or <paramref name="binder" /> is <see langword="null" />.
         /// </exception>
-        /// <seealso cref="Bind{TInput, TIntermediateResult, TMatchResult}(IPattern{TInput, TIntermediateResult}, Func{TIntermediateResult, Pattern{TInput, TMatchResult}}, string)" />
+        /// <seealso cref="Bind{TInput, TIntermediateResult, TMatchResult}(IPattern{TInput, TIntermediateResult}, Func{TIntermediateResult, IPattern{TInput, TMatchResult}}, string)" />
         public static IPattern<TInput, TMatchResult> Bind<TInput, TIntermediateResult, TMatchResult>(
             this IPattern<TInput, TIntermediateResult> pattern,
-            Func<TIntermediateResult, Pattern<TInput, TMatchResult>> binder)
+            Func<TIntermediateResult, IPattern<TInput, TMatchResult>> binder)
             => new BindingPattern<TInput, TIntermediateResult, TMatchResult>(
                 pattern ?? throw new ArgumentNullException(nameof(pattern)),
                 binder ?? throw new ArgumentNullException(nameof(binder)));
@@ -268,10 +270,10 @@ namespace Matchmaker.Linq
         /// <paramref name="pattern" />, <paramref name="binder" /> or <paramref name="description" />
         /// is <see langword="null" />.
         /// </exception>
-        /// <seealso cref="Bind{TInput, TIntermediateResult, TMatchResult}(IPattern{TInput, TIntermediateResult}, Func{TIntermediateResult, Pattern{TInput, TMatchResult}})" />
+        /// <seealso cref="Bind{TInput, TIntermediateResult, TMatchResult}(IPattern{TInput, TIntermediateResult}, Func{TIntermediateResult, IPattern{TInput, TMatchResult}})" />
         public static IPattern<TInput, TMatchResult> Bind<TInput, TIntermediateResult, TMatchResult>(
             this IPattern<TInput, TIntermediateResult> pattern,
-            Func<TIntermediateResult, Pattern<TInput, TMatchResult>> binder,
+            Func<TIntermediateResult, IPattern<TInput, TMatchResult>> binder,
             string description)
             => new BindingPattern<TInput, TIntermediateResult, TMatchResult>(
                 pattern ?? throw new ArgumentNullException(nameof(pattern)),

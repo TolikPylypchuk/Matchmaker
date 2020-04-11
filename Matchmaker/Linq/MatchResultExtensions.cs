@@ -136,8 +136,13 @@ namespace Matchmaker.Linq
         /// and contains a value that can be cast to <typeparamref name="TResult" />.
         /// Otherwise, a failed result.
         /// </returns>
+        /// <remarks>
+        /// This method returns a failed result if the result contains <see langword="null" />.
+        /// </remarks>
         public static MatchResult<TResult> Cast<T, TResult>(this MatchResult<T> result)
-            => result.Bind(v => v is TResult r ? MatchResult.Success(r) : MatchResult.Failure<TResult>());
+            where TResult : T
+            => result.Bind(value =>
+                value is TResult actualValue ? MatchResult.Success(actualValue) : MatchResult.Failure<TResult>());
 
         /// <summary>
         /// Performs a specified action on the result's value if it's successful.

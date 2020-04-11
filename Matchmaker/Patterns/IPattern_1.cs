@@ -7,10 +7,22 @@ namespace Matchmaker.Patterns
     /// </summary>
     /// <typeparam name="TInput">The type of the input value of the match expression.</typeparam>
     /// <remarks>
+    /// <para>
     /// This interface exists only for internal use in the <see cref="Match{TInput, TOutput}" />
     /// and <see cref="Match{TInput}" /> classes, because they can't know about the types of
     /// the transformation results. The public API never uses this interface - it always uses
     /// <see cref="IPattern{TInput, TMatchResult}" />, so type safety is not compromised.
+    /// </para>
+    /// <para>
+    /// Classes shouldn't implement this interface directly - instead, they should implement
+    /// <see cref="IPattern{TInput, TMatchResult}" /> and the <see cref="Match(TInput)" /> method
+    /// should always be implemented in terms of the more generic
+    /// <see cref="IPattern{TInput, TMatchResult}.Match(TInput)" />:
+    /// <code>
+    /// MatchResult&lt;object&gt; IPattern&lt;TInput&gt;.Match(TInput input)
+    ///     =&gt; this.Match(input).Select(result => (object)result);
+    /// </code>
+    /// </para>
     /// </remarks>
     /// <seealso cref="IPattern{TInput, TMatchResult}" />
     /// <seealso cref="Pattern{TInput, TMatchResult}" />
