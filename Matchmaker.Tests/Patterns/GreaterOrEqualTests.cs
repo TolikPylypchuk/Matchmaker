@@ -236,20 +236,6 @@ namespace Matchmaker.Patterns
             action.Should().Throw<ArgumentNullException>();
         }
 
-        [Property]
-        public void GreaterOrEqualShouldThrowIfComparerAndDescriptionIsNull(string x)
-        {
-            Action action = () => Pattern.GreaterOrEqual(x, null, null);
-            action.Should().Throw<ArgumentNullException>();
-        }
-
-        [Property]
-        public void LazyGreaterOrEqualShouldThrowIfComparerAndDescriptionIsNull(string x)
-        {
-            Action action = () => Pattern.GreaterOrEqual(() => x, null, null);
-            action.Should().Throw<ArgumentNullException>();
-        }
-
         [Fact]
         public void LazyGreaterOrEqualShouldThrowIfValueProviderIsNull()
         {
@@ -282,30 +268,6 @@ namespace Matchmaker.Patterns
                 Action action = () => Pattern.GreaterOrEqual((Func<string>)null, StringComparer, description);
                 action.Should().Throw<ArgumentNullException>();
             }
-        }
-
-        [Fact]
-        public void LazyGreaterOrEqualShouldThrowIfValueProviderAndDescriptionIsNullAndComparerIsNotNull()
-        {
-            Action action = () => Pattern.GreaterOrEqual((Func<string>)null, StringComparer, null);
-            action.Should().Throw<ArgumentNullException>();
-        }
-
-        [Property]
-        public void LazyGreaterOrEqualShouldThrowIfValueProviderAndComparerIsNullAndDescriptionIsNotNull(string description)
-        {
-            if (description != null)
-            {
-                Action action = () => Pattern.GreaterOrEqual<string>((Func<string>)null, null, description);
-                action.Should().Throw<ArgumentNullException>();
-            }
-        }
-
-        [Fact]
-        public void LazyGreaterOrEqualShouldThrowIfValueProviderAndComparerAndDescriptionIsNull()
-        {
-            Action action = () => Pattern.GreaterOrEqual<string>((Func<string>)null, null, null);
-            action.Should().Throw<ArgumentNullException>();
         }
     }
 }

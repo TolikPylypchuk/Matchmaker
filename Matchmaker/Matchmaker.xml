@@ -110,7 +110,7 @@
             created by the specified matcher function.
             </returns>
             <remarks>
-            This method is functionally equivalent to the following:
+            This method is functionally equivalent to the following, except it reuses the pattern's description:
             <code>
             pattern.Pipe(Pattern.CreatePattern(matcher))
             </code>
@@ -140,7 +140,7 @@
             <remarks>
             This method is functionally equivalent to the following:
             <code>
-            pattern.Pipe(Pattern.CreatePattern(matcher))
+            pattern.Pipe(Pattern.CreatePattern(matcher), description)
             </code>
             </remarks>
             <exception cref="T:System.ArgumentNullException">
@@ -272,8 +272,8 @@
             <typeparam name="T">
             The type of the input value of the expression and also the type of the result of this pattern's match.
             </typeparam>
-            <param name="leftPattern">The left pattern.</param>
-            <param name="rightPattern">The right pattern.</param>
+            <param name="leftPattern">The left pattern to compose.</param>
+            <param name="rightPattern">The right pattern to compose.</param>
             <param name="composition">The composition which should be applied to the patterns.</param>
             <returns>
             A pattern which is composed of the two specified patterns.
@@ -300,8 +300,8 @@
             <typeparam name="T">
             The type of the input value of the expression and also the type of the result of this pattern's match.
             </typeparam>
-            <param name="leftPattern">The left pattern.</param>
-            <param name="rightPattern">The right pattern.</param>
+            <param name="leftPattern">The left pattern to compose.</param>
+            <param name="rightPattern">The right pattern to compose.</param>
             <param name="composition">The composition which should be applied to the patterns.</param>
             <param name="description">The description of this pattern.</param>
             <returns>
@@ -331,8 +331,8 @@
             <typeparam name="T">
             The type of the input value of the expression and also the type of the result of this pattern's match.
             </typeparam>
-            <param name="leftPattern">The left pattern.</param>
-            <param name="rightPattern">The right pattern.</param>
+            <param name="leftPattern">The left pattern to compose.</param>
+            <param name="rightPattern">The right pattern to compose.</param>
             <returns>
             A pattern which is composed of the two specified patterns such that the result is successful
             only when both patterns' results are successful.
@@ -368,8 +368,8 @@
             <typeparam name="T">
             The type of the input value of the expression and also the type of the result of this pattern's match.
             </typeparam>
-            <param name="leftPattern">The left pattern.</param>
-            <param name="rightPattern">The right pattern.</param>
+            <param name="leftPattern">The left pattern to compose.</param>
+            <param name="rightPattern">The right pattern to compose.</param>
             <param name="description">The description of this pattern.</param>
             <returns>
             A pattern which is composed of the two specified patterns such that the result is successful
@@ -407,8 +407,8 @@
             <typeparam name="T">
             The type of the input value of the expression and also the type of the result of this pattern's match.
             </typeparam>
-            <param name="leftPattern">The left pattern.</param>
-            <param name="rightPattern">The right pattern.</param>
+            <param name="leftPattern">The left pattern to compose.</param>
+            <param name="rightPattern">The right pattern to compose.</param>
             <returns>
             A pattern which is composed of the two specified patterns such that the result is successful
             only when both patterns' results are successful.
@@ -444,8 +444,8 @@
             <typeparam name="T">
             The type of the input value of the expression and also the type of the result of this pattern's match.
             </typeparam>
-            <param name="leftPattern">The left pattern.</param>
-            <param name="rightPattern">The right pattern.</param>
+            <param name="leftPattern">The left pattern to compose.</param>
+            <param name="rightPattern">The right pattern to compose.</param>
             <param name="description">The description of this pattern.</param>
             <returns>
             A pattern which is composed of the two specified patterns such that the result is successful
@@ -483,8 +483,8 @@
             <typeparam name="T">
             The type of the input value of the expression and also the type of the result of this pattern's match.
             </typeparam>
-            <param name="leftPattern">The left pattern.</param>
-            <param name="rightPattern">The right pattern.</param>
+            <param name="leftPattern">The left pattern to compose.</param>
+            <param name="rightPattern">The right pattern to compose.</param>
             <returns>
             A pattern which is composed of the two specified patterns such that the result is successful
             only when both patterns' results are successful.
@@ -520,8 +520,8 @@
             <typeparam name="T">
             The type of the input value of the expression and also the type of the result of this pattern's match.
             </typeparam>
-            <param name="leftPattern">The left pattern.</param>
-            <param name="rightPattern">The right pattern.</param>
+            <param name="leftPattern">The left pattern to compose.</param>
+            <param name="rightPattern">The right pattern to compose.</param>
             <param name="description">The description of this pattern.</param>
             <returns>
             A pattern which is composed of the two specified patterns such that the result is successful
@@ -1161,12 +1161,12 @@
         </member>
         <member name="F:Matchmaker.Patterns.CompositePattern`1.leftPattern">
             <summary>
-            The left pattern.
+            The left pattern to compose.
             </summary>
         </member>
         <member name="F:Matchmaker.Patterns.CompositePattern`1.rightPattern">
             <summary>
-            The right pattern.
+            The right pattern to compose.
             </summary>
         </member>
         <member name="F:Matchmaker.Patterns.CompositePattern`1.composition">
@@ -1178,16 +1178,16 @@
             <summary>
             Initializes a new instance of the <see cref="T:Matchmaker.Patterns.CompositePattern`1" /> class.
             </summary>
-            <param name="leftPattern">The left pattern.</param>
-            <param name="rightPattern">The right pattern.</param>
+            <param name="leftPattern">The left pattern to compose.</param>
+            <param name="rightPattern">The right pattern to compose.</param>
             <param name="composition">The composition which should be applied to the patterns.</param>
         </member>
         <member name="M:Matchmaker.Patterns.CompositePattern`1.#ctor(Matchmaker.Patterns.IPattern{`0,`0},Matchmaker.Patterns.IPattern{`0,`0},Matchmaker.Patterns.PatternComposition,System.String)">
             <summary>
             Initializes a new instance of the <see cref="T:Matchmaker.Patterns.CompositePattern`1" /> class.
             </summary>
-            <param name="leftPattern">The left pattern.</param>
-            <param name="rightPattern">The right pattern.</param>
+            <param name="leftPattern">The left pattern to compose.</param>
+            <param name="rightPattern">The right pattern to compose.</param>
             <param name="composition">The composition which should be applied to the patterns.</param>
             <param name="description">The description of this pattern.</param>
             <exception cref="T:System.ArgumentNullException">
@@ -1200,15 +1200,16 @@
             </summary>
             <param name="input">The input value to match.</param>
             <returns>
-            A successful match result which contains the result of the match,
+            A successful match result which contains the input value,
             if this match is successful. Otherwise, a failed match result.
             </returns>
         </member>
-        <member name="M:Matchmaker.Patterns.CompositePattern`1.IsCompositionSuccessful(`0)">
+        <member name="M:Matchmaker.Patterns.CompositePattern`1.ComposeResults(System.Boolean,System.Boolean)">
             <summary>
-            Determines whether the composition of the patterns yields a successful result.
+            Composes the results of the two patterns based on this pattern's composition.
             </summary>
-            <param name="input">The input for the patterns to match.</param>
+            <param name="left">The result of the left pattern's match.</param>
+            <param name="right">The result of the right pattern's match.</param>
             <returns>
             <see langword="true" /> if the composition is successful. Otherwise, <see langword="false" />.
             </returns>

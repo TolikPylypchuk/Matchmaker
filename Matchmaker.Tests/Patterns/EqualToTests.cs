@@ -234,20 +234,6 @@ namespace Matchmaker.Patterns
             action.Should().Throw<ArgumentNullException>();
         }
 
-        [Property]
-        public void EqualToShouldThrowIfComparerAndDescriptionIsNull(string x)
-        {
-            Action action = () => Pattern.EqualTo(x, null, null);
-            action.Should().Throw<ArgumentNullException>();
-        }
-
-        [Property]
-        public void LazyEqualToShouldThrowIfComparerAndDescriptionIsNull(string x)
-        {
-            Action action = () => Pattern.EqualTo(() => x, null, null);
-            action.Should().Throw<ArgumentNullException>();
-        }
-
         [Fact]
         public void LazyEqualToShouldThrowIfValueProviderIsNull()
         {
@@ -280,30 +266,6 @@ namespace Matchmaker.Patterns
                 Action action = () => Pattern.EqualTo((Func<string>)null, StringEqualityComparer, description);
                 action.Should().Throw<ArgumentNullException>();
             }
-        }
-
-        [Fact]
-        public void LazyEqualToShouldThrowIfValueProviderAndDescriptionIsNullAndComparerIsNotNull()
-        {
-            Action action = () => Pattern.EqualTo((Func<string>)null, StringEqualityComparer, null);
-            action.Should().Throw<ArgumentNullException>();
-        }
-
-        [Property]
-        public void LazyEqualToShouldThrowIfValueProviderAndComparerIsNullAndDescriptionIsNotNull(string description)
-        {
-            if (description != null)
-            {
-                Action action = () => Pattern.EqualTo<string>((Func<string>)null, null, description);
-                action.Should().Throw<ArgumentNullException>();
-            }
-        }
-
-        [Fact]
-        public void LazyEqualToShouldThrowIfValueProviderAndComparerAndDescriptionIsNull()
-        {
-            Action action = () => Pattern.EqualTo<string>((Func<string>)null, null, null);
-            action.Should().Throw<ArgumentNullException>();
         }
     }
 }

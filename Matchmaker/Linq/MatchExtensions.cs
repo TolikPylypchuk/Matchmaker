@@ -139,7 +139,7 @@ namespace Matchmaker.Linq
         /// created by the specified matcher function.
         /// </returns>
         /// <remarks>
-        /// This method is functionally equivalent to the following:
+        /// This method is functionally equivalent to the following, except it reuses the pattern's description:
         /// <code>
         /// pattern.Pipe(Pattern.CreatePattern(matcher))
         /// </code>
@@ -153,9 +153,7 @@ namespace Matchmaker.Linq
         public static IPattern<TInput, TMatchResult> Pipe<TInput, TIntermediateResult, TMatchResult>(
             this IPattern<TInput, TIntermediateResult> pattern,
             Func<TIntermediateResult, MatchResult<TMatchResult>> matcher)
-            => new PipingPattern<TInput, TIntermediateResult, TMatchResult>(
-                pattern ?? throw new ArgumentNullException(nameof(pattern)),
-                CreatePattern(matcher ?? throw new ArgumentNullException(nameof(matcher))));
+            => pattern.Pipe(matcher, pattern?.Description ?? throw new ArgumentNullException(nameof(pattern)));
 
         /// <summary>
         /// Returns a pattern which pipes the result of one pattern to the pattern
@@ -174,7 +172,7 @@ namespace Matchmaker.Linq
         /// <remarks>
         /// This method is functionally equivalent to the following:
         /// <code>
-        /// pattern.Pipe(Pattern.CreatePattern(matcher))
+        /// pattern.Pipe(Pattern.CreatePattern(matcher), description)
         /// </code>
         /// </remarks>
         /// <exception cref="ArgumentNullException">
@@ -344,8 +342,8 @@ namespace Matchmaker.Linq
         /// <typeparam name="T">
         /// The type of the input value of the expression and also the type of the result of this pattern's match.
         /// </typeparam>
-        /// <param name="leftPattern">The left pattern.</param>
-        /// <param name="rightPattern">The right pattern.</param>
+        /// <param name="leftPattern">The left pattern to compose.</param>
+        /// <param name="rightPattern">The right pattern to compose.</param>
         /// <param name="composition">The composition which should be applied to the patterns.</param>
         /// <returns>
         /// A pattern which is composed of the two specified patterns.
@@ -379,8 +377,8 @@ namespace Matchmaker.Linq
         /// <typeparam name="T">
         /// The type of the input value of the expression and also the type of the result of this pattern's match.
         /// </typeparam>
-        /// <param name="leftPattern">The left pattern.</param>
-        /// <param name="rightPattern">The right pattern.</param>
+        /// <param name="leftPattern">The left pattern to compose.</param>
+        /// <param name="rightPattern">The right pattern to compose.</param>
         /// <param name="composition">The composition which should be applied to the patterns.</param>
         /// <param name="description">The description of this pattern.</param>
         /// <returns>
@@ -419,8 +417,8 @@ namespace Matchmaker.Linq
         /// <typeparam name="T">
         /// The type of the input value of the expression and also the type of the result of this pattern's match.
         /// </typeparam>
-        /// <param name="leftPattern">The left pattern.</param>
-        /// <param name="rightPattern">The right pattern.</param>
+        /// <param name="leftPattern">The left pattern to compose.</param>
+        /// <param name="rightPattern">The right pattern to compose.</param>
         /// <returns>
         /// A pattern which is composed of the two specified patterns such that the result is successful
         /// only when both patterns' results are successful.
@@ -457,8 +455,8 @@ namespace Matchmaker.Linq
         /// <typeparam name="T">
         /// The type of the input value of the expression and also the type of the result of this pattern's match.
         /// </typeparam>
-        /// <param name="leftPattern">The left pattern.</param>
-        /// <param name="rightPattern">The right pattern.</param>
+        /// <param name="leftPattern">The left pattern to compose.</param>
+        /// <param name="rightPattern">The right pattern to compose.</param>
         /// <param name="description">The description of this pattern.</param>
         /// <returns>
         /// A pattern which is composed of the two specified patterns such that the result is successful
@@ -500,8 +498,8 @@ namespace Matchmaker.Linq
         /// <typeparam name="T">
         /// The type of the input value of the expression and also the type of the result of this pattern's match.
         /// </typeparam>
-        /// <param name="leftPattern">The left pattern.</param>
-        /// <param name="rightPattern">The right pattern.</param>
+        /// <param name="leftPattern">The left pattern to compose.</param>
+        /// <param name="rightPattern">The right pattern to compose.</param>
         /// <returns>
         /// A pattern which is composed of the two specified patterns such that the result is successful
         /// only when both patterns' results are successful.
@@ -538,8 +536,8 @@ namespace Matchmaker.Linq
         /// <typeparam name="T">
         /// The type of the input value of the expression and also the type of the result of this pattern's match.
         /// </typeparam>
-        /// <param name="leftPattern">The left pattern.</param>
-        /// <param name="rightPattern">The right pattern.</param>
+        /// <param name="leftPattern">The left pattern to compose.</param>
+        /// <param name="rightPattern">The right pattern to compose.</param>
         /// <param name="description">The description of this pattern.</param>
         /// <returns>
         /// A pattern which is composed of the two specified patterns such that the result is successful
@@ -581,8 +579,8 @@ namespace Matchmaker.Linq
         /// <typeparam name="T">
         /// The type of the input value of the expression and also the type of the result of this pattern's match.
         /// </typeparam>
-        /// <param name="leftPattern">The left pattern.</param>
-        /// <param name="rightPattern">The right pattern.</param>
+        /// <param name="leftPattern">The left pattern to compose.</param>
+        /// <param name="rightPattern">The right pattern to compose.</param>
         /// <returns>
         /// A pattern which is composed of the two specified patterns such that the result is successful
         /// only when both patterns' results are successful.
@@ -619,8 +617,8 @@ namespace Matchmaker.Linq
         /// <typeparam name="T">
         /// The type of the input value of the expression and also the type of the result of this pattern's match.
         /// </typeparam>
-        /// <param name="leftPattern">The left pattern.</param>
-        /// <param name="rightPattern">The right pattern.</param>
+        /// <param name="leftPattern">The left pattern to compose.</param>
+        /// <param name="rightPattern">The right pattern to compose.</param>
         /// <param name="description">The description of this pattern.</param>
         /// <returns>
         /// A pattern which is composed of the two specified patterns such that the result is successful

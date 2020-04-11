@@ -236,20 +236,6 @@ namespace Matchmaker.Patterns
             action.Should().Throw<ArgumentNullException>();
         }
 
-        [Property]
-        public void LessOrEqualShouldThrowIfComparerAndDescriptionIsNull(string x)
-        {
-            Action action = () => Pattern.LessOrEqual(x, null, null);
-            action.Should().Throw<ArgumentNullException>();
-        }
-
-        [Property]
-        public void LazyLessOrEqualShouldThrowIfComparerAndDescriptionIsNull(string x)
-        {
-            Action action = () => Pattern.LessOrEqual(() => x, null, null);
-            action.Should().Throw<ArgumentNullException>();
-        }
-
         [Fact]
         public void LazyLessOrEqualShouldThrowIfValueProviderIsNull()
         {
@@ -282,30 +268,6 @@ namespace Matchmaker.Patterns
                 Action action = () => Pattern.LessOrEqual((Func<string>)null, StringComparer, description);
                 action.Should().Throw<ArgumentNullException>();
             }
-        }
-
-        [Fact]
-        public void LazyLessOrEqualShouldThrowIfValueProviderAndDescriptionIsNullAndComparerIsNotNull()
-        {
-            Action action = () => Pattern.LessOrEqual((Func<string>)null, StringComparer, null);
-            action.Should().Throw<ArgumentNullException>();
-        }
-
-        [Property]
-        public void LazyLessOrEqualShouldThrowIfValueProviderAndComparerIsNullAndDescriptionIsNotNull(string description)
-        {
-            if (description != null)
-            {
-                Action action = () => Pattern.LessOrEqual<string>((Func<string>)null, null, description);
-                action.Should().Throw<ArgumentNullException>();
-            }
-        }
-
-        [Fact]
-        public void LazyLessOrEqualShouldThrowIfValueProviderAndComparerAndDescriptionIsNull()
-        {
-            Action action = () => Pattern.LessOrEqual<string>((Func<string>)null, null, null);
-            action.Should().Throw<ArgumentNullException>();
         }
     }
 }

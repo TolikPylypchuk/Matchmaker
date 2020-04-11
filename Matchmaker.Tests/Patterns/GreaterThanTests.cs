@@ -235,20 +235,6 @@ namespace Matchmaker.Patterns
             action.Should().Throw<ArgumentNullException>();
         }
 
-        [Property]
-        public void GreaterThanShouldThrowIfComparerAndDescriptionIsNull(string x)
-        {
-            Action action = () => Pattern.GreaterThan(x, null, null);
-            action.Should().Throw<ArgumentNullException>();
-        }
-
-        [Property]
-        public void LazyGreaterThanShouldThrowIfComparerAndDescriptionIsNull(string x)
-        {
-            Action action = () => Pattern.GreaterThan(() => x, null, null);
-            action.Should().Throw<ArgumentNullException>();
-        }
-
         [Fact]
         public void LazyGreaterThanShouldThrowIfValueProviderIsNull()
         {
@@ -282,31 +268,6 @@ namespace Matchmaker.Patterns
                 Action action = () => Pattern.GreaterThan((Func<string>)null, StringComparer, description);
                 action.Should().Throw<ArgumentNullException>();
             }
-        }
-
-        [Fact]
-        public void LazyGreaterThanShouldThrowIfValueProviderAndDescriptionIsNullAndComparerIsNotNull()
-        {
-            Action action = () => Pattern.GreaterThan((Func<string>)null, StringComparer, null);
-            action.Should().Throw<ArgumentNullException>();
-        }
-
-        [Property]
-        public void LazyGreaterThanShouldThrowIfValueProviderAndComparerIsNullAndDescriptionIsNotNull(
-            string description)
-        {
-            if (description != null)
-            {
-                Action action = () => Pattern.GreaterThan<string>((Func<string>)null, null, description);
-                action.Should().Throw<ArgumentNullException>();
-            }
-        }
-
-        [Fact]
-        public void LazyGreaterThanShouldThrowIfValueProviderAndComparerAndDescriptionIsNull()
-        {
-            Action action = () => Pattern.GreaterThan<string>((Func<string>)null, null, null);
-            action.Should().Throw<ArgumentNullException>();
         }
     }
 }

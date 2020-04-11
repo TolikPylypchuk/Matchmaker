@@ -11,12 +11,12 @@ namespace Matchmaker.Patterns
     internal sealed class CompositePattern<T> : Pattern<T, T>
     {
         /// <summary>
-        /// The left pattern.
+        /// The left pattern to compose.
         /// </summary>
         private readonly IPattern<T, T> leftPattern;
 
         /// <summary>
-        /// The right pattern.
+        /// The right pattern to compose.
         /// </summary>
         private readonly IPattern<T, T> rightPattern;
 
@@ -28,8 +28,8 @@ namespace Matchmaker.Patterns
         /// <summary>
         /// Initializes a new instance of the <see cref="CompositePattern{T}" /> class.
         /// </summary>
-        /// <param name="leftPattern">The left pattern.</param>
-        /// <param name="rightPattern">The right pattern.</param>
+        /// <param name="leftPattern">The left pattern to compose.</param>
+        /// <param name="rightPattern">The right pattern to compose.</param>
         /// <param name="composition">The composition which should be applied to the patterns.</param>
         internal CompositePattern(IPattern<T, T> leftPattern, IPattern<T, T> rightPattern, PatternComposition composition)
             : this(
@@ -44,8 +44,8 @@ namespace Matchmaker.Patterns
         /// <summary>
         /// Initializes a new instance of the <see cref="CompositePattern{T}" /> class.
         /// </summary>
-        /// <param name="leftPattern">The left pattern.</param>
-        /// <param name="rightPattern">The right pattern.</param>
+        /// <param name="leftPattern">The left pattern to compose.</param>
+        /// <param name="rightPattern">The right pattern to compose.</param>
         /// <param name="composition">The composition which should be applied to the patterns.</param>
         /// <param name="description">The description of this pattern.</param>
         /// <exception cref="ArgumentNullException">
@@ -68,30 +68,29 @@ namespace Matchmaker.Patterns
         /// </summary>
         /// <param name="input">The input value to match.</param>
         /// <returns>
-        /// A successful match result which contains the result of the match,
+        /// A successful match result which contains the input value,
         /// if this match is successful. Otherwise, a failed match result.
         /// </returns>
         public override MatchResult<T> Match(T input)
-            => this.IsCompositionSuccessful(input)
+            => this.ComposeResults(
+                this.leftPattern.Match(input).IsSuccessful, this.rightPattern.Match(input).IsSuccessful)
                 ? MatchResult.Success(input)
                 : MatchResult.Failure<T>();
 
         /// <summary>
-        /// Determines whether the composition of the patterns yields a successful result.
+        /// Composes the results of the two patterns based on this pattern's composition.
         /// </summary>
-        /// <param name="input">The input for the patterns to match.</param>
+        /// <param name="left">The result of the left pattern's match.</param>
+        /// <param name="right">The result of the right pattern's match.</param>
         /// <returns>
         /// <see langword="true" /> if the composition is successful. Otherwise, <see langword="false" />.
         /// </returns>
-        private bool IsCompositionSuccessful(T input)
-            => composition switch
+        private bool ComposeResults(bool left, bool right)
+            => this.composition switch
             {
-                PatternComposition.And =>
-                    this.leftPattern.Match(input).IsSuccessful && this.rightPattern.Match(input).IsSuccessful,
-                PatternComposition.Or =>
-                    this.leftPattern.Match(input).IsSuccessful || this.rightPattern.Match(input).IsSuccessful,
-                PatternComposition.Xor =>
-                    this.leftPattern.Match(input).IsSuccessful ^ this.rightPattern.Match(input).IsSuccessful,
+                PatternComposition.And => left && right,
+                PatternComposition.Or => left || right,
+                PatternComposition.Xor => left ^ right,
                 _ => false
             };
 

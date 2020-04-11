@@ -2,6 +2,7 @@ using System;
 
 using FsCheck;
 
+using Matchmaker.Linq;
 using Matchmaker.Patterns;
 
 using static Matchmaker.Patterns.Pattern;
@@ -12,6 +13,9 @@ namespace Matchmaker
     {
         public static Arbitrary<IPattern<string, string>> Pattern()
             => new ArbitraryPattern();
+
+        public static Arbitrary<IPattern<string, object>> ObjectPattern()
+            => new ArbitraryObjectPattern();
 
         public static Arbitrary<Func<string, bool>> Predicate()
             => new ArbitraryPredicate();
@@ -42,6 +46,25 @@ namespace Matchmaker
                         GreaterOrEqual(() => input),
                         Any<string>())
                    select item;
+        }
+
+        private class ArbitraryObjectPattern : Arbitrary<IPattern<string, object>>
+        {
+            public override Gen<IPattern<string, object>> Generator
+                => from input in Arb.Default.String().Generator
+                    from item in Gen.Elements(
+                        EqualTo(input).Select(value => (object)value),
+                        EqualTo(() => input).Select(value => (object)value),
+                        LessThan(input).Select(value => (object)value),
+                        LessThan(() => input).Select(value => (object)value),
+                        LessOrEqual(input).Select(value => (object)value),
+                        LessOrEqual(() => input).Select(value => (object)value),
+                        GreaterThan(input).Select(value => (object)value),
+                        GreaterThan(() => input).Select(value => (object)value),
+                        GreaterOrEqual(() => input).Select(value => (object)value),
+                        GreaterOrEqual(() => input).Select(value => (object)value),
+                        Any<string>().Select(value => (object)value))
+                    select item;
         }
 
         private class ArbitraryPredicate : Arbitrary<Func<string, bool>>
