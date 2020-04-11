@@ -2816,6 +2816,14 @@
             <summary>
             Represnts types of pattern composition.
             </summary>
+            <seealso cref="M:Matchmaker.Linq.PatternExtensions.Compose``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.PatternComposition)" />
+            <seealso cref="M:Matchmaker.Linq.PatternExtensions.Compose``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.PatternComposition,System.String)" />
+            <seealso cref="M:Matchmaker.Linq.PatternExtensions.And``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0})" />
+            <seealso cref="M:Matchmaker.Linq.PatternExtensions.And``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0},System.String)" />
+            <seealso cref="M:Matchmaker.Linq.PatternExtensions.Or``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0})" />
+            <seealso cref="M:Matchmaker.Linq.PatternExtensions.Or``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0},System.String)" />
+            <seealso cref="M:Matchmaker.Linq.PatternExtensions.Xor``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0})" />
+            <seealso cref="M:Matchmaker.Linq.PatternExtensions.Xor``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0},System.String)" />
         </member>
         <member name="F:Matchmaker.Patterns.PatternComposition.And">
             <summary>
