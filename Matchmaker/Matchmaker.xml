@@ -1811,8 +1811,20 @@
             <param name="description">The description of the pattern.</param>
             <returns>A pattern which always successfully returns the provided value.</returns>
             <remarks>
+            <para>
+            The <paramref name="valueProvider" /> is not called until this pattern's
+            <see cref="M:Matchmaker.Patterns.Pattern`2.Match(`0)" /> method is called.
+            </para>
+            <para>
+            The <paramref name="valueProvider" /> will be memoized, so it will be called once,
+            and then its result will be cached. The caching process is not thread-safe,
+            so there is a chance that the <paramref name="valueProvider" /> can be called
+            more than once.
+            </para>
+            <para>
             This pattern is much like the <see cref="M:Matchmaker.Patterns.Pattern.Any``1(System.String)" /> pattern,
             except it returns the provided value instead of the pattern's input.
+            </para>
             </remarks>
             <exception cref="T:System.ArgumentNullException">
             <paramref name="valueProvider" /> or <paramref name="description" /> is <see langword="null" />.
@@ -2023,6 +2035,18 @@
             <returns>
             A pattern which is matched successfully when the input value is equal to the provided value.
             </returns>
+            <remarks>
+            <para>
+            The <paramref name="valueProvider" /> is not called until this pattern's
+            <see cref="M:Matchmaker.Patterns.Pattern`2.Match(`0)" /> method is called.
+            </para>
+            <para>
+            The <paramref name="valueProvider" /> will be memoized, so it will be called once,
+            and then its result will be cached. The caching process is not thread-safe,
+            so there is a chance that the <paramref name="valueProvider" /> can be called
+            more than once.
+            </para>
+            </remarks>
             <exception cref="T:System.ArgumentNullException">
             <paramref name="valueProvider" />, <paramref name="comparer" /> or <paramref name="description" />
             is <see langword="null" />.
@@ -2193,6 +2217,18 @@
             <returns>
             A pattern which is matched successfully when the input value is less than the provided value.
             </returns>
+            <remarks>
+            <para>
+            The <paramref name="valueProvider" /> is not called until this pattern's
+            <see cref="M:Matchmaker.Patterns.Pattern`2.Match(`0)" /> method is called.
+            </para>
+            <para>
+            The <paramref name="valueProvider" /> will be memoized, so it will be called once,
+            and then its result will be cached. The caching process is not thread-safe,
+            so there is a chance that the <paramref name="valueProvider" /> can be called
+            more than once.
+            </para>
+            </remarks>
             <exception cref="T:System.ArgumentNullException">
             <paramref name="valueProvider" />, <paramref name="comparer" /> or <paramref name="description" />
             is <see langword="null" />.
@@ -2367,6 +2403,18 @@
             <returns>
             A pattern which is matched successfully when the input value is less than or equal to the provided value.
             </returns>
+            <remarks>
+            <para>
+            The <paramref name="valueProvider" /> is not called until this pattern's
+            <see cref="M:Matchmaker.Patterns.Pattern`2.Match(`0)" /> method is called.
+            </para>
+            <para>
+            The <paramref name="valueProvider" /> will be memoized, so it will be called once,
+            and then its result will be cached. The caching process is not thread-safe,
+            so there is a chance that the <paramref name="valueProvider" /> can be called
+            more than once.
+            </para>
+            </remarks>
             <exception cref="T:System.ArgumentNullException">
             <paramref name="valueProvider" />, <paramref name="comparer" /> or <paramref name="description" />
             is <see langword="null" />.
@@ -2537,6 +2585,18 @@
             <returns>
             A pattern which is matched successfully when the input value is greater than the provided value.
             </returns>
+            <remarks>
+            <para>
+            The <paramref name="valueProvider" /> is not called until this pattern's
+            <see cref="M:Matchmaker.Patterns.Pattern`2.Match(`0)" /> method is called.
+            </para>
+            <para>
+            The <paramref name="valueProvider" /> will be memoized, so it will be called once,
+            and then its result will be cached. The caching process is not thread-safe,
+            so there is a chance that the <paramref name="valueProvider" /> can be called
+            more than once.
+            </para>
+            </remarks>
             <exception cref="T:System.ArgumentNullException">
             <paramref name="valueProvider" />, <paramref name="comparer" /> or <paramref name="description" />
             is <see langword="null" />.
@@ -2719,6 +2779,18 @@
             A pattern which is matched successfully when the input value is greater than
             or equal to the provided value.
             </returns>
+            <remarks>
+            <para>
+            The <paramref name="valueProvider" /> is not called until this pattern's
+            <see cref="M:Matchmaker.Patterns.Pattern`2.Match(`0)" /> method is called.
+            </para>
+            <para>
+            The <paramref name="valueProvider" /> will be memoized, so it will be called once,
+            and then its result will be cached. The caching process is not thread-safe,
+            so there is a chance that the <paramref name="valueProvider" /> can be called
+            more than once.
+            </para>
+            </remarks>
             <exception cref="T:System.ArgumentNullException">
             <paramref name="valueProvider" />, <paramref name="comparer" /> or <paramref name="description" />
             is <see langword="null" />.
@@ -2811,6 +2883,14 @@
             <paramref name="pattern" /> or <paramref name="description" /> is <see langword="null" />.
             </exception>
             <seealso cref="M:Matchmaker.Patterns.Pattern.Not``2(Matchmaker.Patterns.IPattern{``0,``1})" />
+        </member>
+        <member name="M:Matchmaker.Patterns.Pattern.Memoize``1(System.Func{``0})">
+            <summary>
+            Memoizes the specified function.
+            </summary>
+            <typeparam name="T">The type of the function's result.</typeparam>
+            <param name="function">The function to memoize.</param>
+            <returns>The memoized version of the specified function.</returns>
         </member>
         <member name="T:Matchmaker.Patterns.PatternComposition">
             <summary>

@@ -313,16 +313,31 @@ namespace Matchmaker.Patterns
         /// <param name="description">The description of the pattern.</param>
         /// <returns>A pattern which always successfully returns the provided value.</returns>
         /// <remarks>
+        /// <para>
+        /// The <paramref name="valueProvider" /> is not called until this pattern's
+        /// <see cref="Pattern{TInput, TMatchResult}.Match(TInput)" /> method is called.
+        /// </para>
+        /// <para>
+        /// The <paramref name="valueProvider" /> will be memoized, so it will be called once,
+        /// and then its result will be cached. The caching process is not thread-safe,
+        /// so there is a chance that the <paramref name="valueProvider" /> can be called
+        /// more than once.
+        /// </para>
+        /// <para>
         /// This pattern is much like the <see cref="Any{TInput}(string)" /> pattern,
         /// except it returns the provided value instead of the pattern's input.
+        /// </para>
         /// </remarks>
         /// <exception cref="ArgumentNullException">
         /// <paramref name="valueProvider" /> or <paramref name="description" /> is <see langword="null" />.
         /// </exception>
         public static IPattern<TInput, TValue> Return<TInput, TValue>(Func<TValue> valueProvider, string description)
-            => CreatePattern<TInput, TValue>(
-                _ => MatchResult.Success(valueProvider()),
+        {
+            var memoizedProvider = Memoize(valueProvider ?? throw new ArgumentNullException(nameof(valueProvider)));
+            return CreatePattern<TInput, TValue>(
+                _ => MatchResult.Success(memoizedProvider()),
                 description ?? throw new ArgumentNullException(nameof(description)));
+        }
 
         /// <summary>
         /// Returns a pattern which is matched successfully when the input value is <see langword="null" />.
@@ -556,6 +571,18 @@ namespace Matchmaker.Patterns
         /// <returns>
         /// A pattern which is matched successfully when the input value is equal to the provided value.
         /// </returns>
+        /// <remarks>
+        /// <para>
+        /// The <paramref name="valueProvider" /> is not called until this pattern's
+        /// <see cref="Pattern{TInput, TMatchResult}.Match(TInput)" /> method is called.
+        /// </para>
+        /// <para>
+        /// The <paramref name="valueProvider" /> will be memoized, so it will be called once,
+        /// and then its result will be cached. The caching process is not thread-safe,
+        /// so there is a chance that the <paramref name="valueProvider" /> can be called
+        /// more than once.
+        /// </para>
+        /// </remarks>
         /// <exception cref="ArgumentNullException">
         /// <paramref name="valueProvider" />, <paramref name="comparer" /> or <paramref name="description" />
         /// is <see langword="null" />.
@@ -571,13 +598,15 @@ namespace Matchmaker.Patterns
             Func<TInput> valueProvider,
             IEqualityComparer<TInput> comparer,
             string description)
-            => valueProvider != null
-                ? comparer != null
-                    ? CreatePattern<TInput>(
-                        input => comparer.Equals(input, valueProvider()),
-                        description ?? throw new ArgumentNullException(nameof(description)))
-                    : throw new ArgumentNullException(nameof(comparer))
-                : throw new ArgumentNullException(nameof(valueProvider));
+        {
+            var memoizedProvider = Memoize(valueProvider ?? throw new ArgumentNullException(nameof(valueProvider)));
+
+            return comparer != null
+                ? CreatePattern<TInput>(
+                    input => comparer.Equals(input, memoizedProvider()),
+                    description ?? throw new ArgumentNullException(nameof(description)))
+                : throw new ArgumentNullException(nameof(comparer));
+        }
 
         /// <summary>
         /// Returns a pattern which is matched successfully when the input value is less than the specified value.
@@ -754,6 +783,18 @@ namespace Matchmaker.Patterns
         /// <returns>
         /// A pattern which is matched successfully when the input value is less than the provided value.
         /// </returns>
+        /// <remarks>
+        /// <para>
+        /// The <paramref name="valueProvider" /> is not called until this pattern's
+        /// <see cref="Pattern{TInput, TMatchResult}.Match(TInput)" /> method is called.
+        /// </para>
+        /// <para>
+        /// The <paramref name="valueProvider" /> will be memoized, so it will be called once,
+        /// and then its result will be cached. The caching process is not thread-safe,
+        /// so there is a chance that the <paramref name="valueProvider" /> can be called
+        /// more than once.
+        /// </para>
+        /// </remarks>
         /// <exception cref="ArgumentNullException">
         /// <paramref name="valueProvider" />, <paramref name="comparer" /> or <paramref name="description" />
         /// is <see langword="null" />.
@@ -769,13 +810,15 @@ namespace Matchmaker.Patterns
             Func<TInput> valueProvider,
             IComparer<TInput> comparer,
             string description)
-            => valueProvider != null
-                ? comparer != null
-                    ? CreatePattern<TInput>(
-                        input => comparer.Compare(input, valueProvider()) < 0,
-                        description ?? throw new ArgumentNullException(nameof(description)))
-                    : throw new ArgumentNullException(nameof(comparer))
-                : throw new ArgumentNullException(nameof(valueProvider));
+        {
+            var memoizedProvider = Memoize(valueProvider ?? throw new ArgumentNullException(nameof(valueProvider)));
+
+            return comparer != null
+                ? CreatePattern<TInput>(
+                    input => comparer.Compare(input, memoizedProvider()) < 0,
+                    description ?? throw new ArgumentNullException(nameof(description)))
+                : throw new ArgumentNullException(nameof(comparer));
+        }
 
         /// <summary>
         /// Returns a pattern which is matched successfully when the input value is less than or equal
@@ -958,6 +1001,18 @@ namespace Matchmaker.Patterns
         /// <returns>
         /// A pattern which is matched successfully when the input value is less than or equal to the provided value.
         /// </returns>
+        /// <remarks>
+        /// <para>
+        /// The <paramref name="valueProvider" /> is not called until this pattern's
+        /// <see cref="Pattern{TInput, TMatchResult}.Match(TInput)" /> method is called.
+        /// </para>
+        /// <para>
+        /// The <paramref name="valueProvider" /> will be memoized, so it will be called once,
+        /// and then its result will be cached. The caching process is not thread-safe,
+        /// so there is a chance that the <paramref name="valueProvider" /> can be called
+        /// more than once.
+        /// </para>
+        /// </remarks>
         /// <exception cref="ArgumentNullException">
         /// <paramref name="valueProvider" />, <paramref name="comparer" /> or <paramref name="description" />
         /// is <see langword="null" />.
@@ -973,13 +1028,15 @@ namespace Matchmaker.Patterns
             Func<TInput> valueProvider,
             IComparer<TInput> comparer,
             string description)
-            => valueProvider != null
-                ? comparer != null
-                    ? CreatePattern<TInput>(
-                        input => comparer.Compare(input, valueProvider()) <= 0,
-                        description ?? throw new ArgumentNullException(nameof(description)))
-                    : throw new ArgumentNullException(nameof(comparer))
-                : throw new ArgumentNullException(nameof(valueProvider));
+        {
+            var memoizedProvider = Memoize(valueProvider ?? throw new ArgumentNullException(nameof(valueProvider)));
+
+            return comparer != null
+                ? CreatePattern<TInput>(
+                    input => comparer.Compare(input, memoizedProvider()) <= 0,
+                    description ?? throw new ArgumentNullException(nameof(description)))
+                : throw new ArgumentNullException(nameof(comparer));
+        }
 
         /// <summary>
         /// Returns a pattern which is matched successfully when the input value is greater than the specified value.
@@ -1158,6 +1215,18 @@ namespace Matchmaker.Patterns
         /// <returns>
         /// A pattern which is matched successfully when the input value is greater than the provided value.
         /// </returns>
+        /// <remarks>
+        /// <para>
+        /// The <paramref name="valueProvider" /> is not called until this pattern's
+        /// <see cref="Pattern{TInput, TMatchResult}.Match(TInput)" /> method is called.
+        /// </para>
+        /// <para>
+        /// The <paramref name="valueProvider" /> will be memoized, so it will be called once,
+        /// and then its result will be cached. The caching process is not thread-safe,
+        /// so there is a chance that the <paramref name="valueProvider" /> can be called
+        /// more than once.
+        /// </para>
+        /// </remarks>
         /// <exception cref="ArgumentNullException">
         /// <paramref name="valueProvider" />, <paramref name="comparer" /> or <paramref name="description" />
         /// is <see langword="null" />.
@@ -1173,13 +1242,15 @@ namespace Matchmaker.Patterns
             Func<TInput> valueProvider,
             IComparer<TInput> comparer,
             string description)
-            => valueProvider != null
-                ? comparer != null
-                    ? CreatePattern<TInput>(
-                        input => comparer.Compare(input, valueProvider()) > 0,
-                        description ?? throw new ArgumentNullException(nameof(description)))
-                    : throw new ArgumentNullException(nameof(comparer))
-                : throw new ArgumentNullException(nameof(valueProvider));
+        {
+            var memoizedProvider = Memoize(valueProvider ?? throw new ArgumentNullException(nameof(valueProvider)));
+
+            return comparer != null
+                ? CreatePattern<TInput>(
+                    input => comparer.Compare(input, memoizedProvider()) > 0,
+                    description ?? throw new ArgumentNullException(nameof(description)))
+                : throw new ArgumentNullException(nameof(comparer));
+        }
 
         /// <summary>
         /// Returns a pattern which is matched successfully when the input value is greater than or equal
@@ -1371,6 +1442,18 @@ namespace Matchmaker.Patterns
         /// A pattern which is matched successfully when the input value is greater than
         /// or equal to the provided value.
         /// </returns>
+        /// <remarks>
+        /// <para>
+        /// The <paramref name="valueProvider" /> is not called until this pattern's
+        /// <see cref="Pattern{TInput, TMatchResult}.Match(TInput)" /> method is called.
+        /// </para>
+        /// <para>
+        /// The <paramref name="valueProvider" /> will be memoized, so it will be called once,
+        /// and then its result will be cached. The caching process is not thread-safe,
+        /// so there is a chance that the <paramref name="valueProvider" /> can be called
+        /// more than once.
+        /// </para>
+        /// </remarks>
         /// <exception cref="ArgumentNullException">
         /// <paramref name="valueProvider" />, <paramref name="comparer" /> or <paramref name="description" />
         /// is <see langword="null" />.
@@ -1386,13 +1469,15 @@ namespace Matchmaker.Patterns
             Func<TInput> valueProvider,
             IComparer<TInput> comparer,
             string description)
-            => valueProvider != null
-                ? comparer != null
-                    ? CreatePattern<TInput>(
-                        input => comparer.Compare(input, valueProvider()) >= 0,
-                        description ?? throw new ArgumentNullException(nameof(description)))
-                    : throw new ArgumentNullException(nameof(comparer))
-                : throw new ArgumentNullException(nameof(valueProvider));
+        {
+            var memoizedProvider = Memoize(valueProvider ?? throw new ArgumentNullException(nameof(valueProvider)));
+
+            return comparer != null
+                ? CreatePattern<TInput>(
+                    input => comparer.Compare(input, memoizedProvider()) >= 0,
+                    description ?? throw new ArgumentNullException(nameof(description)))
+                : throw new ArgumentNullException(nameof(comparer));
+        }
 
         /// <summary>
         /// Returns a pattern which is matched successfully when the input value is of the specified type.
@@ -1494,5 +1579,28 @@ namespace Matchmaker.Patterns
                     input => !pattern.Match(input).IsSuccessful,
                     description ?? throw new ArgumentNullException(nameof(description)))
                 : throw new ArgumentNullException(nameof(pattern));
+
+        /// <summary>
+        /// Memoizes the specified function.
+        /// </summary>
+        /// <typeparam name="T">The type of the function's result.</typeparam>
+        /// <param name="function">The function to memoize.</param>
+        /// <returns>The memoized version of the specified function.</returns>
+        private static Func<T> Memoize<T>(Func<T> function)
+        {
+            T result = default;
+            bool isMemoized = false;
+
+            return () =>
+            {
+                if (!isMemoized)
+                {
+                    result = function();
+                    isMemoized = true;
+                }
+
+                return result;
+            };
+        }
     }
 }

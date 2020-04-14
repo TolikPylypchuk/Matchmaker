@@ -220,7 +220,8 @@ namespace Matchmaker.Patterns
         [Fact]
         public void LazyReturnShouldBeLazy()
         {
-            Action action = () => Pattern.Return<string, string>(() => throw new AssertionFailedException("not lazy"));
+            Action action = () => Pattern.Return<string, string>(
+                () => throw new AssertionFailedException("Lazy Return is not lazy"));
             action.Should().NotThrow<AssertionFailedException>();
         }
 
@@ -230,9 +231,50 @@ namespace Matchmaker.Patterns
             if (description != null)
             {
                 Action action = () => Pattern.Return<string, string>(
-                    () => throw new AssertionFailedException("not lazy"), description);
+                    () => throw new AssertionFailedException("Lazy Return is not lazy"), description);
                 action.Should().NotThrow<AssertionFailedException>();
             }
+        }
+
+        [Property]
+        public Property LazyReturnShouldBeMemoized(string input)
+        {
+            int counter = 0;
+
+            var pattern = Pattern.Return<string, string>(() =>
+            {
+                counter++;
+                return String.Empty;
+            });
+
+            pattern.Match(input);
+            pattern.Match(input);
+
+            return (counter == 1).ToProperty();
+        }
+
+        [Property]
+        public Property LazyReturnWithDescriptionShouldBeMemoized(string input, string description)
+        {
+            Func<bool> lazyReturnIsMemoized = () =>
+            {
+                int counter = 0;
+
+                var pattern = Pattern.Return<string, string>(
+                    () =>
+                    {
+                        counter++;
+                        return String.Empty;
+                    },
+                    description);
+
+                pattern.Match(input);
+                pattern.Match(input);
+
+                return counter == 1;
+            };
+
+            return lazyReturnIsMemoized.When(description != null);
         }
 
         [Property]

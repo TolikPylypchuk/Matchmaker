@@ -173,6 +173,91 @@ namespace Matchmaker.Patterns
         }
 
         [Property]
+        public Property LazyLessThanShouldBeMemoized(string input)
+        {
+            int counter = 0;
+
+            var pattern = Pattern.LessThan(() =>
+            {
+                counter++;
+                return String.Empty;
+            });
+
+            pattern.Match(input);
+            pattern.Match(input);
+
+            return (counter == 1).ToProperty();
+        }
+
+        [Property]
+        public Property LazyLessThanWithComparerShouldBeMemoized(string input)
+        {
+            int counter = 0;
+
+            var pattern = Pattern.LessThan(
+                () =>
+                {
+                    counter++;
+                    return String.Empty;
+                },
+                StringComparer);
+
+            pattern.Match(input);
+            pattern.Match(input);
+
+            return (counter == 1).ToProperty();
+        }
+
+        [Property]
+        public Property LazyLessThanWithDescriptionShouldBeMemoized(string input, string description)
+        {
+            Func<bool> lazyReturnIsMemoized = () =>
+            {
+                int counter = 0;
+
+                var pattern = Pattern.LessThan(
+                    () =>
+                    {
+                        counter++;
+                        return String.Empty;
+                    },
+                    description);
+
+                pattern.Match(input);
+                pattern.Match(input);
+
+                return counter == 1;
+            };
+
+            return lazyReturnIsMemoized.When(description != null);
+        }
+
+        [Property]
+        public Property LazyLessThanWithComparerAndDescriptionShouldBeMemoized(string input, string description)
+        {
+            Func<bool> lazyReturnIsMemoized = () =>
+            {
+                int counter = 0;
+
+                var pattern = Pattern.LessThan(
+                    () =>
+                    {
+                        counter++;
+                        return String.Empty;
+                    },
+                    StringComparer,
+                    description);
+
+                pattern.Match(input);
+                pattern.Match(input);
+
+                return counter == 1;
+            };
+
+            return lazyReturnIsMemoized.When(description != null);
+        }
+
+        [Property]
         public void LessThanShouldThrowIfComparerIsNull(string x)
         {
             Action action = () => Pattern.LessThan(x, (IComparer<string>)null);

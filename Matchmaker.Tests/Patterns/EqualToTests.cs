@@ -173,6 +173,91 @@ namespace Matchmaker.Patterns
         }
 
         [Property]
+        public Property LazyEqualToShouldBeMemoized(string input)
+        {
+            int counter = 0;
+
+            var pattern = Pattern.EqualTo(() =>
+            {
+                counter++;
+                return String.Empty;
+            });
+
+            pattern.Match(input);
+            pattern.Match(input);
+
+            return (counter == 1).ToProperty();
+        }
+
+        [Property]
+        public Property LazyEqualToWithComparerShouldBeMemoized(string input)
+        {
+            int counter = 0;
+
+            var pattern = Pattern.EqualTo(
+                () =>
+                {
+                    counter++;
+                    return String.Empty;
+                },
+                StringEqualityComparer);
+
+            pattern.Match(input);
+            pattern.Match(input);
+
+            return (counter == 1).ToProperty();
+        }
+
+        [Property]
+        public Property LazyEqualToWithDescriptionShouldBeMemoized(string input, string description)
+        {
+            Func<bool> lazyReturnIsMemoized = () =>
+            {
+                int counter = 0;
+
+                var pattern = Pattern.EqualTo(
+                    () =>
+                    {
+                        counter++;
+                        return String.Empty;
+                    },
+                    description);
+
+                pattern.Match(input);
+                pattern.Match(input);
+
+                return counter == 1;
+            };
+
+            return lazyReturnIsMemoized.When(description != null);
+        }
+
+        [Property]
+        public Property LazyEqualToWithComparerAndDescriptionShouldBeMemoized(string input, string description)
+        {
+            Func<bool> lazyReturnIsMemoized = () =>
+            {
+                int counter = 0;
+
+                var pattern = Pattern.EqualTo(
+                    () =>
+                    {
+                        counter++;
+                        return String.Empty;
+                    },
+                    StringEqualityComparer,
+                    description);
+
+                pattern.Match(input);
+                pattern.Match(input);
+
+                return counter == 1;
+            };
+
+            return lazyReturnIsMemoized.When(description != null);
+        }
+
+        [Property]
         public void EqualToShouldThrowIfComparerIsNull(string x)
         {
             Action action = () => Pattern.EqualTo(x, (IEqualityComparer<string>)null);
