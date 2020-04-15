@@ -5,7 +5,6 @@ using System.Linq;
 using FluentAssertions;
 
 using FsCheck;
-using FsCheck.Xunit;
 
 using Xunit;
 
@@ -13,10 +12,10 @@ namespace Matchmaker.Linq
 {
     public class EnumerableTests
     {
-        [Property]
-        public Property EnumerateForcesEnumeration(int count)
+        [Fact]
+        public Property EnumerateForcesEnumeration()
         {
-            count = Math.Abs(count) % 100;
+            const int count = 100;
 
             int result = 0;
 

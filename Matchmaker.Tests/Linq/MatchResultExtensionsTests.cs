@@ -1,5 +1,5 @@
 using System;
-using System.Linq;
+
 using FluentAssertions;
 using FluentAssertions.Execution;
 
@@ -138,12 +138,9 @@ namespace Matchmaker.Linq
         }
 
         [Property(Arbitrary = new[] { typeof(Generators) })]
-        public Property CastShouldCastValueOfCorrectTypeIfResultIsSuccessful(string value)
-        {
-            Func<bool> castCastsValueOfCorrectTypeIfResultIsSuccessful = () =>
-                    MatchResult.Success<object>(value).Cast<object, string>() == MatchResult.Success(value);
-            return castCastsValueOfCorrectTypeIfResultIsSuccessful.When(value != null);
-        }
+        public Property CastShouldCastValueOfCorrectTypeIfResultIsSuccessful(NonNull<string> value)
+            => (MatchResult.Success<object>(value.Get).Cast<object, string>() == MatchResult.Success(value.Get))
+                .ToProperty();
 
         [Fact]
         public Property CastShouldFailIfResultIsSuccessfulAndContainsNull()

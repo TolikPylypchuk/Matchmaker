@@ -114,7 +114,7 @@ namespace Matchmaker.Patterns
         /// <summary>
         /// The default description of piping patterns.
         /// </summary>
-        public static readonly string DefaultPipeDescriptionFormat = "({0}) = ({1})";
+        public static readonly string DefaultPipeDescriptionFormat = "({0}) => ({1})";
 
         /// <summary>
         /// The default description of the 'and' pattern combinator.

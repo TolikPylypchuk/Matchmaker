@@ -36,58 +36,51 @@ namespace Matchmaker.Patterns
                 .ToProperty();
 
         [Property]
-        public Property LessOrEqualWithDescriptionShouldSucceedOnlyOnLessOrEqual(string x, string y, string description)
-        {
-            Func<bool> lessOrEqualSucceedsOnlyOnLessOrEqual = () =>
-                Comparer<string>.Default.Compare(x, y) <= 0 ==
-                Pattern.LessOrEqual(y, description).Match(x).IsSuccessful;
-            return lessOrEqualSucceedsOnlyOnLessOrEqual.When(description != null);
-        }
+        public Property LessOrEqualWithDescriptionShouldSucceedOnlyOnLessOrEqual(
+            string x,
+            string y,
+            NonNull<string> description)
+            => (Comparer<string>.Default.Compare(x, y) <= 0 ==
+                Pattern.LessOrEqual(y, description.Get).Match(x).IsSuccessful)
+                .ToProperty();
 
         [Property]
         public Property LazyLessOrEqualWithDescriptionShouldSucceedOnlyOnLessOrEqual(
             string x,
             string y,
-            string description)
-        {
-            Func<bool> lessOrEqualSucceedsOnlyOnLessOrEqual = () =>
-                Comparer<string>.Default.Compare(x, y) <= 0 ==
-                Pattern.LessOrEqual(() => y, description).Match(x).IsSuccessful;
-            return lessOrEqualSucceedsOnlyOnLessOrEqual.When(description != null);
-        }
+            NonNull<string> description)
+            => (Comparer<string>.Default.Compare(x, y) <= 0 ==
+                Pattern.LessOrEqual(() => y, description.Get).Match(x).IsSuccessful)
+                .ToProperty();
 
         [Property]
         public Property LessOrEqualWithComparerAndDescriptionShouldSucceedOnlyOnLessOrEqual(
             string x,
             string y,
-            string description)
-        {
-            Func<bool> lessOrEqualSucceedsOnlyOnLessOrEqual = () =>
-                StringComparer.Compare(x, y) <= 0 ==
-                Pattern.LessOrEqual(y, StringComparer, description).Match(x).IsSuccessful;
-            return lessOrEqualSucceedsOnlyOnLessOrEqual.When(description != null);
-        }
+            NonNull<string> description)
+            => (StringComparer.Compare(x, y) <= 0 ==
+                Pattern.LessOrEqual(y, StringComparer, description.Get).Match(x).IsSuccessful)
+                .ToProperty();
 
         [Property]
         public Property LazyLessOrEqualWithComparerAndDescriptionShouldSucceedOnlyOnLessOrEqual(
             string x,
             string y,
-            string description)
-        {
-            Func<bool> lessOrEqualSucceedsOnlyOnLessOrEqual = () =>
-                StringComparer.Compare(x, y) <= 0 ==
-                Pattern.LessOrEqual(() => y, StringComparer, description).Match(x).IsSuccessful;
-            return lessOrEqualSucceedsOnlyOnLessOrEqual.When(description != null);
-        }
+            NonNull<string> description)
+            => (StringComparer.Compare(x, y) <= 0 ==
+                Pattern.LessOrEqual(() => y, StringComparer, description.Get).Match(x).IsSuccessful)
+                .ToProperty();
 
         [Property]
         public Property LessOrEqualShouldHaveCorrectDefaultDescription(string x)
-            => (Pattern.LessOrEqual(x).Description == String.Format(Pattern.DefaultLessOrEqualDescriptionFormat, x))
+            => (Pattern.LessOrEqual(x).Description ==
+                String.Format(Pattern.DefaultLessOrEqualDescriptionFormat, x))
                 .ToProperty();
 
         [Property]
         public Property LazyLessOrEqualShouldHaveCorrectDefaultDescription(string x)
-            => (Pattern.LessOrEqual(() => x).Description == Pattern.DefaultLazyLessOrEqualDescription).ToProperty();
+            => (Pattern.LessOrEqual(() => x).Description == Pattern.DefaultLazyLessOrEqualDescription)
+                .ToProperty();
 
         [Property]
         public Property LessOrEqualWithComparerShouldHaveCorrectDefaultDescription(string x)
@@ -97,40 +90,28 @@ namespace Matchmaker.Patterns
 
         [Property]
         public Property LazyLessOrEqualWithComparerShouldHaveCorrectDefaultDescription(string x)
-            => (Pattern.LessOrEqual(() => x, StringComparer).Description == Pattern.DefaultLazyLessOrEqualDescription)
+            => (Pattern.LessOrEqual(() => x, StringComparer).Description ==
+                Pattern.DefaultLazyLessOrEqualDescription)
                 .ToProperty();
 
         [Property]
-        public Property LessOrEqualShouldHaveSpecifiedDescription(string x, string description)
-        {
-            Func<bool> lessOrEqualHasCorrectDefaultDescription = () =>
-                Pattern.LessOrEqual(x, description).Description == description;
-            return lessOrEqualHasCorrectDefaultDescription.When(description != null);
-        }
+        public Property LessOrEqualShouldHaveSpecifiedDescription(string x, NonNull<string> description)
+            => (Pattern.LessOrEqual(x, description.Get).Description == description.Get).ToProperty();
 
         [Property]
-        public Property LazyLessOrEqualShouldHaveSpecifiedDescription(string x, string description)
-        {
-            Func<bool> lessOrEqualHasCorrectDefaultDescription = () =>
-                Pattern.LessOrEqual(() => x, description).Description == description;
-            return lessOrEqualHasCorrectDefaultDescription.When(description != null);
-        }
+        public Property LazyLessOrEqualShouldHaveSpecifiedDescription(string x, NonNull<string> description)
+            => (Pattern.LessOrEqual(() => x, description.Get).Description == description.Get).ToProperty();
 
         [Property]
-        public Property LessOrEqualWithComparerShouldHaveSpecifiedDescription(string x, string description)
-        {
-            Func<bool> lessOrEqualHasCorrectDefaultDescription = () =>
-                Pattern.LessOrEqual(x, StringComparer, description).Description == description;
-            return lessOrEqualHasCorrectDefaultDescription.When(description != null);
-        }
+        public Property LessOrEqualWithComparerShouldHaveSpecifiedDescription(string x, NonNull<string> description)
+            => (Pattern.LessOrEqual(x, StringComparer, description.Get).Description == description.Get).ToProperty();
 
         [Property]
-        public Property LazyLessOrEqualWithComparerShouldHaveSpecifiedDescription(string x, string description)
-        {
-            Func<bool> lessOrEqualHasCorrectDefaultDescription = () =>
-                Pattern.LessOrEqual(() => x, StringComparer, description).Description == description;
-            return lessOrEqualHasCorrectDefaultDescription.When(description != null);
-        }
+        public Property LazyLessOrEqualWithComparerShouldHaveSpecifiedDescription(
+            string x,
+            NonNull<string> description)
+            => (Pattern.LessOrEqual(() => x, StringComparer, description.Get).Description == description.Get)
+                .ToProperty();
 
         [Fact]
         public void LazyLessOrEqualShouldBeLazy()
@@ -150,28 +131,22 @@ namespace Matchmaker.Patterns
         }
 
         [Property]
-        public void LazyLessOrEqualWithDescriptionShouldBeLazy(string description)
+        public void LazyLessOrEqualWithDescriptionShouldBeLazy(NonNull<string> description)
         {
-            if (description != null)
-            {
-                Action action = () => Pattern.LessOrEqual<string>(
-                    () => throw new AssertionFailedException("Lazy LessOrEqual is not lazy"),
-                    description);
-                action.Should().NotThrow<AssertionFailedException>();
-            }
+            Action action = () => Pattern.LessOrEqual<string>(
+                () => throw new AssertionFailedException("Lazy LessOrEqual is not lazy"),
+                description.Get);
+            action.Should().NotThrow<AssertionFailedException>();
         }
 
         [Property]
-        public void LazyLessOrEqualWithComparerAndDescriptionShouldBeLazy(string description)
+        public void LazyLessOrEqualWithComparerAndDescriptionShouldBeLazy(NonNull<string> description)
         {
-            if (description != null)
-            {
-                Action action = () => Pattern.LessOrEqual(
-                    () => throw new AssertionFailedException("Lazy LessOrEqual is not lazy"),
-                    StringComparer,
-                    description);
-                action.Should().NotThrow<AssertionFailedException>();
-            }
+            Action action = () => Pattern.LessOrEqual(
+                () => throw new AssertionFailedException("Lazy LessOrEqual is not lazy"),
+                StringComparer,
+                description.Get);
+            action.Should().NotThrow<AssertionFailedException>();
         }
 
         [Property]
@@ -211,52 +186,44 @@ namespace Matchmaker.Patterns
         }
 
         [Property]
-        public Property LazyLessOrEqualWithDescriptionShouldBeMemoized(string input, string description)
+        public Property LazyLessOrEqualWithDescriptionShouldBeMemoized(string input, NonNull<string> description)
         {
-            Func<bool> lazyReturnIsMemoized = () =>
-            {
-                int counter = 0;
+            int counter = 0;
 
-                var pattern = Pattern.LessOrEqual(
-                    () =>
-                    {
-                        counter++;
-                        return String.Empty;
-                    },
-                    description);
+            var pattern = Pattern.LessOrEqual(
+                () =>
+                {
+                    counter++;
+                    return String.Empty;
+                },
+                description.Get);
 
-                pattern.Match(input);
-                pattern.Match(input);
+            pattern.Match(input);
+            pattern.Match(input);
 
-                return counter == 1;
-            };
-
-            return lazyReturnIsMemoized.When(description != null);
+            return (counter == 1).ToProperty();
         }
 
         [Property]
-        public Property LazyLessOrEqualWithComparerAndDescriptionShouldBeMemoized(string input, string description)
+        public Property LazyLessOrEqualWithComparerAndDescriptionShouldBeMemoized(
+            string input,
+            NonNull<string> description)
         {
-            Func<bool> lazyReturnIsMemoized = () =>
-            {
-                int counter = 0;
+            int counter = 0;
 
-                var pattern = Pattern.LessOrEqual(
-                    () =>
-                    {
-                        counter++;
-                        return String.Empty;
-                    },
-                    StringComparer,
-                    description);
+            var pattern = Pattern.LessOrEqual(
+                () =>
+                {
+                    counter++;
+                    return String.Empty;
+                },
+                StringComparer,
+                description.Get);
 
-                pattern.Match(input);
-                pattern.Match(input);
+            pattern.Match(input);
+            pattern.Match(input);
 
-                return counter == 1;
-            };
-
-            return lazyReturnIsMemoized.When(description != null);
+            return (counter == 1).ToProperty();
         }
 
         [Property]
@@ -288,23 +255,21 @@ namespace Matchmaker.Patterns
         }
 
         [Property]
-        public void LessOrEqualShouldThrowIfComparerIsNullAndDescriptionIsNotNull(string x, string description)
+        public void LessOrEqualShouldThrowIfComparerIsNullAndDescriptionIsNotNull(
+            string x,
+            NonNull<string> description)
         {
-            if (description != null)
-            {
-                Action action = () => Pattern.LessOrEqual(x, null, description);
-                action.Should().Throw<ArgumentNullException>();
-            }
+            Action action = () => Pattern.LessOrEqual(x, null, description.Get);
+            action.Should().Throw<ArgumentNullException>();
         }
 
         [Property]
-        public void LazyLessOrEqualShouldThrowIfComparerIsNullAndDescriptionIsNotNull(string x, string description)
+        public void LazyLessOrEqualShouldThrowIfComparerIsNullAndDescriptionIsNotNull(
+            string x,
+            NonNull<string> description)
         {
-            if (description != null)
-            {
-                Action action = () => Pattern.LessOrEqual(() => x, null, description);
-                action.Should().Throw<ArgumentNullException>();
-            }
+            Action action = () => Pattern.LessOrEqual(() => x, null, description.Get);
+            action.Should().Throw<ArgumentNullException>();
         }
 
         [Property]
@@ -336,23 +301,19 @@ namespace Matchmaker.Patterns
         }
 
         [Property]
-        public void LazyLessOrEqualShouldThrowIfValueProviderIsNullAndDescriptionIsNotNull(string description)
+        public void LazyLessOrEqualShouldThrowIfValueProviderIsNullAndDescriptionIsNotNull(
+            NonNull<string> description)
         {
-            if (description != null)
-            {
-                Action action = () => Pattern.LessOrEqual((Func<string>)null, description);
-                action.Should().Throw<ArgumentNullException>();
-            }
+            Action action = () => Pattern.LessOrEqual((Func<string>)null, description.Get);
+            action.Should().Throw<ArgumentNullException>();
         }
 
         [Property]
-        public void LazyLessOrEqualShouldThrowIfValueProviderIsNullAndComparerAndDescriptionIsNotNull(string description)
+        public void LazyLessOrEqualShouldThrowIfValueProviderIsNullAndComparerAndDescriptionIsNotNull(
+            NonNull<string> description)
         {
-            if (description != null)
-            {
-                Action action = () => Pattern.LessOrEqual((Func<string>)null, StringComparer, description);
-                action.Should().Throw<ArgumentNullException>();
-            }
+            Action action = () => Pattern.LessOrEqual((Func<string>)null, StringComparer, description.Get);
+            action.Should().Throw<ArgumentNullException>();
         }
     }
 }

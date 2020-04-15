@@ -36,58 +36,51 @@ namespace Matchmaker.Patterns
                 .ToProperty();
 
         [Property]
-        public Property GreaterOrEqualWithDescriptionShouldSucceedOnlyOnGreaterOrEqual(string x, string y, string description)
-        {
-            Func<bool> greaterOrEqualSucceedsOnlyOnGreaterOrEqual = () =>
-                Comparer<string>.Default.Compare(x, y) >= 0 ==
-                Pattern.GreaterOrEqual(y, description).Match(x).IsSuccessful;
-            return greaterOrEqualSucceedsOnlyOnGreaterOrEqual.When(description != null);
-        }
+        public Property GreaterOrEqualWithDescriptionShouldSucceedOnlyOnGreaterOrEqual(
+            string x,
+            string y,
+            NonNull<string> description)
+            => (Comparer<string>.Default.Compare(x, y) >= 0 ==
+                Pattern.GreaterOrEqual(y, description.Get).Match(x).IsSuccessful)
+                .ToProperty();
 
         [Property]
         public Property LazyGreaterOrEqualWithDescriptionShouldSucceedOnlyOnGreaterOrEqual(
             string x,
             string y,
-            string description)
-        {
-            Func<bool> greaterOrEqualSucceedsOnlyOnGreaterOrEqual = () =>
-                Comparer<string>.Default.Compare(x, y) >= 0 ==
-                Pattern.GreaterOrEqual(() => y, description).Match(x).IsSuccessful;
-            return greaterOrEqualSucceedsOnlyOnGreaterOrEqual.When(description != null);
-        }
+            NonNull<string> description)
+            => (Comparer<string>.Default.Compare(x, y) >= 0 ==
+                Pattern.GreaterOrEqual(() => y, description.Get).Match(x).IsSuccessful)
+                .ToProperty();
 
         [Property]
         public Property GreaterOrEqualWithComparerAndDescriptionShouldSucceedOnlyOnGreaterOrEqual(
             string x,
             string y,
-            string description)
-        {
-            Func<bool> greaterOrEqualSucceedsOnlyOnGreaterOrEqual = () =>
-                StringComparer.Compare(x, y) >= 0 ==
-                Pattern.GreaterOrEqual(y, StringComparer, description).Match(x).IsSuccessful;
-            return greaterOrEqualSucceedsOnlyOnGreaterOrEqual.When(description != null);
-        }
+            NonNull<string> description)
+            => (StringComparer.Compare(x, y) >= 0 ==
+                Pattern.GreaterOrEqual(y, StringComparer, description.Get).Match(x).IsSuccessful)
+                .ToProperty();
 
         [Property]
         public Property LazyGreaterOrEqualWithComparerAndDescriptionShouldSucceedOnlyOnGreaterOrEqual(
             string x,
             string y,
-            string description)
-        {
-            Func<bool> greaterOrEqualSucceedsOnlyOnGreaterOrEqual = () =>
-                StringComparer.Compare(x, y) >= 0 ==
-                Pattern.GreaterOrEqual(() => y, StringComparer, description).Match(x).IsSuccessful;
-            return greaterOrEqualSucceedsOnlyOnGreaterOrEqual.When(description != null);
-        }
+            NonNull<string> description)
+            => (StringComparer.Compare(x, y) >= 0 ==
+                Pattern.GreaterOrEqual(() => y, StringComparer, description.Get).Match(x).IsSuccessful)
+                .ToProperty();
 
         [Property]
         public Property GreaterOrEqualShouldHaveCorrectDefaultDescription(string x)
-            => (Pattern.GreaterOrEqual(x).Description == String.Format(Pattern.DefaultGreaterOrEqualDescriptionFormat, x))
+            => (Pattern.GreaterOrEqual(x).Description ==
+                String.Format(Pattern.DefaultGreaterOrEqualDescriptionFormat, x))
                 .ToProperty();
 
         [Property]
         public Property LazyGreaterOrEqualShouldHaveCorrectDefaultDescription(string x)
-            => (Pattern.GreaterOrEqual(() => x).Description == Pattern.DefaultLazyGreaterOrEqualDescription).ToProperty();
+            => (Pattern.GreaterOrEqual(() => x).Description == Pattern.DefaultLazyGreaterOrEqualDescription)
+                .ToProperty();
 
         [Property]
         public Property GreaterOrEqualWithComparerShouldHaveCorrectDefaultDescription(string x)
@@ -97,40 +90,28 @@ namespace Matchmaker.Patterns
 
         [Property]
         public Property LazyGreaterOrEqualWithComparerShouldHaveCorrectDefaultDescription(string x)
-            => (Pattern.GreaterOrEqual(() => x, StringComparer).Description == Pattern.DefaultLazyGreaterOrEqualDescription)
+            => (Pattern.GreaterOrEqual(() => x, StringComparer).Description ==
+                Pattern.DefaultLazyGreaterOrEqualDescription)
                 .ToProperty();
 
         [Property]
-        public Property GreaterOrEqualShouldHaveSpecifiedDescription(string x, string description)
-        {
-            Func<bool> greaterOrEqualHasCorrectDefaultDescription = () =>
-                Pattern.GreaterOrEqual(x, description).Description == description;
-            return greaterOrEqualHasCorrectDefaultDescription.When(description != null);
-        }
+        public Property GreaterOrEqualShouldHaveSpecifiedDescription(string x, NonNull<string> description)
+            => (Pattern.GreaterOrEqual(x, description.Get).Description == description.Get).ToProperty();
 
         [Property]
-        public Property LazyGreaterOrEqualShouldHaveSpecifiedDescription(string x, string description)
-        {
-            Func<bool> greaterOrEqualHasCorrectDefaultDescription = () =>
-                Pattern.GreaterOrEqual(() => x, description).Description == description;
-            return greaterOrEqualHasCorrectDefaultDescription.When(description != null);
-        }
+        public Property LazyGreaterOrEqualShouldHaveSpecifiedDescription(string x, NonNull<string> description)
+            => (Pattern.GreaterOrEqual(() => x, description.Get).Description == description.Get).ToProperty();
 
         [Property]
-        public Property GreaterOrEqualWithComparerShouldHaveSpecifiedDescription(string x, string description)
-        {
-            Func<bool> greaterOrEqualHasCorrectDefaultDescription = () =>
-                Pattern.GreaterOrEqual(x, StringComparer, description).Description == description;
-            return greaterOrEqualHasCorrectDefaultDescription.When(description != null);
-        }
+        public Property GreaterOrEqualWithComparerShouldHaveSpecifiedDescription(string x, NonNull<string> description)
+            => (Pattern.GreaterOrEqual(x, StringComparer, description.Get).Description == description.Get).ToProperty();
 
         [Property]
-        public Property LazyGreaterOrEqualWithComparerShouldHaveSpecifiedDescription(string x, string description)
-        {
-            Func<bool> greaterOrEqualHasCorrectDefaultDescription = () =>
-                Pattern.GreaterOrEqual(() => x, StringComparer, description).Description == description;
-            return greaterOrEqualHasCorrectDefaultDescription.When(description != null);
-        }
+        public Property LazyGreaterOrEqualWithComparerShouldHaveSpecifiedDescription(
+            string x,
+            NonNull<string> description)
+            => (Pattern.GreaterOrEqual(() => x, StringComparer, description.Get).Description == description.Get)
+                .ToProperty();
 
         [Fact]
         public void LazyGreaterOrEqualShouldBeLazy()
@@ -150,28 +131,22 @@ namespace Matchmaker.Patterns
         }
 
         [Property]
-        public void LazyGreaterOrEqualWithDescriptionShouldBeLazy(string description)
+        public void LazyGreaterOrEqualWithDescriptionShouldBeLazy(NonNull<string> description)
         {
-            if (description != null)
-            {
-                Action action = () => Pattern.GreaterOrEqual<string>(
-                    () => throw new AssertionFailedException("Lazy GreaterOrEqual is not lazy"),
-                    description);
-                action.Should().NotThrow<AssertionFailedException>();
-            }
+            Action action = () => Pattern.GreaterOrEqual<string>(
+                () => throw new AssertionFailedException("Lazy GreaterOrEqual is not lazy"),
+                description.Get);
+            action.Should().NotThrow<AssertionFailedException>();
         }
 
         [Property]
-        public void LazyGreaterOrEqualWithComparerAndDescriptionShouldBeLazy(string description)
+        public void LazyGreaterOrEqualWithComparerAndDescriptionShouldBeLazy(NonNull<string> description)
         {
-            if (description != null)
-            {
-                Action action = () => Pattern.GreaterOrEqual(
-                    () => throw new AssertionFailedException("Lazy GreaterOrEqual is not lazy"),
-                    StringComparer,
-                    description);
-                action.Should().NotThrow<AssertionFailedException>();
-            }
+            Action action = () => Pattern.GreaterOrEqual(
+                () => throw new AssertionFailedException("Lazy GreaterOrEqual is not lazy"),
+                StringComparer,
+                description.Get);
+            action.Should().NotThrow<AssertionFailedException>();
         }
 
         [Property]
@@ -211,52 +186,44 @@ namespace Matchmaker.Patterns
         }
 
         [Property]
-        public Property LazyGreaterOrEqualWithDescriptionShouldBeMemoized(string input, string description)
+        public Property LazyGreaterOrEqualWithDescriptionShouldBeMemoized(string input, NonNull<string> description)
         {
-            Func<bool> lazyReturnIsMemoized = () =>
-            {
-                int counter = 0;
+            int counter = 0;
 
-                var pattern = Pattern.GreaterOrEqual(
-                    () =>
-                    {
-                        counter++;
-                        return String.Empty;
-                    },
-                    description);
+            var pattern = Pattern.GreaterOrEqual(
+                () =>
+                {
+                    counter++;
+                    return String.Empty;
+                },
+                description.Get);
 
-                pattern.Match(input);
-                pattern.Match(input);
+            pattern.Match(input);
+            pattern.Match(input);
 
-                return counter == 1;
-            };
-
-            return lazyReturnIsMemoized.When(description != null);
+            return (counter == 1).ToProperty();
         }
 
         [Property]
-        public Property LazyGreaterOrEqualWithComparerAndDescriptionShouldBeMemoized(string input, string description)
+        public Property LazyGreaterOrEqualWithComparerAndDescriptionShouldBeMemoized(
+            string input,
+            NonNull<string> description)
         {
-            Func<bool> lazyReturnIsMemoized = () =>
-            {
-                int counter = 0;
+            int counter = 0;
 
-                var pattern = Pattern.GreaterOrEqual(
-                    () =>
-                    {
-                        counter++;
-                        return String.Empty;
-                    },
-                    StringComparer,
-                    description);
+            var pattern = Pattern.GreaterOrEqual(
+                () =>
+                {
+                    counter++;
+                    return String.Empty;
+                },
+                StringComparer,
+                description.Get);
 
-                pattern.Match(input);
-                pattern.Match(input);
+            pattern.Match(input);
+            pattern.Match(input);
 
-                return counter == 1;
-            };
-
-            return lazyReturnIsMemoized.When(description != null);
+            return (counter == 1).ToProperty();
         }
 
         [Property]
@@ -288,23 +255,21 @@ namespace Matchmaker.Patterns
         }
 
         [Property]
-        public void GreaterOrEqualShouldThrowIfComparerIsNullAndDescriptionIsNotNull(string x, string description)
+        public void GreaterOrEqualShouldThrowIfComparerIsNullAndDescriptionIsNotNull(
+            string x,
+            NonNull<string> description)
         {
-            if (description != null)
-            {
-                Action action = () => Pattern.GreaterOrEqual(x, null, description);
-                action.Should().Throw<ArgumentNullException>();
-            }
+            Action action = () => Pattern.GreaterOrEqual(x, null, description.Get);
+            action.Should().Throw<ArgumentNullException>();
         }
 
         [Property]
-        public void LazyGreaterOrEqualShouldThrowIfComparerIsNullAndDescriptionIsNotNull(string x, string description)
+        public void LazyGreaterOrEqualShouldThrowIfComparerIsNullAndDescriptionIsNotNull(
+            string x,
+            NonNull<string> description)
         {
-            if (description != null)
-            {
-                Action action = () => Pattern.GreaterOrEqual(() => x, null, description);
-                action.Should().Throw<ArgumentNullException>();
-            }
+            Action action = () => Pattern.GreaterOrEqual(() => x, null, description.Get);
+            action.Should().Throw<ArgumentNullException>();
         }
 
         [Property]
@@ -336,23 +301,19 @@ namespace Matchmaker.Patterns
         }
 
         [Property]
-        public void LazyGreaterOrEqualShouldThrowIfValueProviderIsNullAndDescriptionIsNotNull(string description)
+        public void LazyGreaterOrEqualShouldThrowIfValueProviderIsNullAndDescriptionIsNotNull(
+            NonNull<string> description)
         {
-            if (description != null)
-            {
-                Action action = () => Pattern.GreaterOrEqual((Func<string>)null, description);
-                action.Should().Throw<ArgumentNullException>();
-            }
+            Action action = () => Pattern.GreaterOrEqual((Func<string>)null, description.Get);
+            action.Should().Throw<ArgumentNullException>();
         }
 
         [Property]
-        public void LazyGreaterOrEqualShouldThrowIfValueProviderIsNullAndComparerAndDescriptionIsNotNull(string description)
+        public void LazyGreaterOrEqualShouldThrowIfValueProviderIsNullAndComparerAndDescriptionIsNotNull(
+            NonNull<string> description)
         {
-            if (description != null)
-            {
-                Action action = () => Pattern.GreaterOrEqual((Func<string>)null, StringComparer, description);
-                action.Should().Throw<ArgumentNullException>();
-            }
+            Action action = () => Pattern.GreaterOrEqual((Func<string>)null, StringComparer, description.Get);
+            action.Should().Throw<ArgumentNullException>();
         }
     }
 }

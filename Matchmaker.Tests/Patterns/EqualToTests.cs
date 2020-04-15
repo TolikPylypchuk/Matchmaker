@@ -36,47 +36,36 @@ namespace Matchmaker.Patterns
                 .ToProperty();
 
         [Property]
-        public Property EqualToWithDescriptionShouldSucceedOnlyOnEqualObjects(string x, string y, string description)
-        {
-            Func<bool> equalToSucceedsOnlyOnEqualObjects = () =>
-                Equals(x, y) == Pattern.EqualTo(y, description).Match(x).IsSuccessful;
-            return equalToSucceedsOnlyOnEqualObjects.When(description != null);
-        }
+        public Property EqualToWithDescriptionShouldSucceedOnlyOnEqualObjects(
+            string x,
+            string y,
+            NonNull<string> description)
+            => (Equals(x, y) == Pattern.EqualTo(y, description.Get).Match(x).IsSuccessful).ToProperty();
 
         [Property]
         public Property LazyEqualToWithDescriptionShouldSucceedOnlyOnEqualObjects(
             string x,
             string y,
-            string description)
-        {
-            Func<bool> equalToSucceedsOnlyOnEqualObjects = () =>
-                Equals(x, y) == Pattern.EqualTo(() => y, description).Match(x).IsSuccessful;
-            return equalToSucceedsOnlyOnEqualObjects.When(description != null);
-        }
+            NonNull<string> description)
+            => (Equals(x, y) == Pattern.EqualTo(() => y, description.Get).Match(x).IsSuccessful).ToProperty();
 
         [Property]
         public Property EqualToWithComparerAndDescriptionShouldSucceedOnlyOnEqualObjects(
             string x,
             string y,
-            string description)
-        {
-            Func<bool> equalToSucceedsOnlyOnEqualObjects = () =>
-                StringEqualityComparer.Equals(x, y) ==
-                Pattern.EqualTo(y, StringEqualityComparer, description).Match(x).IsSuccessful;
-            return equalToSucceedsOnlyOnEqualObjects.When(description != null);
-        }
+            NonNull<string> description)
+            => (StringEqualityComparer.Equals(x, y) ==
+                Pattern.EqualTo(y, StringEqualityComparer, description.Get).Match(x).IsSuccessful)
+                .ToProperty();
 
         [Property]
         public Property LazyEqualToWithComparerAndDescriptionShouldSucceedOnlyOnEqualObjects(
             string x,
             string y,
-            string description)
-        {
-            Func<bool> equalToSucceedsOnlyOnEqualObjects = () =>
-                StringEqualityComparer.Equals(x, y) ==
-                Pattern.EqualTo(() => y, StringEqualityComparer, description).Match(x).IsSuccessful;
-            return equalToSucceedsOnlyOnEqualObjects.When(description != null);
-        }
+            NonNull<string> description)
+            => (StringEqualityComparer.Equals(x, y) ==
+                Pattern.EqualTo(() => y, StringEqualityComparer, description.Get).Match(x).IsSuccessful)
+                .ToProperty();
 
         [Property]
         public Property EqualToShouldHaveCorrectDefaultDescription(string x)
@@ -99,36 +88,22 @@ namespace Matchmaker.Patterns
                 .ToProperty();
 
         [Property]
-        public Property EqualToShouldHaveSpecifiedDescription(string x, string description)
-        {
-            Func<bool> equalToHasCorrectDefaultDescription = () =>
-                Pattern.EqualTo(x, description).Description == description;
-            return equalToHasCorrectDefaultDescription.When(description != null);
-        }
+        public Property EqualToShouldHaveSpecifiedDescription(string x, NonNull<string> description)
+            => (Pattern.EqualTo(x, description.Get).Description == description.Get).ToProperty();
 
         [Property]
-        public Property LazyEqualToShouldHaveSpecifiedDescription(string x, string description)
-        {
-            Func<bool> equalToHasCorrectDefaultDescription = () =>
-                Pattern.EqualTo(() => x, description).Description == description;
-            return equalToHasCorrectDefaultDescription.When(description != null);
-        }
+        public Property LazyEqualToShouldHaveSpecifiedDescription(string x, NonNull<string> description)
+            => (Pattern.EqualTo(() => x, description.Get).Description == description.Get).ToProperty();
 
         [Property]
-        public Property EqualToWithComparerShouldHaveSpecifiedDescription(string x, string description)
-        {
-            Func<bool> equalToHasCorrectDefaultDescription = () =>
-                Pattern.EqualTo(x, StringEqualityComparer, description).Description == description;
-            return equalToHasCorrectDefaultDescription.When(description != null);
-        }
+        public Property EqualToWithComparerShouldHaveSpecifiedDescription(string x, NonNull<string> description)
+            => (Pattern.EqualTo(x, StringEqualityComparer, description.Get).Description == description.Get)
+                .ToProperty();
 
         [Property]
-        public Property LazyEqualToWithComparerShouldHaveSpecifiedDescription(string x, string description)
-        {
-            Func<bool> equalToHasCorrectDefaultDescription = () =>
-                Pattern.EqualTo(() => x, StringEqualityComparer, description).Description == description;
-            return equalToHasCorrectDefaultDescription.When(description != null);
-        }
+        public Property LazyEqualToWithComparerShouldHaveSpecifiedDescription(string x, NonNull<string> description)
+            => (Pattern.EqualTo(() => x, StringEqualityComparer, description.Get).Description == description.Get)
+                .ToProperty();
 
         [Fact]
         public void LazyEqualToShouldBeLazy()
@@ -148,28 +123,22 @@ namespace Matchmaker.Patterns
         }
 
         [Property]
-        public void LazyEqualToWithDescriptionShouldBeLazy(string description)
+        public void LazyEqualToWithDescriptionShouldBeLazy(NonNull<string> description)
         {
-            if (description != null)
-            {
-                Action action = () => Pattern.EqualTo<string>(
-                    () => throw new AssertionFailedException("Lazy EqualTo is not lazy"),
-                    description);
-                action.Should().NotThrow<AssertionFailedException>();
-            }
+            Action action = () => Pattern.EqualTo<string>(
+                () => throw new AssertionFailedException("Lazy EqualTo is not lazy"),
+                description.Get);
+            action.Should().NotThrow<AssertionFailedException>();
         }
 
         [Property]
-        public void LazyEqualToWithComparerAndDescriptionShouldBeLazy(string description)
+        public void LazyEqualToWithComparerAndDescriptionShouldBeLazy(NonNull<string> description)
         {
-            if (description != null)
-            {
-                Action action = () => Pattern.EqualTo(
-                    () => throw new AssertionFailedException("Lazy EqualTo is not lazy"),
-                    StringEqualityComparer,
-                    description);
-                action.Should().NotThrow<AssertionFailedException>();
-            }
+            Action action = () => Pattern.EqualTo(
+                () => throw new AssertionFailedException("Lazy EqualTo is not lazy"),
+                StringEqualityComparer,
+                description.Get);
+            action.Should().NotThrow<AssertionFailedException>();
         }
 
         [Property]
@@ -209,52 +178,42 @@ namespace Matchmaker.Patterns
         }
 
         [Property]
-        public Property LazyEqualToWithDescriptionShouldBeMemoized(string input, string description)
+        public Property LazyEqualToWithDescriptionShouldBeMemoized(string input, NonNull<string> description)
         {
-            Func<bool> lazyReturnIsMemoized = () =>
-            {
-                int counter = 0;
+            int counter = 0;
 
-                var pattern = Pattern.EqualTo(
-                    () =>
-                    {
-                        counter++;
-                        return String.Empty;
-                    },
-                    description);
+            var pattern = Pattern.EqualTo(
+                () =>
+                {
+                    counter++;
+                    return String.Empty;
+                },
+                description.Get);
 
-                pattern.Match(input);
-                pattern.Match(input);
+            pattern.Match(input);
+            pattern.Match(input);
 
-                return counter == 1;
-            };
-
-            return lazyReturnIsMemoized.When(description != null);
+            return (counter == 1).ToProperty();
         }
 
         [Property]
-        public Property LazyEqualToWithComparerAndDescriptionShouldBeMemoized(string input, string description)
+        public Property LazyEqualToWithComparerAndDescriptionShouldBeMemoized(string input, NonNull<string> description)
         {
-            Func<bool> lazyReturnIsMemoized = () =>
-            {
-                int counter = 0;
+            int counter = 0;
 
-                var pattern = Pattern.EqualTo(
-                    () =>
-                    {
-                        counter++;
-                        return String.Empty;
-                    },
-                    StringEqualityComparer,
-                    description);
+            var pattern = Pattern.EqualTo(
+                () =>
+                {
+                    counter++;
+                    return String.Empty;
+                },
+                StringEqualityComparer,
+                description.Get);
 
-                pattern.Match(input);
-                pattern.Match(input);
+            pattern.Match(input);
+            pattern.Match(input);
 
-                return counter == 1;
-            };
-
-            return lazyReturnIsMemoized.When(description != null);
+            return (counter == 1).ToProperty();
         }
 
         [Property]
@@ -286,23 +245,17 @@ namespace Matchmaker.Patterns
         }
 
         [Property]
-        public void EqualToShouldThrowIfComparerIsNullAndDescriptionIsNotNull(string x, string description)
+        public void EqualToShouldThrowIfComparerIsNullAndDescriptionIsNotNull(string x, NonNull<string> description)
         {
-            if (description != null)
-            {
-                Action action = () => Pattern.EqualTo(x, null, description);
-                action.Should().Throw<ArgumentNullException>();
-            }
+            Action action = () => Pattern.EqualTo(x, null, description.Get);
+            action.Should().Throw<ArgumentNullException>();
         }
 
         [Property]
-        public void LazyEqualToShouldThrowIfComparerIsNullAndDescriptionIsNotNull(string x, string description)
+        public void LazyEqualToShouldThrowIfComparerIsNullAndDescriptionIsNotNull(string x, NonNull<string> description)
         {
-            if (description != null)
-            {
-                Action action = () => Pattern.EqualTo(() => x, null, description);
-                action.Should().Throw<ArgumentNullException>();
-            }
+            Action action = () => Pattern.EqualTo(() => x, null, description.Get);
+            action.Should().Throw<ArgumentNullException>();
         }
 
         [Property]
@@ -334,23 +287,18 @@ namespace Matchmaker.Patterns
         }
 
         [Property]
-        public void LazyEqualToShouldThrowIfValueProviderIsNullAndDescriptionIsNotNull(string description)
+        public void LazyEqualToShouldThrowIfValueProviderIsNullAndDescriptionIsNotNull(NonNull<string> description)
         {
-            if (description != null)
-            {
-                Action action = () => Pattern.EqualTo((Func<string>)null, description);
-                action.Should().Throw<ArgumentNullException>();
-            }
+            Action action = () => Pattern.EqualTo((Func<string>)null, description.Get);
+            action.Should().Throw<ArgumentNullException>();
         }
 
         [Property]
-        public void LazyEqualToShouldThrowIfValueProviderIsNullAndComparerAndDescriptionIsNotNull(string description)
+        public void LazyEqualToShouldThrowIfValueProviderIsNullAndComparerAndDescriptionIsNotNull(
+            NonNull<string> description)
         {
-            if (description != null)
-            {
-                Action action = () => Pattern.EqualTo((Func<string>)null, StringEqualityComparer, description);
-                action.Should().Throw<ArgumentNullException>();
-            }
+            Action action = () => Pattern.EqualTo((Func<string>)null, StringEqualityComparer, description.Get);
+            action.Should().Throw<ArgumentNullException>();
         }
     }
 }

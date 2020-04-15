@@ -32,26 +32,19 @@ namespace Matchmaker.Linq
             IPattern<string, string> pattern,
             Func<string, int> mapper,
             string input,
-            string description)
-        {
-            Func<bool> selectPatternMatchesSameAsPattern = () =>
-                pattern.Select(mapper, description).Match(input).IsSuccessful == pattern.Match(input).IsSuccessful;
-            return selectPatternMatchesSameAsPattern.When(description != null);
-        }
+            NonNull<string> description)
+            => (pattern.Select(mapper, description.Get).Match(input).IsSuccessful == pattern.Match(input).IsSuccessful)
+                .ToProperty();
 
         [Property(Arbitrary = new[] { typeof(Generators) })]
         public Property SelectPatternWithDescriptionShouldHaveMappedResultWhenSuccessful(
             IPattern<string, string> pattern,
             Func<string, int> mapper,
             string input,
-            string description)
-        {
-            Func<bool> selectPatternHasMappedResult = () =>
-                pattern.Match(input).IsSuccessful.ImpliesThat(() =>
-                    pattern.Select(mapper, description).Match(input).Value == mapper(pattern.Match(input).Value));
-
-            return selectPatternHasMappedResult.When(description != null);
-        }
+            NonNull<string> description)
+            => pattern.Match(input).IsSuccessful.ImpliesThat(() =>
+                    pattern.Select(mapper, description.Get).Match(input).Value == mapper(pattern.Match(input).Value))
+                .ToProperty();
 
         [Property(Arbitrary = new[] { typeof(Generators) })]
         public Property SelectPatternShouldHaveSameDescriptionAsPattern(
@@ -63,12 +56,8 @@ namespace Matchmaker.Linq
         public Property SelectPatternWithDescriptionShouldHaveSpecifiedDescription(
             IPattern<string, string> pattern,
             Func<string, int> mapper,
-            string description)
-        {
-            Func<bool> selectPatternWithDescriptionHasCorrectDescription = () =>
-                pattern.Select(mapper, description).Description == description;
-            return selectPatternWithDescriptionHasCorrectDescription.When(description != null);
-        }
+            NonNull<string> description)
+            => (pattern.Select(mapper, description.Get).Description == description.Get).ToProperty();
 
         [Property(Arbitrary = new[] { typeof(Generators) })]
         public void SelectPatternShouldThrowIfPatternIsNull(Func<string, int> mapper)
@@ -80,13 +69,10 @@ namespace Matchmaker.Linq
         [Property(Arbitrary = new[] { typeof(Generators) })]
         public void SelectPatternWithDescriptionShouldThrowIfPatternIsNull(
             Func<string, int> mapper,
-            string description)
+            NonNull<string> description)
         {
-            if (description != null)
-            {
-                Action action = () => ((IPattern<string, string>)null).Select(mapper, description);
-                action.Should().Throw<ArgumentNullException>();
-            }
+            Action action = () => ((IPattern<string, string>)null).Select(mapper, description.Get);
+            action.Should().Throw<ArgumentNullException>();
         }
 
         [Property(Arbitrary = new[] { typeof(Generators) })]
@@ -99,13 +85,10 @@ namespace Matchmaker.Linq
         [Property(Arbitrary = new[] { typeof(Generators) })]
         public void SelectPatternWithDescriptionShouldThrowIfMapperIsNull(
             IPattern<string, string> pattern,
-            string description)
+            NonNull<string> description)
         {
-            if (description != null)
-            {
-                Action action = () => pattern.Select<string, string, int>(null, description);
-                action.Should().Throw<ArgumentNullException>();
-            }
+            Action action = () => pattern.Select<string, string, int>(null, description.Get);
+            action.Should().Throw<ArgumentNullException>();
         }
 
         [Property(Arbitrary = new[] { typeof(Generators) })]

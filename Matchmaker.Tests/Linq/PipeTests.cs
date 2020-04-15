@@ -30,16 +30,12 @@ namespace Matchmaker.Linq
             IPattern<string, string> firstPattern,
             IPattern<string, string> secondPattern,
             string input,
-            string description)
+            NonNull<string> description)
         {
-            Func<bool> pipePatternMatchesSameAsPattern = () =>
-            {
-                var result = firstPattern.Match(input);
-                return result.IsSuccessful.ImpliesThat(() =>
-                    firstPattern.Pipe(secondPattern, description).Match(input) == secondPattern.Match(result.Value));
-            };
-
-            return pipePatternMatchesSameAsPattern.When(description != null);
+            var result = firstPattern.Match(input);
+            return result.IsSuccessful.ImpliesThat(() =>
+                firstPattern.Pipe(secondPattern, description.Get).Match(input) == secondPattern.Match(result.Value))
+                .ToProperty();
         }
 
         [Property(Arbitrary = new[] { typeof(Generators) })]
@@ -77,12 +73,8 @@ namespace Matchmaker.Linq
         public Property PipePatternWithDescriptionShouldHaveSpecifiedDescription(
             IPattern<string, string> firstPattern,
             IPattern<string, string> secondPattern,
-            string description)
-        {
-            Func<bool> pipePatternHasDpecifiedDescription = () =>
-                firstPattern.Pipe(secondPattern, description).Description == description;
-            return pipePatternHasDpecifiedDescription.When(description != null);
-        }
+            NonNull<string> description)
+            => (firstPattern.Pipe(secondPattern, description.Get).Description == description.Get).ToProperty();
 
         [Property(Arbitrary = new[] { typeof(Generators) })]
         public void PipePatternShouldThrowIfFirstPatternIsNull(IPattern<string, string> secondPattern)
@@ -94,13 +86,10 @@ namespace Matchmaker.Linq
         [Property(Arbitrary = new[] { typeof(Generators) })]
         public void PipePatternWithDescriptionShouldThrowIfFirstPatternIsNull(
             IPattern<string, string> secondPattern,
-            string description)
+            NonNull<string> description)
         {
-            if (description != null)
-            {
-                Action action = () => ((IPattern<string, string>)null).Pipe(secondPattern, description);
-                action.Should().Throw<ArgumentNullException>();
-            }
+            Action action = () => ((IPattern<string, string>)null).Pipe(secondPattern, description.Get);
+            action.Should().Throw<ArgumentNullException>();
         }
 
         [Property(Arbitrary = new[] { typeof(Generators) })]
@@ -113,13 +102,10 @@ namespace Matchmaker.Linq
         [Property(Arbitrary = new[] { typeof(Generators) })]
         public void PipePatternWithDescriptionShouldThrowIfSecondPatternIsNull(
             IPattern<string, string> pattern,
-            string description)
+            NonNull<string> description)
         {
-            if (description != null)
-            {
-                Action action = () => pattern.Pipe((IPattern<string, int>)null, description);
-                action.Should().Throw<ArgumentNullException>();
-            }
+            Action action = () => pattern.Pipe((IPattern<string, int>)null, description.Get);
+            action.Should().Throw<ArgumentNullException>();
         }
 
         [Property(Arbitrary = new[] { typeof(Generators) })]
@@ -147,16 +133,12 @@ namespace Matchmaker.Linq
             IPattern<string, string> pattern,
             Func<string, MatchResult<string>> matcher,
             string input,
-            string description)
+            NonNull<string> description)
         {
-            Func<bool> pipePatternMatchesSameAsPattern = () =>
-            {
-                var result = pattern.Match(input);
-                return result.IsSuccessful.ImpliesThat(() =>
-                    pattern.Pipe(matcher, description).Match(input) == matcher(result.Value));
-            };
-
-            return pipePatternMatchesSameAsPattern.When(description != null);
+            var result = pattern.Match(input);
+            return result.IsSuccessful.ImpliesThat(() =>
+                pattern.Pipe(matcher, description.Get).Match(input) == matcher(result.Value))
+                .ToProperty();
         }
 
         [Property(Arbitrary = new[] { typeof(Generators) })]
@@ -169,12 +151,8 @@ namespace Matchmaker.Linq
         public Property PipePatternWithFunctionAndDescriptionShouldHaveSpecifiedDescription(
             IPattern<string, string> pattern,
             Func<string, MatchResult<string>> matcher,
-            string description)
-        {
-            Func<bool> pipePatternHasDpecifiedDescription = () =>
-                pattern.Pipe(matcher, description).Description == description;
-            return pipePatternHasDpecifiedDescription.When(description != null);
-        }
+            NonNull<string> description)
+            => (pattern.Pipe(matcher, description.Get).Description == description.Get).ToProperty();
 
         [Property(Arbitrary = new[] { typeof(Generators) })]
         public void PipePatternWithFunctionShouldThrowIfPatternIsNull(Func<string, MatchResult<string>> matcher)
@@ -186,13 +164,10 @@ namespace Matchmaker.Linq
         [Property(Arbitrary = new[] { typeof(Generators) })]
         public void PipePatternWithFunctionAndDescriptionShouldThrowIfPatternIsNull(
             Func<string, MatchResult<string>> matcher,
-            string description)
+            NonNull<string> description)
         {
-            if (description != null)
-            {
-                Action action = () => ((IPattern<string, string>)null).Pipe(matcher, description);
-                action.Should().Throw<ArgumentNullException>();
-            }
+            Action action = () => ((IPattern<string, string>)null).Pipe(matcher, description.Get);
+            action.Should().Throw<ArgumentNullException>();
         }
 
         [Property(Arbitrary = new[] { typeof(Generators) })]
@@ -205,13 +180,10 @@ namespace Matchmaker.Linq
         [Property(Arbitrary = new[] { typeof(Generators) })]
         public void PipePatternWithFunctionAndDescriptionShouldThrowIfMatcherIsNull(
             IPattern<string, string> pattern,
-            string description)
+            NonNull<string> description)
         {
-            if (description != null)
-            {
-                Action action = () => pattern.Pipe((Func<string, MatchResult<int>>)null, description);
-                action.Should().Throw<ArgumentNullException>();
-            }
+            Action action = () => pattern.Pipe((Func<string, MatchResult<int>>)null, description.Get);
+            action.Should().Throw<ArgumentNullException>();
         }
 
         [Property(Arbitrary = new[] { typeof(Generators) })]
@@ -239,17 +211,13 @@ namespace Matchmaker.Linq
         public Property CastPatternWithDescriptionShouldMatchSameAsPattern(
             IPattern<string, object> pattern,
             string input,
-            string description)
+            NonNull<string> description)
         {
-            Func<bool> castPatternMatchesSameAsPattern = () =>
-            {
-                var result = pattern.Match(input);
-                return result.IsSuccessful.ImpliesThat(() =>
-                    pattern.Cast<string, object, string>(description).Match(input) ==
-                    Pattern.Type<object, string>().Match(result.Value));
-            };
-
-            return castPatternMatchesSameAsPattern.When(description != null);
+            var result = pattern.Match(input);
+            return result.IsSuccessful.ImpliesThat(() =>
+                pattern.Cast<string, object, string>(description.Get).Match(input) ==
+                Pattern.Type<object, string>().Match(result.Value))
+                .ToProperty();
         }
 
         [Property(Arbitrary = new[] { typeof(Generators) })]
@@ -274,12 +242,8 @@ namespace Matchmaker.Linq
         [Property(Arbitrary = new[] { typeof(Generators) })]
         public Property CastPatternWithDescriptionShouldHaveSpecifiedDescription(
             IPattern<string, object> pattern,
-            string description)
-        {
-            Func<bool> castPatternHasDpecifiedDescription = () =>
-                pattern.Cast<string, object, string>(description).Description == description;
-            return castPatternHasDpecifiedDescription.When(description != null);
-        }
+            NonNull<string> description)
+            => (pattern.Cast<string, object, string>(description.Get).Description == description.Get).ToProperty();
 
         [Fact]
         public void CastPatternShouldThrowIfPatternIsNull()
@@ -289,13 +253,10 @@ namespace Matchmaker.Linq
         }
 
         [Property(Arbitrary = new[] { typeof(Generators) })]
-        public void CastPatternWithDescriptionShouldThrowIfPatternIsNull(string description)
+        public void CastPatternWithDescriptionShouldThrowIfPatternIsNull(NonNull<string> description)
         {
-            if (description != null)
-            {
-                Action action = () => ((IPattern<string, object>)null).Cast<string, object, string>(description);
-                action.Should().Throw<ArgumentNullException>();
-            }
+            Action action = () => ((IPattern<string, object>)null).Cast<string, object, string>(description.Get);
+            action.Should().Throw<ArgumentNullException>();
         }
 
         [Property(Arbitrary = new[] { typeof(Generators) })]

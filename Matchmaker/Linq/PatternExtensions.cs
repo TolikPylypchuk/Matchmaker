@@ -641,5 +641,43 @@ namespace Matchmaker.Linq
             IPattern<T, T> rightPattern,
             string description)
             => leftPattern.Compose(rightPattern, PatternComposition.Xor, description);
+
+        /// <summary>
+        /// Returns a pattern which matches the same as the specified pattern, but caches its results.
+        /// </summary>
+        /// <typeparam name="TInput">The type of the input value of the expression.</typeparam>
+        /// <typeparam name="TMatchResult">The type of the result of this pattern's match.</typeparam>
+        /// <param name="pattern">The pattern whose results should be cached.</param>
+        /// <returns>
+        /// A pattern which matches the same as the specified pattern, but caches its results.
+        /// </returns>
+        /// <remarks>
+        /// The returned pattern's caching process is not thread-safe.
+        /// The cache itself is a simple null-safe hash table.
+        /// </remarks>
+        public static IPattern<TInput, TMatchResult> Cached<TInput, TMatchResult>(
+            this IPattern<TInput, TMatchResult> pattern)
+            => new CachingPattern<TInput, TMatchResult>(pattern ?? throw new ArgumentNullException(nameof(pattern)));
+
+        /// <summary>
+        /// Returns a pattern which matches the same as the specified pattern, but caches its results.
+        /// </summary>
+        /// <typeparam name="TInput">The type of the input value of the expression.</typeparam>
+        /// <typeparam name="TMatchResult">The type of the result of this pattern's match.</typeparam>
+        /// <param name="pattern">The pattern whose results should be cached.</param>
+        /// <param name="description">The description of this pattern.</param>
+        /// <returns>
+        /// A pattern which matches the same as the specified pattern, but caches its results.
+        /// </returns>
+        /// <remarks>
+        /// The returned pattern's caching process is not thread-safe.
+        /// The cache itself is a simple null-safe hash table.
+        /// </remarks>
+        public static IPattern<TInput, TMatchResult> Cached<TInput, TMatchResult>(
+            this IPattern<TInput, TMatchResult> pattern,
+            string description)
+            => new CachingPattern<TInput, TMatchResult>(
+                pattern ?? throw new ArgumentNullException(nameof(pattern)),
+                description ?? throw new ArgumentNullException(nameof(description)));
     }
 }

@@ -25,13 +25,10 @@ namespace Matchmaker.Linq
             IPattern<string, string> pattern1,
             IPattern<string, string> pattern2,
             string x,
-            string description)
-        {
-            Func<bool> andPatternIsSameAsBothPatterns = () =>
-                (pattern1.Match(x).IsSuccessful && pattern2.Match(x).IsSuccessful) ==
-                pattern1.Compose(pattern2, PatternComposition.And, description).Match(x).IsSuccessful;
-            return andPatternIsSameAsBothPatterns.When(description != null);
-        }
+            NonNull<string> description)
+            => ((pattern1.Match(x).IsSuccessful && pattern2.Match(x).IsSuccessful) ==
+                pattern1.Compose(pattern2, PatternComposition.And, description.Get).Match(x).IsSuccessful)
+                .ToProperty();
 
         [Property(Arbitrary = new[] { typeof(Generators) })]
         public Property ComposeAndPatternShouldHaveCorrectDescription(
@@ -70,12 +67,9 @@ namespace Matchmaker.Linq
         public Property ComposeAndPatternShouldHaveSpecifiedDescription(
             IPattern<string, string> pattern1,
             IPattern<string, string> pattern2,
-            string description)
-        {
-            Func<bool> andPatternHasSpecifiedDescription = () =>
-                pattern1.Compose(pattern2, PatternComposition.And, description).Description == description;
-            return andPatternHasSpecifiedDescription.When(description != null);
-        }
+            NonNull<string> description)
+            => (pattern1.Compose(pattern2, PatternComposition.And, description.Get).Description == description.Get)
+                .ToProperty();
 
         [Property(Arbitrary = new[] { typeof(Generators) })]
         public void ComposeAndPatternShouldThrowIfLeftPatternIsNull(IPattern<string, string> pattern)
@@ -87,14 +81,11 @@ namespace Matchmaker.Linq
         [Property(Arbitrary = new[] { typeof(Generators) })]
         public void ComposeAndPatternWithDescriptionShouldThrowIfLeftPatternIsNull(
             IPattern<string, string> pattern,
-            string description)
+            NonNull<string> description)
         {
-            if (description != null)
-            {
-                Action action = () => ((IPattern<string, string>)null).Compose(
-                    pattern, PatternComposition.And, description);
-                action.Should().Throw<ArgumentNullException>();
-            }
+            Action action = () => ((IPattern<string, string>)null).Compose(
+                pattern, PatternComposition.And, description.Get);
+            action.Should().Throw<ArgumentNullException>();
         }
 
         [Property(Arbitrary = new[] { typeof(Generators) })]
@@ -107,13 +98,10 @@ namespace Matchmaker.Linq
         [Property(Arbitrary = new[] { typeof(Generators) })]
         public void ComposeAndPatternWithDescriptionShouldThrowIfRightPatternIsNull(
             IPattern<string, string> pattern,
-            string description)
+            NonNull<string> description)
         {
-            if (description != null)
-            {
-                Action action = () => pattern.Compose(null, PatternComposition.And, description);
-                action.Should().Throw<ArgumentNullException>();
-            }
+            Action action = () => pattern.Compose(null, PatternComposition.And, description.Get);
+            action.Should().Throw<ArgumentNullException>();
         }
 
         [Property(Arbitrary = new[] { typeof(Generators) })]
@@ -139,13 +127,10 @@ namespace Matchmaker.Linq
             IPattern<string, string> pattern1,
             IPattern<string, string> pattern2,
             string x,
-            string description)
-        {
-            Func<bool> andPatternIsSameAsBothPatterns = () =>
-                (pattern1.Match(x).IsSuccessful && pattern2.Match(x).IsSuccessful) ==
-                pattern1.And(pattern2, description).Match(x).IsSuccessful;
-            return andPatternIsSameAsBothPatterns.When(description != null);
-        }
+            NonNull<string> description)
+            => ((pattern1.Match(x).IsSuccessful && pattern2.Match(x).IsSuccessful) ==
+                pattern1.And(pattern2, description.Get).Match(x).IsSuccessful)
+                .ToProperty();
 
         [Property(Arbitrary = new[] { typeof(Generators) })]
         public Property AndPatternShouldHaveCorrectDescription(
@@ -179,12 +164,8 @@ namespace Matchmaker.Linq
         public Property AndPatternShouldHaveSpecifiedDescription(
             IPattern<string, string> pattern1,
             IPattern<string, string> pattern2,
-            string description)
-        {
-            Func<bool> andPatternHasSpecifiedDescription = () =>
-                pattern1.And(pattern2, description).Description == description;
-            return andPatternHasSpecifiedDescription.When(description != null);
-        }
+            NonNull<string> description)
+            => (pattern1.And(pattern2, description.Get).Description == description.Get).ToProperty();
 
         [Property(Arbitrary = new[] { typeof(Generators) })]
         public void AndPatternShouldThrowIfLeftPatternIsNull(IPattern<string, string> pattern)
@@ -196,13 +177,10 @@ namespace Matchmaker.Linq
         [Property(Arbitrary = new[] { typeof(Generators) })]
         public void AndPatternWithDescriptionShouldThrowIfLeftPatternIsNull(
             IPattern<string, string> pattern,
-            string description)
+            NonNull<string> description)
         {
-            if (description != null)
-            {
-                Action action = () => ((IPattern<string, string>)null).And(pattern, description);
-                action.Should().Throw<ArgumentNullException>();
-            }
+            Action action = () => ((IPattern<string, string>)null).And(pattern, description.Get);
+            action.Should().Throw<ArgumentNullException>();
         }
 
         [Property(Arbitrary = new[] { typeof(Generators) })]
@@ -215,13 +193,10 @@ namespace Matchmaker.Linq
         [Property(Arbitrary = new[] { typeof(Generators) })]
         public void AndPatternWithDescriptionShouldThrowIfRightPatternIsNull(
             IPattern<string, string> pattern,
-            string description)
+            NonNull<string> description)
         {
-            if (description != null)
-            {
-                Action action = () => pattern.And(null, description);
-                action.Should().Throw<ArgumentNullException>();
-            }
+            Action action = () => pattern.And(null, description.Get);
+            action.Should().Throw<ArgumentNullException>();
         }
 
         [Property(Arbitrary = new[] { typeof(Generators) })]

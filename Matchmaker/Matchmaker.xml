@@ -691,6 +691,37 @@
             <seealso cref="M:Matchmaker.Linq.PatternExtensions.Or``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0},System.String)" />
             <seealso cref="M:Matchmaker.Linq.PatternExtensions.Xor``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0})" />
         </member>
+        <member name="M:Matchmaker.Linq.PatternExtensions.Cached``2(Matchmaker.Patterns.IPattern{``0,``1})">
+            <summary>
+            Returns a pattern which matches the same as the specified pattern, but caches its results.
+            </summary>
+            <typeparam name="TInput">The type of the input value of the expression.</typeparam>
+            <typeparam name="TMatchResult">The type of the result of this pattern's match.</typeparam>
+            <param name="pattern">The pattern whose results should be cached.</param>
+            <returns>
+            A pattern which matches the same as the specified pattern, but caches its results.
+            </returns>
+            <remarks>
+            The returned pattern's caching process is not thread-safe.
+            The cache itself is a simple null-safe hash table.
+            </remarks>
+        </member>
+        <member name="M:Matchmaker.Linq.PatternExtensions.Cached``2(Matchmaker.Patterns.IPattern{``0,``1},System.String)">
+            <summary>
+            Returns a pattern which matches the same as the specified pattern, but caches its results.
+            </summary>
+            <typeparam name="TInput">The type of the input value of the expression.</typeparam>
+            <typeparam name="TMatchResult">The type of the result of this pattern's match.</typeparam>
+            <param name="pattern">The pattern whose results should be cached.</param>
+            <param name="description">The description of this pattern.</param>
+            <returns>
+            A pattern which matches the same as the specified pattern, but caches its results.
+            </returns>
+            <remarks>
+            The returned pattern's caching process is not thread-safe.
+            The cache itself is a simple null-safe hash table.
+            </remarks>
+        </member>
         <member name="T:Matchmaker.Match">
             <summary>
             A static class which is used to create match expressions.
@@ -1291,6 +1322,61 @@
             </exception>
         </member>
         <member name="M:Matchmaker.Patterns.BindingPattern`3.Match(`0)">
+            <summary>
+            Matches the input with this pattern, and returns a transformed result.
+            </summary>
+            <param name="input">The input value to match.</param>
+            <returns>
+            A successful match result which contains the transformed result of the match,
+            if this match is successful. Otherwise, a failed match result.
+            </returns>
+        </member>
+        <member name="T:Matchmaker.Patterns.CachingPattern`2">
+            <summary>
+            Represents a pattern which caches another pattern's results.
+            </summary>
+            <typeparam name="TInput">The type of the input value of the expression.</typeparam>
+            <typeparam name="TMatchResult">The type of the result of this pattern's match.</typeparam>
+            <seealso cref="T:Matchmaker.Patterns.IPattern`2" />
+            <seealso cref="T:Matchmaker.Patterns.Pattern" />
+        </member>
+        <member name="F:Matchmaker.Patterns.CachingPattern`2.pattern">
+            <summary>
+            The pattern whose result should be cached.
+            </summary>
+        </member>
+        <member name="F:Matchmaker.Patterns.CachingPattern`2.cache">
+            <summary>
+            The disctionary which holds this pattern's cache.
+            </summary>
+        </member>
+        <member name="F:Matchmaker.Patterns.CachingPattern`2.nullResult">
+            <summary>
+            The cached result for the <see langword="null" /> input.
+            </summary>
+        </member>
+        <member name="F:Matchmaker.Patterns.CachingPattern`2.isNullResultDefined">
+            <summary>
+            The value which indicates whether the result for the <see langword="null" /> input has been cached.
+            </summary>
+        </member>
+        <member name="M:Matchmaker.Patterns.CachingPattern`2.#ctor(Matchmaker.Patterns.IPattern{`0,`1})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Matchmaker.Patterns.CachingPattern`2" /> class.
+            </summary>
+            <param name="pattern">The pattern whose result should be cached.</param>
+        </member>
+        <member name="M:Matchmaker.Patterns.CachingPattern`2.#ctor(Matchmaker.Patterns.IPattern{`0,`1},System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Matchmaker.Patterns.CachingPattern`2" /> class.
+            </summary>
+            <param name="pattern">The pattern whose result should be cached.</param>
+            <param name="description">The description of this pattern.</param>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="description" /> is <see langword="null" />.
+            </exception>
+        </member>
+        <member name="M:Matchmaker.Patterns.CachingPattern`2.Match(`0)">
             <summary>
             Matches the input with this pattern, and returns a transformed result.
             </summary>

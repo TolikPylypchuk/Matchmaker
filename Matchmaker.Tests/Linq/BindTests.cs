@@ -28,16 +28,12 @@ namespace Matchmaker.Linq
             IPattern<string, string> pattern,
             Func<string, IPattern<string, string>> binder,
             string input,
-            string description)
+            NonNull<string> description)
         {
-            Func<bool> bindPatternMatchesSameAsBinderResult = () =>
-            {
-                var result = pattern.Match(input);
-                return result.IsSuccessful.ImpliesThat(() =>
-                    pattern.Bind(binder, description).Match(input) == binder(result.Value).Match(input));
-            };
-
-            return bindPatternMatchesSameAsBinderResult.When(description != null);
+            var result = pattern.Match(input);
+            return result.IsSuccessful.ImpliesThat(() =>
+                pattern.Bind(binder, description.Get).Match(input) == binder(result.Value).Match(input))
+                .ToProperty();
         }
 
         [Property(Arbitrary = new[] { typeof(Generators) })]
@@ -50,12 +46,8 @@ namespace Matchmaker.Linq
         public Property BindPatternWithDescriptionShouldHaveSpecifiedDescription(
             IPattern<string, string> pattern,
             Func<string, IPattern<string, string>> binder,
-            string description)
-        {
-            Func<bool> bindPatternHasDpecifiedDescription = () =>
-                pattern.Bind(binder, description).Description == description;
-            return bindPatternHasDpecifiedDescription.When(description != null);
-        }
+            NonNull<string> description)
+            => (pattern.Bind(binder, description.Get).Description == description.Get).ToProperty();
 
         [Property(Arbitrary = new[] { typeof(Generators) })]
         public void BindPatternShouldThrowIfPatternIsNull(Func<string, IPattern<string, string>> binder)
@@ -67,13 +59,10 @@ namespace Matchmaker.Linq
         [Property(Arbitrary = new[] { typeof(Generators) })]
         public void BindPatternWithDescriptionShouldThrowIfPatternIsNull(
             Func<string, IPattern<string, string>> binder,
-            string description)
+            NonNull<string> description)
         {
-            if (description != null)
-            {
-                Action action = () => ((IPattern<string, string>)null).Bind(binder, description);
-                action.Should().Throw<ArgumentNullException>();
-            }
+            Action action = () => ((IPattern<string, string>)null).Bind(binder, description.Get);
+            action.Should().Throw<ArgumentNullException>();
         }
 
         [Property(Arbitrary = new[] { typeof(Generators) })]
