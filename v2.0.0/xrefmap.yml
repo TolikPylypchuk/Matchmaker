@@ -227,6 +227,31 @@ references:
   fullName.vb: Matchmaker.Linq.PatternExtensions.Bind(Of TInput, TIntermediateResult, TMatchResult)(Matchmaker.Patterns.IPattern(Of TInput, TIntermediateResult), System.Func(Of TIntermediateResult, Matchmaker.Patterns.IPattern(Of TInput, TMatchResult)), System.String)
   nameWithType: PatternExtensions.Bind<TInput, TIntermediateResult, TMatchResult>(IPattern<TInput, TIntermediateResult>, Func<TIntermediateResult, IPattern<TInput, TMatchResult>>, String)
   nameWithType.vb: PatternExtensions.Bind(Of TInput, TIntermediateResult, TMatchResult)(IPattern(Of TInput, TIntermediateResult), Func(Of TIntermediateResult, IPattern(Of TInput, TMatchResult)), String)
+- uid: Matchmaker.Linq.PatternExtensions.Cached*
+  name: Cached
+  href: api/Matchmaker.Linq.PatternExtensions.html#Matchmaker_Linq_PatternExtensions_Cached_
+  commentId: Overload:Matchmaker.Linq.PatternExtensions.Cached
+  isSpec: "True"
+  fullName: Matchmaker.Linq.PatternExtensions.Cached
+  nameWithType: PatternExtensions.Cached
+- uid: Matchmaker.Linq.PatternExtensions.Cached``2(Matchmaker.Patterns.IPattern{``0,``1})
+  name: Cached<TInput, TMatchResult>(IPattern<TInput, TMatchResult>)
+  href: api/Matchmaker.Linq.PatternExtensions.html#Matchmaker_Linq_PatternExtensions_Cached__2_Matchmaker_Patterns_IPattern___0___1__
+  commentId: M:Matchmaker.Linq.PatternExtensions.Cached``2(Matchmaker.Patterns.IPattern{``0,``1})
+  name.vb: Cached(Of TInput, TMatchResult)(IPattern(Of TInput, TMatchResult))
+  fullName: Matchmaker.Linq.PatternExtensions.Cached<TInput, TMatchResult>(Matchmaker.Patterns.IPattern<TInput, TMatchResult>)
+  fullName.vb: Matchmaker.Linq.PatternExtensions.Cached(Of TInput, TMatchResult)(Matchmaker.Patterns.IPattern(Of TInput, TMatchResult))
+  nameWithType: PatternExtensions.Cached<TInput, TMatchResult>(IPattern<TInput, TMatchResult>)
+  nameWithType.vb: PatternExtensions.Cached(Of TInput, TMatchResult)(IPattern(Of TInput, TMatchResult))
+- uid: Matchmaker.Linq.PatternExtensions.Cached``2(Matchmaker.Patterns.IPattern{``0,``1},System.String)
+  name: Cached<TInput, TMatchResult>(IPattern<TInput, TMatchResult>, String)
+  href: api/Matchmaker.Linq.PatternExtensions.html#Matchmaker_Linq_PatternExtensions_Cached__2_Matchmaker_Patterns_IPattern___0___1__System_String_
+  commentId: M:Matchmaker.Linq.PatternExtensions.Cached``2(Matchmaker.Patterns.IPattern{``0,``1},System.String)
+  name.vb: Cached(Of TInput, TMatchResult)(IPattern(Of TInput, TMatchResult), String)
+  fullName: Matchmaker.Linq.PatternExtensions.Cached<TInput, TMatchResult>(Matchmaker.Patterns.IPattern<TInput, TMatchResult>, System.String)
+  fullName.vb: Matchmaker.Linq.PatternExtensions.Cached(Of TInput, TMatchResult)(Matchmaker.Patterns.IPattern(Of TInput, TMatchResult), System.String)
+  nameWithType: PatternExtensions.Cached<TInput, TMatchResult>(IPattern<TInput, TMatchResult>, String)
+  nameWithType.vb: PatternExtensions.Cached(Of TInput, TMatchResult)(IPattern(Of TInput, TMatchResult), String)
 - uid: Matchmaker.Linq.PatternExtensions.Cast*
   name: Cast
   href: api/Matchmaker.Linq.PatternExtensions.html#Matchmaker_Linq_PatternExtensions_Cast_
