@@ -15,7 +15,7 @@ namespace Matchmaker
     public sealed class Match<TInput>
     {
         /// <summary>
-        /// The list of cases that will be matched in this expression.
+        /// The collection of cases that will be matched in this expression.
         /// </summary>
         private readonly IReadOnlyCollection<CaseData> cases;
 
@@ -33,6 +33,21 @@ namespace Matchmaker
             this.cases = new List<CaseData>().AsReadOnly();
             this.fallthroughByDefault = fallthroughByDefault;
         }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Match{TInput}" /> class.
+        /// </summary>
+        /// <param name="builder"></param>
+        internal Match(MatchBuilder<TInput> builder)
+        {
+            this.cases = new List<CaseData>(builder.Cases).AsReadOnly();
+            this.fallthroughByDefault = builder.FallthroughByDefault;
+        }
+
+        /// <summary>
+        /// Gets the global cache of static match statements.
+        /// </summary>
+        internal static Dictionary<string, Match<TInput>> Cache { get; } = new Dictionary<string, Match<TInput>>();
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Match{TInput}" /> class with the specified cases.
@@ -217,7 +232,7 @@ namespace Matchmaker
         /// <summary>
         /// Represents the data of a single case in a match statement.
         /// </summary>
-        private class CaseData
+        internal class CaseData
         {
             /// <summary>
             /// Initializes a new instance of the <see cref="CaseData" /> class.

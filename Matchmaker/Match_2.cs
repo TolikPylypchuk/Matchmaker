@@ -16,7 +16,7 @@ namespace Matchmaker
     public sealed class Match<TInput, TOutput>
     {
         /// <summary>
-        /// The list of cases that will be matched in this expression.
+        /// The collection of cases that will be matched in this expression.
         /// </summary>
         private readonly IReadOnlyCollection<CaseData> cases;
 
@@ -36,6 +36,16 @@ namespace Matchmaker
         }
 
         /// <summary>
+        /// Initializes a new instance of the <see cref="Match{TInput, TOutput}" /> class.
+        /// </summary>
+        /// <param name="builder"></param>
+        internal Match(MatchBuilder<TInput, TOutput> builder)
+        {
+            this.cases = new List<CaseData>(builder.Cases).AsReadOnly();
+            this.fallthroughByDefault = builder.FallthroughByDefault;
+        }
+
+        /// <summary>
         /// Initializes a new instance of the <see cref="Match{TInput, TOutput}" /> class with the specified cases.
         /// </summary>
         /// <param name="cases">The cases of this expression.</param>
@@ -45,6 +55,12 @@ namespace Matchmaker
             this.cases = cases;
             this.fallthroughByDefault = fallthroughByDefault;
         }
+
+        /// <summary>
+        /// Gets the global cache of static match expressions.
+        /// </summary>
+        internal static Dictionary<string, Match<TInput, TOutput>> Cache { get; } =
+            new Dictionary<string, Match<TInput, TOutput>>();
 
         /// <summary>
         /// Returns a new match expression which includes the specified pattern and function to execute if this
@@ -105,6 +121,12 @@ namespace Matchmaker
         /// A new match expression which includes the type pattern and function to execute if this
         /// pattern is matched successfully.
         /// </returns>
+        /// <remarks>
+        /// This method is functionally equivalent to the following:
+        /// <code>
+        /// match.Case(Pattern.Type&lt;TInput, TType&gt;(), func)
+        /// </code>
+        /// </remarks>
         /// <exception cref="ArgumentNullException">
         /// <paramref name="func" /> is <see langword="null" />.
         /// </exception>
@@ -123,6 +145,12 @@ namespace Matchmaker
         /// A new match expression which includes the type pattern and function to execute if this
         /// pattern is matched successfully.
         /// </returns>
+        /// <remarks>
+        /// This method is functionally equivalent to the following:
+        /// <code>
+        /// match.Case(Pattern.Type&lt;TInput, TType&gt;(), fallthrough, func)
+        /// </code>
+        /// </remarks>
         /// <exception cref="ArgumentNullException">
         /// <paramref name="func" /> is <see langword="null" />.
         /// </exception>
@@ -217,7 +245,7 @@ namespace Matchmaker
         /// <summary>
         /// Represents the data of a single case in a match expression.
         /// </summary>
-        private class CaseData
+        internal class CaseData
         {
             /// <summary>
             /// Initializes a new instance of the <see cref="CaseData" /> class.
