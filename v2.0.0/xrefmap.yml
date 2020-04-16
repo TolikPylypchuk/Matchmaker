@@ -494,6 +494,31 @@ references:
   fullName.vb: Matchmaker.Match.Create(Of TInput, TOutput)(System.Boolean)
   nameWithType: Match.Create<TInput, TOutput>(Boolean)
   nameWithType.vb: Match.Create(Of TInput, TOutput)(Boolean)
+- uid: Matchmaker.Match.CreateStatic*
+  name: CreateStatic
+  href: api/Matchmaker.Match.html#Matchmaker_Match_CreateStatic_
+  commentId: Overload:Matchmaker.Match.CreateStatic
+  isSpec: "True"
+  fullName: Matchmaker.Match.CreateStatic
+  nameWithType: Match.CreateStatic
+- uid: Matchmaker.Match.CreateStatic``1(System.Action{Matchmaker.MatchBuilder{``0}},System.String,System.Int32)
+  name: CreateStatic<TInput>(Action<MatchBuilder<TInput>>, String, Int32)
+  href: api/Matchmaker.Match.html#Matchmaker_Match_CreateStatic__1_System_Action_Matchmaker_MatchBuilder___0___System_String_System_Int32_
+  commentId: M:Matchmaker.Match.CreateStatic``1(System.Action{Matchmaker.MatchBuilder{``0}},System.String,System.Int32)
+  name.vb: CreateStatic(Of TInput)(Action(Of MatchBuilder(Of TInput)), String, Int32)
+  fullName: Matchmaker.Match.CreateStatic<TInput>(System.Action<Matchmaker.MatchBuilder<TInput>>, System.String, System.Int32)
+  fullName.vb: Matchmaker.Match.CreateStatic(Of TInput)(System.Action(Of Matchmaker.MatchBuilder(Of TInput)), System.String, System.Int32)
+  nameWithType: Match.CreateStatic<TInput>(Action<MatchBuilder<TInput>>, String, Int32)
+  nameWithType.vb: Match.CreateStatic(Of TInput)(Action(Of MatchBuilder(Of TInput)), String, Int32)
+- uid: Matchmaker.Match.CreateStatic``2(System.Action{Matchmaker.MatchBuilder{``0,``1}},System.String,System.Int32)
+  name: CreateStatic<TInput, TOutput>(Action<MatchBuilder<TInput, TOutput>>, String, Int32)
+  href: api/Matchmaker.Match.html#Matchmaker_Match_CreateStatic__2_System_Action_Matchmaker_MatchBuilder___0___1___System_String_System_Int32_
+  commentId: M:Matchmaker.Match.CreateStatic``2(System.Action{Matchmaker.MatchBuilder{``0,``1}},System.String,System.Int32)
+  name.vb: CreateStatic(Of TInput, TOutput)(Action(Of MatchBuilder(Of TInput, TOutput)), String, Int32)
+  fullName: Matchmaker.Match.CreateStatic<TInput, TOutput>(System.Action<Matchmaker.MatchBuilder<TInput, TOutput>>, System.String, System.Int32)
+  fullName.vb: Matchmaker.Match.CreateStatic(Of TInput, TOutput)(System.Action(Of Matchmaker.MatchBuilder(Of TInput, TOutput)), System.String, System.Int32)
+  nameWithType: Match.CreateStatic<TInput, TOutput>(Action<MatchBuilder<TInput, TOutput>>, String, Int32)
+  nameWithType.vb: Match.CreateStatic(Of TInput, TOutput)(Action(Of MatchBuilder(Of TInput, TOutput)), String, Int32)
 - uid: Matchmaker.Match`1
   name: Match<TInput>
   href: api/Matchmaker.Match-1.html
@@ -806,6 +831,148 @@ references:
   fullName.vb: Matchmaker.Match(Of TInput, TOutput).ToNonStrictFunction
   nameWithType: Match<TInput, TOutput>.ToNonStrictFunction
   nameWithType.vb: Match(Of TInput, TOutput).ToNonStrictFunction
+- uid: Matchmaker.MatchBuilder`1
+  name: MatchBuilder<TInput>
+  href: api/Matchmaker.MatchBuilder-1.html
+  commentId: T:Matchmaker.MatchBuilder`1
+  name.vb: MatchBuilder(Of TInput)
+  fullName: Matchmaker.MatchBuilder<TInput>
+  fullName.vb: Matchmaker.MatchBuilder(Of TInput)
+  nameWithType: MatchBuilder<TInput>
+  nameWithType.vb: MatchBuilder(Of TInput)
+- uid: Matchmaker.MatchBuilder`1.Case*
+  name: Case
+  href: api/Matchmaker.MatchBuilder-1.html#Matchmaker_MatchBuilder_1_Case_
+  commentId: Overload:Matchmaker.MatchBuilder`1.Case
+  isSpec: "True"
+  fullName: Matchmaker.MatchBuilder<TInput>.Case
+  fullName.vb: Matchmaker.MatchBuilder(Of TInput).Case
+  nameWithType: MatchBuilder<TInput>.Case
+  nameWithType.vb: MatchBuilder(Of TInput).Case
+- uid: Matchmaker.MatchBuilder`1.Case``1(Matchmaker.Patterns.IPattern{`0,``0},System.Action{``0})
+  name: Case<TMatchResult>(IPattern<TInput, TMatchResult>, Action<TMatchResult>)
+  href: api/Matchmaker.MatchBuilder-1.html#Matchmaker_MatchBuilder_1_Case__1_Matchmaker_Patterns_IPattern__0___0__System_Action___0__
+  commentId: M:Matchmaker.MatchBuilder`1.Case``1(Matchmaker.Patterns.IPattern{`0,``0},System.Action{``0})
+  name.vb: Case(Of TMatchResult)(IPattern(Of TInput, TMatchResult), Action(Of TMatchResult))
+  fullName: Matchmaker.MatchBuilder<TInput>.Case<TMatchResult>(Matchmaker.Patterns.IPattern<TInput, TMatchResult>, System.Action<TMatchResult>)
+  fullName.vb: Matchmaker.MatchBuilder(Of TInput).Case(Of TMatchResult)(Matchmaker.Patterns.IPattern(Of TInput, TMatchResult), System.Action(Of TMatchResult))
+  nameWithType: MatchBuilder<TInput>.Case<TMatchResult>(IPattern<TInput, TMatchResult>, Action<TMatchResult>)
+  nameWithType.vb: MatchBuilder(Of TInput).Case(Of TMatchResult)(IPattern(Of TInput, TMatchResult), Action(Of TMatchResult))
+- uid: Matchmaker.MatchBuilder`1.Case``1(Matchmaker.Patterns.IPattern{`0,``0},System.Boolean,System.Action{``0})
+  name: Case<TMatchResult>(IPattern<TInput, TMatchResult>, Boolean, Action<TMatchResult>)
+  href: api/Matchmaker.MatchBuilder-1.html#Matchmaker_MatchBuilder_1_Case__1_Matchmaker_Patterns_IPattern__0___0__System_Boolean_System_Action___0__
+  commentId: M:Matchmaker.MatchBuilder`1.Case``1(Matchmaker.Patterns.IPattern{`0,``0},System.Boolean,System.Action{``0})
+  name.vb: Case(Of TMatchResult)(IPattern(Of TInput, TMatchResult), Boolean, Action(Of TMatchResult))
+  fullName: Matchmaker.MatchBuilder<TInput>.Case<TMatchResult>(Matchmaker.Patterns.IPattern<TInput, TMatchResult>, System.Boolean, System.Action<TMatchResult>)
+  fullName.vb: Matchmaker.MatchBuilder(Of TInput).Case(Of TMatchResult)(Matchmaker.Patterns.IPattern(Of TInput, TMatchResult), System.Boolean, System.Action(Of TMatchResult))
+  nameWithType: MatchBuilder<TInput>.Case<TMatchResult>(IPattern<TInput, TMatchResult>, Boolean, Action<TMatchResult>)
+  nameWithType.vb: MatchBuilder(Of TInput).Case(Of TMatchResult)(IPattern(Of TInput, TMatchResult), Boolean, Action(Of TMatchResult))
+- uid: Matchmaker.MatchBuilder`1.Case``1(System.Action{``0})
+  name: Case<TType>(Action<TType>)
+  href: api/Matchmaker.MatchBuilder-1.html#Matchmaker_MatchBuilder_1_Case__1_System_Action___0__
+  commentId: M:Matchmaker.MatchBuilder`1.Case``1(System.Action{``0})
+  name.vb: Case(Of TType)(Action(Of TType))
+  fullName: Matchmaker.MatchBuilder<TInput>.Case<TType>(System.Action<TType>)
+  fullName.vb: Matchmaker.MatchBuilder(Of TInput).Case(Of TType)(System.Action(Of TType))
+  nameWithType: MatchBuilder<TInput>.Case<TType>(Action<TType>)
+  nameWithType.vb: MatchBuilder(Of TInput).Case(Of TType)(Action(Of TType))
+- uid: Matchmaker.MatchBuilder`1.Case``1(System.Boolean,System.Action{``0})
+  name: Case<TType>(Boolean, Action<TType>)
+  href: api/Matchmaker.MatchBuilder-1.html#Matchmaker_MatchBuilder_1_Case__1_System_Boolean_System_Action___0__
+  commentId: M:Matchmaker.MatchBuilder`1.Case``1(System.Boolean,System.Action{``0})
+  name.vb: Case(Of TType)(Boolean, Action(Of TType))
+  fullName: Matchmaker.MatchBuilder<TInput>.Case<TType>(System.Boolean, System.Action<TType>)
+  fullName.vb: Matchmaker.MatchBuilder(Of TInput).Case(Of TType)(System.Boolean, System.Action(Of TType))
+  nameWithType: MatchBuilder<TInput>.Case<TType>(Boolean, Action<TType>)
+  nameWithType.vb: MatchBuilder(Of TInput).Case(Of TType)(Boolean, Action(Of TType))
+- uid: Matchmaker.MatchBuilder`1.Fallthrough(System.Boolean)
+  name: Fallthrough(Boolean)
+  href: api/Matchmaker.MatchBuilder-1.html#Matchmaker_MatchBuilder_1_Fallthrough_System_Boolean_
+  commentId: M:Matchmaker.MatchBuilder`1.Fallthrough(System.Boolean)
+  fullName: Matchmaker.MatchBuilder<TInput>.Fallthrough(System.Boolean)
+  fullName.vb: Matchmaker.MatchBuilder(Of TInput).Fallthrough(System.Boolean)
+  nameWithType: MatchBuilder<TInput>.Fallthrough(Boolean)
+  nameWithType.vb: MatchBuilder(Of TInput).Fallthrough(Boolean)
+- uid: Matchmaker.MatchBuilder`1.Fallthrough*
+  name: Fallthrough
+  href: api/Matchmaker.MatchBuilder-1.html#Matchmaker_MatchBuilder_1_Fallthrough_
+  commentId: Overload:Matchmaker.MatchBuilder`1.Fallthrough
+  isSpec: "True"
+  fullName: Matchmaker.MatchBuilder<TInput>.Fallthrough
+  fullName.vb: Matchmaker.MatchBuilder(Of TInput).Fallthrough
+  nameWithType: MatchBuilder<TInput>.Fallthrough
+  nameWithType.vb: MatchBuilder(Of TInput).Fallthrough
+- uid: Matchmaker.MatchBuilder`2
+  name: MatchBuilder<TInput, TOutput>
+  href: api/Matchmaker.MatchBuilder-2.html
+  commentId: T:Matchmaker.MatchBuilder`2
+  name.vb: MatchBuilder(Of TInput, TOutput)
+  fullName: Matchmaker.MatchBuilder<TInput, TOutput>
+  fullName.vb: Matchmaker.MatchBuilder(Of TInput, TOutput)
+  nameWithType: MatchBuilder<TInput, TOutput>
+  nameWithType.vb: MatchBuilder(Of TInput, TOutput)
+- uid: Matchmaker.MatchBuilder`2.Case*
+  name: Case
+  href: api/Matchmaker.MatchBuilder-2.html#Matchmaker_MatchBuilder_2_Case_
+  commentId: Overload:Matchmaker.MatchBuilder`2.Case
+  isSpec: "True"
+  fullName: Matchmaker.MatchBuilder<TInput, TOutput>.Case
+  fullName.vb: Matchmaker.MatchBuilder(Of TInput, TOutput).Case
+  nameWithType: MatchBuilder<TInput, TOutput>.Case
+  nameWithType.vb: MatchBuilder(Of TInput, TOutput).Case
+- uid: Matchmaker.MatchBuilder`2.Case``1(Matchmaker.Patterns.IPattern{`0,``0},System.Boolean,System.Func{``0,`1})
+  name: Case<TMatchResult>(IPattern<TInput, TMatchResult>, Boolean, Func<TMatchResult, TOutput>)
+  href: api/Matchmaker.MatchBuilder-2.html#Matchmaker_MatchBuilder_2_Case__1_Matchmaker_Patterns_IPattern__0___0__System_Boolean_System_Func___0__1__
+  commentId: M:Matchmaker.MatchBuilder`2.Case``1(Matchmaker.Patterns.IPattern{`0,``0},System.Boolean,System.Func{``0,`1})
+  name.vb: Case(Of TMatchResult)(IPattern(Of TInput, TMatchResult), Boolean, Func(Of TMatchResult, TOutput))
+  fullName: Matchmaker.MatchBuilder<TInput, TOutput>.Case<TMatchResult>(Matchmaker.Patterns.IPattern<TInput, TMatchResult>, System.Boolean, System.Func<TMatchResult, TOutput>)
+  fullName.vb: Matchmaker.MatchBuilder(Of TInput, TOutput).Case(Of TMatchResult)(Matchmaker.Patterns.IPattern(Of TInput, TMatchResult), System.Boolean, System.Func(Of TMatchResult, TOutput))
+  nameWithType: MatchBuilder<TInput, TOutput>.Case<TMatchResult>(IPattern<TInput, TMatchResult>, Boolean, Func<TMatchResult, TOutput>)
+  nameWithType.vb: MatchBuilder(Of TInput, TOutput).Case(Of TMatchResult)(IPattern(Of TInput, TMatchResult), Boolean, Func(Of TMatchResult, TOutput))
+- uid: Matchmaker.MatchBuilder`2.Case``1(Matchmaker.Patterns.IPattern{`0,``0},System.Func{``0,`1})
+  name: Case<TMatchResult>(IPattern<TInput, TMatchResult>, Func<TMatchResult, TOutput>)
+  href: api/Matchmaker.MatchBuilder-2.html#Matchmaker_MatchBuilder_2_Case__1_Matchmaker_Patterns_IPattern__0___0__System_Func___0__1__
+  commentId: M:Matchmaker.MatchBuilder`2.Case``1(Matchmaker.Patterns.IPattern{`0,``0},System.Func{``0,`1})
+  name.vb: Case(Of TMatchResult)(IPattern(Of TInput, TMatchResult), Func(Of TMatchResult, TOutput))
+  fullName: Matchmaker.MatchBuilder<TInput, TOutput>.Case<TMatchResult>(Matchmaker.Patterns.IPattern<TInput, TMatchResult>, System.Func<TMatchResult, TOutput>)
+  fullName.vb: Matchmaker.MatchBuilder(Of TInput, TOutput).Case(Of TMatchResult)(Matchmaker.Patterns.IPattern(Of TInput, TMatchResult), System.Func(Of TMatchResult, TOutput))
+  nameWithType: MatchBuilder<TInput, TOutput>.Case<TMatchResult>(IPattern<TInput, TMatchResult>, Func<TMatchResult, TOutput>)
+  nameWithType.vb: MatchBuilder(Of TInput, TOutput).Case(Of TMatchResult)(IPattern(Of TInput, TMatchResult), Func(Of TMatchResult, TOutput))
+- uid: Matchmaker.MatchBuilder`2.Case``1(System.Boolean,System.Func{``0,`1})
+  name: Case<TType>(Boolean, Func<TType, TOutput>)
+  href: api/Matchmaker.MatchBuilder-2.html#Matchmaker_MatchBuilder_2_Case__1_System_Boolean_System_Func___0__1__
+  commentId: M:Matchmaker.MatchBuilder`2.Case``1(System.Boolean,System.Func{``0,`1})
+  name.vb: Case(Of TType)(Boolean, Func(Of TType, TOutput))
+  fullName: Matchmaker.MatchBuilder<TInput, TOutput>.Case<TType>(System.Boolean, System.Func<TType, TOutput>)
+  fullName.vb: Matchmaker.MatchBuilder(Of TInput, TOutput).Case(Of TType)(System.Boolean, System.Func(Of TType, TOutput))
+  nameWithType: MatchBuilder<TInput, TOutput>.Case<TType>(Boolean, Func<TType, TOutput>)
+  nameWithType.vb: MatchBuilder(Of TInput, TOutput).Case(Of TType)(Boolean, Func(Of TType, TOutput))
+- uid: Matchmaker.MatchBuilder`2.Case``1(System.Func{``0,`1})
+  name: Case<TType>(Func<TType, TOutput>)
+  href: api/Matchmaker.MatchBuilder-2.html#Matchmaker_MatchBuilder_2_Case__1_System_Func___0__1__
+  commentId: M:Matchmaker.MatchBuilder`2.Case``1(System.Func{``0,`1})
+  name.vb: Case(Of TType)(Func(Of TType, TOutput))
+  fullName: Matchmaker.MatchBuilder<TInput, TOutput>.Case<TType>(System.Func<TType, TOutput>)
+  fullName.vb: Matchmaker.MatchBuilder(Of TInput, TOutput).Case(Of TType)(System.Func(Of TType, TOutput))
+  nameWithType: MatchBuilder<TInput, TOutput>.Case<TType>(Func<TType, TOutput>)
+  nameWithType.vb: MatchBuilder(Of TInput, TOutput).Case(Of TType)(Func(Of TType, TOutput))
+- uid: Matchmaker.MatchBuilder`2.Fallthrough(System.Boolean)
+  name: Fallthrough(Boolean)
+  href: api/Matchmaker.MatchBuilder-2.html#Matchmaker_MatchBuilder_2_Fallthrough_System_Boolean_
+  commentId: M:Matchmaker.MatchBuilder`2.Fallthrough(System.Boolean)
+  fullName: Matchmaker.MatchBuilder<TInput, TOutput>.Fallthrough(System.Boolean)
+  fullName.vb: Matchmaker.MatchBuilder(Of TInput, TOutput).Fallthrough(System.Boolean)
+  nameWithType: MatchBuilder<TInput, TOutput>.Fallthrough(Boolean)
+  nameWithType.vb: MatchBuilder(Of TInput, TOutput).Fallthrough(Boolean)
+- uid: Matchmaker.MatchBuilder`2.Fallthrough*
+  name: Fallthrough
+  href: api/Matchmaker.MatchBuilder-2.html#Matchmaker_MatchBuilder_2_Fallthrough_
+  commentId: Overload:Matchmaker.MatchBuilder`2.Fallthrough
+  isSpec: "True"
+  fullName: Matchmaker.MatchBuilder<TInput, TOutput>.Fallthrough
+  fullName.vb: Matchmaker.MatchBuilder(Of TInput, TOutput).Fallthrough
+  nameWithType: MatchBuilder<TInput, TOutput>.Fallthrough
+  nameWithType.vb: MatchBuilder(Of TInput, TOutput).Fallthrough
 - uid: Matchmaker.MatchException
   name: MatchException
   href: api/Matchmaker.MatchException.html
