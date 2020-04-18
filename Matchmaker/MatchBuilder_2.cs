@@ -74,7 +74,7 @@ namespace Matchmaker
             bool fallthrough,
             Func<TMatchResult, TOutput> func)
         {
-            if (func is null)
+            if (func == null)
             {
                 throw new ArgumentNullException(nameof(func));
             }

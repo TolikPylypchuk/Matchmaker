@@ -85,7 +85,7 @@ namespace Matchmaker
             [CallerFilePath] string sourceFilePath = "",
             [CallerLineNumber] int sourceLineNumber = 0)
         {
-            if (buildAction is null)
+            if (buildAction == null)
             {
                 throw new ArgumentNullException(nameof(buildAction));
             }
@@ -138,7 +138,7 @@ namespace Matchmaker
             [CallerFilePath] string sourceFilePath = "",
             [CallerLineNumber] int sourceLineNumber = 0)
         {
-            if (buildAction is null)
+            if (buildAction == null)
             {
                 throw new ArgumentNullException(nameof(buildAction));
             }
@@ -164,5 +164,40 @@ namespace Matchmaker
 
             return match;
         }
+
+        /// <summary>
+        /// Clears the global cache of static <see cref="Match{TInput, TOutput}" /> instances.
+        /// </summary>
+        /// <typeparam name="TInput">The type of the input value.</typeparam>
+        /// <typeparam name="TOutput">The type of the result.</typeparam>
+        /// <remarks>
+        /// <para>
+        /// After calling this method all
+        /// <see cref="CreateStatic{TInput, TOutput}(Action{MatchBuilder{TInput, TOutput}}, string, int)" />
+        /// calls will recalculate match expressions for types <typeparamref name="TInput" /> and
+        /// <typeparamref name="TOutput" />.
+        /// </para>
+        /// <para>
+        /// Clearing the cache is not thread-safe.
+        /// </para>
+        /// </remarks>
+        public static void ClearCache<TInput, TOutput>()
+            => Match<TInput, TOutput>.Cache.Clear();
+
+        /// <summary>
+        /// Clears the global cache of static <see cref="Match{TInput}" /> instances.
+        /// </summary>
+        /// <typeparam name="TInput">The type of the input value.</typeparam>
+        /// <remarks>
+        /// <para>
+        /// After calling this method all <see cref="CreateStatic{TInput}(Action{MatchBuilder{TInput}}, string, int)" />
+        /// calls will recalculate match statements for type <typeparamref name="TInput" />.
+        /// </para>
+        /// <para>
+        /// Clearing the cache is not thread-safe.
+        /// </para>
+        /// </remarks>
+        public static void ClearCache<TInput>()
+            => Match<TInput>.Cache.Clear();
     }
 }

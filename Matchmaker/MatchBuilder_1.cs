@@ -73,7 +73,7 @@ namespace Matchmaker
             bool fallthrough,
             Action<TMatchResult> action)
         {
-            if (action is null)
+            if (action == null)
             {
                 throw new ArgumentNullException(nameof(action));
             }

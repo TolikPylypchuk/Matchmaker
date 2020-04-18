@@ -65,7 +65,7 @@ namespace Matchmaker.Patterns
         [SuppressMessage("ReSharper", "ExpressionIsAlwaysNull")]
         public override MatchResult<TMatchResult> Match(TInput input)
         {
-            if (input is null)
+            if (input == null)
             {
                 if (!this.isNullResultDefined)
                 {

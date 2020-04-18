@@ -820,6 +820,39 @@
             <paramref name="buildAction" /> or <paramref name="sourceFilePath" /> is <see langword="null" />.
             </exception>
         </member>
+        <member name="M:Matchmaker.Match.ClearCache``2">
+            <summary>
+            Clears the global cache of static <see cref="T:Matchmaker.Match`2" /> instances.
+            </summary>
+            <typeparam name="TInput">The type of the input value.</typeparam>
+            <typeparam name="TOutput">The type of the result.</typeparam>
+            <remarks>
+            <para>
+            After calling this method all
+            <see cref="M:Matchmaker.Match.CreateStatic``2(System.Action{Matchmaker.MatchBuilder{``0,``1}},System.String,System.Int32)" />
+            calls will recalculate match expressions for types <typeparamref name="TInput" /> and
+            <typeparamref name="TOutput" />.
+            </para>
+            <para>
+            Clearing the cache is not thread-safe.
+            </para>
+            </remarks>
+        </member>
+        <member name="M:Matchmaker.Match.ClearCache``1">
+            <summary>
+            Clears the global cache of static <see cref="T:Matchmaker.Match`1" /> instances.
+            </summary>
+            <typeparam name="TInput">The type of the input value.</typeparam>
+            <remarks>
+            <para>
+            After calling this method all <see cref="M:Matchmaker.Match.CreateStatic``1(System.Action{Matchmaker.MatchBuilder{``0}},System.String,System.Int32)" />
+            calls will recalculate match statements for type <typeparamref name="TInput" />.
+            </para>
+            <para>
+            Clearing the cache is not thread-safe.
+            </para>
+            </remarks>
+        </member>
         <member name="T:Matchmaker.MatchBuilder`1">
             <summary>
             Represents a match statement builder.
