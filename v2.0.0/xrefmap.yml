@@ -451,6 +451,31 @@ references:
   commentId: T:Matchmaker.Match
   fullName: Matchmaker.Match
   nameWithType: Match
+- uid: Matchmaker.Match.ClearCache*
+  name: ClearCache
+  href: api/Matchmaker.Match.html#Matchmaker_Match_ClearCache_
+  commentId: Overload:Matchmaker.Match.ClearCache
+  isSpec: "True"
+  fullName: Matchmaker.Match.ClearCache
+  nameWithType: Match.ClearCache
+- uid: Matchmaker.Match.ClearCache``1
+  name: ClearCache<TInput>()
+  href: api/Matchmaker.Match.html#Matchmaker_Match_ClearCache__1
+  commentId: M:Matchmaker.Match.ClearCache``1
+  name.vb: ClearCache(Of TInput)()
+  fullName: Matchmaker.Match.ClearCache<TInput>()
+  fullName.vb: Matchmaker.Match.ClearCache(Of TInput)()
+  nameWithType: Match.ClearCache<TInput>()
+  nameWithType.vb: Match.ClearCache(Of TInput)()
+- uid: Matchmaker.Match.ClearCache``2
+  name: ClearCache<TInput, TOutput>()
+  href: api/Matchmaker.Match.html#Matchmaker_Match_ClearCache__2
+  commentId: M:Matchmaker.Match.ClearCache``2
+  name.vb: ClearCache(Of TInput, TOutput)()
+  fullName: Matchmaker.Match.ClearCache<TInput, TOutput>()
+  fullName.vb: Matchmaker.Match.ClearCache(Of TInput, TOutput)()
+  nameWithType: Match.ClearCache<TInput, TOutput>()
+  nameWithType.vb: Match.ClearCache(Of TInput, TOutput)()
 - uid: Matchmaker.Match.Create*
   name: Create
   href: api/Matchmaker.Match.html#Matchmaker_Match_Create_
