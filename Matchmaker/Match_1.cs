@@ -143,14 +143,31 @@ namespace Matchmaker
             => this.Case(Pattern.Type<TInput, TType>(), fallthrough, action);
 
         /// <summary>
-        /// Executes the match statement on the specified input.
+        /// Executes the match statement strictly on the specified input.
+        /// </summary>
+        /// <param name="input">The input value of the statement.</param>
+        /// <exception cref="MatchException">
+        /// The match failed for all cases.
+        /// </exception>
+        public void ExecuteOn(TInput input)
+        {
+            bool isMatched = this.ExecuteNonStrict(input);
+
+            if (!isMatched)
+            {
+                throw new MatchException($"Could not match {input}.");
+            }
+        }
+
+        /// <summary>
+        /// Executes the match statement non-strictly on the specified input.
         /// </summary>
         /// <param name="input">The input value of the statement.</param>
         /// <returns>
         /// <see langword="true" />, if the match was successful.
         /// Otherwise, <see langword="false" />.
         /// </returns>
-        public bool ExecuteOn(TInput input)
+        public bool ExecuteNonStrict(TInput input)
         {
             foreach (var @case in this.cases)
             {
@@ -163,23 +180,6 @@ namespace Matchmaker
             }
 
             return false;
-        }
-
-        /// <summary>
-        /// Executes the match statement strictly on the specified input.
-        /// </summary>
-        /// <param name="input">The input value of the statement.</param>
-        /// <exception cref="MatchException">
-        /// The match failed for all cases.
-        /// </exception>
-        public void ExecuteStrict(TInput input)
-        {
-            bool isMatched = this.ExecuteOn(input);
-
-            if (!isMatched)
-            {
-                throw new MatchException($"Could not match {input}.");
-            }
         }
 
         /// <summary>
@@ -209,18 +209,18 @@ namespace Matchmaker
         }
 
         /// <summary>
-        /// Returns a function which, when called, will match the specified value.
+        /// Returns an action which, when called, will match the specified value.
         /// </summary>
-        /// <returns>A function which, when called, will match the specified value.</returns>
-        public Func<TInput, bool> ToFunction()
+        /// <returns>An action which, when called, will match the specified value.</returns>
+        public Action<TInput> ToFunction()
             => this.ExecuteOn;
 
         /// <summary>
-        /// Returns an action which, when called, will match the specified value strictly.
+        /// Returns a function which, when called, will match the specified value non-strictly.
         /// </summary>
-        /// <returns>An action which, when called, will match the specified value strictly.</returns>
-        public Action<TInput> ToStrictFunction()
-            => this.ExecuteStrict;
+        /// <returns>A function which, when called, will match the specified value non-strictly.</returns>
+        public Func<TInput, bool> ToNonStrictFunction()
+            => this.ExecuteNonStrict;
 
         /// <summary>
         /// Returns a function which, when called, will match the specified value with fallthrough.

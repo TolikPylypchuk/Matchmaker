@@ -13,7 +13,7 @@ using Xunit;
 
 namespace Matchmaker
 {
-    public class MatchStatementTests
+    public class NonStrictMatchStatementTests
     {
         [Fact]
         public void MatchCreateShouldNeverReturnNull()
@@ -44,7 +44,7 @@ namespace Matchmaker
         }
 
         [Property(Arbitrary = new[] { typeof(Generators) })]
-        public Property StrictMatchShouldMatchPatternsCorrectly(Func<string, bool> predicate, string value)
+        public Property NonStrictMatchShouldMatchPatternsCorrectly(Func<string, bool> predicate, string value)
         {
             var pattern = Pattern.CreatePattern(predicate);
             bool matchSuccessful = false;
@@ -52,25 +52,13 @@ namespace Matchmaker
             Match.Create<string>()
                 .Case(pattern, _ => matchSuccessful = true)
                 .Case(Pattern.Any<string>(), _ => matchSuccessful = false)
-                .ExecuteStrict(value);
+                .ExecuteNonStrict(value);
 
             return (matchSuccessful == pattern.Match(value).IsSuccessful).ToProperty();
         }
 
         [Property(Arbitrary = new[] { typeof(Generators) })]
-        public Property MatchShouldReturnFalseIfNoMatchFound(Func<string, bool> predicate, string value)
-        {
-            var pattern = Pattern.CreatePattern(predicate);
-
-            bool matched = Match.Create<string>()
-                .Case(pattern, _ => { })
-                .ExecuteOn(value);
-
-            return (matched == pattern.Match(value).IsSuccessful).ToProperty();
-        }
-
-        [Property(Arbitrary = new[] { typeof(Generators) })]
-        public void MatchShouldNotThrowIfNoMatchFound(Func<string, bool> predicate, string value)
+        public void MatchShouldThrowIfNoMatchFound(Func<string, bool> predicate, string value)
         {
             var pattern = Pattern.CreatePattern(predicate);
 
@@ -79,19 +67,6 @@ namespace Matchmaker
                     .Case(pattern, _ => { })
                     .ExecuteOn(value);
 
-            action.Should().NotThrow<MatchException>();
-        }
-
-        [Property(Arbitrary = new[] { typeof(Generators) })]
-        public void StrictMatchShouldThrowIfNoMatchFound(Func<string, bool> predicate, string value)
-        {
-            var pattern = Pattern.CreatePattern(predicate);
-
-            Action action = () =>
-                Match.Create<string>()
-                    .Case(pattern, _ => { })
-                    .ExecuteStrict(value);
-
             if (pattern.Match(value).IsSuccessful)
             {
                 action.Should().NotThrow<MatchException>();
@@ -99,6 +74,31 @@ namespace Matchmaker
             {
                 action.Should().Throw<MatchException>();
             }
+        }
+
+        [Property(Arbitrary = new[] { typeof(Generators) })]
+        public Property NonStrictMatchShouldReturnFalseIfNoMatchFound(Func<string, bool> predicate, string value)
+        {
+            var pattern = Pattern.CreatePattern(predicate);
+
+            bool matched = Match.Create<string>()
+                .Case(pattern, _ => { })
+                .ExecuteNonStrict(value);
+
+            return (matched == pattern.Match(value).IsSuccessful).ToProperty();
+        }
+
+        [Property(Arbitrary = new[] { typeof(Generators) })]
+        public void NonStrictMatchShouldNotThrowIfNoMatchFound(Func<string, bool> predicate, string value)
+        {
+            var pattern = Pattern.CreatePattern(predicate);
+
+            Action action = () =>
+                Match.Create<string>()
+                    .Case(pattern, _ => { })
+                    .ExecuteNonStrict(value);
+
+            action.Should().NotThrow<MatchException>();
         }
 
         [Property(Arbitrary = new[] { typeof(Generators) })]
@@ -216,7 +216,7 @@ namespace Matchmaker
         }
 
         [Property(Arbitrary = new[] { typeof(Generators) })]
-        public Property StrictMatchToFunctionShouldMatchPatternsCorrectly(
+        public Property NonStrictMatchToFunctionShouldMatchPatternsCorrectly(
             Func<string, bool> predicate,
             string value)
         {
@@ -226,27 +226,13 @@ namespace Matchmaker
             Match.Create<string>()
                 .Case(pattern, _ => matchSuccessful = true)
                 .Case(Pattern.Any<string>(), _ => matchSuccessful = false)
-                .ToStrictFunction()(value);
+                .ToNonStrictFunction()(value);
 
             return (matchSuccessful == pattern.Match(value).IsSuccessful).ToProperty();
         }
 
         [Property(Arbitrary = new[] { typeof(Generators) })]
-        public Property MatchToFunctionShouldReturnFalseIfNoMatchFound(
-            Func<string, bool> predicate,
-            string value)
-        {
-            var pattern = Pattern.CreatePattern(predicate);
-
-            bool matched = Match.Create<string>()
-                .Case(pattern, _ => { })
-                .ToFunction()(value);
-
-            return (matched == pattern.Match(value).IsSuccessful).ToProperty();
-        }
-
-        [Property(Arbitrary = new[] { typeof(Generators) })]
-        public void MatchToFunctionShouldNotThrowIfNoMatchFound(Func<string, bool> predicate, string value)
+        public void MatchToFunctionShouldThrowIfNoMatchFound(Func<string, bool> predicate, string value)
         {
             var pattern = Pattern.CreatePattern(predicate);
 
@@ -255,19 +241,6 @@ namespace Matchmaker
                     .Case(pattern, _ => { })
                     .ToFunction()(value);
 
-            action.Should().NotThrow<MatchException>();
-        }
-
-        [Property(Arbitrary = new[] { typeof(Generators) })]
-        public void StrictMatchToFunctionShouldThrowIfNoMatchFound(Func<string, bool> predicate, string value)
-        {
-            var pattern = Pattern.CreatePattern(predicate);
-
-            Action action = () =>
-                Match.Create<string>()
-                    .Case(pattern, _ => { })
-                    .ToStrictFunction()(value);
-
             if (pattern.Match(value).IsSuccessful)
             {
                 action.Should().NotThrow<MatchException>();
@@ -275,6 +248,33 @@ namespace Matchmaker
             {
                 action.Should().Throw<MatchException>();
             }
+        }
+
+        [Property(Arbitrary = new[] { typeof(Generators) })]
+        public Property NonStrictMatchToFunctionShouldReturnFalseIfNoMatchFound(
+            Func<string, bool> predicate,
+            string value)
+        {
+            var pattern = Pattern.CreatePattern(predicate);
+
+            bool matched = Match.Create<string>()
+                .Case(pattern, _ => { })
+                .ToNonStrictFunction()(value);
+
+            return (matched == pattern.Match(value).IsSuccessful).ToProperty();
+        }
+
+        [Property(Arbitrary = new[] { typeof(Generators) })]
+        public void NonStrictMatchToFunctionShouldNotThrowIfNoMatchFound(Func<string, bool> predicate, string value)
+        {
+            var pattern = Pattern.CreatePattern(predicate);
+
+            Action action = () =>
+                Match.Create<string>()
+                    .Case(pattern, _ => { })
+                    .ToNonStrictFunction()(value);
+
+            action.Should().NotThrow<MatchException>();
         }
 
         [Property(Arbitrary = new[] { typeof(Generators) })]

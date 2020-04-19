@@ -47,178 +47,38 @@ switch (i)
 }
 ```
 
-While this example doesn't show the full power of pattern matching, there are
-a few things to note here:
+While this example doesn't show the full power of pattern matching, there are a few things to note here:
 
- - The match expression yields a result. We don't have to assign the result
-explicitly in each case.
+ - The match expression yields a result. We don't have to assign the result explicitly in each case.
+ - The input of the match expression is specified _after_ all the cases. This allows us to save the match expression
+in an object and use it multiple times on different input values.
+ - The default case is a pattern, just like any other. It's called `Any` and is always matched successfully.
+ - Like in `switch` the patterns are tried out sequentially. This means that the `Any` pattern should always
+come last.
 
- - The input of the match expression is specified _after_ all the cases. This
-allows us to save the match expression in an object, and use it multiple times
-on different input values.
+The release C# 8.0 included a new way to write switch expressions which yield a value. While this drastically reduced
+the need for external libraries like this one for pattern matching, the language itself includes only the simplest
+patterns. This library lets the user define arbitrary patterns, which makes this library more powerful than the switch
+expressions.
 
- - The default case is a pattern, just like any other. It's called `Any` and
-is always matched successfully.
-
- - Like in `switch` the patterns are tried out sequentially. This means that
-the `Any` pattern should always come last.
-
-The release C# 8.0 included a new way to write switch expressions which yield a value.
-While this drastically reduced the need for external libraries like this one
-for pattern matching, the language itself includes only the simplest patterns.
-This library lets the user define arbitrary patterns, which makes this library
-more powerful than the switch expressions.
-
-## Patterns
-
-One of two central ideas of this library is a _pattern_. A pattern is an
-object which implements the `IPattern<TInput, TMatchResult>`
-interface. This interface contains only one method -
-`OptionUnsafe<TMatchResult> Match(Tinput input)`. The `Match` method
-actually does two things:
-
- - Matches the input value with the pattern and returns a non-empty option
-if the match is successful
-
- - Transforms the input value. The returned option contains the result of
-the transformation.
-
-Since options are not supported in C#,
-[language-ext](https://github.com/louthy/language-ext) is used.
-
-The definition of patterns is similar to F#'s active patterns.
-
-Usually one does not have to implement the `IPattern` interface directly.
-Some predefined patterns are available and can be used in most situations:
-
- - `ConditionalPattern<TInput, TOutput>` is an abstract class, which
-enables adding additional conditions to the pattern.
-
- - `Pattern<TInput, TMatchResult>` is a pattern, which can be constructed
-from a function with the same signature as `Match`. This class extends the
-`ConditionalPattern<TInput, TOutput>`.
-
- - `SimplePattern<TInput>` is a non-transforming pattern, which can be
-constructed from a predicate. This class extends the
-`ConditionalPattern<TInput, TOutput>`.
-
- - Several objects of type `SimplePattern<TInput>`and
-`Pattern<TInput, TMatchResult>` are defined in the static `Pattern` class.
-
-`SimplePattern` can be easily combined with any other `SimplePattern`.
-Methods, such as `And`, `Or` and others are defined (and operators,
-such as `&` and `|`).
-
-## Match Expressions
-
-The second central idea is the match expression itself. It is represented
-by two classes: `Match<TInput, TOutput>` and `Match<TInput>`. The difference
-between them is that the former represents a match expression, which yields
-a result, and the latter represents a match expression, which doesn't yield
-a result (also known as match statement).
-
-A match expression can be created using the `Create` methods of the static
-class `Match`.
-
-The `Match` classes include a `Case` method which is used to add a
-pattern and a function, which is executed if the match is successful, to
-the expression.
-
-To execute a match expression, the `ExecuteOn` method is used. It takes the
-input value to match. In the `Match<TInput, TOutput>` class this method
-returns the result of the match, or throws a `MatchException` if no successful
-match was found. In the `Match<TInput>` class this method returns a boolean
-value, which signifies whether the match was successful. This class also contains
-the `ExecuteOnStrict` method, which also throws the `MatchException` if
-the match is not successful.
-
-The `ToFunction` method is also available. It returns a function which, when
-called, will execute the match expression.
-
-## A more complex example
-
-Let's consider another example of match expressions:
+Here's what the equivalent switch expression looks like in C# 8.0:
 
 ```
-string result =
-    Match.Create<int, string>()
-        .Case(
-            LessThan(1),
-            _ => "x < 1")
-        .Case(
-            GreaterOrEqual(1) & LessThan(2),
-            _ => "1 <= x < 2")
-        .Case(
-             GreaterOrEqual(2) & LessThan(3),
-             _ => "2 <= x < 3")
-        .Case(
-            GreaterOrEqual(3) & LessThan(4),
-            _ => "3 <= x < 4")
-        .Case(
-            GreaterOrEqual(4) & Not(GreaterThan(5)),
-            _ => "4 <= x <= 5")
-        .Case(
-            Any<int>(),
-            _ => "5 < x")
-        .ExecuteOn(5);
-```
-
-This is what an equivalent `switch` statement looks like:
-
-```
-string result;
 int i = 5;
 
-switch (i)
+string result = i switch
 {
-    case var _ when i < 1:
-        result = "x < 1";
-        break;
-    case var _ when 1 <= i && i < 2:
-        result = "1 <= x < 2";
-        break;
-    case var _ when 2 <= i && i < 3:
-        result = "2 <= x < 3";
-        break;
-    case var _ when 3 <= i && i < 4:
-        result = "2 <= x < 3";
-        break;
-    case var _ when 4 <= i && !(i > 5):
-        result = "4 <= x <= 5";
-        break;
-    default:
-        result = "5 < x";
-        break;
-}
+    1 => "one",
+    2 => "two",
+    3 => "three",
+    4 => "four",
+    _ => i.ToString()
+};
 ```
 
-This is some very non-idiomatic usage of `switch` statements, but can easily
-be rewritten using the `if-else-if` statement, which is still a statement,
-and thus cannot yield a result.
-
-There are also lazy equivalents of these patterns, which take value providers
-instead of values, for example `EqualTo(() => 1)`. They are useful, when the
-value to compare to is obtained with a long-running computation.
-
-## Null Values
-
-This library uses unsafe options, which can store `null` values, so these values
-are fully supported. There are the `Null` and `ValueNull` patterns to match
-a class or a nullable struct respectively.
-
-## Strict Mode vs. Non-Strict Mode
-
-Both match expressions and match statements have two modes: strict and non-strict.
-When matching in strict mode, an exception is thrown if no successful patterns
-are found in a match expression. On the other hand, when matching in non-strict
-mode, no exceptions will be thrown. This means that a match expression has to
-return an optional value.
-
-*Note*: The default mode in a match expression is strict, because one would
-usually want a result. The default mode in a match statement is non-strict,
-because one would usually not care whether a successful match was actually found.
-That's why a match expression contains the `ExecuteOn` and `ExecuteNonStrict` methods
-and a match statement contains the `ExecuteOn` and `ExecuteStrict` methods.
+OK, this is much shorter and cleaner than the previous two examples. But this library shines when the patterns are
+more complex. C# allows only constant patterns, type patterns, and `when` expressions. This library allows anything
+you can think about.
 
 ## Performance
 
@@ -232,3 +92,5 @@ to do this, and frankly, I'm amazed I didn't think of this way before. So I'm
 guessing the performance of the new versions must be much better than versions 1.x.
 Maybe, I'll even implement some benchmarks in the future to compare the performance
 of this library in comparison to the switch statements/expressions.
+
+Next article: [Match results](results.md).

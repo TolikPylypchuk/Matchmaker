@@ -1319,22 +1319,22 @@
         </member>
         <member name="M:Matchmaker.Match`1.ExecuteOn(`0)">
             <summary>
-            Executes the match statement on the specified input.
-            </summary>
-            <param name="input">The input value of the statement.</param>
-            <returns>
-            <see langword="true" />, if the match was successful.
-            Otherwise, <see langword="false" />.
-            </returns>
-        </member>
-        <member name="M:Matchmaker.Match`1.ExecuteStrict(`0)">
-            <summary>
             Executes the match statement strictly on the specified input.
             </summary>
             <param name="input">The input value of the statement.</param>
             <exception cref="T:Matchmaker.MatchException">
             The match failed for all cases.
             </exception>
+        </member>
+        <member name="M:Matchmaker.Match`1.ExecuteNonStrict(`0)">
+            <summary>
+            Executes the match statement non-strictly on the specified input.
+            </summary>
+            <param name="input">The input value of the statement.</param>
+            <returns>
+            <see langword="true" />, if the match was successful.
+            Otherwise, <see langword="false" />.
+            </returns>
         </member>
         <member name="M:Matchmaker.Match`1.ExecuteWithFallthrough(`0)">
             <summary>
@@ -1348,15 +1348,15 @@
         </member>
         <member name="M:Matchmaker.Match`1.ToFunction">
             <summary>
-            Returns a function which, when called, will match the specified value.
+            Returns an action which, when called, will match the specified value.
             </summary>
-            <returns>A function which, when called, will match the specified value.</returns>
+            <returns>An action which, when called, will match the specified value.</returns>
         </member>
-        <member name="M:Matchmaker.Match`1.ToStrictFunction">
+        <member name="M:Matchmaker.Match`1.ToNonStrictFunction">
             <summary>
-            Returns an action which, when called, will match the specified value strictly.
+            Returns a function which, when called, will match the specified value non-strictly.
             </summary>
-            <returns>An action which, when called, will match the specified value strictly.</returns>
+            <returns>A function which, when called, will match the specified value non-strictly.</returns>
         </member>
         <member name="M:Matchmaker.Match`1.ToFunctionWithFallthrough">
             <summary>
