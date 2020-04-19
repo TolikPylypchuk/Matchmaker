@@ -53,6 +53,7 @@ There are several predefined patterns in the `Matchmaker.Patterns.Pattern` class
  - `LessThan`, `LessOrEqual`, `GreaterThan` and `GreaterOrEqual` are matched successfully if their input
 is compared successfully to the specified value.
  - `Type` is matched successfully if its input has the specified type. It returns its input as a value of that type.
+If the input is `null`, then the match will fail.
  - `Not` is matched successfully if the specified pattern is not matched sucessfully. It ignores the specified
 pattern's transformation and returns its input if matched successfully.
 
@@ -63,6 +64,42 @@ to lazily match the input. The value provider will be called once upon the first
 and then its result will be cached. Note that the caching process is not thread-safe.
 
 All methods for getting predefined patterns are overloaded to take a custom description.
+
+## Null Values
+
+The result of patterns' matching can be `null`. This is why the `MatchResult<T>` type can contain a `null` value.
+
+## LINQ to Patterns
+
+The `Matchmaker.Linq` namespace provides several extension methods for patterns:
+
+ - `Select` maps a pattern's result value if it's successful.
+ - `Pipe` creates a patern pipeline - the result of the first pattern is the input of the second pattern.
+ - `Cast` casts a pattern's to a specified type. It's the same as piping a pattern to the `Type` pattern.
+If the input is `null`, then the match will fail.
+ - `Bind` flat-maps a pattern's result. If a pattern's result is successful, it calls the
+specified function and passes the result to it. The function returns another pattern which is then used to match
+the input. The second pattern's result is the final result.
+ - `Where` filters the pattern's result if it's successful.
+ - `And`, `Or` and `Xor` compose two patterns. The resulting pattern ignores the patterns' transformations and
+returns the input if successful.
+ - `Compose` is the same as the three methods above, but the composition type is passed to it as well.
+ - `Cached` returns a pattern which matches the same as the specified pattern, but caches its results in a null-safe
+hash table. Every input will be matched only once - if it's matched again, the result will be taken from the
+cache. The caching process is not thread-safe.
+
+Because patterns have the `Bind` and `Return` functions, they are monads (I haven't tested the monad laws though).
+To be more specific, patterns can be thought of as a combination of the Reader and Maybe monads.
+
+## Immutability
+
+Every predefined pattern, and patterns returned by the `CreatePattern` and extension methods are immutable. Calling
+an extension method on a pattern returns a new pattern - the old one is unchanged.
+
+An exception is the pattern returned by the `Cached` method, which is not immutable - it holds a mutable cache.
+But if a pattern is referentially transparent (its `Match` method always returns the same result for the same input and
+doesn't have any side effects), then the caching pattern based on it can be thought of as immutable as well, because it
+doesn't matter how many times the base pattern's `Match` method is called.
 
 ## Creating Custom Patterns
 
@@ -108,37 +145,5 @@ Creating custom patterns this way is **not recommended** - if you need complex l
 `Pattern<TInput, TMatchResult>` class. The only reason to implement this interface instead of extending the class
 is if your patern already extends a different class. If that's the case, then making your class a pattern breaks the
 single responsibility principle. So don't do that.
-
-## Null Values
-
-The result of a pattern's match can be `null`. This is why the `MatchResult<T>` type can contain a `null` value.
-
-## LINQ to Patterns
-
-The `Matchmaker.Linq` namespace provides several extension methods for patterns:
-
- - `Select` maps a pattern's result value if it's successful.
- - `Pipe` creates a patern pipeline - the result of the first pattern is the input of the second pattern.
- - `Cast` casts a pattern's to a specified type. It's the same as piping a pattern to the `Type` pattern.
- - `Bind` flat-maps a pattern's result. If a pattern's result is successful, it calls the
-specified function and passes the result to it. The function returns another pattern which is then used to match
-the input. The second pattern's result is the final result.
- - `Where` filters the pattern's result if it's successful.
- - `And`, `Or` and `Xor` compose two patterns. The resulting pattern ignores the patterns' transformations and
-returns the input if successful.
- - `Compose` is the same as the three methods above, but the composition type is passed to it as well.
- - `Cached` returns a pattern which matches the same as the specified pattern, but caches its results in a null-safe
-hash table. Every input will be matched only once - if it's matched again, the result will be taken from the
-cache. The caching process is not thread-safe.
-
-## Immutability
-
-Every predefined pattern, and patterns returned by the `CreatePattern` and extension methods are immutable. Calling
-an extension method on a pattern returns a new pattern - the old one is unchanged.
-
-An exception is the pattern returned by the `Cached` method, which is not immutable - it holds a mutable cache.
-But if a pattern is referentially transparent (its `Match` method always returns the same result for the same input and
-doesn't have any side effects), then the caching pattern based on it can be thought of as immutable as well, because it
-doesn't matter how many times the base pattern's `Match` method is called.
 
 Next article: [Match expressions](expressions.md)
