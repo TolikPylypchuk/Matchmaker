@@ -493,19 +493,19 @@ pattern is matched successfully.</p>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Match_1_ExecuteOn__0_.md&amp;value=---%0Auid%3A%20Matchmaker.Match%601.ExecuteOn(%600)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Match_1_ExecuteNonStrict__0_.md&amp;value=---%0Auid%3A%20Matchmaker.Match%601.ExecuteNonStrict(%600)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/Match_1.cs/#L153">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/Match_1.cs/#L170">View Source</a>
   </span>
-  <a id="Matchmaker_Match_1_ExecuteOn_" data-uid="Matchmaker.Match`1.ExecuteOn*"></a>
-  <h4 id="Matchmaker_Match_1_ExecuteOn__0_" data-uid="Matchmaker.Match`1.ExecuteOn(`0)">ExecuteOn(TInput)</h4>
-  <div class="markdown level1 summary"><p>Executes the match statement on the specified input.</p>
+  <a id="Matchmaker_Match_1_ExecuteNonStrict_" data-uid="Matchmaker.Match`1.ExecuteNonStrict*"></a>
+  <h4 id="Matchmaker_Match_1_ExecuteNonStrict__0_" data-uid="Matchmaker.Match`1.ExecuteNonStrict(`0)">ExecuteNonStrict(TInput)</h4>
+  <div class="markdown level1 summary"><p>Executes the match statement non-strictly on the specified input.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool ExecuteOn(TInput input)</code></pre>
+    <pre><code class="lang-csharp hljs">public bool ExecuteNonStrict(TInput input)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -544,19 +544,19 @@ Otherwise, <span class="xref">false</span>.</p>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Match_1_ExecuteStrict__0_.md&amp;value=---%0Auid%3A%20Matchmaker.Match%601.ExecuteStrict(%600)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Match_1_ExecuteOn__0_.md&amp;value=---%0Auid%3A%20Matchmaker.Match%601.ExecuteOn(%600)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/Match_1.cs/#L175">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/Match_1.cs/#L152">View Source</a>
   </span>
-  <a id="Matchmaker_Match_1_ExecuteStrict_" data-uid="Matchmaker.Match`1.ExecuteStrict*"></a>
-  <h4 id="Matchmaker_Match_1_ExecuteStrict__0_" data-uid="Matchmaker.Match`1.ExecuteStrict(`0)">ExecuteStrict(TInput)</h4>
+  <a id="Matchmaker_Match_1_ExecuteOn_" data-uid="Matchmaker.Match`1.ExecuteOn*"></a>
+  <h4 id="Matchmaker_Match_1_ExecuteOn__0_" data-uid="Matchmaker.Match`1.ExecuteOn(`0)">ExecuteOn(TInput)</h4>
   <div class="markdown level1 summary"><p>Executes the match statement strictly on the specified input.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void ExecuteStrict(TInput input)</code></pre>
+    <pre><code class="lang-csharp hljs">public void ExecuteOn(TInput input)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -652,12 +652,12 @@ The number of items in this enumerable equals the number of successful cases.</p
   </span>
   <a id="Matchmaker_Match_1_ToFunction_" data-uid="Matchmaker.Match`1.ToFunction*"></a>
   <h4 id="Matchmaker_Match_1_ToFunction" data-uid="Matchmaker.Match`1.ToFunction">ToFunction()</h4>
-  <div class="markdown level1 summary"><p>Returns a function which, when called, will match the specified value.</p>
+  <div class="markdown level1 summary"><p>Returns an action which, when called, will match the specified value.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Func&lt;TInput, bool&gt; ToFunction()</code></pre>
+    <pre><code class="lang-csharp hljs">public Action&lt;TInput&gt; ToFunction()</code></pre>
   </div>
   <h5 class="returns">Returns</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -669,8 +669,8 @@ The number of items in this enumerable equals the number of successful cases.</p
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Func</span>&lt;TInput, <span class="xref">System.Boolean</span>&gt;</td>
-        <td><p>A function which, when called, will match the specified value.</p>
+        <td><span class="xref">System.Action</span>&lt;TInput&gt;</td>
+        <td><p>An action which, when called, will match the specified value.</p>
 </td>
       </tr>
     </tbody>
@@ -709,19 +709,19 @@ The number of items in this enumerable equals the number of successful cases.</p
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Match_1_ToStrictFunction.md&amp;value=---%0Auid%3A%20Matchmaker.Match%601.ToStrictFunction%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Match_1_ToNonStrictFunction.md&amp;value=---%0Auid%3A%20Matchmaker.Match%601.ToNonStrictFunction%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/Match_1.cs/#L222">View Source</a>
   </span>
-  <a id="Matchmaker_Match_1_ToStrictFunction_" data-uid="Matchmaker.Match`1.ToStrictFunction*"></a>
-  <h4 id="Matchmaker_Match_1_ToStrictFunction" data-uid="Matchmaker.Match`1.ToStrictFunction">ToStrictFunction()</h4>
-  <div class="markdown level1 summary"><p>Returns an action which, when called, will match the specified value strictly.</p>
+  <a id="Matchmaker_Match_1_ToNonStrictFunction_" data-uid="Matchmaker.Match`1.ToNonStrictFunction*"></a>
+  <h4 id="Matchmaker_Match_1_ToNonStrictFunction" data-uid="Matchmaker.Match`1.ToNonStrictFunction">ToNonStrictFunction()</h4>
+  <div class="markdown level1 summary"><p>Returns a function which, when called, will match the specified value non-strictly.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Action&lt;TInput&gt; ToStrictFunction()</code></pre>
+    <pre><code class="lang-csharp hljs">public Func&lt;TInput, bool&gt; ToNonStrictFunction()</code></pre>
   </div>
   <h5 class="returns">Returns</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -733,8 +733,8 @@ The number of items in this enumerable equals the number of successful cases.</p
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Action</span>&lt;TInput&gt;</td>
-        <td><p>An action which, when called, will match the specified value strictly.</p>
+        <td><span class="xref">System.Func</span>&lt;TInput, <span class="xref">System.Boolean</span>&gt;</td>
+        <td><p>A function which, when called, will match the specified value non-strictly.</p>
 </td>
       </tr>
     </tbody>

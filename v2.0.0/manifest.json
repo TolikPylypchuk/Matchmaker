@@ -57,7 +57,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Matchmaker.Match-1.html",
-          "hash": "IuLyAaxgGVuTLXIIG/rHKQ=="
+          "hash": "Z2rSZcr56SMm+kyGMvVgIQ=="
         }
       },
       "is_incremental": false,
@@ -268,24 +268,30 @@
       "version": ""
     },
     {
+      "log_codes": [
+        "InvalidFileLink"
+      ],
       "type": "Conceptual",
       "source_relative_path": "articles/intro.md",
       "output": {
         ".html": {
           "relative_path": "articles/intro.html",
-          "hash": "og8uNXiHfzjZHDFAUWdv1A=="
+          "hash": "QOj8218zIvgzoGokc3bHsQ=="
         }
       },
       "is_incremental": false,
       "version": ""
     },
     {
+      "log_codes": [
+        "InvalidFileLink"
+      ],
       "type": "Toc",
       "source_relative_path": "articles/toc.yml",
       "output": {
         ".html": {
           "relative_path": "articles/toc.html",
-          "hash": "+jaabzCFbf36go2LpH9Cew=="
+          "hash": "qGoJz+6o6iuXb5VHs1MC6Q=="
         }
       },
       "is_incremental": false,
@@ -315,12 +321,15 @@
       "version": ""
     },
     {
+      "log_codes": [
+        "InvalidFileLink"
+      ],
       "type": "Conceptual",
       "source_relative_path": "index.md",
       "output": {
         ".html": {
           "relative_path": "index.html",
-          "hash": "4pO6ERpjKfo142Zdf12Vkw=="
+          "hash": "ItPoOV6Y4e9zpHJWOKkEWw=="
         }
       },
       "is_incremental": false,

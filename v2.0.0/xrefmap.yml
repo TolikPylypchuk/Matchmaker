@@ -598,6 +598,23 @@ references:
   fullName.vb: Matchmaker.Match(Of TInput).Case(Of TType)(System.Boolean, System.Action(Of TType))
   nameWithType: Match<TInput>.Case<TType>(Boolean, Action<TType>)
   nameWithType.vb: Match(Of TInput).Case(Of TType)(Boolean, Action(Of TType))
+- uid: Matchmaker.Match`1.ExecuteNonStrict(`0)
+  name: ExecuteNonStrict(TInput)
+  href: api/Matchmaker.Match-1.html#Matchmaker_Match_1_ExecuteNonStrict__0_
+  commentId: M:Matchmaker.Match`1.ExecuteNonStrict(`0)
+  fullName: Matchmaker.Match<TInput>.ExecuteNonStrict(TInput)
+  fullName.vb: Matchmaker.Match(Of TInput).ExecuteNonStrict(TInput)
+  nameWithType: Match<TInput>.ExecuteNonStrict(TInput)
+  nameWithType.vb: Match(Of TInput).ExecuteNonStrict(TInput)
+- uid: Matchmaker.Match`1.ExecuteNonStrict*
+  name: ExecuteNonStrict
+  href: api/Matchmaker.Match-1.html#Matchmaker_Match_1_ExecuteNonStrict_
+  commentId: Overload:Matchmaker.Match`1.ExecuteNonStrict
+  isSpec: "True"
+  fullName: Matchmaker.Match<TInput>.ExecuteNonStrict
+  fullName.vb: Matchmaker.Match(Of TInput).ExecuteNonStrict
+  nameWithType: Match<TInput>.ExecuteNonStrict
+  nameWithType.vb: Match(Of TInput).ExecuteNonStrict
 - uid: Matchmaker.Match`1.ExecuteOn(`0)
   name: ExecuteOn(TInput)
   href: api/Matchmaker.Match-1.html#Matchmaker_Match_1_ExecuteOn__0_
@@ -615,23 +632,6 @@ references:
   fullName.vb: Matchmaker.Match(Of TInput).ExecuteOn
   nameWithType: Match<TInput>.ExecuteOn
   nameWithType.vb: Match(Of TInput).ExecuteOn
-- uid: Matchmaker.Match`1.ExecuteStrict(`0)
-  name: ExecuteStrict(TInput)
-  href: api/Matchmaker.Match-1.html#Matchmaker_Match_1_ExecuteStrict__0_
-  commentId: M:Matchmaker.Match`1.ExecuteStrict(`0)
-  fullName: Matchmaker.Match<TInput>.ExecuteStrict(TInput)
-  fullName.vb: Matchmaker.Match(Of TInput).ExecuteStrict(TInput)
-  nameWithType: Match<TInput>.ExecuteStrict(TInput)
-  nameWithType.vb: Match(Of TInput).ExecuteStrict(TInput)
-- uid: Matchmaker.Match`1.ExecuteStrict*
-  name: ExecuteStrict
-  href: api/Matchmaker.Match-1.html#Matchmaker_Match_1_ExecuteStrict_
-  commentId: Overload:Matchmaker.Match`1.ExecuteStrict
-  isSpec: "True"
-  fullName: Matchmaker.Match<TInput>.ExecuteStrict
-  fullName.vb: Matchmaker.Match(Of TInput).ExecuteStrict
-  nameWithType: Match<TInput>.ExecuteStrict
-  nameWithType.vb: Match(Of TInput).ExecuteStrict
 - uid: Matchmaker.Match`1.ExecuteWithFallthrough(`0)
   name: ExecuteWithFallthrough(TInput)
   href: api/Matchmaker.Match-1.html#Matchmaker_Match_1_ExecuteWithFallthrough__0_
@@ -683,23 +683,23 @@ references:
   fullName.vb: Matchmaker.Match(Of TInput).ToFunctionWithFallthrough
   nameWithType: Match<TInput>.ToFunctionWithFallthrough
   nameWithType.vb: Match(Of TInput).ToFunctionWithFallthrough
-- uid: Matchmaker.Match`1.ToStrictFunction
-  name: ToStrictFunction()
-  href: api/Matchmaker.Match-1.html#Matchmaker_Match_1_ToStrictFunction
-  commentId: M:Matchmaker.Match`1.ToStrictFunction
-  fullName: Matchmaker.Match<TInput>.ToStrictFunction()
-  fullName.vb: Matchmaker.Match(Of TInput).ToStrictFunction()
-  nameWithType: Match<TInput>.ToStrictFunction()
-  nameWithType.vb: Match(Of TInput).ToStrictFunction()
-- uid: Matchmaker.Match`1.ToStrictFunction*
-  name: ToStrictFunction
-  href: api/Matchmaker.Match-1.html#Matchmaker_Match_1_ToStrictFunction_
-  commentId: Overload:Matchmaker.Match`1.ToStrictFunction
+- uid: Matchmaker.Match`1.ToNonStrictFunction
+  name: ToNonStrictFunction()
+  href: api/Matchmaker.Match-1.html#Matchmaker_Match_1_ToNonStrictFunction
+  commentId: M:Matchmaker.Match`1.ToNonStrictFunction
+  fullName: Matchmaker.Match<TInput>.ToNonStrictFunction()
+  fullName.vb: Matchmaker.Match(Of TInput).ToNonStrictFunction()
+  nameWithType: Match<TInput>.ToNonStrictFunction()
+  nameWithType.vb: Match(Of TInput).ToNonStrictFunction()
+- uid: Matchmaker.Match`1.ToNonStrictFunction*
+  name: ToNonStrictFunction
+  href: api/Matchmaker.Match-1.html#Matchmaker_Match_1_ToNonStrictFunction_
+  commentId: Overload:Matchmaker.Match`1.ToNonStrictFunction
   isSpec: "True"
-  fullName: Matchmaker.Match<TInput>.ToStrictFunction
-  fullName.vb: Matchmaker.Match(Of TInput).ToStrictFunction
-  nameWithType: Match<TInput>.ToStrictFunction
-  nameWithType.vb: Match(Of TInput).ToStrictFunction
+  fullName: Matchmaker.Match<TInput>.ToNonStrictFunction
+  fullName.vb: Matchmaker.Match(Of TInput).ToNonStrictFunction
+  nameWithType: Match<TInput>.ToNonStrictFunction
+  nameWithType.vb: Match(Of TInput).ToNonStrictFunction
 - uid: Matchmaker.Match`2
   name: Match<TInput, TOutput>
   href: api/Matchmaker.Match-2.html
