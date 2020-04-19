@@ -1,0 +1,217 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Patterns </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Patterns ">
+    <meta name="generator" content="docfx 2.52.0.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="patterns">Patterns</h1>
+
+<p>One of two central ideas of this library is a <em>pattern</em>. Patterns are used to match the input value
+against a certain &quot;shape&quot;. For example, 'the input value is equal to some value' or 'the input value
+has some type'.</p>
+<h2 id="the-ipatterntinput-tmatchresult-interface">The <code>IPattern&lt;TInput, TMatchResult&gt;</code> interface</h2>
+<p>A pattern is an object which implements the <code>IPattern&lt;TInput, TMatchResult&gt;</code> interface.
+This interface contains two members:</p>
+<pre><code>string Description { get; }
+
+MatchResult&lt;TMatchResult&gt; Match(Tinput input);
+</code></pre>
+<p>The <code>Match</code> method actually does two things:</p>
+<ul>
+<li>Matches the input value with the pattern and returns a successful result if the match is successful.</li>
+<li>Transforms the input value. The returned result contains the transformed value if it's successful.</li>
+</ul>
+<p>Since options are not supported natively in C#, a custom type - <a href="results.html"><code>MatchResult&lt;T&gt;</code></a> - is used.</p>
+<p>The definition of patterns is similar to F#'s active patterns.</p>
+<p>Descriptions for patterns are not terribly important, but can be useful for debugging. As such, they are optional -
+if you don't want a pattern to have a description, it should be empty. A pattern's description should <em>never</em> be <code>null</code>.</p>
+<h2 id="the-ipatterntinput-interface">The <code>IPattern&lt;TInput&gt;</code> interface</h2>
+<p>This library also includes the less generic <code>IPattern&lt;TInput&gt;</code> interface. It has only one member:</p>
+<pre><code>MatchResult&lt;object&gt; Match(Tinput input);
+</code></pre>
+<p>The more generic <code>IPattern&lt;TInput, TMatchResult&gt;</code> interface extends this interface.</p>
+<p>Users of this library should <strong>never use this interface directly</strong>. It's used only inside match expressions because
+they can't know about patterns' transformation types. You shouldn't implement this interface directly, pass references
+of this type to methods etc.</p>
+<h2 id="using-predefined-patterns">Using Predefined Patterns</h2>
+<p>There are several predefined patterns in the <code>Matchmaker.Patterns.Pattern</code> class:</p>
+<ul>
+<li><code>Any</code> is always matched successfully and returns its input.</li>
+<li><code>Return</code> is also always matched successfully, but returns the specified value instead of its input.</li>
+<li><code>Null</code> is matched successfully if its input is <code>null</code>.</li>
+<li><code>ValueNull</code> is also matched successfully if its input is <code>null</code>, but is used for nullable value types.</li>
+<li><code>EqualTo</code> is matched successfully if its input is equal to the specified value.</li>
+<li><code>LessThan</code>, <code>LessOrEqual</code>, <code>GreaterThan</code> and <code>GreaterOrEqual</code> are matched successfully if their input
+is compared successfully to the specified value.</li>
+<li><code>Type</code> is matched successfully if its input has the specified type. It returns its input as a value of that type.</li>
+<li><code>Not</code> is matched successfully if the specified pattern is not matched sucessfully. It ignores the specified
+pattern's transformation and returns its input if matched successfully.</li>
+</ul>
+<p>The patterns which compare their inputs can also take a custom comparer which will be used to compare values.</p>
+<p>The patterns that take a value can also take a value provider (a function which returns the value) in order
+to lazily match the input. The value provider will be called once upon the first call to the <code>Match</code> method
+and then its result will be cached. Note that the caching process is not thread-safe.</p>
+<p>All methods for getting predefined patterns are overloaded to take a custom description.</p>
+<h2 id="creating-custom-patterns">Creating Custom Patterns</h2>
+<p>This library works with arbitrary patterns. There are several ways to create custom patterns.</p>
+<h3 id="the-easy-way">The easy way</h3>
+<p>The <code>Pattern</code> class contains the <code>CreatePattern</code> methods which create patterns from functions. There are two main
+variations:</p>
+<ul>
+<li>Create a pattern from a predicate. This predicate will be used to test the value. If it returns <code>true</code> then the
+input value will be the result.</li>
+<li>Create a pattern from a matcher function. This is a function which has the same signature as the <code>Match</code> method
+or the <code>IPattern&lt;TInput, TMatchResult&gt;</code> interface. This function will be used to match inputs.</li>
+</ul>
+<p>There are also overloads which take a description.</p>
+<h3 id="the-harder-way">The harder way</h3>
+<p>If you want something more complex than a single function, you can create a class which extends the
+<code>Pattern&lt;TInput, TMatchResult&gt;</code> class. This is a base class for patterns and provides a couple things out-of-the-box:</p>
+<ul>
+<li>It implements the <code>IPattern&lt;TInput&gt;</code> interface explicitly so that you don't have to worry about it.</li>
+<li>It implements the <code>Description</code> property, which you don't have to use if you don't want - by default the description
+is empty, which means that the pattern doesn't have a description.</li>
+</ul>
+<h3 id="the-hardest-way">The hardest way</h3>
+<p>If you for some reason don't want to extend the <code>Pattern&lt;TInput, TMatchResult&gt;</code> class, you can always implement
+<code>IPattern&lt;TInput, TMatchResult&gt;</code> directly. If you choose this way, you <em>must</em> implement the less generic <code>Match</code> method
+in terms of the more generic <code>Match</code> method, like this:</p>
+<pre><code>MatchResult&lt;object&gt; IPattern&lt;TInput&gt;.Match(TInput input)
+    =&gt; this.Match(input).Select(result =&gt; (object)result);
+</code></pre>
+<p>Because this method has the same signature as the more generic <code>Match</code> method, it must be implemented explicitly.
+If you don't implement it this way, there may be runtime problems with match expressions, as this is the only point of
+possible type-safety failure in the whole library.</p>
+<p>Creating custom patterns this way is <strong>not recommended</strong> - if you need complex logic, extend the
+<code>Pattern&lt;TInput, TMatchResult&gt;</code> class. The only reason to implement this interface instead of extending the class
+is if your patern already extends a different class. If that's the case, then making your class a pattern breaks the
+single responsibility principle. So don't do that.</p>
+<h2 id="null-values">Null Values</h2>
+<p>The result of a pattern's match can be <code>null</code>. This is why the <code>MatchResult&lt;T&gt;</code> type can contain a <code>null</code> value.</p>
+<h2 id="linq-to-patterns">LINQ to Patterns</h2>
+<p>The <code>Matchmaker.Linq</code> namespace provides several extension methods for patterns:</p>
+<ul>
+<li><code>Select</code> maps a pattern's result value if it's successful.</li>
+<li><code>Pipe</code> creates a patern pipeline - the result of the first pattern is the input of the second pattern.</li>
+<li><code>Cast</code> casts a pattern's to a specified type. It's the same as piping a pattern to the <code>Type</code> pattern.</li>
+<li><code>Bind</code> flat-maps a pattern's result. If a pattern's result is successful, it calls the
+specified function and passes the result to it. The function returns another pattern which is then used to match
+the input. The second pattern's result is the final result.</li>
+<li><code>Where</code> filters the pattern's result if it's successful.</li>
+<li><code>And</code>, <code>Or</code> and <code>Xor</code> compose two patterns. The resulting pattern ignores the patterns' transformations and
+returns the input if successful.</li>
+<li><code>Compose</code> is the same as the three methods above, but the composition type is passed to it as well.</li>
+<li><code>Cached</code> returns a pattern which matches the same as the specified pattern, but caches its results in a null-safe
+hash table. Every input will be matched only once - if it's matched again, the result will be taken from the
+cache. The caching process is not thread-safe.</li>
+</ul>
+<h2 id="immutability">Immutability</h2>
+<p>Every predefined pattern, and patterns returned by the <code>CreatePattern</code> and extension methods are immutable. Calling
+an extension method on a pattern returns a new pattern - the old one is unchanged.</p>
+<p>An exception is the pattern returned by the <code>Cached</code> method, which is not immutable - it holds a mutable cache.
+But if a pattern is referentially transparent (its <code>Match</code> method always returns the same result for the same input and
+doesn't have any side effects), then the caching pattern based on it can be thought of as immutable as well, because it
+doesn't matter how many times the base pattern's <code>Match</code> method is called.</p>
+<p>Next article: <a href="expressions.html">Match expressions</a></p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/docs/articles/patterns.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            <div>Copyright (c) 2018-2020 Tolik Pylypchuk</div><span>Generated by <strong>DocFx</strong>.</span> <span>Icons made by <a href="https" ://www.flaticon.com/authors/roundicons"="" title="Roundicons">Roundicons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></span>
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

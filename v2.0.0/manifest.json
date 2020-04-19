@@ -257,6 +257,18 @@
     },
     {
       "type": "Conceptual",
+      "source_relative_path": "articles/expressions.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/expressions.html",
+          "hash": "OmfBKxAaQ0H8M2bWCgdAxQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
       "source_relative_path": "articles/fallthrough.md",
       "output": {
         ".html": {
@@ -268,30 +280,60 @@
       "version": ""
     },
     {
-      "log_codes": [
-        "InvalidFileLink"
-      ],
       "type": "Conceptual",
       "source_relative_path": "articles/intro.md",
       "output": {
         ".html": {
           "relative_path": "articles/intro.html",
-          "hash": "QOj8218zIvgzoGokc3bHsQ=="
+          "hash": "EmmIsZSciGmTDq8gtrZ27Q=="
         }
       },
       "is_incremental": false,
       "version": ""
     },
     {
-      "log_codes": [
-        "InvalidFileLink"
-      ],
+      "type": "Conceptual",
+      "source_relative_path": "articles/migration.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/migration.html",
+          "hash": "33PrnldslNBdELc3Z0JDiA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/patterns.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/patterns.html",
+          "hash": "v088W/VsY/U7y5oMvcY6og=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/results.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/results.html",
+          "hash": "+tV3qRCBSWnD/bNJPtP7+w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
       "type": "Toc",
       "source_relative_path": "articles/toc.yml",
       "output": {
         ".html": {
           "relative_path": "articles/toc.html",
-          "hash": "qGoJz+6o6iuXb5VHs1MC6Q=="
+          "hash": "bogrG5qY4qUdDtnpJdDI1w=="
         }
       },
       "is_incremental": false,
@@ -321,15 +363,12 @@
       "version": ""
     },
     {
-      "log_codes": [
-        "InvalidFileLink"
-      ],
       "type": "Conceptual",
       "source_relative_path": "index.md",
       "output": {
         ".html": {
           "relative_path": "index.html",
-          "hash": "ItPoOV6Y4e9zpHJWOKkEWw=="
+          "hash": "dFRe01seUg1+M5KFY4Jr7w=="
         }
       },
       "is_incremental": false,
@@ -373,7 +412,7 @@
         "ConceptualDocumentProcessor": {
           "can_incremental": false,
           "incrementalPhase": "build",
-          "total_file_count": 5,
+          "total_file_count": 9,
           "skipped_file_count": 0
         },
         "ManagedReferenceDocumentProcessor": {
