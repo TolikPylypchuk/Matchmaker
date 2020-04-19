@@ -16,6 +16,40 @@ namespace Matchmaker.Patterns
         private static readonly IComparer<string> StringComparer = Comparer<string>.Default;
 
         [Property]
+        public Property LessOrEqualShouldNeverReturnNull(string x)
+            => (Pattern.LessOrEqual(x) != null).ToProperty();
+
+        [Property]
+        public Property LazyLessOrEqualShouldNeverReturnNull(string x)
+            => (Pattern.LessOrEqual(() => x) != null).ToProperty();
+
+        [Property]
+        public Property LessOrEqualWithComparerShouldNeverReturnNull(string x)
+            => (Pattern.LessOrEqual(x, StringComparer) != null).ToProperty();
+
+        [Property]
+        public Property LazyLessOrEqualWithComparerShouldNeverReturnNull(string x)
+            => (Pattern.LessOrEqual(() => x, StringComparer) != null).ToProperty();
+
+        [Property]
+        public Property LessOrEqualWithDescriptionShouldNeverReturnNull(string x, NonNull<string> description)
+            => (Pattern.LessOrEqual(x, description.Get) != null).ToProperty();
+
+        [Property]
+        public Property LazyLessOrEqualWithDescriptionShouldNeverReturnNull(string x, NonNull<string> description)
+            => (Pattern.LessOrEqual(() => x, description.Get) != null).ToProperty();
+
+        [Property]
+        public Property LessOrEqualWithComparerAndDescriptionShouldNeverReturnNull(string x, NonNull<string> description)
+            => (Pattern.LessOrEqual(x, StringComparer, description.Get) != null).ToProperty();
+
+        [Property]
+        public Property LazyLessOrEqualWithComparerAndDescriptionShouldNeverReturnNull(
+            string x,
+            NonNull<string> description)
+            => (Pattern.LessOrEqual(() => x, StringComparer, description.Get) != null).ToProperty();
+
+        [Property]
         public Property LessOrEqualShouldSucceedOnlyOnLessOrEqual(string x, string y)
             => (Comparer<string>.Default.Compare(x, y) <= 0 == Pattern.LessOrEqual(y).Match(x).IsSuccessful)
                 .ToProperty();

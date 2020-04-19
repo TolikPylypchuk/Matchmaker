@@ -14,18 +14,28 @@ namespace Matchmaker.Linq
     public class CachedTests
     {
         [Property(Arbitrary = new[] { typeof(Generators) })]
-        public Property CachedPatternShouldMatchSameAsPattern(IPattern<string, string> pattern, string input)
-               => (pattern.Cached().Match(input) ==pattern.Match(input)).ToProperty();
+        public Property CachedPatternShouldNeverReturnNull(IPattern<string, string> pattern)
+            => (pattern.Cached() != null).ToProperty();
+
+        [Property(Arbitrary = new[] { typeof(Generators) })]
+        public Property CachedPatternWithDescriptionShouldNeverReturnNull(
+            IPattern<string, string> pattern,
+            NonNull<string> description)
+            => (pattern.Cached(description.Get) != null).ToProperty();
+
+        [Property(Arbitrary = new[] { typeof(Generators) })]
+        public Property CachedPatternShouldMatchSameAsPattern(IPattern<string, string> pattern, string x)
+               => (pattern.Cached().Match(x) ==pattern.Match(x)).ToProperty();
 
         [Property(Arbitrary = new[] { typeof(Generators) })]
         public Property CachedPatternWithDescriptionShouldMatchSameAsPattern(
             IPattern<string, string> pattern,
-            string input,
+            string x,
             NonNull<string> description)
-            => (pattern.Cached(description.Get).Match(input) == pattern.Match(input)).ToProperty();
+            => (pattern.Cached(description.Get).Match(x) == pattern.Match(x)).ToProperty();
 
         [Property(Arbitrary = new[] { typeof(Generators) })]
-        public Property CachedPatternShouldBeCached(string input)
+        public Property CachedPatternShouldBeCached(string x)
         {
             int count = 0;
 
@@ -35,14 +45,14 @@ namespace Matchmaker.Linq
                 return true;
             }).Cached();
 
-            pattern.Match(input);
-            pattern.Match(input);
+            pattern.Match(x);
+            pattern.Match(x);
 
             return (count == 1).ToProperty();
         }
 
         [Property(Arbitrary = new[] { typeof(Generators) })]
-        public Property CachedPatternWithDescriptionShouldBeCached(string input, NonNull<string> description)
+        public Property CachedPatternWithDescriptionShouldBeCached(string x, NonNull<string> description)
         {
             int count = 0;
 
@@ -52,8 +62,8 @@ namespace Matchmaker.Linq
                 return true;
             }).Cached(description.Get);
 
-            pattern.Match(input);
-            pattern.Match(input);
+            pattern.Match(x);
+            pattern.Match(x);
 
             return (count == 1).ToProperty();
         }

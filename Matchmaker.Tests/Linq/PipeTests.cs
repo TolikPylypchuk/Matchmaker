@@ -14,14 +14,27 @@ namespace Matchmaker.Linq
     public class PipeTests
     {
         [Property(Arbitrary = new[] { typeof(Generators) })]
+        public Property PipePatternShouldNeverReturnNull(
+            IPattern<string, string> firstPattern,
+            IPattern<string, string> secondPattern)
+            => (firstPattern.Pipe(secondPattern) != null).ToProperty();
+
+        [Property(Arbitrary = new[] { typeof(Generators) })]
+        public Property PipePatternWithDescriptionShouldNeverReturnNull(
+            IPattern<string, string> firstPattern,
+            IPattern<string, string> secondPattern,
+            NonNull<string> description)
+            => (firstPattern.Pipe(secondPattern, description.Get) != null).ToProperty();
+
+        [Property(Arbitrary = new[] { typeof(Generators) })]
         public Property PipePatternShouldMatchSameAsPatterns(
             IPattern<string, string> firstPattern,
             IPattern<string, string> secondPattern,
-            string input)
+            string x)
         {
-            var result = firstPattern.Match(input);
+            var result = firstPattern.Match(x);
             return result.IsSuccessful.ImpliesThat(() =>
-                    firstPattern.Pipe(secondPattern).Match(input) == secondPattern.Match(result.Value))
+                    firstPattern.Pipe(secondPattern).Match(x) == secondPattern.Match(result.Value))
                 .ToProperty();
         }
 
@@ -29,12 +42,12 @@ namespace Matchmaker.Linq
         public Property PipePatternWithDescriptionShouldMatchSameAsPattern(
             IPattern<string, string> firstPattern,
             IPattern<string, string> secondPattern,
-            string input,
+            string x,
             NonNull<string> description)
         {
-            var result = firstPattern.Match(input);
+            var result = firstPattern.Match(x);
             return result.IsSuccessful.ImpliesThat(() =>
-                firstPattern.Pipe(secondPattern, description.Get).Match(input) == secondPattern.Match(result.Value))
+                firstPattern.Pipe(secondPattern, description.Get).Match(x) == secondPattern.Match(result.Value))
                 .ToProperty();
         }
 
@@ -118,13 +131,26 @@ namespace Matchmaker.Linq
         }
 
         [Property(Arbitrary = new[] { typeof(Generators) })]
+        public Property PipePatternWithFunctionShouldNeverReturnNull(
+            IPattern<string, string> pattern,
+            Func<string, MatchResult<string>> matcher)
+            => (pattern.Pipe(matcher) != null).ToProperty();
+
+        [Property(Arbitrary = new[] { typeof(Generators) })]
+        public Property PipePatternWithFunctionAndDescriptionShouldNeverReturnNull(
+            IPattern<string, string> pattern,
+            Func<string, MatchResult<string>> matcher,
+            NonNull<string> description)
+            => (pattern.Pipe(matcher, description.Get) != null).ToProperty();
+
+        [Property(Arbitrary = new[] { typeof(Generators) })]
         public Property PipePatternWithFunctionShouldMatchSameAsPatterns(
             IPattern<string, string> pattern,
             Func<string, MatchResult<string>> matcher,
-            string input)
+            string x)
         {
-            var result = pattern.Match(input);
-            return result.IsSuccessful.ImpliesThat(() => pattern.Pipe(matcher).Match(input) == matcher(result.Value))
+            var result = pattern.Match(x);
+            return result.IsSuccessful.ImpliesThat(() => pattern.Pipe(matcher).Match(x) == matcher(result.Value))
                 .ToProperty();
         }
 
@@ -132,12 +158,12 @@ namespace Matchmaker.Linq
         public Property PipePatternWithFunctionAndDescriptionShouldMatchSameAsPattern(
             IPattern<string, string> pattern,
             Func<string, MatchResult<string>> matcher,
-            string input,
+            string x,
             NonNull<string> description)
         {
-            var result = pattern.Match(input);
+            var result = pattern.Match(x);
             return result.IsSuccessful.ImpliesThat(() =>
-                pattern.Pipe(matcher, description.Get).Match(input) == matcher(result.Value))
+                pattern.Pipe(matcher, description.Get).Match(x) == matcher(result.Value))
                 .ToProperty();
         }
 
@@ -196,13 +222,21 @@ namespace Matchmaker.Linq
         }
 
         [Property(Arbitrary = new[] { typeof(Generators) })]
-        public Property CastPatternShouldMatchSameAsPatterns(
+        public Property CastPatternShouldNeverReturnNull(IPattern<string, object> pattern)
+            => (pattern.Cast<string, object, string>() != null).ToProperty();
+
+        [Property(Arbitrary = new[] { typeof(Generators) })]
+        public Property CastPatternWithDescriptionShouldNeverReturnNull(
             IPattern<string, object> pattern,
-            string input)
+            NonNull<string> description)
+            => (pattern.Cast<string, object, string>(description.Get) != null).ToProperty();
+
+        [Property(Arbitrary = new[] { typeof(Generators) })]
+        public Property CastPatternShouldMatchSameAsPatterns(IPattern<string, object> pattern, string x)
         {
-            var result = pattern.Match(input);
+            var result = pattern.Match(x);
             return result.IsSuccessful.ImpliesThat(() =>
-                    pattern.Cast<string, object, string>().Match(input) ==
+                    pattern.Cast<string, object, string>().Match(x) ==
                     Pattern.Type<object, string>().Match(result.Value))
                 .ToProperty();
         }
@@ -210,12 +244,12 @@ namespace Matchmaker.Linq
         [Property(Arbitrary = new[] { typeof(Generators) })]
         public Property CastPatternWithDescriptionShouldMatchSameAsPattern(
             IPattern<string, object> pattern,
-            string input,
+            string x,
             NonNull<string> description)
         {
-            var result = pattern.Match(input);
+            var result = pattern.Match(x);
             return result.IsSuccessful.ImpliesThat(() =>
-                pattern.Cast<string, object, string>(description.Get).Match(input) ==
+                pattern.Cast<string, object, string>(description.Get).Match(x) ==
                 Pattern.Type<object, string>().Match(result.Value))
                 .ToProperty();
         }

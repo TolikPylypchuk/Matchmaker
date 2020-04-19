@@ -12,6 +12,19 @@ namespace Matchmaker.Linq
     public class WhereTests
     {
         [Property(Arbitrary = new[] { typeof(Generators) })]
+        public Property WherePatternShouldNeverReturnNull(
+            IPattern<string, string> pattern,
+            Func<string, bool> predicate)
+            => (pattern.Where(predicate) != null).ToProperty();
+
+        [Property(Arbitrary = new[] { typeof(Generators) })]
+        public Property WherePatternWithDescriptionShouldNeverReturnNull(
+            IPattern<string, string> pattern,
+            Func<string, bool> predicate,
+            NonNull<string> description)
+            => (pattern.Where(predicate, description.Get) != null).ToProperty();
+
+        [Property(Arbitrary = new[] { typeof(Generators) })]
         public Property WherePatternShouldMatchSameAsPatternAndPredicate(
                IPattern<string, string> pattern,
                Func<string, bool> predicate,

@@ -12,6 +12,19 @@ namespace Matchmaker.Linq
     public class SelectTests
     {
         [Property(Arbitrary = new[] { typeof(Generators) })]
+        public Property SelectPatternShouldNeverReturnNull(
+            IPattern<string, string> pattern,
+            Func<string, int> mapper)
+            => (pattern.Select(mapper) != null).ToProperty();
+
+        [Property(Arbitrary = new[] { typeof(Generators) })]
+        public Property SelectPatternWithDescriptionShouldNeverReturnNull(
+            IPattern<string, string> pattern,
+            Func<string, int> mapper,
+            NonNull<string> description)
+            => (pattern.Select(mapper, description.Get) != null).ToProperty();
+
+        [Property(Arbitrary = new[] { typeof(Generators) })]
         public Property SelectPatternShouldMatchSameAsPattern(
             IPattern<string, string> pattern,
             Func<string, int> mapper,

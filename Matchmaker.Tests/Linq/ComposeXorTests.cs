@@ -12,6 +12,19 @@ namespace Matchmaker.Linq
     public class ComposeXorTests
     {
         [Property(Arbitrary = new[] { typeof(Generators) })]
+        public Property ComposeXorPatternShouldNeverReturnNull(
+            IPattern<string, string> pattern1,
+            IPattern<string, string> pattern2)
+            => (pattern1.Compose(pattern2, PatternComposition.Xor) != null).ToProperty();
+
+        [Property(Arbitrary = new[] { typeof(Generators) })]
+        public Property ComposeXorPatternWithDescriptionShouldNeverReturnNull(
+            IPattern<string, string> pattern1,
+            IPattern<string, string> pattern2,
+            NonNull<string> description)
+            => (pattern1.Compose(pattern2, PatternComposition.Xor, description.Get) != null).ToProperty();
+
+        [Property(Arbitrary = new[] { typeof(Generators) })]
         public Property ComposeXorPatternShouldBeSameAsExcusiveEitherPattern(
             IPattern<string, string> pattern1,
             IPattern<string, string> pattern2,
@@ -111,6 +124,19 @@ namespace Matchmaker.Linq
             Action action = () => pattern1.Compose(pattern2, PatternComposition.Xor, null);
             action.Should().Throw<ArgumentNullException>();
         }
+
+        [Property(Arbitrary = new[] { typeof(Generators) })]
+        public Property XorPatternShouldNeverReturnNull(
+            IPattern<string, string> pattern1,
+            IPattern<string, string> pattern2)
+            => (pattern1.Xor(pattern2) != null).ToProperty();
+
+        [Property(Arbitrary = new[] { typeof(Generators) })]
+        public Property XorPatternWithDescriptionShouldNeverReturnNull(
+            IPattern<string, string> pattern1,
+            IPattern<string, string> pattern2,
+            NonNull<string> description)
+            => (pattern1.Xor(pattern2, description.Get) != null).ToProperty();
 
         [Property(Arbitrary = new[] { typeof(Generators) })]
         public Property XorPatternShouldBeSameAsExcusiveEitherPattern(

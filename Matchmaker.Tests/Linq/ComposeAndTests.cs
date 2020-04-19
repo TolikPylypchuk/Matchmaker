@@ -12,6 +12,19 @@ namespace Matchmaker.Linq
     public class ComposeAndTests
     {
         [Property(Arbitrary = new[] { typeof(Generators) })]
+        public Property ComposeAndPatternShouldNeverReturnNull(
+            IPattern<string, string> pattern1,
+            IPattern<string, string> pattern2)
+            => (pattern1.Compose(pattern2, PatternComposition.And) != null).ToProperty();
+
+        [Property(Arbitrary = new[] { typeof(Generators) })]
+        public Property ComposeAndPatternWithDescriptionShouldNeverReturnNull(
+            IPattern<string, string> pattern1,
+            IPattern<string, string> pattern2,
+            NonNull<string> description)
+            => (pattern1.Compose(pattern2, PatternComposition.And, description.Get) != null).ToProperty();
+
+        [Property(Arbitrary = new[] { typeof(Generators) })]
         public Property ComposeAndPatternShouldBeSameAsBothPatterns(
             IPattern<string, string> pattern1,
             IPattern<string, string> pattern2,
@@ -112,6 +125,19 @@ namespace Matchmaker.Linq
             Action action = () => pattern1.Compose(pattern2, PatternComposition.And, null);
             action.Should().Throw<ArgumentNullException>();
         }
+
+        [Property(Arbitrary = new[] { typeof(Generators) })]
+        public Property AndPatternShouldNeverReturnNull(
+            IPattern<string, string> pattern1,
+            IPattern<string, string> pattern2)
+            => (pattern1.And(pattern2) != null).ToProperty();
+
+        [Property(Arbitrary = new[] { typeof(Generators) })]
+        public Property AndPatternWithDescriptionShouldNeverReturnNull(
+            IPattern<string, string> pattern1,
+            IPattern<string, string> pattern2,
+            NonNull<string> description)
+            => (pattern1.And(pattern2, description.Get) != null).ToProperty();
 
         [Property(Arbitrary = new[] { typeof(Generators) })]
         public Property AndPatternShouldBeSameAsBothPatterns(

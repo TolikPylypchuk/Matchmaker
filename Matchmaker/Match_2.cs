@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 
+using Matchmaker.Linq;
 using Matchmaker.Patterns;
 
 namespace Matchmaker
@@ -167,10 +168,7 @@ namespace Matchmaker
         /// The match failed for all cases.
         /// </exception>
         public TOutput ExecuteOn(TInput input)
-        {
-            var result = this.ExecuteNonStrict(input);
-            return result.IsSuccessful ? result.Value : throw new MatchException($"Could not match {input}.");
-        }
+            => this.ExecuteNonStrict(input).GetValueOrThrow(() => new MatchException($"Could not match {input}."));
 
         /// <summary>
         /// Executes the match expression on the specified input and returns the result.

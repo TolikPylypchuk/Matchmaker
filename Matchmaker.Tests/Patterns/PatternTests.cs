@@ -13,6 +13,26 @@ namespace Matchmaker.Patterns
     public class PatternTests
     {
         [Property(Arbitrary = new[] { typeof(Generators) })]
+        public Property SimplePatternShouldNeverReturnNull(Func<string, bool> predicate)
+            => (Pattern.CreatePattern(predicate) != null).ToProperty();
+
+        [Property(Arbitrary = new[] { typeof(Generators) })]
+        public Property PatternShouldNeverReturnNull(Func<string, MatchResult<string>> matcher)
+            => (Pattern.CreatePattern(matcher) != null).ToProperty();
+
+        [Property(Arbitrary = new[] { typeof(Generators) })]
+        public Property SimplePatternWithDescriptionShouldNeverReturnNull(
+            Func<string, bool> predicate,
+            NonNull<string> description)
+            => (Pattern.CreatePattern(predicate, description.Get) != null).ToProperty();
+
+        [Property(Arbitrary = new[] { typeof(Generators) })]
+        public Property PatternWithDescriptionShouldNeverReturnNull(
+            Func<string, MatchResult<string>> matcher,
+            NonNull<string> description)
+            => (Pattern.CreatePattern(matcher, description.Get) != null).ToProperty();
+
+        [Property(Arbitrary = new[] { typeof(Generators) })]
         public Property SimplePatternShouldMatchSameAsPredicate(Func<string, bool> predicate, string x)
             => (Pattern.CreatePattern(predicate).Match(x).IsSuccessful == predicate(x)).ToProperty();
 
@@ -103,6 +123,14 @@ namespace Matchmaker.Patterns
             createWithNull.Should().Throw<ArgumentNullException>();
         }
 
+        [Fact]
+        public Property AnyShouldNeverReturnNull()
+            => (Pattern.Any<string>() != null).ToProperty();
+
+        [Property(Arbitrary = new[] { typeof(Generators) })]
+        public Property AnyWithDescriptionShouldNeverReturnNull(NonNull<string> description)
+            => (Pattern.Any<string>(description.Get) != null).ToProperty();
+
         [Property]
         public Property AnyShouldAlwaysSucceed(string x)
             => Pattern.Any<string>().Match(x).IsSuccessful.ToProperty();
@@ -125,6 +153,22 @@ namespace Matchmaker.Patterns
             Action action = () => Pattern.Any<string>(null);
             action.Should().Throw<ArgumentNullException>();
         }
+
+        [Property]
+        public Property ReturnShouldNeverReturnNull(string x)
+            => (Pattern.Return<string, string>(x) != null).ToProperty();
+
+        [Property]
+        public Property ReturnWithDescriptionShouldNeverReturnNull(string x, NonNull<string> description)
+            => (Pattern.Return<string, string>(x, description.Get) != null).ToProperty();
+
+        [Property]
+        public Property LazyReturnShouldNeverReturnNull(string x)
+            => (Pattern.Return<string, string>(() => x) != null).ToProperty();
+
+        [Property]
+        public Property LazyReturnWithDescriptionShouldNeverReturnNull(string x, NonNull<string> description)
+            => (Pattern.Return<string, string>(() => x, description.Get) != null).ToProperty();
 
         [Property]
         public Property ReturnShouldAlwaysReturnSpecifiedValue(string x, string y)
@@ -245,6 +289,14 @@ namespace Matchmaker.Patterns
             action.Should().Throw<ArgumentNullException>();
         }
 
+        [Fact]
+        public Property NullShouldNeverReturnNull()
+            => (Pattern.Null<string>() != null).ToProperty();
+
+        [Property]
+        public Property NullWithDescriptionShouldNeverReturnNull(NonNull<string> description)
+            => (Pattern.Null<string>(description.Get) != null).ToProperty();
+
         [Property]
         public Property NullShouldSucceedOnlyOnNull(string x)
             => (x is null == Pattern.Null<string>().Match(x).IsSuccessful).ToProperty();
@@ -268,6 +320,14 @@ namespace Matchmaker.Patterns
             action.Should().Throw<ArgumentNullException>();
         }
 
+        [Fact]
+        public Property ValueNullShouldNeverReturnNull()
+            => (Pattern.ValueNull<int>() != null).ToProperty();
+
+        [Property]
+        public Property ValueNullWithDescriptionShouldNeverReturnNull(NonNull<string> description)
+            => (Pattern.ValueNull<int>(description.Get) != null).ToProperty();
+
         [Property]
         public Property ValueNullShouldSucceedOnlyOnNull(int? x)
             => (x is null == Pattern.ValueNull<int>().Match(x).IsSuccessful).ToProperty();
@@ -290,6 +350,14 @@ namespace Matchmaker.Patterns
             Action action = () => Pattern.ValueNull<int>(null);
             action.Should().Throw<ArgumentNullException>();
         }
+
+        [Fact]
+        public Property TypeShouldNeverReturnNull()
+            => (Pattern.Type<object, string>() != null).ToProperty();
+
+        [Property]
+        public Property TypeWithDescriptionShouldNeverReturnNull(NonNull<string> description)
+            => (Pattern.Type<object, string>(description.Get) != null).ToProperty();
 
         [Property]
         public Property TypeShouldSucceedOnlyWhenTheValueHasType(int value)
@@ -326,6 +394,16 @@ namespace Matchmaker.Patterns
             Action action = () => Pattern.Type<object, int>(null);
             action.Should().Throw<ArgumentNullException>();
         }
+
+        [Property(Arbitrary = new[] { typeof(Generators) })]
+        public Property NotShouldNeverReturnNull(IPattern<string, string> pattern)
+            => (Pattern.Not(pattern) != null).ToProperty();
+
+        [Property(Arbitrary = new[] { typeof(Generators) })]
+        public Property NotWithDescriptionShouldNeverReturnNull(
+            IPattern<string, string> pattern,
+            NonNull<string> description)
+            => (Pattern.Not(pattern, description.Get) != null).ToProperty();
 
         [Property(Arbitrary = new[] { typeof(Generators) })]
         public Property NotShouldBeOppositeToPattern(IPattern<string, string> pattern, string x)

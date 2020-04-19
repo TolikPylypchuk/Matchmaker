@@ -12,14 +12,27 @@ namespace Matchmaker.Linq
     public class BindTests
     {
         [Property(Arbitrary = new[] { typeof(Generators) })]
+        public Property BindPatternShouldNeverReturnNull(
+            IPattern<string, string> pattern,
+            Func<string, IPattern<string, string>> binder)
+            => (pattern.Bind(binder) != null).ToProperty();
+
+        [Property(Arbitrary = new[] { typeof(Generators) })]
+        public Property BindPatternWithDescriptionShouldNeverReturnNull(
+            IPattern<string, string> pattern,
+            Func<string, IPattern<string, string>> binder,
+            NonNull<string> description)
+            => (pattern.Bind(binder, description.Get) != null).ToProperty();
+
+        [Property(Arbitrary = new[] { typeof(Generators) })]
         public Property BindPatternShouldMatchSameAsBinderResult(
             IPattern<string, string> pattern,
             Func<string, IPattern<string, string>> binder,
-            string input)
+            string x)
         {
-            var result = pattern.Match(input);
+            var result = pattern.Match(x);
             return result.IsSuccessful.ImpliesThat(() =>
-                    pattern.Bind(binder).Match(input) == binder(result.Value).Match(input))
+                    pattern.Bind(binder).Match(x) == binder(result.Value).Match(x))
                 .ToProperty();
         }
 
@@ -27,12 +40,12 @@ namespace Matchmaker.Linq
         public Property BindPatternWithDescriptionShouldMatchSameAsBinderResult(
             IPattern<string, string> pattern,
             Func<string, IPattern<string, string>> binder,
-            string input,
+            string x,
             NonNull<string> description)
         {
-            var result = pattern.Match(input);
+            var result = pattern.Match(x);
             return result.IsSuccessful.ImpliesThat(() =>
-                pattern.Bind(binder, description.Get).Match(input) == binder(result.Value).Match(input))
+                pattern.Bind(binder, description.Get).Match(x) == binder(result.Value).Match(x))
                 .ToProperty();
         }
 

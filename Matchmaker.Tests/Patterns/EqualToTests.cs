@@ -16,6 +16,40 @@ namespace Matchmaker.Patterns
         private static readonly IEqualityComparer<string> StringEqualityComparer = EqualityComparer<string>.Default;
 
         [Property]
+        public Property EqualToShouldNeverReturnNull(string x)
+            => (Pattern.EqualTo(x) != null).ToProperty();
+
+        [Property]
+        public Property LazyEqualToShouldNeverReturnNull(string x)
+            => (Pattern.EqualTo(() => x) != null).ToProperty();
+
+        [Property]
+        public Property EqualToWithComparerShouldNeverReturnNull(string x)
+            => (Pattern.EqualTo(x, StringEqualityComparer) != null).ToProperty();
+
+        [Property]
+        public Property LazyEqualToWithComparerShouldNeverReturnNull(string x)
+            => (Pattern.EqualTo(() => x, StringEqualityComparer) != null).ToProperty();
+
+        [Property]
+        public Property EqualToWithDescriptionShouldNeverReturnNull(string x, NonNull<string> description)
+            => (Pattern.EqualTo(x, description.Get) != null).ToProperty();
+
+        [Property]
+        public Property LazyEqualToWithDescriptionShouldNeverReturnNull(string x, NonNull<string> description)
+            => (Pattern.EqualTo(() => x, description.Get) != null).ToProperty();
+
+        [Property]
+        public Property EqualToWithComparerAndDescriptionShouldNeverReturnNull(string x, NonNull<string> description)
+            => (Pattern.EqualTo(x, StringEqualityComparer, description.Get) != null).ToProperty();
+
+        [Property]
+        public Property LazyEqualToWithComparerAndDescriptionShouldNeverReturnNull(
+            string x,
+            NonNull<string> description)
+            => (Pattern.EqualTo(() => x, StringEqualityComparer, description.Get) != null).ToProperty();
+
+        [Property]
         public Property EqualToShouldSucceedOnlyOnEqualObjects(string x, string y)
             => (Equals(x, y) == Pattern.EqualTo(y).Match(x).IsSuccessful).ToProperty();
 

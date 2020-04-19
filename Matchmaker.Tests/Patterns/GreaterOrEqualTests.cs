@@ -16,6 +16,40 @@ namespace Matchmaker.Patterns
         private static readonly IComparer<string> StringComparer = Comparer<string>.Default;
 
         [Property]
+        public Property GreaterOrEqualShouldNeverReturnNull(string x)
+            => (Pattern.GreaterOrEqual(x) != null).ToProperty();
+
+        [Property]
+        public Property LazyGreaterOrEqualShouldNeverReturnNull(string x)
+            => (Pattern.GreaterOrEqual(() => x) != null).ToProperty();
+
+        [Property]
+        public Property GreaterOrEqualWithComparerShouldNeverReturnNull(string x)
+            => (Pattern.GreaterOrEqual(x, StringComparer) != null).ToProperty();
+
+        [Property]
+        public Property LazyGreaterOrEqualWithComparerShouldNeverReturnNull(string x)
+            => (Pattern.GreaterOrEqual(() => x, StringComparer) != null).ToProperty();
+
+        [Property]
+        public Property GreaterOrEqualWithDescriptionShouldNeverReturnNull(string x, NonNull<string> description)
+            => (Pattern.GreaterOrEqual(x, description.Get) != null).ToProperty();
+
+        [Property]
+        public Property LazyGreaterOrEqualWithDescriptionShouldNeverReturnNull(string x, NonNull<string> description)
+            => (Pattern.GreaterOrEqual(() => x, description.Get) != null).ToProperty();
+
+        [Property]
+        public Property GreaterOrEqualWithComparerAndDescriptionShouldNeverReturnNull(string x, NonNull<string> description)
+            => (Pattern.GreaterOrEqual(x, StringComparer, description.Get) != null).ToProperty();
+
+        [Property]
+        public Property LazyGreaterOrEqualWithComparerAndDescriptionShouldNeverReturnNull(
+            string x,
+            NonNull<string> description)
+            => (Pattern.GreaterOrEqual(() => x, StringComparer, description.Get) != null).ToProperty();
+
+        [Property]
         public Property GreaterOrEqualShouldSucceedOnlyOnGreaterOrEqual(string x, string y)
             => (Comparer<string>.Default.Compare(x, y) >= 0 == Pattern.GreaterOrEqual(y).Match(x).IsSuccessful)
                 .ToProperty();

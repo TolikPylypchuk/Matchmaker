@@ -16,6 +16,40 @@ namespace Matchmaker.Patterns
         private static readonly IComparer<string> StringComparer = Comparer<string>.Default;
 
         [Property]
+        public Property GreaterThanShouldNeverReturnNull(string x)
+            => (Pattern.GreaterThan(x) != null).ToProperty();
+
+        [Property]
+        public Property LazyGreaterThanShouldNeverReturnNull(string x)
+            => (Pattern.GreaterThan(() => x) != null).ToProperty();
+
+        [Property]
+        public Property GreaterThanWithComparerShouldNeverReturnNull(string x)
+            => (Pattern.GreaterThan(x, StringComparer) != null).ToProperty();
+
+        [Property]
+        public Property LazyGreaterThanWithComparerShouldNeverReturnNull(string x)
+            => (Pattern.GreaterThan(() => x, StringComparer) != null).ToProperty();
+
+        [Property]
+        public Property GreaterThanWithDescriptionShouldNeverReturnNull(string x, NonNull<string> description)
+            => (Pattern.GreaterThan(x, description.Get) != null).ToProperty();
+
+        [Property]
+        public Property LazyGreaterThanWithDescriptionShouldNeverReturnNull(string x, NonNull<string> description)
+            => (Pattern.GreaterThan(() => x, description.Get) != null).ToProperty();
+
+        [Property]
+        public Property GreaterThanWithComparerAndDescriptionShouldNeverReturnNull(string x, NonNull<string> description)
+            => (Pattern.GreaterThan(x, StringComparer, description.Get) != null).ToProperty();
+
+        [Property]
+        public Property LazyGreaterThanWithComparerAndDescriptionShouldNeverReturnNull(
+            string x,
+            NonNull<string> description)
+            => (Pattern.GreaterThan(() => x, StringComparer, description.Get) != null).ToProperty();
+
+        [Property]
         public Property GreaterThanShouldSucceedOnlyOnGreaterThan(string x, string y)
             => (Comparer<string>.Default.Compare(x, y) > 0 == Pattern.GreaterThan(y).Match(x).IsSuccessful)
                 .ToProperty();
