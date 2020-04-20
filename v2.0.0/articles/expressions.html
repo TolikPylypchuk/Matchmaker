@@ -72,12 +72,18 @@
 <p>The second central idea is the match expression itself. It is represented by two classes: <code>Match&lt;TInput, TOutput&gt;</code>
 and <code>Match&lt;TInput&gt;</code>. The difference between them is that the former represents a match expression which yields
 a result, and the latter represents a match expression which doesn't yield a result (also known as match statement).</p>
-<h2 id="creating-match-expressions">Creating Match Expressions</h2>
-<p>A match expression can be created using the <code>Create</code> methods of the static class <code>Match</code>.</p>
 <h2 id="using-match-expressions">Using Match Expressions</h2>
+<h3 id="creating-match-expressions">Creating Match Expressions</h3>
+<p>A match expression can be created using the <code>Create</code> methods of the static class <code>Match</code>.</p>
+<h3 id="adding-cases">Adding Cases</h3>
 <p>The <code>Match</code> classes include <code>Case</code> methods which are used to add a pattern and a function which is executed if
 the match is successful. Match expressions are immutable - <code>Case</code> methods return new match expressions, they
 do not affect the ones on which they are called.</p>
+<p><code>Case</code> methods are generic - they also contain information about the pattern's transformation type. Match expressions
+can contain patterns of arbitrary transformation types without knowing about these types. This is achieved by using
+the <code>IPattern&lt;TInput&gt;</code> interface instead of <code>IPattern&lt;TInput, TMatchResult&gt;</code> to store patterns inside the match
+expressions.</p>
+<h3 id="executing-match-expressions">Executing Match Expressions</h3>
 <p>To execute a match expression, the <code>ExecuteOn</code> method is used. It takes the input value to match. There are two modes
 of execution in match expressions: strict and non-strict. The strict mode throws an exception and the non-strict doesn't.</p>
 <p>In the <code>Match&lt;TInput, TOutput&gt;</code> class the <code>ExecuteOn</code> method returns the result of the match, or throws a
@@ -87,8 +93,115 @@ the result might not be present.</p>
 <p>In the <code>Match&lt;TInput&gt;</code> class the <code>ExecuteOn</code> method doesn't return anyhting, and also throws the <code>MatchException</code>
 if the match wasn't successful. This class also contains the <code>ExecuteNonStrict</code> method - it returns a boolean value
 which indicates whether the match was successful, and doesn't throw an exception if it wasn't.</p>
-<p>The <code>ToFunction</code> methods and their variations are also available. They return a function which, when called,
-will execute the match expression.</p>
+<p>The <code>ToFunction</code> method and its variations are also available. They return a function which, when called, will execute
+the match expression.</p>
+<h2 id="matching-with-fall-through">Matching with Fall-through</h2>
+<p>C, C++ and Java support fall-through in <code>switch</code> expressions. So does this library, although it works differently here.</p>
+<p>Fall-through must be explicitly enabled for cases and then explicitly enabled during execution. Both <code>Match</code> classes
+contain the <code>ExecuteWithFallthrough</code> method which takes fall-through behavior into account. <code>ExecuteOn</code> and
+<code>ExecuteStrict</code> ignore the fall-through behavior.</p>
+<p>If a case has fall-through enabled, then the expression falls to the <em>next successful</em> match, unlike <code>switch</code>, which
+falls to the next case whether it's successful or not.</p>
+<p>Matching with fall-through is lazy i.e. it returns an <code>IEnumerable</code> and is only executed when this enumerable
+is enumerated. Because matching will fall-through is lazy, it doesn't have any modes of execution - the user must
+decide whether to throw exceptions or not if there were no successful matches.</p>
+<p>The <code>Case</code> methods are overloaded to accept a boolean value which indicates the fall-through behavior. If fall-through
+is enabled for a pattern, then the expression will continue searching for the next successful pattern. If it isn't, then
+the expression will stop at this pattern and not go any further.</p>
+<p><code>Match.Create</code> is also overloaded to take the default fall-through behavior.</p>
+<p>In the <code>Match&lt;TInput, TOutput&gt;</code> class the <code>ExecuteWithFallthrough</code> method returns an <code>IEnumerable&lt;TOutput&gt;</code>
+which can be used to get all successful match results.</p>
+<p>In the <code>Match&lt;TInput&gt;</code> class there are no results, so the <code>ExecuteWithFallthrough</code> method returns
+an <code>IEnumerable&lt;object&gt;</code> which should be used simply to enumerate the match process itself. This is implemented
+so that matching with fall-through is also lazy in this class. The values of the resulting enumerable don't matter -
+in fact, they are always <code>null</code>, because match statements don't produce any results. What matters is the process
+of enumeration.</p>
+<p>You can use the LINQ's <code>Take</code> method to limit the number of executed matches, or the <code>Count</code> method to execute it
+and get the number of successful matches.</p>
+<p>The <code>Matchmaker.Linq</code> namespace contains the <code>Enumerate</code> extension method for <code>IEnumerable&lt;T&gt;</code> which enumerates
+it and ignores the result. You can use it if you just want to execute the match statement with fall-through.</p>
+<p><strong>Remember: matching with fall-through is lazy and is actually executed when the result is enumerated.</strong></p>
+<p>Here's a (somewhat convulted) implementation of the famous fizz-buzz program which uses matching with fall-through:</p>
+<pre><code>using System.Linq;
+
+using Matchmaker;
+using Matchmaker.Linq;
+
+using static Matchmaker.Patterns.Pattern;
+
+// ...
+
+IPattern&lt;int, int&gt; DivisibleBy(int n)
+    =&gt; CreatePattern&lt;int&gt;(input =&gt; input % n == 0);
+
+var result = Enumerable.Range(0, 15)
+    .Select(Match.Create&lt;int, string&gt;(fallthroughByDefault: true)
+        .Case(DivisibleBy(3), _ =&gt; &quot;Fizz&quot;)
+        .Case(DivisibleBy(5), _ =&gt; &quot;Buzz&quot;)
+        .Case(Not(DivisibleBy(3).Or(DivisibleBy(5))), n =&gt; n.ToString())
+        .ToFunctionWithFallthrough())
+    .Select(items =&gt; items.Aggregate(String.Concat))
+    .ToList();
+
+// The result is (&quot;FizzBuzz&quot;, &quot;1&quot;, &quot;2&quot;, &quot;Fizz&quot;, &quot;4&quot;, &quot;Buzz&quot;, &quot;Fizz&quot;, &quot;7&quot;, &quot;8&quot;, &quot;Fizz&quot;, &quot;Buzz&quot;, &quot;11&quot;, &quot;Fizz&quot;, &quot;13&quot;, &quot;14&quot;, &quot;FizzBuzz&quot;);
+</code></pre>
+<h2 id="static-match-expressions">Static Match Expressions</h2>
+<h3 id="the-initialization-problem">The Initialization Problem</h3>
+<p>One pain point of match expressions is that wherever a method which contains a match expression is executed, the match
+expression is initialized from scratch. Take a look at the example:</p>
+<pre><code>void DoStuff(int i)
+    =&gt; Match.Create&lt;int, string&gt;()
+        .Case(...)
+        .Case(...)
+        .Case(...)
+        .Case(...)
+        .ExecuteOn(i);
+</code></pre>
+<p>The problem here is that if we call <code>DoStuff</code> 10,000 times, we will initialize the match expression 10,000 times
+as well, even though it's actually the same expression. Having just 4 cases may not seem like much, to the lag does
+accumulate if we execute it thousands of times.</p>
+<p>We can save the expression in a field and then call the <code>ExecuteOn</code> method on this field. But this makes the code
+much less readable, because the case definitions are in a different place from the actual execution point.</p>
+<h3 id="the-solution">The Solution</h3>
+<p>There is a way to create 'static match expressions' - expressions which will be initialized only once.</p>
+<p>The <code>Match</code> class contains <code>CreateStatic</code> methods which allow the creation of static match expressions. Take a look
+at the modified example.</p>
+<pre><code>void DoStuff(int i)
+    =&gt; Match.CreateStatic&lt;int, string&gt;(builder =&gt; builder
+            .Case(...)
+            .Case(...)
+            .Case(...)
+            .Case(...))
+        .ExecuteOn(i);
+</code></pre>
+<p>It looks almost the same, except for one difference: he calls to <code>Case</code> methods are inside the lambda expression,
+called the build action, which is passed to the <code>CreateStatic</code> method. Now this match expressions will be initialized
+only once and its initialization code is in the same place as its execution point.</p>
+<p>The parameter of the build action has the type <code>MatchBuilder&lt;TInput, TOutput</code> or <code>MatchBuilder&lt;TInput&gt;</code>
+depending on which type of match expressions you are building. This type has the same methods for adding cases as
+the <code>Match</code> classes and is mutable - the methods return the same builder instance.</p>
+<p><code>MatchBuilder</code> also has the <code>Fallthrough</code> method which specifies the default fall-through behavior. But this method
+specifies fall-through behavior only for cases that are defined after it. For example:</p>
+<pre><code>builder
+    .Fallthrough(true)
+    .Case(...) // this case has fall-through behavior if not specified otherwise
+    .Case(...) // this case also has fall-through behavior if not specified otherwise
+    .Fallthrough(false)
+    .Case(...) // this case doesn't have fall-through behavior if not specified otherwise
+    .Case(...) // this case also doesn't have fall-through behavior if not specified otherwise
+</code></pre>
+<p>Every case can configure its fall-through behavior individually as well.</p>
+<h3 id="caching-match-expressions">Caching Match Expressions</h3>
+<p>The build action will be called only once, and its result will be cached. The cache is a static hash-table.
+The caching process is not thread-safe.</p>
+<p>The key of the cache is the place where the <code>CreateStatic</code> method is called. Apart from the build action, this method
+also accepts two caller info arguments: the path to the source file and the line in the source file. Users don't
+need to pass these arguments to the method as they have the <code>CallerFilePath</code> and <code>CallerLineNumber</code> attributes.</p>
+<p>The <code>Match</code> class also contains the <code>ClearCache</code> methods which clear a global cache. Match expressions have a cache
+per type (so <code>Match&lt;int, int&gt;</code> uses a different cache than <code>Match&lt;int, string&gt;</code>) so <code>ClearCache</code> only clears one
+cache. Clearing the cache will force all static match expressions of that type to be reinitialized. This process is
+not thread-safe as well.</p>
+<p>Next article: <a href="unions.html">Discriminated unions</a></p>
 </article>
           </div>
           
