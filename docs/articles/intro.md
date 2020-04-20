@@ -82,15 +82,24 @@ you can think about.
 
 ## Performance
 
-Versions 1.x used the DLR to provide type-safe pattern matching on any types
-without having to remember all those types. Thus the performance was _much_
-worse than C#'s switch statements/expressions (even though I didn't perform
-any benchmarks).
+Versions 1.x used the DLR to provide type-safe pattern matching on any types without having to remember all those types.
+Thus, the performance was _much_ worse than C#'s switch statements/expressions (even though I didn't perform any
+benchmarks).
 
-Versions 2+ of this library don't use the DLR anymore - I've found a better way
-to do this, and frankly, I'm amazed I didn't think of this way before. So I'm
-guessing the performance of the new versions must be much better than versions 1.x.
-Maybe, I'll even implement some benchmarks in the future to compare the performance
-of this library in comparison to the switch statements/expressions.
+Versions 2+ of this library don't use the DLR anymore - I've found a better way to do this, and frankly, I'm amazed I
+didn't think of this way before. So, I'm guessing the performance of the new versions must be much better than versions
+1.x.
+
+## More Info
+
+If you want to learn how to use this library, you should read these articles. They provide everything you need to know
+to use this library.
+
+If you need extensive information, go to the [API reference](../api/index.md).
+
+If you need even more info about this library, you can go through the
+[tests](https://github.com/TolikPylypchuk/Matchmaker/tree/v2.0.0/Matchmaker.Tests). They are property-based and as such
+they describe every aspect of the classes and their members. They cover 100% of this library's code (except
+the `MatchException` class which is trivial).
 
 Next article: [Match results](results.md).

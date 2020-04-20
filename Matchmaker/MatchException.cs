@@ -22,7 +22,8 @@ namespace Matchmaker
         /// Initializes a new instance of the <see cref="MatchException" /> class.
         /// </summary>
         /// <param name="message">The message which describes this exception.</param>
-        public MatchException(string message) : base(message)
+        public MatchException(string message)
+            : base(message)
         { }
 
         /// <summary>

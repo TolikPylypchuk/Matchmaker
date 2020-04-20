@@ -1,12 +1,12 @@
 # Discriminated Unions
 
 While discriminated unions (or sum types) are not directly supported in C#, they can be modelled using class
-hierarchies. But still, in order for them be user-friendly, a way to process the values has to be implemented,
+hierarchies. But in order for them be user-friendly, a way to process the values has to be implemented,
 e.g. in the form of the Visitor pattern.
 
-Or, pattern matching can be used instead of visitors.
+Or, pattern matching can be used instead.
 
-Let's define a very simple list, implemented as [cons cells](https://en.wikipedia.org/wiki/Cons). This list is not
+Let's define a simple list, implemented as [cons cells](https://en.wikipedia.org/wiki/Cons). This list is not
 generic for simplicity.
 
 ```
@@ -36,11 +36,12 @@ public sealed class ConsCell : ConsList
 
 public sealed class Empty : ConsList
 {
-    internal Empty() { }
+    internal Empty()
+    { }
 }
 ```
 
-Now let's look what pattern matching on the list whould look like. Let's create
+Now let's look what pattern matching on the list would look like. Let's create
 a function which finds the sum of all items of the list.
 
 ```
@@ -50,6 +51,8 @@ public int Sum(ConsList list)
         .Case<Empty>(_ => 0)
         .ExecuteOn(list);
 ```
+
+`Case<TType>(...)` is the same as `Case(Pattern.Type<TInput, TType>(), ...)`.
 
 Here is the equivalent function implemented using the `switch` statement (pre-C# 8):
 
@@ -69,13 +72,13 @@ public int Sum(ConsList list)
 ```
 
 As you can see, we have to throw an exception in the `switch` version, because C# can't know that `ConsCell`
-and `Empty` are the only possible subclasses of `ConsList`. And for that reason if we forget to define one
+and `Empty` are the only possible subclasses of `ConsList`. And for that reason, if we forget to define one
 of the cases in `switch` or in a match, we'll get an exception. In F# a warning is issued when the match is
 incomplete, but C# doesn't have the notion of complete or incomplete matches. Of course, this match will fail if the
 provided list is `null`, but this can be handled using the `Null` pattern.
 
 With C# 8.0 there's a better way to match on discriminated unions, but we still have to explicitly throw an exception
-in the default case (which we know won't happen).
+in the default case (which we know won't happen):
 
 ```
 public int Sum(ConsList list)

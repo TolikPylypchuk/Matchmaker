@@ -19,7 +19,7 @@ or may not, except for a couple differences:
  - `MatchResult<T>` can contain `null` values and this is important to remember. This type is not used to get rid
 of `NullReferenceException`.
 
-## Working with match results
+## Working with Match Results
 
 `MatchResult<T>` is a struct with value-based equality. Values of this type can be created through methods in the
 `MatchResult` class: `Success` and `Failure`.
@@ -28,7 +28,7 @@ The simplest way to work with match results is to use the `IsSuccessful` and `Va
 an exception if the result doesn't contain a value.
 
 If you are using a functional library/framework, you can write an extension method which transforms `MatchResult<T>`
-into the library's optional type. But remeber, that `MatchResult<T>` can contain null values, and not all optional
+into the library's optional type. But remember that `MatchResult<T>` can contain null values, and not all optional
 implementations support that.
 
 ## LINQ to Results
@@ -45,7 +45,7 @@ The `Matchmaker.Linq` namespace contains several extension methods to make worki
 type, you will get a failed result.
  - `Do` performs an action on the result's value if it's present and returns the result itself.
 
-Becasue there are the `Select` and `Where` extensions on `MatchResult<T>`, you can write them using C#'s query
+Since there are the `Select` and `Where` extensions on `MatchResult<T>`, you can write them using C#'s query
 syntax.
 
 Next article: [Patterns](patterns.md).

@@ -12,6 +12,7 @@ the [API reference](api/index.md).
  - [Match expressions](articles/expressions.md)
  - [Discriminated unions](articles/unions.md)
  - [Migration guide](articles/migration.md)
+ - [Why this library was written](articles/why.md)
  - [API reference](api/index.md)
 
 # GitHub Repository
