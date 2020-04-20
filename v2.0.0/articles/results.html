@@ -87,13 +87,13 @@ or may not, except for a couple differences:</p>
 <li><code>MatchResult&lt;T&gt;</code> can contain <code>null</code> values and this is important to remember. This type is not used to get rid
 of <code>NullReferenceException</code>.</li>
 </ul>
-<h2 id="working-with-match-results">Working with match results</h2>
+<h2 id="working-with-match-results">Working with Match Results</h2>
 <p><code>MatchResult&lt;T&gt;</code> is a struct with value-based equality. Values of this type can be created through methods in the
 <code>MatchResult</code> class: <code>Success</code> and <code>Failure</code>.</p>
 <p>The simplest way to work with match results is to use the <code>IsSuccessful</code> and <code>Value</code> properties. <code>Value</code> throws
 an exception if the result doesn't contain a value.</p>
 <p>If you are using a functional library/framework, you can write an extension method which transforms <code>MatchResult&lt;T&gt;</code>
-into the library's optional type. But remeber, that <code>MatchResult&lt;T&gt;</code> can contain null values, and not all optional
+into the library's optional type. But remember that <code>MatchResult&lt;T&gt;</code> can contain null values, and not all optional
 implementations support that.</p>
 <h2 id="linq-to-results">LINQ to Results</h2>
 <p>The <code>Matchmaker.Linq</code> namespace contains several extension methods to make working with match results easier:</p>
@@ -108,7 +108,7 @@ implementations support that.</p>
 type, you will get a failed result.</li>
 <li><code>Do</code> performs an action on the result's value if it's present and returns the result itself.</li>
 </ul>
-<p>Becasue there are the <code>Select</code> and <code>Where</code> extensions on <code>MatchResult&lt;T&gt;</code>, you can write them using C#'s query
+<p>Since there are the <code>Select</code> and <code>Where</code> extensions on <code>MatchResult&lt;T&gt;</code>, you can write them using C#'s query
 syntax.</p>
 <p>Next article: <a href="patterns.html">Patterns</a>.</p>
 </article>
