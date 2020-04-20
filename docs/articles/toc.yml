@@ -6,9 +6,9 @@
   href: patterns.md
 - name: Match Expressions
   href: expressions.md
-- name: Fall-through
-  href: fallthrough.md
 - name: Discriminated Unions
   href: unions.md
 - name: Migration Guide
   href: migration.md
+- name: Why This Library Was Written
+  href: why.md

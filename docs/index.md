@@ -10,7 +10,6 @@ the [API reference](api/index.md).
  - [Match results](articles/results.md)
  - [Patterns](articles/patterns.md)
  - [Match expressions](articles/expressions.md)
- - [Fall-through](articles/fallthrough.md)
  - [Discriminated unions](articles/unions.md)
  - [Migration guide](articles/migration.md)
  - [API reference](api/index.md)

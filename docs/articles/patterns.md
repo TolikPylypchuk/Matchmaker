@@ -1,7 +1,7 @@
 # Patterns
 
 One of two central ideas of this library is a _pattern_. Patterns are used to match the input value
-against a certain "shape". For example, 'the input value is equal to some value' or 'the input value
+against a certain 'shape'. For example, 'the input value is equal to some value' or 'the input value
 has some type'.
 
 ## The `IPattern<TInput, TMatchResult>` interface
@@ -38,8 +38,12 @@ MatchResult<object> Match(Tinput input);
 The more generic `IPattern<TInput, TMatchResult>` interface extends this interface.
 
 Users of this library should **never use this interface directly**. It's used only inside match expressions because
-they can't know about patterns' transformation types. You shouldn't implement this interface directly, pass references
+they [can't know](expressions.md) about patterns' transformation types. You shouldn't implement this interface directly, pass references
 of this type to methods etc.
+
+## Null Values
+
+The result of patterns' matching can be `null`. This is why the `MatchResult<T>` type can contain a `null` value.
 
 ## Using Predefined Patterns
 
@@ -65,10 +69,6 @@ and then its result will be cached. Note that the caching process is not thread-
 
 All methods for getting predefined patterns are overloaded to take a custom description.
 
-## Null Values
-
-The result of patterns' matching can be `null`. This is why the `MatchResult<T>` type can contain a `null` value.
-
 ## LINQ to Patterns
 
 The `Matchmaker.Linq` namespace provides several extension methods for patterns:
@@ -83,18 +83,22 @@ the input. The second pattern's result is the final result.
  - `Where` filters the pattern's result if it's successful.
  - `And`, `Or` and `Xor` compose two patterns. The resulting pattern ignores the patterns' transformations and
 returns the input if successful.
- - `Compose` is the same as the three methods above, but the composition type is passed to it as well.
- - `Cached` returns a pattern which matches the same as the specified pattern, but caches its results in a null-safe
+ - `Compose` is the same as the three methods above, but the composition operator is passed to it as well.
+ - `Cached` returns a pattern which matches the same as the specified pattern, but caches its results in a `null`-safe
 hash table. Every input will be matched only once - if it's matched again, the result will be taken from the
 cache. The caching process is not thread-safe.
 
-Because patterns have the `Bind` and `Return` functions, they are monads (I haven't tested the monad laws though).
+All extension methods for patterns are overloaded to take a custom description.
+
+Becasue there are the `Select` and `Where` extensions on patterns, you can write them using C#'s query syntax.
+
+Patterns have the `Bind` and `Return` functions, so they are monads (I haven't tested the monad laws though).
 To be more specific, patterns can be thought of as a combination of the Reader and Maybe monads.
 
 ## Immutability
 
-Every predefined pattern, and patterns returned by the `CreatePattern` and extension methods are immutable. Calling
-an extension method on a pattern returns a new pattern - the old one is unchanged.
+Every predefined pattern as well as patterns returned by the `CreatePattern` and extension methods are immutable.
+Calling an extension method on a pattern returns a new pattern - the old one is unchanged.
 
 An exception is the pattern returned by the `Cached` method, which is not immutable - it holds a mutable cache.
 But if a pattern is referentially transparent (its `Match` method always returns the same result for the same input and
@@ -107,23 +111,24 @@ This library works with arbitrary patterns. There are several ways to create cus
 
 ### The easy way
 
-The `Pattern` class contains the `CreatePattern` methods which create patterns from functions. There are two main
+The `Pattern` class contains the `CreatePattern` methods which create patterns from functions. There are two
 variations:
 
  - Create a pattern from a predicate. This predicate will be used to test the value. If it returns `true` then the
 input value will be the result.
  - Create a pattern from a matcher function. This is a function which has the same signature as the `Match` method
-or the `IPattern<TInput, TMatchResult>` interface. This function will be used to match inputs.
+of the `IPattern<TInput, TMatchResult>` interface. This function will be used to match inputs.
 
 There are also overloads which take a description.
 
 ### The harder way
 
 If you want something more complex than a single function, you can create a class which extends the
-`Pattern<TInput, TMatchResult>` class. This is a base class for patterns and provides a couple things out-of-the-box:
+`Pattern<TInput, TMatchResult>` class. This is a base class for patterns and it provides a couple things
+out-of-the-box:
 
  - It implements the `IPattern<TInput>` interface explicitly so that you don't have to worry about it.
- - It implements the `Description` property, which you don't have to use if you don't want - by default the description
+ - It implements the `Description` property which you don't have to use if you don't want - by default the description
 is empty, which means that the pattern doesn't have a description.
 
 ### The hardest way

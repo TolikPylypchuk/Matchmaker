@@ -14,6 +14,7 @@ What's new in version 2.0 (almost all changes are breaking):
 - Descriptions were added to patterns
 - Creating custom patterns became possible through factory methods
 and extension methods
+- The default mode of match statements changed from non-strict to strict
 
 ## v1.2
 

@@ -1,18 +1,19 @@
 # Discriminated Unions
 
-While discriminated unions are not directly supported in C#, they can be modelled
-using class hierarchies. But still, in order for them be user-friendly, a way to
-process the values has to be implemented, e.g. in the form of the Visitor pattern.
+While discriminated unions (or sum types) are not directly supported in C#, they can be modelled using class
+hierarchies. But still, in order for them be user-friendly, a way to process the values has to be implemented,
+e.g. in the form of the Visitor pattern.
 
 Or, pattern matching can be used instead of visitors.
 
-Let's define a very simple list, implemented as [cons cells](https://en.wikipedia.org/wiki/Cons).
-This list is not generic for simplicity.
+Let's define a very simple list, implemented as [cons cells](https://en.wikipedia.org/wiki/Cons). This list is not
+generic for simplicity.
 
 ```
 public abstract class ConsList
 {
-    private protected ConsList() { }
+    private protected ConsList()
+    { }
     
     public static ConsList Cell(int head, ConsList tail)
         => new ConsCell(head, tail);
@@ -43,12 +44,11 @@ Now let's look what pattern matching on the list whould look like. Let's create
 a function which finds the sum of all items of the list.
 
 ```
-Func<ConsList, int> sum = null;
-
-sum = Match.Create<ConsList, int>()
-    .Case<ConsCell>(cell => cell.Head + sum(cell.Tail))
-    .Case<Empty>(_ => 0)
-    .ToFunction();
+public int Sum(ConsList list)
+    => Match.Create<ConsList, int>()
+        .Case<ConsCell>(cell => cell.Head + Sum(cell.Tail))
+        .Case<Empty>(_ => 0)
+        .ExecuteOn(list);
 ```
 
 Here is the equivalent function implemented using the `switch` statement (pre-C# 8):
@@ -68,18 +68,24 @@ public int Sum(ConsList list)
 }
 ```
 
-*Note*: The declaration of sum must be split from its initialization, because
-C# doesn't permit initializing recursive lambda expressions in declaration.
-
-The `Case<TType>(Func<TType, TOutput> func)` is simply shorthand for
-`Case(Pattern.Type<TInput, TType> pattern, Func<TType, TOutput> func)`.
-The `Type` pattern is matched successfully, if the input value is of the
-specifified type.
-
-As we can see, we have to throw an exception in the `switch` version, because
-C# can't know that `ConsCell` and `Empty` are the only possible subclasses
-of `ConsList`. And for that reason if we forget to define one of the cases
-in `switch` or in a match, we'll get an exception. In F# a warning is issued
-when the match is incomplete, but then again, C# doesn't have the notion of
-complete or incomplete matches. Of course, this match will fail if the
+As you can see, we have to throw an exception in the `switch` version, because C# can't know that `ConsCell`
+and `Empty` are the only possible subclasses of `ConsList`. And for that reason if we forget to define one
+of the cases in `switch` or in a match, we'll get an exception. In F# a warning is issued when the match is
+incomplete, but C# doesn't have the notion of complete or incomplete matches. Of course, this match will fail if the
 provided list is `null`, but this can be handled using the `Null` pattern.
+
+With C# 8.0 there's a better way to match on discriminated unions, but we still have to explicitly throw an exception
+in the default case (which we know won't happen).
+
+```
+public int Sum(ConsList list)
+    => list switch
+    {
+        ConsCell cell => cell.Head + Sum(cell.Tail),
+        Empty _ => 0,
+        _ => throw new MatchException("This will never happen, but C# can't know that.");
+    };
+}
+```
+
+Next article: [Migration guide](migration.md)

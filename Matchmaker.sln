@@ -38,13 +38,13 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "articles", "articles", "{892A20B3-92F0-4283-BA15-A03A6D092763}"
 	ProjectSection(SolutionItems) = preProject
 		docs\articles\expressions.md = docs\articles\expressions.md
-		docs\articles\fallthrough.md = docs\articles\fallthrough.md
 		docs\articles\intro.md = docs\articles\intro.md
 		docs\articles\migration.md = docs\articles\migration.md
 		docs\articles\patterns.md = docs\articles\patterns.md
 		docs\articles\results.md = docs\articles\results.md
 		docs\articles\toc.yml = docs\articles\toc.yml
 		docs\articles\unions.md = docs\articles\unions.md
+		docs\articles\why.md = docs\articles\why.md
 	EndProjectSection
 EndProject
 Global
