@@ -1218,32 +1218,6 @@ references:
   commentId: N:Matchmaker.Patterns
   fullName: Matchmaker.Patterns
   nameWithType: Matchmaker.Patterns
-- uid: Matchmaker.Patterns.IPattern`1
-  name: IPattern<TInput>
-  href: api/Matchmaker.Patterns.IPattern-1.html
-  commentId: T:Matchmaker.Patterns.IPattern`1
-  name.vb: IPattern(Of TInput)
-  fullName: Matchmaker.Patterns.IPattern<TInput>
-  fullName.vb: Matchmaker.Patterns.IPattern(Of TInput)
-  nameWithType: IPattern<TInput>
-  nameWithType.vb: IPattern(Of TInput)
-- uid: Matchmaker.Patterns.IPattern`1.Match(`0)
-  name: Match(TInput)
-  href: api/Matchmaker.Patterns.IPattern-1.html#Matchmaker_Patterns_IPattern_1_Match__0_
-  commentId: M:Matchmaker.Patterns.IPattern`1.Match(`0)
-  fullName: Matchmaker.Patterns.IPattern<TInput>.Match(TInput)
-  fullName.vb: Matchmaker.Patterns.IPattern(Of TInput).Match(TInput)
-  nameWithType: IPattern<TInput>.Match(TInput)
-  nameWithType.vb: IPattern(Of TInput).Match(TInput)
-- uid: Matchmaker.Patterns.IPattern`1.Match*
-  name: Match
-  href: api/Matchmaker.Patterns.IPattern-1.html#Matchmaker_Patterns_IPattern_1_Match_
-  commentId: Overload:Matchmaker.Patterns.IPattern`1.Match
-  isSpec: "True"
-  fullName: Matchmaker.Patterns.IPattern<TInput>.Match
-  fullName.vb: Matchmaker.Patterns.IPattern(Of TInput).Match
-  nameWithType: IPattern<TInput>.Match
-  nameWithType.vb: IPattern(Of TInput).Match
 - uid: Matchmaker.Patterns.IPattern`2
   name: IPattern<TInput, TMatchResult>
   href: api/Matchmaker.Patterns.IPattern-2.html
@@ -2087,25 +2061,6 @@ references:
   fullName.vb: Matchmaker.Patterns.Pattern(Of TInput, TMatchResult).Match
   nameWithType: Pattern<TInput, TMatchResult>.Match
   nameWithType.vb: Pattern(Of TInput, TMatchResult).Match
-- uid: Matchmaker.Patterns.Pattern`2.Matchmaker#Patterns#IPattern{TInput}#Match(`0)
-  name: IPattern<TInput>.Match(TInput)
-  href: api/Matchmaker.Patterns.Pattern-2.html#Matchmaker_Patterns_Pattern_2_Matchmaker_Patterns_IPattern_TInput__Match__0_
-  commentId: M:Matchmaker.Patterns.Pattern`2.Matchmaker#Patterns#IPattern{TInput}#Match(`0)
-  name.vb: Matchmaker.Patterns.IPattern<TInput>.Match(TInput)
-  fullName: Matchmaker.Patterns.Pattern<TInput, TMatchResult>.Matchmaker.Patterns.IPattern<TInput>.Match(TInput)
-  fullName.vb: Matchmaker.Patterns.Pattern(Of TInput, TMatchResult).Matchmaker.Patterns.IPattern<TInput>.Match(TInput)
-  nameWithType: Pattern<TInput, TMatchResult>.IPattern<TInput>.Match(TInput)
-  nameWithType.vb: Pattern(Of TInput, TMatchResult).Matchmaker.Patterns.IPattern<TInput>.Match(TInput)
-- uid: Matchmaker.Patterns.Pattern`2.Matchmaker#Patterns#IPattern{TInput}#Match*
-  name: IPattern<TInput>.Match
-  href: api/Matchmaker.Patterns.Pattern-2.html#Matchmaker_Patterns_Pattern_2_Matchmaker_Patterns_IPattern_TInput__Match_
-  commentId: Overload:Matchmaker.Patterns.Pattern`2.Matchmaker#Patterns#IPattern{TInput}#Match
-  isSpec: "True"
-  name.vb: Matchmaker.Patterns.IPattern<TInput>.Match
-  fullName: Matchmaker.Patterns.Pattern<TInput, TMatchResult>.Matchmaker.Patterns.IPattern<TInput>.Match
-  fullName.vb: Matchmaker.Patterns.Pattern(Of TInput, TMatchResult).Matchmaker.Patterns.IPattern<TInput>.Match
-  nameWithType: Pattern<TInput, TMatchResult>.IPattern<TInput>.Match
-  nameWithType.vb: Pattern(Of TInput, TMatchResult).Matchmaker.Patterns.IPattern<TInput>.Match
 - uid: Matchmaker.Patterns.Pattern`2.ToString
   name: ToString()
   href: api/Matchmaker.Patterns.Pattern-2.html#Matchmaker_Patterns_Pattern_2_ToString
