@@ -101,18 +101,19 @@ you can think about.
 ## More Info
 
 If you want to learn how to use this library, you should read the
-[documentation](https://tolikpylypchuk.github.io/Matchmaker/v2.0.0). The articles provide everything you need to know
+[documentation](https://tolikpylypchuk.github.io/Matchmaker/v2.1.0). The articles provide everything you need to know
 to use this library.
 
 If you need extensive information, go to the
-[API reference](https://tolikpylypchuk.github.io/Matchmaker/v2.0.0/api/index.html).
+[API reference](https://tolikpylypchuk.github.io/Matchmaker/v2.1.0/api/index.html).
 
 If you need even more info about this library, you can go through the
-[tests](https://github.com/TolikPylypchuk/Matchmaker/tree/v2.0.0/Matchmaker.Tests). They are property-based and as such
+[tests](https://github.com/TolikPylypchuk/Matchmaker/tree/v2.1.0/Matchmaker.Tests). They are property-based and as such
 they describe every aspect of the classes and their members.
 
 The documentation can be found here:
 
+ - Version 2.1.0: https://tolikpylypchuk.github.io/Matchmaker/v2.1.0
  - Version 2.0.0: https://tolikpylypchuk.github.io/Matchmaker/v2.0.0
  - Older versions: https://github.com/TolikPylypchuk/PatternMatching
 
