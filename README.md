@@ -12,7 +12,7 @@ Version 1.x can be found there. This repository contains version 2+.
 ## Installation
 
 ```
-Install-Package Matchmaker -Version 2.0.0
+Install-Package Matchmaker -Version 2.1.0
 ```
 
 ## A Simple Example
