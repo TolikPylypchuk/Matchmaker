@@ -5261,7 +5261,7 @@ is <span class="xref">null</span>.</p>
     <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Patterns_Pattern_Not__2_Matchmaker_Patterns_IPattern___0___1__.md&amp;value=---%0Auid%3A%20Matchmaker.Patterns.Pattern.Not%60%602(Matchmaker.Patterns.IPattern%7B%60%600%2C%60%601%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/Patterns/Pattern.cs/#L1547">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/Patterns/Pattern.cs/#L1541">View Source</a>
   </span>
   <a id="Matchmaker_Patterns_Pattern_Not_" data-uid="Matchmaker.Patterns.Pattern.Not*"></a>
   <h4 id="Matchmaker_Patterns_Pattern_Not__2_Matchmaker_Patterns_IPattern___0___1__" data-uid="Matchmaker.Patterns.Pattern.Not``2(Matchmaker.Patterns.IPattern{``0,``1})">Not&lt;TInput, TMatchResult&gt;(IPattern&lt;TInput, TMatchResult&gt;)</h4>
@@ -5356,7 +5356,7 @@ and returns the input value if matched successfully.</p>
     <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Patterns_Pattern_Not__2_Matchmaker_Patterns_IPattern___0___1__System_String_.md&amp;value=---%0Auid%3A%20Matchmaker.Patterns.Pattern.Not%60%602(Matchmaker.Patterns.IPattern%7B%60%600%2C%60%601%7D%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/Patterns/Pattern.cs/#L1574">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/Patterns/Pattern.cs/#L1568">View Source</a>
   </span>
   <a id="Matchmaker_Patterns_Pattern_Not_" data-uid="Matchmaker.Patterns.Pattern.Not*"></a>
   <h4 id="Matchmaker_Patterns_Pattern_Not__2_Matchmaker_Patterns_IPattern___0___1__System_String_" data-uid="Matchmaker.Patterns.Pattern.Not``2(Matchmaker.Patterns.IPattern{``0,``1},System.String)">Not&lt;TInput, TMatchResult&gt;(IPattern&lt;TInput, TMatchResult&gt;, String)</h4>
@@ -5973,7 +5973,7 @@ except it returns the provided value instead of the pattern&apos;s input.
     <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Patterns_Pattern_Type__2.md&amp;value=---%0Auid%3A%20Matchmaker.Patterns.Pattern.Type%60%602%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/Patterns/Pattern.cs/#L1499">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/Patterns/Pattern.cs/#L1495">View Source</a>
   </span>
   <a id="Matchmaker_Patterns_Pattern_Type_" data-uid="Matchmaker.Patterns.Pattern.Type*"></a>
   <h4 id="Matchmaker_Patterns_Pattern_Type__2" data-uid="Matchmaker.Patterns.Pattern.Type``2">Type&lt;TInput, TType&gt;()</h4>
@@ -6023,12 +6023,8 @@ except it returns the provided value instead of the pattern&apos;s input.
     </tbody>
   </table>
   <h5 id="Matchmaker_Patterns_Pattern_Type__2_remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>
-This pattern fails if the input is <span class="xref">null</span>.
-</p>
-<p>
-This pattern can be used to match discriminated unions which are implemented as class hierarchies.
-</p>
+  <div class="markdown level1 remarks"><p>If the input is <span class="xref">null</span>, then this pattern fails only when <code data-dev-comment-type="typeparamref" class="typeparamref">TType</code>
+is a non-nullable value type.</p>
 </div>
   <h5 id="Matchmaker_Patterns_Pattern_Type__2_seealso">See Also</h5>
   <div class="seealso">
@@ -6039,7 +6035,7 @@ This pattern can be used to match discriminated unions which are implemented as 
     <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Patterns_Pattern_Type__2_System_String_.md&amp;value=---%0Auid%3A%20Matchmaker.Patterns.Pattern.Type%60%602(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/Patterns/Pattern.cs/#L1524">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/Patterns/Pattern.cs/#L1516">View Source</a>
   </span>
   <a id="Matchmaker_Patterns_Pattern_Type_" data-uid="Matchmaker.Patterns.Pattern.Type*"></a>
   <h4 id="Matchmaker_Patterns_Pattern_Type__2_System_String_" data-uid="Matchmaker.Patterns.Pattern.Type``2(System.String)">Type&lt;TInput, TType&gt;(String)</h4>
@@ -6107,12 +6103,8 @@ This pattern can be used to match discriminated unions which are implemented as 
     </tbody>
   </table>
   <h5 id="Matchmaker_Patterns_Pattern_Type__2_System_String__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>
-This pattern fails if the input is <span class="xref">null</span>.
-</p>
-<p>
-This pattern can be used to match discriminated unions which are implemented as class hierarchies.
-</p>
+  <div class="markdown level1 remarks"><p>If the input is <span class="xref">null</span>, then this pattern fails only when <code data-dev-comment-type="typeparamref" class="typeparamref">TType</code>
+is a non-nullable value type.</p>
 </div>
   <h5 class="exceptions">Exceptions</h5>
   <table class="table table-bordered table-striped table-condensed">

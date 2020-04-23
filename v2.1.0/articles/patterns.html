@@ -101,7 +101,7 @@ if you don't want a pattern to have a description, it should be empty. A pattern
 <li><code>LessThan</code>, <code>LessOrEqual</code>, <code>GreaterThan</code> and <code>GreaterOrEqual</code> are matched successfully if their input
 is compared successfully to the specified value.</li>
 <li><code>Type</code> is matched successfully if its input has the specified type. It returns its input as a value of that type.
-If the input is <code>null</code>, then the match will fail.</li>
+If the input is <code>null</code>, then the match will fail only if the destination type is a non-nullable value type.</li>
 <li><code>Not</code> is matched successfully if the specified pattern is not matched successfully. It ignores the specified
 pattern's transformation and returns its input if matched successfully.</li>
 </ul>
@@ -116,7 +116,7 @@ and then its result will be cached. Note that the caching process is not thread-
 <li><code>Select</code> maps a pattern's result value if it's successful.</li>
 <li><code>Pipe</code> creates a pattern pipeline - the result of the first pattern is the input of the second pattern.</li>
 <li><code>Cast</code> casts a pattern's result to a specified type. It's the same as piping a pattern to the <code>Type</code> pattern.
-If the input is <code>null</code>, then the match will fail.</li>
+If the input is <code>null</code>, then the match will fail only if the destination type is a non-nullable value type.</li>
 <li><code>Bind</code> flat-maps a pattern's result. If a pattern's result is successful, it calls the
 specified function and passes the result to it. The function returns another pattern which is then used to match
 the input. The second pattern's result is the final result.</li>

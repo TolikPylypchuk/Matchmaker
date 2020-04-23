@@ -93,7 +93,7 @@ of <code>NullReferenceException</code>.</li>
 <p>The simplest way to work with match results is to use the <code>IsSuccessful</code> and <code>Value</code> properties. <code>Value</code> throws
 an exception if the result doesn't contain a value.</p>
 <p>If you are using a functional library/framework, you can write an extension method which transforms <code>MatchResult&lt;T&gt;</code>
-into the library's optional type. But remember that <code>MatchResult&lt;T&gt;</code> can contain null values, and not all optional
+into the library's optional type. But remember that <code>MatchResult&lt;T&gt;</code> can contain <code>null</code> values, and not all optional
 implementations support that.</p>
 <h2 id="linq-to-results">LINQ to Results</h2>
 <p>The <code>Matchmaker.Linq</code> namespace contains several extension methods to make working with match results easier:</p>
@@ -104,8 +104,8 @@ implementations support that.</p>
 <li><code>Bind</code> flat-maps the value of the result if it's present.</li>
 <li><code>Where</code> filters the result's value if it's present.</li>
 <li><code>Cast</code> casts the result's value to the specified type if it's present and can be cast to that type. Note that
-<code>null</code> values cannot be cast to any type, and if a successful result which contains a <code>null</code> value is cast to any
-type, you will get a failed result.</li>
+<code>null</code> values cannot be cast to a non-nullable value type, and if a successful result which contains a <code>null</code> value
+is cast to a non-nullable value type, you will get a failed result.</li>
 <li><code>Do</code> performs an action on the result's value if it's present and returns the result itself.</li>
 </ul>
 <p>Since there are the <code>Select</code> and <code>Where</code> extensions on <code>MatchResult&lt;T&gt;</code>, you can write them using C#'s query

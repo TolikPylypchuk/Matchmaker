@@ -21,7 +21,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Matchmaker.Linq.MatchResultExtensions.html",
-          "hash": "XepghQdmMR4u+dSODQ+UvA=="
+          "hash": "je0p+zGM8Li/XoqQeOb6TA=="
         }
       },
       "is_incremental": false,
@@ -33,7 +33,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Matchmaker.Linq.PatternExtensions.html",
-          "hash": "O7YluXKePMQQfkmDsVSR9A=="
+          "hash": "kyeDMaLHCB9Dh+k2U04x0Q=="
         }
       },
       "is_incremental": false,
@@ -177,7 +177,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Matchmaker.Patterns.Pattern.html",
-          "hash": "3nAUBwHg/X7JyZQl92u14Q=="
+          "hash": "oE1ISk/bpdU634a3v1o1yA=="
         }
       },
       "is_incremental": false,
@@ -285,7 +285,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/patterns.html",
-          "hash": "cVdbfbTEIOwb533uStNWlA=="
+          "hash": "ir5FbPUIohnXEKFXqWrWQw=="
         }
       },
       "is_incremental": false,
@@ -297,7 +297,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/results.html",
-          "hash": "aiZPQlxDxgxvYbdyAEIs+Q=="
+          "hash": "VFLUlIxJ1Taj6GE1F4NvgQ=="
         }
       },
       "is_incremental": false,
