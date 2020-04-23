@@ -17,9 +17,7 @@ the match is successful. Match expressions are immutable - `Case` methods return
 do not affect the ones on which they are called.
 
 `Case` methods are generic - they also contain information about the pattern's transformation type. Match expressions
-can contain patterns of arbitrary transformation types without knowing about these types. This is achieved by using
-the `IPattern<TInput>` interface instead of `IPattern<TInput, TMatchResult>` to store patterns inside the match
-expressions.
+can contain patterns of arbitrary transformation types without knowing about these types.
 
 ### Executing Match Expressions
 

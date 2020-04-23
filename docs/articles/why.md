@@ -96,6 +96,11 @@ limit the number of executed cases, but it became even more cumbersome to use.
 I've also realized that having different default modes of execution in match expressions and match statements was weird,
 so now match statements also match strictly by default.
 
+A couple days after releasing version 2.0.0 I realized once again that I was being stupid and that the less generic
+`IPattern<TInput>` interface was not needed. And when I removed it, the only possible point of type failure was gone.
+Once again, even though this change is potentially breaking, I didn't bump the major version, because I don't think
+it will break any actual code.
+
 ## So Why Was This Library Written?
 
 Having recapped some history and explained some design decisions, I haven't actually said why I wrote this library.

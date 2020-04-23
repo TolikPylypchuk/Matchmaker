@@ -6,6 +6,10 @@ This article describes how to migrate to version 2.0.0 from
 If you need to migrate from older versions, first migrate to version 1.2.0. You can do that just by reading the
 changelog, because previous versions contained much fewer changes and it's much simpler to migrate.
 
+In order to migrate from version 2.0.0 to version 2.1.0 action is required only if you implemented the
+`IPattern<TInput, TMatchResult>` interface (which wasn't recommended). The less generic `IPattern<TInput>`
+interface was removed, so you should remove its `Match` method. That's it.
+
 ## General
 
 Since this library has a new name, the namespace is different as well. Instead of the `PatternMatching` namespace

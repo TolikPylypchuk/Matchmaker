@@ -1,5 +1,14 @@
 # Changelog
 
+# v2.1
+
+What's new in version 2.1:
+
+- The less generic `IPattern<TInput>` interface was removed (breaking change)
+
+Even though this release contains a potentially breaking change, it is very unlikely that the removal of an
+interface which was designed to be internal, will actually break anything.
+
 # v2.0
 
 What's new in version 2.0 (almost all changes are breaking):
@@ -15,7 +24,7 @@ What's new in version 2.0 (almost all changes are breaking):
 - Creating custom patterns became possible through factory methods and extension methods
 - The default mode of match statements changed from non-strict to strict
 
-Read the [migration guide](https://tolikpylypchuk.github.io/Matchmaker/v2.0.0/articles/migration.html) for more info.
+Read the [migration guide](https://tolikpylypchuk.github.io/Matchmaker/v2.1.0/articles/migration.html) for more info.
 
 ## v1.2
 

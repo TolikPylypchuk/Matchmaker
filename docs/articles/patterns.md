@@ -27,20 +27,6 @@ The definition of patterns is similar to F#'s active patterns.
 Descriptions for patterns are not terribly important but can be useful for debugging. As such, they are optional -
 if you don't want a pattern to have a description, it should be empty. A pattern's description should _never_ be `null`.
 
-## The `IPattern<TInput>` interface
-
-This library also includes the less generic `IPattern<TInput>` interface. It has only one member:
-
-```
-MatchResult<object> Match(TInput input);
-```
-
-The more generic `IPattern<TInput, TMatchResult>` interface extends this interface.
-
-Users of this library should **never use this interface directly**. It's used only inside match expressions because
-they [can't know](expressions.md) about patterns' transformation types. You shouldn't implement this interface directly, pass references
-of this type to methods etc.
-
 ## Null Values
 
 The results of patterns' matching can be `null`. This is why the `MatchResult<T>` type can contain a `null` value.
@@ -121,34 +107,15 @@ of the `IPattern<TInput, TMatchResult>` interface. This function will be used to
 
 There are also overloads which take a description.
 
-### The Harder Way
+### The Hard Way
 
 If you want something more complex than a single function, you can create a class which extends the
-`Pattern<TInput, TMatchResult>` class. This is a base class for patterns,t and it provides a couple things
-out-of-the-box:
+`Pattern<TInput, TMatchResult>` class. This is a base class for patterns, and it implements the Description
+property which you don't have to use if you don't want – by default the description is empty, which means that the
+pattern doesn't have a description.
 
- - It implements the `IPattern<TInput>` interface explicitly so that you don't have to worry about it.
- - It implements the `Description` property which you don't have to use if you don't want - by default the description
-is empty, which means that the pattern doesn't have a description.
-
-### The Hardest Way
-
-If you for some reason don't want to extend the `Pattern<TInput, TMatchResult>` class, you can always implement
-`IPattern<TInput, TMatchResult>` directly. If you choose this way, you _must_ implement the less generic `Match` method
-in terms of the more generic `Match` method, like this:
-
-```
-MatchResult<object> IPattern<TInput>.Match(TInput input)
-    => this.Match(input).Select(result => (object)result);
-```
-
-Because this method has the same signature as the more generic `Match` method, it must be implemented explicitly.
-If you don't implement it this way, there may be runtime problems with match expressions, as this is the only point of
-possible type-safety failure in the whole library.
-
-Creating custom patterns this way is **not recommended** - if you need complex logic, extend the
-`Pattern<TInput, TMatchResult>` class. The only reason to implement this interface instead of extending the class
-is if your pattern already extends a different class. If that's the case, then making your class a pattern breaks the
-single responsibility principle. So, don't do that.
+You can also implement the `IPattern<TInput, TMatchResult>` interface directly. But there is no reason to do that
+instead of extending the Pattern<TInput, TMatchResult> class unless your class already extends another class. But in
+that case making your class a pattern will break the single responsibility principle. So, don't do that.
 
 Next article: [Match expressions](expressions.md)
