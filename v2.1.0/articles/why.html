@@ -144,6 +144,10 @@ and now it must seem even more weird. I've made it lazy, which makes it more pow
 limit the number of executed cases, but it became even more cumbersome to use.</p>
 <p>I've also realized that having different default modes of execution in match expressions and match statements was weird,
 so now match statements also match strictly by default.</p>
+<p>A couple days after releasing version 2.0.0 I realized once again that I was being stupid and that the less generic
+<code>IPattern&lt;TInput&gt;</code> interface was not needed. And when I removed it, the only possible point of type failure was gone.
+Once again, even though this change is potentially breaking, I didn't bump the major version, because I don't think
+it will break any actual code.</p>
 <h2 id="so-why-was-this-library-written">So Why Was This Library Written?</h2>
 <p>Having recapped some history and explained some design decisions, I haven't actually said why I wrote this library.
 Well, the answer is simple: I wrote this library to write a library. I wanted to know what this process is like.</p>

@@ -88,14 +88,6 @@ MatchResult&lt;TMatchResult&gt; Match(Tinput input);
 <p>The definition of patterns is similar to F#'s active patterns.</p>
 <p>Descriptions for patterns are not terribly important but can be useful for debugging. As such, they are optional -
 if you don't want a pattern to have a description, it should be empty. A pattern's description should <em>never</em> be <code>null</code>.</p>
-<h2 id="the-ipatterntinput-interface">The <code>IPattern&lt;TInput&gt;</code> interface</h2>
-<p>This library also includes the less generic <code>IPattern&lt;TInput&gt;</code> interface. It has only one member:</p>
-<pre><code>MatchResult&lt;object&gt; Match(TInput input);
-</code></pre>
-<p>The more generic <code>IPattern&lt;TInput, TMatchResult&gt;</code> interface extends this interface.</p>
-<p>Users of this library should <strong>never use this interface directly</strong>. It's used only inside match expressions because
-they <a href="expressions.html">can't know</a> about patterns' transformation types. You shouldn't implement this interface directly, pass references
-of this type to methods etc.</p>
 <h2 id="null-values">Null Values</h2>
 <p>The results of patterns' matching can be <code>null</code>. This is why the <code>MatchResult&lt;T&gt;</code> type can contain a <code>null</code> value.</p>
 <h2 id="using-predefined-patterns">Using Predefined Patterns</h2>
@@ -159,29 +151,14 @@ input value will be the result.</li>
 of the <code>IPattern&lt;TInput, TMatchResult&gt;</code> interface. This function will be used to match inputs.</li>
 </ul>
 <p>There are also overloads which take a description.</p>
-<h3 id="the-harder-way">The Harder Way</h3>
+<h3 id="the-hard-way">The Hard Way</h3>
 <p>If you want something more complex than a single function, you can create a class which extends the
-<code>Pattern&lt;TInput, TMatchResult&gt;</code> class. This is a base class for patterns,t and it provides a couple things
-out-of-the-box:</p>
-<ul>
-<li>It implements the <code>IPattern&lt;TInput&gt;</code> interface explicitly so that you don't have to worry about it.</li>
-<li>It implements the <code>Description</code> property which you don't have to use if you don't want - by default the description
-is empty, which means that the pattern doesn't have a description.</li>
-</ul>
-<h3 id="the-hardest-way">The Hardest Way</h3>
-<p>If you for some reason don't want to extend the <code>Pattern&lt;TInput, TMatchResult&gt;</code> class, you can always implement
-<code>IPattern&lt;TInput, TMatchResult&gt;</code> directly. If you choose this way, you <em>must</em> implement the less generic <code>Match</code> method
-in terms of the more generic <code>Match</code> method, like this:</p>
-<pre><code>MatchResult&lt;object&gt; IPattern&lt;TInput&gt;.Match(TInput input)
-    =&gt; this.Match(input).Select(result =&gt; (object)result);
-</code></pre>
-<p>Because this method has the same signature as the more generic <code>Match</code> method, it must be implemented explicitly.
-If you don't implement it this way, there may be runtime problems with match expressions, as this is the only point of
-possible type-safety failure in the whole library.</p>
-<p>Creating custom patterns this way is <strong>not recommended</strong> - if you need complex logic, extend the
-<code>Pattern&lt;TInput, TMatchResult&gt;</code> class. The only reason to implement this interface instead of extending the class
-is if your pattern already extends a different class. If that's the case, then making your class a pattern breaks the
-single responsibility principle. So, don't do that.</p>
+<code>Pattern&lt;TInput, TMatchResult&gt;</code> class. This is a base class for patterns, and it implements the Description
+property which you don't have to use if you don't want – by default the description is empty, which means that the
+pattern doesn't have a description.</p>
+<p>You can also implement the <code>IPattern&lt;TInput, TMatchResult&gt;</code> interface directly. But there is no reason to do that
+instead of extending the Pattern&lt;TInput, TMatchResult&gt; class unless your class already extends another class. But in
+that case making your class a pattern will break the single responsibility principle. So, don't do that.</p>
 <p>Next article: <a href="expressions.html">Match expressions</a></p>
 </article>
           </div>
