@@ -43,7 +43,7 @@ There are several predefined patterns in the `Matchmaker.Patterns.Pattern` class
  - `LessThan`, `LessOrEqual`, `GreaterThan` and `GreaterOrEqual` are matched successfully if their input
 is compared successfully to the specified value.
  - `Type` is matched successfully if its input has the specified type. It returns its input as a value of that type.
-If the input is `null`, then the match will fail.
+If the input is `null`, then the match will fail only if the destination type is a non-nullable value type.
  - `Not` is matched successfully if the specified pattern is not matched successfully. It ignores the specified
 pattern's transformation and returns its input if matched successfully.
 
@@ -62,7 +62,7 @@ The `Matchmaker.Linq` namespace provides several extension methods for patterns:
  - `Select` maps a pattern's result value if it's successful.
  - `Pipe` creates a pattern pipeline - the result of the first pattern is the input of the second pattern.
  - `Cast` casts a pattern's result to a specified type. It's the same as piping a pattern to the `Type` pattern.
-If the input is `null`, then the match will fail.
+If the input is `null`, then the match will fail only if the destination type is a non-nullable value type.
  - `Bind` flat-maps a pattern's result. If a pattern's result is successful, it calls the
 specified function and passes the result to it. The function returns another pattern which is then used to match
 the input. The second pattern's result is the final result.

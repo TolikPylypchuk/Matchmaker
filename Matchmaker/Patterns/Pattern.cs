@@ -1488,12 +1488,8 @@ namespace Matchmaker.Patterns
         /// A pattern which is matched successfully when the input value is of the specified type.
         /// </returns>
         /// <remarks>
-        /// <para>
-        /// This pattern fails if the input is <see langword="null" />.
-        /// </para>
-        /// <para>
-        /// This pattern can be used to match discriminated unions which are implemented as class hierarchies.
-        /// </para>
+        /// If the input is <see langword="null" />, then this pattern fails only when <typeparamref name="TType"/>
+        /// is a non-nullable value type.
         /// </remarks>
         /// <seealso cref="Type{TInput, TType}(string)" />
         public static IPattern<TInput, TType> Type<TInput, TType>()
@@ -1510,12 +1506,8 @@ namespace Matchmaker.Patterns
         /// A pattern which is matched successfully when the input value is of the specified type.
         /// </returns>
         /// <remarks>
-        /// <para>
-        /// This pattern fails if the input is <see langword="null" />.
-        /// </para>
-        /// <para>
-        /// This pattern can be used to match discriminated unions which are implemented as class hierarchies.
-        /// </para>
+        /// If the input is <see langword="null" />, then this pattern fails only when <typeparamref name="TType"/>
+        /// is a non-nullable value type.
         /// </remarks>
         /// <exception cref="ArgumentNullException">
         /// <paramref name="description" /> is <see langword="null" />.
@@ -1524,7 +1516,9 @@ namespace Matchmaker.Patterns
         public static IPattern<TInput, TType> Type<TInput, TType>(string description)
             where TType : TInput
             => CreatePattern<TInput, TType>(
-                input => input is TType result ? MatchResult.Success(result) : MatchResult.Failure<TType>(),
+                input => input is null && default(TType) is null
+                    ? MatchResult.Success<TType>(default)
+                    : (input is TType result ? MatchResult.Success(result) : MatchResult.Failure<TType>()),
                 description ?? throw new ArgumentNullException(nameof(description)));
 
         /// <summary>

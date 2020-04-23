@@ -193,7 +193,8 @@ namespace Matchmaker.Linq
         /// <code>
         /// pattern.Pipe(Pattern.Type&lt;TIntermediateResult, TMatchResult&gt;())
         /// </code>
-        /// As such, this pattern fails if the input is <see langword="null" />.
+        /// As such, this pattern fails if the input is <see langword="null" /> and <typeparamref name="TMatchResult"/>
+        /// is a non-nullable value type.
         /// </remarks>
         /// <exception cref="ArgumentNullException">
         /// <paramref name="pattern" /> is <see langword="null" />.
@@ -220,7 +221,8 @@ namespace Matchmaker.Linq
         /// <code>
         /// pattern.Pipe(Pattern.Type&lt;TIntermediateResult, TMatchResult&gt;(), description)
         /// </code>
-        /// As such, this pattern fails if the input is <see langword="null" />.
+        /// As such, this pattern fails if the input is <see langword="null" /> and <typeparamref name="TMatchResult"/>
+        /// is a non-nullable value type.
         /// </remarks>
         /// <exception cref="ArgumentNullException">
         /// <paramref name="pattern" /> or <paramref name="description" /> is <see langword="null" />.

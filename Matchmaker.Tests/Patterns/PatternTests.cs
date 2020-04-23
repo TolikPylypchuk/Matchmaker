@@ -366,8 +366,16 @@ namespace Matchmaker.Patterns
                 .ToProperty();
 
         [Fact]
-        public void TypeShouldFailOnNull()
-            => Pattern.Type<object, object>().Match(null).IsSuccessful.Should().BeFalse();
+        public void TypeShouldSucceedOnNull()
+            => Pattern.Type<object, string>().Match(null).IsSuccessful.Should().BeTrue();
+
+        [Fact]
+        public void TypeShouldSucceedOnNullableValueNull()
+            => Pattern.Type<object, int?>().Match(null).IsSuccessful.Should().BeTrue();
+
+        [Fact]
+        public void TypeShouldFailOnValueNull()
+            => Pattern.Type<object, int>().Match(null).IsSuccessful.Should().BeFalse();
 
         [Property]
         public Property TypeWithDescriptionShouldSucceedOnlyWhenTheValueHasType(int value, NonNull<string> description)
@@ -376,8 +384,16 @@ namespace Matchmaker.Patterns
                 .ToProperty();
 
         [Property]
-        public Property TypeWithDescriptionShouldFailOnNull(NonNull<string> description)
-            => (!Pattern.Type<object, string>(description.Get).Match(null).IsSuccessful).ToProperty();
+        public Property TypeWithDescriptionShouldSucceedOnNull(NonNull<string> description)
+            => Pattern.Type<object, string>(description.Get).Match(null).IsSuccessful.ToProperty();
+
+        [Property]
+        public Property TypeWithDescriptionShouldSucceedOnNullableValueNull(NonNull<string> description)
+            => Pattern.Type<object, int?>(description.Get).Match(null).IsSuccessful.ToProperty();
+
+        [Property]
+        public Property TypeWithDescriptionShouldFailOnValueNull(NonNull<string> description)
+            => (!Pattern.Type<object, int>(description.Get).Match(null).IsSuccessful).ToProperty();
 
         [Fact]
         public void TypeShouldHaveCorrectDefaultDescription()

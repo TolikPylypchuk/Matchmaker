@@ -143,7 +143,15 @@ namespace Matchmaker.Linq
                 .ToProperty();
 
         [Fact]
-        public Property CastShouldFailIfResultIsSuccessfulAndContainsNull()
+        public Property CastShouldSucceedIfResultContainsNull()
+            => MatchResult.Success<object>(null).Cast<object, string>().IsSuccessful.ToProperty();
+
+        [Fact]
+        public Property CastToNullableValueShouldFailIfResultContainsNull()
+            => MatchResult.Success<object>(null).Cast<object, int?>().IsSuccessful.ToProperty();
+
+        [Fact]
+        public Property CastToValueShouldFailIfResultContainsNull()
             => (!MatchResult.Success<object>(null).Cast<object, int>().IsSuccessful).ToProperty();
 
         [Property(Arbitrary = new[] { typeof(Generators) })]

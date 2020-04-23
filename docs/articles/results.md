@@ -28,7 +28,7 @@ The simplest way to work with match results is to use the `IsSuccessful` and `Va
 an exception if the result doesn't contain a value.
 
 If you are using a functional library/framework, you can write an extension method which transforms `MatchResult<T>`
-into the library's optional type. But remember that `MatchResult<T>` can contain null values, and not all optional
+into the library's optional type. But remember that `MatchResult<T>` can contain `null` values, and not all optional
 implementations support that.
 
 ## LINQ to Results
@@ -41,8 +41,8 @@ The `Matchmaker.Linq` namespace contains several extension methods to make worki
  - `Bind` flat-maps the value of the result if it's present.
  - `Where` filters the result's value if it's present.
  - `Cast` casts the result's value to the specified type if it's present and can be cast to that type. Note that
-`null` values cannot be cast to any type, and if a successful result which contains a `null` value is cast to any
-type, you will get a failed result.
+`null` values cannot be cast to a non-nullable value type, and if a successful result which contains a `null` value
+is cast to a non-nullable value type, you will get a failed result.
  - `Do` performs an action on the result's value if it's present and returns the result itself.
 
 Since there are the `Select` and `Where` extensions on `MatchResult<T>`, you can write them using C#'s query

@@ -5,6 +5,7 @@
 What's new in version 2.1:
 
 - The less generic `IPattern<TInput>` interface was removed (breaking change)
+- The `Type` pattern and the `Cast`extension methods now work correctly with `null` values
 
 Even though this release contains a potentially breaking change, it is very unlikely that the removal of an
 interface which was designed to be internal, will actually break anything.
