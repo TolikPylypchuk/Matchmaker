@@ -79,7 +79,7 @@ namespace Matchmaker
             }
 
             this.Cases.Add(new Match<TInput>.CaseData(
-                pattern ?? throw new ArgumentNullException(nameof(pattern)),
+                Pattern<TInput>.FromActualPattern(pattern ?? throw new ArgumentNullException(nameof(pattern))),
                 fallthrough,
                 value => action((TMatchResult)value)));
 

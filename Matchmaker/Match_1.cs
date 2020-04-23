@@ -101,7 +101,10 @@ namespace Matchmaker
                     ? new Match<TInput>(
                         new List<CaseData>(this.cases)
                         {
-                            new CaseData(pattern, fallthrough, value => action((TMatchResult)value))
+                            new CaseData(
+                                Pattern<TInput>.FromActualPattern(pattern),
+                                fallthrough,
+                                value => action((TMatchResult)value))
                         }.AsReadOnly(),
                         this.fallthroughByDefault)
                     : throw new ArgumentNullException(nameof(action))
@@ -240,7 +243,7 @@ namespace Matchmaker
             /// <param name="pattern">The pattern of the case.</param>
             /// <param name="fallthrough">The fallthrough behaviour of the case.</param>
             /// <param name="action">The action of the case.</param>
-            public CaseData(IPattern<TInput> pattern, bool fallthrough, Action<object> action)
+            public CaseData(Pattern<TInput> pattern, bool fallthrough, Action<object> action)
             {
                 this.Pattern = pattern;
                 this.Fallthrough = fallthrough;
@@ -250,7 +253,7 @@ namespace Matchmaker
             /// <summary>
             /// Gets the pattern of the case.
             /// </summary>
-            public IPattern<TInput> Pattern { get; }
+            public Pattern<TInput> Pattern { get; }
 
             /// <summary>
             /// Gets the fallthrough behaviour of the case.

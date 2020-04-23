@@ -1,7 +1,5 @@
 using System;
 
-using Matchmaker.Linq;
-
 namespace Matchmaker.Patterns
 {
     /// <summary>
@@ -55,16 +53,5 @@ namespace Matchmaker.Patterns
         /// </returns>
         public override string ToString()
             => String.IsNullOrEmpty(this.Description) ? base.ToString() : this.Description;
-
-        /// <summary>
-        /// Matches the input with this pattern, and returns a transformed result.
-        /// </summary>
-        /// <param name="input">The input value to match.</param>
-        /// <returns>
-        /// A successful match result which contains the transformed result of the match,
-        /// if this match is successful. Otherwise, a failed match result.
-        /// </returns>
-        MatchResult<object> IPattern<TInput>.Match(TInput input)
-            => this.Match(input).Select(result => (object)result);
     }
 }

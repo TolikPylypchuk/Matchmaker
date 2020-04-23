@@ -80,7 +80,7 @@ namespace Matchmaker
             }
 
             this.Cases.Add(new Match<TInput, TOutput>.CaseData(
-                pattern ?? throw new ArgumentNullException(nameof(pattern)),
+                Pattern<TInput>.FromActualPattern(pattern ?? throw new ArgumentNullException(nameof(pattern))),
                 fallthrough,
                 value => func((TMatchResult)value)));
 

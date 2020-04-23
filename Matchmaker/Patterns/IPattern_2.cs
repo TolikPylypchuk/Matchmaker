@@ -10,7 +10,7 @@ namespace Matchmaker.Patterns
     /// <seealso cref="Pattern{TInput, TMatchResult}" />
     /// <seealso cref="Pattern" />
     /// <seealso cref="PatternExtensions" />
-    public interface IPattern<in TInput, TMatchResult> : IPattern<TInput>
+    public interface IPattern<in TInput, TMatchResult>
     {
         /// <summary>
         /// Gets the description of this pattern.
@@ -30,6 +30,6 @@ namespace Matchmaker.Patterns
         /// A successful match result which contains the transformed result of the match,
         /// if this match is successful. Otherwise, a failed match result.
         /// </returns>
-        new MatchResult<TMatchResult> Match(TInput input);
+        MatchResult<TMatchResult> Match(TInput input);
     }
 }
