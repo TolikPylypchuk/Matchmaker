@@ -85,32 +85,11 @@
     <h5>Implements</h5>
     <div><a class="xref" href="Matchmaker.Patterns.IPattern-2.html">IPattern</a>&lt;TInput, TMatchResult&gt;</div>
   </div>
-  <div class="inheritedMembers">
-    <h5>Inherited Members</h5>
-    <div>
-      <span class="xref">System.Object.Equals(System.Object)</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.GetHashCode()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.GetType()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.MemberwiseClone()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
-    </div>
-  </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="Matchmaker.Patterns.html">Matchmaker.Patterns</a></h6>
   <h6><strong>Assembly</strong>: Matchmaker.dll</h6>
   <h5 id="Matchmaker_Patterns_Pattern_2_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public abstract class Pattern&lt;TInput, TMatchResult&gt; : IPattern&lt;TInput, TMatchResult&gt;</code></pre>
+    <pre><code class="lang-csharp hljs">public abstract class Pattern&lt;TInput, TMatchResult&gt; : object, IPattern&lt;TInput, TMatchResult&gt;</code></pre>
   </div>
   <h5 class="typeParameters">Type Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -182,22 +161,6 @@ with the specified description.</p>
         <td><span class="xref">System.String</span></td>
         <td><span class="parametername">description</span></td>
         <td><p>The description of this pattern.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.ArgumentNullException</span></td>
-        <td><p><code data-dev-comment-type="paramref" class="paramref">description</code> is <span class="xref">null</span>.</p>
 </td>
       </tr>
     </tbody>
@@ -321,54 +284,9 @@ If it doesn't, then the name of this pattern's type.</p>
       </tr>
     </tbody>
   </table>
-  <h5 class="overrides">Overrides</h5>
-  <div><span class="xref">System.Object.ToString()</span></div>
   <h3 id="implements">Implements</h3>
   <div>
       <a class="xref" href="Matchmaker.Patterns.IPattern-2.html">IPattern&lt;TInput, TMatchResult&gt;</a>
-  </div>
-  <h3 id="extensionmethods">Extension Methods</h3>
-  <div>
-      <a class="xref" href="Matchmaker.Linq.PatternExtensions.html#Matchmaker_Linq_PatternExtensions_Select__3_Matchmaker_Patterns_IPattern___0___1__System_Func___1___2__">PatternExtensions.Select&lt;TInput, TIntermediateResult, TMatchResult&gt;(IPattern&lt;TInput, TIntermediateResult&gt;, Func&lt;TIntermediateResult, TMatchResult&gt;)</a>
-  </div>
-  <div>
-      <a class="xref" href="Matchmaker.Linq.PatternExtensions.html#Matchmaker_Linq_PatternExtensions_Select__3_Matchmaker_Patterns_IPattern___0___1__System_Func___1___2__System_String_">PatternExtensions.Select&lt;TInput, TIntermediateResult, TMatchResult&gt;(IPattern&lt;TInput, TIntermediateResult&gt;, Func&lt;TIntermediateResult, TMatchResult&gt;, String)</a>
-  </div>
-  <div>
-      <a class="xref" href="Matchmaker.Linq.PatternExtensions.html#Matchmaker_Linq_PatternExtensions_Pipe__3_Matchmaker_Patterns_IPattern___0___1__Matchmaker_Patterns_IPattern___1___2__">PatternExtensions.Pipe&lt;TInput, TIntermediateResult, TMatchResult&gt;(IPattern&lt;TInput, TIntermediateResult&gt;, IPattern&lt;TIntermediateResult, TMatchResult&gt;)</a>
-  </div>
-  <div>
-      <a class="xref" href="Matchmaker.Linq.PatternExtensions.html#Matchmaker_Linq_PatternExtensions_Pipe__3_Matchmaker_Patterns_IPattern___0___1__Matchmaker_Patterns_IPattern___1___2__System_String_">PatternExtensions.Pipe&lt;TInput, TIntermediateResult, TMatchResult&gt;(IPattern&lt;TInput, TIntermediateResult&gt;, IPattern&lt;TIntermediateResult, TMatchResult&gt;, String)</a>
-  </div>
-  <div>
-      <a class="xref" href="Matchmaker.Linq.PatternExtensions.html#Matchmaker_Linq_PatternExtensions_Pipe__3_Matchmaker_Patterns_IPattern___0___1__System_Func___1_Matchmaker_MatchResult___2___">PatternExtensions.Pipe&lt;TInput, TIntermediateResult, TMatchResult&gt;(IPattern&lt;TInput, TIntermediateResult&gt;, Func&lt;TIntermediateResult, MatchResult&lt;TMatchResult&gt;&gt;)</a>
-  </div>
-  <div>
-      <a class="xref" href="Matchmaker.Linq.PatternExtensions.html#Matchmaker_Linq_PatternExtensions_Pipe__3_Matchmaker_Patterns_IPattern___0___1__System_Func___1_Matchmaker_MatchResult___2___System_String_">PatternExtensions.Pipe&lt;TInput, TIntermediateResult, TMatchResult&gt;(IPattern&lt;TInput, TIntermediateResult&gt;, Func&lt;TIntermediateResult, MatchResult&lt;TMatchResult&gt;&gt;, String)</a>
-  </div>
-  <div>
-      <a class="xref" href="Matchmaker.Linq.PatternExtensions.html#Matchmaker_Linq_PatternExtensions_Cast__3_Matchmaker_Patterns_IPattern___0___1__">PatternExtensions.Cast&lt;TInput, TIntermediateResult, TMatchResult&gt;(IPattern&lt;TInput, TIntermediateResult&gt;)</a>
-  </div>
-  <div>
-      <a class="xref" href="Matchmaker.Linq.PatternExtensions.html#Matchmaker_Linq_PatternExtensions_Cast__3_Matchmaker_Patterns_IPattern___0___1__System_String_">PatternExtensions.Cast&lt;TInput, TIntermediateResult, TMatchResult&gt;(IPattern&lt;TInput, TIntermediateResult&gt;, String)</a>
-  </div>
-  <div>
-      <a class="xref" href="Matchmaker.Linq.PatternExtensions.html#Matchmaker_Linq_PatternExtensions_Bind__3_Matchmaker_Patterns_IPattern___0___1__System_Func___1_Matchmaker_Patterns_IPattern___0___2___">PatternExtensions.Bind&lt;TInput, TIntermediateResult, TMatchResult&gt;(IPattern&lt;TInput, TIntermediateResult&gt;, Func&lt;TIntermediateResult, IPattern&lt;TInput, TMatchResult&gt;&gt;)</a>
-  </div>
-  <div>
-      <a class="xref" href="Matchmaker.Linq.PatternExtensions.html#Matchmaker_Linq_PatternExtensions_Bind__3_Matchmaker_Patterns_IPattern___0___1__System_Func___1_Matchmaker_Patterns_IPattern___0___2___System_String_">PatternExtensions.Bind&lt;TInput, TIntermediateResult, TMatchResult&gt;(IPattern&lt;TInput, TIntermediateResult&gt;, Func&lt;TIntermediateResult, IPattern&lt;TInput, TMatchResult&gt;&gt;, String)</a>
-  </div>
-  <div>
-      <a class="xref" href="Matchmaker.Linq.PatternExtensions.html#Matchmaker_Linq_PatternExtensions_Where__2_Matchmaker_Patterns_IPattern___0___1__System_Func___1_System_Boolean__">PatternExtensions.Where&lt;TInput, TMatchResult&gt;(IPattern&lt;TInput, TMatchResult&gt;, Func&lt;TMatchResult, Boolean&gt;)</a>
-  </div>
-  <div>
-      <a class="xref" href="Matchmaker.Linq.PatternExtensions.html#Matchmaker_Linq_PatternExtensions_Where__2_Matchmaker_Patterns_IPattern___0___1__System_Func___1_System_Boolean__System_String_">PatternExtensions.Where&lt;TInput, TMatchResult&gt;(IPattern&lt;TInput, TMatchResult&gt;, Func&lt;TMatchResult, Boolean&gt;, String)</a>
-  </div>
-  <div>
-      <a class="xref" href="Matchmaker.Linq.PatternExtensions.html#Matchmaker_Linq_PatternExtensions_Cached__2_Matchmaker_Patterns_IPattern___0___1__">PatternExtensions.Cached&lt;TInput, TMatchResult&gt;(IPattern&lt;TInput, TMatchResult&gt;)</a>
-  </div>
-  <div>
-      <a class="xref" href="Matchmaker.Linq.PatternExtensions.html#Matchmaker_Linq_PatternExtensions_Cached__2_Matchmaker_Patterns_IPattern___0___1__System_String_">PatternExtensions.Cached&lt;TInput, TMatchResult&gt;(IPattern&lt;TInput, TMatchResult&gt;, String)</a>
   </div>
   <h3 id="seealso">See Also</h3>
   <div class="seealso">

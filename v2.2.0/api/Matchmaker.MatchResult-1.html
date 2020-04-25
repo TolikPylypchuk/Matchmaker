@@ -78,19 +78,7 @@
   <div class="markdown level0 conceptual"></div>
   <div classs="implements">
     <h5>Implements</h5>
-    <div><span class="xref">System.IEquatable</span>&lt;<a class="xref" href="Matchmaker.MatchResult-1.html">MatchResult</a>&lt;T&gt;&gt;</div>
-  </div>
-  <div class="inheritedMembers">
-    <h5>Inherited Members</h5>
-    <div>
-      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.GetType()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
-    </div>
+    <div><span class="xref">IEquatable</span>&lt;<a class="xref" href="Matchmaker.MatchResult-1.html">MatchResult</a>&lt;T&gt;&gt;</div>
   </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="Matchmaker.html">Matchmaker</a></h6>
   <h6><strong>Assembly</strong>: Matchmaker.dll</h6>
@@ -114,6 +102,10 @@
       </tr>
     </tbody>
   </table>
+  <h5 id="Matchmaker_MatchResult_1_remarks"><strong>Remarks</strong></h5>
+  <div class="markdown level0 remarks"><p>If the result is successful, it contains a value which may be <span class="xref">null</span>. If it is not,
+then it doesn't contain a value.</p>
+</div>
   <h3 id="properties">Properties
   </h3>
   <span class="small pull-right mobile-hide">
@@ -121,7 +113,7 @@
     <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_MatchResult_1_IsSuccessful.md&amp;value=---%0Auid%3A%20Matchmaker.MatchResult%601.IsSuccessful%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/MatchResult_1.cs/#L34">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/MatchResult_1.cs/#L41">View Source</a>
   </span>
   <a id="Matchmaker_MatchResult_1_IsSuccessful_" data-uid="Matchmaker.MatchResult`1.IsSuccessful*"></a>
   <h4 id="Matchmaker_MatchResult_1_IsSuccessful" data-uid="Matchmaker.MatchResult`1.IsSuccessful">IsSuccessful</h4>
@@ -152,12 +144,12 @@
     <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_MatchResult_1_Value.md&amp;value=---%0Auid%3A%20Matchmaker.MatchResult%601.Value%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/MatchResult_1.cs/#L43">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/MatchResult_1.cs/#L50">View Source</a>
   </span>
   <a id="Matchmaker_MatchResult_1_Value_" data-uid="Matchmaker.MatchResult`1.Value*"></a>
   <h4 id="Matchmaker_MatchResult_1_Value" data-uid="Matchmaker.MatchResult`1.Value">Value</h4>
-  <div class="markdown level1 summary"><p>Gets the value if the match result is successful.
-If it is not, then throws <span class="xref">System.InvalidOperationException</span></p>
+  <div class="markdown level1 summary"><p>Gets the value if the match result is successful. If it is not, then throws an
+<see cref="!:InvalidOperationException"></see>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -179,22 +171,6 @@ If it is not, then throws <span class="xref">System.InvalidOperationException</s
       </tr>
     </tbody>
   </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.InvalidOperationException</span></td>
-        <td><p>The result is not successful.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
   <h3 id="methods">Methods
   </h3>
   <span class="small pull-right mobile-hide">
@@ -202,7 +178,7 @@ If it is not, then throws <span class="xref">System.InvalidOperationException</s
     <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_MatchResult_1_Equals_Matchmaker_MatchResult__0__.md&amp;value=---%0Auid%3A%20Matchmaker.MatchResult%601.Equals(Matchmaker.MatchResult%7B%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/MatchResult_1.cs/#L80">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/MatchResult_1.cs/#L88">View Source</a>
   </span>
   <a id="Matchmaker_MatchResult_1_Equals_" data-uid="Matchmaker.MatchResult`1.Equals*"></a>
   <h4 id="Matchmaker_MatchResult_1_Equals_Matchmaker_MatchResult__0__" data-uid="Matchmaker.MatchResult`1.Equals(Matchmaker.MatchResult{`0})">Equals(MatchResult&lt;T&gt;)</h4>
@@ -250,26 +226,25 @@ Otherwise, <span class="xref">false</span>.</p>
   </table>
   <h5 id="Matchmaker_MatchResult_1_Equals_Matchmaker_MatchResult__0___seealso">See Also</h5>
   <div class="seealso">
-      <div><a class="xref" href="Matchmaker.MatchResult-1.html#Matchmaker_MatchResult_1_Equals_System_Object_">Equals(Object)</a></div>
       <div><a class="xref" href="Matchmaker.MatchResult-1.html#Matchmaker_MatchResult_1_GetHashCode">GetHashCode()</a></div>
       <div><a class="xref" href="Matchmaker.MatchResult-1.html#Matchmaker_MatchResult_1_op_Equality_Matchmaker_MatchResult__0__Matchmaker_MatchResult__0__">Equality(MatchResult&lt;T&gt;, MatchResult&lt;T&gt;)</a></div>
       <div><a class="xref" href="Matchmaker.MatchResult-1.html#Matchmaker_MatchResult_1_op_Inequality_Matchmaker_MatchResult__0__Matchmaker_MatchResult__0__">Inequality(MatchResult&lt;T&gt;, MatchResult&lt;T&gt;)</a></div>
   </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_MatchResult_1_Equals_System_Object_.md&amp;value=---%0Auid%3A%20Matchmaker.MatchResult%601.Equals(System.Object)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_MatchResult_1_Equals_System_Nullable_System_Object__.md&amp;value=---%0Auid%3A%20Matchmaker.MatchResult%601.Equals(System.Nullable%7BSystem.Object%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/MatchResult_1.cs/#L65">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/MatchResult_1.cs/#L73">View Source</a>
   </span>
   <a id="Matchmaker_MatchResult_1_Equals_" data-uid="Matchmaker.MatchResult`1.Equals*"></a>
-  <h4 id="Matchmaker_MatchResult_1_Equals_System_Object_" data-uid="Matchmaker.MatchResult`1.Equals(System.Object)">Equals(Object)</h4>
+  <h4 id="Matchmaker_MatchResult_1_Equals_System_Nullable_System_Object__" data-uid="Matchmaker.MatchResult`1.Equals(System.Nullable{System.Object})">Equals(Nullable&lt;Object&gt;)</h4>
   <div class="markdown level1 summary"><p>Compares this match result to another object.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public override bool Equals(object obj)</code></pre>
+    <pre><code class="lang-csharp hljs">public override bool Equals(object? obj)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -282,7 +257,7 @@ Otherwise, <span class="xref">false</span>.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Object</span></td>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Object</span>&gt;</td>
         <td><span class="parametername">obj</span></td>
         <td><p>The object to compare to.</p>
 </td>
@@ -306,9 +281,7 @@ Otherwise, <span class="xref">false</span>.</p>
       </tr>
     </tbody>
   </table>
-  <h5 class="overrides">Overrides</h5>
-  <div><span class="xref">System.ValueType.Equals(System.Object)</span></div>
-  <h5 id="Matchmaker_MatchResult_1_Equals_System_Object__seealso">See Also</h5>
+  <h5 id="Matchmaker_MatchResult_1_Equals_System_Nullable_System_Object___seealso">See Also</h5>
   <div class="seealso">
       <div><a class="xref" href="Matchmaker.MatchResult-1.html#Matchmaker_MatchResult_1_Equals_Matchmaker_MatchResult__0__">Equals(MatchResult&lt;T&gt;)</a></div>
       <div><a class="xref" href="Matchmaker.MatchResult-1.html#Matchmaker_MatchResult_1_GetHashCode">GetHashCode()</a></div>
@@ -320,7 +293,7 @@ Otherwise, <span class="xref">false</span>.</p>
     <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_MatchResult_1_GetHashCode.md&amp;value=---%0Auid%3A%20Matchmaker.MatchResult%601.GetHashCode%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/MatchResult_1.cs/#L91">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/MatchResult_1.cs/#L99">View Source</a>
   </span>
   <a id="Matchmaker_MatchResult_1_GetHashCode_" data-uid="Matchmaker.MatchResult`1.GetHashCode*"></a>
   <h4 id="Matchmaker_MatchResult_1_GetHashCode" data-uid="Matchmaker.MatchResult`1.GetHashCode">GetHashCode()</h4>
@@ -347,11 +320,8 @@ Otherwise, <span class="xref">false</span>.</p>
       </tr>
     </tbody>
   </table>
-  <h5 class="overrides">Overrides</h5>
-  <div><span class="xref">System.ValueType.GetHashCode()</span></div>
   <h5 id="Matchmaker_MatchResult_1_GetHashCode_seealso">See Also</h5>
   <div class="seealso">
-      <div><a class="xref" href="Matchmaker.MatchResult-1.html#Matchmaker_MatchResult_1_Equals_System_Object_">Equals(Object)</a></div>
       <div><a class="xref" href="Matchmaker.MatchResult-1.html#Matchmaker_MatchResult_1_Equals_Matchmaker_MatchResult__0__">Equals(MatchResult&lt;T&gt;)</a></div>
       <div><a class="xref" href="Matchmaker.MatchResult-1.html#Matchmaker_MatchResult_1_op_Equality_Matchmaker_MatchResult__0__Matchmaker_MatchResult__0__">Equality(MatchResult&lt;T&gt;, MatchResult&lt;T&gt;)</a></div>
       <div><a class="xref" href="Matchmaker.MatchResult-1.html#Matchmaker_MatchResult_1_op_Inequality_Matchmaker_MatchResult__0__Matchmaker_MatchResult__0__">Inequality(MatchResult&lt;T&gt;, MatchResult&lt;T&gt;)</a></div>
@@ -361,7 +331,7 @@ Otherwise, <span class="xref">false</span>.</p>
     <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_MatchResult_1_ToString.md&amp;value=---%0Auid%3A%20Matchmaker.MatchResult%601.ToString%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/MatchResult_1.cs/#L100">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/MatchResult_1.cs/#L106">View Source</a>
   </span>
   <a id="Matchmaker_MatchResult_1_ToString_" data-uid="Matchmaker.MatchResult`1.ToString*"></a>
   <h4 id="Matchmaker_MatchResult_1_ToString" data-uid="Matchmaker.MatchResult`1.ToString">ToString()</h4>
@@ -388,8 +358,6 @@ Otherwise, <span class="xref">false</span>.</p>
       </tr>
     </tbody>
   </table>
-  <h5 class="overrides">Overrides</h5>
-  <div><span class="xref">System.ValueType.ToString()</span></div>
   <h3 id="operators">Operators
   </h3>
   <span class="small pull-right mobile-hide">
@@ -397,7 +365,7 @@ Otherwise, <span class="xref">false</span>.</p>
     <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_MatchResult_1_op_Equality_Matchmaker_MatchResult__0__Matchmaker_MatchResult__0__.md&amp;value=---%0Auid%3A%20Matchmaker.MatchResult%601.op_Equality(Matchmaker.MatchResult%7B%600%7D%2CMatchmaker.MatchResult%7B%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/MatchResult_1.cs/#L116">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/MatchResult_1.cs/#L121">View Source</a>
   </span>
   <a id="Matchmaker_MatchResult_1_op_Equality_" data-uid="Matchmaker.MatchResult`1.op_Equality*"></a>
   <h4 id="Matchmaker_MatchResult_1_op_Equality_Matchmaker_MatchResult__0__Matchmaker_MatchResult__0__" data-uid="Matchmaker.MatchResult`1.op_Equality(Matchmaker.MatchResult{`0},Matchmaker.MatchResult{`0})">Equality(MatchResult&lt;T&gt;, MatchResult&lt;T&gt;)</h4>
@@ -443,15 +411,13 @@ Otherwise, <span class="xref">false</span>.</p>
     <tbody>
       <tr>
         <td><span class="xref">System.Boolean</span></td>
-        <td><p><span class="xref">true</span> if the match results are equal.
-Otherwise, <span class="xref">false</span></p>
+        <td><p><span class="xref">true</span> if the match results are equal. Otherwise, <span class="xref">false</span>.</p>
 </td>
       </tr>
     </tbody>
   </table>
   <h5 id="Matchmaker_MatchResult_1_op_Equality_Matchmaker_MatchResult__0__Matchmaker_MatchResult__0___seealso">See Also</h5>
   <div class="seealso">
-      <div><a class="xref" href="Matchmaker.MatchResult-1.html#Matchmaker_MatchResult_1_Equals_System_Object_">Equals(Object)</a></div>
       <div><a class="xref" href="Matchmaker.MatchResult-1.html#Matchmaker_MatchResult_1_Equals_Matchmaker_MatchResult__0__">Equals(MatchResult&lt;T&gt;)</a></div>
       <div><a class="xref" href="Matchmaker.MatchResult-1.html#Matchmaker_MatchResult_1_GetHashCode">GetHashCode()</a></div>
       <div><a class="xref" href="Matchmaker.MatchResult-1.html#Matchmaker_MatchResult_1_op_Inequality_Matchmaker_MatchResult__0__Matchmaker_MatchResult__0__">Inequality(MatchResult&lt;T&gt;, MatchResult&lt;T&gt;)</a></div>
@@ -461,7 +427,7 @@ Otherwise, <span class="xref">false</span></p>
     <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_MatchResult_1_op_Inequality_Matchmaker_MatchResult__0__Matchmaker_MatchResult__0__.md&amp;value=---%0Auid%3A%20Matchmaker.MatchResult%601.op_Inequality(Matchmaker.MatchResult%7B%600%7D%2CMatchmaker.MatchResult%7B%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/MatchResult_1.cs/#L132">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/MatchResult_1.cs/#L136">View Source</a>
   </span>
   <a id="Matchmaker_MatchResult_1_op_Inequality_" data-uid="Matchmaker.MatchResult`1.op_Inequality*"></a>
   <h4 id="Matchmaker_MatchResult_1_op_Inequality_Matchmaker_MatchResult__0__Matchmaker_MatchResult__0__" data-uid="Matchmaker.MatchResult`1.op_Inequality(Matchmaker.MatchResult{`0},Matchmaker.MatchResult{`0})">Inequality(MatchResult&lt;T&gt;, MatchResult&lt;T&gt;)</h4>
@@ -507,22 +473,20 @@ Otherwise, <span class="xref">false</span></p>
     <tbody>
       <tr>
         <td><span class="xref">System.Boolean</span></td>
-        <td><p><span class="xref">true</span> if the match results are not equal.
-Otherwise, <span class="xref">false</span></p>
+        <td><p><span class="xref">true</span> if the match results are not equal. Otherwise, <span class="xref">false</span>.</p>
 </td>
       </tr>
     </tbody>
   </table>
   <h5 id="Matchmaker_MatchResult_1_op_Inequality_Matchmaker_MatchResult__0__Matchmaker_MatchResult__0___seealso">See Also</h5>
   <div class="seealso">
-      <div><a class="xref" href="Matchmaker.MatchResult-1.html#Matchmaker_MatchResult_1_Equals_System_Object_">Equals(Object)</a></div>
       <div><a class="xref" href="Matchmaker.MatchResult-1.html#Matchmaker_MatchResult_1_Equals_Matchmaker_MatchResult__0__">Equals(MatchResult&lt;T&gt;)</a></div>
       <div><a class="xref" href="Matchmaker.MatchResult-1.html#Matchmaker_MatchResult_1_GetHashCode">GetHashCode()</a></div>
       <div><a class="xref" href="Matchmaker.MatchResult-1.html#Matchmaker_MatchResult_1_op_Equality_Matchmaker_MatchResult__0__Matchmaker_MatchResult__0__">Equality(MatchResult&lt;T&gt;, MatchResult&lt;T&gt;)</a></div>
   </div>
   <h3 id="implements">Implements</h3>
   <div>
-      <span class="xref">System.IEquatable&lt;T&gt;</span>
+      <span class="xref">IEquatable&lt;&gt;</span>
   </div>
   <h3 id="extensionmethods">Extension Methods</h3>
   <div>
@@ -532,25 +496,25 @@ Otherwise, <span class="xref">false</span></p>
       <a class="xref" href="Matchmaker.Linq.MatchResultExtensions.html#Matchmaker_Linq_MatchResultExtensions_GetValueOrDefault__1_Matchmaker_MatchResult___0____0_">MatchResultExtensions.GetValueOrDefault&lt;T&gt;(MatchResult&lt;T&gt;, T)</a>
   </div>
   <div>
-      <a class="xref" href="Matchmaker.Linq.MatchResultExtensions.html#Matchmaker_Linq_MatchResultExtensions_GetValueOrDefault__1_Matchmaker_MatchResult___0__System_Func___0__">MatchResultExtensions.GetValueOrDefault&lt;T&gt;(MatchResult&lt;T&gt;, Func&lt;T&gt;)</a>
+      <a class="xref" href="Matchmaker.Linq.MatchResultExtensions.html#Matchmaker_Linq_MatchResultExtensions_GetValueOrDefault__1_Matchmaker_MatchResult___0__Func___0__">MatchResultExtensions.GetValueOrDefault&lt;T&gt;(MatchResult&lt;T&gt;, Func&lt;T&gt;)</a>
   </div>
   <div>
-      <a class="xref" href="Matchmaker.Linq.MatchResultExtensions.html#Matchmaker_Linq_MatchResultExtensions_GetValueOrThrow__1_Matchmaker_MatchResult___0__System_Func_System_Exception__">MatchResultExtensions.GetValueOrThrow&lt;T&gt;(MatchResult&lt;T&gt;, Func&lt;Exception&gt;)</a>
+      <a class="xref" href="Matchmaker.Linq.MatchResultExtensions.html#Matchmaker_Linq_MatchResultExtensions_GetValueOrThrow__1_Matchmaker_MatchResult___0__Func_Exception__">MatchResultExtensions.GetValueOrThrow&lt;T&gt;(MatchResult&lt;T&gt;, Func&lt;Exception&gt;)</a>
   </div>
   <div>
-      <a class="xref" href="Matchmaker.Linq.MatchResultExtensions.html#Matchmaker_Linq_MatchResultExtensions_Select__2_Matchmaker_MatchResult___0__System_Func___0___1__">MatchResultExtensions.Select&lt;T, TResult&gt;(MatchResult&lt;T&gt;, Func&lt;T, TResult&gt;)</a>
+      <a class="xref" href="Matchmaker.Linq.MatchResultExtensions.html#Matchmaker_Linq_MatchResultExtensions_Select__2_Matchmaker_MatchResult___0__Func___0___1__">MatchResultExtensions.Select&lt;T, TResult&gt;(MatchResult&lt;T&gt;, Func&lt;T, TResult&gt;)</a>
   </div>
   <div>
-      <a class="xref" href="Matchmaker.Linq.MatchResultExtensions.html#Matchmaker_Linq_MatchResultExtensions_Bind__2_Matchmaker_MatchResult___0__System_Func___0_Matchmaker_MatchResult___1___">MatchResultExtensions.Bind&lt;T, TResult&gt;(MatchResult&lt;T&gt;, Func&lt;T, MatchResult&lt;TResult&gt;&gt;)</a>
+      <a class="xref" href="Matchmaker.Linq.MatchResultExtensions.html#Matchmaker_Linq_MatchResultExtensions_Bind__2_Matchmaker_MatchResult___0__Func___0_Matchmaker_MatchResult___1___">MatchResultExtensions.Bind&lt;T, TResult&gt;(MatchResult&lt;T&gt;, Func&lt;T, MatchResult&lt;TResult&gt;&gt;)</a>
   </div>
   <div>
-      <a class="xref" href="Matchmaker.Linq.MatchResultExtensions.html#Matchmaker_Linq_MatchResultExtensions_Where__1_Matchmaker_MatchResult___0__System_Func___0_System_Boolean__">MatchResultExtensions.Where&lt;T&gt;(MatchResult&lt;T&gt;, Func&lt;T, Boolean&gt;)</a>
+      <a class="xref" href="Matchmaker.Linq.MatchResultExtensions.html#Matchmaker_Linq_MatchResultExtensions_Where__1_Matchmaker_MatchResult___0__Func___0_System_Boolean__">MatchResultExtensions.Where&lt;T&gt;(MatchResult&lt;T&gt;, Func&lt;T, Boolean&gt;)</a>
   </div>
   <div>
       <a class="xref" href="Matchmaker.Linq.MatchResultExtensions.html#Matchmaker_Linq_MatchResultExtensions_Cast__2_Matchmaker_MatchResult___0__">MatchResultExtensions.Cast&lt;T, TResult&gt;(MatchResult&lt;T&gt;)</a>
   </div>
   <div>
-      <a class="xref" href="Matchmaker.Linq.MatchResultExtensions.html#Matchmaker_Linq_MatchResultExtensions_Do__1_Matchmaker_MatchResult___0__System_Action___0__">MatchResultExtensions.Do&lt;T&gt;(MatchResult&lt;T&gt;, Action&lt;T&gt;)</a>
+      <a class="xref" href="Matchmaker.Linq.MatchResultExtensions.html#Matchmaker_Linq_MatchResultExtensions_Do__1_Matchmaker_MatchResult___0__Action___0__">MatchResultExtensions.Do&lt;T&gt;(MatchResult&lt;T&gt;, Action&lt;T&gt;)</a>
   </div>
   <h3 id="seealso">See Also</h3>
   <div class="seealso">
@@ -568,7 +532,7 @@ Otherwise, <span class="xref">false</span></p>
                     <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_MatchResult_1.md&amp;value=---%0Auid%3A%20Matchmaker.MatchResult%601%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/MatchResult_1.cs/#L13" class="contribution-link">View Source</a>
+                    <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/MatchResult_1.cs/#L18" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

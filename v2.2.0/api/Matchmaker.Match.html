@@ -81,35 +81,11 @@
     <div class="level0"><span class="xref">System.Object</span></div>
     <div class="level1"><span class="xref">Match</span></div>
   </div>
-  <div class="inheritedMembers">
-    <h5>Inherited Members</h5>
-    <div>
-      <span class="xref">System.Object.Equals(System.Object)</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.GetHashCode()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.GetType()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.MemberwiseClone()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.ToString()</span>
-    </div>
-  </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="Matchmaker.html">Matchmaker</a></h6>
   <h6><strong>Assembly</strong>: Matchmaker.dll</h6>
   <h5 id="Matchmaker_Match_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static class Match</code></pre>
+    <pre><code class="lang-csharp hljs">public static class Match : object</code></pre>
   </div>
   <h3 id="methods">Methods
   </h3>
@@ -147,7 +123,7 @@
   </table>
   <h5 id="Matchmaker_Match_ClearCache__1_remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>
-After calling this method all <a class="xref" href="Matchmaker.Match.html#Matchmaker_Match_CreateStatic__1_System_Action_Matchmaker_MatchBuilder___0___System_String_System_Int32_">CreateStatic&lt;TInput&gt;(Action&lt;MatchBuilder&lt;TInput&gt;&gt;, String, Int32)</a>
+After calling this method all <a class="xref" href="Matchmaker.Match.html#Matchmaker_Match_CreateStatic__1_Action_Matchmaker_MatchBuilder___0___System_String_System_Int32_">CreateStatic&lt;TInput&gt;(Action&lt;MatchBuilder&lt;TInput&gt;&gt;, String, Int32)</a>
 calls will recalculate match statements for type <code data-dev-comment-type="typeparamref" class="typeparamref">TInput</code>.
 </p>
 <p>
@@ -194,7 +170,7 @@ Clearing the cache is not thread-safe.
   <h5 id="Matchmaker_Match_ClearCache__2_remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>
 After calling this method all
-<a class="xref" href="Matchmaker.Match.html#Matchmaker_Match_CreateStatic__2_System_Action_Matchmaker_MatchBuilder___0___1___System_String_System_Int32_">CreateStatic&lt;TInput, TOutput&gt;(Action&lt;MatchBuilder&lt;TInput, TOutput&gt;&gt;, String, Int32)</a>
+<a class="xref" href="Matchmaker.Match.html#Matchmaker_Match_CreateStatic__2_Action_Matchmaker_MatchBuilder___0___1___System_String_System_Int32_">CreateStatic&lt;TInput, TOutput&gt;(Action&lt;MatchBuilder&lt;TInput, TOutput&gt;&gt;, String, Int32)</a>
 calls will recalculate match expressions for types <code data-dev-comment-type="typeparamref" class="typeparamref">TInput</code> and
 <code data-dev-comment-type="typeparamref" class="typeparamref">TOutput</code>.
 </p>
@@ -458,13 +434,13 @@ Clearing the cache is not thread-safe.
   </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Match_CreateStatic__1_System_Action_Matchmaker_MatchBuilder___0___System_String_System_Int32_.md&amp;value=---%0Auid%3A%20Matchmaker.Match.CreateStatic%60%601(System.Action%7BMatchmaker.MatchBuilder%7B%60%600%7D%7D%2CSystem.String%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Match_CreateStatic__1_Action_Matchmaker_MatchBuilder___0___System_String_System_Int32_.md&amp;value=---%0Auid%3A%20Matchmaker.Match.CreateStatic%60%601(Action%7BMatchmaker.MatchBuilder%7B%60%600%7D%7D%2CSystem.String%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/Match.cs/#L136">View Source</a>
   </span>
   <a id="Matchmaker_Match_CreateStatic_" data-uid="Matchmaker.Match.CreateStatic*"></a>
-  <h4 id="Matchmaker_Match_CreateStatic__1_System_Action_Matchmaker_MatchBuilder___0___System_String_System_Int32_" data-uid="Matchmaker.Match.CreateStatic``1(System.Action{Matchmaker.MatchBuilder{``0}},System.String,System.Int32)">CreateStatic&lt;TInput&gt;(Action&lt;MatchBuilder&lt;TInput&gt;&gt;, String, Int32)</h4>
+  <h4 id="Matchmaker_Match_CreateStatic__1_Action_Matchmaker_MatchBuilder___0___System_String_System_Int32_" data-uid="Matchmaker.Match.CreateStatic``1(Action{Matchmaker.MatchBuilder{``0}},System.String,System.Int32)">CreateStatic&lt;TInput&gt;(Action&lt;MatchBuilder&lt;TInput&gt;&gt;, String, Int32)</h4>
   <div class="markdown level1 summary"><p>Creates a match statement which is then globally cached.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -483,7 +459,7 @@ Clearing the cache is not thread-safe.
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Action</span>&lt;<a class="xref" href="Matchmaker.MatchBuilder-1.html">MatchBuilder</a>&lt;TInput&gt;&gt;</td>
+        <td><span class="xref">Action</span>&lt;<a class="xref" href="Matchmaker.MatchBuilder-1.html">MatchBuilder</a>&lt;TInput&gt;&gt;</td>
         <td><span class="parametername">buildAction</span></td>
         <td><p>The action which builds the match statement.</p>
 </td>
@@ -534,7 +510,7 @@ Clearing the cache is not thread-safe.
       </tr>
     </tbody>
   </table>
-  <h5 id="Matchmaker_Match_CreateStatic__1_System_Action_Matchmaker_MatchBuilder___0___System_String_System_Int32__remarks">Remarks</h5>
+  <h5 id="Matchmaker_Match_CreateStatic__1_Action_Matchmaker_MatchBuilder___0___System_String_System_Int32__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>
 The key of the cache is the location of this method&apos;s call in the source code.
 This way, a new match statement object will not be allocated every time pattern matching occurs
@@ -544,31 +520,15 @@ in the same place more than once.
 The pattern caching process is not thread-safe.
 </p>
 </div>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.ArgumentNullException</span></td>
-        <td><p><code data-dev-comment-type="paramref" class="paramref">buildAction</code> or <code data-dev-comment-type="paramref" class="paramref">sourceFilePath</code> is <span class="xref">null</span>.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Match_CreateStatic__2_System_Action_Matchmaker_MatchBuilder___0___1___System_String_System_Int32_.md&amp;value=---%0Auid%3A%20Matchmaker.Match.CreateStatic%60%602(System.Action%7BMatchmaker.MatchBuilder%7B%60%600%2C%60%601%7D%7D%2CSystem.String%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Match_CreateStatic__2_Action_Matchmaker_MatchBuilder___0___1___System_String_System_Int32_.md&amp;value=---%0Auid%3A%20Matchmaker.Match.CreateStatic%60%602(Action%7BMatchmaker.MatchBuilder%7B%60%600%2C%60%601%7D%7D%2CSystem.String%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/Match.cs/#L83">View Source</a>
   </span>
   <a id="Matchmaker_Match_CreateStatic_" data-uid="Matchmaker.Match.CreateStatic*"></a>
-  <h4 id="Matchmaker_Match_CreateStatic__2_System_Action_Matchmaker_MatchBuilder___0___1___System_String_System_Int32_" data-uid="Matchmaker.Match.CreateStatic``2(System.Action{Matchmaker.MatchBuilder{``0,``1}},System.String,System.Int32)">CreateStatic&lt;TInput, TOutput&gt;(Action&lt;MatchBuilder&lt;TInput, TOutput&gt;&gt;, String, Int32)</h4>
+  <h4 id="Matchmaker_Match_CreateStatic__2_Action_Matchmaker_MatchBuilder___0___1___System_String_System_Int32_" data-uid="Matchmaker.Match.CreateStatic``2(Action{Matchmaker.MatchBuilder{``0,``1}},System.String,System.Int32)">CreateStatic&lt;TInput, TOutput&gt;(Action&lt;MatchBuilder&lt;TInput, TOutput&gt;&gt;, String, Int32)</h4>
   <div class="markdown level1 summary"><p>Creates a match expression which is then globally cached.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -587,7 +547,7 @@ The pattern caching process is not thread-safe.
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Action</span>&lt;<a class="xref" href="Matchmaker.MatchBuilder-2.html">MatchBuilder</a>&lt;TInput, TOutput&gt;&gt;</td>
+        <td><span class="xref">Action</span>&lt;<a class="xref" href="Matchmaker.MatchBuilder-2.html">MatchBuilder</a>&lt;TInput, TOutput&gt;&gt;</td>
         <td><span class="parametername">buildAction</span></td>
         <td><p>The action which builds the match expression.</p>
 </td>
@@ -643,7 +603,7 @@ The pattern caching process is not thread-safe.
       </tr>
     </tbody>
   </table>
-  <h5 id="Matchmaker_Match_CreateStatic__2_System_Action_Matchmaker_MatchBuilder___0___1___System_String_System_Int32__remarks">Remarks</h5>
+  <h5 id="Matchmaker_Match_CreateStatic__2_Action_Matchmaker_MatchBuilder___0___1___System_String_System_Int32__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>
 The key of the cache is the location of this method&apos;s call in the source code.
 This way, a new match expression object will not be allocated every time pattern matching occurs
@@ -653,22 +613,6 @@ in the same place more than once.
 The pattern caching process is not thread-safe.
 </p>
 </div>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.ArgumentNullException</span></td>
-        <td><p><code data-dev-comment-type="paramref" class="paramref">buildAction</code> or <code data-dev-comment-type="paramref" class="paramref">sourceFilePath</code> is <span class="xref">null</span>.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
   <h3 id="seealso">See Also</h3>
   <div class="seealso">
       <div><a class="xref" href="Matchmaker.Match-2.html">Match</a>&lt;TInput, TOutput&gt;</div>
