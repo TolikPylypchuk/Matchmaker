@@ -24,6 +24,7 @@
             A container class for extension methods for <see cref="T:Matchmaker.MatchResult`1" />.
             </summary>
             <seealso cref="T:Matchmaker.MatchResult`1" />
+            <seealso cref="T:Matchmaker.MatchResult" />
         </member>
         <member name="M:Matchmaker.Linq.MatchResultExtensions.GetValueOrDefault``1(Matchmaker.MatchResult{``0})">
             <summary>
@@ -87,6 +88,9 @@
             <returns>
             A result which contains a mapped value if the specified result is successful. Otherwise, a failed result.
             </returns>
+            <remarks>
+            The <paramref name="mapper" /> function's parameter may be <see langword="null" />.
+            </remarks>
             <exception cref="T:System.ArgumentNullException">
             <paramref name="mapper" /> is <see langword="null" />.
             </exception>
@@ -102,6 +106,9 @@
             <returns>
             A flat-mapped result if the specified result is successful. Otherwise, a failed result.
             </returns>
+            <remarks>
+            The <paramref name="binder" /> function's parameter may be <see langword="null" />.
+            </remarks>
             <exception cref="T:System.ArgumentNullException">
             <paramref name="binder" /> is <see langword="null" />.
             </exception>
@@ -118,6 +125,9 @@
             A successfult result if the specified result is successful and its value satisfies a specified predicate.
             Otherwise, a failed result.
             </returns>
+            <remarks>
+            The <paramref name="predicate" /> function's parameter may be <see langword="null" />.
+            </remarks>
             <exception cref="T:System.ArgumentNullException">
             <paramref name="predicate" /> is <see langword="null" />.
             </exception>
@@ -147,6 +157,9 @@
             <param name="result">The result whose value should be passed to the action.</param>
             <param name="action">The action to perform.</param>
             <returns>The result for which the action should be executed.</returns>
+            <remarks>
+            The <paramref name="action" />'s parameter may be <see langword="null" />.
+            </remarks>
             <exception cref="T:System.ArgumentNullException">
             <paramref name="action" /> is <see langword="null" />.
             </exception>
@@ -1104,6 +1117,10 @@
             Represents the result of a pattern match.
             </summary>
             <typeparam name="T">The type of the value contained in this class.</typeparam>
+            <remarks>
+            If the result is successful, it contains a value which may be <see langword="null" />. If it is not,
+            then it doesn't contain a value.
+            </remarks>
             <seealso cref="T:Matchmaker.MatchResult" />
             <seealso cref="T:Matchmaker.Linq.MatchResultExtensions" />
         </member>
@@ -1126,8 +1143,8 @@
         </member>
         <member name="P:Matchmaker.MatchResult`1.Value">
             <summary>
-            Gets the value if the match result is successful.
-            If it is not, then throws <see cref="T:System.InvalidOperationException" />
+            Gets the value if the match result is successful. If it is not, then throws an
+            <see cref="T:System.InvalidOperationException" />.
             </summary>
             <exception cref="T:System.InvalidOperationException">
             The result is not successful.
@@ -1189,8 +1206,7 @@
             <param name="left">The left match result.</param>
             <param name="right">The right match result.</param>
             <returns>
-            <see langword="true" /> if the match results are equal.
-            Otherwise, <see langword="false" />
+            <see langword="true" /> if the match results are equal. Otherwise, <see langword="false" />.
             </returns>
             <seealso cref="M:Matchmaker.MatchResult`1.Equals(System.Object)" />
             <seealso cref="M:Matchmaker.MatchResult`1.Equals(Matchmaker.MatchResult{`0})" />
@@ -1204,8 +1220,7 @@
             <param name="left">The left match result.</param>
             <param name="right">The right match result.</param>
             <returns>
-            <see langword="true" /> if the match results are not equal.
-            Otherwise, <see langword="false" />
+            <see langword="true" /> if the match results are not equal. Otherwise, <see langword="false" />.
             </returns>
             <seealso cref="M:Matchmaker.MatchResult`1.Equals(System.Object)" />
             <seealso cref="M:Matchmaker.MatchResult`1.Equals(Matchmaker.MatchResult{`0})" />
@@ -1327,6 +1342,9 @@
             <exception cref="T:Matchmaker.MatchException">
             The match failed for all cases.
             </exception>
+            <seealso cref="M:Matchmaker.Match`1.ExecuteNonStrict(`0)" />
+            <seealso cref="M:Matchmaker.Match`1.ExecuteWithFallthrough(`0)" />
+            <seealso cref="M:Matchmaker.Match`1.ToFunction" />
         </member>
         <member name="M:Matchmaker.Match`1.ExecuteNonStrict(`0)">
             <summary>
@@ -1337,6 +1355,9 @@
             <see langword="true" />, if the match was successful.
             Otherwise, <see langword="false" />.
             </returns>
+            <seealso cref="M:Matchmaker.Match`1.ExecuteOn(`0)" />
+            <seealso cref="M:Matchmaker.Match`1.ExecuteWithFallthrough(`0)" />
+            <seealso cref="M:Matchmaker.Match`1.ToNonStrictFunction" />
         </member>
         <member name="M:Matchmaker.Match`1.ExecuteWithFallthrough(`0)">
             <summary>
@@ -1347,24 +1368,36 @@
             An enumerable of <see langword="null" /> objects which enables the execution to be lazy.
             The number of items in this enumerable equals the number of successful cases.
             </returns>
+            <seealso cref="M:Matchmaker.Match`1.ExecuteOn(`0)" />
+            <seealso cref="M:Matchmaker.Match`1.ExecuteNonStrict(`0)" />
+            <seealso cref="M:Matchmaker.Match`1.ToFunctionWithFallthrough" />
         </member>
         <member name="M:Matchmaker.Match`1.ToFunction">
             <summary>
             Returns an action which, when called, will match the specified value.
             </summary>
             <returns>An action which, when called, will match the specified value.</returns>
+            <seealso cref="M:Matchmaker.Match`1.ExecuteOn(`0)" />
+            <seealso cref="M:Matchmaker.Match`1.ToNonStrictFunction" />
+            <seealso cref="M:Matchmaker.Match`1.ToFunctionWithFallthrough" />
         </member>
         <member name="M:Matchmaker.Match`1.ToNonStrictFunction">
             <summary>
             Returns a function which, when called, will match the specified value non-strictly.
             </summary>
             <returns>A function which, when called, will match the specified value non-strictly.</returns>
+            <seealso cref="M:Matchmaker.Match`1.ExecuteNonStrict(`0)" />
+            <seealso cref="M:Matchmaker.Match`1.ToFunction" />
+            <seealso cref="M:Matchmaker.Match`1.ToFunctionWithFallthrough" />
         </member>
         <member name="M:Matchmaker.Match`1.ToFunctionWithFallthrough">
             <summary>
             Returns a function which, when called, will match the specified value with fallthrough.
             </summary>
             <returns>A function which, when called, will match the specified value with fallthrough.</returns>
+            <seealso cref="M:Matchmaker.Match`1.ExecuteWithFallthrough(`0)" />
+            <seealso cref="M:Matchmaker.Match`1.ToFunction" />
+            <seealso cref="M:Matchmaker.Match`1.ToNonStrictFunction" />
         </member>
         <member name="T:Matchmaker.Match`1.CaseData">
             <summary>
@@ -1523,6 +1556,9 @@
             <exception cref="T:Matchmaker.MatchException">
             The match failed for all cases.
             </exception>
+            <seealso cref="M:Matchmaker.Match`2.ExecuteNonStrict(`0)" />
+            <seealso cref="M:Matchmaker.Match`2.ExecuteWithFallthrough(`0)" />
+            <seealso cref="M:Matchmaker.Match`2.ToFunction" />
         </member>
         <member name="M:Matchmaker.Match`2.ExecuteNonStrict(`0)">
             <summary>
@@ -1532,6 +1568,9 @@
             <returns>
             The result of the match expression, or a failed result if no pattern was matched successfully.
             </returns>
+            <seealso cref="M:Matchmaker.Match`2.ExecuteOn(`0)" />
+            <seealso cref="M:Matchmaker.Match`2.ExecuteWithFallthrough(`0)" />
+            <seealso cref="M:Matchmaker.Match`2.ToNonStrictFunction" />
         </member>
         <member name="M:Matchmaker.Match`2.ExecuteWithFallthrough(`0)">
             <summary>
@@ -1542,27 +1581,53 @@
             The results of the match expression, empty if no pattern is matched successfully.
             </returns>
             <remarks>
+            <para>
             This method returns a lazy enumerable - it will check only as many patterns,
             as are needed to return one result at a time.
+            </para>
+            <para>
+            The enumerable may contain <see langword="null" /> values.
+            </para>
             </remarks>
+            <seealso cref="M:Matchmaker.Match`2.ExecuteOn(`0)" />
+            <seealso cref="M:Matchmaker.Match`2.ExecuteNonStrict(`0)" />
+            <seealso cref="M:Matchmaker.Match`2.ToFunctionWithFallthrough" />
         </member>
         <member name="M:Matchmaker.Match`2.ToFunction">
             <summary>
             Returns a function which, when called, will match the specified value.
             </summary>
             <returns>A function which, when called, will match the specified value.</returns>
+            <seealso cref="M:Matchmaker.Match`2.ExecuteOn(`0)" />
+            <seealso cref="M:Matchmaker.Match`2.ToNonStrictFunction" />
+            <seealso cref="M:Matchmaker.Match`2.ToFunctionWithFallthrough" />
         </member>
         <member name="M:Matchmaker.Match`2.ToNonStrictFunction">
             <summary>
             Returns a function which, when called, will match the specified value.
             </summary>
             <returns>A function which, when called, will match the specified value.</returns>
+            <seealso cref="M:Matchmaker.Match`2.ExecuteNonStrict(`0)" />
+            <seealso cref="M:Matchmaker.Match`2.ToFunction" />
+            <seealso cref="M:Matchmaker.Match`2.ToFunctionWithFallthrough" />
         </member>
         <member name="M:Matchmaker.Match`2.ToFunctionWithFallthrough">
             <summary>
             Returns a function which, when called, will match the specified value.
             </summary>
             <returns>A function which, when called, will match the specified value.</returns>
+            <remarks>
+            <para>
+            This method returns a lazy enumerable - it will check only as many patterns,
+            as are needed to return one result at a time.
+            </para>
+            <para>
+            The enumerable may contain <see langword="null" /> values.
+            </para>
+            </remarks>
+            <seealso cref="M:Matchmaker.Match`2.ExecuteWithFallthrough(`0)" />
+            <seealso cref="M:Matchmaker.Match`2.ToFunction" />
+            <seealso cref="M:Matchmaker.Match`2.ToNonStrictFunction" />
         </member>
         <member name="T:Matchmaker.Match`2.CaseData">
             <summary>

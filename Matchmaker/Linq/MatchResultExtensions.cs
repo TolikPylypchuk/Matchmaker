@@ -1,4 +1,5 @@
 using System;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Matchmaker.Linq
 {
@@ -6,6 +7,7 @@ namespace Matchmaker.Linq
     /// A container class for extension methods for <see cref="MatchResult{T}" />.
     /// </summary>
     /// <seealso cref="MatchResult{T}" />
+    /// <seealso cref="MatchResult" />
     public static class MatchResultExtensions
     {
         /// <summary>
@@ -16,6 +18,7 @@ namespace Matchmaker.Linq
         /// <returns>
         /// The result's value if it's successful, or the default one otherwise.
         /// </returns>
+        [return: MaybeNull]
         public static T GetValueOrDefault<T>(this MatchResult<T> result)
             => result.GetValueOrDefault(default(T));
 
@@ -28,7 +31,8 @@ namespace Matchmaker.Linq
         /// <returns>
         /// The result's value if it's successful, or the default one otherwise.
         /// </returns>
-        public static T GetValueOrDefault<T>(this MatchResult<T> result, T defaultValue)
+        [return: MaybeNull]
+        public static T GetValueOrDefault<T>(this MatchResult<T> result, [AllowNull] T defaultValue)
             => result.IsSuccessful ? result.Value : defaultValue;
 
         /// <summary>
@@ -45,6 +49,7 @@ namespace Matchmaker.Linq
         /// <exception cref="ArgumentNullException">
         /// <paramref name="defaultValueProvider" /> is <see langword="null" />.
         /// </exception>
+        [return: MaybeNull]
         public static T GetValueOrDefault<T>(this MatchResult<T> result, Func<T> defaultValueProvider)
             => defaultValueProvider != null
                 ? result.IsSuccessful ? result.Value : defaultValueProvider()
@@ -62,6 +67,7 @@ namespace Matchmaker.Linq
         /// <exception cref="ArgumentNullException">
         /// <paramref name="exceptionProvider" /> is <see langword="null" />.
         /// </exception>
+        [return: MaybeNull]
         public static T GetValueOrThrow<T>(this MatchResult<T> result, Func<Exception> exceptionProvider)
             => exceptionProvider != null
                 ? result.IsSuccessful ? result.Value : throw exceptionProvider()
@@ -77,12 +83,15 @@ namespace Matchmaker.Linq
         /// <returns>
         /// A result which contains a mapped value if the specified result is successful. Otherwise, a failed result.
         /// </returns>
+        /// <remarks>
+        /// The <paramref name="mapper" /> function's parameter may be <see langword="null" />.
+        /// </remarks>
         /// <exception cref="ArgumentNullException">
         /// <paramref name="mapper" /> is <see langword="null" />.
         /// </exception>
         public static MatchResult<TResult> Select<T, TResult>(this MatchResult<T> result, Func<T, TResult> mapper)
             => mapper != null
-                ? result.IsSuccessful ? MatchResult.Success(mapper(result.Value)) : MatchResult.Failure<TResult>()
+                ? result.IsSuccessful ? MatchResult.Success(mapper(result.Value!)) : MatchResult.Failure<TResult>()
                 : throw new ArgumentNullException(nameof(mapper));
 
         /// <summary>
@@ -95,6 +104,9 @@ namespace Matchmaker.Linq
         /// <returns>
         /// A flat-mapped result if the specified result is successful. Otherwise, a failed result.
         /// </returns>
+        /// <remarks>
+        /// The <paramref name="binder" /> function's parameter may be <see langword="null" />.
+        /// </remarks>
         /// <exception cref="ArgumentNullException">
         /// <paramref name="binder" /> is <see langword="null" />.
         /// </exception>
@@ -102,7 +114,7 @@ namespace Matchmaker.Linq
             this MatchResult<T> result,
             Func<T, MatchResult<TResult>> binder)
             => binder != null
-                ? result.IsSuccessful ? binder(result.Value) : MatchResult.Failure<TResult>()
+                ? result.IsSuccessful ? binder(result.Value!) : MatchResult.Failure<TResult>()
                 : throw new ArgumentNullException(nameof(binder));
 
         /// <summary>
@@ -116,12 +128,15 @@ namespace Matchmaker.Linq
         /// A successfult result if the specified result is successful and its value satisfies a specified predicate.
         /// Otherwise, a failed result.
         /// </returns>
+        /// <remarks>
+        /// The <paramref name="predicate" /> function's parameter may be <see langword="null" />.
+        /// </remarks>
         /// <exception cref="ArgumentNullException">
         /// <paramref name="predicate" /> is <see langword="null" />.
         /// </exception>
         public static MatchResult<T> Where<T>(this MatchResult<T> result, Func<T, bool> predicate)
             => predicate != null
-                ? result.IsSuccessful && predicate(result.Value) ? result : MatchResult.Failure<T>()
+                ? result.IsSuccessful && predicate(result.Value!) ? result : MatchResult.Failure<T>()
                 : throw new ArgumentNullException(nameof(predicate));
 
         /// <summary>
@@ -153,6 +168,9 @@ namespace Matchmaker.Linq
         /// <param name="result">The result whose value should be passed to the action.</param>
         /// <param name="action">The action to perform.</param>
         /// <returns>The result for which the action should be executed.</returns>
+        /// <remarks>
+        /// The <paramref name="action" />'s parameter may be <see langword="null" />.
+        /// </remarks>
         /// <exception cref="ArgumentNullException">
         /// <paramref name="action" /> is <see langword="null" />.
         /// </exception>
@@ -165,7 +183,7 @@ namespace Matchmaker.Linq
 
             if (result.IsSuccessful)
             {
-                action(result.Value);
+                action(result.Value!);
             }
 
             return result;

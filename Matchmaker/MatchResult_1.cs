@@ -1,4 +1,5 @@
 using System;
+using System.Diagnostics.CodeAnalysis;
 
 using Matchmaker.Linq;
 
@@ -8,13 +9,19 @@ namespace Matchmaker
     /// Represents the result of a pattern match.
     /// </summary>
     /// <typeparam name="T">The type of the value contained in this class.</typeparam>
+    /// <remarks>
+    /// If the result is successful, it contains a value which may be <see langword="null" />. If it is not,
+    /// then it doesn't contain a value.
+    /// </remarks>
     /// <seealso cref="MatchResult" />
     /// <seealso cref="MatchResultExtensions" />
-    public struct MatchResult<T> : IEquatable<MatchResult<T>>
+    public readonly struct MatchResult<T> : IEquatable<MatchResult<T>>
     {
         /// <summary>
         /// The value of the result if it's successful.
         /// </summary>
+        [AllowNull]
+        [MaybeNull]
         private readonly T value;
 
         /// <summary>
@@ -22,7 +29,7 @@ namespace Matchmaker
         /// </summary>
         /// <param name="isSuccessful">The value which indicates whether the match result is successful.</param>
         /// <param name="value">The value of the result, if it is successful.</param>
-        internal MatchResult(bool isSuccessful, T value)
+        internal MatchResult(bool isSuccessful, [AllowNull] T value)
         {
             this.IsSuccessful = isSuccessful;
             this.value = value;
@@ -34,12 +41,13 @@ namespace Matchmaker
         public bool IsSuccessful { get; }
 
         /// <summary>
-        /// Gets the value if the match result is successful.
-        /// If it is not, then throws <see cref="InvalidOperationException" />
+        /// Gets the value if the match result is successful. If it is not, then throws an
+        /// <see cref="InvalidOperationException" />.
         /// </summary>
         /// <exception cref="InvalidOperationException">
         /// The result is not successful.
         /// </exception>
+        [MaybeNull]
         public T Value
             => this.IsSuccessful
                 ? this.value
@@ -62,7 +70,7 @@ namespace Matchmaker
         /// <seealso cref="GetHashCode()" />
         /// <seealso cref="operator ==(MatchResult{T}, MatchResult{T})" />
         /// <seealso cref="operator !=(MatchResult{T}, MatchResult{T})" />
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
             => obj is MatchResult<T> other && this.Equals(other);
 
         /// <summary>
@@ -89,9 +97,7 @@ namespace Matchmaker
         /// <seealso cref="operator ==(MatchResult{T}, MatchResult{T})" />
         /// <seealso cref="operator !=(MatchResult{T}, MatchResult{T})" />
         public override int GetHashCode()
-            => 13 * 7 +
-               this.IsSuccessful.GetHashCode() * 7 +
-               (!Equals(this.value, default) ? this.value.GetHashCode() : 0) * 7;
+            => HashCode.Combine(this.IsSuccessful, this.value);
 
         /// <summary>
         /// Returns the string representation of this match result.
@@ -106,8 +112,7 @@ namespace Matchmaker
         /// <param name="left">The left match result.</param>
         /// <param name="right">The right match result.</param>
         /// <returns>
-        /// <see langword="true" /> if the match results are equal.
-        /// Otherwise, <see langword="false" />
+        /// <see langword="true" /> if the match results are equal. Otherwise, <see langword="false" />.
         /// </returns>
         /// <seealso cref="Equals(object)" />
         /// <seealso cref="Equals(MatchResult{T})" />
@@ -122,8 +127,7 @@ namespace Matchmaker
         /// <param name="left">The left match result.</param>
         /// <param name="right">The right match result.</param>
         /// <returns>
-        /// <see langword="true" /> if the match results are not equal.
-        /// Otherwise, <see langword="false" />
+        /// <see langword="true" /> if the match results are not equal. Otherwise, <see langword="false" />.
         /// </returns>
         /// <seealso cref="Equals(object)" />
         /// <seealso cref="Equals(MatchResult{T})" />

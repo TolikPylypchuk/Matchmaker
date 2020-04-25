@@ -1593,7 +1593,7 @@ namespace Matchmaker.Patterns
                     isMemoized = true;
                 }
 
-                return result;
+                return result!;
             };
         }
     }

@@ -17,13 +17,13 @@ namespace Matchmaker.Patterns
         /// <summary>
         /// The function which matches the input.
         /// </summary>
-        private readonly Func<TInput, MatchResult<object>> matcher;
+        private readonly Func<TInput, MatchResult<object?>> matcher;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Pattern{TInput}" /> class.
         /// </summary>
         /// <param name="matcher">The function which matches the input.</param>
-        private Pattern(Func<TInput, MatchResult<object>> matcher)
+        private Pattern(Func<TInput, MatchResult<object?>> matcher)
             => this.matcher = matcher;
 
         /// <summary>
@@ -33,7 +33,7 @@ namespace Matchmaker.Patterns
         /// <param name="pattern">The actual pattern.</param>
         /// <returns>An internal pattern based of an actual pattern.</returns>
         public static Pattern<TInput> FromActualPattern<TMatchResult>(IPattern<TInput, TMatchResult> pattern)
-            => new Pattern<TInput>(input => pattern.Match(input).Select(result => (object)result));
+            => new Pattern<TInput>(input => pattern.Match(input).Select(result => (object?)result));
 
         /// <summary>
         /// Matches the input with this pattern, and returns a transformed result.
@@ -43,7 +43,7 @@ namespace Matchmaker.Patterns
         /// A successful match result which contains the transformed result of the match,
         /// if this match is successful. Otherwise, a failed match result.
         /// </returns>
-        public MatchResult<object> Match(TInput input)
+        public MatchResult<object?> Match(TInput input)
             => this.matcher(input);
     }
 }

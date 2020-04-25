@@ -1,3 +1,5 @@
+using System.Diagnostics.CodeAnalysis;
+
 namespace Matchmaker
 {
     /// <summary>
@@ -12,7 +14,7 @@ namespace Matchmaker
         /// <param name="value">The value of the result.</param>
         /// <returns>A successful match result with the specified value.</returns>
         /// <seealso cref="Failure{T}()" />
-        public static MatchResult<T> Success<T>(T value)
+        public static MatchResult<T> Success<T>([AllowNull] T value)
             => new MatchResult<T>(true, value);
 
         /// <summary>
