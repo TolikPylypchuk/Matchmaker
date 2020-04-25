@@ -22,5 +22,5 @@ https://github.com/TolikPylypchuk/Matchmaker
 ## Installation
 
 ```
-Install-Package Matchmaker -Version 2.1.0
+Install-Package Matchmaker -Version 2.2.0
 ```

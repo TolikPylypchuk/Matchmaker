@@ -1,5 +1,12 @@
 # Changelog
 
+# v2.2 (WIP)
+
+Whta's new in version 2.2:
+
+- Change the .NET Standard version to 2.1
+- Add support for nullable reference types
+
 # v2.1
 
 What's new in version 2.1:
