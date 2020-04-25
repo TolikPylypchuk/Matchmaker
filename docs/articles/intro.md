@@ -98,7 +98,7 @@ to use this library.
 If you need extensive information, go to the [API reference](../api/index.md).
 
 If you need even more info about this library, you can go through the
-[tests](https://github.com/TolikPylypchuk/Matchmaker/tree/v2.1.0/Matchmaker.Tests). They are property-based and as such
+[tests](https://github.com/TolikPylypchuk/Matchmaker/tree/v2.2.0/Matchmaker.Tests). They are property-based and as such
 they describe every aspect of the classes and their members. They cover 100% of this library's code (except
 the `MatchException` class which is trivial).
 
