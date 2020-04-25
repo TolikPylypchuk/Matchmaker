@@ -1404,7 +1404,7 @@
             Represents the data of a single case in a match statement.
             </summary>
         </member>
-        <member name="M:Matchmaker.Match`1.CaseData.#ctor(Matchmaker.Patterns.Pattern{`0},System.Boolean,System.Action{System.Object})">
+        <member name="M:Matchmaker.Match`1.CaseData.#ctor(Matchmaker.Patterns.IPattern{`0,System.Object},System.Boolean,System.Action{System.Object})">
             <summary>
             Initializes a new instance of the <see cref="T:Matchmaker.Match`1.CaseData" /> class.
             </summary>
@@ -1634,7 +1634,7 @@
             Represents the data of a single case in a match expression.
             </summary>
         </member>
-        <member name="M:Matchmaker.Match`2.CaseData.#ctor(Matchmaker.Patterns.Pattern{`0},System.Boolean,System.Func{System.Object,`1})">
+        <member name="M:Matchmaker.Match`2.CaseData.#ctor(Matchmaker.Patterns.IPattern{`0,System.Object},System.Boolean,System.Func{System.Object,`1})">
             <summary>
             Initializes a new instance of the <see cref="T:Matchmaker.Match`2.CaseData" /> class.
             </summary>
@@ -3334,45 +3334,6 @@
             <summary>
             Represents the 'xor' composition - the result is successful when only one of the results is successful.
             </summary>
-        </member>
-        <member name="T:Matchmaker.Patterns.Pattern`1">
-            <summary>
-            Represents a pattern to match with in a match expression. This class is used to represent
-            patterns internally in match expressions.
-            </summary>
-            <typeparam name="TInput">The type of the input value of the match expression.</typeparam>
-            <seealso cref="T:Matchmaker.Patterns.IPattern`2" />
-            <seealso cref="T:Matchmaker.Patterns.Pattern`2" />
-            <seealso cref="T:Matchmaker.Patterns.Pattern" />
-        </member>
-        <member name="F:Matchmaker.Patterns.Pattern`1.matcher">
-            <summary>
-            The function which matches the input.
-            </summary>
-        </member>
-        <member name="M:Matchmaker.Patterns.Pattern`1.#ctor(System.Func{`0,Matchmaker.MatchResult{System.Object}})">
-            <summary>
-            Initializes a new instance of the <see cref="T:Matchmaker.Patterns.Pattern`1" /> class.
-            </summary>
-            <param name="matcher">The function which matches the input.</param>
-        </member>
-        <member name="M:Matchmaker.Patterns.Pattern`1.FromActualPattern``1(Matchmaker.Patterns.IPattern{`0,``0})">
-            <summary>
-            Creates an internal pattern from an actual pattern.
-            </summary>
-            <typeparam name="TMatchResult">The result of the actual pattern's match.</typeparam>
-            <param name="pattern">The actual pattern.</param>
-            <returns>An internal pattern based of an actual pattern.</returns>
-        </member>
-        <member name="M:Matchmaker.Patterns.Pattern`1.Match(`0)">
-            <summary>
-            Matches the input with this pattern, and returns a transformed result.
-            </summary>
-            <param name="input">The input value to match.</param>
-            <returns>
-            A successful match result which contains the transformed result of the match,
-            if this match is successful. Otherwise, a failed match result.
-            </returns>
         </member>
         <member name="T:Matchmaker.Patterns.Pattern`2">
             <summary>

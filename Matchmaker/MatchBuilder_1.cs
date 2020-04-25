@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 
+using Matchmaker.Linq;
 using Matchmaker.Patterns;
 
 namespace Matchmaker
@@ -79,9 +80,9 @@ namespace Matchmaker
             }
 
             this.Cases.Add(new Match<TInput>.CaseData(
-                Pattern<TInput>.FromActualPattern(pattern ?? throw new ArgumentNullException(nameof(pattern))),
+                pattern.Select(result => (object?)result),
                 fallthrough,
-                value => action((TMatchResult)value)));
+                value => action((TMatchResult)value!)));
 
             return this;
         }
