@@ -1,0 +1,152 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Match Results </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Match Results ">
+    <meta name="generator" content="docfx 2.52.0.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="match-results">Match Results</h1>
+
+<p>This library has to deal with values that sometimes might be present, and sometimes not. This can be represented
+by the 'optional value' pattern.</p>
+<p>Unfortunately, C# does not have a native optional type. The 1.x versions of this library used
+<a href="https://github.com/louthy/language-ext">language-ext</a> to include the optional type. There are several reasons
+why this library was dropped in version 2:</p>
+<ul>
+<li>language-ext is a full-blown framework for functional programming. Users may not want that much functionality.
+They may want just pattern matching and nothing else.</li>
+<li>Users may use a different library/framework for functional features. There are a lot of those for C#.</li>
+</ul>
+<p>So, starting with version 2, instead of using the <code>OptionUnsafe&lt;T&gt;</code> type from language-ext, this library includes
+a <code>MatchResult&lt;T&gt;</code> type. This type is much like optional types from other libraries in that it may contain a value,
+or may not, except for a couple differences:</p>
+<ul>
+<li><code>MatchResult&lt;T&gt;</code> is not a general-purpose optional type and shouldn't be used as such.</li>
+<li><code>MatchResult&lt;T&gt;</code> can contain <code>null</code> values and this is important to remember. This type is not used to get rid
+of <code>NullReferenceException</code>.</li>
+</ul>
+<h2 id="working-with-match-results">Working with Match Results</h2>
+<p><code>MatchResult&lt;T&gt;</code> is a struct with value-based equality. Values of this type can be created through methods in the
+<code>MatchResult</code> class: <code>Success</code> and <code>Failure</code>.</p>
+<p>The simplest way to work with match results is to use the <code>IsSuccessful</code> and <code>Value</code> properties. <code>Value</code> throws
+an exception if the result doesn't contain a value.</p>
+<p>If you are using a functional library/framework, you can write an extension method which transforms <code>MatchResult&lt;T&gt;</code>
+into the library's optional type. But remember that <code>MatchResult&lt;T&gt;</code> can contain <code>null</code> values, and not all optional
+implementations support that.</p>
+<h2 id="linq-to-results">LINQ to Results</h2>
+<p>The <code>Matchmaker.Linq</code> namespace contains several extension methods to make working with match results easier:</p>
+<ul>
+<li><code>GetValueOrDefault</code> lets you safely get the value of the result.</li>
+<li><code>GetValueOrThrow</code> lets you get the value of the result or explicitly throw an exception of your choice.</li>
+<li><code>Select</code> maps the value of the result if it's present.</li>
+<li><code>Bind</code> flat-maps the value of the result if it's present.</li>
+<li><code>Where</code> filters the result's value if it's present.</li>
+<li><code>Cast</code> casts the result's value to the specified type if it's present and can be cast to that type. Note that
+<code>null</code> values cannot be cast to a non-nullable value type, and if a successful result which contains a <code>null</code> value
+is cast to a non-nullable value type, you will get a failed result.</li>
+<li><code>Do</code> performs an action on the result's value if it's present and returns the result itself.</li>
+</ul>
+<p>Since there are the <code>Select</code> and <code>Where</code> extensions on <code>MatchResult&lt;T&gt;</code>, you can write them using C#'s query
+syntax.</p>
+<p>Next article: <a href="patterns.html">Patterns</a>.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/docs/articles/results.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            <div>Copyright (c) 2018-2020 Tolik Pylypchuk</div><span>Generated by <strong>DocFx</strong>.</span> <span>Icons made by <a href="https" ://www.flaticon.com/authors/roundicons"="" title="Roundicons">Roundicons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></span>
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>
