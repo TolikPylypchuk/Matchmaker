@@ -1219,6 +1219,836 @@ references:
   commentId: N:Matchmaker.Patterns
   fullName: Matchmaker.Patterns
   nameWithType: Matchmaker.Patterns
+- uid: Matchmaker.Patterns.Async
+  name: Matchmaker.Patterns.Async
+  href: api/Matchmaker.Patterns.Async.html
+  commentId: N:Matchmaker.Patterns.Async
+  fullName: Matchmaker.Patterns.Async
+  nameWithType: Matchmaker.Patterns.Async
+- uid: Matchmaker.Patterns.Async.AsyncPattern
+  name: AsyncPattern
+  href: api/Matchmaker.Patterns.Async.AsyncPattern.html
+  commentId: T:Matchmaker.Patterns.Async.AsyncPattern
+  fullName: Matchmaker.Patterns.Async.AsyncPattern
+  nameWithType: AsyncPattern
+- uid: Matchmaker.Patterns.Async.AsyncPattern.Any*
+  name: Any
+  href: api/Matchmaker.Patterns.Async.AsyncPattern.html#Matchmaker_Patterns_Async_AsyncPattern_Any_
+  commentId: Overload:Matchmaker.Patterns.Async.AsyncPattern.Any
+  isSpec: "True"
+  fullName: Matchmaker.Patterns.Async.AsyncPattern.Any
+  nameWithType: AsyncPattern.Any
+- uid: Matchmaker.Patterns.Async.AsyncPattern.Any``1
+  name: Any<TInput>()
+  href: api/Matchmaker.Patterns.Async.AsyncPattern.html#Matchmaker_Patterns_Async_AsyncPattern_Any__1
+  commentId: M:Matchmaker.Patterns.Async.AsyncPattern.Any``1
+  name.vb: Any(Of TInput)()
+  fullName: Matchmaker.Patterns.Async.AsyncPattern.Any<TInput>()
+  fullName.vb: Matchmaker.Patterns.Async.AsyncPattern.Any(Of TInput)()
+  nameWithType: AsyncPattern.Any<TInput>()
+  nameWithType.vb: AsyncPattern.Any(Of TInput)()
+- uid: Matchmaker.Patterns.Async.AsyncPattern.Any``1(System.String)
+  name: Any<TInput>(String)
+  href: api/Matchmaker.Patterns.Async.AsyncPattern.html#Matchmaker_Patterns_Async_AsyncPattern_Any__1_System_String_
+  commentId: M:Matchmaker.Patterns.Async.AsyncPattern.Any``1(System.String)
+  name.vb: Any(Of TInput)(String)
+  fullName: Matchmaker.Patterns.Async.AsyncPattern.Any<TInput>(System.String)
+  fullName.vb: Matchmaker.Patterns.Async.AsyncPattern.Any(Of TInput)(System.String)
+  nameWithType: AsyncPattern.Any<TInput>(String)
+  nameWithType.vb: AsyncPattern.Any(Of TInput)(String)
+- uid: Matchmaker.Patterns.Async.AsyncPattern.CreatePattern*
+  name: CreatePattern
+  href: api/Matchmaker.Patterns.Async.AsyncPattern.html#Matchmaker_Patterns_Async_AsyncPattern_CreatePattern_
+  commentId: Overload:Matchmaker.Patterns.Async.AsyncPattern.CreatePattern
+  isSpec: "True"
+  fullName: Matchmaker.Patterns.Async.AsyncPattern.CreatePattern
+  nameWithType: AsyncPattern.CreatePattern
+- uid: Matchmaker.Patterns.Async.AsyncPattern.CreatePattern``1(Func{``0,Task{System.Boolean}})
+  name: CreatePattern<TInput>(Func<TInput, Task<Boolean>>)
+  href: api/Matchmaker.Patterns.Async.AsyncPattern.html#Matchmaker_Patterns_Async_AsyncPattern_CreatePattern__1_Func___0_Task_System_Boolean___
+  commentId: M:Matchmaker.Patterns.Async.AsyncPattern.CreatePattern``1(Func{``0,Task{System.Boolean}})
+  name.vb: CreatePattern(Of TInput)(Func(Of TInput, Task(Of Boolean)))
+  fullName: Matchmaker.Patterns.Async.AsyncPattern.CreatePattern<TInput>(Func<TInput, Task<System.Boolean>>)
+  fullName.vb: Matchmaker.Patterns.Async.AsyncPattern.CreatePattern(Of TInput)(Func(Of TInput, Task(Of System.Boolean)))
+  nameWithType: AsyncPattern.CreatePattern<TInput>(Func<TInput, Task<Boolean>>)
+  nameWithType.vb: AsyncPattern.CreatePattern(Of TInput)(Func(Of TInput, Task(Of Boolean)))
+- uid: Matchmaker.Patterns.Async.AsyncPattern.CreatePattern``1(Func{``0,Task{System.Boolean}},System.String)
+  name: CreatePattern<TInput>(Func<TInput, Task<Boolean>>, String)
+  href: api/Matchmaker.Patterns.Async.AsyncPattern.html#Matchmaker_Patterns_Async_AsyncPattern_CreatePattern__1_Func___0_Task_System_Boolean___System_String_
+  commentId: M:Matchmaker.Patterns.Async.AsyncPattern.CreatePattern``1(Func{``0,Task{System.Boolean}},System.String)
+  name.vb: CreatePattern(Of TInput)(Func(Of TInput, Task(Of Boolean)), String)
+  fullName: Matchmaker.Patterns.Async.AsyncPattern.CreatePattern<TInput>(Func<TInput, Task<System.Boolean>>, System.String)
+  fullName.vb: Matchmaker.Patterns.Async.AsyncPattern.CreatePattern(Of TInput)(Func(Of TInput, Task(Of System.Boolean)), System.String)
+  nameWithType: AsyncPattern.CreatePattern<TInput>(Func<TInput, Task<Boolean>>, String)
+  nameWithType.vb: AsyncPattern.CreatePattern(Of TInput)(Func(Of TInput, Task(Of Boolean)), String)
+- uid: Matchmaker.Patterns.Async.AsyncPattern.CreatePattern``2(Func{``0,Task{Matchmaker.MatchResult{``1}}})
+  name: CreatePattern<TInput, TMatchResult>(Func<TInput, Task<MatchResult<TMatchResult>>>)
+  href: api/Matchmaker.Patterns.Async.AsyncPattern.html#Matchmaker_Patterns_Async_AsyncPattern_CreatePattern__2_Func___0_Task_Matchmaker_MatchResult___1____
+  commentId: M:Matchmaker.Patterns.Async.AsyncPattern.CreatePattern``2(Func{``0,Task{Matchmaker.MatchResult{``1}}})
+  name.vb: CreatePattern(Of TInput, TMatchResult)(Func(Of TInput, Task(Of MatchResult(Of TMatchResult))))
+  fullName: Matchmaker.Patterns.Async.AsyncPattern.CreatePattern<TInput, TMatchResult>(Func<TInput, Task<Matchmaker.MatchResult<TMatchResult>>>)
+  fullName.vb: Matchmaker.Patterns.Async.AsyncPattern.CreatePattern(Of TInput, TMatchResult)(Func(Of TInput, Task(Of Matchmaker.MatchResult(Of TMatchResult))))
+  nameWithType: AsyncPattern.CreatePattern<TInput, TMatchResult>(Func<TInput, Task<MatchResult<TMatchResult>>>)
+  nameWithType.vb: AsyncPattern.CreatePattern(Of TInput, TMatchResult)(Func(Of TInput, Task(Of MatchResult(Of TMatchResult))))
+- uid: Matchmaker.Patterns.Async.AsyncPattern.CreatePattern``2(Func{``0,Task{Matchmaker.MatchResult{``1}}},System.String)
+  name: CreatePattern<TInput, TMatchResult>(Func<TInput, Task<MatchResult<TMatchResult>>>, String)
+  href: api/Matchmaker.Patterns.Async.AsyncPattern.html#Matchmaker_Patterns_Async_AsyncPattern_CreatePattern__2_Func___0_Task_Matchmaker_MatchResult___1____System_String_
+  commentId: M:Matchmaker.Patterns.Async.AsyncPattern.CreatePattern``2(Func{``0,Task{Matchmaker.MatchResult{``1}}},System.String)
+  name.vb: CreatePattern(Of TInput, TMatchResult)(Func(Of TInput, Task(Of MatchResult(Of TMatchResult))), String)
+  fullName: Matchmaker.Patterns.Async.AsyncPattern.CreatePattern<TInput, TMatchResult>(Func<TInput, Task<Matchmaker.MatchResult<TMatchResult>>>, System.String)
+  fullName.vb: Matchmaker.Patterns.Async.AsyncPattern.CreatePattern(Of TInput, TMatchResult)(Func(Of TInput, Task(Of Matchmaker.MatchResult(Of TMatchResult))), System.String)
+  nameWithType: AsyncPattern.CreatePattern<TInput, TMatchResult>(Func<TInput, Task<MatchResult<TMatchResult>>>, String)
+  nameWithType.vb: AsyncPattern.CreatePattern(Of TInput, TMatchResult)(Func(Of TInput, Task(Of MatchResult(Of TMatchResult))), String)
+- uid: Matchmaker.Patterns.Async.AsyncPattern.DefaultAndDescriptionFormat
+  name: DefaultAndDescriptionFormat
+  href: api/Matchmaker.Patterns.Async.AsyncPattern.html#Matchmaker_Patterns_Async_AsyncPattern_DefaultAndDescriptionFormat
+  commentId: F:Matchmaker.Patterns.Async.AsyncPattern.DefaultAndDescriptionFormat
+  fullName: Matchmaker.Patterns.Async.AsyncPattern.DefaultAndDescriptionFormat
+  nameWithType: AsyncPattern.DefaultAndDescriptionFormat
+- uid: Matchmaker.Patterns.Async.AsyncPattern.DefaultAnyDescription
+  name: DefaultAnyDescription
+  href: api/Matchmaker.Patterns.Async.AsyncPattern.html#Matchmaker_Patterns_Async_AsyncPattern_DefaultAnyDescription
+  commentId: F:Matchmaker.Patterns.Async.AsyncPattern.DefaultAnyDescription
+  fullName: Matchmaker.Patterns.Async.AsyncPattern.DefaultAnyDescription
+  nameWithType: AsyncPattern.DefaultAnyDescription
+- uid: Matchmaker.Patterns.Async.AsyncPattern.DefaultEqualToDescription
+  name: DefaultEqualToDescription
+  href: api/Matchmaker.Patterns.Async.AsyncPattern.html#Matchmaker_Patterns_Async_AsyncPattern_DefaultEqualToDescription
+  commentId: F:Matchmaker.Patterns.Async.AsyncPattern.DefaultEqualToDescription
+  fullName: Matchmaker.Patterns.Async.AsyncPattern.DefaultEqualToDescription
+  nameWithType: AsyncPattern.DefaultEqualToDescription
+- uid: Matchmaker.Patterns.Async.AsyncPattern.DefaultGreaterOrEqualDescription
+  name: DefaultGreaterOrEqualDescription
+  href: api/Matchmaker.Patterns.Async.AsyncPattern.html#Matchmaker_Patterns_Async_AsyncPattern_DefaultGreaterOrEqualDescription
+  commentId: F:Matchmaker.Patterns.Async.AsyncPattern.DefaultGreaterOrEqualDescription
+  fullName: Matchmaker.Patterns.Async.AsyncPattern.DefaultGreaterOrEqualDescription
+  nameWithType: AsyncPattern.DefaultGreaterOrEqualDescription
+- uid: Matchmaker.Patterns.Async.AsyncPattern.DefaultGreaterThanDescription
+  name: DefaultGreaterThanDescription
+  href: api/Matchmaker.Patterns.Async.AsyncPattern.html#Matchmaker_Patterns_Async_AsyncPattern_DefaultGreaterThanDescription
+  commentId: F:Matchmaker.Patterns.Async.AsyncPattern.DefaultGreaterThanDescription
+  fullName: Matchmaker.Patterns.Async.AsyncPattern.DefaultGreaterThanDescription
+  nameWithType: AsyncPattern.DefaultGreaterThanDescription
+- uid: Matchmaker.Patterns.Async.AsyncPattern.DefaultLessOrEqualDescription
+  name: DefaultLessOrEqualDescription
+  href: api/Matchmaker.Patterns.Async.AsyncPattern.html#Matchmaker_Patterns_Async_AsyncPattern_DefaultLessOrEqualDescription
+  commentId: F:Matchmaker.Patterns.Async.AsyncPattern.DefaultLessOrEqualDescription
+  fullName: Matchmaker.Patterns.Async.AsyncPattern.DefaultLessOrEqualDescription
+  nameWithType: AsyncPattern.DefaultLessOrEqualDescription
+- uid: Matchmaker.Patterns.Async.AsyncPattern.DefaultLessThanDescription
+  name: DefaultLessThanDescription
+  href: api/Matchmaker.Patterns.Async.AsyncPattern.html#Matchmaker_Patterns_Async_AsyncPattern_DefaultLessThanDescription
+  commentId: F:Matchmaker.Patterns.Async.AsyncPattern.DefaultLessThanDescription
+  fullName: Matchmaker.Patterns.Async.AsyncPattern.DefaultLessThanDescription
+  nameWithType: AsyncPattern.DefaultLessThanDescription
+- uid: Matchmaker.Patterns.Async.AsyncPattern.DefaultNotDescriptionFormat
+  name: DefaultNotDescriptionFormat
+  href: api/Matchmaker.Patterns.Async.AsyncPattern.html#Matchmaker_Patterns_Async_AsyncPattern_DefaultNotDescriptionFormat
+  commentId: F:Matchmaker.Patterns.Async.AsyncPattern.DefaultNotDescriptionFormat
+  fullName: Matchmaker.Patterns.Async.AsyncPattern.DefaultNotDescriptionFormat
+  nameWithType: AsyncPattern.DefaultNotDescriptionFormat
+- uid: Matchmaker.Patterns.Async.AsyncPattern.DefaultNullDescription
+  name: DefaultNullDescription
+  href: api/Matchmaker.Patterns.Async.AsyncPattern.html#Matchmaker_Patterns_Async_AsyncPattern_DefaultNullDescription
+  commentId: F:Matchmaker.Patterns.Async.AsyncPattern.DefaultNullDescription
+  fullName: Matchmaker.Patterns.Async.AsyncPattern.DefaultNullDescription
+  nameWithType: AsyncPattern.DefaultNullDescription
+- uid: Matchmaker.Patterns.Async.AsyncPattern.DefaultOrDescriptionFormat
+  name: DefaultOrDescriptionFormat
+  href: api/Matchmaker.Patterns.Async.AsyncPattern.html#Matchmaker_Patterns_Async_AsyncPattern_DefaultOrDescriptionFormat
+  commentId: F:Matchmaker.Patterns.Async.AsyncPattern.DefaultOrDescriptionFormat
+  fullName: Matchmaker.Patterns.Async.AsyncPattern.DefaultOrDescriptionFormat
+  nameWithType: AsyncPattern.DefaultOrDescriptionFormat
+- uid: Matchmaker.Patterns.Async.AsyncPattern.DefaultPipeDescriptionFormat
+  name: DefaultPipeDescriptionFormat
+  href: api/Matchmaker.Patterns.Async.AsyncPattern.html#Matchmaker_Patterns_Async_AsyncPattern_DefaultPipeDescriptionFormat
+  commentId: F:Matchmaker.Patterns.Async.AsyncPattern.DefaultPipeDescriptionFormat
+  fullName: Matchmaker.Patterns.Async.AsyncPattern.DefaultPipeDescriptionFormat
+  nameWithType: AsyncPattern.DefaultPipeDescriptionFormat
+- uid: Matchmaker.Patterns.Async.AsyncPattern.DefaultReturnDescription
+  name: DefaultReturnDescription
+  href: api/Matchmaker.Patterns.Async.AsyncPattern.html#Matchmaker_Patterns_Async_AsyncPattern_DefaultReturnDescription
+  commentId: F:Matchmaker.Patterns.Async.AsyncPattern.DefaultReturnDescription
+  fullName: Matchmaker.Patterns.Async.AsyncPattern.DefaultReturnDescription
+  nameWithType: AsyncPattern.DefaultReturnDescription
+- uid: Matchmaker.Patterns.Async.AsyncPattern.DefaultTypeDescriptionFormat
+  name: DefaultTypeDescriptionFormat
+  href: api/Matchmaker.Patterns.Async.AsyncPattern.html#Matchmaker_Patterns_Async_AsyncPattern_DefaultTypeDescriptionFormat
+  commentId: F:Matchmaker.Patterns.Async.AsyncPattern.DefaultTypeDescriptionFormat
+  fullName: Matchmaker.Patterns.Async.AsyncPattern.DefaultTypeDescriptionFormat
+  nameWithType: AsyncPattern.DefaultTypeDescriptionFormat
+- uid: Matchmaker.Patterns.Async.AsyncPattern.DefaultXorDescriptionFormat
+  name: DefaultXorDescriptionFormat
+  href: api/Matchmaker.Patterns.Async.AsyncPattern.html#Matchmaker_Patterns_Async_AsyncPattern_DefaultXorDescriptionFormat
+  commentId: F:Matchmaker.Patterns.Async.AsyncPattern.DefaultXorDescriptionFormat
+  fullName: Matchmaker.Patterns.Async.AsyncPattern.DefaultXorDescriptionFormat
+  nameWithType: AsyncPattern.DefaultXorDescriptionFormat
+- uid: Matchmaker.Patterns.Async.AsyncPattern.EqualTo*
+  name: EqualTo
+  href: api/Matchmaker.Patterns.Async.AsyncPattern.html#Matchmaker_Patterns_Async_AsyncPattern_EqualTo_
+  commentId: Overload:Matchmaker.Patterns.Async.AsyncPattern.EqualTo
+  isSpec: "True"
+  fullName: Matchmaker.Patterns.Async.AsyncPattern.EqualTo
+  nameWithType: AsyncPattern.EqualTo
+- uid: Matchmaker.Patterns.Async.AsyncPattern.EqualTo``1(Func{Task{``0}})
+  name: EqualTo<TInput>(Func<Task<TInput>>)
+  href: api/Matchmaker.Patterns.Async.AsyncPattern.html#Matchmaker_Patterns_Async_AsyncPattern_EqualTo__1_Func_Task___0___
+  commentId: M:Matchmaker.Patterns.Async.AsyncPattern.EqualTo``1(Func{Task{``0}})
+  name.vb: EqualTo(Of TInput)(Func(Of Task(Of TInput)))
+  fullName: Matchmaker.Patterns.Async.AsyncPattern.EqualTo<TInput>(Func<Task<TInput>>)
+  fullName.vb: Matchmaker.Patterns.Async.AsyncPattern.EqualTo(Of TInput)(Func(Of Task(Of TInput)))
+  nameWithType: AsyncPattern.EqualTo<TInput>(Func<Task<TInput>>)
+  nameWithType.vb: AsyncPattern.EqualTo(Of TInput)(Func(Of Task(Of TInput)))
+- uid: Matchmaker.Patterns.Async.AsyncPattern.EqualTo``1(Func{Task{``0}},IEqualityComparer{``0})
+  name: EqualTo<TInput>(Func<Task<TInput>>, IEqualityComparer<TInput>)
+  href: api/Matchmaker.Patterns.Async.AsyncPattern.html#Matchmaker_Patterns_Async_AsyncPattern_EqualTo__1_Func_Task___0___IEqualityComparer___0__
+  commentId: M:Matchmaker.Patterns.Async.AsyncPattern.EqualTo``1(Func{Task{``0}},IEqualityComparer{``0})
+  name.vb: EqualTo(Of TInput)(Func(Of Task(Of TInput)), IEqualityComparer(Of TInput))
+  fullName: Matchmaker.Patterns.Async.AsyncPattern.EqualTo<TInput>(Func<Task<TInput>>, IEqualityComparer<TInput>)
+  fullName.vb: Matchmaker.Patterns.Async.AsyncPattern.EqualTo(Of TInput)(Func(Of Task(Of TInput)), IEqualityComparer(Of TInput))
+  nameWithType: AsyncPattern.EqualTo<TInput>(Func<Task<TInput>>, IEqualityComparer<TInput>)
+  nameWithType.vb: AsyncPattern.EqualTo(Of TInput)(Func(Of Task(Of TInput)), IEqualityComparer(Of TInput))
+- uid: Matchmaker.Patterns.Async.AsyncPattern.EqualTo``1(Func{Task{``0}},IEqualityComparer{``0},System.String)
+  name: EqualTo<TInput>(Func<Task<TInput>>, IEqualityComparer<TInput>, String)
+  href: api/Matchmaker.Patterns.Async.AsyncPattern.html#Matchmaker_Patterns_Async_AsyncPattern_EqualTo__1_Func_Task___0___IEqualityComparer___0__System_String_
+  commentId: M:Matchmaker.Patterns.Async.AsyncPattern.EqualTo``1(Func{Task{``0}},IEqualityComparer{``0},System.String)
+  name.vb: EqualTo(Of TInput)(Func(Of Task(Of TInput)), IEqualityComparer(Of TInput), String)
+  fullName: Matchmaker.Patterns.Async.AsyncPattern.EqualTo<TInput>(Func<Task<TInput>>, IEqualityComparer<TInput>, System.String)
+  fullName.vb: Matchmaker.Patterns.Async.AsyncPattern.EqualTo(Of TInput)(Func(Of Task(Of TInput)), IEqualityComparer(Of TInput), System.String)
+  nameWithType: AsyncPattern.EqualTo<TInput>(Func<Task<TInput>>, IEqualityComparer<TInput>, String)
+  nameWithType.vb: AsyncPattern.EqualTo(Of TInput)(Func(Of Task(Of TInput)), IEqualityComparer(Of TInput), String)
+- uid: Matchmaker.Patterns.Async.AsyncPattern.EqualTo``1(Func{Task{``0}},System.String)
+  name: EqualTo<TInput>(Func<Task<TInput>>, String)
+  href: api/Matchmaker.Patterns.Async.AsyncPattern.html#Matchmaker_Patterns_Async_AsyncPattern_EqualTo__1_Func_Task___0___System_String_
+  commentId: M:Matchmaker.Patterns.Async.AsyncPattern.EqualTo``1(Func{Task{``0}},System.String)
+  name.vb: EqualTo(Of TInput)(Func(Of Task(Of TInput)), String)
+  fullName: Matchmaker.Patterns.Async.AsyncPattern.EqualTo<TInput>(Func<Task<TInput>>, System.String)
+  fullName.vb: Matchmaker.Patterns.Async.AsyncPattern.EqualTo(Of TInput)(Func(Of Task(Of TInput)), System.String)
+  nameWithType: AsyncPattern.EqualTo<TInput>(Func<Task<TInput>>, String)
+  nameWithType.vb: AsyncPattern.EqualTo(Of TInput)(Func(Of Task(Of TInput)), String)
+- uid: Matchmaker.Patterns.Async.AsyncPattern.EqualTo``1(Task{``0})
+  name: EqualTo<TInput>(Task<TInput>)
+  href: api/Matchmaker.Patterns.Async.AsyncPattern.html#Matchmaker_Patterns_Async_AsyncPattern_EqualTo__1_Task___0__
+  commentId: M:Matchmaker.Patterns.Async.AsyncPattern.EqualTo``1(Task{``0})
+  name.vb: EqualTo(Of TInput)(Task(Of TInput))
+  fullName: Matchmaker.Patterns.Async.AsyncPattern.EqualTo<TInput>(Task<TInput>)
+  fullName.vb: Matchmaker.Patterns.Async.AsyncPattern.EqualTo(Of TInput)(Task(Of TInput))
+  nameWithType: AsyncPattern.EqualTo<TInput>(Task<TInput>)
+  nameWithType.vb: AsyncPattern.EqualTo(Of TInput)(Task(Of TInput))
+- uid: Matchmaker.Patterns.Async.AsyncPattern.EqualTo``1(Task{``0},IEqualityComparer{``0})
+  name: EqualTo<TInput>(Task<TInput>, IEqualityComparer<TInput>)
+  href: api/Matchmaker.Patterns.Async.AsyncPattern.html#Matchmaker_Patterns_Async_AsyncPattern_EqualTo__1_Task___0__IEqualityComparer___0__
+  commentId: M:Matchmaker.Patterns.Async.AsyncPattern.EqualTo``1(Task{``0},IEqualityComparer{``0})
+  name.vb: EqualTo(Of TInput)(Task(Of TInput), IEqualityComparer(Of TInput))
+  fullName: Matchmaker.Patterns.Async.AsyncPattern.EqualTo<TInput>(Task<TInput>, IEqualityComparer<TInput>)
+  fullName.vb: Matchmaker.Patterns.Async.AsyncPattern.EqualTo(Of TInput)(Task(Of TInput), IEqualityComparer(Of TInput))
+  nameWithType: AsyncPattern.EqualTo<TInput>(Task<TInput>, IEqualityComparer<TInput>)
+  nameWithType.vb: AsyncPattern.EqualTo(Of TInput)(Task(Of TInput), IEqualityComparer(Of TInput))
+- uid: Matchmaker.Patterns.Async.AsyncPattern.EqualTo``1(Task{``0},IEqualityComparer{``0},System.String)
+  name: EqualTo<TInput>(Task<TInput>, IEqualityComparer<TInput>, String)
+  href: api/Matchmaker.Patterns.Async.AsyncPattern.html#Matchmaker_Patterns_Async_AsyncPattern_EqualTo__1_Task___0__IEqualityComparer___0__System_String_
+  commentId: M:Matchmaker.Patterns.Async.AsyncPattern.EqualTo``1(Task{``0},IEqualityComparer{``0},System.String)
+  name.vb: EqualTo(Of TInput)(Task(Of TInput), IEqualityComparer(Of TInput), String)
+  fullName: Matchmaker.Patterns.Async.AsyncPattern.EqualTo<TInput>(Task<TInput>, IEqualityComparer<TInput>, System.String)
+  fullName.vb: Matchmaker.Patterns.Async.AsyncPattern.EqualTo(Of TInput)(Task(Of TInput), IEqualityComparer(Of TInput), System.String)
+  nameWithType: AsyncPattern.EqualTo<TInput>(Task<TInput>, IEqualityComparer<TInput>, String)
+  nameWithType.vb: AsyncPattern.EqualTo(Of TInput)(Task(Of TInput), IEqualityComparer(Of TInput), String)
+- uid: Matchmaker.Patterns.Async.AsyncPattern.EqualTo``1(Task{``0},System.String)
+  name: EqualTo<TInput>(Task<TInput>, String)
+  href: api/Matchmaker.Patterns.Async.AsyncPattern.html#Matchmaker_Patterns_Async_AsyncPattern_EqualTo__1_Task___0__System_String_
+  commentId: M:Matchmaker.Patterns.Async.AsyncPattern.EqualTo``1(Task{``0},System.String)
+  name.vb: EqualTo(Of TInput)(Task(Of TInput), String)
+  fullName: Matchmaker.Patterns.Async.AsyncPattern.EqualTo<TInput>(Task<TInput>, System.String)
+  fullName.vb: Matchmaker.Patterns.Async.AsyncPattern.EqualTo(Of TInput)(Task(Of TInput), System.String)
+  nameWithType: AsyncPattern.EqualTo<TInput>(Task<TInput>, String)
+  nameWithType.vb: AsyncPattern.EqualTo(Of TInput)(Task(Of TInput), String)
+- uid: Matchmaker.Patterns.Async.AsyncPattern.GreaterOrEqual*
+  name: GreaterOrEqual
+  href: api/Matchmaker.Patterns.Async.AsyncPattern.html#Matchmaker_Patterns_Async_AsyncPattern_GreaterOrEqual_
+  commentId: Overload:Matchmaker.Patterns.Async.AsyncPattern.GreaterOrEqual
+  isSpec: "True"
+  fullName: Matchmaker.Patterns.Async.AsyncPattern.GreaterOrEqual
+  nameWithType: AsyncPattern.GreaterOrEqual
+- uid: Matchmaker.Patterns.Async.AsyncPattern.GreaterOrEqual``1(Func{Task{``0}})
+  name: GreaterOrEqual<TInput>(Func<Task<TInput>>)
+  href: api/Matchmaker.Patterns.Async.AsyncPattern.html#Matchmaker_Patterns_Async_AsyncPattern_GreaterOrEqual__1_Func_Task___0___
+  commentId: M:Matchmaker.Patterns.Async.AsyncPattern.GreaterOrEqual``1(Func{Task{``0}})
+  name.vb: GreaterOrEqual(Of TInput)(Func(Of Task(Of TInput)))
+  fullName: Matchmaker.Patterns.Async.AsyncPattern.GreaterOrEqual<TInput>(Func<Task<TInput>>)
+  fullName.vb: Matchmaker.Patterns.Async.AsyncPattern.GreaterOrEqual(Of TInput)(Func(Of Task(Of TInput)))
+  nameWithType: AsyncPattern.GreaterOrEqual<TInput>(Func<Task<TInput>>)
+  nameWithType.vb: AsyncPattern.GreaterOrEqual(Of TInput)(Func(Of Task(Of TInput)))
+- uid: Matchmaker.Patterns.Async.AsyncPattern.GreaterOrEqual``1(Func{Task{``0}},IComparer{``0})
+  name: GreaterOrEqual<TInput>(Func<Task<TInput>>, IComparer<TInput>)
+  href: api/Matchmaker.Patterns.Async.AsyncPattern.html#Matchmaker_Patterns_Async_AsyncPattern_GreaterOrEqual__1_Func_Task___0___IComparer___0__
+  commentId: M:Matchmaker.Patterns.Async.AsyncPattern.GreaterOrEqual``1(Func{Task{``0}},IComparer{``0})
+  name.vb: GreaterOrEqual(Of TInput)(Func(Of Task(Of TInput)), IComparer(Of TInput))
+  fullName: Matchmaker.Patterns.Async.AsyncPattern.GreaterOrEqual<TInput>(Func<Task<TInput>>, IComparer<TInput>)
+  fullName.vb: Matchmaker.Patterns.Async.AsyncPattern.GreaterOrEqual(Of TInput)(Func(Of Task(Of TInput)), IComparer(Of TInput))
+  nameWithType: AsyncPattern.GreaterOrEqual<TInput>(Func<Task<TInput>>, IComparer<TInput>)
+  nameWithType.vb: AsyncPattern.GreaterOrEqual(Of TInput)(Func(Of Task(Of TInput)), IComparer(Of TInput))
+- uid: Matchmaker.Patterns.Async.AsyncPattern.GreaterOrEqual``1(Func{Task{``0}},IComparer{``0},System.String)
+  name: GreaterOrEqual<TInput>(Func<Task<TInput>>, IComparer<TInput>, String)
+  href: api/Matchmaker.Patterns.Async.AsyncPattern.html#Matchmaker_Patterns_Async_AsyncPattern_GreaterOrEqual__1_Func_Task___0___IComparer___0__System_String_
+  commentId: M:Matchmaker.Patterns.Async.AsyncPattern.GreaterOrEqual``1(Func{Task{``0}},IComparer{``0},System.String)
+  name.vb: GreaterOrEqual(Of TInput)(Func(Of Task(Of TInput)), IComparer(Of TInput), String)
+  fullName: Matchmaker.Patterns.Async.AsyncPattern.GreaterOrEqual<TInput>(Func<Task<TInput>>, IComparer<TInput>, System.String)
+  fullName.vb: Matchmaker.Patterns.Async.AsyncPattern.GreaterOrEqual(Of TInput)(Func(Of Task(Of TInput)), IComparer(Of TInput), System.String)
+  nameWithType: AsyncPattern.GreaterOrEqual<TInput>(Func<Task<TInput>>, IComparer<TInput>, String)
+  nameWithType.vb: AsyncPattern.GreaterOrEqual(Of TInput)(Func(Of Task(Of TInput)), IComparer(Of TInput), String)
+- uid: Matchmaker.Patterns.Async.AsyncPattern.GreaterOrEqual``1(Func{Task{``0}},System.String)
+  name: GreaterOrEqual<TInput>(Func<Task<TInput>>, String)
+  href: api/Matchmaker.Patterns.Async.AsyncPattern.html#Matchmaker_Patterns_Async_AsyncPattern_GreaterOrEqual__1_Func_Task___0___System_String_
+  commentId: M:Matchmaker.Patterns.Async.AsyncPattern.GreaterOrEqual``1(Func{Task{``0}},System.String)
+  name.vb: GreaterOrEqual(Of TInput)(Func(Of Task(Of TInput)), String)
+  fullName: Matchmaker.Patterns.Async.AsyncPattern.GreaterOrEqual<TInput>(Func<Task<TInput>>, System.String)
+  fullName.vb: Matchmaker.Patterns.Async.AsyncPattern.GreaterOrEqual(Of TInput)(Func(Of Task(Of TInput)), System.String)
+  nameWithType: AsyncPattern.GreaterOrEqual<TInput>(Func<Task<TInput>>, String)
+  nameWithType.vb: AsyncPattern.GreaterOrEqual(Of TInput)(Func(Of Task(Of TInput)), String)
+- uid: Matchmaker.Patterns.Async.AsyncPattern.GreaterOrEqual``1(Task{``0})
+  name: GreaterOrEqual<TInput>(Task<TInput>)
+  href: api/Matchmaker.Patterns.Async.AsyncPattern.html#Matchmaker_Patterns_Async_AsyncPattern_GreaterOrEqual__1_Task___0__
+  commentId: M:Matchmaker.Patterns.Async.AsyncPattern.GreaterOrEqual``1(Task{``0})
+  name.vb: GreaterOrEqual(Of TInput)(Task(Of TInput))
+  fullName: Matchmaker.Patterns.Async.AsyncPattern.GreaterOrEqual<TInput>(Task<TInput>)
+  fullName.vb: Matchmaker.Patterns.Async.AsyncPattern.GreaterOrEqual(Of TInput)(Task(Of TInput))
+  nameWithType: AsyncPattern.GreaterOrEqual<TInput>(Task<TInput>)
+  nameWithType.vb: AsyncPattern.GreaterOrEqual(Of TInput)(Task(Of TInput))
+- uid: Matchmaker.Patterns.Async.AsyncPattern.GreaterOrEqual``1(Task{``0},IComparer{``0})
+  name: GreaterOrEqual<TInput>(Task<TInput>, IComparer<TInput>)
+  href: api/Matchmaker.Patterns.Async.AsyncPattern.html#Matchmaker_Patterns_Async_AsyncPattern_GreaterOrEqual__1_Task___0__IComparer___0__
+  commentId: M:Matchmaker.Patterns.Async.AsyncPattern.GreaterOrEqual``1(Task{``0},IComparer{``0})
+  name.vb: GreaterOrEqual(Of TInput)(Task(Of TInput), IComparer(Of TInput))
+  fullName: Matchmaker.Patterns.Async.AsyncPattern.GreaterOrEqual<TInput>(Task<TInput>, IComparer<TInput>)
+  fullName.vb: Matchmaker.Patterns.Async.AsyncPattern.GreaterOrEqual(Of TInput)(Task(Of TInput), IComparer(Of TInput))
+  nameWithType: AsyncPattern.GreaterOrEqual<TInput>(Task<TInput>, IComparer<TInput>)
+  nameWithType.vb: AsyncPattern.GreaterOrEqual(Of TInput)(Task(Of TInput), IComparer(Of TInput))
+- uid: Matchmaker.Patterns.Async.AsyncPattern.GreaterOrEqual``1(Task{``0},IComparer{``0},System.String)
+  name: GreaterOrEqual<TInput>(Task<TInput>, IComparer<TInput>, String)
+  href: api/Matchmaker.Patterns.Async.AsyncPattern.html#Matchmaker_Patterns_Async_AsyncPattern_GreaterOrEqual__1_Task___0__IComparer___0__System_String_
+  commentId: M:Matchmaker.Patterns.Async.AsyncPattern.GreaterOrEqual``1(Task{``0},IComparer{``0},System.String)
+  name.vb: GreaterOrEqual(Of TInput)(Task(Of TInput), IComparer(Of TInput), String)
+  fullName: Matchmaker.Patterns.Async.AsyncPattern.GreaterOrEqual<TInput>(Task<TInput>, IComparer<TInput>, System.String)
+  fullName.vb: Matchmaker.Patterns.Async.AsyncPattern.GreaterOrEqual(Of TInput)(Task(Of TInput), IComparer(Of TInput), System.String)
+  nameWithType: AsyncPattern.GreaterOrEqual<TInput>(Task<TInput>, IComparer<TInput>, String)
+  nameWithType.vb: AsyncPattern.GreaterOrEqual(Of TInput)(Task(Of TInput), IComparer(Of TInput), String)
+- uid: Matchmaker.Patterns.Async.AsyncPattern.GreaterOrEqual``1(Task{``0},System.String)
+  name: GreaterOrEqual<TInput>(Task<TInput>, String)
+  href: api/Matchmaker.Patterns.Async.AsyncPattern.html#Matchmaker_Patterns_Async_AsyncPattern_GreaterOrEqual__1_Task___0__System_String_
+  commentId: M:Matchmaker.Patterns.Async.AsyncPattern.GreaterOrEqual``1(Task{``0},System.String)
+  name.vb: GreaterOrEqual(Of TInput)(Task(Of TInput), String)
+  fullName: Matchmaker.Patterns.Async.AsyncPattern.GreaterOrEqual<TInput>(Task<TInput>, System.String)
+  fullName.vb: Matchmaker.Patterns.Async.AsyncPattern.GreaterOrEqual(Of TInput)(Task(Of TInput), System.String)
+  nameWithType: AsyncPattern.GreaterOrEqual<TInput>(Task<TInput>, String)
+  nameWithType.vb: AsyncPattern.GreaterOrEqual(Of TInput)(Task(Of TInput), String)
+- uid: Matchmaker.Patterns.Async.AsyncPattern.GreaterThan*
+  name: GreaterThan
+  href: api/Matchmaker.Patterns.Async.AsyncPattern.html#Matchmaker_Patterns_Async_AsyncPattern_GreaterThan_
+  commentId: Overload:Matchmaker.Patterns.Async.AsyncPattern.GreaterThan
+  isSpec: "True"
+  fullName: Matchmaker.Patterns.Async.AsyncPattern.GreaterThan
+  nameWithType: AsyncPattern.GreaterThan
+- uid: Matchmaker.Patterns.Async.AsyncPattern.GreaterThan``1(Func{Task{``0}})
+  name: GreaterThan<TInput>(Func<Task<TInput>>)
+  href: api/Matchmaker.Patterns.Async.AsyncPattern.html#Matchmaker_Patterns_Async_AsyncPattern_GreaterThan__1_Func_Task___0___
+  commentId: M:Matchmaker.Patterns.Async.AsyncPattern.GreaterThan``1(Func{Task{``0}})
+  name.vb: GreaterThan(Of TInput)(Func(Of Task(Of TInput)))
+  fullName: Matchmaker.Patterns.Async.AsyncPattern.GreaterThan<TInput>(Func<Task<TInput>>)
+  fullName.vb: Matchmaker.Patterns.Async.AsyncPattern.GreaterThan(Of TInput)(Func(Of Task(Of TInput)))
+  nameWithType: AsyncPattern.GreaterThan<TInput>(Func<Task<TInput>>)
+  nameWithType.vb: AsyncPattern.GreaterThan(Of TInput)(Func(Of Task(Of TInput)))
+- uid: Matchmaker.Patterns.Async.AsyncPattern.GreaterThan``1(Func{Task{``0}},IComparer{``0})
+  name: GreaterThan<TInput>(Func<Task<TInput>>, IComparer<TInput>)
+  href: api/Matchmaker.Patterns.Async.AsyncPattern.html#Matchmaker_Patterns_Async_AsyncPattern_GreaterThan__1_Func_Task___0___IComparer___0__
+  commentId: M:Matchmaker.Patterns.Async.AsyncPattern.GreaterThan``1(Func{Task{``0}},IComparer{``0})
+  name.vb: GreaterThan(Of TInput)(Func(Of Task(Of TInput)), IComparer(Of TInput))
+  fullName: Matchmaker.Patterns.Async.AsyncPattern.GreaterThan<TInput>(Func<Task<TInput>>, IComparer<TInput>)
+  fullName.vb: Matchmaker.Patterns.Async.AsyncPattern.GreaterThan(Of TInput)(Func(Of Task(Of TInput)), IComparer(Of TInput))
+  nameWithType: AsyncPattern.GreaterThan<TInput>(Func<Task<TInput>>, IComparer<TInput>)
+  nameWithType.vb: AsyncPattern.GreaterThan(Of TInput)(Func(Of Task(Of TInput)), IComparer(Of TInput))
+- uid: Matchmaker.Patterns.Async.AsyncPattern.GreaterThan``1(Func{Task{``0}},IComparer{``0},System.String)
+  name: GreaterThan<TInput>(Func<Task<TInput>>, IComparer<TInput>, String)
+  href: api/Matchmaker.Patterns.Async.AsyncPattern.html#Matchmaker_Patterns_Async_AsyncPattern_GreaterThan__1_Func_Task___0___IComparer___0__System_String_
+  commentId: M:Matchmaker.Patterns.Async.AsyncPattern.GreaterThan``1(Func{Task{``0}},IComparer{``0},System.String)
+  name.vb: GreaterThan(Of TInput)(Func(Of Task(Of TInput)), IComparer(Of TInput), String)
+  fullName: Matchmaker.Patterns.Async.AsyncPattern.GreaterThan<TInput>(Func<Task<TInput>>, IComparer<TInput>, System.String)
+  fullName.vb: Matchmaker.Patterns.Async.AsyncPattern.GreaterThan(Of TInput)(Func(Of Task(Of TInput)), IComparer(Of TInput), System.String)
+  nameWithType: AsyncPattern.GreaterThan<TInput>(Func<Task<TInput>>, IComparer<TInput>, String)
+  nameWithType.vb: AsyncPattern.GreaterThan(Of TInput)(Func(Of Task(Of TInput)), IComparer(Of TInput), String)
+- uid: Matchmaker.Patterns.Async.AsyncPattern.GreaterThan``1(Func{Task{``0}},System.String)
+  name: GreaterThan<TInput>(Func<Task<TInput>>, String)
+  href: api/Matchmaker.Patterns.Async.AsyncPattern.html#Matchmaker_Patterns_Async_AsyncPattern_GreaterThan__1_Func_Task___0___System_String_
+  commentId: M:Matchmaker.Patterns.Async.AsyncPattern.GreaterThan``1(Func{Task{``0}},System.String)
+  name.vb: GreaterThan(Of TInput)(Func(Of Task(Of TInput)), String)
+  fullName: Matchmaker.Patterns.Async.AsyncPattern.GreaterThan<TInput>(Func<Task<TInput>>, System.String)
+  fullName.vb: Matchmaker.Patterns.Async.AsyncPattern.GreaterThan(Of TInput)(Func(Of Task(Of TInput)), System.String)
+  nameWithType: AsyncPattern.GreaterThan<TInput>(Func<Task<TInput>>, String)
+  nameWithType.vb: AsyncPattern.GreaterThan(Of TInput)(Func(Of Task(Of TInput)), String)
+- uid: Matchmaker.Patterns.Async.AsyncPattern.GreaterThan``1(Task{``0})
+  name: GreaterThan<TInput>(Task<TInput>)
+  href: api/Matchmaker.Patterns.Async.AsyncPattern.html#Matchmaker_Patterns_Async_AsyncPattern_GreaterThan__1_Task___0__
+  commentId: M:Matchmaker.Patterns.Async.AsyncPattern.GreaterThan``1(Task{``0})
+  name.vb: GreaterThan(Of TInput)(Task(Of TInput))
+  fullName: Matchmaker.Patterns.Async.AsyncPattern.GreaterThan<TInput>(Task<TInput>)
+  fullName.vb: Matchmaker.Patterns.Async.AsyncPattern.GreaterThan(Of TInput)(Task(Of TInput))
+  nameWithType: AsyncPattern.GreaterThan<TInput>(Task<TInput>)
+  nameWithType.vb: AsyncPattern.GreaterThan(Of TInput)(Task(Of TInput))
+- uid: Matchmaker.Patterns.Async.AsyncPattern.GreaterThan``1(Task{``0},IComparer{``0})
+  name: GreaterThan<TInput>(Task<TInput>, IComparer<TInput>)
+  href: api/Matchmaker.Patterns.Async.AsyncPattern.html#Matchmaker_Patterns_Async_AsyncPattern_GreaterThan__1_Task___0__IComparer___0__
+  commentId: M:Matchmaker.Patterns.Async.AsyncPattern.GreaterThan``1(Task{``0},IComparer{``0})
+  name.vb: GreaterThan(Of TInput)(Task(Of TInput), IComparer(Of TInput))
+  fullName: Matchmaker.Patterns.Async.AsyncPattern.GreaterThan<TInput>(Task<TInput>, IComparer<TInput>)
+  fullName.vb: Matchmaker.Patterns.Async.AsyncPattern.GreaterThan(Of TInput)(Task(Of TInput), IComparer(Of TInput))
+  nameWithType: AsyncPattern.GreaterThan<TInput>(Task<TInput>, IComparer<TInput>)
+  nameWithType.vb: AsyncPattern.GreaterThan(Of TInput)(Task(Of TInput), IComparer(Of TInput))
+- uid: Matchmaker.Patterns.Async.AsyncPattern.GreaterThan``1(Task{``0},IComparer{``0},System.String)
+  name: GreaterThan<TInput>(Task<TInput>, IComparer<TInput>, String)
+  href: api/Matchmaker.Patterns.Async.AsyncPattern.html#Matchmaker_Patterns_Async_AsyncPattern_GreaterThan__1_Task___0__IComparer___0__System_String_
+  commentId: M:Matchmaker.Patterns.Async.AsyncPattern.GreaterThan``1(Task{``0},IComparer{``0},System.String)
+  name.vb: GreaterThan(Of TInput)(Task(Of TInput), IComparer(Of TInput), String)
+  fullName: Matchmaker.Patterns.Async.AsyncPattern.GreaterThan<TInput>(Task<TInput>, IComparer<TInput>, System.String)
+  fullName.vb: Matchmaker.Patterns.Async.AsyncPattern.GreaterThan(Of TInput)(Task(Of TInput), IComparer(Of TInput), System.String)
+  nameWithType: AsyncPattern.GreaterThan<TInput>(Task<TInput>, IComparer<TInput>, String)
+  nameWithType.vb: AsyncPattern.GreaterThan(Of TInput)(Task(Of TInput), IComparer(Of TInput), String)
+- uid: Matchmaker.Patterns.Async.AsyncPattern.GreaterThan``1(Task{``0},System.String)
+  name: GreaterThan<TInput>(Task<TInput>, String)
+  href: api/Matchmaker.Patterns.Async.AsyncPattern.html#Matchmaker_Patterns_Async_AsyncPattern_GreaterThan__1_Task___0__System_String_
+  commentId: M:Matchmaker.Patterns.Async.AsyncPattern.GreaterThan``1(Task{``0},System.String)
+  name.vb: GreaterThan(Of TInput)(Task(Of TInput), String)
+  fullName: Matchmaker.Patterns.Async.AsyncPattern.GreaterThan<TInput>(Task<TInput>, System.String)
+  fullName.vb: Matchmaker.Patterns.Async.AsyncPattern.GreaterThan(Of TInput)(Task(Of TInput), System.String)
+  nameWithType: AsyncPattern.GreaterThan<TInput>(Task<TInput>, String)
+  nameWithType.vb: AsyncPattern.GreaterThan(Of TInput)(Task(Of TInput), String)
+- uid: Matchmaker.Patterns.Async.AsyncPattern.LessOrEqual*
+  name: LessOrEqual
+  href: api/Matchmaker.Patterns.Async.AsyncPattern.html#Matchmaker_Patterns_Async_AsyncPattern_LessOrEqual_
+  commentId: Overload:Matchmaker.Patterns.Async.AsyncPattern.LessOrEqual
+  isSpec: "True"
+  fullName: Matchmaker.Patterns.Async.AsyncPattern.LessOrEqual
+  nameWithType: AsyncPattern.LessOrEqual
+- uid: Matchmaker.Patterns.Async.AsyncPattern.LessOrEqual``1(Func{Task{``0}})
+  name: LessOrEqual<TInput>(Func<Task<TInput>>)
+  href: api/Matchmaker.Patterns.Async.AsyncPattern.html#Matchmaker_Patterns_Async_AsyncPattern_LessOrEqual__1_Func_Task___0___
+  commentId: M:Matchmaker.Patterns.Async.AsyncPattern.LessOrEqual``1(Func{Task{``0}})
+  name.vb: LessOrEqual(Of TInput)(Func(Of Task(Of TInput)))
+  fullName: Matchmaker.Patterns.Async.AsyncPattern.LessOrEqual<TInput>(Func<Task<TInput>>)
+  fullName.vb: Matchmaker.Patterns.Async.AsyncPattern.LessOrEqual(Of TInput)(Func(Of Task(Of TInput)))
+  nameWithType: AsyncPattern.LessOrEqual<TInput>(Func<Task<TInput>>)
+  nameWithType.vb: AsyncPattern.LessOrEqual(Of TInput)(Func(Of Task(Of TInput)))
+- uid: Matchmaker.Patterns.Async.AsyncPattern.LessOrEqual``1(Func{Task{``0}},IComparer{``0})
+  name: LessOrEqual<TInput>(Func<Task<TInput>>, IComparer<TInput>)
+  href: api/Matchmaker.Patterns.Async.AsyncPattern.html#Matchmaker_Patterns_Async_AsyncPattern_LessOrEqual__1_Func_Task___0___IComparer___0__
+  commentId: M:Matchmaker.Patterns.Async.AsyncPattern.LessOrEqual``1(Func{Task{``0}},IComparer{``0})
+  name.vb: LessOrEqual(Of TInput)(Func(Of Task(Of TInput)), IComparer(Of TInput))
+  fullName: Matchmaker.Patterns.Async.AsyncPattern.LessOrEqual<TInput>(Func<Task<TInput>>, IComparer<TInput>)
+  fullName.vb: Matchmaker.Patterns.Async.AsyncPattern.LessOrEqual(Of TInput)(Func(Of Task(Of TInput)), IComparer(Of TInput))
+  nameWithType: AsyncPattern.LessOrEqual<TInput>(Func<Task<TInput>>, IComparer<TInput>)
+  nameWithType.vb: AsyncPattern.LessOrEqual(Of TInput)(Func(Of Task(Of TInput)), IComparer(Of TInput))
+- uid: Matchmaker.Patterns.Async.AsyncPattern.LessOrEqual``1(Func{Task{``0}},IComparer{``0},System.String)
+  name: LessOrEqual<TInput>(Func<Task<TInput>>, IComparer<TInput>, String)
+  href: api/Matchmaker.Patterns.Async.AsyncPattern.html#Matchmaker_Patterns_Async_AsyncPattern_LessOrEqual__1_Func_Task___0___IComparer___0__System_String_
+  commentId: M:Matchmaker.Patterns.Async.AsyncPattern.LessOrEqual``1(Func{Task{``0}},IComparer{``0},System.String)
+  name.vb: LessOrEqual(Of TInput)(Func(Of Task(Of TInput)), IComparer(Of TInput), String)
+  fullName: Matchmaker.Patterns.Async.AsyncPattern.LessOrEqual<TInput>(Func<Task<TInput>>, IComparer<TInput>, System.String)
+  fullName.vb: Matchmaker.Patterns.Async.AsyncPattern.LessOrEqual(Of TInput)(Func(Of Task(Of TInput)), IComparer(Of TInput), System.String)
+  nameWithType: AsyncPattern.LessOrEqual<TInput>(Func<Task<TInput>>, IComparer<TInput>, String)
+  nameWithType.vb: AsyncPattern.LessOrEqual(Of TInput)(Func(Of Task(Of TInput)), IComparer(Of TInput), String)
+- uid: Matchmaker.Patterns.Async.AsyncPattern.LessOrEqual``1(Func{Task{``0}},System.String)
+  name: LessOrEqual<TInput>(Func<Task<TInput>>, String)
+  href: api/Matchmaker.Patterns.Async.AsyncPattern.html#Matchmaker_Patterns_Async_AsyncPattern_LessOrEqual__1_Func_Task___0___System_String_
+  commentId: M:Matchmaker.Patterns.Async.AsyncPattern.LessOrEqual``1(Func{Task{``0}},System.String)
+  name.vb: LessOrEqual(Of TInput)(Func(Of Task(Of TInput)), String)
+  fullName: Matchmaker.Patterns.Async.AsyncPattern.LessOrEqual<TInput>(Func<Task<TInput>>, System.String)
+  fullName.vb: Matchmaker.Patterns.Async.AsyncPattern.LessOrEqual(Of TInput)(Func(Of Task(Of TInput)), System.String)
+  nameWithType: AsyncPattern.LessOrEqual<TInput>(Func<Task<TInput>>, String)
+  nameWithType.vb: AsyncPattern.LessOrEqual(Of TInput)(Func(Of Task(Of TInput)), String)
+- uid: Matchmaker.Patterns.Async.AsyncPattern.LessOrEqual``1(Task{``0})
+  name: LessOrEqual<TInput>(Task<TInput>)
+  href: api/Matchmaker.Patterns.Async.AsyncPattern.html#Matchmaker_Patterns_Async_AsyncPattern_LessOrEqual__1_Task___0__
+  commentId: M:Matchmaker.Patterns.Async.AsyncPattern.LessOrEqual``1(Task{``0})
+  name.vb: LessOrEqual(Of TInput)(Task(Of TInput))
+  fullName: Matchmaker.Patterns.Async.AsyncPattern.LessOrEqual<TInput>(Task<TInput>)
+  fullName.vb: Matchmaker.Patterns.Async.AsyncPattern.LessOrEqual(Of TInput)(Task(Of TInput))
+  nameWithType: AsyncPattern.LessOrEqual<TInput>(Task<TInput>)
+  nameWithType.vb: AsyncPattern.LessOrEqual(Of TInput)(Task(Of TInput))
+- uid: Matchmaker.Patterns.Async.AsyncPattern.LessOrEqual``1(Task{``0},IComparer{``0})
+  name: LessOrEqual<TInput>(Task<TInput>, IComparer<TInput>)
+  href: api/Matchmaker.Patterns.Async.AsyncPattern.html#Matchmaker_Patterns_Async_AsyncPattern_LessOrEqual__1_Task___0__IComparer___0__
+  commentId: M:Matchmaker.Patterns.Async.AsyncPattern.LessOrEqual``1(Task{``0},IComparer{``0})
+  name.vb: LessOrEqual(Of TInput)(Task(Of TInput), IComparer(Of TInput))
+  fullName: Matchmaker.Patterns.Async.AsyncPattern.LessOrEqual<TInput>(Task<TInput>, IComparer<TInput>)
+  fullName.vb: Matchmaker.Patterns.Async.AsyncPattern.LessOrEqual(Of TInput)(Task(Of TInput), IComparer(Of TInput))
+  nameWithType: AsyncPattern.LessOrEqual<TInput>(Task<TInput>, IComparer<TInput>)
+  nameWithType.vb: AsyncPattern.LessOrEqual(Of TInput)(Task(Of TInput), IComparer(Of TInput))
+- uid: Matchmaker.Patterns.Async.AsyncPattern.LessOrEqual``1(Task{``0},IComparer{``0},System.String)
+  name: LessOrEqual<TInput>(Task<TInput>, IComparer<TInput>, String)
+  href: api/Matchmaker.Patterns.Async.AsyncPattern.html#Matchmaker_Patterns_Async_AsyncPattern_LessOrEqual__1_Task___0__IComparer___0__System_String_
+  commentId: M:Matchmaker.Patterns.Async.AsyncPattern.LessOrEqual``1(Task{``0},IComparer{``0},System.String)
+  name.vb: LessOrEqual(Of TInput)(Task(Of TInput), IComparer(Of TInput), String)
+  fullName: Matchmaker.Patterns.Async.AsyncPattern.LessOrEqual<TInput>(Task<TInput>, IComparer<TInput>, System.String)
+  fullName.vb: Matchmaker.Patterns.Async.AsyncPattern.LessOrEqual(Of TInput)(Task(Of TInput), IComparer(Of TInput), System.String)
+  nameWithType: AsyncPattern.LessOrEqual<TInput>(Task<TInput>, IComparer<TInput>, String)
+  nameWithType.vb: AsyncPattern.LessOrEqual(Of TInput)(Task(Of TInput), IComparer(Of TInput), String)
+- uid: Matchmaker.Patterns.Async.AsyncPattern.LessOrEqual``1(Task{``0},System.String)
+  name: LessOrEqual<TInput>(Task<TInput>, String)
+  href: api/Matchmaker.Patterns.Async.AsyncPattern.html#Matchmaker_Patterns_Async_AsyncPattern_LessOrEqual__1_Task___0__System_String_
+  commentId: M:Matchmaker.Patterns.Async.AsyncPattern.LessOrEqual``1(Task{``0},System.String)
+  name.vb: LessOrEqual(Of TInput)(Task(Of TInput), String)
+  fullName: Matchmaker.Patterns.Async.AsyncPattern.LessOrEqual<TInput>(Task<TInput>, System.String)
+  fullName.vb: Matchmaker.Patterns.Async.AsyncPattern.LessOrEqual(Of TInput)(Task(Of TInput), System.String)
+  nameWithType: AsyncPattern.LessOrEqual<TInput>(Task<TInput>, String)
+  nameWithType.vb: AsyncPattern.LessOrEqual(Of TInput)(Task(Of TInput), String)
+- uid: Matchmaker.Patterns.Async.AsyncPattern.LessThan*
+  name: LessThan
+  href: api/Matchmaker.Patterns.Async.AsyncPattern.html#Matchmaker_Patterns_Async_AsyncPattern_LessThan_
+  commentId: Overload:Matchmaker.Patterns.Async.AsyncPattern.LessThan
+  isSpec: "True"
+  fullName: Matchmaker.Patterns.Async.AsyncPattern.LessThan
+  nameWithType: AsyncPattern.LessThan
+- uid: Matchmaker.Patterns.Async.AsyncPattern.LessThan``1(Func{Task{``0}})
+  name: LessThan<TInput>(Func<Task<TInput>>)
+  href: api/Matchmaker.Patterns.Async.AsyncPattern.html#Matchmaker_Patterns_Async_AsyncPattern_LessThan__1_Func_Task___0___
+  commentId: M:Matchmaker.Patterns.Async.AsyncPattern.LessThan``1(Func{Task{``0}})
+  name.vb: LessThan(Of TInput)(Func(Of Task(Of TInput)))
+  fullName: Matchmaker.Patterns.Async.AsyncPattern.LessThan<TInput>(Func<Task<TInput>>)
+  fullName.vb: Matchmaker.Patterns.Async.AsyncPattern.LessThan(Of TInput)(Func(Of Task(Of TInput)))
+  nameWithType: AsyncPattern.LessThan<TInput>(Func<Task<TInput>>)
+  nameWithType.vb: AsyncPattern.LessThan(Of TInput)(Func(Of Task(Of TInput)))
+- uid: Matchmaker.Patterns.Async.AsyncPattern.LessThan``1(Func{Task{``0}},IComparer{``0})
+  name: LessThan<TInput>(Func<Task<TInput>>, IComparer<TInput>)
+  href: api/Matchmaker.Patterns.Async.AsyncPattern.html#Matchmaker_Patterns_Async_AsyncPattern_LessThan__1_Func_Task___0___IComparer___0__
+  commentId: M:Matchmaker.Patterns.Async.AsyncPattern.LessThan``1(Func{Task{``0}},IComparer{``0})
+  name.vb: LessThan(Of TInput)(Func(Of Task(Of TInput)), IComparer(Of TInput))
+  fullName: Matchmaker.Patterns.Async.AsyncPattern.LessThan<TInput>(Func<Task<TInput>>, IComparer<TInput>)
+  fullName.vb: Matchmaker.Patterns.Async.AsyncPattern.LessThan(Of TInput)(Func(Of Task(Of TInput)), IComparer(Of TInput))
+  nameWithType: AsyncPattern.LessThan<TInput>(Func<Task<TInput>>, IComparer<TInput>)
+  nameWithType.vb: AsyncPattern.LessThan(Of TInput)(Func(Of Task(Of TInput)), IComparer(Of TInput))
+- uid: Matchmaker.Patterns.Async.AsyncPattern.LessThan``1(Func{Task{``0}},IComparer{``0},System.String)
+  name: LessThan<TInput>(Func<Task<TInput>>, IComparer<TInput>, String)
+  href: api/Matchmaker.Patterns.Async.AsyncPattern.html#Matchmaker_Patterns_Async_AsyncPattern_LessThan__1_Func_Task___0___IComparer___0__System_String_
+  commentId: M:Matchmaker.Patterns.Async.AsyncPattern.LessThan``1(Func{Task{``0}},IComparer{``0},System.String)
+  name.vb: LessThan(Of TInput)(Func(Of Task(Of TInput)), IComparer(Of TInput), String)
+  fullName: Matchmaker.Patterns.Async.AsyncPattern.LessThan<TInput>(Func<Task<TInput>>, IComparer<TInput>, System.String)
+  fullName.vb: Matchmaker.Patterns.Async.AsyncPattern.LessThan(Of TInput)(Func(Of Task(Of TInput)), IComparer(Of TInput), System.String)
+  nameWithType: AsyncPattern.LessThan<TInput>(Func<Task<TInput>>, IComparer<TInput>, String)
+  nameWithType.vb: AsyncPattern.LessThan(Of TInput)(Func(Of Task(Of TInput)), IComparer(Of TInput), String)
+- uid: Matchmaker.Patterns.Async.AsyncPattern.LessThan``1(Func{Task{``0}},System.String)
+  name: LessThan<TInput>(Func<Task<TInput>>, String)
+  href: api/Matchmaker.Patterns.Async.AsyncPattern.html#Matchmaker_Patterns_Async_AsyncPattern_LessThan__1_Func_Task___0___System_String_
+  commentId: M:Matchmaker.Patterns.Async.AsyncPattern.LessThan``1(Func{Task{``0}},System.String)
+  name.vb: LessThan(Of TInput)(Func(Of Task(Of TInput)), String)
+  fullName: Matchmaker.Patterns.Async.AsyncPattern.LessThan<TInput>(Func<Task<TInput>>, System.String)
+  fullName.vb: Matchmaker.Patterns.Async.AsyncPattern.LessThan(Of TInput)(Func(Of Task(Of TInput)), System.String)
+  nameWithType: AsyncPattern.LessThan<TInput>(Func<Task<TInput>>, String)
+  nameWithType.vb: AsyncPattern.LessThan(Of TInput)(Func(Of Task(Of TInput)), String)
+- uid: Matchmaker.Patterns.Async.AsyncPattern.LessThan``1(Task{``0})
+  name: LessThan<TInput>(Task<TInput>)
+  href: api/Matchmaker.Patterns.Async.AsyncPattern.html#Matchmaker_Patterns_Async_AsyncPattern_LessThan__1_Task___0__
+  commentId: M:Matchmaker.Patterns.Async.AsyncPattern.LessThan``1(Task{``0})
+  name.vb: LessThan(Of TInput)(Task(Of TInput))
+  fullName: Matchmaker.Patterns.Async.AsyncPattern.LessThan<TInput>(Task<TInput>)
+  fullName.vb: Matchmaker.Patterns.Async.AsyncPattern.LessThan(Of TInput)(Task(Of TInput))
+  nameWithType: AsyncPattern.LessThan<TInput>(Task<TInput>)
+  nameWithType.vb: AsyncPattern.LessThan(Of TInput)(Task(Of TInput))
+- uid: Matchmaker.Patterns.Async.AsyncPattern.LessThan``1(Task{``0},IComparer{``0})
+  name: LessThan<TInput>(Task<TInput>, IComparer<TInput>)
+  href: api/Matchmaker.Patterns.Async.AsyncPattern.html#Matchmaker_Patterns_Async_AsyncPattern_LessThan__1_Task___0__IComparer___0__
+  commentId: M:Matchmaker.Patterns.Async.AsyncPattern.LessThan``1(Task{``0},IComparer{``0})
+  name.vb: LessThan(Of TInput)(Task(Of TInput), IComparer(Of TInput))
+  fullName: Matchmaker.Patterns.Async.AsyncPattern.LessThan<TInput>(Task<TInput>, IComparer<TInput>)
+  fullName.vb: Matchmaker.Patterns.Async.AsyncPattern.LessThan(Of TInput)(Task(Of TInput), IComparer(Of TInput))
+  nameWithType: AsyncPattern.LessThan<TInput>(Task<TInput>, IComparer<TInput>)
+  nameWithType.vb: AsyncPattern.LessThan(Of TInput)(Task(Of TInput), IComparer(Of TInput))
+- uid: Matchmaker.Patterns.Async.AsyncPattern.LessThan``1(Task{``0},IComparer{``0},System.String)
+  name: LessThan<TInput>(Task<TInput>, IComparer<TInput>, String)
+  href: api/Matchmaker.Patterns.Async.AsyncPattern.html#Matchmaker_Patterns_Async_AsyncPattern_LessThan__1_Task___0__IComparer___0__System_String_
+  commentId: M:Matchmaker.Patterns.Async.AsyncPattern.LessThan``1(Task{``0},IComparer{``0},System.String)
+  name.vb: LessThan(Of TInput)(Task(Of TInput), IComparer(Of TInput), String)
+  fullName: Matchmaker.Patterns.Async.AsyncPattern.LessThan<TInput>(Task<TInput>, IComparer<TInput>, System.String)
+  fullName.vb: Matchmaker.Patterns.Async.AsyncPattern.LessThan(Of TInput)(Task(Of TInput), IComparer(Of TInput), System.String)
+  nameWithType: AsyncPattern.LessThan<TInput>(Task<TInput>, IComparer<TInput>, String)
+  nameWithType.vb: AsyncPattern.LessThan(Of TInput)(Task(Of TInput), IComparer(Of TInput), String)
+- uid: Matchmaker.Patterns.Async.AsyncPattern.LessThan``1(Task{``0},System.String)
+  name: LessThan<TInput>(Task<TInput>, String)
+  href: api/Matchmaker.Patterns.Async.AsyncPattern.html#Matchmaker_Patterns_Async_AsyncPattern_LessThan__1_Task___0__System_String_
+  commentId: M:Matchmaker.Patterns.Async.AsyncPattern.LessThan``1(Task{``0},System.String)
+  name.vb: LessThan(Of TInput)(Task(Of TInput), String)
+  fullName: Matchmaker.Patterns.Async.AsyncPattern.LessThan<TInput>(Task<TInput>, System.String)
+  fullName.vb: Matchmaker.Patterns.Async.AsyncPattern.LessThan(Of TInput)(Task(Of TInput), System.String)
+  nameWithType: AsyncPattern.LessThan<TInput>(Task<TInput>, String)
+  nameWithType.vb: AsyncPattern.LessThan(Of TInput)(Task(Of TInput), String)
+- uid: Matchmaker.Patterns.Async.AsyncPattern.Not*
+  name: Not
+  href: api/Matchmaker.Patterns.Async.AsyncPattern.html#Matchmaker_Patterns_Async_AsyncPattern_Not_
+  commentId: Overload:Matchmaker.Patterns.Async.AsyncPattern.Not
+  isSpec: "True"
+  fullName: Matchmaker.Patterns.Async.AsyncPattern.Not
+  nameWithType: AsyncPattern.Not
+- uid: Matchmaker.Patterns.Async.AsyncPattern.Not``2(Matchmaker.Patterns.Async.IAsyncPattern{``0,``1})
+  name: Not<TInput, TMatchResult>(IAsyncPattern<TInput, TMatchResult>)
+  href: api/Matchmaker.Patterns.Async.AsyncPattern.html#Matchmaker_Patterns_Async_AsyncPattern_Not__2_Matchmaker_Patterns_Async_IAsyncPattern___0___1__
+  commentId: M:Matchmaker.Patterns.Async.AsyncPattern.Not``2(Matchmaker.Patterns.Async.IAsyncPattern{``0,``1})
+  name.vb: Not(Of TInput, TMatchResult)(IAsyncPattern(Of TInput, TMatchResult))
+  fullName: Matchmaker.Patterns.Async.AsyncPattern.Not<TInput, TMatchResult>(Matchmaker.Patterns.Async.IAsyncPattern<TInput, TMatchResult>)
+  fullName.vb: Matchmaker.Patterns.Async.AsyncPattern.Not(Of TInput, TMatchResult)(Matchmaker.Patterns.Async.IAsyncPattern(Of TInput, TMatchResult))
+  nameWithType: AsyncPattern.Not<TInput, TMatchResult>(IAsyncPattern<TInput, TMatchResult>)
+  nameWithType.vb: AsyncPattern.Not(Of TInput, TMatchResult)(IAsyncPattern(Of TInput, TMatchResult))
+- uid: Matchmaker.Patterns.Async.AsyncPattern.Not``2(Matchmaker.Patterns.Async.IAsyncPattern{``0,``1},System.String)
+  name: Not<TInput, TMatchResult>(IAsyncPattern<TInput, TMatchResult>, String)
+  href: api/Matchmaker.Patterns.Async.AsyncPattern.html#Matchmaker_Patterns_Async_AsyncPattern_Not__2_Matchmaker_Patterns_Async_IAsyncPattern___0___1__System_String_
+  commentId: M:Matchmaker.Patterns.Async.AsyncPattern.Not``2(Matchmaker.Patterns.Async.IAsyncPattern{``0,``1},System.String)
+  name.vb: Not(Of TInput, TMatchResult)(IAsyncPattern(Of TInput, TMatchResult), String)
+  fullName: Matchmaker.Patterns.Async.AsyncPattern.Not<TInput, TMatchResult>(Matchmaker.Patterns.Async.IAsyncPattern<TInput, TMatchResult>, System.String)
+  fullName.vb: Matchmaker.Patterns.Async.AsyncPattern.Not(Of TInput, TMatchResult)(Matchmaker.Patterns.Async.IAsyncPattern(Of TInput, TMatchResult), System.String)
+  nameWithType: AsyncPattern.Not<TInput, TMatchResult>(IAsyncPattern<TInput, TMatchResult>, String)
+  nameWithType.vb: AsyncPattern.Not(Of TInput, TMatchResult)(IAsyncPattern(Of TInput, TMatchResult), String)
+- uid: Matchmaker.Patterns.Async.AsyncPattern.Null*
+  name: "Null"
+  href: api/Matchmaker.Patterns.Async.AsyncPattern.html#Matchmaker_Patterns_Async_AsyncPattern_Null_
+  commentId: Overload:Matchmaker.Patterns.Async.AsyncPattern.Null
+  isSpec: "True"
+  fullName: Matchmaker.Patterns.Async.AsyncPattern.Null
+  nameWithType: AsyncPattern.Null
+- uid: Matchmaker.Patterns.Async.AsyncPattern.Null``1
+  name: Null<TInput>()
+  href: api/Matchmaker.Patterns.Async.AsyncPattern.html#Matchmaker_Patterns_Async_AsyncPattern_Null__1
+  commentId: M:Matchmaker.Patterns.Async.AsyncPattern.Null``1
+  name.vb: Null(Of TInput)()
+  fullName: Matchmaker.Patterns.Async.AsyncPattern.Null<TInput>()
+  fullName.vb: Matchmaker.Patterns.Async.AsyncPattern.Null(Of TInput)()
+  nameWithType: AsyncPattern.Null<TInput>()
+  nameWithType.vb: AsyncPattern.Null(Of TInput)()
+- uid: Matchmaker.Patterns.Async.AsyncPattern.Null``1(System.String)
+  name: Null<TInput>(String)
+  href: api/Matchmaker.Patterns.Async.AsyncPattern.html#Matchmaker_Patterns_Async_AsyncPattern_Null__1_System_String_
+  commentId: M:Matchmaker.Patterns.Async.AsyncPattern.Null``1(System.String)
+  name.vb: Null(Of TInput)(String)
+  fullName: Matchmaker.Patterns.Async.AsyncPattern.Null<TInput>(System.String)
+  fullName.vb: Matchmaker.Patterns.Async.AsyncPattern.Null(Of TInput)(System.String)
+  nameWithType: AsyncPattern.Null<TInput>(String)
+  nameWithType.vb: AsyncPattern.Null(Of TInput)(String)
+- uid: Matchmaker.Patterns.Async.AsyncPattern.Return*
+  name: Return
+  href: api/Matchmaker.Patterns.Async.AsyncPattern.html#Matchmaker_Patterns_Async_AsyncPattern_Return_
+  commentId: Overload:Matchmaker.Patterns.Async.AsyncPattern.Return
+  isSpec: "True"
+  fullName: Matchmaker.Patterns.Async.AsyncPattern.Return
+  nameWithType: AsyncPattern.Return
+- uid: Matchmaker.Patterns.Async.AsyncPattern.Return``2(Func{Task{``1}})
+  name: Return<TInput, TValue>(Func<Task<TValue>>)
+  href: api/Matchmaker.Patterns.Async.AsyncPattern.html#Matchmaker_Patterns_Async_AsyncPattern_Return__2_Func_Task___1___
+  commentId: M:Matchmaker.Patterns.Async.AsyncPattern.Return``2(Func{Task{``1}})
+  name.vb: Return(Of TInput, TValue)(Func(Of Task(Of TValue)))
+  fullName: Matchmaker.Patterns.Async.AsyncPattern.Return<TInput, TValue>(Func<Task<TValue>>)
+  fullName.vb: Matchmaker.Patterns.Async.AsyncPattern.Return(Of TInput, TValue)(Func(Of Task(Of TValue)))
+  nameWithType: AsyncPattern.Return<TInput, TValue>(Func<Task<TValue>>)
+  nameWithType.vb: AsyncPattern.Return(Of TInput, TValue)(Func(Of Task(Of TValue)))
+- uid: Matchmaker.Patterns.Async.AsyncPattern.Return``2(Func{Task{``1}},System.String)
+  name: Return<TInput, TValue>(Func<Task<TValue>>, String)
+  href: api/Matchmaker.Patterns.Async.AsyncPattern.html#Matchmaker_Patterns_Async_AsyncPattern_Return__2_Func_Task___1___System_String_
+  commentId: M:Matchmaker.Patterns.Async.AsyncPattern.Return``2(Func{Task{``1}},System.String)
+  name.vb: Return(Of TInput, TValue)(Func(Of Task(Of TValue)), String)
+  fullName: Matchmaker.Patterns.Async.AsyncPattern.Return<TInput, TValue>(Func<Task<TValue>>, System.String)
+  fullName.vb: Matchmaker.Patterns.Async.AsyncPattern.Return(Of TInput, TValue)(Func(Of Task(Of TValue)), System.String)
+  nameWithType: AsyncPattern.Return<TInput, TValue>(Func<Task<TValue>>, String)
+  nameWithType.vb: AsyncPattern.Return(Of TInput, TValue)(Func(Of Task(Of TValue)), String)
+- uid: Matchmaker.Patterns.Async.AsyncPattern.Return``2(Task{``1})
+  name: Return<TInput, TValue>(Task<TValue>)
+  href: api/Matchmaker.Patterns.Async.AsyncPattern.html#Matchmaker_Patterns_Async_AsyncPattern_Return__2_Task___1__
+  commentId: M:Matchmaker.Patterns.Async.AsyncPattern.Return``2(Task{``1})
+  name.vb: Return(Of TInput, TValue)(Task(Of TValue))
+  fullName: Matchmaker.Patterns.Async.AsyncPattern.Return<TInput, TValue>(Task<TValue>)
+  fullName.vb: Matchmaker.Patterns.Async.AsyncPattern.Return(Of TInput, TValue)(Task(Of TValue))
+  nameWithType: AsyncPattern.Return<TInput, TValue>(Task<TValue>)
+  nameWithType.vb: AsyncPattern.Return(Of TInput, TValue)(Task(Of TValue))
+- uid: Matchmaker.Patterns.Async.AsyncPattern.Return``2(Task{``1},System.String)
+  name: Return<TInput, TValue>(Task<TValue>, String)
+  href: api/Matchmaker.Patterns.Async.AsyncPattern.html#Matchmaker_Patterns_Async_AsyncPattern_Return__2_Task___1__System_String_
+  commentId: M:Matchmaker.Patterns.Async.AsyncPattern.Return``2(Task{``1},System.String)
+  name.vb: Return(Of TInput, TValue)(Task(Of TValue), String)
+  fullName: Matchmaker.Patterns.Async.AsyncPattern.Return<TInput, TValue>(Task<TValue>, System.String)
+  fullName.vb: Matchmaker.Patterns.Async.AsyncPattern.Return(Of TInput, TValue)(Task(Of TValue), System.String)
+  nameWithType: AsyncPattern.Return<TInput, TValue>(Task<TValue>, String)
+  nameWithType.vb: AsyncPattern.Return(Of TInput, TValue)(Task(Of TValue), String)
+- uid: Matchmaker.Patterns.Async.AsyncPattern.Type*
+  name: Type
+  href: api/Matchmaker.Patterns.Async.AsyncPattern.html#Matchmaker_Patterns_Async_AsyncPattern_Type_
+  commentId: Overload:Matchmaker.Patterns.Async.AsyncPattern.Type
+  isSpec: "True"
+  fullName: Matchmaker.Patterns.Async.AsyncPattern.Type
+  nameWithType: AsyncPattern.Type
+- uid: Matchmaker.Patterns.Async.AsyncPattern.Type``2
+  name: Type<TInput, TType>()
+  href: api/Matchmaker.Patterns.Async.AsyncPattern.html#Matchmaker_Patterns_Async_AsyncPattern_Type__2
+  commentId: M:Matchmaker.Patterns.Async.AsyncPattern.Type``2
+  name.vb: Type(Of TInput, TType)()
+  fullName: Matchmaker.Patterns.Async.AsyncPattern.Type<TInput, TType>()
+  fullName.vb: Matchmaker.Patterns.Async.AsyncPattern.Type(Of TInput, TType)()
+  nameWithType: AsyncPattern.Type<TInput, TType>()
+  nameWithType.vb: AsyncPattern.Type(Of TInput, TType)()
+- uid: Matchmaker.Patterns.Async.AsyncPattern.Type``2(System.String)
+  name: Type<TInput, TType>(String)
+  href: api/Matchmaker.Patterns.Async.AsyncPattern.html#Matchmaker_Patterns_Async_AsyncPattern_Type__2_System_String_
+  commentId: M:Matchmaker.Patterns.Async.AsyncPattern.Type``2(System.String)
+  name.vb: Type(Of TInput, TType)(String)
+  fullName: Matchmaker.Patterns.Async.AsyncPattern.Type<TInput, TType>(System.String)
+  fullName.vb: Matchmaker.Patterns.Async.AsyncPattern.Type(Of TInput, TType)(System.String)
+  nameWithType: AsyncPattern.Type<TInput, TType>(String)
+  nameWithType.vb: AsyncPattern.Type(Of TInput, TType)(String)
+- uid: Matchmaker.Patterns.Async.AsyncPattern.ValueNull*
+  name: ValueNull
+  href: api/Matchmaker.Patterns.Async.AsyncPattern.html#Matchmaker_Patterns_Async_AsyncPattern_ValueNull_
+  commentId: Overload:Matchmaker.Patterns.Async.AsyncPattern.ValueNull
+  isSpec: "True"
+  fullName: Matchmaker.Patterns.Async.AsyncPattern.ValueNull
+  nameWithType: AsyncPattern.ValueNull
+- uid: Matchmaker.Patterns.Async.AsyncPattern.ValueNull``1
+  name: ValueNull<TInput>()
+  href: api/Matchmaker.Patterns.Async.AsyncPattern.html#Matchmaker_Patterns_Async_AsyncPattern_ValueNull__1
+  commentId: M:Matchmaker.Patterns.Async.AsyncPattern.ValueNull``1
+  name.vb: ValueNull(Of TInput)()
+  fullName: Matchmaker.Patterns.Async.AsyncPattern.ValueNull<TInput>()
+  fullName.vb: Matchmaker.Patterns.Async.AsyncPattern.ValueNull(Of TInput)()
+  nameWithType: AsyncPattern.ValueNull<TInput>()
+  nameWithType.vb: AsyncPattern.ValueNull(Of TInput)()
+- uid: Matchmaker.Patterns.Async.AsyncPattern.ValueNull``1(System.String)
+  name: ValueNull<TInput>(String)
+  href: api/Matchmaker.Patterns.Async.AsyncPattern.html#Matchmaker_Patterns_Async_AsyncPattern_ValueNull__1_System_String_
+  commentId: M:Matchmaker.Patterns.Async.AsyncPattern.ValueNull``1(System.String)
+  name.vb: ValueNull(Of TInput)(String)
+  fullName: Matchmaker.Patterns.Async.AsyncPattern.ValueNull<TInput>(System.String)
+  fullName.vb: Matchmaker.Patterns.Async.AsyncPattern.ValueNull(Of TInput)(System.String)
+  nameWithType: AsyncPattern.ValueNull<TInput>(String)
+  nameWithType.vb: AsyncPattern.ValueNull(Of TInput)(String)
+- uid: Matchmaker.Patterns.Async.AsyncPattern`2
+  name: AsyncPattern<TInput, TMatchResult>
+  href: api/Matchmaker.Patterns.Async.AsyncPattern-2.html
+  commentId: T:Matchmaker.Patterns.Async.AsyncPattern`2
+  name.vb: AsyncPattern(Of TInput, TMatchResult)
+  fullName: Matchmaker.Patterns.Async.AsyncPattern<TInput, TMatchResult>
+  fullName.vb: Matchmaker.Patterns.Async.AsyncPattern(Of TInput, TMatchResult)
+  nameWithType: AsyncPattern<TInput, TMatchResult>
+  nameWithType.vb: AsyncPattern(Of TInput, TMatchResult)
+- uid: Matchmaker.Patterns.Async.AsyncPattern`2.#ctor
+  name: AsyncPattern()
+  href: api/Matchmaker.Patterns.Async.AsyncPattern-2.html#Matchmaker_Patterns_Async_AsyncPattern_2__ctor
+  commentId: M:Matchmaker.Patterns.Async.AsyncPattern`2.#ctor
+  fullName: Matchmaker.Patterns.Async.AsyncPattern<TInput, TMatchResult>.AsyncPattern()
+  fullName.vb: Matchmaker.Patterns.Async.AsyncPattern(Of TInput, TMatchResult).AsyncPattern()
+  nameWithType: AsyncPattern<TInput, TMatchResult>.AsyncPattern()
+  nameWithType.vb: AsyncPattern(Of TInput, TMatchResult).AsyncPattern()
+- uid: Matchmaker.Patterns.Async.AsyncPattern`2.#ctor(System.String)
+  name: AsyncPattern(String)
+  href: api/Matchmaker.Patterns.Async.AsyncPattern-2.html#Matchmaker_Patterns_Async_AsyncPattern_2__ctor_System_String_
+  commentId: M:Matchmaker.Patterns.Async.AsyncPattern`2.#ctor(System.String)
+  fullName: Matchmaker.Patterns.Async.AsyncPattern<TInput, TMatchResult>.AsyncPattern(System.String)
+  fullName.vb: Matchmaker.Patterns.Async.AsyncPattern(Of TInput, TMatchResult).AsyncPattern(System.String)
+  nameWithType: AsyncPattern<TInput, TMatchResult>.AsyncPattern(String)
+  nameWithType.vb: AsyncPattern(Of TInput, TMatchResult).AsyncPattern(String)
+- uid: Matchmaker.Patterns.Async.AsyncPattern`2.#ctor*
+  name: AsyncPattern
+  href: api/Matchmaker.Patterns.Async.AsyncPattern-2.html#Matchmaker_Patterns_Async_AsyncPattern_2__ctor_
+  commentId: Overload:Matchmaker.Patterns.Async.AsyncPattern`2.#ctor
+  isSpec: "True"
+  fullName: Matchmaker.Patterns.Async.AsyncPattern<TInput, TMatchResult>.AsyncPattern
+  fullName.vb: Matchmaker.Patterns.Async.AsyncPattern(Of TInput, TMatchResult).AsyncPattern
+  nameWithType: AsyncPattern<TInput, TMatchResult>.AsyncPattern
+  nameWithType.vb: AsyncPattern(Of TInput, TMatchResult).AsyncPattern
+- uid: Matchmaker.Patterns.Async.AsyncPattern`2.Description
+  name: Description
+  href: api/Matchmaker.Patterns.Async.AsyncPattern-2.html#Matchmaker_Patterns_Async_AsyncPattern_2_Description
+  commentId: P:Matchmaker.Patterns.Async.AsyncPattern`2.Description
+  fullName: Matchmaker.Patterns.Async.AsyncPattern<TInput, TMatchResult>.Description
+  fullName.vb: Matchmaker.Patterns.Async.AsyncPattern(Of TInput, TMatchResult).Description
+  nameWithType: AsyncPattern<TInput, TMatchResult>.Description
+  nameWithType.vb: AsyncPattern(Of TInput, TMatchResult).Description
+- uid: Matchmaker.Patterns.Async.AsyncPattern`2.Description*
+  name: Description
+  href: api/Matchmaker.Patterns.Async.AsyncPattern-2.html#Matchmaker_Patterns_Async_AsyncPattern_2_Description_
+  commentId: Overload:Matchmaker.Patterns.Async.AsyncPattern`2.Description
+  isSpec: "True"
+  fullName: Matchmaker.Patterns.Async.AsyncPattern<TInput, TMatchResult>.Description
+  fullName.vb: Matchmaker.Patterns.Async.AsyncPattern(Of TInput, TMatchResult).Description
+  nameWithType: AsyncPattern<TInput, TMatchResult>.Description
+  nameWithType.vb: AsyncPattern(Of TInput, TMatchResult).Description
+- uid: Matchmaker.Patterns.Async.AsyncPattern`2.MatchAsync(`0)
+  name: MatchAsync(TInput)
+  href: api/Matchmaker.Patterns.Async.AsyncPattern-2.html#Matchmaker_Patterns_Async_AsyncPattern_2_MatchAsync__0_
+  commentId: M:Matchmaker.Patterns.Async.AsyncPattern`2.MatchAsync(`0)
+  fullName: Matchmaker.Patterns.Async.AsyncPattern<TInput, TMatchResult>.MatchAsync(TInput)
+  fullName.vb: Matchmaker.Patterns.Async.AsyncPattern(Of TInput, TMatchResult).MatchAsync(TInput)
+  nameWithType: AsyncPattern<TInput, TMatchResult>.MatchAsync(TInput)
+  nameWithType.vb: AsyncPattern(Of TInput, TMatchResult).MatchAsync(TInput)
+- uid: Matchmaker.Patterns.Async.AsyncPattern`2.MatchAsync*
+  name: MatchAsync
+  href: api/Matchmaker.Patterns.Async.AsyncPattern-2.html#Matchmaker_Patterns_Async_AsyncPattern_2_MatchAsync_
+  commentId: Overload:Matchmaker.Patterns.Async.AsyncPattern`2.MatchAsync
+  isSpec: "True"
+  fullName: Matchmaker.Patterns.Async.AsyncPattern<TInput, TMatchResult>.MatchAsync
+  fullName.vb: Matchmaker.Patterns.Async.AsyncPattern(Of TInput, TMatchResult).MatchAsync
+  nameWithType: AsyncPattern<TInput, TMatchResult>.MatchAsync
+  nameWithType.vb: AsyncPattern(Of TInput, TMatchResult).MatchAsync
+- uid: Matchmaker.Patterns.Async.AsyncPattern`2.ToString
+  name: ToString()
+  href: api/Matchmaker.Patterns.Async.AsyncPattern-2.html#Matchmaker_Patterns_Async_AsyncPattern_2_ToString
+  commentId: M:Matchmaker.Patterns.Async.AsyncPattern`2.ToString
+  fullName: Matchmaker.Patterns.Async.AsyncPattern<TInput, TMatchResult>.ToString()
+  fullName.vb: Matchmaker.Patterns.Async.AsyncPattern(Of TInput, TMatchResult).ToString()
+  nameWithType: AsyncPattern<TInput, TMatchResult>.ToString()
+  nameWithType.vb: AsyncPattern(Of TInput, TMatchResult).ToString()
+- uid: Matchmaker.Patterns.Async.AsyncPattern`2.ToString*
+  name: ToString
+  href: api/Matchmaker.Patterns.Async.AsyncPattern-2.html#Matchmaker_Patterns_Async_AsyncPattern_2_ToString_
+  commentId: Overload:Matchmaker.Patterns.Async.AsyncPattern`2.ToString
+  isSpec: "True"
+  fullName: Matchmaker.Patterns.Async.AsyncPattern<TInput, TMatchResult>.ToString
+  fullName.vb: Matchmaker.Patterns.Async.AsyncPattern(Of TInput, TMatchResult).ToString
+  nameWithType: AsyncPattern<TInput, TMatchResult>.ToString
+  nameWithType.vb: AsyncPattern(Of TInput, TMatchResult).ToString
+- uid: Matchmaker.Patterns.Async.IAsyncPattern`2
+  name: IAsyncPattern<TInput, TMatchResult>
+  href: api/Matchmaker.Patterns.Async.IAsyncPattern-2.html
+  commentId: T:Matchmaker.Patterns.Async.IAsyncPattern`2
+  name.vb: IAsyncPattern(Of TInput, TMatchResult)
+  fullName: Matchmaker.Patterns.Async.IAsyncPattern<TInput, TMatchResult>
+  fullName.vb: Matchmaker.Patterns.Async.IAsyncPattern(Of TInput, TMatchResult)
+  nameWithType: IAsyncPattern<TInput, TMatchResult>
+  nameWithType.vb: IAsyncPattern(Of TInput, TMatchResult)
+- uid: Matchmaker.Patterns.Async.IAsyncPattern`2.Description
+  name: Description
+  href: api/Matchmaker.Patterns.Async.IAsyncPattern-2.html#Matchmaker_Patterns_Async_IAsyncPattern_2_Description
+  commentId: P:Matchmaker.Patterns.Async.IAsyncPattern`2.Description
+  fullName: Matchmaker.Patterns.Async.IAsyncPattern<TInput, TMatchResult>.Description
+  fullName.vb: Matchmaker.Patterns.Async.IAsyncPattern(Of TInput, TMatchResult).Description
+  nameWithType: IAsyncPattern<TInput, TMatchResult>.Description
+  nameWithType.vb: IAsyncPattern(Of TInput, TMatchResult).Description
+- uid: Matchmaker.Patterns.Async.IAsyncPattern`2.Description*
+  name: Description
+  href: api/Matchmaker.Patterns.Async.IAsyncPattern-2.html#Matchmaker_Patterns_Async_IAsyncPattern_2_Description_
+  commentId: Overload:Matchmaker.Patterns.Async.IAsyncPattern`2.Description
+  isSpec: "True"
+  fullName: Matchmaker.Patterns.Async.IAsyncPattern<TInput, TMatchResult>.Description
+  fullName.vb: Matchmaker.Patterns.Async.IAsyncPattern(Of TInput, TMatchResult).Description
+  nameWithType: IAsyncPattern<TInput, TMatchResult>.Description
+  nameWithType.vb: IAsyncPattern(Of TInput, TMatchResult).Description
+- uid: Matchmaker.Patterns.Async.IAsyncPattern`2.MatchAsync(`0)
+  name: MatchAsync(TInput)
+  href: api/Matchmaker.Patterns.Async.IAsyncPattern-2.html#Matchmaker_Patterns_Async_IAsyncPattern_2_MatchAsync__0_
+  commentId: M:Matchmaker.Patterns.Async.IAsyncPattern`2.MatchAsync(`0)
+  fullName: Matchmaker.Patterns.Async.IAsyncPattern<TInput, TMatchResult>.MatchAsync(TInput)
+  fullName.vb: Matchmaker.Patterns.Async.IAsyncPattern(Of TInput, TMatchResult).MatchAsync(TInput)
+  nameWithType: IAsyncPattern<TInput, TMatchResult>.MatchAsync(TInput)
+  nameWithType.vb: IAsyncPattern(Of TInput, TMatchResult).MatchAsync(TInput)
+- uid: Matchmaker.Patterns.Async.IAsyncPattern`2.MatchAsync*
+  name: MatchAsync
+  href: api/Matchmaker.Patterns.Async.IAsyncPattern-2.html#Matchmaker_Patterns_Async_IAsyncPattern_2_MatchAsync_
+  commentId: Overload:Matchmaker.Patterns.Async.IAsyncPattern`2.MatchAsync
+  isSpec: "True"
+  fullName: Matchmaker.Patterns.Async.IAsyncPattern<TInput, TMatchResult>.MatchAsync
+  fullName.vb: Matchmaker.Patterns.Async.IAsyncPattern(Of TInput, TMatchResult).MatchAsync
+  nameWithType: IAsyncPattern<TInput, TMatchResult>.MatchAsync
+  nameWithType.vb: IAsyncPattern(Of TInput, TMatchResult).MatchAsync
 - uid: Matchmaker.Patterns.IPattern`2
   name: IPattern<TInput, TMatchResult>
   href: api/Matchmaker.Patterns.IPattern-2.html

@@ -149,11 +149,59 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/Matchmaker.Patterns.Async.AsyncPattern-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Matchmaker.Patterns.Async.AsyncPattern-2.html",
+          "hash": "Y5XxycdBn5/JRlpFacRSvg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Matchmaker.Patterns.Async.AsyncPattern.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Matchmaker.Patterns.Async.AsyncPattern.html",
+          "hash": "lsb5QR0IJuLR/HqaYm48WQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Matchmaker.Patterns.Async.IAsyncPattern-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Matchmaker.Patterns.Async.IAsyncPattern-2.html",
+          "hash": "vJuQzk2DeiEID2w18KAIxg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Matchmaker.Patterns.Async.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Matchmaker.Patterns.Async.html",
+          "hash": "H082XRJnmOhCFoT9QSE7fQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/Matchmaker.Patterns.IPattern-2.yml",
       "output": {
         ".html": {
           "relative_path": "api/Matchmaker.Patterns.IPattern-2.html",
-          "hash": "syQtGG5qs6hGDdwrjCN8WA=="
+          "hash": "DI/uS9ewlfeXRxnhHBfQcA=="
         }
       },
       "is_incremental": false,
@@ -165,7 +213,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Matchmaker.Patterns.Pattern-2.html",
-          "hash": "507IKspuXHvlmUMSboZWZA=="
+          "hash": "OzlzEvRk8uwiTQxy9o2Zbw=="
         }
       },
       "is_incremental": false,
@@ -177,7 +225,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Matchmaker.Patterns.Pattern.html",
-          "hash": "QbKrP7zcUK2Cp8SMg+ns7g=="
+          "hash": "fikNpVXOpTLCVFnlILZLuQ=="
         }
       },
       "is_incremental": false,
@@ -201,7 +249,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Matchmaker.Patterns.html",
-          "hash": "F8eqNxPUS7bATEQtSdA09A=="
+          "hash": "HPO63umHP5C0PBxR262A0g=="
         }
       },
       "is_incremental": false,
@@ -237,7 +285,7 @@
       "output": {
         ".html": {
           "relative_path": "api/toc.html",
-          "hash": "kmLaaDOegbptjnmrcc4v8w=="
+          "hash": "FYlwJgwF/S0ulW+8XhOanQ=="
         }
       },
       "is_incremental": false,
@@ -406,7 +454,7 @@
         "ManagedReferenceDocumentProcessor": {
           "can_incremental": false,
           "incrementalPhase": "build",
-          "total_file_count": 18,
+          "total_file_count": 22,
           "skipped_file_count": 0
         },
         "ResourceDocumentProcessor": {
