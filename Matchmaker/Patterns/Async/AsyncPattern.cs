@@ -1,14 +1,15 @@
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
-namespace Matchmaker.Patterns
+namespace Matchmaker.Patterns.Async
 {
     /// <summary>
-    /// Contains factory methods for creating patterns.
+    /// Contains factory methods for creating asynchronous patterns.
     /// </summary>
-    /// <seealso cref="IPattern{TInput, TMatchResult}" />
-    /// <seealso cref="Pattern{TInput, TMatchResult}" />
-    public static class Pattern
+    /// <seealso cref="IAsyncPattern{TInput, TMatchResult}" />
+    /// <seealso cref="AsyncPattern{TInput, TMatchResult}" />
+    public static class AsyncPattern
     {
         /// <summary>
         /// The default description of the 'any' pattern.
@@ -19,14 +20,9 @@ namespace Matchmaker.Patterns
         /// <summary>
         /// The default description of the 'return' pattern.
         /// </summary>
-        /// <seealso cref="Return{TInput, TValue}(TValue)" />
-        public static readonly string DefaultReturnDescriptionFormat = "return {0}";
-
-        /// <summary>
-        /// The default description of the lazy 'return' pattern.
-        /// </summary>
-        /// <seealso cref="Return{TInput, TValue}(Func{TValue})" />
-        public static readonly string DefaultLazyReturnDescription = "return <provided value>";
+        /// <seealso cref="Return{TInput, TValue}(Task{TValue})" />
+        /// <seealso cref="Return{TInput, TValue}(Func{Task{TValue}})" />
+        public static readonly string DefaultReturnDescription = "return <provided value>";
 
         /// <summary>
         /// The default description of 'null' patterns.
@@ -38,72 +34,47 @@ namespace Matchmaker.Patterns
         /// <summary>
         /// The default description of equality patterns.
         /// </summary>
-        /// <seealso cref="EqualTo{TInput}(TInput)" />
-        /// <seealso cref="EqualTo{TInput}(TInput, IEqualityComparer{TInput})" />
-        public static readonly string DefaultEqualToDescriptionFormat = "x = {0}";
-
-        /// <summary>
-        /// The default description of lazy equality patterns.
-        /// </summary>
-        /// <seealso cref="EqualTo{TInput}(Func{TInput})" />
-        /// <seealso cref="EqualTo{TInput}(Func{TInput}, IEqualityComparer{TInput})" />
-        public static readonly string DefaultLazyEqualToDescription = "x = <provided value>";
+        /// <seealso cref="EqualTo{TInput}(Task{TInput})" />
+        /// <seealso cref="EqualTo{TInput}(Func{Task{TInput}})" />
+        /// <seealso cref="EqualTo{TInput}(Task{TInput}, IEqualityComparer{TInput})" />
+        /// <seealso cref="EqualTo{TInput}(Func{Task{TInput}}, IEqualityComparer{TInput})" />
+        public static readonly string DefaultEqualToDescription = "x = <provided value>";
 
         /// <summary>
         /// The default description of less-than patterns.
         /// </summary>
-        /// <seealso cref="LessThan{TInput}(TInput)" />
-        /// <seealso cref="LessThan{TInput}(TInput, IComparer{TInput})" />
-        public static readonly string DefaultLessThanDescriptionFormat = "x < {0}";
-
-        /// <summary>
-        /// The default description of lazy less-than patterns.
-        /// </summary>
-        /// <seealso cref="LessThan{TInput}(Func{TInput})" />
-        /// <seealso cref="LessThan{TInput}(Func{TInput}, IComparer{TInput})" />
-        public static readonly string DefaultLazyLessThanDescription = "x < <provided value>";
+        /// <seealso cref="LessThan{TInput}(Task{TInput})" />
+        /// <seealso cref="LessThan{TInput}(Func{Task{TInput}})" />
+        /// <seealso cref="LessThan{TInput}(Task{TInput}, IComparer{TInput})" />
+        /// <seealso cref="LessThan{TInput}(Func{Task{TInput}}, IComparer{TInput})" />
+        public static readonly string DefaultLessThanDescription = "x < <provided value>";
 
         /// <summary>
         /// The default description of less-or-equal patterns.
         /// </summary>
-        /// <seealso cref="LessOrEqual{TInput}(TInput)" />
-        /// <seealso cref="LessOrEqual{TInput}(TInput, IComparer{TInput})" />
-        public static readonly string DefaultLessOrEqualDescriptionFormat = "x <= {0}";
-
-        /// <summary>
-        /// The default description of lazy less-or-equal patterns.
-        /// </summary>
-        /// <seealso cref="LessOrEqual{TInput}(Func{TInput})" />
-        /// <seealso cref="LessOrEqual{TInput}(Func{TInput}, IComparer{TInput})" />
-        public static readonly string DefaultLazyLessOrEqualDescription = "x <= <provided value>";
+        /// <seealso cref="LessOrEqual{TInput}(Task{TInput})" />
+        /// <seealso cref="LessOrEqual{TInput}(Func{Task{TInput}})" />
+        /// <seealso cref="LessOrEqual{TInput}(Task{TInput}, IComparer{TInput})" />
+        /// <seealso cref="LessOrEqual{TInput}(Func{Task{TInput}}, IComparer{TInput})" />
+        public static readonly string DefaultLessOrEqualDescription = "x <= <provided value>";
 
         /// <summary>
         /// The default description of greater-than patterns.
         /// </summary>
-        /// <seealso cref="GreaterThan{TInput}(TInput)" />
-        /// <seealso cref="GreaterThan{TInput}(TInput, IComparer{TInput})" />
-        public static readonly string DefaultGreaterThanDescriptionFormat = "x > {0}";
-
-        /// <summary>
-        /// The default description of lazy greater-than patterns.
-        /// </summary>
-        /// <seealso cref="GreaterThan{TInput}(Func{TInput})" />
-        /// <seealso cref="GreaterThan{TInput}(Func{TInput}, IComparer{TInput})" />
-        public static readonly string DefaultLazyGreaterThanDescription = "x > <provided value>";
+        /// <seealso cref="GreaterThan{TInput}(Task{TInput})" />
+        /// <seealso cref="GreaterThan{TInput}(Func{Task{TInput}})" />
+        /// <seealso cref="GreaterThan{TInput}(Task{TInput}, IComparer{TInput})" />
+        /// <seealso cref="GreaterThan{TInput}(Func{Task{TInput}}, IComparer{TInput})" />
+        public static readonly string DefaultGreaterThanDescription = "x > <provided value>";
 
         /// <summary>
         /// The default description of greater-or-equal patterns.
         /// </summary>
-        /// <seealso cref="GreaterOrEqual{TInput}(TInput)" />
-        /// <seealso cref="GreaterOrEqual{TInput}(TInput, IComparer{TInput})" />
-        public static readonly string DefaultGreaterOrEqualDescriptionFormat = "x >= {0}";
-
-        /// <summary>
-        /// The default description of lazy greater-or-equal patterns.
-        /// </summary>
-        /// <seealso cref="GreaterOrEqual{TInput}(Func{TInput})" />
-        /// <seealso cref="GreaterOrEqual{TInput}(Func{TInput}, IComparer{TInput})" />
-        public static readonly string DefaultLazyGreaterOrEqualDescription = "x >= <provided value>";
+        /// <seealso cref="GreaterOrEqual{TInput}(Task{TInput})" />
+        /// <seealso cref="GreaterOrEqual{TInput}(Func{Task{TInput}})" />
+        /// <seealso cref="GreaterOrEqual{TInput}(Task{TInput}, IComparer{TInput})" />
+        /// <seealso cref="GreaterOrEqual{TInput}(Func{Task{TInput}}, IComparer{TInput})" />
+        public static readonly string DefaultGreaterOrEqualDescription = "x >= <provided value>";
 
         /// <summary>
         /// The default description of type patterns.
@@ -134,7 +105,7 @@ namespace Matchmaker.Patterns
         /// <summary>
         /// The default description of the 'not' pattern combinators.
         /// </summary>
-        /// <seealso cref="Not{TInput, TMatchResult}(IPattern{TInput, TMatchResult})" />
+        /// <seealso cref="Not{TInput, TMatchResult}(IAsyncPattern{TInput, TMatchResult})" />
         public static readonly string DefaultNotDescriptionFormat = "not ({0})";
 
         /// <summary>
@@ -149,12 +120,14 @@ namespace Matchmaker.Patterns
         /// <exception cref="ArgumentNullException">
         /// <paramref name="matcher" /> is <see langword="null" />.
         /// </exception>
-        /// <seealso cref="CreatePattern{TInput, TMatchResult}(Func{TInput, MatchResult{TMatchResult}}, string)" />
-        /// <seealso cref="CreatePattern{TInput}(Func{TInput, bool})" />
-        /// <seealso cref="CreatePattern{TInput}(Func{TInput, bool}, string)" />
-        public static IPattern<TInput, TMatchResult> CreatePattern<TInput, TMatchResult>(
-            Func<TInput, MatchResult<TMatchResult>> matcher)
-            => new SimplePattern<TInput, TMatchResult>(matcher ?? throw new ArgumentNullException(nameof(matcher)));
+        /// <seealso cref="CreatePattern{TInput, TMatchResult}(Func{TInput, Task{MatchResult{TMatchResult}}}, string)" />
+        /// <seealso cref="CreatePattern{TInput}(Func{TInput, Task{bool}})" />
+        /// <seealso cref="CreatePattern{TInput}(Func{TInput, Task{bool}}, string)" />
+        public static IAsyncPattern<TInput, TMatchResult> CreatePattern<TInput, TMatchResult>(
+            Func<TInput, Task<MatchResult<TMatchResult>>> matcher)
+            => matcher != null
+                ? new SimpleAsyncPattern<TInput, TMatchResult>(matcher)
+                : throw new ArgumentNullException(nameof(matcher));
 
         /// <summary>
         /// Creates a pattern which uses a specified function to match its inputs and has a specified description.
@@ -169,15 +142,18 @@ namespace Matchmaker.Patterns
         /// <exception cref="ArgumentNullException">
         /// <paramref name="matcher" /> or <paramref name="description" /> is <see langword="null" />.
         /// </exception>
-        /// <seealso cref="CreatePattern{TInput, TMatchResult}(Func{TInput, MatchResult{TMatchResult}})" />
-        /// <seealso cref="CreatePattern{TInput}(Func{TInput, bool})" />
-        /// <seealso cref="CreatePattern{TInput}(Func{TInput, bool}, string)" />
-        public static IPattern<TInput, TMatchResult> CreatePattern<TInput, TMatchResult>(
-            Func<TInput, MatchResult<TMatchResult>> matcher,
+        /// <seealso cref="CreatePattern{TInput, TMatchResult}(Func{TInput, Task{MatchResult{TMatchResult}}})" />
+        /// <seealso cref="CreatePattern{TInput, TMatchResult}(Func{TInput, Task{MatchResult{TMatchResult}}}, string)" />
+        /// <seealso cref="CreatePattern{TInput}(Func{TInput, Task{bool}})" />
+        /// <seealso cref="CreatePattern{TInput}(Func{TInput, Task{bool}}, string)" />
+        public static IAsyncPattern<TInput, TMatchResult> CreatePattern<TInput, TMatchResult>(
+            Func<TInput, Task<MatchResult<TMatchResult>>> matcher,
             string description)
-            => new SimplePattern<TInput, TMatchResult>(
-                matcher ?? throw new ArgumentNullException(nameof(matcher)),
-                description ?? throw new ArgumentNullException(nameof(description)));
+            => matcher != null
+                ? new SimpleAsyncPattern<TInput, TMatchResult>(
+                    matcher,
+                    description ?? throw new ArgumentNullException(nameof(description)))
+                : throw new ArgumentNullException(nameof(matcher));
 
         /// <summary>
         /// Creates a pattern which uses a specified predicate to match its inputs.
@@ -190,13 +166,13 @@ namespace Matchmaker.Patterns
         /// <exception cref="ArgumentNullException">
         /// <paramref name="predicate" /> is <see langword="null" />.
         /// </exception>
-        /// <seealso cref="CreatePattern{TInput, TMatchResult}(Func{TInput, MatchResult{TMatchResult}})" />
-        /// <seealso cref="CreatePattern{TInput, TMatchResult}(Func{TInput, MatchResult{TMatchResult}}, string)" />
-        /// <seealso cref="CreatePattern{TInput}(Func{TInput, bool}, string)" />
-        public static IPattern<TInput, TInput> CreatePattern<TInput>(Func<TInput, bool> predicate)
+        /// <seealso cref="CreatePattern{TInput, TMatchResult}(Func{TInput, Task{MatchResult{TMatchResult}}})" />
+        /// <seealso cref="CreatePattern{TInput, TMatchResult}(Func{TInput, Task{MatchResult{TMatchResult}}}, string)" />
+        /// <seealso cref="CreatePattern{TInput}(Func{TInput, Task{bool}}, string)" />
+        public static IAsyncPattern<TInput, TInput> CreatePattern<TInput>(Func<TInput, Task<bool>> predicate)
             => predicate != null
-                ? new SimplePattern<TInput, TInput>(
-                    input => predicate(input)
+                ? new SimpleAsyncPattern<TInput, TInput>(
+                    async input => await predicate(input)
                         ? MatchResult.Success(input)
                         : MatchResult.Failure<TInput>())
                 : throw new ArgumentNullException(nameof(predicate));
@@ -213,15 +189,15 @@ namespace Matchmaker.Patterns
         /// <exception cref="ArgumentNullException">
         /// <paramref name="predicate" /> or <paramref name="description" /> is <see langword="null" />.
         /// </exception>
-        /// <seealso cref="CreatePattern{TInput, TMatchResult}(Func{TInput, MatchResult{TMatchResult}})" />
-        /// <seealso cref="CreatePattern{TInput, TMatchResult}(Func{TInput, MatchResult{TMatchResult}}, string)" />
-        /// <seealso cref="CreatePattern{TInput}(Func{TInput, bool})" />
-        public static IPattern<TInput, TInput> CreatePattern<TInput>(
-            Func<TInput, bool> predicate,
+        /// <seealso cref="CreatePattern{TInput, TMatchResult}(Func{TInput, Task{MatchResult{TMatchResult}}})" />
+        /// <seealso cref="CreatePattern{TInput, TMatchResult}(Func{TInput, Task{MatchResult{TMatchResult}}}, string)" />
+        /// <seealso cref="CreatePattern{TInput}(Func{TInput, Task{bool}})" />
+        public static IAsyncPattern<TInput, TInput> CreatePattern<TInput>(
+            Func<TInput, Task<bool>> predicate,
             string description)
             => predicate != null
-                ? new SimplePattern<TInput, TInput>(
-                    input => predicate(input)
+                ? new SimpleAsyncPattern<TInput, TInput>(
+                    async input => await predicate(input)
                         ? MatchResult.Success(input)
                         : MatchResult.Failure<TInput>(),
                     description ?? throw new ArgumentNullException(nameof(description)))
@@ -236,7 +212,7 @@ namespace Matchmaker.Patterns
         /// This pattern should be used as the default case of a match expression, if one is needed.
         /// </remarks>
         /// <seealso cref="Any{TInput}(string)" />
-        public static IPattern<TInput, TInput> Any<TInput>()
+        public static IAsyncPattern<TInput, TInput> Any<TInput>()
             => Any<TInput>(DefaultAnyDescription);
 
         /// <summary>
@@ -252,8 +228,10 @@ namespace Matchmaker.Patterns
         /// <paramref name="description" /> is <see langword="null" />.
         /// </exception>
         /// <seealso cref="Any{TInput}()" />
-        public static IPattern<TInput, TInput> Any<TInput>(string description)
-            => CreatePattern<TInput>(_ => true, description ?? throw new ArgumentNullException(nameof(description)));
+        public static IAsyncPattern<TInput, TInput> Any<TInput>(string description)
+            => CreatePattern<TInput>(
+                _ => Task.FromResult(true),
+                description ?? throw new ArgumentNullException(nameof(description)));
 
         /// <summary>
         /// Returns a pattern which always successfully returns the specified value, discarding its input value.
@@ -266,11 +244,11 @@ namespace Matchmaker.Patterns
         /// This pattern is much like the <see cref="Any{TInput}()" /> pattern,
         /// except it returns the specified value instead of the pattern's input.
         /// </remarks>
-        /// <seealso cref="Return{TInput, TValue}(TValue, string)" />
-        /// <seealso cref="Return{TInput, TValue}(Func{TValue})" />
-        /// <seealso cref="Return{TInput, TValue}(Func{TValue}, string)" />
-        public static IPattern<TInput, TValue> Return<TInput, TValue>(TValue value)
-            => Return<TInput, TValue>(value, String.Format(DefaultReturnDescriptionFormat, value));
+        /// <seealso cref="Return{TInput, TValue}(Task{TValue}, string)" />
+        /// <seealso cref="Return{TInput, TValue}(Func{Task{TValue}})" />
+        /// <seealso cref="Return{TInput, TValue}(Func{Task{TValue}}, string)" />
+        public static IAsyncPattern<TInput, TValue> Return<TInput, TValue>(Task<TValue> value)
+            => Return<TInput, TValue>(value, DefaultReturnDescription);
 
         /// <summary>
         /// Returns a pattern which always successfully returns the specified value, discarding its input value.
@@ -287,12 +265,12 @@ namespace Matchmaker.Patterns
         /// <exception cref="ArgumentNullException">
         /// <paramref name="description" /> is <see langword="null" />.
         /// </exception>
-        /// <seealso cref="Return{TInput, TValue}(TValue)" />
-        /// <seealso cref="Return{TInput, TValue}(Func{TValue})" />
-        /// <seealso cref="Return{TInput, TValue}(Func{TValue}, string)" />
-        public static IPattern<TInput, TValue> Return<TInput, TValue>(TValue value, string description)
+        /// <seealso cref="Return{TInput, TValue}(Task{TValue})" />
+        /// <seealso cref="Return{TInput, TValue}(Func{Task{TValue}})" />
+        /// <seealso cref="Return{TInput, TValue}(Func{Task{TValue}}, string)" />
+        public static IAsyncPattern<TInput, TValue> Return<TInput, TValue>(Task<TValue> value, string description)
             => CreatePattern<TInput, TValue>(
-                _ => MatchResult.Success(value),
+                async _ => MatchResult.Success(await value),
                 description ?? throw new ArgumentNullException(nameof(description)));
 
         /// <summary>
@@ -303,29 +281,17 @@ namespace Matchmaker.Patterns
         /// <param name="valueProvider">The provider of the value to return.</param>
         /// <returns>A pattern which always successfully returns the provided value.</returns>
         /// <remarks>
-        /// <para>
-        /// The <paramref name="valueProvider" /> is not called until this pattern's
-        /// <see cref="IPattern{TInput, TMatchResult}.Match(TInput)" /> method is called.
-        /// </para>
-        /// <para>
-        /// The <paramref name="valueProvider" /> will be memoized, so it will be called once,
-        /// and then its result will be cached. The caching process is not thread-safe,
-        /// so there is a chance that the <paramref name="valueProvider" /> can be called
-        /// more than once.
-        /// </para>
-        /// <para>
-        /// This pattern is much like the <see cref="Any{TInput}(string)" /> pattern,
+        /// This pattern is much like the <see cref="Any{TInput}()" /> pattern,
         /// except it returns the provided value instead of the pattern's input.
-        /// </para>
         /// </remarks>
         /// <exception cref="ArgumentNullException">
         /// <paramref name="valueProvider"/> is <see langword="null" />.
         /// </exception>
-        /// <seealso cref="Return{TInput, TValue}(TValue)" />
-        /// <seealso cref="Return{TInput, TValue}(TValue, string)" />
-        /// <seealso cref="Return{TInput, TValue}(Func{TValue}, string)" />
-        public static IPattern<TInput, TValue> Return<TInput, TValue>(Func<TValue> valueProvider)
-            => Return<TInput, TValue>(valueProvider, DefaultLazyReturnDescription);
+        /// <seealso cref="Return{TInput, TValue}(Task{TValue})" />
+        /// <seealso cref="Return{TInput, TValue}(Task{TValue}, string)" />
+        /// <seealso cref="Return{TInput, TValue}(Func{Task{TValue}}, string)" />
+        public static IAsyncPattern<TInput, TValue> Return<TInput, TValue>(Func<Task<TValue>> valueProvider)
+            => Return<TInput, TValue>(valueProvider, DefaultReturnDescription);
 
         /// <summary>
         /// Returns a pattern which always successfully returns the provided value, discarding its input value.
@@ -338,7 +304,7 @@ namespace Matchmaker.Patterns
         /// <remarks>
         /// <para>
         /// The <paramref name="valueProvider" /> is not called until this pattern's
-        /// <see cref="IPattern{TInput, TMatchResult}.Match(TInput)" /> method is called.
+        /// <see cref="Pattern{TInput, TMatchResult}.Match(TInput)" /> method is called.
         /// </para>
         /// <para>
         /// The <paramref name="valueProvider" /> will be memoized, so it will be called once,
@@ -354,14 +320,16 @@ namespace Matchmaker.Patterns
         /// <exception cref="ArgumentNullException">
         /// <paramref name="valueProvider" /> or <paramref name="description" /> is <see langword="null" />.
         /// </exception>
-        /// <seealso cref="Return{TInput, TValue}(TValue)" />
-        /// <seealso cref="Return{TInput, TValue}(TValue, string)" />
-        /// <seealso cref="Return{TInput, TValue}(Func{TValue})" />
-        public static IPattern<TInput, TValue> Return<TInput, TValue>(Func<TValue> valueProvider, string description)
+        /// <seealso cref="Return{TInput, TValue}(Task{TValue})" />
+        /// <seealso cref="Return{TInput, TValue}(Task{TValue}, string)" />
+        /// <seealso cref="Return{TInput, TValue}(Func{Task{TValue}})" />
+        public static IAsyncPattern<TInput, TValue> Return<TInput, TValue>(
+            Func<Task<TValue>> valueProvider,
+            string description)
         {
             var memoizedProvider = Memoize(valueProvider ?? throw new ArgumentNullException(nameof(valueProvider)));
             return CreatePattern<TInput, TValue>(
-                _ => MatchResult.Success(memoizedProvider()),
+                async _ => MatchResult.Success(await memoizedProvider()),
                 description ?? throw new ArgumentNullException(nameof(description)));
         }
 
@@ -373,7 +341,7 @@ namespace Matchmaker.Patterns
         /// <seealso cref="Null{TInput}(string)" />
         /// <seealso cref="ValueNull{TInput}()" />
         /// <seealso cref="ValueNull{TInput}(string)" />
-        public static IPattern<TInput, TInput> Null<TInput>()
+        public static IAsyncPattern<TInput, TInput> Null<TInput>()
             where TInput : class
             => Null<TInput>(DefaultNullDescription);
 
@@ -389,10 +357,10 @@ namespace Matchmaker.Patterns
         /// <seealso cref="Null{TInput}()" />
         /// <seealso cref="ValueNull{TInput}()" />
         /// <seealso cref="ValueNull{TInput}(string)" />
-        public static IPattern<TInput, TInput> Null<TInput>(string description)
+        public static IAsyncPattern<TInput, TInput> Null<TInput>(string description)
             where TInput : class
             => CreatePattern<TInput>(
-                input => input == null,
+                input => Task.FromResult(input == null),
                 description ?? throw new ArgumentNullException(nameof(description)));
 
         /// <summary>
@@ -403,7 +371,7 @@ namespace Matchmaker.Patterns
         /// <seealso cref="Null{TInput}()" />
         /// <seealso cref="Null{TInput}(string)" />
         /// <seealso cref="ValueNull{TInput}(string)" />
-        public static IPattern<TInput?, TInput?> ValueNull<TInput>()
+        public static IAsyncPattern<TInput?, TInput?> ValueNull<TInput>()
             where TInput : struct
             => ValueNull<TInput>(DefaultNullDescription);
 
@@ -419,10 +387,10 @@ namespace Matchmaker.Patterns
         /// <seealso cref="Null{TInput}()" />
         /// <seealso cref="Null{TInput}(string)" />
         /// <seealso cref="ValueNull{TInput}()" />
-        public static IPattern<TInput?, TInput?> ValueNull<TInput>(string description)
+        public static IAsyncPattern<TInput?, TInput?> ValueNull<TInput>(string description)
             where TInput : struct
             => CreatePattern<TInput?>(
-                input => input == null,
+                input => Task.FromResult(input == null),
                 description ?? throw new ArgumentNullException(nameof(description)));
 
         /// <summary>
@@ -433,15 +401,18 @@ namespace Matchmaker.Patterns
         /// <returns>
         /// A pattern which is matched successfully when the input value is equal to the specified value.
         /// </returns>
-        /// <seealso cref="EqualTo{TInput}(Func{TInput})" />
-        /// <seealso cref="EqualTo{TInput}(TInput, IEqualityComparer{TInput})" />
-        /// <seealso cref="EqualTo{TInput}(Func{TInput}, IEqualityComparer{TInput})" />
-        /// <seealso cref="EqualTo{TInput}(TInput, string)" />
-        /// <seealso cref="EqualTo{TInput}(Func{TInput}, string)" />
-        /// <seealso cref="EqualTo{TInput}(TInput, IEqualityComparer{TInput}, string)" />
-        /// <seealso cref="EqualTo{TInput}(Func{TInput}, IEqualityComparer{TInput}, string)" />
-        public static IPattern<TInput, TInput> EqualTo<TInput>(TInput value)
-            => EqualTo(value, String.Format(DefaultEqualToDescriptionFormat, value));
+        /// <exception cref="ArgumentNullException">
+        /// <paramref name="value" /> is <see langword="null" />.
+        /// </exception>
+        /// <seealso cref="EqualTo{TInput}(Func{Task{TInput}})" />
+        /// <seealso cref="EqualTo{TInput}(Task{TInput}, IEqualityComparer{TInput})" />
+        /// <seealso cref="EqualTo{TInput}(Func{Task{TInput}}, IEqualityComparer{TInput})" />
+        /// <seealso cref="EqualTo{TInput}(Task{TInput}, string)" />
+        /// <seealso cref="EqualTo{TInput}(Func{Task{TInput}}, string)" />
+        /// <seealso cref="EqualTo{TInput}(Task{TInput}, IEqualityComparer{TInput}, string)" />
+        /// <seealso cref="EqualTo{TInput}(Func{Task{TInput}}, IEqualityComparer{TInput}, string)" />
+        public static IAsyncPattern<TInput, TInput> EqualTo<TInput>(Task<TInput> value)
+            => EqualTo(value, DefaultEqualToDescription);
 
         /// <summary>
         /// Returns a pattern which is matched successfully when the input value is equal to the provided value.
@@ -451,18 +422,34 @@ namespace Matchmaker.Patterns
         /// <returns>
         /// A pattern which is matched successfully when the input value is equal to the provided value.
         /// </returns>
+        /// <remarks>
+        /// <para>
+        /// The <paramref name="valueProvider" /> is not called until this pattern's
+        /// <see cref="IAsyncPattern{TInput, TMatchResult}.MatchAsync(TInput)" /> method is called.
+        /// </para>
+        /// <para>
+        /// The <paramref name="valueProvider" /> will be memoized, so it will be called once,
+        /// and then its result will be cached. The caching process is not thread-safe,
+        /// so there is a chance that the <paramref name="valueProvider" /> can be called
+        /// more than once.
+        /// </para>
+        /// <para>
+        /// If <paramref name="valueProvider" /> returns <see langword="null" />, an
+        /// <see cref="InvalidOperationException" /> will be thrown.
+        /// </para>
+        /// </remarks>
         /// <exception cref="ArgumentNullException">
         /// <paramref name="valueProvider" /> is <see langword="null" />.
         /// </exception>
-        /// <seealso cref="EqualTo{TInput}(TInput)" />
-        /// <seealso cref="EqualTo{TInput}(TInput, IEqualityComparer{TInput})" />
-        /// <seealso cref="EqualTo{TInput}(Func{TInput}, IEqualityComparer{TInput})" />
-        /// <seealso cref="EqualTo{TInput}(TInput, string)" />
-        /// <seealso cref="EqualTo{TInput}(Func{TInput}, string)" />
-        /// <seealso cref="EqualTo{TInput}(TInput, IEqualityComparer{TInput}, string)" />
-        /// <seealso cref="EqualTo{TInput}(Func{TInput}, IEqualityComparer{TInput}, string)" />
-        public static IPattern<TInput, TInput> EqualTo<TInput>(Func<TInput> valueProvider)
-            => EqualTo(valueProvider, DefaultLazyEqualToDescription);
+        /// <seealso cref="EqualTo{TInput}(Task{TInput})" />
+        /// <seealso cref="EqualTo{TInput}(Task{TInput}, IEqualityComparer{TInput})" />
+        /// <seealso cref="EqualTo{TInput}(Func{Task{TInput}}, IEqualityComparer{TInput})" />
+        /// <seealso cref="EqualTo{TInput}(Task{TInput}, string)" />
+        /// <seealso cref="EqualTo{TInput}(Func{Task{TInput}}, string)" />
+        /// <seealso cref="EqualTo{TInput}(Task{TInput}, IEqualityComparer{TInput}, string)" />
+        /// <seealso cref="EqualTo{TInput}(Func{Task{TInput}}, IEqualityComparer{TInput}, string)" />
+        public static IAsyncPattern<TInput, TInput> EqualTo<TInput>(Func<Task<TInput>> valueProvider)
+            => EqualTo(valueProvider, DefaultEqualToDescription);
 
         /// <summary>
         /// Returns a pattern which is matched successfully when the input value is equal to the specified value
@@ -475,17 +462,19 @@ namespace Matchmaker.Patterns
         /// A pattern which is matched successfully when the input value is equal to the specified value.
         /// </returns>
         /// <exception cref="ArgumentNullException">
-        /// <paramref name="comparer" /> is <see langword="null" />.
+        /// <paramref name="value" /> or <paramref name="comparer" /> is <see langword="null" />.
         /// </exception>
-        /// <seealso cref="EqualTo{TInput}(TInput)" />
-        /// <seealso cref="EqualTo{TInput}(Func{TInput})" />
-        /// <seealso cref="EqualTo{TInput}(Func{TInput}, IEqualityComparer{TInput})" />
-        /// <seealso cref="EqualTo{TInput}(TInput, string)" />
-        /// <seealso cref="EqualTo{TInput}(Func{TInput}, string)" />
-        /// <seealso cref="EqualTo{TInput}(TInput, IEqualityComparer{TInput}, string)" />
-        /// <seealso cref="EqualTo{TInput}(Func{TInput}, IEqualityComparer{TInput}, string)" />
-        public static IPattern<TInput, TInput> EqualTo<TInput>(TInput value, IEqualityComparer<TInput> comparer)
-            => EqualTo(value, comparer, String.Format(DefaultEqualToDescriptionFormat, value));
+        /// <seealso cref="EqualTo{TInput}(Task{TInput})" />
+        /// <seealso cref="EqualTo{TInput}(Func{Task{TInput}})" />
+        /// <seealso cref="EqualTo{TInput}(Func{Task{TInput}}, IEqualityComparer{TInput})" />
+        /// <seealso cref="EqualTo{TInput}(Task{TInput}, string)" />
+        /// <seealso cref="EqualTo{TInput}(Func{Task{TInput}}, string)" />
+        /// <seealso cref="EqualTo{TInput}(Task{TInput}, IEqualityComparer{TInput}, string)" />
+        /// <seealso cref="EqualTo{TInput}(Func{Task{TInput}}, IEqualityComparer{TInput}, string)" />
+        public static IAsyncPattern<TInput, TInput> EqualTo<TInput>(
+            Task<TInput> value,
+            IEqualityComparer<TInput> comparer)
+            => EqualTo(value, comparer, DefaultEqualToDescription);
 
         /// <summary>
         /// Returns a pattern which is matched successfully when the input value is equal to the provided value
@@ -500,7 +489,7 @@ namespace Matchmaker.Patterns
         /// <remarks>
         /// <para>
         /// The <paramref name="valueProvider" /> is not called until this pattern's
-        /// <see cref="IPattern{TInput, TMatchResult}.Match(TInput)" /> method is called.
+        /// <see cref="IAsyncPattern{TInput, TMatchResult}.MatchAsync(TInput)" /> method is called.
         /// </para>
         /// <para>
         /// The <paramref name="valueProvider" /> will be memoized, so it will be called once,
@@ -508,21 +497,25 @@ namespace Matchmaker.Patterns
         /// so there is a chance that the <paramref name="valueProvider" /> can be called
         /// more than once.
         /// </para>
+        /// <para>
+        /// If <paramref name="valueProvider" /> returns <see langword="null" />, an
+        /// <see cref="InvalidOperationException" /> will be thrown.
+        /// </para>
         /// </remarks>
         /// <exception cref="ArgumentNullException">
         /// <paramref name="valueProvider" /> or <paramref name="comparer" /> is <see langword="null" />.
         /// </exception>
-        /// <seealso cref="EqualTo{TInput}(TInput)" />
-        /// <seealso cref="EqualTo{TInput}(Func{TInput})" />
-        /// <seealso cref="EqualTo{TInput}(TInput, IEqualityComparer{TInput})" />
-        /// <seealso cref="EqualTo{TInput}(TInput, string)" />
-        /// <seealso cref="EqualTo{TInput}(Func{TInput}, string)" />
-        /// <seealso cref="EqualTo{TInput}(TInput, IEqualityComparer{TInput}, string)" />
-        /// <seealso cref="EqualTo{TInput}(Func{TInput}, IEqualityComparer{TInput}, string)" />
-        public static IPattern<TInput, TInput> EqualTo<TInput>(
-            Func<TInput> valueProvider,
+        /// <seealso cref="EqualTo{TInput}(Task{TInput})" />
+        /// <seealso cref="EqualTo{TInput}(Func{Task{TInput}})" />
+        /// <seealso cref="EqualTo{TInput}(Task{TInput}, IEqualityComparer{TInput})" />
+        /// <seealso cref="EqualTo{TInput}(Task{TInput}, string)" />
+        /// <seealso cref="EqualTo{TInput}(Func{Task{TInput}}, string)" />
+        /// <seealso cref="EqualTo{TInput}(Task{TInput}, IEqualityComparer{TInput}, string)" />
+        /// <seealso cref="EqualTo{TInput}(Func{Task{TInput}}, IEqualityComparer{TInput}, string)" />
+        public static IAsyncPattern<TInput, TInput> EqualTo<TInput>(
+            Func<Task<TInput>> valueProvider,
             IEqualityComparer<TInput> comparer)
-            => EqualTo(valueProvider, comparer, DefaultLazyEqualToDescription);
+            => EqualTo(valueProvider, comparer, DefaultEqualToDescription);
 
         /// <summary>
         /// Returns a pattern which is matched successfully when the input value is equal to the specified value.
@@ -534,16 +527,16 @@ namespace Matchmaker.Patterns
         /// A pattern which is matched successfully when the input value is equal to the specified value.
         /// </returns>
         /// <exception cref="ArgumentNullException">
-        /// <paramref name="description" /> is <see langword="null" />.
+        /// <paramref name="value" /> or <paramref name="description" /> is <see langword="null" />.
         /// </exception>
-        /// <seealso cref="EqualTo{TInput}(TInput)" />
-        /// <seealso cref="EqualTo{TInput}(Func{TInput})" />
-        /// <seealso cref="EqualTo{TInput}(TInput, IEqualityComparer{TInput})" />
-        /// <seealso cref="EqualTo{TInput}(Func{TInput}, IEqualityComparer{TInput})" />
-        /// <seealso cref="EqualTo{TInput}(Func{TInput}, string)" />
-        /// <seealso cref="EqualTo{TInput}(TInput, IEqualityComparer{TInput}, string)" />
-        /// <seealso cref="EqualTo{TInput}(Func{TInput}, IEqualityComparer{TInput}, string)" />
-        public static IPattern<TInput, TInput> EqualTo<TInput>(TInput value, string description)
+        /// <seealso cref="EqualTo{TInput}(Task{TInput})" />
+        /// <seealso cref="EqualTo{TInput}(Func{Task{TInput}})" />
+        /// <seealso cref="EqualTo{TInput}(Task{TInput}, IEqualityComparer{TInput})" />
+        /// <seealso cref="EqualTo{TInput}(Func{Task{TInput}}, IEqualityComparer{TInput})" />
+        /// <seealso cref="EqualTo{TInput}(Func{Task{TInput}}, string)" />
+        /// <seealso cref="EqualTo{TInput}(Task{TInput}, IEqualityComparer{TInput}, string)" />
+        /// <seealso cref="EqualTo{TInput}(Func{Task{TInput}}, IEqualityComparer{TInput}, string)" />
+        public static IAsyncPattern<TInput, TInput> EqualTo<TInput>(Task<TInput> value, string description)
             => EqualTo(value, EqualityComparer<TInput>.Default, description);
 
         /// <summary>
@@ -558,7 +551,7 @@ namespace Matchmaker.Patterns
         /// <remarks>
         /// <para>
         /// The <paramref name="valueProvider" /> is not called until this pattern's
-        /// <see cref="IPattern{TInput, TMatchResult}.Match(TInput)" /> method is called.
+        /// <see cref="IAsyncPattern{TInput, TMatchResult}.MatchAsync(TInput)" /> method is called.
         /// </para>
         /// <para>
         /// The <paramref name="valueProvider" /> will be memoized, so it will be called once,
@@ -566,18 +559,24 @@ namespace Matchmaker.Patterns
         /// so there is a chance that the <paramref name="valueProvider" /> can be called
         /// more than once.
         /// </para>
+        /// <para>
+        /// If <paramref name="valueProvider" /> returns <see langword="null" />, an
+        /// <see cref="InvalidOperationException" /> will be thrown.
+        /// </para>
         /// </remarks>
         /// <exception cref="ArgumentNullException">
         /// <paramref name="valueProvider" /> or <paramref name="description" /> is <see langword="null" />.
         /// </exception>
-        /// <seealso cref="EqualTo{TInput}(TInput)" />
-        /// <seealso cref="EqualTo{TInput}(Func{TInput})" />
-        /// <seealso cref="EqualTo{TInput}(TInput, IEqualityComparer{TInput})" />
-        /// <seealso cref="EqualTo{TInput}(Func{TInput}, IEqualityComparer{TInput})" />
-        /// <seealso cref="EqualTo{TInput}(TInput, string)" />
-        /// <seealso cref="EqualTo{TInput}(TInput, IEqualityComparer{TInput}, string)" />
-        /// <seealso cref="EqualTo{TInput}(Func{TInput}, IEqualityComparer{TInput}, string)" />
-        public static IPattern<TInput, TInput> EqualTo<TInput>(Func<TInput> valueProvider, string description)
+        /// <seealso cref="EqualTo{TInput}(Task{TInput})" />
+        /// <seealso cref="EqualTo{TInput}(Func{Task{TInput}})" />
+        /// <seealso cref="EqualTo{TInput}(Task{TInput}, IEqualityComparer{TInput})" />
+        /// <seealso cref="EqualTo{TInput}(Func{Task{TInput}}, IEqualityComparer{TInput})" />
+        /// <seealso cref="EqualTo{TInput}(Task{TInput}, string)" />
+        /// <seealso cref="EqualTo{TInput}(Task{TInput}, IEqualityComparer{TInput}, string)" />
+        /// <seealso cref="EqualTo{TInput}(Func{Task{TInput}}, IEqualityComparer{TInput}, string)" />
+        public static IAsyncPattern<TInput, TInput> EqualTo<TInput>(
+            Func<Task<TInput>> valueProvider,
+            string description)
             => EqualTo(valueProvider, EqualityComparer<TInput>.Default, description);
 
         /// <summary>
@@ -592,24 +591,27 @@ namespace Matchmaker.Patterns
         /// A pattern which is matched successfully when the input value is equal to the specified value.
         /// </returns>
         /// <exception cref="ArgumentNullException">
-        /// <paramref name="comparer" /> or <paramref name="description" /> is <see langword="null" />.
+        /// <paramref name="value" />, <paramref name="comparer" /> or <paramref name="description" /> is
+        /// <see langword="null" />.
         /// </exception>
-        /// <seealso cref="EqualTo{TInput}(TInput)" />
-        /// <seealso cref="EqualTo{TInput}(Func{TInput})" />
-        /// <seealso cref="EqualTo{TInput}(TInput, IEqualityComparer{TInput})" />
-        /// <seealso cref="EqualTo{TInput}(Func{TInput}, IEqualityComparer{TInput})" />
-        /// <seealso cref="EqualTo{TInput}(TInput, string)" />
-        /// <seealso cref="EqualTo{TInput}(Func{TInput}, string)" />
-        /// <seealso cref="EqualTo{TInput}(TInput, IEqualityComparer{TInput}, string)" />
-        public static IPattern<TInput, TInput> EqualTo<TInput>(
-            TInput value,
+        /// <seealso cref="EqualTo{TInput}(Task{TInput})" />
+        /// <seealso cref="EqualTo{TInput}(Func{Task{TInput}})" />
+        /// <seealso cref="EqualTo{TInput}(Task{TInput}, IEqualityComparer{TInput})" />
+        /// <seealso cref="EqualTo{TInput}(Func{Task{TInput}}, IEqualityComparer{TInput})" />
+        /// <seealso cref="EqualTo{TInput}(Task{TInput}, string)" />
+        /// <seealso cref="EqualTo{TInput}(Func{Task{TInput}}, string)" />
+        /// <seealso cref="EqualTo{TInput}(Func{Task{TInput}}, IEqualityComparer{TInput}, string)" />
+        public static IAsyncPattern<TInput, TInput> EqualTo<TInput>(
+            Task<TInput> value,
             IEqualityComparer<TInput> comparer,
             string description)
-            => comparer != null
-                ? CreatePattern<TInput>(
-                    input => comparer.Equals(input, value),
-                    description ?? throw new ArgumentNullException(nameof(description)))
-                : throw new ArgumentNullException(nameof(comparer));
+            => value != null
+                ? comparer != null
+                    ? CreatePattern<TInput>(
+                        async input => comparer.Equals(input, await value),
+                        description ?? throw new ArgumentNullException(nameof(description)))
+                    : throw new ArgumentNullException(nameof(comparer))
+                : throw new ArgumentNullException(nameof(value));
 
         /// <summary>
         /// Returns a pattern which is matched successfully when the input value is equal to the provided value
@@ -625,7 +627,7 @@ namespace Matchmaker.Patterns
         /// <remarks>
         /// <para>
         /// The <paramref name="valueProvider" /> is not called until this pattern's
-        /// <see cref="IPattern{TInput, TMatchResult}.Match(TInput)" /> method is called.
+        /// <see cref="IAsyncPattern{TInput, TMatchResult}.MatchAsync(TInput)" /> method is called.
         /// </para>
         /// <para>
         /// The <paramref name="valueProvider" /> will be memoized, so it will be called once,
@@ -633,20 +635,24 @@ namespace Matchmaker.Patterns
         /// so there is a chance that the <paramref name="valueProvider" /> can be called
         /// more than once.
         /// </para>
+        /// <para>
+        /// If <paramref name="valueProvider" /> returns <see langword="null" />, an
+        /// <see cref="InvalidOperationException" /> will be thrown.
+        /// </para>
         /// </remarks>
         /// <exception cref="ArgumentNullException">
         /// <paramref name="valueProvider" />, <paramref name="comparer" /> or <paramref name="description" />
         /// is <see langword="null" />.
         /// </exception>
-        /// <seealso cref="EqualTo{TInput}(TInput)" />
-        /// <seealso cref="EqualTo{TInput}(Func{TInput})" />
-        /// <seealso cref="EqualTo{TInput}(TInput, IEqualityComparer{TInput})" />
-        /// <seealso cref="EqualTo{TInput}(Func{TInput}, IEqualityComparer{TInput})" />
-        /// <seealso cref="EqualTo{TInput}(TInput, string)" />
-        /// <seealso cref="EqualTo{TInput}(Func{TInput}, string)" />
-        /// <seealso cref="EqualTo{TInput}(TInput, IEqualityComparer{TInput}, string)" />
-        public static IPattern<TInput, TInput> EqualTo<TInput>(
-            Func<TInput> valueProvider,
+        /// <seealso cref="EqualTo{TInput}(Task{TInput})" />
+        /// <seealso cref="EqualTo{TInput}(Func{Task{TInput}})" />
+        /// <seealso cref="EqualTo{TInput}(Task{TInput}, IEqualityComparer{TInput})" />
+        /// <seealso cref="EqualTo{TInput}(Func{Task{TInput}}, IEqualityComparer{TInput})" />
+        /// <seealso cref="EqualTo{TInput}(Task{TInput}, string)" />
+        /// <seealso cref="EqualTo{TInput}(Func{Task{TInput}}, string)" />
+        /// <seealso cref="EqualTo{TInput}(Task{TInput}, IEqualityComparer{TInput}, string)" />
+        public static IAsyncPattern<TInput, TInput> EqualTo<TInput>(
+            Func<Task<TInput>> valueProvider,
             IEqualityComparer<TInput> comparer,
             string description)
         {
@@ -654,7 +660,7 @@ namespace Matchmaker.Patterns
 
             return comparer != null
                 ? CreatePattern<TInput>(
-                    input => comparer.Equals(input, memoizedProvider()),
+                    async input => comparer.Equals(input, await memoizedProvider()),
                     description ?? throw new ArgumentNullException(nameof(description)))
                 : throw new ArgumentNullException(nameof(comparer));
         }
@@ -667,16 +673,19 @@ namespace Matchmaker.Patterns
         /// <returns>
         /// A pattern which is matched successfully when the input value is less than the specified value.
         /// </returns>
-        /// <seealso cref="LessThan{TInput}(Func{TInput})" />
-        /// <seealso cref="LessThan{TInput}(TInput, IComparer{TInput})" />
-        /// <seealso cref="LessThan{TInput}(Func{TInput}, IComparer{TInput})" />
-        /// <seealso cref="LessThan{TInput}(TInput, string)" />
-        /// <seealso cref="LessThan{TInput}(Func{TInput}, string)" />
-        /// <seealso cref="LessThan{TInput}(TInput, IComparer{TInput}, string)" />
-        /// <seealso cref="LessThan{TInput}(Func{TInput}, IComparer{TInput}, string)" />
-        public static IPattern<TInput, TInput> LessThan<TInput>(TInput value)
+        /// <exception cref="ArgumentNullException">
+        /// <paramref name="value" /> is <see langword="null" />.
+        /// </exception>
+        /// <seealso cref="LessThan{TInput}(Func{Task{TInput}})" />
+        /// <seealso cref="LessThan{TInput}(Task{TInput}, IComparer{TInput})" />
+        /// <seealso cref="LessThan{TInput}(Func{Task{TInput}}, IComparer{TInput})" />
+        /// <seealso cref="LessThan{TInput}(Task{TInput}, string)" />
+        /// <seealso cref="LessThan{TInput}(Func{Task{TInput}}, string)" />
+        /// <seealso cref="LessThan{TInput}(Task{TInput}, IComparer{TInput}, string)" />
+        /// <seealso cref="LessThan{TInput}(Func{Task{TInput}}, IComparer{TInput}, string)" />
+        public static IAsyncPattern<TInput, TInput> LessThan<TInput>(Task<TInput> value)
             where TInput : IComparable<TInput>
-            => LessThan(value, Comparer<TInput>.Default, String.Format(DefaultLessThanDescriptionFormat, value));
+            => LessThan(value, DefaultLessThanDescription);
 
         /// <summary>
         /// Returns a pattern which is matched successfully when the input value is less than the provided value.
@@ -689,7 +698,7 @@ namespace Matchmaker.Patterns
         /// <remarks>
         /// <para>
         /// The <paramref name="valueProvider" /> is not called until this pattern's
-        /// <see cref="IPattern{TInput, TMatchResult}.Match(TInput)" /> method is called.
+        /// <see cref="IAsyncPattern{TInput, TMatchResult}.MatchAsync(TInput)" /> method is called.
         /// </para>
         /// <para>
         /// The <paramref name="valueProvider" /> will be memoized, so it will be called once,
@@ -697,20 +706,24 @@ namespace Matchmaker.Patterns
         /// so there is a chance that the <paramref name="valueProvider" /> can be called
         /// more than once.
         /// </para>
+        /// <para>
+        /// If <paramref name="valueProvider" /> returns <see langword="null" />, an
+        /// <see cref="InvalidOperationException" /> will be thrown.
+        /// </para>
         /// </remarks>
         /// <exception cref="ArgumentNullException">
         /// <paramref name="valueProvider" /> is <see langword="null" />.
         /// </exception>
-        /// <seealso cref="LessThan{TInput}(TInput)" />
-        /// <seealso cref="LessThan{TInput}(TInput, IComparer{TInput})" />
-        /// <seealso cref="LessThan{TInput}(Func{TInput}, IComparer{TInput})" />
-        /// <seealso cref="LessThan{TInput}(TInput, string)" />
-        /// <seealso cref="LessThan{TInput}(Func{TInput}, string)" />
-        /// <seealso cref="LessThan{TInput}(TInput, IComparer{TInput}, string)" />
-        /// <seealso cref="LessThan{TInput}(Func{TInput}, IComparer{TInput}, string)" />
-        public static IPattern<TInput, TInput> LessThan<TInput>(Func<TInput> valueProvider)
+        /// <seealso cref="LessThan{TInput}(Task{TInput})" />
+        /// <seealso cref="LessThan{TInput}(Task{TInput}, IComparer{TInput})" />
+        /// <seealso cref="LessThan{TInput}(Func{Task{TInput}}, IComparer{TInput})" />
+        /// <seealso cref="LessThan{TInput}(Task{TInput}, string)" />
+        /// <seealso cref="LessThan{TInput}(Func{Task{TInput}}, string)" />
+        /// <seealso cref="LessThan{TInput}(Task{TInput}, IComparer{TInput}, string)" />
+        /// <seealso cref="LessThan{TInput}(Func{Task{TInput}}, IComparer{TInput}, string)" />
+        public static IAsyncPattern<TInput, TInput> LessThan<TInput>(Func<Task<TInput>> valueProvider)
             where TInput : IComparable<TInput>
-            => LessThan(valueProvider, Comparer<TInput>.Default, DefaultLazyLessThanDescription);
+            => LessThan(valueProvider, DefaultLessThanDescription);
 
         /// <summary>
         /// Returns a pattern which is matched successfully when the input value is less than the specified value
@@ -723,17 +736,17 @@ namespace Matchmaker.Patterns
         /// A pattern which is matched successfully when the input value is less than the specified value.
         /// </returns>
         /// <exception cref="ArgumentNullException">
-        /// <paramref name="comparer" /> is <see langword="null" />.
+        /// <paramref name="value" /> or <paramref name="comparer" /> is <see langword="null" />.
         /// </exception>
-        /// <seealso cref="LessThan{TInput}(TInput)" />
-        /// <seealso cref="LessThan{TInput}(Func{TInput})" />
-        /// <seealso cref="LessThan{TInput}(Func{TInput}, IComparer{TInput})" />
-        /// <seealso cref="LessThan{TInput}(TInput, string)" />
-        /// <seealso cref="LessThan{TInput}(Func{TInput}, string)" />
-        /// <seealso cref="LessThan{TInput}(TInput, IComparer{TInput}, string)" />
-        /// <seealso cref="LessThan{TInput}(Func{TInput}, IComparer{TInput}, string)" />
-        public static IPattern<TInput, TInput> LessThan<TInput>(TInput value, IComparer<TInput> comparer)
-            => LessThan(value, comparer, String.Format(DefaultLessThanDescriptionFormat, value));
+        /// <seealso cref="LessThan{TInput}(Task{TInput})" />
+        /// <seealso cref="LessThan{TInput}(Func{Task{TInput}})" />
+        /// <seealso cref="LessThan{TInput}(Func{Task{TInput}}, IComparer{TInput})" />
+        /// <seealso cref="LessThan{TInput}(Task{TInput}, string)" />
+        /// <seealso cref="LessThan{TInput}(Func{Task{TInput}}, string)" />
+        /// <seealso cref="LessThan{TInput}(Task{TInput}, IComparer{TInput}, string)" />
+        /// <seealso cref="LessThan{TInput}(Func{Task{TInput}}, IComparer{TInput}, string)" />
+        public static IAsyncPattern<TInput, TInput> LessThan<TInput>(Task<TInput> value, IComparer<TInput> comparer)
+            => LessThan(value, comparer, DefaultLessThanDescription);
 
         /// <summary>
         /// Returns a pattern which is matched successfully when the input value is less than the provided value
@@ -748,7 +761,7 @@ namespace Matchmaker.Patterns
         /// <remarks>
         /// <para>
         /// The <paramref name="valueProvider" /> is not called until this pattern's
-        /// <see cref="IPattern{TInput, TMatchResult}.Match(TInput)" /> method is called.
+        /// <see cref="IAsyncPattern{TInput, TMatchResult}.MatchAsync(TInput)" /> method is called.
         /// </para>
         /// <para>
         /// The <paramref name="valueProvider" /> will be memoized, so it will be called once,
@@ -756,19 +769,25 @@ namespace Matchmaker.Patterns
         /// so there is a chance that the <paramref name="valueProvider" /> can be called
         /// more than once.
         /// </para>
+        /// <para>
+        /// If <paramref name="valueProvider" /> returns <see langword="null" />, an
+        /// <see cref="InvalidOperationException" /> will be thrown.
+        /// </para>
         /// </remarks>
         /// <exception cref="ArgumentNullException">
         /// <paramref name="valueProvider" /> or <paramref name="comparer" /> is <see langword="null" />.
         /// </exception>
-        /// <seealso cref="LessThan{TInput}(TInput)" />
-        /// <seealso cref="LessThan{TInput}(Func{TInput})" />
-        /// <seealso cref="LessThan{TInput}(TInput, IComparer{TInput})" />
-        /// <seealso cref="LessThan{TInput}(TInput, string)" />
-        /// <seealso cref="LessThan{TInput}(Func{TInput}, string)" />
-        /// <seealso cref="LessThan{TInput}(TInput, IComparer{TInput}, string)" />
-        /// <seealso cref="LessThan{TInput}(Func{TInput}, IComparer{TInput}, string)" />
-        public static IPattern<TInput, TInput> LessThan<TInput>(Func<TInput> valueProvider, IComparer<TInput> comparer)
-            => LessThan(valueProvider, comparer, DefaultLazyLessThanDescription);
+        /// <seealso cref="LessThan{TInput}(Task{TInput})" />
+        /// <seealso cref="LessThan{TInput}(Func{Task{TInput}})" />
+        /// <seealso cref="LessThan{TInput}(Task{TInput}, IComparer{TInput})" />
+        /// <seealso cref="LessThan{TInput}(Task{TInput}, string)" />
+        /// <seealso cref="LessThan{TInput}(Func{Task{TInput}}, string)" />
+        /// <seealso cref="LessThan{TInput}(Task{TInput}, IComparer{TInput}, string)" />
+        /// <seealso cref="LessThan{TInput}(Func{Task{TInput}}, IComparer{TInput}, string)" />
+        public static IAsyncPattern<TInput, TInput> LessThan<TInput>(
+            Func<Task<TInput>> valueProvider,
+            IComparer<TInput> comparer)
+            => LessThan(valueProvider, comparer, DefaultLessThanDescription);
 
         /// <summary>
         /// Returns a pattern which is matched successfully when the input value is less than the specified value.
@@ -780,16 +799,16 @@ namespace Matchmaker.Patterns
         /// A pattern which is matched successfully when the input value is less than the specified value.
         /// </returns>
         /// <exception cref="ArgumentNullException">
-        /// <paramref name="description" /> is <see langword="null" />.
+        /// <paramref name="value" /> or <paramref name="description" /> is <see langword="null" />.
         /// </exception>
-        /// <seealso cref="LessThan{TInput}(TInput)" />
-        /// <seealso cref="LessThan{TInput}(Func{TInput})" />
-        /// <seealso cref="LessThan{TInput}(TInput, IComparer{TInput})" />
-        /// <seealso cref="LessThan{TInput}(Func{TInput}, IComparer{TInput})" />
-        /// <seealso cref="LessThan{TInput}(Func{TInput}, string)" />
-        /// <seealso cref="LessThan{TInput}(TInput, IComparer{TInput}, string)" />
-        /// <seealso cref="LessThan{TInput}(Func{TInput}, IComparer{TInput}, string)" />
-        public static IPattern<TInput, TInput> LessThan<TInput>(TInput value, string description)
+        /// <seealso cref="LessThan{TInput}(Task{TInput})" />
+        /// <seealso cref="LessThan{TInput}(Func{Task{TInput}})" />
+        /// <seealso cref="LessThan{TInput}(Task{TInput}, IComparer{TInput})" />
+        /// <seealso cref="LessThan{TInput}(Func{Task{TInput}}, IComparer{TInput})" />
+        /// <seealso cref="LessThan{TInput}(Func{Task{TInput}}, string)" />
+        /// <seealso cref="LessThan{TInput}(Task{TInput}, IComparer{TInput}, string)" />
+        /// <seealso cref="LessThan{TInput}(Func{Task{TInput}}, IComparer{TInput}, string)" />
+        public static IAsyncPattern<TInput, TInput> LessThan<TInput>(Task<TInput> value, string description)
             where TInput : IComparable<TInput>
             => LessThan(value, Comparer<TInput>.Default, description);
 
@@ -805,7 +824,7 @@ namespace Matchmaker.Patterns
         /// <remarks>
         /// <para>
         /// The <paramref name="valueProvider" /> is not called until this pattern's
-        /// <see cref="IPattern{TInput, TMatchResult}.Match(TInput)" /> method is called.
+        /// <see cref="IAsyncPattern{TInput, TMatchResult}.MatchAsync(TInput)" /> method is called.
         /// </para>
         /// <para>
         /// The <paramref name="valueProvider" /> will be memoized, so it will be called once,
@@ -813,18 +832,24 @@ namespace Matchmaker.Patterns
         /// so there is a chance that the <paramref name="valueProvider" /> can be called
         /// more than once.
         /// </para>
+        /// <para>
+        /// If <paramref name="valueProvider" /> returns <see langword="null" />, an
+        /// <see cref="InvalidOperationException" /> will be thrown.
+        /// </para>
         /// </remarks>
         /// <exception cref="ArgumentNullException">
         /// <paramref name="valueProvider" /> or <paramref name="description" /> is <see langword="null" />.
         /// </exception>
-        /// <seealso cref="LessThan{TInput}(TInput)" />
-        /// <seealso cref="LessThan{TInput}(Func{TInput})" />
-        /// <seealso cref="LessThan{TInput}(TInput, IComparer{TInput})" />
-        /// <seealso cref="LessThan{TInput}(Func{TInput}, IComparer{TInput})" />
-        /// <seealso cref="LessThan{TInput}(TInput, string)" />
-        /// <seealso cref="LessThan{TInput}(TInput, IComparer{TInput}, string)" />
-        /// <seealso cref="LessThan{TInput}(Func{TInput}, IComparer{TInput}, string)" />
-        public static IPattern<TInput, TInput> LessThan<TInput>(Func<TInput> valueProvider, string description)
+        /// <seealso cref="LessThan{TInput}(Task{TInput})" />
+        /// <seealso cref="LessThan{TInput}(Func{Task{TInput}})" />
+        /// <seealso cref="LessThan{TInput}(Task{TInput}, IComparer{TInput})" />
+        /// <seealso cref="LessThan{TInput}(Func{Task{TInput}}, IComparer{TInput})" />
+        /// <seealso cref="LessThan{TInput}(Task{TInput}, string)" />
+        /// <seealso cref="LessThan{TInput}(Task{TInput}, IComparer{TInput}, string)" />
+        /// <seealso cref="LessThan{TInput}(Func{Task{TInput}}, IComparer{TInput}, string)" />
+        public static IAsyncPattern<TInput, TInput> LessThan<TInput>(
+            Func<Task<TInput>> valueProvider,
+            string description)
             where TInput : IComparable<TInput>
             => LessThan(valueProvider, Comparer<TInput>.Default, description);
 
@@ -840,24 +865,27 @@ namespace Matchmaker.Patterns
         /// A pattern which is matched successfully when the input value is less than the specified value.
         /// </returns>
         /// <exception cref="ArgumentNullException">
-        /// <paramref name="comparer" /> or <paramref name="description" /> is <see langword="null" />.
+        /// <paramref name="value" />, <paramref name="comparer" /> or <paramref name="description" /> is
+        /// <see langword="null" />.
         /// </exception>
-        /// <seealso cref="LessThan{TInput}(TInput)" />
-        /// <seealso cref="LessThan{TInput}(Func{TInput})" />
-        /// <seealso cref="LessThan{TInput}(TInput, IComparer{TInput})" />
-        /// <seealso cref="LessThan{TInput}(Func{TInput}, IComparer{TInput})" />
-        /// <seealso cref="LessThan{TInput}(TInput, string)" />
-        /// <seealso cref="LessThan{TInput}(Func{TInput}, string)" />
-        /// <seealso cref="LessThan{TInput}(Func{TInput}, IComparer{TInput}, string)" />
-        public static IPattern<TInput, TInput> LessThan<TInput>(
-            TInput value,
+        /// <seealso cref="LessThan{TInput}(Task{TInput})" />
+        /// <seealso cref="LessThan{TInput}(Func{Task{TInput}})" />
+        /// <seealso cref="LessThan{TInput}(Task{TInput}, IComparer{TInput})" />
+        /// <seealso cref="LessThan{TInput}(Func{Task{TInput}}, IComparer{TInput})" />
+        /// <seealso cref="LessThan{TInput}(Task{TInput}, string)" />
+        /// <seealso cref="LessThan{TInput}(Func{Task{TInput}}, string)" />
+        /// <seealso cref="LessThan{TInput}(Func{Task{TInput}}, IComparer{TInput}, string)" />
+        public static IAsyncPattern<TInput, TInput> LessThan<TInput>(
+            Task<TInput> value,
             IComparer<TInput> comparer,
             string description)
-            => comparer != null
-                ? CreatePattern<TInput>(
-                    input => comparer.Compare(input, value) < 0,
-                    description ?? throw new ArgumentNullException(nameof(description)))
-                : throw new ArgumentNullException(nameof(comparer));
+            => value != null
+                ? comparer != null
+                    ? CreatePattern<TInput>(
+                        async input => comparer.Compare(input, await value) < 0,
+                        description ?? throw new ArgumentNullException(nameof(description)))
+                    : throw new ArgumentNullException(nameof(comparer))
+                : throw new ArgumentNullException(nameof(value));
 
         /// <summary>
         /// Returns a pattern which is matched successfully when the input value is less than the provided value
@@ -873,7 +901,7 @@ namespace Matchmaker.Patterns
         /// <remarks>
         /// <para>
         /// The <paramref name="valueProvider" /> is not called until this pattern's
-        /// <see cref="IPattern{TInput, TMatchResult}.Match(TInput)" /> method is called.
+        /// <see cref="IAsyncPattern{TInput, TMatchResult}.MatchAsync(TInput)" /> method is called.
         /// </para>
         /// <para>
         /// The <paramref name="valueProvider" /> will be memoized, so it will be called once,
@@ -881,20 +909,24 @@ namespace Matchmaker.Patterns
         /// so there is a chance that the <paramref name="valueProvider" /> can be called
         /// more than once.
         /// </para>
+        /// <para>
+        /// If <paramref name="valueProvider" /> returns <see langword="null" />, an
+        /// <see cref="InvalidOperationException" /> will be thrown.
+        /// </para>
         /// </remarks>
         /// <exception cref="ArgumentNullException">
         /// <paramref name="valueProvider" />, <paramref name="comparer" /> or <paramref name="description" />
         /// is <see langword="null" />.
         /// </exception>
-        /// <seealso cref="LessThan{TInput}(TInput)" />
-        /// <seealso cref="LessThan{TInput}(Func{TInput})" />
-        /// <seealso cref="LessThan{TInput}(TInput, IComparer{TInput})" />
-        /// <seealso cref="LessThan{TInput}(Func{TInput}, IComparer{TInput})" />
-        /// <seealso cref="LessThan{TInput}(TInput, string)" />
-        /// <seealso cref="LessThan{TInput}(Func{TInput}, string)" />
-        /// <seealso cref="LessThan{TInput}(TInput, IComparer{TInput}, string)" />
-        public static IPattern<TInput, TInput> LessThan<TInput>(
-            Func<TInput> valueProvider,
+        /// <seealso cref="LessThan{TInput}(Task{TInput})" />
+        /// <seealso cref="LessThan{TInput}(Func{Task{TInput}})" />
+        /// <seealso cref="LessThan{TInput}(Task{TInput}, IComparer{TInput})" />
+        /// <seealso cref="LessThan{TInput}(Func{Task{TInput}}, IComparer{TInput})" />
+        /// <seealso cref="LessThan{TInput}(Task{TInput}, string)" />
+        /// <seealso cref="LessThan{TInput}(Func{Task{TInput}}, string)" />
+        /// <seealso cref="LessThan{TInput}(Task{TInput}, IComparer{TInput}, string)" />
+        public static IAsyncPattern<TInput, TInput> LessThan<TInput>(
+            Func<Task<TInput>> valueProvider,
             IComparer<TInput> comparer,
             string description)
         {
@@ -902,7 +934,7 @@ namespace Matchmaker.Patterns
 
             return comparer != null
                 ? CreatePattern<TInput>(
-                    input => comparer.Compare(input, memoizedProvider()) < 0,
+                    async input => comparer.Compare(input, await memoizedProvider()) < 0,
                     description ?? throw new ArgumentNullException(nameof(description)))
                 : throw new ArgumentNullException(nameof(comparer));
         }
@@ -916,20 +948,23 @@ namespace Matchmaker.Patterns
         /// <returns>
         /// A pattern which is matched successfully when the input value is less than or equal to the specified value.
         /// </returns>
-        /// <seealso cref="LessOrEqual{TInput}(Func{TInput})" />
-        /// <seealso cref="LessOrEqual{TInput}(TInput, IComparer{TInput})" />
-        /// <seealso cref="LessOrEqual{TInput}(Func{TInput}, IComparer{TInput})" />
-        /// <seealso cref="LessOrEqual{TInput}(TInput, string)" />
-        /// <seealso cref="LessOrEqual{TInput}(Func{TInput}, string)" />
-        /// <seealso cref="LessOrEqual{TInput}(TInput, IComparer{TInput}, string)" />
-        /// <seealso cref="LessOrEqual{TInput}(Func{TInput}, IComparer{TInput}, string)" />
-        public static IPattern<TInput, TInput> LessOrEqual<TInput>(TInput value)
+        /// <exception cref="ArgumentNullException">
+        /// <paramref name="value" /> is <see langword="null" />.
+        /// </exception>
+        /// <seealso cref="LessOrEqual{TInput}(Func{Task{TInput}})" />
+        /// <seealso cref="LessOrEqual{TInput}(Task{TInput}, IComparer{TInput})" />
+        /// <seealso cref="LessOrEqual{TInput}(Func{Task{TInput}}, IComparer{TInput})" />
+        /// <seealso cref="LessOrEqual{TInput}(Task{TInput}, string)" />
+        /// <seealso cref="LessOrEqual{TInput}(Func{Task{TInput}}, string)" />
+        /// <seealso cref="LessOrEqual{TInput}(Task{TInput}, IComparer{TInput}, string)" />
+        /// <seealso cref="LessOrEqual{TInput}(Func{Task{TInput}}, IComparer{TInput}, string)" />
+        public static IAsyncPattern<TInput, TInput> LessOrEqual<TInput>(Task<TInput> value)
             where TInput : IComparable<TInput>
-            => LessOrEqual(value, Comparer<TInput>.Default, String.Format(DefaultLessOrEqualDescriptionFormat, value));
+            => LessOrEqual(value, DefaultLessOrEqualDescription);
 
         /// <summary>
-        /// Returns a pattern which is matched successfully when the input value is less than or equal to
-        /// the provided value.
+        /// Returns a pattern which is matched successfully when the input value is less than or equal
+        /// to the provided value.
         /// </summary>
         /// <typeparam name="TInput">The type of the input value of the expression.</typeparam>
         /// <param name="valueProvider">The provider of the value to compare with.</param>
@@ -939,7 +974,7 @@ namespace Matchmaker.Patterns
         /// <remarks>
         /// <para>
         /// The <paramref name="valueProvider" /> is not called until this pattern's
-        /// <see cref="IPattern{TInput, TMatchResult}.Match(TInput)" /> method is called.
+        /// <see cref="IAsyncPattern{TInput, TMatchResult}.MatchAsync(TInput)" /> method is called.
         /// </para>
         /// <para>
         /// The <paramref name="valueProvider" /> will be memoized, so it will be called once,
@@ -947,20 +982,24 @@ namespace Matchmaker.Patterns
         /// so there is a chance that the <paramref name="valueProvider" /> can be called
         /// more than once.
         /// </para>
+        /// <para>
+        /// If <paramref name="valueProvider" /> returns <see langword="null" />, an
+        /// <see cref="InvalidOperationException" /> will be thrown.
+        /// </para>
         /// </remarks>
         /// <exception cref="ArgumentNullException">
         /// <paramref name="valueProvider" /> is <see langword="null" />.
         /// </exception>
-        /// <seealso cref="LessOrEqual{TInput}(TInput)" />
-        /// <seealso cref="LessOrEqual{TInput}(TInput, IComparer{TInput})" />
-        /// <seealso cref="LessOrEqual{TInput}(Func{TInput}, IComparer{TInput})" />
-        /// <seealso cref="LessOrEqual{TInput}(TInput, string)" />
-        /// <seealso cref="LessOrEqual{TInput}(Func{TInput}, string)" />
-        /// <seealso cref="LessOrEqual{TInput}(TInput, IComparer{TInput}, string)" />
-        /// <seealso cref="LessOrEqual{TInput}(Func{TInput}, IComparer{TInput}, string)" />
-        public static IPattern<TInput, TInput> LessOrEqual<TInput>(Func<TInput> valueProvider)
+        /// <seealso cref="LessOrEqual{TInput}(Task{TInput})" />
+        /// <seealso cref="LessOrEqual{TInput}(Task{TInput}, IComparer{TInput})" />
+        /// <seealso cref="LessOrEqual{TInput}(Func{Task{TInput}}, IComparer{TInput})" />
+        /// <seealso cref="LessOrEqual{TInput}(Task{TInput}, string)" />
+        /// <seealso cref="LessOrEqual{TInput}(Func{Task{TInput}}, string)" />
+        /// <seealso cref="LessOrEqual{TInput}(Task{TInput}, IComparer{TInput}, string)" />
+        /// <seealso cref="LessOrEqual{TInput}(Func{Task{TInput}}, IComparer{TInput}, string)" />
+        public static IAsyncPattern<TInput, TInput> LessOrEqual<TInput>(Func<Task<TInput>> valueProvider)
             where TInput : IComparable<TInput>
-            => LessOrEqual(valueProvider, Comparer<TInput>.Default, DefaultLazyLessOrEqualDescription);
+            => LessOrEqual(valueProvider, DefaultLessOrEqualDescription);
 
         /// <summary>
         /// Returns a pattern which is matched successfully when the input value is less than or equal
@@ -973,21 +1012,21 @@ namespace Matchmaker.Patterns
         /// A pattern which is matched successfully when the input value is less than or equal to the specified value.
         /// </returns>
         /// <exception cref="ArgumentNullException">
-        /// <paramref name="comparer" /> is <see langword="null" />.
+        /// <paramref name="value" /> or <paramref name="comparer" /> is <see langword="null" />.
         /// </exception>
-        /// <seealso cref="LessOrEqual{TInput}(TInput)" />
-        /// <seealso cref="LessOrEqual{TInput}(Func{TInput})" />
-        /// <seealso cref="LessOrEqual{TInput}(Func{TInput}, IComparer{TInput})" />
-        /// <seealso cref="LessOrEqual{TInput}(TInput, string)" />
-        /// <seealso cref="LessOrEqual{TInput}(Func{TInput}, string)" />
-        /// <seealso cref="LessOrEqual{TInput}(TInput, IComparer{TInput}, string)" />
-        /// <seealso cref="LessOrEqual{TInput}(Func{TInput}, IComparer{TInput}, string)" />
-        public static IPattern<TInput, TInput> LessOrEqual<TInput>(TInput value, IComparer<TInput> comparer)
-            => LessOrEqual(value, comparer, String.Format(DefaultLessOrEqualDescriptionFormat, value));
+        /// <seealso cref="LessOrEqual{TInput}(Task{TInput})" />
+        /// <seealso cref="LessOrEqual{TInput}(Func{Task{TInput}})" />
+        /// <seealso cref="LessOrEqual{TInput}(Func{Task{TInput}}, IComparer{TInput})" />
+        /// <seealso cref="LessOrEqual{TInput}(Task{TInput}, string)" />
+        /// <seealso cref="LessOrEqual{TInput}(Func{Task{TInput}}, string)" />
+        /// <seealso cref="LessOrEqual{TInput}(Task{TInput}, IComparer{TInput}, string)" />
+        /// <seealso cref="LessOrEqual{TInput}(Func{Task{TInput}}, IComparer{TInput}, string)" />
+        public static IAsyncPattern<TInput, TInput> LessOrEqual<TInput>(Task<TInput> value, IComparer<TInput> comparer)
+            => LessOrEqual(value, comparer, DefaultLessOrEqualDescription);
 
         /// <summary>
-        /// Returns a pattern which is matched successfully when the input value is less than or equal to
-        /// the provided value according to the specified comparer.
+        /// Returns a pattern which is matched successfully when the input value is less than or equal
+        /// to the provided value according to the specified comparer.
         /// </summary>
         /// <typeparam name="TInput">The type of the input value of the expression.</typeparam>
         /// <param name="valueProvider">The provider of the value to compare with.</param>
@@ -998,7 +1037,7 @@ namespace Matchmaker.Patterns
         /// <remarks>
         /// <para>
         /// The <paramref name="valueProvider" /> is not called until this pattern's
-        /// <see cref="IPattern{TInput, TMatchResult}.Match(TInput)" /> method is called.
+        /// <see cref="IAsyncPattern{TInput, TMatchResult}.MatchAsync(TInput)" /> method is called.
         /// </para>
         /// <para>
         /// The <paramref name="valueProvider" /> will be memoized, so it will be called once,
@@ -1006,21 +1045,25 @@ namespace Matchmaker.Patterns
         /// so there is a chance that the <paramref name="valueProvider" /> can be called
         /// more than once.
         /// </para>
+        /// <para>
+        /// If <paramref name="valueProvider" /> returns <see langword="null" />, an
+        /// <see cref="InvalidOperationException" /> will be thrown.
+        /// </para>
         /// </remarks>
         /// <exception cref="ArgumentNullException">
         /// <paramref name="valueProvider" /> or <paramref name="comparer" /> is <see langword="null" />.
         /// </exception>
-        /// <seealso cref="LessOrEqual{TInput}(TInput)" />
-        /// <seealso cref="LessOrEqual{TInput}(Func{TInput})" />
-        /// <seealso cref="LessOrEqual{TInput}(TInput, IComparer{TInput})" />
-        /// <seealso cref="LessOrEqual{TInput}(TInput, string)" />
-        /// <seealso cref="LessOrEqual{TInput}(Func{TInput}, string)" />
-        /// <seealso cref="LessOrEqual{TInput}(TInput, IComparer{TInput}, string)" />
-        /// <seealso cref="LessOrEqual{TInput}(Func{TInput}, IComparer{TInput}, string)" />
-        public static IPattern<TInput, TInput> LessOrEqual<TInput>(
-            Func<TInput> valueProvider,
+        /// <seealso cref="LessOrEqual{TInput}(Task{TInput})" />
+        /// <seealso cref="LessOrEqual{TInput}(Func{Task{TInput}})" />
+        /// <seealso cref="LessOrEqual{TInput}(Task{TInput}, IComparer{TInput})" />
+        /// <seealso cref="LessOrEqual{TInput}(Task{TInput}, string)" />
+        /// <seealso cref="LessOrEqual{TInput}(Func{Task{TInput}}, string)" />
+        /// <seealso cref="LessOrEqual{TInput}(Task{TInput}, IComparer{TInput}, string)" />
+        /// <seealso cref="LessOrEqual{TInput}(Func{Task{TInput}}, IComparer{TInput}, string)" />
+        public static IAsyncPattern<TInput, TInput> LessOrEqual<TInput>(
+            Func<Task<TInput>> valueProvider,
             IComparer<TInput> comparer)
-            => LessOrEqual(valueProvider, comparer, DefaultLazyLessOrEqualDescription);
+            => LessOrEqual(valueProvider, comparer, DefaultLessOrEqualDescription);
 
         /// <summary>
         /// Returns a pattern which is matched successfully when the input value is less than or equal
@@ -1033,16 +1076,16 @@ namespace Matchmaker.Patterns
         /// A pattern which is matched successfully when the input value is less than or equal to the specified value.
         /// </returns>
         /// <exception cref="ArgumentNullException">
-        /// <paramref name="description" /> is <see langword="null" />.
+        /// <paramref name="value" /> or <paramref name="description" /> is <see langword="null" />.
         /// </exception>
-        /// <seealso cref="LessOrEqual{TInput}(TInput)" />
-        /// <seealso cref="LessOrEqual{TInput}(Func{TInput})" />
-        /// <seealso cref="LessOrEqual{TInput}(TInput, IComparer{TInput})" />
-        /// <seealso cref="LessOrEqual{TInput}(Func{TInput}, IComparer{TInput})" />
-        /// <seealso cref="LessOrEqual{TInput}(Func{TInput}, string)" />
-        /// <seealso cref="LessOrEqual{TInput}(TInput, IComparer{TInput}, string)" />
-        /// <seealso cref="LessOrEqual{TInput}(Func{TInput}, IComparer{TInput}, string)" />
-        public static IPattern<TInput, TInput> LessOrEqual<TInput>(TInput value, string description)
+        /// <seealso cref="LessOrEqual{TInput}(Task{TInput})" />
+        /// <seealso cref="LessOrEqual{TInput}(Func{Task{TInput}})" />
+        /// <seealso cref="LessOrEqual{TInput}(Task{TInput}, IComparer{TInput})" />
+        /// <seealso cref="LessOrEqual{TInput}(Func{Task{TInput}}, IComparer{TInput})" />
+        /// <seealso cref="LessOrEqual{TInput}(Func{Task{TInput}}, string)" />
+        /// <seealso cref="LessOrEqual{TInput}(Task{TInput}, IComparer{TInput}, string)" />
+        /// <seealso cref="LessOrEqual{TInput}(Func{Task{TInput}}, IComparer{TInput}, string)" />
+        public static IAsyncPattern<TInput, TInput> LessOrEqual<TInput>(Task<TInput> value, string description)
             where TInput : IComparable<TInput>
             => LessOrEqual(value, Comparer<TInput>.Default, description);
 
@@ -1059,7 +1102,7 @@ namespace Matchmaker.Patterns
         /// <remarks>
         /// <para>
         /// The <paramref name="valueProvider" /> is not called until this pattern's
-        /// <see cref="IPattern{TInput, TMatchResult}.Match(TInput)" /> method is called.
+        /// <see cref="IAsyncPattern{TInput, TMatchResult}.MatchAsync(TInput)" /> method is called.
         /// </para>
         /// <para>
         /// The <paramref name="valueProvider" /> will be memoized, so it will be called once,
@@ -1067,18 +1110,24 @@ namespace Matchmaker.Patterns
         /// so there is a chance that the <paramref name="valueProvider" /> can be called
         /// more than once.
         /// </para>
+        /// <para>
+        /// If <paramref name="valueProvider" /> returns <see langword="null" />, an
+        /// <see cref="InvalidOperationException" /> will be thrown.
+        /// </para>
         /// </remarks>
         /// <exception cref="ArgumentNullException">
         /// <paramref name="valueProvider" /> or <paramref name="description" /> is <see langword="null" />.
         /// </exception>
-        /// <seealso cref="LessOrEqual{TInput}(TInput)" />
-        /// <seealso cref="LessOrEqual{TInput}(Func{TInput})" />
-        /// <seealso cref="LessOrEqual{TInput}(TInput, IComparer{TInput})" />
-        /// <seealso cref="LessOrEqual{TInput}(Func{TInput}, IComparer{TInput})" />
-        /// <seealso cref="LessOrEqual{TInput}(TInput, string)" />
-        /// <seealso cref="LessOrEqual{TInput}(TInput, IComparer{TInput}, string)" />
-        /// <seealso cref="LessOrEqual{TInput}(Func{TInput}, IComparer{TInput}, string)" />
-        public static IPattern<TInput, TInput> LessOrEqual<TInput>(Func<TInput> valueProvider, string description)
+        /// <seealso cref="LessOrEqual{TInput}(Task{TInput})" />
+        /// <seealso cref="LessOrEqual{TInput}(Func{Task{TInput}})" />
+        /// <seealso cref="LessOrEqual{TInput}(Task{TInput}, IComparer{TInput})" />
+        /// <seealso cref="LessOrEqual{TInput}(Func{Task{TInput}}, IComparer{TInput})" />
+        /// <seealso cref="LessOrEqual{TInput}(Task{TInput}, string)" />
+        /// <seealso cref="LessOrEqual{TInput}(Task{TInput}, IComparer{TInput}, string)" />
+        /// <seealso cref="LessOrEqual{TInput}(Func{Task{TInput}}, IComparer{TInput}, string)" />
+        public static IAsyncPattern<TInput, TInput> LessOrEqual<TInput>(
+            Func<Task<TInput>> valueProvider,
+            string description)
             where TInput : IComparable<TInput>
             => LessOrEqual(valueProvider, Comparer<TInput>.Default, description);
 
@@ -1094,24 +1143,27 @@ namespace Matchmaker.Patterns
         /// A pattern which is matched successfully when the input value is less than or equal to the specified value.
         /// </returns>
         /// <exception cref="ArgumentNullException">
-        /// <paramref name="comparer" /> or <paramref name="description" /> is <see langword="null" />.
+        /// <paramref name="value" />, <paramref name="comparer" /> or <paramref name="description" /> is
+        /// <see langword="null" />.
         /// </exception>
-        /// <seealso cref="LessOrEqual{TInput}(TInput)" />
-        /// <seealso cref="LessOrEqual{TInput}(Func{TInput})" />
-        /// <seealso cref="LessOrEqual{TInput}(TInput, IComparer{TInput})" />
-        /// <seealso cref="LessOrEqual{TInput}(Func{TInput}, IComparer{TInput})" />
-        /// <seealso cref="LessOrEqual{TInput}(TInput, string)" />
-        /// <seealso cref="LessOrEqual{TInput}(Func{TInput}, string)" />
-        /// <seealso cref="LessOrEqual{TInput}(Func{TInput}, IComparer{TInput}, string)" />
-        public static IPattern<TInput, TInput> LessOrEqual<TInput>(
-            TInput value,
+        /// <seealso cref="LessOrEqual{TInput}(Task{TInput})" />
+        /// <seealso cref="LessOrEqual{TInput}(Func{Task{TInput}})" />
+        /// <seealso cref="LessOrEqual{TInput}(Task{TInput}, IComparer{TInput})" />
+        /// <seealso cref="LessOrEqual{TInput}(Func{Task{TInput}}, IComparer{TInput})" />
+        /// <seealso cref="LessOrEqual{TInput}(Task{TInput}, string)" />
+        /// <seealso cref="LessOrEqual{TInput}(Func{Task{TInput}}, string)" />
+        /// <seealso cref="LessOrEqual{TInput}(Func{Task{TInput}}, IComparer{TInput}, string)" />
+        public static IAsyncPattern<TInput, TInput> LessOrEqual<TInput>(
+            Task<TInput> value,
             IComparer<TInput> comparer,
             string description)
-            => comparer != null
-                ? CreatePattern<TInput>(
-                    input => comparer.Compare(input, value) <= 0,
-                    description ?? throw new ArgumentNullException(nameof(description)))
-                : throw new ArgumentNullException(nameof(comparer));
+            => value != null
+                ? comparer != null
+                    ? CreatePattern<TInput>(
+                        async input => comparer.Compare(input, await value) <= 0,
+                        description ?? throw new ArgumentNullException(nameof(description)))
+                    : throw new ArgumentNullException(nameof(comparer))
+                : throw new ArgumentNullException(nameof(value));
 
         /// <summary>
         /// Returns a pattern which is matched successfully when the input value is less than or equal
@@ -1127,7 +1179,7 @@ namespace Matchmaker.Patterns
         /// <remarks>
         /// <para>
         /// The <paramref name="valueProvider" /> is not called until this pattern's
-        /// <see cref="IPattern{TInput, TMatchResult}.Match(TInput)" /> method is called.
+        /// <see cref="IAsyncPattern{TInput, TMatchResult}.MatchAsync(TInput)" /> method is called.
         /// </para>
         /// <para>
         /// The <paramref name="valueProvider" /> will be memoized, so it will be called once,
@@ -1135,20 +1187,24 @@ namespace Matchmaker.Patterns
         /// so there is a chance that the <paramref name="valueProvider" /> can be called
         /// more than once.
         /// </para>
+        /// <para>
+        /// If <paramref name="valueProvider" /> returns <see langword="null" />, an
+        /// <see cref="InvalidOperationException" /> will be thrown.
+        /// </para>
         /// </remarks>
         /// <exception cref="ArgumentNullException">
         /// <paramref name="valueProvider" />, <paramref name="comparer" /> or <paramref name="description" />
         /// is <see langword="null" />.
         /// </exception>
-        /// <seealso cref="LessOrEqual{TInput}(TInput)" />
-        /// <seealso cref="LessOrEqual{TInput}(Func{TInput})" />
-        /// <seealso cref="LessOrEqual{TInput}(TInput, IComparer{TInput})" />
-        /// <seealso cref="LessOrEqual{TInput}(Func{TInput}, IComparer{TInput})" />
-        /// <seealso cref="LessOrEqual{TInput}(TInput, string)" />
-        /// <seealso cref="LessOrEqual{TInput}(Func{TInput}, string)" />
-        /// <seealso cref="LessOrEqual{TInput}(TInput, IComparer{TInput}, string)" />
-        public static IPattern<TInput, TInput> LessOrEqual<TInput>(
-            Func<TInput> valueProvider,
+        /// <seealso cref="LessOrEqual{TInput}(Task{TInput})" />
+        /// <seealso cref="LessOrEqual{TInput}(Func{Task{TInput}})" />
+        /// <seealso cref="LessOrEqual{TInput}(Task{TInput}, IComparer{TInput})" />
+        /// <seealso cref="LessOrEqual{TInput}(Func{Task{TInput}}, IComparer{TInput})" />
+        /// <seealso cref="LessOrEqual{TInput}(Task{TInput}, string)" />
+        /// <seealso cref="LessOrEqual{TInput}(Func{Task{TInput}}, string)" />
+        /// <seealso cref="LessOrEqual{TInput}(Task{TInput}, IComparer{TInput}, string)" />
+        public static IAsyncPattern<TInput, TInput> LessOrEqual<TInput>(
+            Func<Task<TInput>> valueProvider,
             IComparer<TInput> comparer,
             string description)
         {
@@ -1156,7 +1212,7 @@ namespace Matchmaker.Patterns
 
             return comparer != null
                 ? CreatePattern<TInput>(
-                    input => comparer.Compare(input, memoizedProvider()) <= 0,
+                    async input => comparer.Compare(input, await memoizedProvider()) <= 0,
                     description ?? throw new ArgumentNullException(nameof(description)))
                 : throw new ArgumentNullException(nameof(comparer));
         }
@@ -1169,16 +1225,19 @@ namespace Matchmaker.Patterns
         /// <returns>
         /// A pattern which is matched successfully when the input value is greater than the specified value.
         /// </returns>
-        /// <seealso cref="GreaterThan{TInput}(Func{TInput})" />
-        /// <seealso cref="GreaterThan{TInput}(TInput, IComparer{TInput})" />
-        /// <seealso cref="GreaterThan{TInput}(Func{TInput}, IComparer{TInput})" />
-        /// <seealso cref="GreaterThan{TInput}(TInput, string)" />
-        /// <seealso cref="GreaterThan{TInput}(Func{TInput}, string)" />
-        /// <seealso cref="GreaterThan{TInput}(TInput, IComparer{TInput}, string)" />
-        /// <seealso cref="GreaterThan{TInput}(Func{TInput}, IComparer{TInput}, string)" />
-        public static IPattern<TInput, TInput> GreaterThan<TInput>(TInput value)
+        /// <exception cref="ArgumentNullException">
+        /// <paramref name="value" /> is <see langword="null" />.
+        /// </exception>
+        /// <seealso cref="GreaterThan{TInput}(Func{Task{TInput}})" />
+        /// <seealso cref="GreaterThan{TInput}(Task{TInput}, IComparer{TInput})" />
+        /// <seealso cref="GreaterThan{TInput}(Func{Task{TInput}}, IComparer{TInput})" />
+        /// <seealso cref="GreaterThan{TInput}(Task{TInput}, string)" />
+        /// <seealso cref="GreaterThan{TInput}(Func{Task{TInput}}, string)" />
+        /// <seealso cref="GreaterThan{TInput}(Task{TInput}, IComparer{TInput}, string)" />
+        /// <seealso cref="GreaterThan{TInput}(Func{Task{TInput}}, IComparer{TInput}, string)" />
+        public static IAsyncPattern<TInput, TInput> GreaterThan<TInput>(Task<TInput> value)
             where TInput : IComparable<TInput>
-            => GreaterThan(value, Comparer<TInput>.Default, String.Format(DefaultGreaterThanDescriptionFormat, value));
+            => GreaterThan(value, DefaultGreaterThanDescription);
 
         /// <summary>
         /// Returns a pattern which is matched successfully when the input value is greater than the provided value.
@@ -1191,7 +1250,7 @@ namespace Matchmaker.Patterns
         /// <remarks>
         /// <para>
         /// The <paramref name="valueProvider" /> is not called until this pattern's
-        /// <see cref="IPattern{TInput, TMatchResult}.Match(TInput)" /> method is called.
+        /// <see cref="IAsyncPattern{TInput, TMatchResult}.MatchAsync(TInput)" /> method is called.
         /// </para>
         /// <para>
         /// The <paramref name="valueProvider" /> will be memoized, so it will be called once,
@@ -1199,20 +1258,24 @@ namespace Matchmaker.Patterns
         /// so there is a chance that the <paramref name="valueProvider" /> can be called
         /// more than once.
         /// </para>
+        /// <para>
+        /// If <paramref name="valueProvider" /> returns <see langword="null" />, an
+        /// <see cref="InvalidOperationException" /> will be thrown.
+        /// </para>
         /// </remarks>
         /// <exception cref="ArgumentNullException">
         /// <paramref name="valueProvider" /> is <see langword="null" />.
         /// </exception>
-        /// <seealso cref="GreaterThan{TInput}(TInput)" />
-        /// <seealso cref="GreaterThan{TInput}(TInput, IComparer{TInput})" />
-        /// <seealso cref="GreaterThan{TInput}(Func{TInput}, IComparer{TInput})" />
-        /// <seealso cref="GreaterThan{TInput}(TInput, string)" />
-        /// <seealso cref="GreaterThan{TInput}(Func{TInput}, string)" />
-        /// <seealso cref="GreaterThan{TInput}(TInput, IComparer{TInput}, string)" />
-        /// <seealso cref="GreaterThan{TInput}(Func{TInput}, IComparer{TInput}, string)" />
-        public static IPattern<TInput, TInput> GreaterThan<TInput>(Func<TInput> valueProvider)
+        /// <seealso cref="GreaterThan{TInput}(Task{TInput})" />
+        /// <seealso cref="GreaterThan{TInput}(Task{TInput}, IComparer{TInput})" />
+        /// <seealso cref="GreaterThan{TInput}(Func{Task{TInput}}, IComparer{TInput})" />
+        /// <seealso cref="GreaterThan{TInput}(Task{TInput}, string)" />
+        /// <seealso cref="GreaterThan{TInput}(Func{Task{TInput}}, string)" />
+        /// <seealso cref="GreaterThan{TInput}(Task{TInput}, IComparer{TInput}, string)" />
+        /// <seealso cref="GreaterThan{TInput}(Func{Task{TInput}}, IComparer{TInput}, string)" />
+        public static IAsyncPattern<TInput, TInput> GreaterThan<TInput>(Func<Task<TInput>> valueProvider)
             where TInput : IComparable<TInput>
-            => GreaterThan(valueProvider, Comparer<TInput>.Default, DefaultLazyGreaterThanDescription);
+            => GreaterThan(valueProvider, DefaultGreaterThanDescription);
 
         /// <summary>
         /// Returns a pattern which is matched successfully when the input value is greater than the specified value
@@ -1225,17 +1288,17 @@ namespace Matchmaker.Patterns
         /// A pattern which is matched successfully when the input value is greater than the specified value.
         /// </returns>
         /// <exception cref="ArgumentNullException">
-        /// <paramref name="comparer" /> is <see langword="null" />.
+        /// <paramref name="value" /> or <paramref name="comparer" /> is <see langword="null" />.
         /// </exception>
-        /// <seealso cref="GreaterThan{TInput}(TInput)" />
-        /// <seealso cref="GreaterThan{TInput}(Func{TInput})" />
-        /// <seealso cref="GreaterThan{TInput}(Func{TInput}, IComparer{TInput})" />
-        /// <seealso cref="GreaterThan{TInput}(TInput, string)" />
-        /// <seealso cref="GreaterThan{TInput}(Func{TInput}, string)" />
-        /// <seealso cref="GreaterThan{TInput}(TInput, IComparer{TInput}, string)" />
-        /// <seealso cref="GreaterThan{TInput}(Func{TInput}, IComparer{TInput}, string)" />
-        public static IPattern<TInput, TInput> GreaterThan<TInput>(TInput value, IComparer<TInput> comparer)
-            => GreaterThan(value, comparer, String.Format(DefaultGreaterThanDescriptionFormat, value));
+        /// <seealso cref="GreaterThan{TInput}(Task{TInput})" />
+        /// <seealso cref="GreaterThan{TInput}(Func{Task{TInput}})" />
+        /// <seealso cref="GreaterThan{TInput}(Func{Task{TInput}}, IComparer{TInput})" />
+        /// <seealso cref="GreaterThan{TInput}(Task{TInput}, string)" />
+        /// <seealso cref="GreaterThan{TInput}(Func{Task{TInput}}, string)" />
+        /// <seealso cref="GreaterThan{TInput}(Task{TInput}, IComparer{TInput}, string)" />
+        /// <seealso cref="GreaterThan{TInput}(Func{Task{TInput}}, IComparer{TInput}, string)" />
+        public static IAsyncPattern<TInput, TInput> GreaterThan<TInput>(Task<TInput> value, IComparer<TInput> comparer)
+            => GreaterThan(value, comparer, DefaultGreaterThanDescription);
 
         /// <summary>
         /// Returns a pattern which is matched successfully when the input value is greater than the provided value
@@ -1250,7 +1313,7 @@ namespace Matchmaker.Patterns
         /// <remarks>
         /// <para>
         /// The <paramref name="valueProvider" /> is not called until this pattern's
-        /// <see cref="IPattern{TInput, TMatchResult}.Match(TInput)" /> method is called.
+        /// <see cref="IAsyncPattern{TInput, TMatchResult}.MatchAsync(TInput)" /> method is called.
         /// </para>
         /// <para>
         /// The <paramref name="valueProvider" /> will be memoized, so it will be called once,
@@ -1258,21 +1321,25 @@ namespace Matchmaker.Patterns
         /// so there is a chance that the <paramref name="valueProvider" /> can be called
         /// more than once.
         /// </para>
+        /// <para>
+        /// If <paramref name="valueProvider" /> returns <see langword="null" />, an
+        /// <see cref="InvalidOperationException" /> will be thrown.
+        /// </para>
         /// </remarks>
         /// <exception cref="ArgumentNullException">
         /// <paramref name="valueProvider" /> or <paramref name="comparer" /> is <see langword="null" />.
         /// </exception>
-        /// <seealso cref="GreaterThan{TInput}(TInput)" />
-        /// <seealso cref="GreaterThan{TInput}(Func{TInput})" />
-        /// <seealso cref="GreaterThan{TInput}(TInput, IComparer{TInput})" />
-        /// <seealso cref="GreaterThan{TInput}(TInput, string)" />
-        /// <seealso cref="GreaterThan{TInput}(Func{TInput}, string)" />
-        /// <seealso cref="GreaterThan{TInput}(TInput, IComparer{TInput}, string)" />
-        /// <seealso cref="GreaterThan{TInput}(Func{TInput}, IComparer{TInput}, string)" />
-        public static IPattern<TInput, TInput> GreaterThan<TInput>(
-            Func<TInput> valueProvider,
+        /// <seealso cref="GreaterThan{TInput}(Task{TInput})" />
+        /// <seealso cref="GreaterThan{TInput}(Func{Task{TInput}})" />
+        /// <seealso cref="GreaterThan{TInput}(Task{TInput}, IComparer{TInput})" />
+        /// <seealso cref="GreaterThan{TInput}(Task{TInput}, string)" />
+        /// <seealso cref="GreaterThan{TInput}(Func{Task{TInput}}, string)" />
+        /// <seealso cref="GreaterThan{TInput}(Task{TInput}, IComparer{TInput}, string)" />
+        /// <seealso cref="GreaterThan{TInput}(Func{Task{TInput}}, IComparer{TInput}, string)" />
+        public static IAsyncPattern<TInput, TInput> GreaterThan<TInput>(
+            Func<Task<TInput>> valueProvider,
             IComparer<TInput> comparer)
-            => GreaterThan(valueProvider, comparer, DefaultLazyGreaterThanDescription);
+            => GreaterThan(valueProvider, comparer, DefaultGreaterThanDescription);
 
         /// <summary>
         /// Returns a pattern which is matched successfully when the input value is greater than the specified value.
@@ -1284,16 +1351,16 @@ namespace Matchmaker.Patterns
         /// A pattern which is matched successfully when the input value is greater than the specified value.
         /// </returns>
         /// <exception cref="ArgumentNullException">
-        /// <paramref name="description" /> is <see langword="null" />.
+        /// <paramref name="value" /> or <paramref name="description" /> is <see langword="null" />.
         /// </exception>
-        /// <seealso cref="GreaterThan{TInput}(TInput)" />
-        /// <seealso cref="GreaterThan{TInput}(Func{TInput})" />
-        /// <seealso cref="GreaterThan{TInput}(TInput, IComparer{TInput})" />
-        /// <seealso cref="GreaterThan{TInput}(Func{TInput}, IComparer{TInput})" />
-        /// <seealso cref="GreaterThan{TInput}(Func{TInput}, string)" />
-        /// <seealso cref="GreaterThan{TInput}(TInput, IComparer{TInput}, string)" />
-        /// <seealso cref="GreaterThan{TInput}(Func{TInput}, IComparer{TInput}, string)" />
-        public static IPattern<TInput, TInput> GreaterThan<TInput>(TInput value, string description)
+        /// <seealso cref="LessThan{TInput}(Task{TInput})" />
+        /// <seealso cref="LessThan{TInput}(Func{Task{TInput}})" />
+        /// <seealso cref="LessThan{TInput}(Task{TInput}, IComparer{TInput})" />
+        /// <seealso cref="LessThan{TInput}(Func{Task{TInput}}, IComparer{TInput})" />
+        /// <seealso cref="LessThan{TInput}(Func{Task{TInput}}, string)" />
+        /// <seealso cref="LessThan{TInput}(Task{TInput}, IComparer{TInput}, string)" />
+        /// <seealso cref="LessThan{TInput}(Func{Task{TInput}}, IComparer{TInput}, string)" />
+        public static IAsyncPattern<TInput, TInput> GreaterThan<TInput>(Task<TInput> value, string description)
             where TInput : IComparable<TInput>
             => GreaterThan(value, Comparer<TInput>.Default, description);
 
@@ -1309,7 +1376,7 @@ namespace Matchmaker.Patterns
         /// <remarks>
         /// <para>
         /// The <paramref name="valueProvider" /> is not called until this pattern's
-        /// <see cref="IPattern{TInput, TMatchResult}.Match(TInput)" /> method is called.
+        /// <see cref="IAsyncPattern{TInput, TMatchResult}.MatchAsync(TInput)" /> method is called.
         /// </para>
         /// <para>
         /// The <paramref name="valueProvider" /> will be memoized, so it will be called once,
@@ -1317,18 +1384,24 @@ namespace Matchmaker.Patterns
         /// so there is a chance that the <paramref name="valueProvider" /> can be called
         /// more than once.
         /// </para>
+        /// <para>
+        /// If <paramref name="valueProvider" /> returns <see langword="null" />, an
+        /// <see cref="InvalidOperationException" /> will be thrown.
+        /// </para>
         /// </remarks>
         /// <exception cref="ArgumentNullException">
         /// <paramref name="valueProvider" /> or <paramref name="description" /> is <see langword="null" />.
         /// </exception>
-        /// <seealso cref="GreaterThan{TInput}(TInput)" />
-        /// <seealso cref="GreaterThan{TInput}(Func{TInput})" />
-        /// <seealso cref="GreaterThan{TInput}(TInput, IComparer{TInput})" />
-        /// <seealso cref="GreaterThan{TInput}(Func{TInput}, IComparer{TInput})" />
-        /// <seealso cref="GreaterThan{TInput}(TInput, string)" />
-        /// <seealso cref="GreaterThan{TInput}(TInput, IComparer{TInput}, string)" />
-        /// <seealso cref="GreaterThan{TInput}(Func{TInput}, IComparer{TInput}, string)" />
-        public static IPattern<TInput, TInput> GreaterThan<TInput>(Func<TInput> valueProvider, string description)
+        /// <seealso cref="GreaterThan{TInput}(Task{TInput})" />
+        /// <seealso cref="GreaterThan{TInput}(Func{Task{TInput}})" />
+        /// <seealso cref="GreaterThan{TInput}(Task{TInput}, IComparer{TInput})" />
+        /// <seealso cref="GreaterThan{TInput}(Func{Task{TInput}}, IComparer{TInput})" />
+        /// <seealso cref="GreaterThan{TInput}(Task{TInput}, string)" />
+        /// <seealso cref="GreaterThan{TInput}(Task{TInput}, IComparer{TInput}, string)" />
+        /// <seealso cref="GreaterThan{TInput}(Func{Task{TInput}}, IComparer{TInput}, string)" />
+        public static IAsyncPattern<TInput, TInput> GreaterThan<TInput>(
+            Func<Task<TInput>> valueProvider,
+            string description)
             where TInput : IComparable<TInput>
             => GreaterThan(valueProvider, Comparer<TInput>.Default, description);
 
@@ -1344,24 +1417,27 @@ namespace Matchmaker.Patterns
         /// A pattern which is matched successfully when the input value is greater than the specified value.
         /// </returns>
         /// <exception cref="ArgumentNullException">
-        /// <paramref name="comparer" /> or <paramref name="description" /> is <see langword="null" />.
+        /// <paramref name="value" />, <paramref name="comparer" /> or <paramref name="description" /> is
+        /// <see langword="null" />.
         /// </exception>
-        /// <seealso cref="GreaterThan{TInput}(TInput)" />
-        /// <seealso cref="GreaterThan{TInput}(Func{TInput})" />
-        /// <seealso cref="GreaterThan{TInput}(TInput, IComparer{TInput})" />
-        /// <seealso cref="GreaterThan{TInput}(Func{TInput}, IComparer{TInput})" />
-        /// <seealso cref="GreaterThan{TInput}(TInput, string)" />
-        /// <seealso cref="GreaterThan{TInput}(Func{TInput}, string)" />
-        /// <seealso cref="GreaterThan{TInput}(Func{TInput}, IComparer{TInput}, string)" />
-        public static IPattern<TInput, TInput> GreaterThan<TInput>(
-            TInput value,
+        /// <seealso cref="GreaterThan{TInput}(Task{TInput})" />
+        /// <seealso cref="GreaterThan{TInput}(Func{Task{TInput}})" />
+        /// <seealso cref="GreaterThan{TInput}(Task{TInput}, IComparer{TInput})" />
+        /// <seealso cref="GreaterThan{TInput}(Func{Task{TInput}}, IComparer{TInput})" />
+        /// <seealso cref="GreaterThan{TInput}(Task{TInput}, string)" />
+        /// <seealso cref="GreaterThan{TInput}(Func{Task{TInput}}, string)" />
+        /// <seealso cref="GreaterThan{TInput}(Func{Task{TInput}}, IComparer{TInput}, string)" />
+        public static IAsyncPattern<TInput, TInput> GreaterThan<TInput>(
+            Task<TInput> value,
             IComparer<TInput> comparer,
             string description)
-            => comparer != null
-                ? CreatePattern<TInput>(
-                    input => comparer.Compare(input, value) > 0,
-                    description ?? throw new ArgumentNullException(nameof(description)))
-                : throw new ArgumentNullException(nameof(comparer));
+            => value != null
+                ? comparer != null
+                    ? CreatePattern<TInput>(
+                        async input => comparer.Compare(input, await value) > 0,
+                        description ?? throw new ArgumentNullException(nameof(description)))
+                    : throw new ArgumentNullException(nameof(comparer))
+                : throw new ArgumentNullException(nameof(value));
 
         /// <summary>
         /// Returns a pattern which is matched successfully when the input value is greater than the provided value
@@ -1377,7 +1453,7 @@ namespace Matchmaker.Patterns
         /// <remarks>
         /// <para>
         /// The <paramref name="valueProvider" /> is not called until this pattern's
-        /// <see cref="IPattern{TInput, TMatchResult}.Match(TInput)" /> method is called.
+        /// <see cref="IAsyncPattern{TInput, TMatchResult}.MatchAsync(TInput)" /> method is called.
         /// </para>
         /// <para>
         /// The <paramref name="valueProvider" /> will be memoized, so it will be called once,
@@ -1385,20 +1461,24 @@ namespace Matchmaker.Patterns
         /// so there is a chance that the <paramref name="valueProvider" /> can be called
         /// more than once.
         /// </para>
+        /// <para>
+        /// If <paramref name="valueProvider" /> returns <see langword="null" />, an
+        /// <see cref="InvalidOperationException" /> will be thrown.
+        /// </para>
         /// </remarks>
         /// <exception cref="ArgumentNullException">
         /// <paramref name="valueProvider" />, <paramref name="comparer" /> or <paramref name="description" />
         /// is <see langword="null" />.
         /// </exception>
-        /// <seealso cref="GreaterThan{TInput}(TInput)" />
-        /// <seealso cref="GreaterThan{TInput}(Func{TInput})" />
-        /// <seealso cref="GreaterThan{TInput}(TInput, IComparer{TInput})" />
-        /// <seealso cref="GreaterThan{TInput}(Func{TInput}, IComparer{TInput})" />
-        /// <seealso cref="GreaterThan{TInput}(TInput, string)" />
-        /// <seealso cref="GreaterThan{TInput}(Func{TInput}, string)" />
-        /// <seealso cref="GreaterThan{TInput}(TInput, IComparer{TInput}, string)" />
-        public static IPattern<TInput, TInput> GreaterThan<TInput>(
-            Func<TInput> valueProvider,
+        /// <seealso cref="GreaterThan{TInput}(Task{TInput})" />
+        /// <seealso cref="GreaterThan{TInput}(Func{Task{TInput}})" />
+        /// <seealso cref="GreaterThan{TInput}(Task{TInput}, IComparer{TInput})" />
+        /// <seealso cref="GreaterThan{TInput}(Func{Task{TInput}}, IComparer{TInput})" />
+        /// <seealso cref="GreaterThan{TInput}(Task{TInput}, string)" />
+        /// <seealso cref="GreaterThan{TInput}(Func{Task{TInput}}, string)" />
+        /// <seealso cref="GreaterThan{TInput}(Task{TInput}, IComparer{TInput}, string)" />
+        public static IAsyncPattern<TInput, TInput> GreaterThan<TInput>(
+            Func<Task<TInput>> valueProvider,
             IComparer<TInput> comparer,
             string description)
         {
@@ -1406,7 +1486,7 @@ namespace Matchmaker.Patterns
 
             return comparer != null
                 ? CreatePattern<TInput>(
-                    input => comparer.Compare(input, memoizedProvider()) > 0,
+                    async input => comparer.Compare(input, await memoizedProvider()) > 0,
                     description ?? throw new ArgumentNullException(nameof(description)))
                 : throw new ArgumentNullException(nameof(comparer));
         }
@@ -1418,35 +1498,37 @@ namespace Matchmaker.Patterns
         /// <typeparam name="TInput">The type of the input value of the expression.</typeparam>
         /// <param name="value">The value to compare with.</param>
         /// <returns>
-        /// A pattern which is matched successfully when the input value is greater than
-        /// or equal to the specified value.
+        /// A pattern which is matched successfully when the input value is greater than or equal to
+        /// the specified value.
         /// </returns>
-        /// <seealso cref="GreaterOrEqual{TInput}(Func{TInput})" />
-        /// <seealso cref="GreaterOrEqual{TInput}(TInput, IComparer{TInput})" />
-        /// <seealso cref="GreaterOrEqual{TInput}(Func{TInput}, IComparer{TInput})" />
-        /// <seealso cref="GreaterOrEqual{TInput}(TInput, string)" />
-        /// <seealso cref="GreaterOrEqual{TInput}(Func{TInput}, string)" />
-        /// <seealso cref="GreaterOrEqual{TInput}(TInput, IComparer{TInput}, string)" />
-        /// <seealso cref="GreaterOrEqual{TInput}(Func{TInput}, IComparer{TInput}, string)" />
-        public static IPattern<TInput, TInput> GreaterOrEqual<TInput>(TInput value)
+        /// <exception cref="ArgumentNullException">
+        /// <paramref name="value" /> is <see langword="null" />.
+        /// </exception>
+        /// <seealso cref="GreaterOrEqual{TInput}(Func{Task{TInput}})" />
+        /// <seealso cref="GreaterOrEqual{TInput}(Task{TInput}, IComparer{TInput})" />
+        /// <seealso cref="GreaterOrEqual{TInput}(Func{Task{TInput}}, IComparer{TInput})" />
+        /// <seealso cref="GreaterOrEqual{TInput}(Task{TInput}, string)" />
+        /// <seealso cref="GreaterOrEqual{TInput}(Func{Task{TInput}}, string)" />
+        /// <seealso cref="GreaterOrEqual{TInput}(Task{TInput}, IComparer{TInput}, string)" />
+        /// <seealso cref="GreaterOrEqual{TInput}(Func{Task{TInput}}, IComparer{TInput}, string)" />
+        public static IAsyncPattern<TInput, TInput> GreaterOrEqual<TInput>(Task<TInput> value)
             where TInput : IComparable<TInput>
-            => GreaterOrEqual(
-                value, Comparer<TInput>.Default, String.Format(DefaultGreaterOrEqualDescriptionFormat, value));
+            => GreaterOrEqual(value, DefaultGreaterOrEqualDescription);
 
         /// <summary>
-        /// Returns a pattern which is matched successfully when the input value is greater than or equal to
-        /// the provided value.
+        /// Returns a pattern which is matched successfully when the input value is greater than or equal
+        /// to the provided value.
         /// </summary>
         /// <typeparam name="TInput">The type of the input value of the expression.</typeparam>
         /// <param name="valueProvider">The provider of the value to compare with.</param>
         /// <returns>
-        /// A pattern which is matched successfully when the input value is greater than
-        /// or equal to the provided value.
+        /// A pattern which is matched successfully when the input value is greater than or equal to
+        /// the provided value.
         /// </returns>
         /// <remarks>
         /// <para>
         /// The <paramref name="valueProvider" /> is not called until this pattern's
-        /// <see cref="IPattern{TInput, TMatchResult}.Match(TInput)" /> method is called.
+        /// <see cref="IAsyncPattern{TInput, TMatchResult}.MatchAsync(TInput)" /> method is called.
         /// </para>
         /// <para>
         /// The <paramref name="valueProvider" /> will be memoized, so it will be called once,
@@ -1454,20 +1536,24 @@ namespace Matchmaker.Patterns
         /// so there is a chance that the <paramref name="valueProvider" /> can be called
         /// more than once.
         /// </para>
+        /// <para>
+        /// If <paramref name="valueProvider" /> returns <see langword="null" />, an
+        /// <see cref="InvalidOperationException" /> will be thrown.
+        /// </para>
         /// </remarks>
         /// <exception cref="ArgumentNullException">
         /// <paramref name="valueProvider" /> is <see langword="null" />.
         /// </exception>
-        /// <seealso cref="GreaterOrEqual{TInput}(TInput)" />
-        /// <seealso cref="GreaterOrEqual{TInput}(TInput, IComparer{TInput})" />
-        /// <seealso cref="GreaterOrEqual{TInput}(Func{TInput}, IComparer{TInput})" />
-        /// <seealso cref="GreaterOrEqual{TInput}(TInput, string)" />
-        /// <seealso cref="GreaterOrEqual{TInput}(Func{TInput}, string)" />
-        /// <seealso cref="GreaterOrEqual{TInput}(TInput, IComparer{TInput}, string)" />
-        /// <seealso cref="GreaterOrEqual{TInput}(Func{TInput}, IComparer{TInput}, string)" />
-        public static IPattern<TInput, TInput> GreaterOrEqual<TInput>(Func<TInput> valueProvider)
+        /// <seealso cref="GreaterOrEqual{TInput}(Task{TInput})" />
+        /// <seealso cref="GreaterOrEqual{TInput}(Task{TInput}, IComparer{TInput})" />
+        /// <seealso cref="GreaterOrEqual{TInput}(Func{Task{TInput}}, IComparer{TInput})" />
+        /// <seealso cref="GreaterOrEqual{TInput}(Task{TInput}, string)" />
+        /// <seealso cref="GreaterOrEqual{TInput}(Func{Task{TInput}}, string)" />
+        /// <seealso cref="GreaterOrEqual{TInput}(Task{TInput}, IComparer{TInput}, string)" />
+        /// <seealso cref="GreaterOrEqual{TInput}(Func{Task{TInput}}, IComparer{TInput}, string)" />
+        public static IAsyncPattern<TInput, TInput> GreaterOrEqual<TInput>(Func<Task<TInput>> valueProvider)
             where TInput : IComparable<TInput>
-            => GreaterOrEqual(valueProvider, Comparer<TInput>.Default, DefaultLazyGreaterOrEqualDescription);
+            => GreaterOrEqual(valueProvider, DefaultGreaterOrEqualDescription);
 
         /// <summary>
         /// Returns a pattern which is matched successfully when the input value is greater than or equal
@@ -1477,37 +1563,39 @@ namespace Matchmaker.Patterns
         /// <param name="value">The value to compare with.</param>
         /// <param name="comparer">The comparer to use for comparison.</param>
         /// <returns>
-        /// A pattern which is matched successfully when the input value is greater than
-        /// or equal to the specified value.
+        /// A pattern which is matched successfully when the input value is greater than or equal to
+        /// the specified value.
         /// </returns>
         /// <exception cref="ArgumentNullException">
-        /// <paramref name="comparer" /> is <see langword="null" />.
+        /// <paramref name="value" /> or <paramref name="comparer" /> is <see langword="null" />.
         /// </exception>
-        /// <seealso cref="GreaterOrEqual{TInput}(TInput)" />
-        /// <seealso cref="GreaterOrEqual{TInput}(Func{TInput})" />
-        /// <seealso cref="GreaterOrEqual{TInput}(Func{TInput}, IComparer{TInput})" />
-        /// <seealso cref="GreaterOrEqual{TInput}(TInput, string)" />
-        /// <seealso cref="GreaterOrEqual{TInput}(Func{TInput}, string)" />
-        /// <seealso cref="GreaterOrEqual{TInput}(TInput, IComparer{TInput}, string)" />
-        /// <seealso cref="GreaterOrEqual{TInput}(Func{TInput}, IComparer{TInput}, string)" />
-        public static IPattern<TInput, TInput> GreaterOrEqual<TInput>(TInput value, IComparer<TInput> comparer)
-            => GreaterOrEqual(value, comparer, String.Format(DefaultGreaterOrEqualDescriptionFormat, value));
+        /// <seealso cref="GreaterOrEqual{TInput}(Task{TInput})" />
+        /// <seealso cref="GreaterOrEqual{TInput}(Func{Task{TInput}})" />
+        /// <seealso cref="GreaterOrEqual{TInput}(Func{Task{TInput}}, IComparer{TInput})" />
+        /// <seealso cref="GreaterOrEqual{TInput}(Task{TInput}, string)" />
+        /// <seealso cref="GreaterOrEqual{TInput}(Func{Task{TInput}}, string)" />
+        /// <seealso cref="GreaterOrEqual{TInput}(Task{TInput}, IComparer{TInput}, string)" />
+        /// <seealso cref="GreaterOrEqual{TInput}(Func{Task{TInput}}, IComparer{TInput}, string)" />
+        public static IAsyncPattern<TInput, TInput> GreaterOrEqual<TInput>(
+            Task<TInput> value,
+            IComparer<TInput> comparer)
+            => GreaterOrEqual(value, comparer, DefaultGreaterOrEqualDescription);
 
         /// <summary>
-        /// Returns a pattern which is matched successfully when the input value is greater than or equal to
-        /// the provided value according to the specified comparer.
+        /// Returns a pattern which is matched successfully when the input value is greater than or equal
+        /// to the provided value according to the specified comparer.
         /// </summary>
         /// <typeparam name="TInput">The type of the input value of the expression.</typeparam>
         /// <param name="valueProvider">The provider of the value to compare with.</param>
         /// <param name="comparer">The comparer to use for comparison.</param>
         /// <returns>
-        /// A pattern which is matched successfully when the input value is greater than
-        /// or equal to the provided value.
+        /// A pattern which is matched successfully when the input value is greater than or equal to
+        /// the provided value.
         /// </returns>
         /// <remarks>
         /// <para>
         /// The <paramref name="valueProvider" /> is not called until this pattern's
-        /// <see cref="IPattern{TInput, TMatchResult}.Match(TInput)" /> method is called.
+        /// <see cref="IAsyncPattern{TInput, TMatchResult}.MatchAsync(TInput)" /> method is called.
         /// </para>
         /// <para>
         /// The <paramref name="valueProvider" /> will be memoized, so it will be called once,
@@ -1515,21 +1603,25 @@ namespace Matchmaker.Patterns
         /// so there is a chance that the <paramref name="valueProvider" /> can be called
         /// more than once.
         /// </para>
+        /// <para>
+        /// If <paramref name="valueProvider" /> returns <see langword="null" />, an
+        /// <see cref="InvalidOperationException" /> will be thrown.
+        /// </para>
         /// </remarks>
         /// <exception cref="ArgumentNullException">
         /// <paramref name="valueProvider" /> or <paramref name="comparer" /> is <see langword="null" />.
         /// </exception>
-        /// <seealso cref="GreaterOrEqual{TInput}(TInput)" />
-        /// <seealso cref="GreaterOrEqual{TInput}(Func{TInput})" />
-        /// <seealso cref="GreaterOrEqual{TInput}(TInput, IComparer{TInput})" />
-        /// <seealso cref="GreaterOrEqual{TInput}(TInput, string)" />
-        /// <seealso cref="GreaterOrEqual{TInput}(Func{TInput}, string)" />
-        /// <seealso cref="GreaterOrEqual{TInput}(TInput, IComparer{TInput}, string)" />
-        /// <seealso cref="GreaterOrEqual{TInput}(Func{TInput}, IComparer{TInput}, string)" />
-        public static IPattern<TInput, TInput> GreaterOrEqual<TInput>(
-            Func<TInput> valueProvider,
+        /// <seealso cref="GreaterOrEqual{TInput}(Task{TInput})" />
+        /// <seealso cref="GreaterOrEqual{TInput}(Func{Task{TInput}})" />
+        /// <seealso cref="GreaterOrEqual{TInput}(Task{TInput}, IComparer{TInput})" />
+        /// <seealso cref="GreaterOrEqual{TInput}(Task{TInput}, string)" />
+        /// <seealso cref="GreaterOrEqual{TInput}(Func{Task{TInput}}, string)" />
+        /// <seealso cref="GreaterOrEqual{TInput}(Task{TInput}, IComparer{TInput}, string)" />
+        /// <seealso cref="GreaterOrEqual{TInput}(Func{Task{TInput}}, IComparer{TInput}, string)" />
+        public static IAsyncPattern<TInput, TInput> GreaterOrEqual<TInput>(
+            Func<Task<TInput>> valueProvider,
             IComparer<TInput> comparer)
-            => GreaterOrEqual(valueProvider, comparer, DefaultLazyGreaterOrEqualDescription);
+            => GreaterOrEqual(valueProvider, comparer, DefaultGreaterOrEqualDescription);
 
         /// <summary>
         /// Returns a pattern which is matched successfully when the input value is greater than or equal
@@ -1539,20 +1631,20 @@ namespace Matchmaker.Patterns
         /// <param name="value">The value to compare with.</param>
         /// <param name="description">The description of the pattern.</param>
         /// <returns>
-        /// A pattern which is matched successfully when the input value is greater than
-        /// or equal to the specified value.
+        /// A pattern which is matched successfully when the input value is greater than or equal to
+        /// the specified value.
         /// </returns>
         /// <exception cref="ArgumentNullException">
-        /// <paramref name="description" /> is <see langword="null" />.
+        /// <paramref name="value" /> or <paramref name="description" /> is <see langword="null" />.
         /// </exception>
-        /// <seealso cref="GreaterOrEqual{TInput}(TInput)" />
-        /// <seealso cref="GreaterOrEqual{TInput}(Func{TInput})" />
-        /// <seealso cref="GreaterOrEqual{TInput}(TInput, IComparer{TInput})" />
-        /// <seealso cref="GreaterOrEqual{TInput}(Func{TInput}, IComparer{TInput})" />
-        /// <seealso cref="GreaterOrEqual{TInput}(Func{TInput}, string)" />
-        /// <seealso cref="GreaterOrEqual{TInput}(TInput, IComparer{TInput}, string)" />
-        /// <seealso cref="GreaterOrEqual{TInput}(Func{TInput}, IComparer{TInput}, string)" />
-        public static IPattern<TInput, TInput> GreaterOrEqual<TInput>(TInput value, string description)
+        /// <seealso cref="GreaterOrEqual{TInput}(Task{TInput})" />
+        /// <seealso cref="GreaterOrEqual{TInput}(Func{Task{TInput}})" />
+        /// <seealso cref="GreaterOrEqual{TInput}(Task{TInput}, IComparer{TInput})" />
+        /// <seealso cref="GreaterOrEqual{TInput}(Func{Task{TInput}}, IComparer{TInput})" />
+        /// <seealso cref="GreaterOrEqual{TInput}(Func{Task{TInput}}, string)" />
+        /// <seealso cref="GreaterOrEqual{TInput}(Task{TInput}, IComparer{TInput}, string)" />
+        /// <seealso cref="GreaterOrEqual{TInput}(Func{Task{TInput}}, IComparer{TInput}, string)" />
+        public static IAsyncPattern<TInput, TInput> GreaterOrEqual<TInput>(Task<TInput> value, string description)
             where TInput : IComparable<TInput>
             => GreaterOrEqual(value, Comparer<TInput>.Default, description);
 
@@ -1564,13 +1656,13 @@ namespace Matchmaker.Patterns
         /// <param name="valueProvider">The provider of the value to compare with.</param>
         /// <param name="description">The description of the pattern.</param>
         /// <returns>
-        /// A pattern which is matched successfully when the input value is greater than
-        /// or equal to the provided value.
+        /// A pattern which is matched successfully when the input value is greater than or equal to
+        /// the provided value.
         /// </returns>
         /// <remarks>
         /// <para>
         /// The <paramref name="valueProvider" /> is not called until this pattern's
-        /// <see cref="IPattern{TInput, TMatchResult}.Match(TInput)" /> method is called.
+        /// <see cref="IAsyncPattern{TInput, TMatchResult}.MatchAsync(TInput)" /> method is called.
         /// </para>
         /// <para>
         /// The <paramref name="valueProvider" /> will be memoized, so it will be called once,
@@ -1578,18 +1670,24 @@ namespace Matchmaker.Patterns
         /// so there is a chance that the <paramref name="valueProvider" /> can be called
         /// more than once.
         /// </para>
+        /// <para>
+        /// If <paramref name="valueProvider" /> returns <see langword="null" />, an
+        /// <see cref="InvalidOperationException" /> will be thrown.
+        /// </para>
         /// </remarks>
         /// <exception cref="ArgumentNullException">
         /// <paramref name="valueProvider" /> or <paramref name="description" /> is <see langword="null" />.
         /// </exception>
-        /// <seealso cref="GreaterOrEqual{TInput}(TInput)" />
-        /// <seealso cref="GreaterOrEqual{TInput}(Func{TInput})" />
-        /// <seealso cref="GreaterOrEqual{TInput}(TInput, IComparer{TInput})" />
-        /// <seealso cref="GreaterOrEqual{TInput}(Func{TInput}, IComparer{TInput})" />
-        /// <seealso cref="GreaterOrEqual{TInput}(TInput, string)" />
-        /// <seealso cref="GreaterOrEqual{TInput}(TInput, IComparer{TInput}, string)" />
-        /// <seealso cref="GreaterOrEqual{TInput}(Func{TInput}, IComparer{TInput}, string)" />
-        public static IPattern<TInput, TInput> GreaterOrEqual<TInput>(Func<TInput> valueProvider, string description)
+        /// <seealso cref="GreaterOrEqual{TInput}(Task{TInput})" />
+        /// <seealso cref="GreaterOrEqual{TInput}(Func{Task{TInput}})" />
+        /// <seealso cref="GreaterOrEqual{TInput}(Task{TInput}, IComparer{TInput})" />
+        /// <seealso cref="GreaterOrEqual{TInput}(Func{Task{TInput}}, IComparer{TInput})" />
+        /// <seealso cref="GreaterOrEqual{TInput}(Task{TInput}, string)" />
+        /// <seealso cref="GreaterOrEqual{TInput}(Task{TInput}, IComparer{TInput}, string)" />
+        /// <seealso cref="GreaterOrEqual{TInput}(Func{Task{TInput}}, IComparer{TInput}, string)" />
+        public static IAsyncPattern<TInput, TInput> GreaterOrEqual<TInput>(
+            Func<Task<TInput>> valueProvider,
+            string description)
             where TInput : IComparable<TInput>
             => GreaterOrEqual(valueProvider, Comparer<TInput>.Default, description);
 
@@ -1602,28 +1700,31 @@ namespace Matchmaker.Patterns
         /// <param name="comparer">The comparer to use for comparison.</param>
         /// <param name="description">The description of the pattern.</param>
         /// <returns>
-        /// A pattern which is matched successfully when the input value is greater than
-        /// or equal to the specified value.
+        /// A pattern which is matched successfully when the input value is greater than or equal to
+        /// the specified value.
         /// </returns>
         /// <exception cref="ArgumentNullException">
-        /// <paramref name="comparer" /> or <paramref name="description" /> is <see langword="null" />.
+        /// <paramref name="value" />, <paramref name="comparer" /> or <paramref name="description" /> is
+        /// <see langword="null" />.
         /// </exception>
-        /// <seealso cref="GreaterOrEqual{TInput}(TInput)" />
-        /// <seealso cref="GreaterOrEqual{TInput}(Func{TInput})" />
-        /// <seealso cref="GreaterOrEqual{TInput}(TInput, IComparer{TInput})" />
-        /// <seealso cref="GreaterOrEqual{TInput}(Func{TInput}, IComparer{TInput})" />
-        /// <seealso cref="GreaterOrEqual{TInput}(TInput, string)" />
-        /// <seealso cref="GreaterOrEqual{TInput}(Func{TInput}, string)" />
-        /// <seealso cref="GreaterOrEqual{TInput}(Func{TInput}, IComparer{TInput}, string)" />
-        public static IPattern<TInput, TInput> GreaterOrEqual<TInput>(
-            TInput value,
+        /// <seealso cref="GreaterOrEqual{TInput}(Task{TInput})" />
+        /// <seealso cref="GreaterOrEqual{TInput}(Func{Task{TInput}})" />
+        /// <seealso cref="GreaterOrEqual{TInput}(Task{TInput}, IComparer{TInput})" />
+        /// <seealso cref="GreaterOrEqual{TInput}(Func{Task{TInput}}, IComparer{TInput})" />
+        /// <seealso cref="GreaterOrEqual{TInput}(Task{TInput}, string)" />
+        /// <seealso cref="GreaterOrEqual{TInput}(Func{Task{TInput}}, string)" />
+        /// <seealso cref="GreaterOrEqual{TInput}(Func{Task{TInput}}, IComparer{TInput}, string)" />
+        public static IAsyncPattern<TInput, TInput> GreaterOrEqual<TInput>(
+            Task<TInput> value,
             IComparer<TInput> comparer,
             string description)
-            => comparer != null
-                ? CreatePattern<TInput>(
-                    input => comparer.Compare(input, value) >= 0,
-                    description ?? throw new ArgumentNullException(nameof(description)))
-                : throw new ArgumentNullException(nameof(comparer));
+            => value != null
+                ? comparer != null
+                    ? CreatePattern<TInput>(
+                        async input => comparer.Compare(input, await value) >= 0,
+                        description ?? throw new ArgumentNullException(nameof(description)))
+                    : throw new ArgumentNullException(nameof(comparer))
+                : throw new ArgumentNullException(nameof(value));
 
         /// <summary>
         /// Returns a pattern which is matched successfully when the input value is greater than or equal
@@ -1634,13 +1735,13 @@ namespace Matchmaker.Patterns
         /// <param name="comparer">The comparer to use for comparison.</param>
         /// <param name="description">The description of the pattern.</param>
         /// <returns>
-        /// A pattern which is matched successfully when the input value is greater than
-        /// or equal to the provided value.
+        /// A pattern which is matched successfully when the input value is greater than or equal to
+        /// the provided value.
         /// </returns>
         /// <remarks>
         /// <para>
         /// The <paramref name="valueProvider" /> is not called until this pattern's
-        /// <see cref="IPattern{TInput, TMatchResult}.Match(TInput)" /> method is called.
+        /// <see cref="IAsyncPattern{TInput, TMatchResult}.MatchAsync(TInput)" /> method is called.
         /// </para>
         /// <para>
         /// The <paramref name="valueProvider" /> will be memoized, so it will be called once,
@@ -1648,20 +1749,24 @@ namespace Matchmaker.Patterns
         /// so there is a chance that the <paramref name="valueProvider" /> can be called
         /// more than once.
         /// </para>
+        /// <para>
+        /// If <paramref name="valueProvider" /> returns <see langword="null" />, an
+        /// <see cref="InvalidOperationException" /> will be thrown.
+        /// </para>
         /// </remarks>
         /// <exception cref="ArgumentNullException">
         /// <paramref name="valueProvider" />, <paramref name="comparer" /> or <paramref name="description" />
         /// is <see langword="null" />.
         /// </exception>
-        /// <seealso cref="GreaterOrEqual{TInput}(TInput)" />
-        /// <seealso cref="GreaterOrEqual{TInput}(Func{TInput})" />
-        /// <seealso cref="GreaterOrEqual{TInput}(TInput, IComparer{TInput})" />
-        /// <seealso cref="GreaterOrEqual{TInput}(Func{TInput}, IComparer{TInput})" />
-        /// <seealso cref="GreaterOrEqual{TInput}(TInput, string)" />
-        /// <seealso cref="GreaterOrEqual{TInput}(Func{TInput}, string)" />
-        /// <seealso cref="GreaterOrEqual{TInput}(TInput, IComparer{TInput}, string)" />
-        public static IPattern<TInput, TInput> GreaterOrEqual<TInput>(
-            Func<TInput> valueProvider,
+        /// <seealso cref="GreaterOrEqual{TInput}(Task{TInput})" />
+        /// <seealso cref="GreaterOrEqual{TInput}(Func{Task{TInput}})" />
+        /// <seealso cref="GreaterOrEqual{TInput}(Task{TInput}, IComparer{TInput})" />
+        /// <seealso cref="GreaterOrEqual{TInput}(Func{Task{TInput}}, IComparer{TInput})" />
+        /// <seealso cref="GreaterOrEqual{TInput}(Task{TInput}, string)" />
+        /// <seealso cref="GreaterOrEqual{TInput}(Func{Task{TInput}}, string)" />
+        /// <seealso cref="GreaterOrEqual{TInput}(Task{TInput}, IComparer{TInput}, string)" />
+        public static IAsyncPattern<TInput, TInput> GreaterOrEqual<TInput>(
+            Func<Task<TInput>> valueProvider,
             IComparer<TInput> comparer,
             string description)
         {
@@ -1669,7 +1774,7 @@ namespace Matchmaker.Patterns
 
             return comparer != null
                 ? CreatePattern<TInput>(
-                    input => comparer.Compare(input, memoizedProvider()) >= 0,
+                    async input => comparer.Compare(input, await memoizedProvider()) >= 0,
                     description ?? throw new ArgumentNullException(nameof(description)))
                 : throw new ArgumentNullException(nameof(comparer));
         }
@@ -1687,7 +1792,7 @@ namespace Matchmaker.Patterns
         /// is a non-nullable value type.
         /// </remarks>
         /// <seealso cref="Type{TInput, TType}(string)" />
-        public static IPattern<TInput, TType> Type<TInput, TType>()
+        public static IAsyncPattern<TInput, TType> Type<TInput, TType>()
             where TType : TInput
             => Type<TInput, TType>(String.Format(DefaultTypeDescriptionFormat, typeof(TType)));
 
@@ -1708,12 +1813,12 @@ namespace Matchmaker.Patterns
         /// <paramref name="description" /> is <see langword="null" />.
         /// </exception>
         /// <seealso cref="Type{TInput, TType}()" />
-        public static IPattern<TInput, TType> Type<TInput, TType>(string description)
+        public static IAsyncPattern<TInput, TType> Type<TInput, TType>(string description)
             where TType : TInput
             => CreatePattern<TInput, TType>(
-                input => input is null && default(TType) is null
+                input => Task.FromResult(input is null && default(TType) is null
                     ? MatchResult.Success<TType>(default)
-                    : (input is TType result ? MatchResult.Success(result) : MatchResult.Failure<TType>()),
+                    : (input is TType result ? MatchResult.Success(result) : MatchResult.Failure<TType>())),
                 description ?? throw new ArgumentNullException(nameof(description)));
 
         /// <summary>
@@ -1732,8 +1837,9 @@ namespace Matchmaker.Patterns
         /// <exception cref="ArgumentNullException">
         /// <paramref name="pattern" /> is <see langword="null" />.
         /// </exception>
-        /// <seealso cref="Not{TInput, TMatchResult}(IPattern{TInput, TMatchResult}, string)" />
-        public static IPattern<TInput, TInput> Not<TInput, TMatchResult>(IPattern<TInput, TMatchResult> pattern)
+        /// <seealso cref="Not{TInput, TMatchResult}(IAsyncPattern{TInput, TMatchResult}, string)" />
+        public static IAsyncPattern<TInput, TInput> Not<TInput, TMatchResult>(
+            IAsyncPattern<TInput, TMatchResult> pattern)
             => pattern != null
                 ? Not(
                     pattern,
@@ -1759,15 +1865,32 @@ namespace Matchmaker.Patterns
         /// <exception cref="ArgumentNullException">
         /// <paramref name="pattern" /> or <paramref name="description" /> is <see langword="null" />.
         /// </exception>
-        /// <seealso cref="Not{TInput, TMatchResult}(IPattern{TInput, TMatchResult})" />
-        public static IPattern<TInput, TInput> Not<TInput, TMatchResult>(
-            IPattern<TInput, TMatchResult> pattern,
+        /// <seealso cref="Not{TInput, TMatchResult}(IAsyncPattern{TInput, TMatchResult})" />
+        public static IAsyncPattern<TInput, TInput> Not<TInput, TMatchResult>(
+            IAsyncPattern<TInput, TMatchResult> pattern,
             string description)
             => pattern != null
                 ? CreatePattern<TInput>(
-                    input => !pattern.Match(input).IsSuccessful,
+                    async input => !(await pattern.MatchAndThrowIfNull(input)).IsSuccessful,
                     description ?? throw new ArgumentNullException(nameof(description)))
                 : throw new ArgumentNullException(nameof(pattern));
+
+        /// <summary>
+        /// Matches the specified pattern and throws an <see cref="InvalidOperationException" />
+        /// if the returned <see cref="Task{TResult}" /> is <see langword="null" />.
+        /// </summary>
+        /// <typeparam name="TInput">The type of the input value of the expression.</typeparam>
+        /// <typeparam name="TMatchResult">The type of the result of this pattern's match.</typeparam>
+        /// <param name="pattern">The pattern to match.</param>
+        /// <param name="input">The input value to match against the pattern.</param>
+        /// <returns>The pattern's result.</returns>
+        /// <exception cref="InvalidOperationException">
+        /// The pattern's match returned <see langword="null" />.
+        /// </exception>
+        internal static Task<MatchResult<TMatchResult>> MatchAndThrowIfNull<TInput, TMatchResult>(
+            this IAsyncPattern<TInput, TMatchResult> pattern,
+            TInput input)
+            => pattern.MatchAsync(input) ?? throw new InvalidOperationException("Task returned from a pattern is null");
 
         /// <summary>
         /// Memoizes the specified function.
@@ -1775,16 +1898,17 @@ namespace Matchmaker.Patterns
         /// <typeparam name="T">The type of the function's result.</typeparam>
         /// <param name="function">The function to memoize.</param>
         /// <returns>The memoized version of the specified function.</returns>
-        private static Func<T> Memoize<T>(Func<T> function)
+        private static Func<Task<T>> Memoize<T>(Func<Task<T>> function)
         {
             T result = default;
             bool isMemoized = false;
 
-            return () =>
+            return async () =>
             {
                 if (!isMemoized)
                 {
-                    result = function();
+                    result = await (function() ??
+                        throw new InvalidOperationException("Task returned from a provider function is null"));
                     isMemoized = true;
                 }
 
