@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 namespace Matchmaker.Patterns.Async
 {
     /// <summary>
-    /// Represents a base class asynchronous for patterns.
+    /// Represents a base class for asynchronous patterns.
     /// </summary>
     /// <typeparam name="TInput">The type of the input value of the expression.</typeparam>
     /// <typeparam name="TMatchResult">The type of the result of this pattern's match.</typeparam>
