@@ -57,6 +57,15 @@ references:
   fullName.vb: Matchmaker.Linq.MatchResultExtensions.Bind(Of T, TResult)(Matchmaker.MatchResult(Of T), Func(Of T, Matchmaker.MatchResult(Of TResult)))
   nameWithType: MatchResultExtensions.Bind<T, TResult>(MatchResult<T>, Func<T, MatchResult<TResult>>)
   nameWithType.vb: MatchResultExtensions.Bind(Of T, TResult)(MatchResult(Of T), Func(Of T, MatchResult(Of TResult)))
+- uid: Matchmaker.Linq.MatchResultExtensions.Bind``2(Task{Matchmaker.MatchResult{``0}},Func{``0,Task{Matchmaker.MatchResult{``1}}})
+  name: Bind<T, TResult>(Task<MatchResult<T>>, Func<T, Task<MatchResult<TResult>>>)
+  href: api/Matchmaker.Linq.MatchResultExtensions.html#Matchmaker_Linq_MatchResultExtensions_Bind__2_Task_Matchmaker_MatchResult___0___Func___0_Task_Matchmaker_MatchResult___1____
+  commentId: M:Matchmaker.Linq.MatchResultExtensions.Bind``2(Task{Matchmaker.MatchResult{``0}},Func{``0,Task{Matchmaker.MatchResult{``1}}})
+  name.vb: Bind(Of T, TResult)(Task(Of MatchResult(Of T)), Func(Of T, Task(Of MatchResult(Of TResult))))
+  fullName: Matchmaker.Linq.MatchResultExtensions.Bind<T, TResult>(Task<Matchmaker.MatchResult<T>>, Func<T, Task<Matchmaker.MatchResult<TResult>>>)
+  fullName.vb: Matchmaker.Linq.MatchResultExtensions.Bind(Of T, TResult)(Task(Of Matchmaker.MatchResult(Of T)), Func(Of T, Task(Of Matchmaker.MatchResult(Of TResult))))
+  nameWithType: MatchResultExtensions.Bind<T, TResult>(Task<MatchResult<T>>, Func<T, Task<MatchResult<TResult>>>)
+  nameWithType.vb: MatchResultExtensions.Bind(Of T, TResult)(Task(Of MatchResult(Of T)), Func(Of T, Task(Of MatchResult(Of TResult))))
 - uid: Matchmaker.Linq.MatchResultExtensions.Cast*
   name: Cast
   href: api/Matchmaker.Linq.MatchResultExtensions.html#Matchmaker_Linq_MatchResultExtensions_Cast_
@@ -73,6 +82,15 @@ references:
   fullName.vb: Matchmaker.Linq.MatchResultExtensions.Cast(Of T, TResult)(Matchmaker.MatchResult(Of T))
   nameWithType: MatchResultExtensions.Cast<T, TResult>(MatchResult<T>)
   nameWithType.vb: MatchResultExtensions.Cast(Of T, TResult)(MatchResult(Of T))
+- uid: Matchmaker.Linq.MatchResultExtensions.Cast``2(Task{Matchmaker.MatchResult{``0}})
+  name: Cast<T, TResult>(Task<MatchResult<T>>)
+  href: api/Matchmaker.Linq.MatchResultExtensions.html#Matchmaker_Linq_MatchResultExtensions_Cast__2_Task_Matchmaker_MatchResult___0___
+  commentId: M:Matchmaker.Linq.MatchResultExtensions.Cast``2(Task{Matchmaker.MatchResult{``0}})
+  name.vb: Cast(Of T, TResult)(Task(Of MatchResult(Of T)))
+  fullName: Matchmaker.Linq.MatchResultExtensions.Cast<T, TResult>(Task<Matchmaker.MatchResult<T>>)
+  fullName.vb: Matchmaker.Linq.MatchResultExtensions.Cast(Of T, TResult)(Task(Of Matchmaker.MatchResult(Of T)))
+  nameWithType: MatchResultExtensions.Cast<T, TResult>(Task<MatchResult<T>>)
+  nameWithType.vb: MatchResultExtensions.Cast(Of T, TResult)(Task(Of MatchResult(Of T)))
 - uid: Matchmaker.Linq.MatchResultExtensions.Do*
   name: Do
   href: api/Matchmaker.Linq.MatchResultExtensions.html#Matchmaker_Linq_MatchResultExtensions_Do_
@@ -89,6 +107,24 @@ references:
   fullName.vb: Matchmaker.Linq.MatchResultExtensions.Do(Of T)(Matchmaker.MatchResult(Of T), Action(Of T))
   nameWithType: MatchResultExtensions.Do<T>(MatchResult<T>, Action<T>)
   nameWithType.vb: MatchResultExtensions.Do(Of T)(MatchResult(Of T), Action(Of T))
+- uid: Matchmaker.Linq.MatchResultExtensions.Do``1(Task{Matchmaker.MatchResult{``0}},Action{``0})
+  name: Do<T>(Task<MatchResult<T>>, Action<T>)
+  href: api/Matchmaker.Linq.MatchResultExtensions.html#Matchmaker_Linq_MatchResultExtensions_Do__1_Task_Matchmaker_MatchResult___0___Action___0__
+  commentId: M:Matchmaker.Linq.MatchResultExtensions.Do``1(Task{Matchmaker.MatchResult{``0}},Action{``0})
+  name.vb: Do(Of T)(Task(Of MatchResult(Of T)), Action(Of T))
+  fullName: Matchmaker.Linq.MatchResultExtensions.Do<T>(Task<Matchmaker.MatchResult<T>>, Action<T>)
+  fullName.vb: Matchmaker.Linq.MatchResultExtensions.Do(Of T)(Task(Of Matchmaker.MatchResult(Of T)), Action(Of T))
+  nameWithType: MatchResultExtensions.Do<T>(Task<MatchResult<T>>, Action<T>)
+  nameWithType.vb: MatchResultExtensions.Do(Of T)(Task(Of MatchResult(Of T)), Action(Of T))
+- uid: Matchmaker.Linq.MatchResultExtensions.Do``1(Task{Matchmaker.MatchResult{``0}},Func{``0,Task})
+  name: Do<T>(Task<MatchResult<T>>, Func<T, Task>)
+  href: api/Matchmaker.Linq.MatchResultExtensions.html#Matchmaker_Linq_MatchResultExtensions_Do__1_Task_Matchmaker_MatchResult___0___Func___0_Task__
+  commentId: M:Matchmaker.Linq.MatchResultExtensions.Do``1(Task{Matchmaker.MatchResult{``0}},Func{``0,Task})
+  name.vb: Do(Of T)(Task(Of MatchResult(Of T)), Func(Of T, Task))
+  fullName: Matchmaker.Linq.MatchResultExtensions.Do<T>(Task<Matchmaker.MatchResult<T>>, Func<T, Task>)
+  fullName.vb: Matchmaker.Linq.MatchResultExtensions.Do(Of T)(Task(Of Matchmaker.MatchResult(Of T)), Func(Of T, Task))
+  nameWithType: MatchResultExtensions.Do<T>(Task<MatchResult<T>>, Func<T, Task>)
+  nameWithType.vb: MatchResultExtensions.Do(Of T)(Task(Of MatchResult(Of T)), Func(Of T, Task))
 - uid: Matchmaker.Linq.MatchResultExtensions.GetValueOrDefault*
   name: GetValueOrDefault
   href: api/Matchmaker.Linq.MatchResultExtensions.html#Matchmaker_Linq_MatchResultExtensions_GetValueOrDefault_
@@ -123,6 +159,42 @@ references:
   fullName.vb: Matchmaker.Linq.MatchResultExtensions.GetValueOrDefault(Of T)(Matchmaker.MatchResult(Of T), Func(Of T))
   nameWithType: MatchResultExtensions.GetValueOrDefault<T>(MatchResult<T>, Func<T>)
   nameWithType.vb: MatchResultExtensions.GetValueOrDefault(Of T)(MatchResult(Of T), Func(Of T))
+- uid: Matchmaker.Linq.MatchResultExtensions.GetValueOrDefault``1(Task{Matchmaker.MatchResult{``0}})
+  name: GetValueOrDefault<T>(Task<MatchResult<T>>)
+  href: api/Matchmaker.Linq.MatchResultExtensions.html#Matchmaker_Linq_MatchResultExtensions_GetValueOrDefault__1_Task_Matchmaker_MatchResult___0___
+  commentId: M:Matchmaker.Linq.MatchResultExtensions.GetValueOrDefault``1(Task{Matchmaker.MatchResult{``0}})
+  name.vb: GetValueOrDefault(Of T)(Task(Of MatchResult(Of T)))
+  fullName: Matchmaker.Linq.MatchResultExtensions.GetValueOrDefault<T>(Task<Matchmaker.MatchResult<T>>)
+  fullName.vb: Matchmaker.Linq.MatchResultExtensions.GetValueOrDefault(Of T)(Task(Of Matchmaker.MatchResult(Of T)))
+  nameWithType: MatchResultExtensions.GetValueOrDefault<T>(Task<MatchResult<T>>)
+  nameWithType.vb: MatchResultExtensions.GetValueOrDefault(Of T)(Task(Of MatchResult(Of T)))
+- uid: Matchmaker.Linq.MatchResultExtensions.GetValueOrDefault``1(Task{Matchmaker.MatchResult{``0}},``0)
+  name: GetValueOrDefault<T>(Task<MatchResult<T>>, T)
+  href: api/Matchmaker.Linq.MatchResultExtensions.html#Matchmaker_Linq_MatchResultExtensions_GetValueOrDefault__1_Task_Matchmaker_MatchResult___0_____0_
+  commentId: M:Matchmaker.Linq.MatchResultExtensions.GetValueOrDefault``1(Task{Matchmaker.MatchResult{``0}},``0)
+  name.vb: GetValueOrDefault(Of T)(Task(Of MatchResult(Of T)), T)
+  fullName: Matchmaker.Linq.MatchResultExtensions.GetValueOrDefault<T>(Task<Matchmaker.MatchResult<T>>, T)
+  fullName.vb: Matchmaker.Linq.MatchResultExtensions.GetValueOrDefault(Of T)(Task(Of Matchmaker.MatchResult(Of T)), T)
+  nameWithType: MatchResultExtensions.GetValueOrDefault<T>(Task<MatchResult<T>>, T)
+  nameWithType.vb: MatchResultExtensions.GetValueOrDefault(Of T)(Task(Of MatchResult(Of T)), T)
+- uid: Matchmaker.Linq.MatchResultExtensions.GetValueOrDefault``1(Task{Matchmaker.MatchResult{``0}},Func{``0})
+  name: GetValueOrDefault<T>(Task<MatchResult<T>>, Func<T>)
+  href: api/Matchmaker.Linq.MatchResultExtensions.html#Matchmaker_Linq_MatchResultExtensions_GetValueOrDefault__1_Task_Matchmaker_MatchResult___0___Func___0__
+  commentId: M:Matchmaker.Linq.MatchResultExtensions.GetValueOrDefault``1(Task{Matchmaker.MatchResult{``0}},Func{``0})
+  name.vb: GetValueOrDefault(Of T)(Task(Of MatchResult(Of T)), Func(Of T))
+  fullName: Matchmaker.Linq.MatchResultExtensions.GetValueOrDefault<T>(Task<Matchmaker.MatchResult<T>>, Func<T>)
+  fullName.vb: Matchmaker.Linq.MatchResultExtensions.GetValueOrDefault(Of T)(Task(Of Matchmaker.MatchResult(Of T)), Func(Of T))
+  nameWithType: MatchResultExtensions.GetValueOrDefault<T>(Task<MatchResult<T>>, Func<T>)
+  nameWithType.vb: MatchResultExtensions.GetValueOrDefault(Of T)(Task(Of MatchResult(Of T)), Func(Of T))
+- uid: Matchmaker.Linq.MatchResultExtensions.GetValueOrDefault``1(Task{Matchmaker.MatchResult{``0}},Func{Task{``0}})
+  name: GetValueOrDefault<T>(Task<MatchResult<T>>, Func<Task<T>>)
+  href: api/Matchmaker.Linq.MatchResultExtensions.html#Matchmaker_Linq_MatchResultExtensions_GetValueOrDefault__1_Task_Matchmaker_MatchResult___0___Func_Task___0___
+  commentId: M:Matchmaker.Linq.MatchResultExtensions.GetValueOrDefault``1(Task{Matchmaker.MatchResult{``0}},Func{Task{``0}})
+  name.vb: GetValueOrDefault(Of T)(Task(Of MatchResult(Of T)), Func(Of Task(Of T)))
+  fullName: Matchmaker.Linq.MatchResultExtensions.GetValueOrDefault<T>(Task<Matchmaker.MatchResult<T>>, Func<Task<T>>)
+  fullName.vb: Matchmaker.Linq.MatchResultExtensions.GetValueOrDefault(Of T)(Task(Of Matchmaker.MatchResult(Of T)), Func(Of Task(Of T)))
+  nameWithType: MatchResultExtensions.GetValueOrDefault<T>(Task<MatchResult<T>>, Func<Task<T>>)
+  nameWithType.vb: MatchResultExtensions.GetValueOrDefault(Of T)(Task(Of MatchResult(Of T)), Func(Of Task(Of T)))
 - uid: Matchmaker.Linq.MatchResultExtensions.GetValueOrThrow*
   name: GetValueOrThrow
   href: api/Matchmaker.Linq.MatchResultExtensions.html#Matchmaker_Linq_MatchResultExtensions_GetValueOrThrow_
@@ -139,6 +211,15 @@ references:
   fullName.vb: Matchmaker.Linq.MatchResultExtensions.GetValueOrThrow(Of T)(Matchmaker.MatchResult(Of T), Func(Of Exception))
   nameWithType: MatchResultExtensions.GetValueOrThrow<T>(MatchResult<T>, Func<Exception>)
   nameWithType.vb: MatchResultExtensions.GetValueOrThrow(Of T)(MatchResult(Of T), Func(Of Exception))
+- uid: Matchmaker.Linq.MatchResultExtensions.GetValueOrThrow``1(Task{Matchmaker.MatchResult{``0}},Func{Exception})
+  name: GetValueOrThrow<T>(Task<MatchResult<T>>, Func<Exception>)
+  href: api/Matchmaker.Linq.MatchResultExtensions.html#Matchmaker_Linq_MatchResultExtensions_GetValueOrThrow__1_Task_Matchmaker_MatchResult___0___Func_Exception__
+  commentId: M:Matchmaker.Linq.MatchResultExtensions.GetValueOrThrow``1(Task{Matchmaker.MatchResult{``0}},Func{Exception})
+  name.vb: GetValueOrThrow(Of T)(Task(Of MatchResult(Of T)), Func(Of Exception))
+  fullName: Matchmaker.Linq.MatchResultExtensions.GetValueOrThrow<T>(Task<Matchmaker.MatchResult<T>>, Func<Exception>)
+  fullName.vb: Matchmaker.Linq.MatchResultExtensions.GetValueOrThrow(Of T)(Task(Of Matchmaker.MatchResult(Of T)), Func(Of Exception))
+  nameWithType: MatchResultExtensions.GetValueOrThrow<T>(Task<MatchResult<T>>, Func<Exception>)
+  nameWithType.vb: MatchResultExtensions.GetValueOrThrow(Of T)(Task(Of MatchResult(Of T)), Func(Of Exception))
 - uid: Matchmaker.Linq.MatchResultExtensions.Select*
   name: Select
   href: api/Matchmaker.Linq.MatchResultExtensions.html#Matchmaker_Linq_MatchResultExtensions_Select_
@@ -155,6 +236,15 @@ references:
   fullName.vb: Matchmaker.Linq.MatchResultExtensions.Select(Of T, TResult)(Matchmaker.MatchResult(Of T), Func(Of T, TResult))
   nameWithType: MatchResultExtensions.Select<T, TResult>(MatchResult<T>, Func<T, TResult>)
   nameWithType.vb: MatchResultExtensions.Select(Of T, TResult)(MatchResult(Of T), Func(Of T, TResult))
+- uid: Matchmaker.Linq.MatchResultExtensions.Select``2(Task{Matchmaker.MatchResult{``0}},Func{``0,``1})
+  name: Select<T, TResult>(Task<MatchResult<T>>, Func<T, TResult>)
+  href: api/Matchmaker.Linq.MatchResultExtensions.html#Matchmaker_Linq_MatchResultExtensions_Select__2_Task_Matchmaker_MatchResult___0___Func___0___1__
+  commentId: M:Matchmaker.Linq.MatchResultExtensions.Select``2(Task{Matchmaker.MatchResult{``0}},Func{``0,``1})
+  name.vb: Select(Of T, TResult)(Task(Of MatchResult(Of T)), Func(Of T, TResult))
+  fullName: Matchmaker.Linq.MatchResultExtensions.Select<T, TResult>(Task<Matchmaker.MatchResult<T>>, Func<T, TResult>)
+  fullName.vb: Matchmaker.Linq.MatchResultExtensions.Select(Of T, TResult)(Task(Of Matchmaker.MatchResult(Of T)), Func(Of T, TResult))
+  nameWithType: MatchResultExtensions.Select<T, TResult>(Task<MatchResult<T>>, Func<T, TResult>)
+  nameWithType.vb: MatchResultExtensions.Select(Of T, TResult)(Task(Of MatchResult(Of T)), Func(Of T, TResult))
 - uid: Matchmaker.Linq.MatchResultExtensions.Where*
   name: Where
   href: api/Matchmaker.Linq.MatchResultExtensions.html#Matchmaker_Linq_MatchResultExtensions_Where_
@@ -171,6 +261,24 @@ references:
   fullName.vb: Matchmaker.Linq.MatchResultExtensions.Where(Of T)(Matchmaker.MatchResult(Of T), Func(Of T, System.Boolean))
   nameWithType: MatchResultExtensions.Where<T>(MatchResult<T>, Func<T, Boolean>)
   nameWithType.vb: MatchResultExtensions.Where(Of T)(MatchResult(Of T), Func(Of T, Boolean))
+- uid: Matchmaker.Linq.MatchResultExtensions.Where``1(Task{Matchmaker.MatchResult{``0}},Func{``0,System.Boolean})
+  name: Where<T>(Task<MatchResult<T>>, Func<T, Boolean>)
+  href: api/Matchmaker.Linq.MatchResultExtensions.html#Matchmaker_Linq_MatchResultExtensions_Where__1_Task_Matchmaker_MatchResult___0___Func___0_System_Boolean__
+  commentId: M:Matchmaker.Linq.MatchResultExtensions.Where``1(Task{Matchmaker.MatchResult{``0}},Func{``0,System.Boolean})
+  name.vb: Where(Of T)(Task(Of MatchResult(Of T)), Func(Of T, Boolean))
+  fullName: Matchmaker.Linq.MatchResultExtensions.Where<T>(Task<Matchmaker.MatchResult<T>>, Func<T, System.Boolean>)
+  fullName.vb: Matchmaker.Linq.MatchResultExtensions.Where(Of T)(Task(Of Matchmaker.MatchResult(Of T)), Func(Of T, System.Boolean))
+  nameWithType: MatchResultExtensions.Where<T>(Task<MatchResult<T>>, Func<T, Boolean>)
+  nameWithType.vb: MatchResultExtensions.Where(Of T)(Task(Of MatchResult(Of T)), Func(Of T, Boolean))
+- uid: Matchmaker.Linq.MatchResultExtensions.Where``1(Task{Matchmaker.MatchResult{``0}},Func{``0,Task{System.Boolean}})
+  name: Where<T>(Task<MatchResult<T>>, Func<T, Task<Boolean>>)
+  href: api/Matchmaker.Linq.MatchResultExtensions.html#Matchmaker_Linq_MatchResultExtensions_Where__1_Task_Matchmaker_MatchResult___0___Func___0_Task_System_Boolean___
+  commentId: M:Matchmaker.Linq.MatchResultExtensions.Where``1(Task{Matchmaker.MatchResult{``0}},Func{``0,Task{System.Boolean}})
+  name.vb: Where(Of T)(Task(Of MatchResult(Of T)), Func(Of T, Task(Of Boolean)))
+  fullName: Matchmaker.Linq.MatchResultExtensions.Where<T>(Task<Matchmaker.MatchResult<T>>, Func<T, Task<System.Boolean>>)
+  fullName.vb: Matchmaker.Linq.MatchResultExtensions.Where(Of T)(Task(Of Matchmaker.MatchResult(Of T)), Func(Of T, Task(Of System.Boolean)))
+  nameWithType: MatchResultExtensions.Where<T>(Task<MatchResult<T>>, Func<T, Task<Boolean>>)
+  nameWithType.vb: MatchResultExtensions.Where(Of T)(Task(Of MatchResult(Of T)), Func(Of T, Task(Of Boolean)))
 - uid: Matchmaker.Linq.PatternExtensions
   name: PatternExtensions
   href: api/Matchmaker.Linq.PatternExtensions.html
