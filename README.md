@@ -113,7 +113,7 @@ they describe every aspect of the classes and their members.
 
 The documentation can be found here:
 
- - Version 2.2.0 (WIP): https://tolikpylypchuk.github.io/Matchmaker/v2.2.0
+ - Version 3.0.0 (WIP): https://tolikpylypchuk.github.io/Matchmaker/v3.0.0
  - Version 2.1.0: https://tolikpylypchuk.github.io/Matchmaker/v2.1.0
  - Version 2.0.0: https://tolikpylypchuk.github.io/Matchmaker/v2.0.0
  - Older versions: https://github.com/TolikPylypchuk/PatternMatching

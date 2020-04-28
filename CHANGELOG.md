@@ -1,11 +1,12 @@
 # Changelog
 
-# v2.2 (WIP)
+# v3.0 (WIP)
 
-Whta's new in version 2.2:
+Whta's new in version 3.0:
 
-- Change the .NET Standard version to 2.1
-- Add support for nullable reference types
+- Changed the .NET Standard version to 2.1
+- Added support for nullable reference types
+- Added asynchronous pattern matcing
 
 # v2.1
 
@@ -15,7 +16,7 @@ What's new in version 2.1:
 - The `Type` pattern and the `Cast`extension methods now work correctly with `null` values
 
 Even though this release contains a potentially breaking change, it is very unlikely that the removal of an
-interface which was designed to be internal, will actually break anything.
+interface which was designed to be internal will actually break anything.
 
 # v2.0
 
