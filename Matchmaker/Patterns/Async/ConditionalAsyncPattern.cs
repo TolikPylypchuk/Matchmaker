@@ -55,7 +55,7 @@ namespace Matchmaker.Patterns.Async
         }
 
         /// <summary>
-        /// Matches the input with this pattern asynchronously, and returns a transformed result.
+        /// Matches the input with this pattern, and returns a transformed result asynchronously.
         /// </summary>
         /// <param name="input">The input value to match.</param>
         /// <returns>

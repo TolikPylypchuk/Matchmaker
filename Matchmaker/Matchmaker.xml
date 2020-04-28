@@ -3603,6 +3603,188 @@
             If it doesn't, then the name of this pattern's type.
             </returns>
         </member>
+        <member name="T:Matchmaker.Patterns.Async.BindingAsyncPattern`3">
+            <summary>
+            Represents a pattern which binds (flat-maps) another pattern's result.
+            </summary>
+            <typeparam name="TInput">The type of the input value of the expression.</typeparam>
+            <typeparam name="TIntermediateResult">The type of the result of the provided pattern's match.</typeparam>
+            <typeparam name="TMatchResult">The type of the result of this pattern's match.</typeparam>
+            <seealso cref="T:Matchmaker.Patterns.Async.IAsyncPattern`2" />
+            <seealso cref="T:Matchmaker.Patterns.Async.AsyncPattern" />
+        </member>
+        <member name="F:Matchmaker.Patterns.Async.BindingAsyncPattern`3.pattern">
+            <summary>
+            The pattern whose result should be bound.
+            </summary>
+        </member>
+        <member name="F:Matchmaker.Patterns.Async.BindingAsyncPattern`3.binder">
+            <summary>
+            The result mapping function.
+            </summary>
+        </member>
+        <member name="M:Matchmaker.Patterns.Async.BindingAsyncPattern`3.#ctor(Matchmaker.Patterns.Async.IAsyncPattern{`0,`1},System.Func{`1,Matchmaker.Patterns.Async.IAsyncPattern{`0,`2}})">
+            <summary>
+            Initializes a new instance of the
+            <see cref="T:Matchmaker.Patterns.Async.BindingAsyncPattern`3" /> class.
+            </summary>
+            <param name="pattern">The pattern whose result should be mapped.</param>
+            <param name="binder">The result binding function.</param>
+        </member>
+        <member name="M:Matchmaker.Patterns.Async.BindingAsyncPattern`3.#ctor(Matchmaker.Patterns.Async.IAsyncPattern{`0,`1},System.Func{`1,Matchmaker.Patterns.Async.IAsyncPattern{`0,`2}},System.String)">
+            <summary>
+            Initializes a new instance of the
+            <see cref="T:Matchmaker.Patterns.Async.BindingAsyncPattern`3" /> class.
+            </summary>
+            <param name="pattern">The pattern whose result should be mapped.</param>
+            <param name="binder">The result binding function.</param>
+            <param name="description">The description of this pattern.</param>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="description" /> is <see langword="null" />.
+            </exception>
+        </member>
+        <member name="M:Matchmaker.Patterns.Async.BindingAsyncPattern`3.MatchAsync(`0)">
+            <summary>
+            Matches the input with this pattern, and returns a transformed result asynchronously.
+            </summary>
+            <param name="input">The input value to match.</param>
+            <returns>
+            A successful match result which contains the transformed result of the match,
+            if this match is successful. Otherwise, a failed match result.
+            </returns>
+        </member>
+        <member name="T:Matchmaker.Patterns.Async.CachingAsyncPattern`2">
+            <summary>
+            Represents a pattern which caches another pattern's results.
+            </summary>
+            <typeparam name="TInput">The type of the input value of the expression.</typeparam>
+            <typeparam name="TMatchResult">The type of the result of this pattern's match.</typeparam>
+            <seealso cref="T:Matchmaker.Patterns.IPattern`2" />
+            <seealso cref="T:Matchmaker.Patterns.Pattern" />
+        </member>
+        <member name="F:Matchmaker.Patterns.Async.CachingAsyncPattern`2.pattern">
+            <summary>
+            The pattern whose result should be cached.
+            </summary>
+        </member>
+        <member name="F:Matchmaker.Patterns.Async.CachingAsyncPattern`2.cache">
+            <summary>
+            The dictionary which holds this pattern's cache.
+            </summary>
+        </member>
+        <member name="F:Matchmaker.Patterns.Async.CachingAsyncPattern`2.nullResult">
+            <summary>
+            The cached result for the <see langword="null" /> input.
+            </summary>
+        </member>
+        <member name="F:Matchmaker.Patterns.Async.CachingAsyncPattern`2.isNullResultDefined">
+            <summary>
+            The value which indicates whether the result for the <see langword="null" /> input has been cached.
+            </summary>
+        </member>
+        <member name="F:Matchmaker.Patterns.Async.CachingAsyncPattern`2.nullResultLock">
+            <summary>
+            The object on which to lock the caching process of the <see langword="null" /> input.
+            </summary>
+        </member>
+        <member name="M:Matchmaker.Patterns.Async.CachingAsyncPattern`2.#ctor(Matchmaker.Patterns.Async.IAsyncPattern{`0,`1})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Matchmaker.Patterns.Async.CachingAsyncPattern`2" /> class.
+            </summary>
+            <param name="pattern">The pattern whose result should be cached.</param>
+        </member>
+        <member name="M:Matchmaker.Patterns.Async.CachingAsyncPattern`2.#ctor(Matchmaker.Patterns.Async.IAsyncPattern{`0,`1},System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Matchmaker.Patterns.Async.CachingAsyncPattern`2" /> class.
+            </summary>
+            <param name="pattern">The pattern whose result should be cached.</param>
+            <param name="description">The description of this pattern.</param>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="description" /> is <see langword="null" />.
+            </exception>
+        </member>
+        <member name="M:Matchmaker.Patterns.Async.CachingAsyncPattern`2.MatchAsync(`0)">
+            <summary>
+            Matches the input with this pattern, and returns a transformed result asynchronously.
+            </summary>
+            <param name="input">The input value to match.</param>
+            <returns>
+            A successful match result which contains the transformed result of the match,
+            if this match is successful. Otherwise, a failed match result.
+            </returns>
+        </member>
+        <member name="T:Matchmaker.Patterns.Async.CompositeAsyncPattern`1">
+            <summary>
+            Represents a pattern which is composed of two other patterns.
+            </summary>
+            <typeparam name="T">
+            The type of the input value of the expression and also the type of the result of this pattern's match.
+            </typeparam>
+        </member>
+        <member name="F:Matchmaker.Patterns.Async.CompositeAsyncPattern`1.leftPattern">
+            <summary>
+            The left pattern to compose.
+            </summary>
+        </member>
+        <member name="F:Matchmaker.Patterns.Async.CompositeAsyncPattern`1.rightPattern">
+            <summary>
+            The right pattern to compose.
+            </summary>
+        </member>
+        <member name="F:Matchmaker.Patterns.Async.CompositeAsyncPattern`1.composition">
+            <summary>
+            The composition which should be applied to the patterns.
+            </summary>
+        </member>
+        <member name="M:Matchmaker.Patterns.Async.CompositeAsyncPattern`1.#ctor(Matchmaker.Patterns.Async.IAsyncPattern{`0,`0},Matchmaker.Patterns.Async.IAsyncPattern{`0,`0},Matchmaker.Patterns.PatternComposition)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Matchmaker.Patterns.Async.CompositeAsyncPattern`1" /> class.
+            </summary>
+            <param name="leftPattern">The left pattern to compose.</param>
+            <param name="rightPattern">The right pattern to compose.</param>
+            <param name="composition">The composition which should be applied to the patterns.</param>
+        </member>
+        <member name="M:Matchmaker.Patterns.Async.CompositeAsyncPattern`1.#ctor(Matchmaker.Patterns.Async.IAsyncPattern{`0,`0},Matchmaker.Patterns.Async.IAsyncPattern{`0,`0},Matchmaker.Patterns.PatternComposition,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Matchmaker.Patterns.Async.CompositeAsyncPattern`1" /> class.
+            </summary>
+            <param name="leftPattern">The left pattern to compose.</param>
+            <param name="rightPattern">The right pattern to compose.</param>
+            <param name="composition">The composition which should be applied to the patterns.</param>
+            <param name="description">The description of this pattern.</param>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="description" /> is <see langword="null" />.
+            </exception>
+        </member>
+        <member name="M:Matchmaker.Patterns.Async.CompositeAsyncPattern`1.MatchAsync(`0)">
+            <summary>
+            Matches the input with this pattern, and returns a result asynchronously.
+            </summary>
+            <param name="input">The input value to match.</param>
+            <returns>
+            A successful match result which contains the input value,
+            if this match is successful. Otherwise, a failed match result.
+            </returns>
+        </member>
+        <member name="M:Matchmaker.Patterns.Async.CompositeAsyncPattern`1.ComposeResults(System.Boolean,System.Boolean)">
+            <summary>
+            Composes the results of the two patterns based on this pattern's composition.
+            </summary>
+            <param name="left">The result of the left pattern's match.</param>
+            <param name="right">The result of the right pattern's match.</param>
+            <returns>
+            <see langword="true" /> if the composition is successful. Otherwise, <see langword="false" />.
+            </returns>
+        </member>
+        <member name="M:Matchmaker.Patterns.Async.CompositeAsyncPattern`1.CreateDescription(System.String,System.String,Matchmaker.Patterns.PatternComposition)">
+            <summary>
+            Creates a description for a composite pattern based on the specified descriptions and operator.
+            </summary>
+            <param name="leftDescription">The description of the left pattern.</param>
+            <param name="rightDescription">The description of the right pattern.</param>
+            <param name="composition">The composition operator.</param>
+            <returns>A description for a composite pattern</returns>
+        </member>
         <member name="T:Matchmaker.Patterns.Async.ConditionalAsyncPattern`2">
             <summary>
             Represents an asynchronous pattern with an additional condition.
@@ -3642,7 +3824,7 @@
         </member>
         <member name="M:Matchmaker.Patterns.Async.ConditionalAsyncPattern`2.MatchAsync(`0)">
             <summary>
-            Matches the input with this pattern asynchronously, and returns a transformed result.
+            Matches the input with this pattern, and returns a transformed result asynchronously.
             </summary>
             <param name="input">The input value to match.</param>
             <returns>
@@ -3670,6 +3852,106 @@
             </remarks>
         </member>
         <member name="M:Matchmaker.Patterns.Async.IAsyncPattern`2.MatchAsync(`0)">
+            <summary>
+            Matches the input with this pattern, and returns a transformed result asynchronously.
+            </summary>
+            <param name="input">The input value to match.</param>
+            <returns>
+            A successful match result which contains the transformed result of the match,
+            if this match is successful. Otherwise, a failed match result.
+            </returns>
+        </member>
+        <member name="T:Matchmaker.Patterns.Async.MappingAsyncPattern`3">
+            <summary>
+            Represents a pattern which maps another pattern's result.
+            </summary>
+            <typeparam name="TInput">The type of the input value of the expression.</typeparam>
+            <typeparam name="TIntermediateResult">The type of the result of the provided pattern's match.</typeparam>
+            <typeparam name="TMatchResult">The type of the result of this pattern's match.</typeparam>
+            <seealso cref="T:Matchmaker.Patterns.Async.IAsyncPattern`2" />
+            <seealso cref="T:Matchmaker.Patterns.Async.AsyncPattern" />
+        </member>
+        <member name="F:Matchmaker.Patterns.Async.MappingAsyncPattern`3.pattern">
+            <summary>
+            The pattern whose result should be mapped.
+            </summary>
+        </member>
+        <member name="F:Matchmaker.Patterns.Async.MappingAsyncPattern`3.mapper">
+            <summary>
+            The result mapping function.
+            </summary>
+        </member>
+        <member name="M:Matchmaker.Patterns.Async.MappingAsyncPattern`3.#ctor(Matchmaker.Patterns.Async.IAsyncPattern{`0,`1},System.Func{`1,`2})">
+            <summary>
+            Initializes a new instance of the
+            <see cref="T:Matchmaker.Patterns.Async.MappingAsyncPattern`3" /> class.
+            </summary>
+            <param name="pattern">The pattern whose result should be mapped.</param>
+            <param name="mapper">The result mapping function.</param>
+        </member>
+        <member name="M:Matchmaker.Patterns.Async.MappingAsyncPattern`3.#ctor(Matchmaker.Patterns.Async.IAsyncPattern{`0,`1},System.Func{`1,`2},System.String)">
+            <summary>
+            Initializes a new instance of the
+            <see cref="T:Matchmaker.Patterns.Async.MappingAsyncPattern`3" /> class.
+            </summary>
+            <param name="pattern">The pattern whose result should be mapped.</param>
+            <param name="mapper">The result mapping function.</param>
+            <param name="description">The description of this pattern.</param>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="description" /> is <see langword="null" />.
+            </exception>
+        </member>
+        <member name="M:Matchmaker.Patterns.Async.MappingAsyncPattern`3.MatchAsync(`0)">
+            <summary>
+            Matches the input with this pattern, and returns a transformed result asynchronously.
+            </summary>
+            <param name="input">The input value to match.</param>
+            <returns>
+            A successful match result which contains the transformed result of the match,
+            if this match is successful. Otherwise, a failed match result.
+            </returns>
+        </member>
+        <member name="T:Matchmaker.Patterns.Async.PipingAsyncPattern`3">
+            <summary>
+            Represents a pattern which pipes another pattern's result to a different pattern.
+            </summary>
+            <typeparam name="TInput">The type of the input value of the expression.</typeparam>
+            <typeparam name="TIntermediateResult">The type of the result of the first pattern's match.</typeparam>
+            <typeparam name="TMatchResult">The type of the result of this pattern's match.</typeparam>
+            <seealso cref="T:Matchmaker.Patterns.Async.IAsyncPattern`2" />
+            <seealso cref="T:Matchmaker.Patterns.Async.AsyncPattern" />
+        </member>
+        <member name="F:Matchmaker.Patterns.Async.PipingAsyncPattern`3.firstPattern">
+            <summary>
+            The pattern whose result should be piped.
+            </summary>
+        </member>
+        <member name="F:Matchmaker.Patterns.Async.PipingAsyncPattern`3.secondPattern">
+            <summary>
+            The pattern whose input is the first pattern's output.
+            </summary>
+        </member>
+        <member name="M:Matchmaker.Patterns.Async.PipingAsyncPattern`3.#ctor(Matchmaker.Patterns.Async.IAsyncPattern{`0,`1},Matchmaker.Patterns.Async.IAsyncPattern{`1,`2})">
+            <summary>
+            Initializes a new instance of the
+            <see cref="T:Matchmaker.Patterns.Async.PipingAsyncPattern`3" /> class.
+            </summary>
+            <param name="firstPattern">The pattern whose result should be piped.</param>
+            <param name="secondPattern">The pattern whose input is the first pattern's output.</param>
+        </member>
+        <member name="M:Matchmaker.Patterns.Async.PipingAsyncPattern`3.#ctor(Matchmaker.Patterns.Async.IAsyncPattern{`0,`1},Matchmaker.Patterns.Async.IAsyncPattern{`1,`2},System.String)">
+            <summary>
+            Initializes a new instance of the
+            <see cref="T:Matchmaker.Patterns.Async.PipingAsyncPattern`3" /> class.
+            </summary>
+            <param name="firstPattern">The pattern whose result should be piped.</param>
+            <param name="secondPattern">The pattern whose input is the first pattern's output.</param>
+            <param name="description">The description of this pattern.</param>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="description" /> is <see langword="null" />.
+            </exception>
+        </member>
+        <member name="M:Matchmaker.Patterns.Async.PipingAsyncPattern`3.MatchAsync(`0)">
             <summary>
             Matches the input with this pattern, and returns a transformed result asynchronously.
             </summary>
@@ -3788,7 +4070,7 @@
         </member>
         <member name="F:Matchmaker.Patterns.CachingPattern`2.cache">
             <summary>
-            The disctionary which holds this pattern's cache.
+            The dictionary which holds this pattern's cache.
             </summary>
         </member>
         <member name="F:Matchmaker.Patterns.CachingPattern`2.nullResult">
@@ -3889,6 +4171,15 @@
             <returns>
             <see langword="true" /> if the composition is successful. Otherwise, <see langword="false" />.
             </returns>
+        </member>
+        <member name="M:Matchmaker.Patterns.CompositePattern`1.CreateDescription(System.String,System.String,Matchmaker.Patterns.PatternComposition)">
+            <summary>
+            Creates a description for a composite pattern based on the specified descriptions and operator.
+            </summary>
+            <param name="leftDescription">The description of the left pattern.</param>
+            <param name="rightDescription">The description of the right pattern.</param>
+            <param name="composition">The composition operator.</param>
+            <returns>A description for a composite pattern</returns>
         </member>
         <member name="T:Matchmaker.Patterns.ConditionalPattern`2">
             <summary>
