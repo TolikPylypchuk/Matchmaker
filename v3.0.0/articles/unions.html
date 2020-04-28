@@ -1,0 +1,186 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Discriminated Unions </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Discriminated Unions ">
+    <meta name="generator" content="docfx 2.52.0.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="discriminated-unions">Discriminated Unions</h1>
+
+<p>While discriminated unions (or sum types) are not directly supported in C#, they can be modelled using class
+hierarchies. But in order for them be user-friendly, a way to process the values has to be implemented,
+e.g. in the form of the Visitor pattern.</p>
+<p>Or, pattern matching can be used instead.</p>
+<p>Let's define a simple list, implemented as <a href="https://en.wikipedia.org/wiki/Cons">cons cells</a>. This list is not
+generic for simplicity.</p>
+<pre><code>public abstract class ConsList
+{
+    private protected ConsList()
+    { }
+    
+    public static ConsList Cell(int head, ConsList tail)
+        =&gt; new ConsCell(head, tail);
+    
+    public static ConsList Empty
+        =&gt; new Empty();
+}
+
+public sealed class ConsCell : ConsList
+{
+    public int Head { get; }
+    public ConsList Tail { get; }
+    
+    internal ConsCell(int head, ConsList tail)
+    {
+        this.Head = head;
+        this.Tail = tail;
+    }
+}
+
+public sealed class Empty : ConsList
+{
+    internal Empty()
+    { }
+}
+</code></pre>
+<p>Now let's look what pattern matching on the list would look like. Let's create
+a function which finds the sum of all items of the list.</p>
+<pre><code>public int Sum(ConsList list)
+    =&gt; Match.Create&lt;ConsList, int&gt;()
+        .Case&lt;ConsCell&gt;(cell =&gt; cell.Head + Sum(cell.Tail))
+        .Case&lt;Empty&gt;(_ =&gt; 0)
+        .ExecuteOn(list);
+</code></pre>
+<p><code>Case&lt;TType&gt;(...)</code> is the same as <code>Case(Pattern.Type&lt;TInput, TType&gt;(), ...)</code>.</p>
+<p>Here is the equivalent function implemented using the <code>switch</code> statement (pre-C# 8):</p>
+<pre><code>public int Sum(ConsList list)
+{
+    switch (list)
+    {
+        case ConsCell cell:
+            return cell.Head + Sum(cell.Tail);
+        case Empty _:
+            return 0;
+    }
+
+    throw new MatchException(&quot;This will never happen, but C# can't know that.&quot;);
+}
+</code></pre>
+<p>As you can see, we have to throw an exception in the <code>switch</code> version, because C# can't know that <code>ConsCell</code>
+and <code>Empty</code> are the only possible subclasses of <code>ConsList</code>. And for that reason, if we forget to define one
+of the cases in <code>switch</code> or in a match, we'll get an exception. In F# a warning is issued when the match is
+incomplete, but C# doesn't have the notion of complete or incomplete matches. Of course, this match will fail if the
+provided list is <code>null</code>, but this can be handled using the <code>Null</code> pattern.</p>
+<p>With C# 8.0 there's a better way to match on discriminated unions, but we still have to explicitly throw an exception
+in the default case (which we know won't happen):</p>
+<pre><code>public int Sum(ConsList list)
+    =&gt; list switch
+    {
+        ConsCell cell =&gt; cell.Head + Sum(cell.Tail),
+        Empty _ =&gt; 0,
+        _ =&gt; throw new MatchException(&quot;This will never happen, but C# can't know that.&quot;);
+    };
+}
+</code></pre>
+<p>Next article: <a href="migration.html">Migration guide</a></p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/docs/articles/unions.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            <div>Copyright (c) 2018-2020 Tolik Pylypchuk</div><span>Generated by <strong>DocFx</strong>.</span> <span>Icons made by <a href="https" ://www.flaticon.com/authors/roundicons"="" title="Roundicons">Roundicons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></span>
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>
