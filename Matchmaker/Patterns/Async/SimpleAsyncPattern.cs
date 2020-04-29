@@ -48,6 +48,6 @@ namespace Matchmaker.Patterns.Async
         /// if this match is successful. Otherwise, a failed match result.
         /// </returns>
         public override Task<MatchResult<TMatchResult>> MatchAsync(TInput input)
-            => this.matcher(input);
+            => this.matcher(input) ?? throw new InvalidOperationException("The function returned null");
     }
 }

@@ -31,11 +31,6 @@ namespace Matchmaker.Patterns.Async
         private Task<MatchResult<TMatchResult>>? nullResult;
 
         /// <summary>
-        /// The value which indicates whether the result for the <see langword="null" /> input has been cached.
-        /// </summary>
-        private bool isNullResultDefined;
-
-        /// <summary>
         /// The object on which to lock the caching process of the <see langword="null" /> input.
         /// </summary>
         private readonly object nullResultLock = new object();
@@ -73,19 +68,15 @@ namespace Matchmaker.Patterns.Async
         {
             if (input == null)
             {
-                if (!this.isNullResultDefined)
+                if (this.nullResult == null)
                 {
                     lock (this.nullResultLock)
                     {
-                        if (!this.isNullResultDefined)
-                        {
-                            this.nullResult = this.pattern.MatchAsync(input);
-                            this.isNullResultDefined = true;
-                        }
+                        this.nullResult ??= this.pattern.MatchAsync(input);
                     }
                 }
 
-                return this.nullResult!;
+                return this.nullResult;
             }
 
             return this.cache.GetOrAdd(input, this.pattern.MatchAsync);

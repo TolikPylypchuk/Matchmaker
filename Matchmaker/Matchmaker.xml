@@ -4,6 +4,579 @@
         <name>Matchmaker</name>
     </assembly>
     <members>
+        <member name="T:Matchmaker.Linq.AsyncPatternExtensions">
+            <summary>
+            A container class for extension methods for <see cref="T:Matchmaker.Patterns.Async.IAsyncPattern`2" />.
+            </summary>
+            <seealso cref="T:Matchmaker.Patterns.Async.IAsyncPattern`2" />
+        </member>
+        <member name="M:Matchmaker.Linq.AsyncPatternExtensions.Select``3(Matchmaker.Patterns.Async.IAsyncPattern{``0,``1},System.Func{``1,``2})">
+            <summary>
+            Returns a pattern which maps the result of the specified pattern.
+            </summary>
+            <typeparam name="TInput">The type of the input value of the expression.</typeparam>
+            <typeparam name="TIntermediateResult">The type of the result of the specified pattern's match.</typeparam>
+            <typeparam name="TMatchResult">The type of the result of this pattern's match.</typeparam>
+            <param name="pattern">The pattern whose result should be mapped.</param>
+            <param name="mapper">The result mapping function.</param>
+            <returns>
+            A pattern which maps the result of the specified pattern when it's successful.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="pattern" /> or <paramref name="mapper" /> is <see langword="null" />.
+            </exception>
+            <seealso cref="M:Matchmaker.Linq.AsyncPatternExtensions.Select``3(Matchmaker.Patterns.Async.IAsyncPattern{``0,``1},System.Func{``1,``2},System.String)" />
+        </member>
+        <member name="M:Matchmaker.Linq.AsyncPatternExtensions.Select``3(Matchmaker.Patterns.Async.IAsyncPattern{``0,``1},System.Func{``1,``2},System.String)">
+            <summary>
+            Returns a pattern which maps the result of the specified pattern.
+            </summary>
+            <typeparam name="TInput">The type of the input value of the expression.</typeparam>
+            <typeparam name="TIntermediateResult">The type of the result of the specified pattern's match.</typeparam>
+            <typeparam name="TMatchResult">The type of the result of this pattern's match.</typeparam>
+            <param name="pattern">The pattern whose result should be mapped.</param>
+            <param name="mapper">The result mapping function.</param>
+            <param name="description">The description of this pattern.</param>
+            <returns>
+            A pattern which maps the result of the specified pattern when it's successful.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="pattern" />, <paramref name="mapper" /> or <paramref name="description" />
+            is <see langword="null" />.
+            </exception>
+            <seealso cref="M:Matchmaker.Linq.AsyncPatternExtensions.Select``3(Matchmaker.Patterns.Async.IAsyncPattern{``0,``1},System.Func{``1,``2})" />
+        </member>
+        <member name="M:Matchmaker.Linq.AsyncPatternExtensions.Pipe``3(Matchmaker.Patterns.Async.IAsyncPattern{``0,``1},Matchmaker.Patterns.Async.IAsyncPattern{``1,``2})">
+            <summary>
+            Returns a pattern which pipes the result of one pattern to the other pattern.
+            </summary>
+            <typeparam name="TInput">The type of the input value of the expression.</typeparam>
+            <typeparam name="TIntermediateResult">The type of the result of the specified pattern's match.</typeparam>
+            <typeparam name="TMatchResult">The type of the result of this pattern's match.</typeparam>
+            <param name="firstPattern">The pattern whose result should be piped.</param>
+            <param name="secondPattern">The pattern whose input is the first pattern's output.</param>
+            <returns>
+            A pattern which pipes the result of one pattern to the other pattern when it's successful.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="firstPattern" /> or <paramref name="secondPattern" /> is <see langword="null" />.
+            </exception>
+            <seealso cref="M:Matchmaker.Linq.AsyncPatternExtensions.Pipe``3(Matchmaker.Patterns.Async.IAsyncPattern{``0,``1},System.Func{``1,System.Threading.Tasks.Task{Matchmaker.MatchResult{``2}}},System.String)" />
+            <seealso cref="M:Matchmaker.Linq.AsyncPatternExtensions.Pipe``3(Matchmaker.Patterns.Async.IAsyncPattern{``0,``1},Matchmaker.Patterns.Async.IAsyncPattern{``1,``2})" />
+            <seealso cref="M:Matchmaker.Linq.AsyncPatternExtensions.Pipe``3(Matchmaker.Patterns.Async.IAsyncPattern{``0,``1},Matchmaker.Patterns.Async.IAsyncPattern{``1,``2},System.String)" />
+        </member>
+        <member name="M:Matchmaker.Linq.AsyncPatternExtensions.Pipe``3(Matchmaker.Patterns.Async.IAsyncPattern{``0,``1},Matchmaker.Patterns.Async.IAsyncPattern{``1,``2},System.String)">
+            <summary>
+            Returns a pattern which pipes the result of one pattern to the other pattern.
+            </summary>
+            <typeparam name="TInput">The type of the input value of the expression.</typeparam>
+            <typeparam name="TIntermediateResult">The type of the result of the specified pattern's match.</typeparam>
+            <typeparam name="TMatchResult">The type of the result of this pattern's match.</typeparam>
+            <param name="firstPattern">The pattern whose result should be piped.</param>
+            <param name="secondPattern">The pattern whose input is the first pattern's output.</param>
+            <param name="description">The description of this pattern.</param>
+            <returns>
+            A pattern which pipes the result of one pattern to the other pattern when it's successful.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="firstPattern" />, <paramref name="secondPattern" /> or <paramref name="description" />
+            is <see langword="null" />.
+            </exception>
+            <seealso cref="M:Matchmaker.Linq.AsyncPatternExtensions.Pipe``3(Matchmaker.Patterns.Async.IAsyncPattern{``0,``1},System.Func{``1,System.Threading.Tasks.Task{Matchmaker.MatchResult{``2}}})" />
+            <seealso cref="M:Matchmaker.Linq.AsyncPatternExtensions.Pipe``3(Matchmaker.Patterns.Async.IAsyncPattern{``0,``1},Matchmaker.Patterns.Async.IAsyncPattern{``1,``2})" />
+            <seealso cref="M:Matchmaker.Linq.AsyncPatternExtensions.Pipe``3(Matchmaker.Patterns.Async.IAsyncPattern{``0,``1},Matchmaker.Patterns.Async.IAsyncPattern{``1,``2},System.String)" />
+        </member>
+        <member name="M:Matchmaker.Linq.AsyncPatternExtensions.Pipe``3(Matchmaker.Patterns.Async.IAsyncPattern{``0,``1},System.Func{``1,System.Threading.Tasks.Task{Matchmaker.MatchResult{``2}}})">
+            <summary>
+            Returns a pattern which pipes the result of one pattern to the pattern
+            created by the specified matcher function.
+            </summary>
+            <typeparam name="TInput">The type of the input value of the expression.</typeparam>
+            <typeparam name="TIntermediateResult">The type of the result of the specified pattern's match.</typeparam>
+            <typeparam name="TMatchResult">The type of the result of this pattern's match.</typeparam>
+            <param name="pattern">The pattern whose result should be piped.</param>
+            <param name="matcher">The pattern whose input is the first pattern's output.</param>
+            <returns>
+            A pattern which pipes the result of one pattern to the pattern
+            created by the specified matcher function.
+            </returns>
+            <remarks>
+            This method is functionally equivalent to the following, except it reuses the pattern's description:
+            <code>
+            pattern.Pipe(Pattern.CreatePattern(matcher))
+            </code>
+            </remarks>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="pattern" /> or <paramref name="matcher" /> is <see langword="null" />.
+            </exception>
+            <seealso cref="M:Matchmaker.Linq.AsyncPatternExtensions.Pipe``3(Matchmaker.Patterns.Async.IAsyncPattern{``0,``1},System.Func{``1,System.Threading.Tasks.Task{Matchmaker.MatchResult{``2}}},System.String)" />
+            <seealso cref="M:Matchmaker.Linq.AsyncPatternExtensions.Pipe``3(Matchmaker.Patterns.Async.IAsyncPattern{``0,``1},Matchmaker.Patterns.Async.IAsyncPattern{``1,``2})" />
+            <seealso cref="M:Matchmaker.Linq.AsyncPatternExtensions.Pipe``3(Matchmaker.Patterns.Async.IAsyncPattern{``0,``1},Matchmaker.Patterns.Async.IAsyncPattern{``1,``2},System.String)" />
+        </member>
+        <member name="M:Matchmaker.Linq.AsyncPatternExtensions.Pipe``3(Matchmaker.Patterns.Async.IAsyncPattern{``0,``1},System.Func{``1,System.Threading.Tasks.Task{Matchmaker.MatchResult{``2}}},System.String)">
+            <summary>
+            Returns a pattern which pipes the result of one pattern to the pattern
+            created by the specified matcher function.
+            </summary>
+            <typeparam name="TInput">The type of the input value of the expression.</typeparam>
+            <typeparam name="TIntermediateResult">The type of the result of the specified pattern's match.</typeparam>
+            <typeparam name="TMatchResult">The type of the result of this pattern's match.</typeparam>
+            <param name="pattern">The pattern whose result should be piped.</param>
+            <param name="matcher">The pattern whose input is the first pattern's output.</param>
+            <param name="description">The description of this pattern.</param>
+            <returns>
+            A pattern which pipes the result of one pattern to the pattern
+            created by the specified matcher function.
+            </returns>
+            <remarks>
+            This method is functionally equivalent to the following:
+            <code>
+            pattern.Pipe(Pattern.CreatePattern(matcher), description)
+            </code>
+            </remarks>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="pattern" />, <paramref name="matcher" /> or <paramref name="description" />
+            is <see langword="null" />.
+            </exception>
+            <seealso cref="M:Matchmaker.Linq.AsyncPatternExtensions.Pipe``3(Matchmaker.Patterns.Async.IAsyncPattern{``0,``1},System.Func{``1,System.Threading.Tasks.Task{Matchmaker.MatchResult{``2}}})" />
+            <seealso cref="M:Matchmaker.Linq.AsyncPatternExtensions.Pipe``3(Matchmaker.Patterns.Async.IAsyncPattern{``0,``1},Matchmaker.Patterns.Async.IAsyncPattern{``1,``2})" />
+            <seealso cref="M:Matchmaker.Linq.AsyncPatternExtensions.Pipe``3(Matchmaker.Patterns.Async.IAsyncPattern{``0,``1},Matchmaker.Patterns.Async.IAsyncPattern{``1,``2},System.String)" />
+        </member>
+        <member name="M:Matchmaker.Linq.AsyncPatternExtensions.Cast``3(Matchmaker.Patterns.Async.IAsyncPattern{``0,``1})">
+            <summary>
+            Returns a pattern which casts the result of the specified pattern to another type.
+            </summary>
+            <typeparam name="TInput">The type of the input value of the expression.</typeparam>
+            <typeparam name="TIntermediateResult">The type of the result of the specified pattern's match.</typeparam>
+            <typeparam name="TMatchResult">The type of the result of this pattern's match.</typeparam>
+            <param name="pattern">The pattern whose result should be cast.</param>
+            <returns>
+            A pattern which casts the result of the specified pattern to another type.
+            </returns>
+            <remarks>
+            This method is functionally equivalent to the following:
+            <code>
+            pattern.Pipe(Pattern.Type&lt;TIntermediateResult, TMatchResult&gt;())
+            </code>
+            As such, this pattern fails if the input is <see langword="null" /> and <typeparamref name="TMatchResult"/>
+            is a non-nullable value type.
+            </remarks>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="pattern" /> is <see langword="null" />.
+            </exception>
+            <seealso cref="M:Matchmaker.Linq.AsyncPatternExtensions.Cast``3(Matchmaker.Patterns.Async.IAsyncPattern{``0,``1},System.String)" />
+        </member>
+        <member name="M:Matchmaker.Linq.AsyncPatternExtensions.Cast``3(Matchmaker.Patterns.Async.IAsyncPattern{``0,``1},System.String)">
+            <summary>
+            Returns a pattern which casts the result of the specified pattern to another type.
+            </summary>
+            <typeparam name="TInput">The type of the input value of the expression.</typeparam>
+            <typeparam name="TIntermediateResult">The type of the result of the specified pattern's match.</typeparam>
+            <typeparam name="TMatchResult">The type of the result of this pattern's match.</typeparam>
+            <param name="pattern">The pattern whose result should be cast.</param>
+            <param name="description">The description of this pattern.</param>
+            <returns>
+            A pattern which pipes the result of one pattern to the other pattern when it's successful.
+            </returns>
+            <remarks>
+            This method is functionally equivalent to the following:
+            <code>
+            pattern.Pipe(Pattern.Type&lt;TIntermediateResult, TMatchResult&gt;(), description)
+            </code>
+            As such, this pattern fails if the input is <see langword="null" /> and <typeparamref name="TMatchResult"/>
+            is a non-nullable value type.
+            </remarks>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="pattern" /> or <paramref name="description" /> is <see langword="null" />.
+            </exception>
+            <seealso cref="M:Matchmaker.Linq.AsyncPatternExtensions.Cast``3(Matchmaker.Patterns.Async.IAsyncPattern{``0,``1})" />
+        </member>
+        <member name="M:Matchmaker.Linq.AsyncPatternExtensions.Bind``3(Matchmaker.Patterns.Async.IAsyncPattern{``0,``1},System.Func{``1,Matchmaker.Patterns.Async.IAsyncPattern{``0,``2}})">
+            <summary>
+            Returns a pattern which binds (flat-maps) the result of the specified pattern.
+            </summary>
+            <typeparam name="TInput">The type of the input value of the expression.</typeparam>
+            <typeparam name="TIntermediateResult">The type of the result of the specified pattern's match.</typeparam>
+            <typeparam name="TMatchResult">The type of the result of this pattern's match.</typeparam>
+            <param name="pattern">The pattern whose result should be mapped.</param>
+            <param name="binder">The result binding function.</param>
+            <returns>
+            A pattern which binds (flat-maps) the result of the specified pattern when it's successful.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="pattern" /> or <paramref name="binder" /> is <see langword="null" />.
+            </exception>
+            <seealso cref="M:Matchmaker.Linq.AsyncPatternExtensions.Bind``3(Matchmaker.Patterns.Async.IAsyncPattern{``0,``1},System.Func{``1,Matchmaker.Patterns.Async.IAsyncPattern{``0,``2}},System.String)" />
+        </member>
+        <member name="M:Matchmaker.Linq.AsyncPatternExtensions.Bind``3(Matchmaker.Patterns.Async.IAsyncPattern{``0,``1},System.Func{``1,Matchmaker.Patterns.Async.IAsyncPattern{``0,``2}},System.String)">
+            <summary>
+            Returns a pattern which binds (flat-maps) the result of the specified pattern.
+            </summary>
+            <typeparam name="TInput">The type of the input value of the expression.</typeparam>
+            <typeparam name="TIntermediateResult">The type of the result of the specified pattern's match.</typeparam>
+            <typeparam name="TMatchResult">The type of the result of this pattern's match.</typeparam>
+            <param name="pattern">The pattern whose result should be mapped.</param>
+            <param name="binder">The result binding function.</param>
+            <param name="description">The description of this pattern.</param>
+            <returns>
+            A pattern which binds (flat-maps) the result of the specified pattern when it's successful.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="pattern" />, <paramref name="binder" /> or <paramref name="description" />
+            is <see langword="null" />.
+            </exception>
+            <seealso cref="M:Matchmaker.Linq.AsyncPatternExtensions.Bind``3(Matchmaker.Patterns.Async.IAsyncPattern{``0,``1},System.Func{``1,Matchmaker.Patterns.Async.IAsyncPattern{``0,``2}})" />
+        </member>
+        <member name="M:Matchmaker.Linq.AsyncPatternExtensions.Where``2(Matchmaker.Patterns.Async.IAsyncPattern{``0,``1},System.Func{``1,System.Threading.Tasks.Task{System.Boolean}})">
+            <summary>
+            Returns a pattern which adds a condition to the specified pattern.
+            </summary>
+            <typeparam name="TInput">The type of the input value of the expression.</typeparam>
+            <typeparam name="TMatchResult">The type of the result of this pattern's match.</typeparam>
+            <param name="pattern">The pattern whose result should be mapped.</param>
+            <param name="predicate">The condition to add.</param>
+            <returns>
+            A pattern which adds a condition to the specified pattern.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="pattern" /> or <paramref name="predicate" /> is <see langword="null" />.
+            </exception>
+            <seealso cref="M:Matchmaker.Linq.AsyncPatternExtensions.Where``2(Matchmaker.Patterns.Async.IAsyncPattern{``0,``1},System.Func{``1,System.Threading.Tasks.Task{System.Boolean}},System.String)" />
+        </member>
+        <member name="M:Matchmaker.Linq.AsyncPatternExtensions.Where``2(Matchmaker.Patterns.Async.IAsyncPattern{``0,``1},System.Func{``1,System.Threading.Tasks.Task{System.Boolean}},System.String)">
+            <summary>
+            Returns a pattern which adds a condition to the specified pattern.
+            </summary>
+            <typeparam name="TInput">The type of the input value of the expression.</typeparam>
+            <typeparam name="TMatchResult">The type of the result of this pattern's match.</typeparam>
+            <param name="pattern">The pattern whose result should be mapped.</param>
+            <param name="predicate">The condition to add.</param>
+            <param name="description">The description of this pattern.</param>
+            <returns>
+            A pattern which adds a condition to the specified pattern.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="pattern" /> or <paramref name="predicate" /> is <see langword="null" />.
+            </exception>
+            <seealso cref="M:Matchmaker.Linq.AsyncPatternExtensions.Where``2(Matchmaker.Patterns.Async.IAsyncPattern{``0,``1},System.Func{``1,System.Threading.Tasks.Task{System.Boolean}})" />
+        </member>
+        <member name="M:Matchmaker.Linq.AsyncPatternExtensions.Compose``1(Matchmaker.Patterns.Async.IAsyncPattern{``0,``0},Matchmaker.Patterns.Async.IAsyncPattern{``0,``0},Matchmaker.Patterns.PatternComposition)">
+            <summary>
+            Returns a pattern which is composed of the two specified patterns.
+            </summary>
+            <typeparam name="T">
+            The type of the input value of the expression and also the type of the result of this pattern's match.
+            </typeparam>
+            <param name="leftPattern">The left pattern to compose.</param>
+            <param name="rightPattern">The right pattern to compose.</param>
+            <param name="composition">The composition which should be applied to the patterns.</param>
+            <returns>
+            A pattern which is composed of the two specified patterns.
+            </returns>
+            <remarks>
+            The resulting pattern ignores the patterns' transformations
+            and returns the input value if matched successfully.
+            </remarks>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="leftPattern" /> or <paramref name="rightPattern" /> is <see langword="null" />.
+            </exception>
+            <seealso cref="M:Matchmaker.Linq.AsyncPatternExtensions.Compose``1(Matchmaker.Patterns.Async.IAsyncPattern{``0,``0},Matchmaker.Patterns.Async.IAsyncPattern{``0,``0},Matchmaker.Patterns.PatternComposition,System.String)" />
+            <seealso cref="M:Matchmaker.Linq.AsyncPatternExtensions.And``1(Matchmaker.Patterns.Async.IAsyncPattern{``0,``0},Matchmaker.Patterns.Async.IAsyncPattern{``0,``0})" />
+            <seealso cref="M:Matchmaker.Linq.AsyncPatternExtensions.And``1(Matchmaker.Patterns.Async.IAsyncPattern{``0,``0},Matchmaker.Patterns.Async.IAsyncPattern{``0,``0},System.String)" />
+            <seealso cref="M:Matchmaker.Linq.AsyncPatternExtensions.Or``1(Matchmaker.Patterns.Async.IAsyncPattern{``0,``0},Matchmaker.Patterns.Async.IAsyncPattern{``0,``0})" />
+            <seealso cref="M:Matchmaker.Linq.AsyncPatternExtensions.Or``1(Matchmaker.Patterns.Async.IAsyncPattern{``0,``0},Matchmaker.Patterns.Async.IAsyncPattern{``0,``0},System.String)" />
+            <seealso cref="M:Matchmaker.Linq.AsyncPatternExtensions.Xor``1(Matchmaker.Patterns.Async.IAsyncPattern{``0,``0},Matchmaker.Patterns.Async.IAsyncPattern{``0,``0})" />
+            <seealso cref="M:Matchmaker.Linq.AsyncPatternExtensions.Xor``1(Matchmaker.Patterns.Async.IAsyncPattern{``0,``0},Matchmaker.Patterns.Async.IAsyncPattern{``0,``0},System.String)" />
+        </member>
+        <member name="M:Matchmaker.Linq.AsyncPatternExtensions.Compose``1(Matchmaker.Patterns.Async.IAsyncPattern{``0,``0},Matchmaker.Patterns.Async.IAsyncPattern{``0,``0},Matchmaker.Patterns.PatternComposition,System.String)">
+            <summary>
+            Returns a pattern which is composed of the two specified patterns.
+            </summary>
+            <typeparam name="T">
+            The type of the input value of the expression and also the type of the result of this pattern's match.
+            </typeparam>
+            <param name="leftPattern">The left pattern to compose.</param>
+            <param name="rightPattern">The right pattern to compose.</param>
+            <param name="composition">The composition which should be applied to the patterns.</param>
+            <param name="description">The description of this pattern.</param>
+            <returns>
+            A pattern which is composed of the two specified patterns.
+            </returns>
+            <remarks>
+            The resulting pattern ignores the patterns' transformations
+            and returns the input value if matched successfully.
+            </remarks>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="leftPattern" />, <paramref name="rightPattern" /> or <paramref name="description" />
+            is <see langword="null" />.
+            </exception>
+            <seealso cref="M:Matchmaker.Linq.AsyncPatternExtensions.Compose``1(Matchmaker.Patterns.Async.IAsyncPattern{``0,``0},Matchmaker.Patterns.Async.IAsyncPattern{``0,``0},Matchmaker.Patterns.PatternComposition)" />
+            <seealso cref="M:Matchmaker.Linq.AsyncPatternExtensions.And``1(Matchmaker.Patterns.Async.IAsyncPattern{``0,``0},Matchmaker.Patterns.Async.IAsyncPattern{``0,``0})" />
+            <seealso cref="M:Matchmaker.Linq.AsyncPatternExtensions.And``1(Matchmaker.Patterns.Async.IAsyncPattern{``0,``0},Matchmaker.Patterns.Async.IAsyncPattern{``0,``0},System.String)" />
+            <seealso cref="M:Matchmaker.Linq.AsyncPatternExtensions.Or``1(Matchmaker.Patterns.Async.IAsyncPattern{``0,``0},Matchmaker.Patterns.Async.IAsyncPattern{``0,``0})" />
+            <seealso cref="M:Matchmaker.Linq.AsyncPatternExtensions.Or``1(Matchmaker.Patterns.Async.IAsyncPattern{``0,``0},Matchmaker.Patterns.Async.IAsyncPattern{``0,``0},System.String)" />
+            <seealso cref="M:Matchmaker.Linq.AsyncPatternExtensions.Xor``1(Matchmaker.Patterns.Async.IAsyncPattern{``0,``0},Matchmaker.Patterns.Async.IAsyncPattern{``0,``0})" />
+            <seealso cref="M:Matchmaker.Linq.AsyncPatternExtensions.Xor``1(Matchmaker.Patterns.Async.IAsyncPattern{``0,``0},Matchmaker.Patterns.Async.IAsyncPattern{``0,``0},System.String)" />
+        </member>
+        <member name="M:Matchmaker.Linq.AsyncPatternExtensions.And``1(Matchmaker.Patterns.Async.IAsyncPattern{``0,``0},Matchmaker.Patterns.Async.IAsyncPattern{``0,``0})">
+            <summary>
+            Returns a pattern which is composed of the two specified patterns such that the result is successful
+            only when both patterns' results are successful.
+            </summary>
+            <typeparam name="T">
+            The type of the input value of the expression and also the type of the result of this pattern's match.
+            </typeparam>
+            <param name="leftPattern">The left pattern to compose.</param>
+            <param name="rightPattern">The right pattern to compose.</param>
+            <returns>
+            A pattern which is composed of the two specified patterns such that the result is successful
+            only when both patterns' results are successful.
+            </returns>
+            <remarks>
+            <para>
+            The resulting pattern ignores the patterns' transformations
+            and returns the input value if matched successfully.
+            </para>
+            <para>
+            This method is functionally equivalent to the following:
+            <code>
+            leftPattern.Compose(rightPattern, PatternComposition.And)
+            </code>
+            </para>
+            </remarks>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="leftPattern" /> or <paramref name="rightPattern" /> is <see langword="null" />.
+            </exception>
+            <seealso cref="M:Matchmaker.Linq.AsyncPatternExtensions.Compose``1(Matchmaker.Patterns.Async.IAsyncPattern{``0,``0},Matchmaker.Patterns.Async.IAsyncPattern{``0,``0},Matchmaker.Patterns.PatternComposition)" />
+            <seealso cref="M:Matchmaker.Linq.AsyncPatternExtensions.Compose``1(Matchmaker.Patterns.Async.IAsyncPattern{``0,``0},Matchmaker.Patterns.Async.IAsyncPattern{``0,``0},Matchmaker.Patterns.PatternComposition,System.String)" />
+            <seealso cref="M:Matchmaker.Linq.AsyncPatternExtensions.And``1(Matchmaker.Patterns.Async.IAsyncPattern{``0,``0},Matchmaker.Patterns.Async.IAsyncPattern{``0,``0},System.String)" />
+            <seealso cref="M:Matchmaker.Linq.AsyncPatternExtensions.Or``1(Matchmaker.Patterns.Async.IAsyncPattern{``0,``0},Matchmaker.Patterns.Async.IAsyncPattern{``0,``0})" />
+            <seealso cref="M:Matchmaker.Linq.AsyncPatternExtensions.Or``1(Matchmaker.Patterns.Async.IAsyncPattern{``0,``0},Matchmaker.Patterns.Async.IAsyncPattern{``0,``0},System.String)" />
+            <seealso cref="M:Matchmaker.Linq.AsyncPatternExtensions.Xor``1(Matchmaker.Patterns.Async.IAsyncPattern{``0,``0},Matchmaker.Patterns.Async.IAsyncPattern{``0,``0})" />
+            <seealso cref="M:Matchmaker.Linq.AsyncPatternExtensions.Xor``1(Matchmaker.Patterns.Async.IAsyncPattern{``0,``0},Matchmaker.Patterns.Async.IAsyncPattern{``0,``0},System.String)" />
+        </member>
+        <member name="M:Matchmaker.Linq.AsyncPatternExtensions.And``1(Matchmaker.Patterns.Async.IAsyncPattern{``0,``0},Matchmaker.Patterns.Async.IAsyncPattern{``0,``0},System.String)">
+            <summary>
+            Returns a pattern which is composed of the two specified patterns such that the result is successful
+            only when both patterns' results are successful.
+            </summary>
+            <typeparam name="T">
+            The type of the input value of the expression and also the type of the result of this pattern's match.
+            </typeparam>
+            <param name="leftPattern">The left pattern to compose.</param>
+            <param name="rightPattern">The right pattern to compose.</param>
+            <param name="description">The description of this pattern.</param>
+            <returns>
+            A pattern which is composed of the two specified patterns such that the result is successful
+            only when both patterns' results are successful.
+            </returns>
+            <remarks>
+            <para>
+            The resulting pattern ignores the patterns' transformations
+            and returns the input value if matched successfully.
+            </para>
+            <para>
+            This method is functionally equivalent to the following:
+            <code>
+            leftPattern.Compose(rightPattern, PatternComposition.And, description)
+            </code>
+            </para>
+            </remarks>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="leftPattern" />, <paramref name="rightPattern" /> or <paramref name="description" />
+            is <see langword="null" />.
+            </exception>
+            <seealso cref="M:Matchmaker.Linq.AsyncPatternExtensions.Compose``1(Matchmaker.Patterns.Async.IAsyncPattern{``0,``0},Matchmaker.Patterns.Async.IAsyncPattern{``0,``0},Matchmaker.Patterns.PatternComposition)" />
+            <seealso cref="M:Matchmaker.Linq.AsyncPatternExtensions.Compose``1(Matchmaker.Patterns.Async.IAsyncPattern{``0,``0},Matchmaker.Patterns.Async.IAsyncPattern{``0,``0},Matchmaker.Patterns.PatternComposition,System.String)" />
+            <seealso cref="M:Matchmaker.Linq.AsyncPatternExtensions.And``1(Matchmaker.Patterns.Async.IAsyncPattern{``0,``0},Matchmaker.Patterns.Async.IAsyncPattern{``0,``0})" />
+            <seealso cref="M:Matchmaker.Linq.AsyncPatternExtensions.Or``1(Matchmaker.Patterns.Async.IAsyncPattern{``0,``0},Matchmaker.Patterns.Async.IAsyncPattern{``0,``0})" />
+            <seealso cref="M:Matchmaker.Linq.AsyncPatternExtensions.Or``1(Matchmaker.Patterns.Async.IAsyncPattern{``0,``0},Matchmaker.Patterns.Async.IAsyncPattern{``0,``0},System.String)" />
+            <seealso cref="M:Matchmaker.Linq.AsyncPatternExtensions.Xor``1(Matchmaker.Patterns.Async.IAsyncPattern{``0,``0},Matchmaker.Patterns.Async.IAsyncPattern{``0,``0})" />
+            <seealso cref="M:Matchmaker.Linq.AsyncPatternExtensions.Xor``1(Matchmaker.Patterns.Async.IAsyncPattern{``0,``0},Matchmaker.Patterns.Async.IAsyncPattern{``0,``0},System.String)" />
+        </member>
+        <member name="M:Matchmaker.Linq.AsyncPatternExtensions.Or``1(Matchmaker.Patterns.Async.IAsyncPattern{``0,``0},Matchmaker.Patterns.Async.IAsyncPattern{``0,``0})">
+            <summary>
+            Returns a pattern which is composed of the two specified patterns such that the result is successful
+            only when both patterns' results are successful.
+            </summary>
+            <typeparam name="T">
+            The type of the input value of the expression and also the type of the result of this pattern's match.
+            </typeparam>
+            <param name="leftPattern">The left pattern to compose.</param>
+            <param name="rightPattern">The right pattern to compose.</param>
+            <returns>
+            A pattern which is composed of the two specified patterns such that the result is successful
+            only when both patterns' results are successful.
+            </returns>
+            <remarks>
+            <para>
+            The resulting pattern ignores the patterns' transformations
+            and returns the input value if matched successfully.
+            </para>
+            <para>
+            This method is functionally equivalent to the following:
+            <code>
+            leftPattern.Compose(rightPattern, PatternComposition.Or)
+            </code>
+            </para>
+            </remarks>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="leftPattern" /> or <paramref name="rightPattern" /> is <see langword="null" />.
+            </exception>
+            <seealso cref="M:Matchmaker.Linq.AsyncPatternExtensions.Compose``1(Matchmaker.Patterns.Async.IAsyncPattern{``0,``0},Matchmaker.Patterns.Async.IAsyncPattern{``0,``0},Matchmaker.Patterns.PatternComposition)" />
+            <seealso cref="M:Matchmaker.Linq.AsyncPatternExtensions.Compose``1(Matchmaker.Patterns.Async.IAsyncPattern{``0,``0},Matchmaker.Patterns.Async.IAsyncPattern{``0,``0},Matchmaker.Patterns.PatternComposition,System.String)" />
+            <seealso cref="M:Matchmaker.Linq.AsyncPatternExtensions.And``1(Matchmaker.Patterns.Async.IAsyncPattern{``0,``0},Matchmaker.Patterns.Async.IAsyncPattern{``0,``0})" />
+            <seealso cref="M:Matchmaker.Linq.AsyncPatternExtensions.And``1(Matchmaker.Patterns.Async.IAsyncPattern{``0,``0},Matchmaker.Patterns.Async.IAsyncPattern{``0,``0},System.String)" />
+            <seealso cref="M:Matchmaker.Linq.AsyncPatternExtensions.Or``1(Matchmaker.Patterns.Async.IAsyncPattern{``0,``0},Matchmaker.Patterns.Async.IAsyncPattern{``0,``0},System.String)" />
+            <seealso cref="M:Matchmaker.Linq.AsyncPatternExtensions.Xor``1(Matchmaker.Patterns.Async.IAsyncPattern{``0,``0},Matchmaker.Patterns.Async.IAsyncPattern{``0,``0})" />
+            <seealso cref="M:Matchmaker.Linq.AsyncPatternExtensions.Xor``1(Matchmaker.Patterns.Async.IAsyncPattern{``0,``0},Matchmaker.Patterns.Async.IAsyncPattern{``0,``0},System.String)" />
+        </member>
+        <member name="M:Matchmaker.Linq.AsyncPatternExtensions.Or``1(Matchmaker.Patterns.Async.IAsyncPattern{``0,``0},Matchmaker.Patterns.Async.IAsyncPattern{``0,``0},System.String)">
+            <summary>
+            Returns a pattern which is composed of the two specified patterns such that the result is successful
+            when either pattern's result is successful.
+            </summary>
+            <typeparam name="T">
+            The type of the input value of the expression and also the type of the result of this pattern's match.
+            </typeparam>
+            <param name="leftPattern">The left pattern to compose.</param>
+            <param name="rightPattern">The right pattern to compose.</param>
+            <param name="description">The description of this pattern.</param>
+            <returns>
+            A pattern which is composed of the two specified patterns such that the result is successful
+            when either pattern's result is successful.
+            </returns>
+            <remarks>
+            <para>
+            The resulting pattern ignores the patterns' transformations
+            and returns the input value if matched successfully.
+            </para>
+            <para>
+            This method is functionally equivalent to the following:
+            <code>
+            leftPattern.Compose(rightPattern, PatternComposition.Or, description)
+            </code>
+            </para>
+            </remarks>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="leftPattern" />, <paramref name="rightPattern" /> or <paramref name="description" />
+            is <see langword="null" />.
+            </exception>
+            <seealso cref="M:Matchmaker.Linq.AsyncPatternExtensions.Compose``1(Matchmaker.Patterns.Async.IAsyncPattern{``0,``0},Matchmaker.Patterns.Async.IAsyncPattern{``0,``0},Matchmaker.Patterns.PatternComposition)" />
+            <seealso cref="M:Matchmaker.Linq.AsyncPatternExtensions.Compose``1(Matchmaker.Patterns.Async.IAsyncPattern{``0,``0},Matchmaker.Patterns.Async.IAsyncPattern{``0,``0},Matchmaker.Patterns.PatternComposition,System.String)" />
+            <seealso cref="M:Matchmaker.Linq.AsyncPatternExtensions.And``1(Matchmaker.Patterns.Async.IAsyncPattern{``0,``0},Matchmaker.Patterns.Async.IAsyncPattern{``0,``0})" />
+            <seealso cref="M:Matchmaker.Linq.AsyncPatternExtensions.And``1(Matchmaker.Patterns.Async.IAsyncPattern{``0,``0},Matchmaker.Patterns.Async.IAsyncPattern{``0,``0},System.String)" />
+            <seealso cref="M:Matchmaker.Linq.AsyncPatternExtensions.Or``1(Matchmaker.Patterns.Async.IAsyncPattern{``0,``0},Matchmaker.Patterns.Async.IAsyncPattern{``0,``0})" />
+            <seealso cref="M:Matchmaker.Linq.AsyncPatternExtensions.Xor``1(Matchmaker.Patterns.Async.IAsyncPattern{``0,``0},Matchmaker.Patterns.Async.IAsyncPattern{``0,``0})" />
+            <seealso cref="M:Matchmaker.Linq.AsyncPatternExtensions.Xor``1(Matchmaker.Patterns.Async.IAsyncPattern{``0,``0},Matchmaker.Patterns.Async.IAsyncPattern{``0,``0},System.String)" />
+        </member>
+        <member name="M:Matchmaker.Linq.AsyncPatternExtensions.Xor``1(Matchmaker.Patterns.Async.IAsyncPattern{``0,``0},Matchmaker.Patterns.Async.IAsyncPattern{``0,``0})">
+            <summary>
+            Returns a pattern which is composed of the two specified patterns such that the result is successful
+            only when both patterns' results are successful.
+            </summary>
+            <typeparam name="T">
+            The type of the input value of the expression and also the type of the result of this pattern's match.
+            </typeparam>
+            <param name="leftPattern">The left pattern to compose.</param>
+            <param name="rightPattern">The right pattern to compose.</param>
+            <returns>
+            A pattern which is composed of the two specified patterns such that the result is successful
+            only when both patterns' results are successful.
+            </returns>
+            <remarks>
+            <para>
+            The resulting pattern ignores the patterns' transformations
+            and returns the input value if matched successfully.
+            </para>
+            <para>
+            This method is functionally equivalent to the following:
+            <code>
+            leftPattern.Compose(rightPattern, PatternComposition.Xor)
+            </code>
+            </para>
+            </remarks>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="leftPattern" /> or <paramref name="rightPattern" /> is <see langword="null" />.
+            </exception>
+            <seealso cref="M:Matchmaker.Linq.AsyncPatternExtensions.Compose``1(Matchmaker.Patterns.Async.IAsyncPattern{``0,``0},Matchmaker.Patterns.Async.IAsyncPattern{``0,``0},Matchmaker.Patterns.PatternComposition)" />
+            <seealso cref="M:Matchmaker.Linq.AsyncPatternExtensions.Compose``1(Matchmaker.Patterns.Async.IAsyncPattern{``0,``0},Matchmaker.Patterns.Async.IAsyncPattern{``0,``0},Matchmaker.Patterns.PatternComposition,System.String)" />
+            <seealso cref="M:Matchmaker.Linq.AsyncPatternExtensions.And``1(Matchmaker.Patterns.Async.IAsyncPattern{``0,``0},Matchmaker.Patterns.Async.IAsyncPattern{``0,``0})" />
+            <seealso cref="M:Matchmaker.Linq.AsyncPatternExtensions.And``1(Matchmaker.Patterns.Async.IAsyncPattern{``0,``0},Matchmaker.Patterns.Async.IAsyncPattern{``0,``0},System.String)" />
+            <seealso cref="M:Matchmaker.Linq.AsyncPatternExtensions.Or``1(Matchmaker.Patterns.Async.IAsyncPattern{``0,``0},Matchmaker.Patterns.Async.IAsyncPattern{``0,``0})" />
+            <seealso cref="M:Matchmaker.Linq.AsyncPatternExtensions.Or``1(Matchmaker.Patterns.Async.IAsyncPattern{``0,``0},Matchmaker.Patterns.Async.IAsyncPattern{``0,``0},System.String)" />
+            <seealso cref="M:Matchmaker.Linq.AsyncPatternExtensions.Xor``1(Matchmaker.Patterns.Async.IAsyncPattern{``0,``0},Matchmaker.Patterns.Async.IAsyncPattern{``0,``0},System.String)" />
+        </member>
+        <member name="M:Matchmaker.Linq.AsyncPatternExtensions.Xor``1(Matchmaker.Patterns.Async.IAsyncPattern{``0,``0},Matchmaker.Patterns.Async.IAsyncPattern{``0,``0},System.String)">
+            <summary>
+            Returns a pattern which is composed of the two specified patterns such that the result is successful
+            when only one pattern's result is successful.
+            </summary>
+            <typeparam name="T">
+            The type of the input value of the expression and also the type of the result of this pattern's match.
+            </typeparam>
+            <param name="leftPattern">The left pattern to compose.</param>
+            <param name="rightPattern">The right pattern to compose.</param>
+            <param name="description">The description of this pattern.</param>
+            <returns>
+            A pattern which is composed of the two specified patterns such that the result is successful
+            when only one pattern's result is successful.
+            </returns>
+            <remarks>
+            <para>
+            The resulting pattern ignores the patterns' transformations
+            and returns the input value if matched successfully.
+            </para>
+            <para>
+            This method is functionally equivalent to the following:
+            <code>
+            leftPattern.Compose(rightPattern, PatternComposition.Xor, description)
+            </code>
+            </para>
+            </remarks>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="leftPattern" />, <paramref name="rightPattern" /> or <paramref name="description" />
+            is <see langword="null" />.
+            </exception>
+            <seealso cref="M:Matchmaker.Linq.AsyncPatternExtensions.Compose``1(Matchmaker.Patterns.Async.IAsyncPattern{``0,``0},Matchmaker.Patterns.Async.IAsyncPattern{``0,``0},Matchmaker.Patterns.PatternComposition)" />
+            <seealso cref="M:Matchmaker.Linq.AsyncPatternExtensions.Compose``1(Matchmaker.Patterns.Async.IAsyncPattern{``0,``0},Matchmaker.Patterns.Async.IAsyncPattern{``0,``0},Matchmaker.Patterns.PatternComposition,System.String)" />
+            <seealso cref="M:Matchmaker.Linq.AsyncPatternExtensions.And``1(Matchmaker.Patterns.Async.IAsyncPattern{``0,``0},Matchmaker.Patterns.Async.IAsyncPattern{``0,``0})" />
+            <seealso cref="M:Matchmaker.Linq.AsyncPatternExtensions.And``1(Matchmaker.Patterns.Async.IAsyncPattern{``0,``0},Matchmaker.Patterns.Async.IAsyncPattern{``0,``0},System.String)" />
+            <seealso cref="M:Matchmaker.Linq.AsyncPatternExtensions.Or``1(Matchmaker.Patterns.Async.IAsyncPattern{``0,``0},Matchmaker.Patterns.Async.IAsyncPattern{``0,``0})" />
+            <seealso cref="M:Matchmaker.Linq.AsyncPatternExtensions.Or``1(Matchmaker.Patterns.Async.IAsyncPattern{``0,``0},Matchmaker.Patterns.Async.IAsyncPattern{``0,``0},System.String)" />
+            <seealso cref="M:Matchmaker.Linq.AsyncPatternExtensions.Xor``1(Matchmaker.Patterns.Async.IAsyncPattern{``0,``0},Matchmaker.Patterns.Async.IAsyncPattern{``0,``0})" />
+        </member>
+        <member name="M:Matchmaker.Linq.AsyncPatternExtensions.Cached``2(Matchmaker.Patterns.Async.IAsyncPattern{``0,``1})">
+            <summary>
+            Returns a pattern which matches the same as the specified pattern, but caches its results.
+            </summary>
+            <typeparam name="TInput">The type of the input value of the expression.</typeparam>
+            <typeparam name="TMatchResult">The type of the result of this pattern's match.</typeparam>
+            <param name="pattern">The pattern whose results should be cached.</param>
+            <returns>
+            A pattern which matches the same as the specified pattern, but caches its results.
+            </returns>
+            <remarks>
+            The returned pattern's caching process is thread-safe.
+            The cache itself is a simple null-safe hash table.
+            </remarks>
+        </member>
+        <member name="M:Matchmaker.Linq.AsyncPatternExtensions.Cached``2(Matchmaker.Patterns.Async.IAsyncPattern{``0,``1},System.String)">
+            <summary>
+            Returns a pattern which matches the same as the specified pattern, but caches its results.
+            </summary>
+            <typeparam name="TInput">The type of the input value of the expression.</typeparam>
+            <typeparam name="TMatchResult">The type of the result of this pattern's match.</typeparam>
+            <param name="pattern">The pattern whose results should be cached.</param>
+            <param name="description">The description of this pattern.</param>
+            <returns>
+            A pattern which matches the same as the specified pattern, but caches its results.
+            </returns>
+            <remarks>
+            The returned pattern's caching process is thread-safe.
+            The cache itself is a simple null-safe hash table.
+            </remarks>
+        </member>
         <member name="T:Matchmaker.Linq.MatchExtensions">
             <summary>
             A general container class for extension methods.
@@ -532,8 +1105,8 @@
             <exception cref="T:System.ArgumentNullException">
             <paramref name="pattern" /> or <paramref name="matcher" /> is <see langword="null" />.
             </exception>
-            <seealso cref="M:Matchmaker.Linq.PatternExtensions.Pipe``3(Matchmaker.Patterns.IPattern{``0,``1},System.Func{``1,Matchmaker.MatchResult{``2}})" />
             <seealso cref="M:Matchmaker.Linq.PatternExtensions.Pipe``3(Matchmaker.Patterns.IPattern{``0,``1},System.Func{``1,Matchmaker.MatchResult{``2}},System.String)" />
+            <seealso cref="M:Matchmaker.Linq.PatternExtensions.Pipe``3(Matchmaker.Patterns.IPattern{``0,``1},Matchmaker.Patterns.IPattern{``1,``2})" />
             <seealso cref="M:Matchmaker.Linq.PatternExtensions.Pipe``3(Matchmaker.Patterns.IPattern{``0,``1},Matchmaker.Patterns.IPattern{``1,``2},System.String)" />
         </member>
         <member name="M:Matchmaker.Linq.PatternExtensions.Pipe``3(Matchmaker.Patterns.IPattern{``0,``1},System.Func{``1,Matchmaker.MatchResult{``2}},System.String)">
@@ -562,8 +1135,8 @@
             is <see langword="null" />.
             </exception>
             <seealso cref="M:Matchmaker.Linq.PatternExtensions.Pipe``3(Matchmaker.Patterns.IPattern{``0,``1},System.Func{``1,Matchmaker.MatchResult{``2}})" />
-            <seealso cref="M:Matchmaker.Linq.PatternExtensions.Pipe``3(Matchmaker.Patterns.IPattern{``0,``1},System.Func{``1,Matchmaker.MatchResult{``2}},System.String)" />
             <seealso cref="M:Matchmaker.Linq.PatternExtensions.Pipe``3(Matchmaker.Patterns.IPattern{``0,``1},Matchmaker.Patterns.IPattern{``1,``2})" />
+            <seealso cref="M:Matchmaker.Linq.PatternExtensions.Pipe``3(Matchmaker.Patterns.IPattern{``0,``1},Matchmaker.Patterns.IPattern{``1,``2},System.String)" />
         </member>
         <member name="M:Matchmaker.Linq.PatternExtensions.Cast``3(Matchmaker.Patterns.IPattern{``0,``1})">
             <summary>
@@ -3677,11 +4250,6 @@
             The cached result for the <see langword="null" /> input.
             </summary>
         </member>
-        <member name="F:Matchmaker.Patterns.Async.CachingAsyncPattern`2.isNullResultDefined">
-            <summary>
-            The value which indicates whether the result for the <see langword="null" /> input has been cached.
-            </summary>
-        </member>
         <member name="F:Matchmaker.Patterns.Async.CachingAsyncPattern`2.nullResultLock">
             <summary>
             The object on which to lock the caching process of the <see langword="null" /> input.
@@ -3860,6 +4428,11 @@
             A successful match result which contains the transformed result of the match,
             if this match is successful. Otherwise, a failed match result.
             </returns>
+            <remarks>
+            Implementations of this this method may throw <see cref="T:System.InvalidOperationException" />
+            if they combine instances of <see cref="T:System.Threading.Tasks.Task" /> or <see cref="T:System.Threading.Tasks.Task`1" /> and one
+            of those instances is <see langword="null" />.
+            </remarks>
         </member>
         <member name="T:Matchmaker.Patterns.Async.MappingAsyncPattern`3">
             <summary>
