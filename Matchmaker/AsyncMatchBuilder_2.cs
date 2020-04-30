@@ -2,31 +2,31 @@ using System;
 using System.Collections.Generic;
 
 using Matchmaker.Linq;
-using Matchmaker.Patterns;
+using Matchmaker.Patterns.Async;
 
 namespace Matchmaker
 {
     /// <summary>
-    /// Represents a match expression builder.
+    /// Represents an asynchronous match expression builder.
     /// </summary>
     /// <typeparam name="TInput">The type of the input value of the expression.</typeparam>
     /// <typeparam name="TOutput">The type of the output value of the expression.</typeparam>
-    /// <seealso cref="Match{TInput, TOutput}" />
-    public sealed class MatchBuilder<TInput, TOutput>
+    /// <seealso cref="AsyncMatch{TInput, TOutput}" />
+    public sealed class AsyncMatchBuilder<TInput, TOutput>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="MatchBuilder{TInput, TOutput}" /> class.
+        /// Initializes a new instance of the <see cref="AsyncMatchBuilder{TInput, TOutput}" /> class.
         /// </summary>
-        internal MatchBuilder()
+        internal AsyncMatchBuilder()
         {
-            this.Cases = new List<Match<TInput, TOutput>.CaseData>();
+            this.Cases = new List<AsyncMatch<TInput, TOutput>.CaseData>();
             this.FallthroughByDefault = false;
         }
 
         /// <summary>
         /// Gets the collection of cases that will be matched in this expression.
         /// </summary>
-        internal ICollection<Match<TInput, TOutput>.CaseData> Cases { get; }
+        internal ICollection<AsyncMatch<TInput, TOutput>.CaseData> Cases { get; }
 
         /// <summary>
         /// Gets the default fallthrough behaviour.
@@ -38,7 +38,7 @@ namespace Matchmaker
         /// </summary>
         /// <param name="fallthrough">The default fallthrough behavior.</param>
         /// <returns>The calling builder.</returns>
-        public MatchBuilder<TInput, TOutput> Fallthrough(bool fallthrough)
+        public AsyncMatchBuilder<TInput, TOutput> Fallthrough(bool fallthrough)
         {
             this.FallthroughByDefault = fallthrough;
             return this;
@@ -54,8 +54,8 @@ namespace Matchmaker
         /// <exception cref="ArgumentNullException">
         /// <paramref name="pattern" /> or <paramref name="func" /> is <see langword="null" />.
         /// </exception>
-        public MatchBuilder<TInput, TOutput> Case<TMatchResult>(
-            IPattern<TInput, TMatchResult> pattern,
+        public AsyncMatchBuilder<TInput, TOutput> Case<TMatchResult>(
+            IAsyncPattern<TInput, TMatchResult> pattern,
             Func<TMatchResult, TOutput> func)
             => this.Case(pattern, this.FallthroughByDefault, func);
 
@@ -70,8 +70,8 @@ namespace Matchmaker
         /// <exception cref="ArgumentNullException">
         /// <paramref name="pattern" /> or <paramref name="func" /> is <see langword="null" />.
         /// </exception>
-        public MatchBuilder<TInput, TOutput> Case<TMatchResult>(
-            IPattern<TInput, TMatchResult> pattern,
+        public AsyncMatchBuilder<TInput, TOutput> Case<TMatchResult>(
+            IAsyncPattern<TInput, TMatchResult> pattern,
             bool fallthrough,
             Func<TMatchResult, TOutput> func)
         {
@@ -80,7 +80,7 @@ namespace Matchmaker
                 throw new ArgumentNullException(nameof(func));
             }
 
-            this.Cases.Add(new Match<TInput, TOutput>.CaseData(
+            this.Cases.Add(new AsyncMatch<TInput, TOutput>.CaseData(
                 pattern.Select(result => (object?)result),
                 fallthrough,
                 value => func((TMatchResult)value!)));
@@ -97,13 +97,13 @@ namespace Matchmaker
         /// <remarks>
         /// This method is functionally equivalent to the following:
         /// <code>
-        /// builder.Case(Pattern.Type&lt;TInput, TType&gt;(), func)
+        /// builder.Case(AsyncPattern.Type&lt;TInput, TType&gt;(), func)
         /// </code>
         /// </remarks>
         /// <exception cref="ArgumentNullException">
         /// <paramref name="func" /> is <see langword="null" />.
         /// </exception>
-        public MatchBuilder<TInput, TOutput> Case<TType>(Func<TType, TOutput> func)
+        public AsyncMatchBuilder<TInput, TOutput> Case<TType>(Func<TType, TOutput> func)
             where TType : TInput
             => this.Case(this.FallthroughByDefault, func);
 
@@ -117,21 +117,21 @@ namespace Matchmaker
         /// <remarks>
         /// This method is functionally equivalent to the following:
         /// <code>
-        /// builder.Case(Pattern.Type&lt;TInput, TType&gt;(), fallthrough, func)
+        /// builder.Case(AsyncPattern.Type&lt;TInput, TType&gt;(), fallthrough, func)
         /// </code>
         /// </remarks>
         /// <exception cref="ArgumentNullException">
         /// <paramref name="func" /> is <see langword="null" />.
         /// </exception>
-        public MatchBuilder<TInput, TOutput> Case<TType>(bool fallthrough, Func<TType, TOutput> func)
+        public AsyncMatchBuilder<TInput, TOutput> Case<TType>(bool fallthrough, Func<TType, TOutput> func)
             where TType : TInput
-            => this.Case(Pattern.Type<TInput, TType>(), fallthrough, func);
+            => this.Case(AsyncPattern.Type<TInput, TType>(), fallthrough, func);
 
         /// <summary>
-        /// Constructs a match expression from this builder.
+        /// Constructs an asynchronous match expression from this builder.
         /// </summary>
         /// <returns></returns>
-        internal Match<TInput, TOutput> Build()
-            => new Match<TInput, TOutput>(this);
+        internal AsyncMatch<TInput, TOutput> Build()
+            => new AsyncMatch<TInput, TOutput>(this);
     }
 }

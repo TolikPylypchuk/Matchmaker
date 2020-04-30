@@ -1,21 +1,23 @@
 using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using System.Threading.Tasks;
 
 using Matchmaker.Linq;
-using Matchmaker.Patterns;
+using Matchmaker.Patterns.Async;
 
 namespace Matchmaker
 {
     /// <summary>
-    /// Represents a match expression.
+    /// Represents an asynchronous match expression.
     /// </summary>
     /// <typeparam name="TInput">The type of the input value of the expression.</typeparam>
     /// <typeparam name="TOutput">The type of the output value of the expression.</typeparam>
-    /// <seealso cref="Match{TInput}" />
-    /// <seealso cref="Match" />
+    /// <seealso cref="AsyncMatch{TInput}" />
+    /// <seealso cref="AsyncMatch" />
     /// <seealso cref="MatchException" />
-    public sealed class Match<TInput, TOutput>
+    public sealed class AsyncMatch<TInput, TOutput>
     {
         /// <summary>
         /// The collection of cases that will be matched in this expression.
@@ -28,41 +30,41 @@ namespace Matchmaker
         private readonly bool fallthroughByDefault;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Match{TInput, TOutput}" /> class.
+        /// Initializes a new instance of the <see cref="AsyncMatch{TInput, TOutput}" /> class.
         /// </summary>
         /// <param name="fallthroughByDefault">The default fallthrough behaviour.</param>
-        internal Match(bool fallthroughByDefault)
+        internal AsyncMatch(bool fallthroughByDefault)
         {
             this.cases = new List<CaseData>().AsReadOnly();
             this.fallthroughByDefault = fallthroughByDefault;
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Match{TInput, TOutput}" /> class.
+        /// Initializes a new instance of the <see cref="AsyncMatch{TInput, TOutput}" /> class.
         /// </summary>
         /// <param name="builder"></param>
-        internal Match(MatchBuilder<TInput, TOutput> builder)
+        internal AsyncMatch(AsyncMatchBuilder<TInput, TOutput> builder)
         {
             this.cases = new List<CaseData>(builder.Cases).AsReadOnly();
             this.fallthroughByDefault = builder.FallthroughByDefault;
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Match{TInput, TOutput}" /> class with the specified cases.
+        /// Initializes a new instance of the <see cref="AsyncMatch{TInput, TOutput}" /> class with the specified cases.
         /// </summary>
         /// <param name="cases">The cases of this expression.</param>
         /// <param name="fallthroughByDefault">The default fallthrough behaviour.</param>
-        private Match(IReadOnlyCollection<CaseData> cases, bool fallthroughByDefault)
+        private AsyncMatch(IReadOnlyCollection<CaseData> cases, bool fallthroughByDefault)
         {
             this.cases = cases;
             this.fallthroughByDefault = fallthroughByDefault;
         }
 
         /// <summary>
-        /// Gets the global cache of static match expressions.
+        /// Gets the global cache of static asynchronous match expressions.
         /// </summary>
-        internal static Dictionary<string, Match<TInput, TOutput>> Cache { get; } =
-            new Dictionary<string, Match<TInput, TOutput>>();
+        internal static ConcurrentDictionary<string, AsyncMatch<TInput, TOutput>> Cache { get; } =
+            new ConcurrentDictionary<string, AsyncMatch<TInput, TOutput>>();
 
         /// <summary>
         /// Returns a new match expression which includes the specified pattern and function to execute if this
@@ -78,8 +80,8 @@ namespace Matchmaker
         /// <exception cref="ArgumentNullException">
         /// <paramref name="pattern" /> or <paramref name="func" /> is <see langword="null" />.
         /// </exception>
-        public Match<TInput, TOutput> Case<TMatchResult>(
-            IPattern<TInput, TMatchResult> pattern,
+        public AsyncMatch<TInput, TOutput> Case<TMatchResult>(
+            IAsyncPattern<TInput, TMatchResult> pattern,
             Func<TMatchResult, TOutput> func)
             => this.Case(pattern, this.fallthroughByDefault, func);
 
@@ -98,13 +100,13 @@ namespace Matchmaker
         /// <exception cref="ArgumentNullException">
         /// <paramref name="pattern" /> or <paramref name="func" /> is <see langword="null" />.
         /// </exception>
-        public Match<TInput, TOutput> Case<TMatchResult>(
-            IPattern<TInput, TMatchResult> pattern,
+        public AsyncMatch<TInput, TOutput> Case<TMatchResult>(
+            IAsyncPattern<TInput, TMatchResult> pattern,
             bool fallthrough,
             Func<TMatchResult, TOutput> func)
             => pattern != null
                 ? func != null
-                    ? new Match<TInput, TOutput>(
+                    ? new AsyncMatch<TInput, TOutput>(
                         new List<CaseData>(this.cases)
                         {
                             new CaseData(
@@ -129,13 +131,13 @@ namespace Matchmaker
         /// <remarks>
         /// This method is functionally equivalent to the following:
         /// <code>
-        /// match.Case(Pattern.Type&lt;TInput, TType&gt;(), func)
+        /// match.Case(AsyncPattern.Type&lt;TInput, TType&gt;(), func)
         /// </code>
         /// </remarks>
         /// <exception cref="ArgumentNullException">
         /// <paramref name="func" /> is <see langword="null" />.
         /// </exception>
-        public Match<TInput, TOutput> Case<TType>(Func<TType, TOutput> func)
+        public AsyncMatch<TInput, TOutput> Case<TType>(Func<TType, TOutput> func)
             where TType : TInput
             => this.Case(this.fallthroughByDefault, func);
 
@@ -153,46 +155,46 @@ namespace Matchmaker
         /// <remarks>
         /// This method is functionally equivalent to the following:
         /// <code>
-        /// match.Case(Pattern.Type&lt;TInput, TType&gt;(), fallthrough, func)
+        /// match.Case(AsyncPattern.Type&lt;TInput, TType&gt;(), fallthrough, func)
         /// </code>
         /// </remarks>
         /// <exception cref="ArgumentNullException">
         /// <paramref name="func" /> is <see langword="null" />.
         /// </exception>
-        public Match<TInput, TOutput> Case<TType>(bool fallthrough, Func<TType, TOutput> func)
+        public AsyncMatch<TInput, TOutput> Case<TType>(bool fallthrough, Func<TType, TOutput> func)
             where TType : TInput
-            => this.Case(Pattern.Type<TInput, TType>(), fallthrough, func);
+            => this.Case(AsyncPattern.Type<TInput, TType>(), fallthrough, func);
 
         /// <summary>
-        /// Executes the match expression on the specified input and returns the result.
+        /// Asynchronously executes the match expression on the specified input and returns the result.
         /// </summary>
         /// <param name="input">The input value of the expression.</param>
         /// <returns>The result of the match expression.</returns>
         /// <exception cref="MatchException">
         /// The match failed for all cases.
         /// </exception>
-        /// <seealso cref="ExecuteNonStrict(TInput)" />
-        /// <seealso cref="ExecuteWithFallthrough(TInput)" />
+        /// <seealso cref="ExecuteNonStrictAsync(TInput)" />
+        /// <seealso cref="ExecuteWithFallthroughAsync(TInput)" />
         /// <seealso cref="ToFunction" />
         [return: MaybeNull]
-        public TOutput ExecuteOn(TInput input)
-            => this.ExecuteNonStrict(input).GetValueOrThrow(() => new MatchException($"Could not match {input}"));
+        public Task<TOutput> ExecuteAsync(TInput input)
+            => this.ExecuteNonStrictAsync(input).GetValueOrThrow(() => new MatchException($"Could not match {input}"));
 
         /// <summary>
-        /// Executes the match expression on the specified input and returns the result.
+        /// Asynchronously executes the match expression on the specified input and returns the result.
         /// </summary>
         /// <param name="input">The input value of the expression.</param>
         /// <returns>
         /// The result of the match expression, or a failed result if no pattern was matched successfully.
         /// </returns>
-        /// <seealso cref="ExecuteOn(TInput)" />
-        /// <seealso cref="ExecuteWithFallthrough(TInput)" />
+        /// <seealso cref="ExecuteAsync(TInput)" />
+        /// <seealso cref="ExecuteWithFallthroughAsync(TInput)" />
         /// <seealso cref="ToNonStrictFunction" />
-        public MatchResult<TOutput> ExecuteNonStrict(TInput input)
+        public async Task<MatchResult<TOutput>> ExecuteNonStrictAsync(TInput input)
         {
             foreach (var @case in this.cases)
             {
-                var matchResult = @case.Pattern.Match(input);
+                var matchResult = await @case.Pattern.MatchAsync(input);
                 if (matchResult.IsSuccessful)
                 {
                     return MatchResult.Success(@case.Function(matchResult.Value));
@@ -203,7 +205,8 @@ namespace Matchmaker
         }
 
         /// <summary>
-        /// Executes the match expression on the specified input with fallthrough and lazily returns the results.
+        /// Asynchronously executes the match expression on the specified input with fallthrough
+        /// and lazily returns the results.
         /// </summary>
         /// <param name="input">The input value of the expression.</param>
         /// <returns>
@@ -218,14 +221,14 @@ namespace Matchmaker
         /// The enumerable may contain <see langword="null" /> values.
         /// </para>
         /// </remarks>
-        /// <seealso cref="ExecuteOn(TInput)" />
-        /// <seealso cref="ExecuteNonStrict(TInput)" />
+        /// <seealso cref="ExecuteAsync(TInput)" />
+        /// <seealso cref="ExecuteNonStrictAsync(TInput)" />
         /// <seealso cref="ToFunctionWithFallthrough" />
-        public IEnumerable<TOutput> ExecuteWithFallthrough(TInput input)
+        public async IAsyncEnumerable<TOutput> ExecuteWithFallthroughAsync(TInput input)
         {
             foreach (var @case in this.cases)
             {
-                var matchResult = @case.Pattern.Match(input);
+                var matchResult = await @case.Pattern.MatchAsync(input);
                 if (matchResult.IsSuccessful)
                 {
                     yield return @case.Function(matchResult.Value);
@@ -242,21 +245,21 @@ namespace Matchmaker
         /// Returns a function which, when called, will match the specified value.
         /// </summary>
         /// <returns>A function which, when called, will match the specified value.</returns>
-        /// <seealso cref="ExecuteOn(TInput)" />
+        /// <seealso cref="ExecuteAsync(TInput)" />
         /// <seealso cref="ToNonStrictFunction" />
         /// <seealso cref="ToFunctionWithFallthrough" />
-        public Func<TInput, TOutput> ToFunction()
-            => this.ExecuteOn;
+        public Func<TInput, Task<TOutput>> ToFunction()
+            => this.ExecuteAsync;
 
         /// <summary>
         /// Returns a function which, when called, will match the specified value.
         /// </summary>
         /// <returns>A function which, when called, will match the specified value.</returns>
-        /// <seealso cref="ExecuteNonStrict(TInput)" />
+        /// <seealso cref="ExecuteNonStrictAsync(TInput)" />
         /// <seealso cref="ToFunction" />
         /// <seealso cref="ToFunctionWithFallthrough" />
-        public Func<TInput, MatchResult<TOutput>> ToNonStrictFunction()
-            => this.ExecuteNonStrict;
+        public Func<TInput, Task<MatchResult<TOutput>>> ToNonStrictFunction()
+            => this.ExecuteNonStrictAsync;
 
         /// <summary>
         /// Returns a function which, when called, will match the specified value.
@@ -271,14 +274,14 @@ namespace Matchmaker
         /// The enumerable may contain <see langword="null" /> values.
         /// </para>
         /// </remarks>
-        /// <seealso cref="ExecuteWithFallthrough(TInput)" />
+        /// <seealso cref="ExecuteWithFallthroughAsync(TInput)" />
         /// <seealso cref="ToFunction" />
         /// <seealso cref="ToNonStrictFunction" />
-        public Func<TInput, IEnumerable<TOutput>> ToFunctionWithFallthrough()
-            => this.ExecuteWithFallthrough;
+        public Func<TInput, IAsyncEnumerable<TOutput>> ToFunctionWithFallthrough()
+            => this.ExecuteWithFallthroughAsync;
 
         /// <summary>
-        /// Represents the data of a single case in a match expression.
+        /// Represents the data of a single case in an asynchronous match expression.
         /// </summary>
         internal class CaseData
         {
@@ -288,7 +291,7 @@ namespace Matchmaker
             /// <param name="pattern">The pattern of the case.</param>
             /// <param name="fallthrough">The fallthrough behaviour of the case.</param>
             /// <param name="func">The function of the case.</param>
-            public CaseData(IPattern<TInput, object?> pattern, bool fallthrough, Func<object?, TOutput> func)
+            public CaseData(IAsyncPattern<TInput, object?> pattern, bool fallthrough, Func<object?, TOutput> func)
             {
                 this.Pattern = pattern;
                 this.Fallthrough = fallthrough;
@@ -298,7 +301,7 @@ namespace Matchmaker
             /// <summary>
             /// Gets the pattern of the case.
             /// </summary>
-            public IPattern<TInput, object?> Pattern { get; }
+            public IAsyncPattern<TInput, object?> Pattern { get; }
 
             /// <summary>
             /// Gets the fallthrough behaviour of the case.
