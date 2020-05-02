@@ -14,6 +14,9 @@ using Xunit;
 
 namespace Matchmaker
 {
+    [SuppressMessage("ReSharper", "ConditionIsAlwaysTrueOrFalse")]
+    [SuppressMessage("ReSharper", "AssignNullToNotNullAttribute")]
+    [SuppressMessage("ReSharper", "IteratorMethodResultIsIgnored")]
     public class MatchExpressionTests
     {
         [Fact]
@@ -175,7 +178,6 @@ namespace Matchmaker
         }
 
         [Property(Arbitrary = new[] { typeof(Generators) })]
-        [SuppressMessage("ReSharper", "IteratorMethodResultIsIgnored")]
         public Property MatchWithFallthroughShouldBeLazy(Func<string, bool> predicate, string value)
         {
             var pattern = Pattern.CreatePattern(predicate);
@@ -271,7 +273,6 @@ namespace Matchmaker
         }
 
         [Property(Arbitrary = new[] { typeof(Generators) })]
-        [SuppressMessage("ReSharper", "IteratorMethodResultIsIgnored")]
         public Property MatchWithFallthroughTrueShouldBeLazy(Func<string, bool> predicate, string value)
         {
             var pattern = Pattern.CreatePattern(predicate);
@@ -287,7 +288,6 @@ namespace Matchmaker
         }
 
         [Property(Arbitrary = new[] { typeof(Generators) })]
-        [SuppressMessage("ReSharper", "ConditionIsAlwaysTrueOrFalse")]
         public Property MatchWithFallthroughShouldNeverReturnNull(Func<string, bool> predicate, string value)
         {
             var pattern = Pattern.CreatePattern(predicate);
@@ -467,7 +467,6 @@ namespace Matchmaker
         }
 
         [Property(Arbitrary = new[] { typeof(Generators) })]
-        [SuppressMessage("ReSharper", "IteratorMethodResultIsIgnored")]
         public Property MatchToFunctionWithFallthroughShouldBeLazy(Func<string, bool> predicate, string value)
         {
             var pattern = Pattern.CreatePattern(predicate);
@@ -563,7 +562,6 @@ namespace Matchmaker
         }
 
         [Property(Arbitrary = new[] { typeof(Generators) })]
-        [SuppressMessage("ReSharper", "IteratorMethodResultIsIgnored")]
         public Property MatchToFunctionWithFallthroughTrueShouldBeLazy(Func<string, bool> predicate, string value)
         {
             var pattern = Pattern.CreatePattern(predicate);
@@ -579,7 +577,6 @@ namespace Matchmaker
         }
 
         [Property(Arbitrary = new[] { typeof(Generators) })]
-        [SuppressMessage("ReSharper", "ConditionIsAlwaysTrueOrFalse")]
         public Property MatchToFunctionWithFallthroughShouldNeverReturnNull(
             Func<string, bool> predicate,
             string value)

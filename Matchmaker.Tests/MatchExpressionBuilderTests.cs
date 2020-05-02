@@ -14,6 +14,10 @@ using Xunit;
 
 namespace Matchmaker
 {
+    [SuppressMessage("ReSharper", "ConditionIsAlwaysTrueOrFalse")]
+    [SuppressMessage("ReSharper", "AssignNullToNotNullAttribute")]
+    [SuppressMessage("ReSharper", "ExplicitCallerInfoArgument")]
+    [SuppressMessage("ReSharper", "IteratorMethodResultIsIgnored")]
     public class MatchExpressionBuilderTests
     {
         [Fact]
@@ -60,7 +64,6 @@ namespace Matchmaker
         }
 
         [Fact]
-        [SuppressMessage("ReSharper", "ExplicitCallerInfoArgument")]
         public void MatchCreateStaticShouldThrowIfFilePathIsNull()
         {
             Action action = () => Match.CreateStatic<int, string>(match => { }, null);
@@ -232,7 +235,6 @@ namespace Matchmaker
         }
 
         [Property(Arbitrary = new[] { typeof(Generators) })]
-        [SuppressMessage("ReSharper", "IteratorMethodResultIsIgnored")]
         public Property MatchWithFallthroughShouldBeLazy(Func<string, bool> predicate, string value)
         {
             Match.ClearCache<string, int>();
@@ -343,7 +345,6 @@ namespace Matchmaker
         }
 
         [Property(Arbitrary = new[] { typeof(Generators) })]
-        [SuppressMessage("ReSharper", "IteratorMethodResultIsIgnored")]
         public Property MatchWithFallthroughTrueShouldBeLazy(Func<string, bool> predicate, string value)
         {
             Match.ClearCache<string, int>();
@@ -362,7 +363,6 @@ namespace Matchmaker
         }
 
         [Property(Arbitrary = new[] { typeof(Generators) })]
-        [SuppressMessage("ReSharper", "ConditionIsAlwaysTrueOrFalse")]
         public Property MatchWithFallthroughShouldNeverReturnNull(Func<string, bool> predicate, string value)
         {
             Match.ClearCache<string, bool>();
@@ -568,7 +568,6 @@ namespace Matchmaker
         }
 
         [Property(Arbitrary = new[] { typeof(Generators) })]
-        [SuppressMessage("ReSharper", "IteratorMethodResultIsIgnored")]
         public Property MatchToFunctionWithFallthroughShouldBeLazy(Func<string, bool> predicate, string value)
         {
             Match.ClearCache<string, int>();
@@ -679,7 +678,6 @@ namespace Matchmaker
         }
 
         [Property(Arbitrary = new[] { typeof(Generators) })]
-        [SuppressMessage("ReSharper", "IteratorMethodResultIsIgnored")]
         public Property MatchToFunctionWithFallthroughTrueShouldBeLazy(Func<string, bool> predicate, string value)
         {
             Match.ClearCache<string, int>();
@@ -698,7 +696,6 @@ namespace Matchmaker
         }
 
         [Property(Arbitrary = new[] { typeof(Generators) })]
-        [SuppressMessage("ReSharper", "ConditionIsAlwaysTrueOrFalse")]
         public Property MatchToFunctionWithFallthroughShouldNeverReturnNull(
             Func<string, bool> predicate,
             string value)

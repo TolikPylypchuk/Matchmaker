@@ -1,4 +1,5 @@
 using System;
+using System.Diagnostics.CodeAnalysis;
 
 using FluentAssertions;
 
@@ -9,6 +10,8 @@ using Matchmaker.Patterns;
 
 namespace Matchmaker.Linq
 {
+    [SuppressMessage("ReSharper", "ConditionIsAlwaysTrueOrFalse")]
+    [SuppressMessage("ReSharper", "AssignNullToNotNullAttribute")]
     public class ComposeAndTests
     {
         [Property(Arbitrary = new[] { typeof(Generators) })]

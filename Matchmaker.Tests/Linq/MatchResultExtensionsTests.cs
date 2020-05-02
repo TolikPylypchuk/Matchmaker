@@ -1,5 +1,5 @@
 using System;
-
+using System.Diagnostics.CodeAnalysis;
 using FluentAssertions;
 using FluentAssertions.Execution;
 
@@ -10,6 +10,8 @@ using Xunit;
 
 namespace Matchmaker.Linq
 {
+    [SuppressMessage("ReSharper", "ConditionIsAlwaysTrueOrFalse")]
+    [SuppressMessage("ReSharper", "AssignNullToNotNullAttribute")]
     public class MatchResultExtensionsTests
     {
         [Property(Arbitrary = new[] { typeof(Generators) })]

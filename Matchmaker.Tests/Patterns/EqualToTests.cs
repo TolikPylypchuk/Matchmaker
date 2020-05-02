@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 
 using FluentAssertions;
 using FluentAssertions.Execution;
@@ -11,6 +12,8 @@ using Xunit;
 
 namespace Matchmaker.Patterns
 {
+    [SuppressMessage("ReSharper", "ConditionIsAlwaysTrueOrFalse")]
+    [SuppressMessage("ReSharper", "AssignNullToNotNullAttribute")]
     public class EqualToTests
     {
         private static readonly IEqualityComparer<string> StringEqualityComparer = EqualityComparer<string>.Default;

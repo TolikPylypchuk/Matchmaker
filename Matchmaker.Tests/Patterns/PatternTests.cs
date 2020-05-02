@@ -1,4 +1,5 @@
 using System;
+using System.Diagnostics.CodeAnalysis;
 
 using FluentAssertions;
 using FluentAssertions.Execution;
@@ -10,6 +11,8 @@ using Xunit;
 
 namespace Matchmaker.Patterns
 {
+    [SuppressMessage("ReSharper", "ConditionIsAlwaysTrueOrFalse")]
+    [SuppressMessage("ReSharper", "AssignNullToNotNullAttribute")]
     public class PatternTests
     {
         [Property(Arbitrary = new[] { typeof(Generators) })]
@@ -64,11 +67,9 @@ namespace Matchmaker.Patterns
         public Property PatternToStringShouldReturnDescription(
             Func<string, MatchResult<string>> matcher,
             NonNull<string> description)
-        {
-            Func<bool> toStringIsCorrect = () =>
-                Pattern.CreatePattern(matcher, description.Get).ToString() == description.Get;
-            return toStringIsCorrect.When(description.Get.Length > 0);
-        }
+            => (description.Get.Length > 0).ImpliesThat(() =>
+                    Pattern.CreatePattern(matcher, description.Get).ToString() == description.Get)
+                .ToProperty();
 
         [Property(Arbitrary = new[] { typeof(Generators) })]
         public Property PatternToStringShouldReturnTypeWhenDescriptionIsEmpty(Func<string, MatchResult<string>> matcher)

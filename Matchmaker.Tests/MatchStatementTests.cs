@@ -13,6 +13,9 @@ using Xunit;
 
 namespace Matchmaker
 {
+    [SuppressMessage("ReSharper", "ConditionIsAlwaysTrueOrFalse")]
+    [SuppressMessage("ReSharper", "AssignNullToNotNullAttribute")]
+    [SuppressMessage("ReSharper", "IteratorMethodResultIsIgnored")]
     public class NonStrictMatchStatementTests
     {
         [Fact]
@@ -119,7 +122,6 @@ namespace Matchmaker
         }
 
         [Property(Arbitrary = new[] { typeof(Generators) })]
-        [SuppressMessage("ReSharper", "IteratorMethodResultIsIgnored")]
         public Property MatchWithFallthroughShouldBeLazy(Func<string, bool> predicate, string value)
         {
             var pattern = Pattern.CreatePattern(predicate);
@@ -171,7 +173,6 @@ namespace Matchmaker
         }
 
         [Property(Arbitrary = new[] { typeof(Generators) })]
-        [SuppressMessage("ReSharper", "IteratorMethodResultIsIgnored")]
         public Property MatchWithFallthroughTrueShouldBeLazy(Func<string, bool> predicate, string value)
         {
             var pattern = Pattern.CreatePattern(predicate);

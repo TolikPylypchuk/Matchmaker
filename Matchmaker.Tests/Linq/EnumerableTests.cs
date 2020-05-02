@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 
 using FluentAssertions;
@@ -10,6 +11,7 @@ using Xunit;
 
 namespace Matchmaker.Linq
 {
+    [SuppressMessage("ReSharper", "AssignNullToNotNullAttribute")]
     public class EnumerableTests
     {
         [Fact]

@@ -13,6 +13,10 @@ using Xunit;
 
 namespace Matchmaker
 {
+    [SuppressMessage("ReSharper", "ConditionIsAlwaysTrueOrFalse")]
+    [SuppressMessage("ReSharper", "AssignNullToNotNullAttribute")]
+    [SuppressMessage("ReSharper", "ExplicitCallerInfoArgument")]
+    [SuppressMessage("ReSharper", "IteratorMethodResultIsIgnored")]
     public class MatchStatementBuilderTests
     {
         [Fact]
@@ -59,7 +63,6 @@ namespace Matchmaker
         }
 
         [Fact]
-        [SuppressMessage("ReSharper", "ExplicitCallerInfoArgument")]
         public void MatchCreateStaticShouldThrowIfFilePathIsNull()
         {
             Action action = () => Match.CreateStatic<int>(match => { }, null);
@@ -169,7 +172,6 @@ namespace Matchmaker
         }
 
         [Property(Arbitrary = new[] { typeof(Generators) })]
-        [SuppressMessage("ReSharper", "IteratorMethodResultIsIgnored")]
         public Property MatchWithFallthroughShouldBeLazy(Func<string, bool> predicate, string value)
         {
             Match.ClearCache<string>();
@@ -230,7 +232,6 @@ namespace Matchmaker
         }
 
         [Property(Arbitrary = new[] { typeof(Generators) })]
-        [SuppressMessage("ReSharper", "IteratorMethodResultIsIgnored")]
         public Property MatchWithFallthroughTrueShouldBeLazy(Func<string, bool> predicate, string value)
         {
             Match.ClearCache<string>();
