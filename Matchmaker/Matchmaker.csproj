@@ -6,7 +6,7 @@
     <Nullable>enable</Nullable>
     <PackageTags>csharp pattern-matching functional-programming</PackageTags>
     <PackageId>Matchmaker</PackageId>
-    <Authors>tolik-pylypchuk</Authors>
+    <Authors>Tolik Pylypchuk</Authors>
     <Description>A library which enables more powerful pattern matching than is currently available in the switch statement/expression.</Description>
     <Copyright>Copyright © 2018-2020 Tolik Pylypchuk</Copyright>
     <PackageLicenseUrl></PackageLicenseUrl>
@@ -18,6 +18,7 @@
     <Version>3.0.0</Version>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <PackageIcon>logo.png</PackageIcon>
+    <Company>Tolik Pylypchuk</Company>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
