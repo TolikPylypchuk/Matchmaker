@@ -198,8 +198,7 @@ namespace Matchmaker.Patterns.Async
 
         [Property(Arbitrary = new[] { typeof(Generators) })]
         public Property ReturnShouldHaveCorrectDefaultDescription(Task<string> x)
-            => (AsyncPattern.Return<string, string>(x).Description ==
-                String.Format(AsyncPattern.DefaultReturnDescription, x))
+            => (AsyncPattern.Return<string, string>(x).Description == AsyncPattern.DefaultReturnDescription)
                 .ToProperty();
 
         [Property(Arbitrary = new[] { typeof(Generators) })]
