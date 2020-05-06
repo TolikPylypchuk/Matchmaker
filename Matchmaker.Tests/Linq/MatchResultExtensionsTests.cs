@@ -67,6 +67,13 @@ namespace Matchmaker.Linq
         }
 
         [Property(Arbitrary = new[] { typeof(Generators) })]
+        public void GetValueOrThrowShouldThrowIfExceptionProviderIsNull(MatchResult<string> result)
+        {
+            Action action = () => result.GetValueOrThrow(null);
+            action.Should().Throw<ArgumentNullException>();
+        }
+
+        [Property(Arbitrary = new[] { typeof(Generators) })]
         public Property SelectShouldMapValueIfResultIsSuccessful(string value, Func<string, int> mapper)
             => (MatchResult.Success(value).Select(mapper) == MatchResult.Success(mapper(value))).ToProperty();
 
