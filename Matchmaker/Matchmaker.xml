@@ -993,6 +993,43 @@
             </exception>
             <seealso cref="M:Matchmaker.Linq.AsyncPatternExtensions.Bind``3(Matchmaker.Patterns.Async.IAsyncPattern{``0,``1},System.Func{``1,Matchmaker.Patterns.Async.IAsyncPattern{``0,``2}})" />
         </member>
+        <member name="M:Matchmaker.Linq.AsyncPatternExtensions.Where``2(Matchmaker.Patterns.Async.IAsyncPattern{``0,``1},System.Func{``1,System.Boolean})">
+            <summary>
+            Returns a pattern which adds a condition to the specified pattern.
+            </summary>
+            <typeparam name="TInput">The type of the input value of the expression.</typeparam>
+            <typeparam name="TMatchResult">The type of the result of this pattern's match.</typeparam>
+            <param name="pattern">The pattern whose result should be mapped.</param>
+            <param name="predicate">The condition to add.</param>
+            <returns>
+            A pattern which adds a condition to the specified pattern.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="pattern" /> or <paramref name="predicate" /> is <see langword="null" />.
+            </exception>
+            <seealso cref="M:Matchmaker.Linq.AsyncPatternExtensions.Where``2(Matchmaker.Patterns.Async.IAsyncPattern{``0,``1},System.Func{``1,System.Boolean},System.String)" />
+            <seealso cref="M:Matchmaker.Linq.AsyncPatternExtensions.Where``2(Matchmaker.Patterns.Async.IAsyncPattern{``0,``1},System.Func{``1,System.Threading.Tasks.Task{System.Boolean}})" />
+            <seealso cref="M:Matchmaker.Linq.AsyncPatternExtensions.Where``2(Matchmaker.Patterns.Async.IAsyncPattern{``0,``1},System.Func{``1,System.Threading.Tasks.Task{System.Boolean}},System.String)" />
+        </member>
+        <member name="M:Matchmaker.Linq.AsyncPatternExtensions.Where``2(Matchmaker.Patterns.Async.IAsyncPattern{``0,``1},System.Func{``1,System.Boolean},System.String)">
+            <summary>
+            Returns a pattern which adds a condition to the specified pattern.
+            </summary>
+            <typeparam name="TInput">The type of the input value of the expression.</typeparam>
+            <typeparam name="TMatchResult">The type of the result of this pattern's match.</typeparam>
+            <param name="pattern">The pattern whose result should be mapped.</param>
+            <param name="predicate">The condition to add.</param>
+            <param name="description">The description of this pattern.</param>
+            <returns>
+            A pattern which adds a condition to the specified pattern.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="pattern" /> or <paramref name="predicate" /> is <see langword="null" />.
+            </exception>
+            <seealso cref="M:Matchmaker.Linq.AsyncPatternExtensions.Where``2(Matchmaker.Patterns.Async.IAsyncPattern{``0,``1},System.Func{``1,System.Boolean})" />
+            <seealso cref="M:Matchmaker.Linq.AsyncPatternExtensions.Where``2(Matchmaker.Patterns.Async.IAsyncPattern{``0,``1},System.Func{``1,System.Threading.Tasks.Task{System.Boolean}})" />
+            <seealso cref="M:Matchmaker.Linq.AsyncPatternExtensions.Where``2(Matchmaker.Patterns.Async.IAsyncPattern{``0,``1},System.Func{``1,System.Threading.Tasks.Task{System.Boolean}},System.String)" />
+        </member>
         <member name="M:Matchmaker.Linq.AsyncPatternExtensions.Where``2(Matchmaker.Patterns.Async.IAsyncPattern{``0,``1},System.Func{``1,System.Threading.Tasks.Task{System.Boolean}})">
             <summary>
             Returns a pattern which adds a condition to the specified pattern.
@@ -1007,6 +1044,8 @@
             <exception cref="T:System.ArgumentNullException">
             <paramref name="pattern" /> or <paramref name="predicate" /> is <see langword="null" />.
             </exception>
+            <seealso cref="M:Matchmaker.Linq.AsyncPatternExtensions.Where``2(Matchmaker.Patterns.Async.IAsyncPattern{``0,``1},System.Func{``1,System.Boolean})" />
+            <seealso cref="M:Matchmaker.Linq.AsyncPatternExtensions.Where``2(Matchmaker.Patterns.Async.IAsyncPattern{``0,``1},System.Func{``1,System.Boolean},System.String)" />
             <seealso cref="M:Matchmaker.Linq.AsyncPatternExtensions.Where``2(Matchmaker.Patterns.Async.IAsyncPattern{``0,``1},System.Func{``1,System.Threading.Tasks.Task{System.Boolean}},System.String)" />
         </member>
         <member name="M:Matchmaker.Linq.AsyncPatternExtensions.Where``2(Matchmaker.Patterns.Async.IAsyncPattern{``0,``1},System.Func{``1,System.Threading.Tasks.Task{System.Boolean}},System.String)">
@@ -1024,6 +1063,8 @@
             <exception cref="T:System.ArgumentNullException">
             <paramref name="pattern" /> or <paramref name="predicate" /> is <see langword="null" />.
             </exception>
+            <seealso cref="M:Matchmaker.Linq.AsyncPatternExtensions.Where``2(Matchmaker.Patterns.Async.IAsyncPattern{``0,``1},System.Func{``1,System.Boolean})" />
+            <seealso cref="M:Matchmaker.Linq.AsyncPatternExtensions.Where``2(Matchmaker.Patterns.Async.IAsyncPattern{``0,``1},System.Func{``1,System.Boolean},System.String)" />
             <seealso cref="M:Matchmaker.Linq.AsyncPatternExtensions.Where``2(Matchmaker.Patterns.Async.IAsyncPattern{``0,``1},System.Func{``1,System.Threading.Tasks.Task{System.Boolean}})" />
         </member>
         <member name="M:Matchmaker.Linq.AsyncPatternExtensions.Compose``1(Matchmaker.Patterns.Async.IAsyncPattern{``0,``0},Matchmaker.Patterns.Async.IAsyncPattern{``0,``0},Matchmaker.Patterns.PatternComposition)">

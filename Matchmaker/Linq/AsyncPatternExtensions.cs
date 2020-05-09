@@ -297,6 +297,56 @@ namespace Matchmaker.Linq
         /// <exception cref="ArgumentNullException">
         /// <paramref name="pattern" /> or <paramref name="predicate" /> is <see langword="null" />.
         /// </exception>
+        /// <seealso cref="Where{TInput, TMatchResult}(IAsyncPattern{TInput, TMatchResult}, Func{TMatchResult, bool}, string)" />
+        /// <seealso cref="Where{TInput, TMatchResult}(IAsyncPattern{TInput, TMatchResult}, Func{TMatchResult, Task{bool}})" />
+        /// <seealso cref="Where{TInput, TMatchResult}(IAsyncPattern{TInput, TMatchResult}, Func{TMatchResult, Task{bool}}, string)" />
+        public static IAsyncPattern<TInput, TMatchResult> Where<TInput, TMatchResult>(
+            this IAsyncPattern<TInput, TMatchResult> pattern,
+            Func<TMatchResult, bool> predicate)
+            => predicate != null
+                ? pattern.Where(result => Task.FromResult(predicate(result)))
+                : throw new ArgumentNullException(nameof(predicate));
+
+        /// <summary>
+        /// Returns a pattern which adds a condition to the specified pattern.
+        /// </summary>
+        /// <typeparam name="TInput">The type of the input value of the expression.</typeparam>
+        /// <typeparam name="TMatchResult">The type of the result of this pattern's match.</typeparam>
+        /// <param name="pattern">The pattern whose result should be mapped.</param>
+        /// <param name="predicate">The condition to add.</param>
+        /// <param name="description">The description of this pattern.</param>
+        /// <returns>
+        /// A pattern which adds a condition to the specified pattern.
+        /// </returns>
+        /// <exception cref="ArgumentNullException">
+        /// <paramref name="pattern" /> or <paramref name="predicate" /> is <see langword="null" />.
+        /// </exception>
+        /// <seealso cref="Where{TInput, TMatchResult}(IAsyncPattern{TInput, TMatchResult}, Func{TMatchResult, bool})" />
+        /// <seealso cref="Where{TInput, TMatchResult}(IAsyncPattern{TInput, TMatchResult}, Func{TMatchResult, Task{bool}})" />
+        /// <seealso cref="Where{TInput, TMatchResult}(IAsyncPattern{TInput, TMatchResult}, Func{TMatchResult, Task{bool}}, string)" />
+        public static IAsyncPattern<TInput, TMatchResult> Where<TInput, TMatchResult>(
+            this IAsyncPattern<TInput, TMatchResult> pattern,
+            Func<TMatchResult, bool> predicate,
+            string description)
+            => predicate != null
+                ? pattern.Where(result => Task.FromResult(predicate(result)), description)
+                : throw new ArgumentNullException(nameof(predicate));
+
+        /// <summary>
+        /// Returns a pattern which adds a condition to the specified pattern.
+        /// </summary>
+        /// <typeparam name="TInput">The type of the input value of the expression.</typeparam>
+        /// <typeparam name="TMatchResult">The type of the result of this pattern's match.</typeparam>
+        /// <param name="pattern">The pattern whose result should be mapped.</param>
+        /// <param name="predicate">The condition to add.</param>
+        /// <returns>
+        /// A pattern which adds a condition to the specified pattern.
+        /// </returns>
+        /// <exception cref="ArgumentNullException">
+        /// <paramref name="pattern" /> or <paramref name="predicate" /> is <see langword="null" />.
+        /// </exception>
+        /// <seealso cref="Where{TInput, TMatchResult}(IAsyncPattern{TInput, TMatchResult}, Func{TMatchResult, bool})" />
+        /// <seealso cref="Where{TInput, TMatchResult}(IAsyncPattern{TInput, TMatchResult}, Func{TMatchResult, bool}, string)" />
         /// <seealso cref="Where{TInput, TMatchResult}(IAsyncPattern{TInput, TMatchResult}, Func{TMatchResult, Task{bool}}, string)" />
         public static IAsyncPattern<TInput, TMatchResult> Where<TInput, TMatchResult>(
             this IAsyncPattern<TInput, TMatchResult> pattern,
@@ -319,6 +369,8 @@ namespace Matchmaker.Linq
         /// <exception cref="ArgumentNullException">
         /// <paramref name="pattern" /> or <paramref name="predicate" /> is <see langword="null" />.
         /// </exception>
+        /// <seealso cref="Where{TInput, TMatchResult}(IAsyncPattern{TInput, TMatchResult}, Func{TMatchResult, bool})" />
+        /// <seealso cref="Where{TInput, TMatchResult}(IAsyncPattern{TInput, TMatchResult}, Func{TMatchResult, bool}, string)" />
         /// <seealso cref="Where{TInput, TMatchResult}(IAsyncPattern{TInput, TMatchResult}, Func{TMatchResult, Task{bool}})" />
         public static IAsyncPattern<TInput, TMatchResult> Where<TInput, TMatchResult>(
             this IAsyncPattern<TInput, TMatchResult> pattern,
