@@ -797,6 +797,24 @@ references:
   isSpec: "True"
   fullName: Matchmaker.Linq.AsyncPatternExtensions.Where
   nameWithType: AsyncPatternExtensions.Where
+- uid: Matchmaker.Linq.AsyncPatternExtensions.Where``2(Matchmaker.Patterns.Async.IAsyncPattern{``0,``1},Func{``1,System.Boolean})
+  name: Where<TInput, TMatchResult>(IAsyncPattern<TInput, TMatchResult>, Func<TMatchResult, Boolean>)
+  href: api/Matchmaker.Linq.AsyncPatternExtensions.html#Matchmaker_Linq_AsyncPatternExtensions_Where__2_Matchmaker_Patterns_Async_IAsyncPattern___0___1__Func___1_System_Boolean__
+  commentId: M:Matchmaker.Linq.AsyncPatternExtensions.Where``2(Matchmaker.Patterns.Async.IAsyncPattern{``0,``1},Func{``1,System.Boolean})
+  name.vb: Where(Of TInput, TMatchResult)(IAsyncPattern(Of TInput, TMatchResult), Func(Of TMatchResult, Boolean))
+  fullName: Matchmaker.Linq.AsyncPatternExtensions.Where<TInput, TMatchResult>(Matchmaker.Patterns.Async.IAsyncPattern<TInput, TMatchResult>, Func<TMatchResult, System.Boolean>)
+  fullName.vb: Matchmaker.Linq.AsyncPatternExtensions.Where(Of TInput, TMatchResult)(Matchmaker.Patterns.Async.IAsyncPattern(Of TInput, TMatchResult), Func(Of TMatchResult, System.Boolean))
+  nameWithType: AsyncPatternExtensions.Where<TInput, TMatchResult>(IAsyncPattern<TInput, TMatchResult>, Func<TMatchResult, Boolean>)
+  nameWithType.vb: AsyncPatternExtensions.Where(Of TInput, TMatchResult)(IAsyncPattern(Of TInput, TMatchResult), Func(Of TMatchResult, Boolean))
+- uid: Matchmaker.Linq.AsyncPatternExtensions.Where``2(Matchmaker.Patterns.Async.IAsyncPattern{``0,``1},Func{``1,System.Boolean},System.String)
+  name: Where<TInput, TMatchResult>(IAsyncPattern<TInput, TMatchResult>, Func<TMatchResult, Boolean>, String)
+  href: api/Matchmaker.Linq.AsyncPatternExtensions.html#Matchmaker_Linq_AsyncPatternExtensions_Where__2_Matchmaker_Patterns_Async_IAsyncPattern___0___1__Func___1_System_Boolean__System_String_
+  commentId: M:Matchmaker.Linq.AsyncPatternExtensions.Where``2(Matchmaker.Patterns.Async.IAsyncPattern{``0,``1},Func{``1,System.Boolean},System.String)
+  name.vb: Where(Of TInput, TMatchResult)(IAsyncPattern(Of TInput, TMatchResult), Func(Of TMatchResult, Boolean), String)
+  fullName: Matchmaker.Linq.AsyncPatternExtensions.Where<TInput, TMatchResult>(Matchmaker.Patterns.Async.IAsyncPattern<TInput, TMatchResult>, Func<TMatchResult, System.Boolean>, System.String)
+  fullName.vb: Matchmaker.Linq.AsyncPatternExtensions.Where(Of TInput, TMatchResult)(Matchmaker.Patterns.Async.IAsyncPattern(Of TInput, TMatchResult), Func(Of TMatchResult, System.Boolean), System.String)
+  nameWithType: AsyncPatternExtensions.Where<TInput, TMatchResult>(IAsyncPattern<TInput, TMatchResult>, Func<TMatchResult, Boolean>, String)
+  nameWithType.vb: AsyncPatternExtensions.Where(Of TInput, TMatchResult)(IAsyncPattern(Of TInput, TMatchResult), Func(Of TMatchResult, Boolean), String)
 - uid: Matchmaker.Linq.AsyncPatternExtensions.Where``2(Matchmaker.Patterns.Async.IAsyncPattern{``0,``1},Func{``1,Task{System.Boolean}})
   name: Where<TInput, TMatchResult>(IAsyncPattern<TInput, TMatchResult>, Func<TMatchResult, Task<Boolean>>)
   href: api/Matchmaker.Linq.AsyncPatternExtensions.html#Matchmaker_Linq_AsyncPatternExtensions_Where__2_Matchmaker_Patterns_Async_IAsyncPattern___0___1__Func___1_Task_System_Boolean___
