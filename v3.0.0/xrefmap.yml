@@ -151,6 +151,24 @@ references:
   fullName.vb: Matchmaker.AsyncMatch(Of TInput).Case(Of TMatchResult)(Matchmaker.Patterns.Async.IAsyncPattern(Of TInput, TMatchResult), System.Boolean, Action(Of TMatchResult))
   nameWithType: AsyncMatch<TInput>.Case<TMatchResult>(IAsyncPattern<TInput, TMatchResult>, Boolean, Action<TMatchResult>)
   nameWithType.vb: AsyncMatch(Of TInput).Case(Of TMatchResult)(IAsyncPattern(Of TInput, TMatchResult), Boolean, Action(Of TMatchResult))
+- uid: Matchmaker.AsyncMatch`1.Case``1(Matchmaker.Patterns.IPattern{`0,``0},Action{``0})
+  name: Case<TMatchResult>(IPattern<TInput, TMatchResult>, Action<TMatchResult>)
+  href: api/Matchmaker.AsyncMatch-1.html#Matchmaker_AsyncMatch_1_Case__1_Matchmaker_Patterns_IPattern__0___0__Action___0__
+  commentId: M:Matchmaker.AsyncMatch`1.Case``1(Matchmaker.Patterns.IPattern{`0,``0},Action{``0})
+  name.vb: Case(Of TMatchResult)(IPattern(Of TInput, TMatchResult), Action(Of TMatchResult))
+  fullName: Matchmaker.AsyncMatch<TInput>.Case<TMatchResult>(Matchmaker.Patterns.IPattern<TInput, TMatchResult>, Action<TMatchResult>)
+  fullName.vb: Matchmaker.AsyncMatch(Of TInput).Case(Of TMatchResult)(Matchmaker.Patterns.IPattern(Of TInput, TMatchResult), Action(Of TMatchResult))
+  nameWithType: AsyncMatch<TInput>.Case<TMatchResult>(IPattern<TInput, TMatchResult>, Action<TMatchResult>)
+  nameWithType.vb: AsyncMatch(Of TInput).Case(Of TMatchResult)(IPattern(Of TInput, TMatchResult), Action(Of TMatchResult))
+- uid: Matchmaker.AsyncMatch`1.Case``1(Matchmaker.Patterns.IPattern{`0,``0},System.Boolean,Action{``0})
+  name: Case<TMatchResult>(IPattern<TInput, TMatchResult>, Boolean, Action<TMatchResult>)
+  href: api/Matchmaker.AsyncMatch-1.html#Matchmaker_AsyncMatch_1_Case__1_Matchmaker_Patterns_IPattern__0___0__System_Boolean_Action___0__
+  commentId: M:Matchmaker.AsyncMatch`1.Case``1(Matchmaker.Patterns.IPattern{`0,``0},System.Boolean,Action{``0})
+  name.vb: Case(Of TMatchResult)(IPattern(Of TInput, TMatchResult), Boolean, Action(Of TMatchResult))
+  fullName: Matchmaker.AsyncMatch<TInput>.Case<TMatchResult>(Matchmaker.Patterns.IPattern<TInput, TMatchResult>, System.Boolean, Action<TMatchResult>)
+  fullName.vb: Matchmaker.AsyncMatch(Of TInput).Case(Of TMatchResult)(Matchmaker.Patterns.IPattern(Of TInput, TMatchResult), System.Boolean, Action(Of TMatchResult))
+  nameWithType: AsyncMatch<TInput>.Case<TMatchResult>(IPattern<TInput, TMatchResult>, Boolean, Action<TMatchResult>)
+  nameWithType.vb: AsyncMatch(Of TInput).Case(Of TMatchResult)(IPattern(Of TInput, TMatchResult), Boolean, Action(Of TMatchResult))
 - uid: Matchmaker.AsyncMatch`1.Case``1(System.Boolean,Action{``0})
   name: Case<TType>(Boolean, Action<TType>)
   href: api/Matchmaker.AsyncMatch-1.html#Matchmaker_AsyncMatch_1_Case__1_System_Boolean_Action___0__
@@ -307,6 +325,24 @@ references:
   fullName.vb: Matchmaker.AsyncMatch(Of TInput, TOutput).Case(Of TMatchResult)(Matchmaker.Patterns.Async.IAsyncPattern(Of TInput, TMatchResult), System.Boolean, Func(Of TMatchResult, TOutput))
   nameWithType: AsyncMatch<TInput, TOutput>.Case<TMatchResult>(IAsyncPattern<TInput, TMatchResult>, Boolean, Func<TMatchResult, TOutput>)
   nameWithType.vb: AsyncMatch(Of TInput, TOutput).Case(Of TMatchResult)(IAsyncPattern(Of TInput, TMatchResult), Boolean, Func(Of TMatchResult, TOutput))
+- uid: Matchmaker.AsyncMatch`2.Case``1(Matchmaker.Patterns.IPattern{`0,``0},Func{``0,`1})
+  name: Case<TMatchResult>(IPattern<TInput, TMatchResult>, Func<TMatchResult, TOutput>)
+  href: api/Matchmaker.AsyncMatch-2.html#Matchmaker_AsyncMatch_2_Case__1_Matchmaker_Patterns_IPattern__0___0__Func___0__1__
+  commentId: M:Matchmaker.AsyncMatch`2.Case``1(Matchmaker.Patterns.IPattern{`0,``0},Func{``0,`1})
+  name.vb: Case(Of TMatchResult)(IPattern(Of TInput, TMatchResult), Func(Of TMatchResult, TOutput))
+  fullName: Matchmaker.AsyncMatch<TInput, TOutput>.Case<TMatchResult>(Matchmaker.Patterns.IPattern<TInput, TMatchResult>, Func<TMatchResult, TOutput>)
+  fullName.vb: Matchmaker.AsyncMatch(Of TInput, TOutput).Case(Of TMatchResult)(Matchmaker.Patterns.IPattern(Of TInput, TMatchResult), Func(Of TMatchResult, TOutput))
+  nameWithType: AsyncMatch<TInput, TOutput>.Case<TMatchResult>(IPattern<TInput, TMatchResult>, Func<TMatchResult, TOutput>)
+  nameWithType.vb: AsyncMatch(Of TInput, TOutput).Case(Of TMatchResult)(IPattern(Of TInput, TMatchResult), Func(Of TMatchResult, TOutput))
+- uid: Matchmaker.AsyncMatch`2.Case``1(Matchmaker.Patterns.IPattern{`0,``0},System.Boolean,Func{``0,`1})
+  name: Case<TMatchResult>(IPattern<TInput, TMatchResult>, Boolean, Func<TMatchResult, TOutput>)
+  href: api/Matchmaker.AsyncMatch-2.html#Matchmaker_AsyncMatch_2_Case__1_Matchmaker_Patterns_IPattern__0___0__System_Boolean_Func___0__1__
+  commentId: M:Matchmaker.AsyncMatch`2.Case``1(Matchmaker.Patterns.IPattern{`0,``0},System.Boolean,Func{``0,`1})
+  name.vb: Case(Of TMatchResult)(IPattern(Of TInput, TMatchResult), Boolean, Func(Of TMatchResult, TOutput))
+  fullName: Matchmaker.AsyncMatch<TInput, TOutput>.Case<TMatchResult>(Matchmaker.Patterns.IPattern<TInput, TMatchResult>, System.Boolean, Func<TMatchResult, TOutput>)
+  fullName.vb: Matchmaker.AsyncMatch(Of TInput, TOutput).Case(Of TMatchResult)(Matchmaker.Patterns.IPattern(Of TInput, TMatchResult), System.Boolean, Func(Of TMatchResult, TOutput))
+  nameWithType: AsyncMatch<TInput, TOutput>.Case<TMatchResult>(IPattern<TInput, TMatchResult>, Boolean, Func<TMatchResult, TOutput>)
+  nameWithType.vb: AsyncMatch(Of TInput, TOutput).Case(Of TMatchResult)(IPattern(Of TInput, TMatchResult), Boolean, Func(Of TMatchResult, TOutput))
 - uid: Matchmaker.AsyncMatch`2.Case``1(System.Boolean,Func{``0,`1})
   name: Case<TType>(Boolean, Func<TType, TOutput>)
   href: api/Matchmaker.AsyncMatch-2.html#Matchmaker_AsyncMatch_2_Case__1_System_Boolean_Func___0__1__
@@ -1155,6 +1191,31 @@ references:
   fullName.vb: Matchmaker.Linq.PatternExtensions.And(Of T)(Matchmaker.Patterns.IPattern(Of T, T), Matchmaker.Patterns.IPattern(Of T, T), System.String)
   nameWithType: PatternExtensions.And<T>(IPattern<T, T>, IPattern<T, T>, String)
   nameWithType.vb: PatternExtensions.And(Of T)(IPattern(Of T, T), IPattern(Of T, T), String)
+- uid: Matchmaker.Linq.PatternExtensions.AsAsync*
+  name: AsAsync
+  href: api/Matchmaker.Linq.PatternExtensions.html#Matchmaker_Linq_PatternExtensions_AsAsync_
+  commentId: Overload:Matchmaker.Linq.PatternExtensions.AsAsync
+  isSpec: "True"
+  fullName: Matchmaker.Linq.PatternExtensions.AsAsync
+  nameWithType: PatternExtensions.AsAsync
+- uid: Matchmaker.Linq.PatternExtensions.AsAsync``2(Matchmaker.Patterns.IPattern{``0,``1})
+  name: AsAsync<TInput, TMatchResult>(IPattern<TInput, TMatchResult>)
+  href: api/Matchmaker.Linq.PatternExtensions.html#Matchmaker_Linq_PatternExtensions_AsAsync__2_Matchmaker_Patterns_IPattern___0___1__
+  commentId: M:Matchmaker.Linq.PatternExtensions.AsAsync``2(Matchmaker.Patterns.IPattern{``0,``1})
+  name.vb: AsAsync(Of TInput, TMatchResult)(IPattern(Of TInput, TMatchResult))
+  fullName: Matchmaker.Linq.PatternExtensions.AsAsync<TInput, TMatchResult>(Matchmaker.Patterns.IPattern<TInput, TMatchResult>)
+  fullName.vb: Matchmaker.Linq.PatternExtensions.AsAsync(Of TInput, TMatchResult)(Matchmaker.Patterns.IPattern(Of TInput, TMatchResult))
+  nameWithType: PatternExtensions.AsAsync<TInput, TMatchResult>(IPattern<TInput, TMatchResult>)
+  nameWithType.vb: PatternExtensions.AsAsync(Of TInput, TMatchResult)(IPattern(Of TInput, TMatchResult))
+- uid: Matchmaker.Linq.PatternExtensions.AsAsync``2(Matchmaker.Patterns.IPattern{``0,``1},System.String)
+  name: AsAsync<TInput, TMatchResult>(IPattern<TInput, TMatchResult>, String)
+  href: api/Matchmaker.Linq.PatternExtensions.html#Matchmaker_Linq_PatternExtensions_AsAsync__2_Matchmaker_Patterns_IPattern___0___1__System_String_
+  commentId: M:Matchmaker.Linq.PatternExtensions.AsAsync``2(Matchmaker.Patterns.IPattern{``0,``1},System.String)
+  name.vb: AsAsync(Of TInput, TMatchResult)(IPattern(Of TInput, TMatchResult), String)
+  fullName: Matchmaker.Linq.PatternExtensions.AsAsync<TInput, TMatchResult>(Matchmaker.Patterns.IPattern<TInput, TMatchResult>, System.String)
+  fullName.vb: Matchmaker.Linq.PatternExtensions.AsAsync(Of TInput, TMatchResult)(Matchmaker.Patterns.IPattern(Of TInput, TMatchResult), System.String)
+  nameWithType: PatternExtensions.AsAsync<TInput, TMatchResult>(IPattern<TInput, TMatchResult>, String)
+  nameWithType.vb: PatternExtensions.AsAsync(Of TInput, TMatchResult)(IPattern(Of TInput, TMatchResult), String)
 - uid: Matchmaker.Linq.PatternExtensions.Bind*
   name: Bind
   href: api/Matchmaker.Linq.PatternExtensions.html#Matchmaker_Linq_PatternExtensions_Bind_
