@@ -386,7 +386,40 @@
             <paramref name="pattern" /> or <paramref name="action" /> is <see langword="null" />.
             </exception>
         </member>
+        <member name="M:Matchmaker.AsyncMatch`1.Case``1(Matchmaker.Patterns.IPattern{`0,``0},System.Action{``0})">
+            <summary>
+            Returns a new match statement which includes the specified pattern and action to execute if this
+            pattern is matched successfully.
+            </summary>
+            <typeparam name="TMatchResult">The type of the result of the pattern's match.</typeparam>
+            <param name="pattern">The pattern to match with.</param>
+            <param name="action">The action to execute if the match is successful.</param>
+            <returns>
+            A new match statement which includes the specified pattern and action to execute if this
+            pattern is matched successfully.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="pattern" /> or <paramref name="action" /> is <see langword="null" />.
+            </exception>
+        </member>
         <member name="M:Matchmaker.AsyncMatch`1.Case``1(Matchmaker.Patterns.Async.IAsyncPattern{`0,``0},System.Boolean,System.Action{``0})">
+            <summary>
+            Returns a new match statement which includes the specified pattern and action to execute if this
+            pattern is matched successfully.
+            </summary>
+            <typeparam name="TMatchResult">The type of the result of the pattern's match.</typeparam>
+            <param name="pattern">The pattern to match with.</param>
+            <param name="fallthrough">The fallthrough behaviour.</param>
+            <param name="action">The action to execute if the match is successful.</param>
+            <returns>
+            A new match statement which includes the specified pattern and action to execute if this
+            pattern is matched successfully.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="pattern" /> or <paramref name="action" /> is <see langword="null" />.
+            </exception>
+        </member>
+        <member name="M:Matchmaker.AsyncMatch`1.Case``1(Matchmaker.Patterns.IPattern{`0,``0},System.Boolean,System.Action{``0})">
             <summary>
             Returns a new match statement which includes the specified pattern and action to execute if this
             pattern is matched successfully.
@@ -599,7 +632,40 @@
             <paramref name="pattern" /> or <paramref name="func" /> is <see langword="null" />.
             </exception>
         </member>
+        <member name="M:Matchmaker.AsyncMatch`2.Case``1(Matchmaker.Patterns.IPattern{`0,``0},System.Func{``0,`1})">
+            <summary>
+            Returns a new match expression which includes the specified pattern and function to execute if this
+            pattern is matched successfully.
+            </summary>
+            <typeparam name="TMatchResult">The type of the result of the pattern's match.</typeparam>
+            <param name="pattern">The pattern to match with.</param>
+            <param name="func">The function to execute if the match is successful.</param>
+            <returns>
+            A new match expression which includes the specified pattern and function to execute if this
+            pattern is matched successfully.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="pattern" /> or <paramref name="func" /> is <see langword="null" />.
+            </exception>
+        </member>
         <member name="M:Matchmaker.AsyncMatch`2.Case``1(Matchmaker.Patterns.Async.IAsyncPattern{`0,``0},System.Boolean,System.Func{``0,`1})">
+            <summary>
+            Returns a new match expression which includes the specified pattern and function to execute if this
+            pattern is matched successfully.
+            </summary>
+            <typeparam name="TMatchResult">The type of the result of the pattern's match.</typeparam>
+            <param name="pattern">The pattern to match with.</param>
+            <param name="fallthrough">The fallthrough behaviour.</param>
+            <param name="func">The function to execute if the match is successful.</param>
+            <returns>
+            A new match expression which includes the specified pattern and function to execute if this
+            pattern is matched successfully.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="pattern" /> or <paramref name="func" /> is <see langword="null" />.
+            </exception>
+        </member>
+        <member name="M:Matchmaker.AsyncMatch`2.Case``1(Matchmaker.Patterns.IPattern{`0,``0},System.Boolean,System.Func{``0,`1})">
             <summary>
             Returns a new match expression which includes the specified pattern and function to execute if this
             pattern is matched successfully.
@@ -2363,6 +2429,9 @@
             The returned pattern's caching process is not thread-safe.
             The cache itself is a simple null-safe hash table.
             </remarks>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="pattern" /> is <see langword="null" />.
+            </exception>
         </member>
         <member name="M:Matchmaker.Linq.PatternExtensions.Cached``2(Matchmaker.Patterns.IPattern{``0,``1},System.String)">
             <summary>
@@ -2379,6 +2448,40 @@
             The returned pattern's caching process is not thread-safe.
             The cache itself is a simple null-safe hash table.
             </remarks>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="pattern" /> or <paramref name="description" /> is <see langword="null" />.
+            </exception>
+        </member>
+        <member name="M:Matchmaker.Linq.PatternExtensions.AsAsync``2(Matchmaker.Patterns.IPattern{``0,``1})">
+            <summary>
+            Returns an asynchronous pattern which wraps the specified synchronous pattern.
+            </summary>
+            <typeparam name="TInput">The type of the input value of the expression.</typeparam>
+            <typeparam name="TMatchResult">The type of the result of this pattern's match.</typeparam>
+            <param name="pattern">The pattern which should be wrapped.</param>
+            <returns>
+            An asynchronous pattern which wraps the specified synchronous pattern.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="pattern" /> is <see langword="null" />.
+            </exception>
+            <seealso cref="M:Matchmaker.Linq.PatternExtensions.AsAsync``2(Matchmaker.Patterns.IPattern{``0,``1},System.String)" />
+        </member>
+        <member name="M:Matchmaker.Linq.PatternExtensions.AsAsync``2(Matchmaker.Patterns.IPattern{``0,``1},System.String)">
+            <summary>
+            Returns an asynchronous pattern which wraps the specified synchronous pattern.
+            </summary>
+            <typeparam name="TInput">The type of the input value of the expression.</typeparam>
+            <typeparam name="TMatchResult">The type of the result of this pattern's match.</typeparam>
+            <param name="pattern">The pattern which should be wrapped.</param>
+            <param name="description">The description of this pattern.</param>
+            <returns>
+            An asynchronous pattern which wraps the specified synchronous pattern.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="pattern" /> or <paramref name="description" /> is <see langword="null" />.
+            </exception>
+            <seealso cref="M:Matchmaker.Linq.PatternExtensions.AsAsync``2(Matchmaker.Patterns.IPattern{``0,``1})" />
         </member>
         <member name="T:Matchmaker.Match">
             <summary>
@@ -4946,6 +5049,48 @@
             <typeparam name="T">The type of the function's result.</typeparam>
             <param name="function">The function to memoize.</param>
             <returns>The memoized version of the specified function.</returns>
+        </member>
+        <member name="T:Matchmaker.Patterns.Async.AsyncPatternWrapper`2">
+            <summary>
+            Represents an ssynchronous pattern which wraps a synchronous pattern.
+            </summary>
+            <typeparam name="TInput">The type of the input value of the expression.</typeparam>
+            <typeparam name="TMatchResult">The type of the result of this pattern's match.</typeparam>
+            <seealso cref="T:Matchmaker.Patterns.IPattern`2" />
+            <seealso cref="T:Matchmaker.Patterns.Async.IAsyncPattern`2" />
+            <seealso cref="T:Matchmaker.Patterns.Pattern" />
+            <seealso cref="T:Matchmaker.Patterns.Async.AsyncPattern" />
+        </member>
+        <member name="F:Matchmaker.Patterns.Async.AsyncPatternWrapper`2.pattern">
+            <summary>
+            The pattern which should be wrapped.
+            </summary>
+        </member>
+        <member name="M:Matchmaker.Patterns.Async.AsyncPatternWrapper`2.#ctor(Matchmaker.Patterns.IPattern{`0,`1})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Matchmaker.Patterns.Async.AsyncPatternWrapper`2" /> class.
+            </summary>
+            <param name="pattern">The pattern which should be wrapped.</param>
+        </member>
+        <member name="M:Matchmaker.Patterns.Async.AsyncPatternWrapper`2.#ctor(Matchmaker.Patterns.IPattern{`0,`1},System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Matchmaker.Patterns.Async.AsyncPatternWrapper`2" /> class.
+            </summary>
+            <param name="pattern">The pattern which should be wrapped.</param>
+            <param name="description">The description of this pattern.</param>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="description" /> is <see langword="null" />.
+            </exception>
+        </member>
+        <member name="M:Matchmaker.Patterns.Async.AsyncPatternWrapper`2.MatchAsync(`0)">
+            <summary>
+            Matches the input with this pattern, and returns a transformed result asynchronously.
+            </summary>
+            <param name="input">The input value to match.</param>
+            <returns>
+            A successful match result which contains the transformed result of the match,
+            if this match is successful. Otherwise, a failed match result.
+            </returns>
         </member>
         <member name="T:Matchmaker.Patterns.Async.AsyncPattern`2">
             <summary>

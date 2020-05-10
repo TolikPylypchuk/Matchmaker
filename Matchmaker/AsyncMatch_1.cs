@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 
 using Matchmaker.Linq;
+using Matchmaker.Patterns;
 using Matchmaker.Patterns.Async;
 
 namespace Matchmaker
@@ -89,6 +90,25 @@ namespace Matchmaker
         /// </summary>
         /// <typeparam name="TMatchResult">The type of the result of the pattern's match.</typeparam>
         /// <param name="pattern">The pattern to match with.</param>
+        /// <param name="action">The action to execute if the match is successful.</param>
+        /// <returns>
+        /// A new match statement which includes the specified pattern and action to execute if this
+        /// pattern is matched successfully.
+        /// </returns>
+        /// <exception cref="ArgumentNullException">
+        /// <paramref name="pattern" /> or <paramref name="action" /> is <see langword="null" />.
+        /// </exception>
+        public AsyncMatch<TInput> Case<TMatchResult>(
+            IPattern<TInput, TMatchResult> pattern,
+            Action<TMatchResult> action)
+            => this.Case(pattern.AsAsync(), this.fallthroughByDefault, action);
+
+        /// <summary>
+        /// Returns a new match statement which includes the specified pattern and action to execute if this
+        /// pattern is matched successfully.
+        /// </summary>
+        /// <typeparam name="TMatchResult">The type of the result of the pattern's match.</typeparam>
+        /// <param name="pattern">The pattern to match with.</param>
         /// <param name="fallthrough">The fallthrough behaviour.</param>
         /// <param name="action">The action to execute if the match is successful.</param>
         /// <returns>
@@ -115,6 +135,27 @@ namespace Matchmaker
                         this.fallthroughByDefault)
                     : throw new ArgumentNullException(nameof(action))
                 : throw new ArgumentNullException(nameof(pattern));
+
+        /// <summary>
+        /// Returns a new match statement which includes the specified pattern and action to execute if this
+        /// pattern is matched successfully.
+        /// </summary>
+        /// <typeparam name="TMatchResult">The type of the result of the pattern's match.</typeparam>
+        /// <param name="pattern">The pattern to match with.</param>
+        /// <param name="fallthrough">The fallthrough behaviour.</param>
+        /// <param name="action">The action to execute if the match is successful.</param>
+        /// <returns>
+        /// A new match statement which includes the specified pattern and action to execute if this
+        /// pattern is matched successfully.
+        /// </returns>
+        /// <exception cref="ArgumentNullException">
+        /// <paramref name="pattern" /> or <paramref name="action" /> is <see langword="null" />.
+        /// </exception>
+        public AsyncMatch<TInput> Case<TMatchResult>(
+            IPattern<TInput, TMatchResult> pattern,
+            bool fallthrough,
+            Action<TMatchResult> action)
+            => this.Case(pattern.AsAsync(), fallthrough, action);
 
         /// <summary>
         /// Returns a new match statement which includes the pattern for the specified type

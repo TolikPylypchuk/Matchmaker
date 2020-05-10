@@ -1,6 +1,7 @@
 using System;
 
 using Matchmaker.Patterns;
+using Matchmaker.Patterns.Async;
 
 using static Matchmaker.Patterns.Pattern;
 
@@ -657,6 +658,9 @@ namespace Matchmaker.Linq
         /// The returned pattern's caching process is not thread-safe.
         /// The cache itself is a simple null-safe hash table.
         /// </remarks>
+        /// <exception cref="ArgumentNullException">
+        /// <paramref name="pattern" /> is <see langword="null" />.
+        /// </exception>
         public static IPattern<TInput, TMatchResult> Cached<TInput, TMatchResult>(
             this IPattern<TInput, TMatchResult> pattern)
             => new CachingPattern<TInput, TMatchResult>(pattern ?? throw new ArgumentNullException(nameof(pattern)));
@@ -675,10 +679,52 @@ namespace Matchmaker.Linq
         /// The returned pattern's caching process is not thread-safe.
         /// The cache itself is a simple null-safe hash table.
         /// </remarks>
+        /// <exception cref="ArgumentNullException">
+        /// <paramref name="pattern" /> or <paramref name="description" /> is <see langword="null" />.
+        /// </exception>
         public static IPattern<TInput, TMatchResult> Cached<TInput, TMatchResult>(
             this IPattern<TInput, TMatchResult> pattern,
             string description)
             => new CachingPattern<TInput, TMatchResult>(
+                pattern ?? throw new ArgumentNullException(nameof(pattern)),
+                description ?? throw new ArgumentNullException(nameof(description)));
+
+        /// <summary>
+        /// Returns an asynchronous pattern which wraps the specified synchronous pattern.
+        /// </summary>
+        /// <typeparam name="TInput">The type of the input value of the expression.</typeparam>
+        /// <typeparam name="TMatchResult">The type of the result of this pattern's match.</typeparam>
+        /// <param name="pattern">The pattern which should be wrapped.</param>
+        /// <returns>
+        /// An asynchronous pattern which wraps the specified synchronous pattern.
+        /// </returns>
+        /// <exception cref="ArgumentNullException">
+        /// <paramref name="pattern" /> is <see langword="null" />.
+        /// </exception>
+        /// <seealso cref="AsAsync{TInput, TMatchResult}(IPattern{TInput, TMatchResult}, string)" />
+        public static IAsyncPattern<TInput, TMatchResult> AsAsync<TInput, TMatchResult>(
+            this IPattern<TInput, TMatchResult> pattern)
+            => new AsyncPatternWrapper<TInput, TMatchResult>(
+                pattern ?? throw new ArgumentNullException(nameof(pattern)));
+
+        /// <summary>
+        /// Returns an asynchronous pattern which wraps the specified synchronous pattern.
+        /// </summary>
+        /// <typeparam name="TInput">The type of the input value of the expression.</typeparam>
+        /// <typeparam name="TMatchResult">The type of the result of this pattern's match.</typeparam>
+        /// <param name="pattern">The pattern which should be wrapped.</param>
+        /// <param name="description">The description of this pattern.</param>
+        /// <returns>
+        /// An asynchronous pattern which wraps the specified synchronous pattern.
+        /// </returns>
+        /// <exception cref="ArgumentNullException">
+        /// <paramref name="pattern" /> or <paramref name="description" /> is <see langword="null" />.
+        /// </exception>
+        /// <seealso cref="AsAsync{TInput, TMatchResult}(IPattern{TInput, TMatchResult})" />
+        public static IAsyncPattern<TInput, TMatchResult> AsAsync<TInput, TMatchResult>(
+            this IPattern<TInput, TMatchResult> pattern,
+            string description)
+            => new AsyncPatternWrapper<TInput, TMatchResult>(
                 pattern ?? throw new ArgumentNullException(nameof(pattern)),
                 description ?? throw new ArgumentNullException(nameof(description)));
     }
