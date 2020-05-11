@@ -1,8 +1,6 @@
 using System;
 using System.Threading.Tasks;
 
-using Matchmaker.Linq;
-
 namespace Matchmaker.Patterns.Async
 {
     /// <summary>

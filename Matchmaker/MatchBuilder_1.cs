@@ -129,7 +129,7 @@ namespace Matchmaker
         /// <summary>
         /// Constructs a match statement from this builder.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>A match statement.</returns>
         internal Match<TInput> Build()
             => new Match<TInput>(this);
     }

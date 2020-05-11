@@ -130,7 +130,7 @@ namespace Matchmaker
         /// <summary>
         /// Constructs a match expression from this builder.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>A match expression.</returns>
         internal Match<TInput, TOutput> Build()
             => new Match<TInput, TOutput>(this);
     }

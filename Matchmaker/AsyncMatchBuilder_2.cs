@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 using Matchmaker.Linq;
+using Matchmaker.Patterns;
 using Matchmaker.Patterns.Async;
 
 namespace Matchmaker
@@ -56,8 +58,82 @@ namespace Matchmaker
         /// </exception>
         public AsyncMatchBuilder<TInput, TOutput> Case<TMatchResult>(
             IAsyncPattern<TInput, TMatchResult> pattern,
-            Func<TMatchResult, TOutput> func)
+            Func<TMatchResult, Task<TOutput>> func)
             => this.Case(pattern, this.FallthroughByDefault, func);
+
+        /// <summary>
+        /// Add the specified case to the match expression.
+        /// </summary>
+        /// <typeparam name="TMatchResult">The type of the result of the pattern's match.</typeparam>
+        /// <param name="pattern">The pattern to match with.</param>
+        /// <param name="func">The function to execute if the match is successful.</param>
+        /// <returns>The calling builder.</returns>
+        /// <exception cref="ArgumentNullException">
+        /// <paramref name="pattern" /> or <paramref name="func" /> is <see langword="null" />.
+        /// </exception>
+        public AsyncMatchBuilder<TInput, TOutput> Case<TMatchResult>(
+            IAsyncPattern<TInput, TMatchResult> pattern,
+            Func<TMatchResult, TOutput> func)
+            => this.Case(pattern, this.FallthroughByDefault, func.AsAsync());
+
+        /// <summary>
+        /// Add the specified case to the match expression.
+        /// </summary>
+        /// <typeparam name="TMatchResult">The type of the result of the pattern's match.</typeparam>
+        /// <param name="pattern">The pattern to match with.</param>
+        /// <param name="func">The function to execute if the match is successful.</param>
+        /// <returns>The calling builder.</returns>
+        /// <exception cref="ArgumentNullException">
+        /// <paramref name="pattern" /> or <paramref name="func" /> is <see langword="null" />.
+        /// </exception>
+        public AsyncMatchBuilder<TInput, TOutput> Case<TMatchResult>(
+            IPattern<TInput, TMatchResult> pattern,
+            Func<TMatchResult, Task<TOutput>> func)
+            => this.Case(pattern.AsAsync(), func);
+
+        /// <summary>
+        /// Add the specified case to the match expression.
+        /// </summary>
+        /// <typeparam name="TMatchResult">The type of the result of the pattern's match.</typeparam>
+        /// <param name="pattern">The pattern to match with.</param>
+        /// <param name="func">The function to execute if the match is successful.</param>
+        /// <returns>The calling builder.</returns>
+        /// <exception cref="ArgumentNullException">
+        /// <paramref name="pattern" /> or <paramref name="func" /> is <see langword="null" />.
+        /// </exception>
+        public AsyncMatchBuilder<TInput, TOutput> Case<TMatchResult>(
+            IPattern<TInput, TMatchResult> pattern,
+            Func<TMatchResult, TOutput> func)
+            => this.Case(pattern, func.AsAsync());
+
+        /// <summary>
+        /// Add the specified case to the match expression.
+        /// </summary>
+        /// <typeparam name="TMatchResult">The type of the result of the pattern's match.</typeparam>
+        /// <param name="pattern">The pattern to match with.</param>
+        /// <param name="fallthrough">The fallthrough behavior.</param>
+        /// <param name="func">The function to execute if the match is successful.</param>
+        /// <returns>The calling builder.</returns>
+        /// <exception cref="ArgumentNullException">
+        /// <paramref name="pattern" /> or <paramref name="func" /> is <see langword="null" />.
+        /// </exception>
+        public AsyncMatchBuilder<TInput, TOutput> Case<TMatchResult>(
+            IAsyncPattern<TInput, TMatchResult> pattern,
+            bool fallthrough,
+            Func<TMatchResult, Task<TOutput>> func)
+        {
+            if (func == null)
+            {
+                throw new ArgumentNullException(nameof(func));
+            }
+
+            this.Cases.Add(new AsyncMatch<TInput, TOutput>.CaseData(
+                pattern.Select(result => (object?)result),
+                fallthrough,
+                value => func((TMatchResult)value!)));
+
+            return this;
+        }
 
         /// <summary>
         /// Add the specified case to the match expression.
@@ -74,19 +150,60 @@ namespace Matchmaker
             IAsyncPattern<TInput, TMatchResult> pattern,
             bool fallthrough,
             Func<TMatchResult, TOutput> func)
-        {
-            if (func == null)
-            {
-                throw new ArgumentNullException(nameof(func));
-            }
+            => this.Case(pattern, fallthrough, func.AsAsync());
 
-            this.Cases.Add(new AsyncMatch<TInput, TOutput>.CaseData(
-                pattern.Select(result => (object?)result),
-                fallthrough,
-                value => func((TMatchResult)value!)));
+        /// <summary>
+        /// Add the specified case to the match expression.
+        /// </summary>
+        /// <typeparam name="TMatchResult">The type of the result of the pattern's match.</typeparam>
+        /// <param name="pattern">The pattern to match with.</param>
+        /// <param name="fallthrough">The fallthrough behavior.</param>
+        /// <param name="func">The function to execute if the match is successful.</param>
+        /// <returns>The calling builder.</returns>
+        /// <exception cref="ArgumentNullException">
+        /// <paramref name="pattern" /> or <paramref name="func" /> is <see langword="null" />.
+        /// </exception>
+        public AsyncMatchBuilder<TInput, TOutput> Case<TMatchResult>(
+            IPattern<TInput, TMatchResult> pattern,
+            bool fallthrough,
+            Func<TMatchResult, Task<TOutput>> func)
+            => this.Case(pattern.AsAsync(), fallthrough, func);
 
-            return this;
-        }
+        /// <summary>
+        /// Add the specified case to the match expression.
+        /// </summary>
+        /// <typeparam name="TMatchResult">The type of the result of the pattern's match.</typeparam>
+        /// <param name="pattern">The pattern to match with.</param>
+        /// <param name="fallthrough">The fallthrough behavior.</param>
+        /// <param name="func">The function to execute if the match is successful.</param>
+        /// <returns>The calling builder.</returns>
+        /// <exception cref="ArgumentNullException">
+        /// <paramref name="pattern" /> or <paramref name="func" /> is <see langword="null" />.
+        /// </exception>
+        public AsyncMatchBuilder<TInput, TOutput> Case<TMatchResult>(
+            IPattern<TInput, TMatchResult> pattern,
+            bool fallthrough,
+            Func<TMatchResult, TOutput> func)
+            => this.Case(pattern, fallthrough, func.AsAsync());
+
+        /// <summary>
+        /// Add the specified case to the match expression.
+        /// </summary>
+        /// <typeparam name="TType">The type of the result of the pattern's match.</typeparam>
+        /// <param name="func">The function to execute if the match is successful.</param>
+        /// <returns>The calling builder.</returns>
+        /// <remarks>
+        /// This method is functionally equivalent to the following:
+        /// <code>
+        /// builder.Case(AsyncPattern.Type&lt;TInput, TType&gt;(), func)
+        /// </code>
+        /// </remarks>
+        /// <exception cref="ArgumentNullException">
+        /// <paramref name="func" /> is <see langword="null" />.
+        /// </exception>
+        public AsyncMatchBuilder<TInput, TOutput> Case<TType>(Func<TType, Task<TOutput>> func)
+            where TType : TInput
+            => this.Case(this.FallthroughByDefault, func);
 
         /// <summary>
         /// Add the specified case to the match expression.
@@ -105,7 +222,27 @@ namespace Matchmaker
         /// </exception>
         public AsyncMatchBuilder<TInput, TOutput> Case<TType>(Func<TType, TOutput> func)
             where TType : TInput
-            => this.Case(this.FallthroughByDefault, func);
+            => this.Case(this.FallthroughByDefault, func.AsAsync());
+
+        /// <summary>
+        /// Add the specified case to the match expression.
+        /// </summary>
+        /// <typeparam name="TType">The type of the result of the pattern's match.</typeparam>
+        /// <param name="fallthrough">The fallthrough behavior.</param>
+        /// <param name="func">The function to execute if the match is successful.</param>
+        /// <returns>The calling builder.</returns>
+        /// <remarks>
+        /// This method is functionally equivalent to the following:
+        /// <code>
+        /// builder.Case(AsyncPattern.Type&lt;TInput, TType&gt;(), fallthrough, func)
+        /// </code>
+        /// </remarks>
+        /// <exception cref="ArgumentNullException">
+        /// <paramref name="func" /> is <see langword="null" />.
+        /// </exception>
+        public AsyncMatchBuilder<TInput, TOutput> Case<TType>(bool fallthrough, Func<TType, Task<TOutput>> func)
+            where TType : TInput
+            => this.Case(AsyncPattern.Type<TInput, TType>(), fallthrough, func);
 
         /// <summary>
         /// Add the specified case to the match expression.
@@ -125,12 +262,12 @@ namespace Matchmaker
         /// </exception>
         public AsyncMatchBuilder<TInput, TOutput> Case<TType>(bool fallthrough, Func<TType, TOutput> func)
             where TType : TInput
-            => this.Case(AsyncPattern.Type<TInput, TType>(), fallthrough, func);
+            => this.Case(fallthrough, func.AsAsync());
 
         /// <summary>
         /// Constructs an asynchronous match expression from this builder.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>An asynchronous match expression.</returns>
         internal AsyncMatch<TInput, TOutput> Build()
             => new AsyncMatch<TInput, TOutput>(this);
     }

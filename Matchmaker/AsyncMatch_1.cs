@@ -81,8 +81,46 @@ namespace Matchmaker
         /// </exception>
         public AsyncMatch<TInput> Case<TMatchResult>(
             IAsyncPattern<TInput, TMatchResult> pattern,
-            Action<TMatchResult> action)
+            Func<TMatchResult, Task> action)
             => this.Case(pattern, this.fallthroughByDefault, action);
+
+        /// <summary>
+        /// Returns a new match statement which includes the specified pattern and action to execute if this
+        /// pattern is matched successfully.
+        /// </summary>
+        /// <typeparam name="TMatchResult">The type of the result of the pattern's match.</typeparam>
+        /// <param name="pattern">The pattern to match with.</param>
+        /// <param name="action">The action to execute if the match is successful.</param>
+        /// <returns>
+        /// A new match statement which includes the specified pattern and action to execute if this
+        /// pattern is matched successfully.
+        /// </returns>
+        /// <exception cref="ArgumentNullException">
+        /// <paramref name="pattern" /> or <paramref name="action" /> is <see langword="null" />.
+        /// </exception>
+        public AsyncMatch<TInput> Case<TMatchResult>(
+            IAsyncPattern<TInput, TMatchResult> pattern,
+            Action<TMatchResult> action)
+            => this.Case(pattern, this.fallthroughByDefault, action.AsAsync());
+
+        /// <summary>
+        /// Returns a new match statement which includes the specified pattern and action to execute if this
+        /// pattern is matched successfully.
+        /// </summary>
+        /// <typeparam name="TMatchResult">The type of the result of the pattern's match.</typeparam>
+        /// <param name="pattern">The pattern to match with.</param>
+        /// <param name="action">The action to execute if the match is successful.</param>
+        /// <returns>
+        /// A new match statement which includes the specified pattern and action to execute if this
+        /// pattern is matched successfully.
+        /// </returns>
+        /// <exception cref="ArgumentNullException">
+        /// <paramref name="pattern" /> or <paramref name="action" /> is <see langword="null" />.
+        /// </exception>
+        public AsyncMatch<TInput> Case<TMatchResult>(
+            IPattern<TInput, TMatchResult> pattern,
+            Func<TMatchResult, Task> action)
+            => this.Case(pattern.AsAsync(), this.fallthroughByDefault, action);
 
         /// <summary>
         /// Returns a new match statement which includes the specified pattern and action to execute if this
@@ -101,7 +139,7 @@ namespace Matchmaker
         public AsyncMatch<TInput> Case<TMatchResult>(
             IPattern<TInput, TMatchResult> pattern,
             Action<TMatchResult> action)
-            => this.Case(pattern.AsAsync(), this.fallthroughByDefault, action);
+            => this.Case(pattern.AsAsync(), this.fallthroughByDefault, action.AsAsync());
 
         /// <summary>
         /// Returns a new match statement which includes the specified pattern and action to execute if this
@@ -121,7 +159,7 @@ namespace Matchmaker
         public AsyncMatch<TInput> Case<TMatchResult>(
             IAsyncPattern<TInput, TMatchResult> pattern,
             bool fallthrough,
-            Action<TMatchResult> action)
+            Func<TMatchResult, Task> action)
             => pattern != null
                 ? action != null
                     ? new AsyncMatch<TInput>(
@@ -152,10 +190,75 @@ namespace Matchmaker
         /// <paramref name="pattern" /> or <paramref name="action" /> is <see langword="null" />.
         /// </exception>
         public AsyncMatch<TInput> Case<TMatchResult>(
+            IAsyncPattern<TInput, TMatchResult> pattern,
+            bool fallthrough,
+            Action<TMatchResult> action)
+            => this.Case(pattern, fallthrough, action.AsAsync());
+
+        /// <summary>
+        /// Returns a new match statement which includes the specified pattern and action to execute if this
+        /// pattern is matched successfully.
+        /// </summary>
+        /// <typeparam name="TMatchResult">The type of the result of the pattern's match.</typeparam>
+        /// <param name="pattern">The pattern to match with.</param>
+        /// <param name="fallthrough">The fallthrough behaviour.</param>
+        /// <param name="action">The action to execute if the match is successful.</param>
+        /// <returns>
+        /// A new match statement which includes the specified pattern and action to execute if this
+        /// pattern is matched successfully.
+        /// </returns>
+        /// <exception cref="ArgumentNullException">
+        /// <paramref name="pattern" /> or <paramref name="action" /> is <see langword="null" />.
+        /// </exception>
+        public AsyncMatch<TInput> Case<TMatchResult>(
+            IPattern<TInput, TMatchResult> pattern,
+            bool fallthrough,
+            Func<TMatchResult, Task> action)
+            => this.Case(pattern.AsAsync(), fallthrough, action);
+
+        /// <summary>
+        /// Returns a new match statement which includes the specified pattern and action to execute if this
+        /// pattern is matched successfully.
+        /// </summary>
+        /// <typeparam name="TMatchResult">The type of the result of the pattern's match.</typeparam>
+        /// <param name="pattern">The pattern to match with.</param>
+        /// <param name="fallthrough">The fallthrough behaviour.</param>
+        /// <param name="action">The action to execute if the match is successful.</param>
+        /// <returns>
+        /// A new match statement which includes the specified pattern and action to execute if this
+        /// pattern is matched successfully.
+        /// </returns>
+        /// <exception cref="ArgumentNullException">
+        /// <paramref name="pattern" /> or <paramref name="action" /> is <see langword="null" />.
+        /// </exception>
+        public AsyncMatch<TInput> Case<TMatchResult>(
             IPattern<TInput, TMatchResult> pattern,
             bool fallthrough,
             Action<TMatchResult> action)
-            => this.Case(pattern.AsAsync(), fallthrough, action);
+            => this.Case(pattern.AsAsync(), fallthrough, action.AsAsync());
+
+        /// <summary>
+        /// Returns a new match statement which includes the pattern for the specified type
+        /// and action to execute if this pattern is matched successfully.
+        /// </summary>
+        /// <typeparam name="TType">The type of the result of the pattern's match.</typeparam>
+        /// <param name="action">The action to execute if the match is successful.</param>
+        /// <returns>
+        /// A new match statement which includes the type pattern and action to execute if this
+        /// pattern is matched successfully.
+        /// </returns>
+        /// <remarks>
+        /// This method is functionally equivalent to the following:
+        /// <code>
+        /// match.Case(AsyncPattern.Type&lt;TInput, TType&gt;(), action)
+        /// </code>
+        /// </remarks>
+        /// <exception cref="ArgumentNullException">
+        /// <paramref name="action" /> is <see langword="null" />.
+        /// </exception>
+        public AsyncMatch<TInput> Case<TType>(Func<TType, Task> action)
+            where TType : TInput
+            => this.Case(this.fallthroughByDefault, action);
 
         /// <summary>
         /// Returns a new match statement which includes the pattern for the specified type
@@ -178,7 +281,31 @@ namespace Matchmaker
         /// </exception>
         public AsyncMatch<TInput> Case<TType>(Action<TType> action)
             where TType : TInput
-            => this.Case(this.fallthroughByDefault, action);
+            => this.Case(action.AsAsync());
+
+        /// <summary>
+        /// Returns a new match statement which includes the pattern for the specified type
+        /// and action to execute if this pattern is matched successfully.
+        /// </summary>
+        /// <typeparam name="TType">The type of the result of the pattern's match.</typeparam>
+        /// <param name="fallthrough">The fallthrough behaviour.</param>
+        /// <param name="action">The action to execute if the match is successful.</param>
+        /// <returns>
+        /// A new match statement which includes the type pattern and action to execute if this
+        /// pattern is matched successfully.
+        /// </returns>
+        /// <remarks>
+        /// This method is functionally equivalent to the following:
+        /// <code>
+        /// match.Case(AsyncPattern.Type&lt;TInput, TType&gt;(), fallthrough, action)
+        /// </code>
+        /// </remarks>
+        /// <exception cref="ArgumentNullException">
+        /// <paramref name="action" /> is <see langword="null" />.
+        /// </exception>
+        public AsyncMatch<TInput> Case<TType>(bool fallthrough, Func<TType, Task> action)
+            where TType : TInput
+            => this.Case(AsyncPattern.Type<TInput, TType>(), fallthrough, action);
 
         /// <summary>
         /// Returns a new match statement which includes the pattern for the specified type
@@ -202,7 +329,7 @@ namespace Matchmaker
         /// </exception>
         public AsyncMatch<TInput> Case<TType>(bool fallthrough, Action<TType> action)
             where TType : TInput
-            => this.Case(AsyncPattern.Type<TInput, TType>(), fallthrough, action);
+            => this.Case(fallthrough, action.AsAsync());
 
         /// <summary>
         /// Asynchronously executes the match statement strictly on the specified input.
@@ -242,7 +369,7 @@ namespace Matchmaker
                 var matchResult = await @case.Pattern.MatchAsync(input);
                 if (matchResult.IsSuccessful)
                 {
-                    @case.Action(matchResult.Value);
+                    await @case.Action(matchResult.Value);
                     return true;
                 }
             }
@@ -268,7 +395,7 @@ namespace Matchmaker
                 var matchResult = await @case.Pattern.MatchAsync(input);
                 if (matchResult.IsSuccessful)
                 {
-                    @case.Action(matchResult.Value);
+                    await @case.Action(matchResult.Value);
                     yield return null;
 
                     if (!@case.Fallthrough)
@@ -320,7 +447,7 @@ namespace Matchmaker
             /// <param name="pattern">The pattern of the case.</param>
             /// <param name="fallthrough">The fallthrough behaviour of the case.</param>
             /// <param name="action">The action of the case.</param>
-            public CaseData(IAsyncPattern<TInput, object?> pattern, bool fallthrough, Action<object?> action)
+            public CaseData(IAsyncPattern<TInput, object?> pattern, bool fallthrough, Func<object?, Task> action)
             {
                 this.Pattern = pattern;
                 this.Fallthrough = fallthrough;
@@ -340,7 +467,7 @@ namespace Matchmaker
             /// <summary>
             /// Gets the action of the case.
             /// </summary>
-            public Action<object?> Action { get; }
+            public Func<object?, Task> Action { get; }
         }
     }
 }
