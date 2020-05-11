@@ -9,7 +9,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Matchmaker.AsyncMatch-1.html",
-          "hash": "qXm7viL0tJBB7NH5xx0ndA=="
+          "hash": "r3fXgeu1FwiKhsmCoGneBA=="
         }
       },
       "is_incremental": false,
@@ -21,7 +21,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Matchmaker.AsyncMatch-2.html",
-          "hash": "fMI3iWueK4Y1wLeCk+RrTQ=="
+          "hash": "7Jg+AEbxHNAME7EgfYCt3w=="
         }
       },
       "is_incremental": false,
@@ -33,7 +33,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Matchmaker.AsyncMatch.html",
-          "hash": "r9CvA5geihqxFBqdO8fiZw=="
+          "hash": "0ebKVcjRZM7AddsmW1pKIA=="
         }
       },
       "is_incremental": false,
@@ -69,7 +69,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Matchmaker.Linq.AsyncPatternExtensions.html",
-          "hash": "0kC2lOCxd55YgvMrV2rL5Q=="
+          "hash": "S0zD2MrmyzqDgrFMlGA4VA=="
         }
       },
       "is_incremental": false,
@@ -105,7 +105,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Matchmaker.Linq.PatternExtensions.html",
-          "hash": "f2bGgivV9UPmpBePH+YUkQ=="
+          "hash": "PBxh1IsQZ7iBe5MC3onmNA=="
         }
       },
       "is_incremental": false,
@@ -129,7 +129,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Matchmaker.Match-1.html",
-          "hash": "k3DMwCujd7bLEaRFUpt1wg=="
+          "hash": "X0A7RFIxOvcDxmHDyv0uDQ=="
         }
       },
       "is_incremental": false,
@@ -141,7 +141,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Matchmaker.Match-2.html",
-          "hash": "FIP4+UJgOQ/h5EC+xLPeSA=="
+          "hash": "NWTcLT1wlOYh+bYr/KGIdA=="
         }
       },
       "is_incremental": false,
@@ -153,7 +153,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Matchmaker.Match.html",
-          "hash": "GBroPP2EeGDLk+OGv2xbAA=="
+          "hash": "7Qy+MzxTX+BpjuL0FHUXmA=="
         }
       },
       "is_incremental": false,
@@ -189,7 +189,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Matchmaker.MatchException.html",
-          "hash": "zX3OhkyXbJ6UhGcEUu+zCw=="
+          "hash": "59xcrG7e3U+XclTfQtBwDA=="
         }
       },
       "is_incremental": false,
@@ -201,7 +201,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Matchmaker.MatchResult-1.html",
-          "hash": "AUuvSui/LhCqvV8xry10PQ=="
+          "hash": "QPgkyNP4YlSxO9w5biuCzQ=="
         }
       },
       "is_incremental": false,
@@ -213,7 +213,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Matchmaker.MatchResult.html",
-          "hash": "4TA8U8HslaRT4s1q4Ej2+g=="
+          "hash": "M7srimi8cDYx3T0FbopLfg=="
         }
       },
       "is_incremental": false,
@@ -225,7 +225,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Matchmaker.Patterns.Async.AsyncPattern-2.html",
-          "hash": "tbO4uNgEKQZ+FRgSk9Bg7A=="
+          "hash": "tdbRayRQy4akcNZfA+Tqsw=="
         }
       },
       "is_incremental": false,
@@ -237,7 +237,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Matchmaker.Patterns.Async.AsyncPattern.html",
-          "hash": "/ix1GpO2OtcOwAgCVygCzw=="
+          "hash": "jTw+/+Th63x2HQ9SyNqIIw=="
         }
       },
       "is_incremental": false,
@@ -249,7 +249,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Matchmaker.Patterns.Async.IAsyncPattern-2.html",
-          "hash": "keQhzpcHIEZn22tHASFIwQ=="
+          "hash": "3KOvT8jJCp6B0F7olo/RvA=="
         }
       },
       "is_incremental": false,
@@ -285,7 +285,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Matchmaker.Patterns.Pattern-2.html",
-          "hash": "2VgVIcisv6cLKJQecHF5SA=="
+          "hash": "wol9IEgTtP+KFRu7E4436A=="
         }
       },
       "is_incremental": false,
@@ -297,7 +297,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Matchmaker.Patterns.Pattern.html",
-          "hash": "QpmEj0yH17CTT51NbPKjCA=="
+          "hash": "IypItcT1ll2akJPpwH3TFQ=="
         }
       },
       "is_incremental": false,
@@ -309,7 +309,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Matchmaker.Patterns.PatternComposition.html",
-          "hash": "Er+DiLKsxZIX6x4uni9Xeg=="
+          "hash": "vTCscJ/qkUesrhmdjqO07Q=="
         }
       },
       "is_incremental": false,
