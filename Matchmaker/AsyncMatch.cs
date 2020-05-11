@@ -8,6 +8,8 @@ namespace Matchmaker
     /// </summary>
     /// <seealso cref="AsyncMatch{TInput, TOutput}" />
     /// <seealso cref="AsyncMatch{TInput}" />
+    /// <seealso cref="AsyncMatchBuilder{TInput, TOutput}" />
+    /// <seealso cref="AsyncMatchBuilder{TInput}" />
     public static class AsyncMatch
     {
         /// <summary>
@@ -18,7 +20,6 @@ namespace Matchmaker
         /// <returns>
         /// A match expression which specifies the patterns to match with and functions which are executed.
         /// </returns>
-        /// <seealso cref="Create{TInput, TOutput}(bool)" />
         public static AsyncMatch<TInput, TOutput> Create<TInput, TOutput>()
             => new AsyncMatch<TInput, TOutput>(fallthroughByDefault: false);
 
@@ -31,7 +32,6 @@ namespace Matchmaker
         /// <returns>
         /// A match expression which specifies the patterns to match with and functions which are executed.
         /// </returns>
-        /// <seealso cref="Create{TInput, TOutput}()" />
         public static AsyncMatch<TInput, TOutput> Create<TInput, TOutput>(bool fallthroughByDefault)
             => new AsyncMatch<TInput, TOutput>(fallthroughByDefault);
 
@@ -42,7 +42,6 @@ namespace Matchmaker
         /// <returns>
         /// A match statement which specifies the patterns to match with and actions which are executed.
         /// </returns>
-        /// <seealso cref="Create{TInput}(bool)" />
         public static AsyncMatch<TInput> Create<TInput>()
             => new AsyncMatch<TInput>(fallthroughByDefault: false);
 
@@ -54,7 +53,6 @@ namespace Matchmaker
         /// <returns>
         /// A match statement which specifies the patterns to match with and actions which are executed.
         /// </returns>
-        /// <seealso cref="Create{TInput}()" />
         public static AsyncMatch<TInput> Create<TInput>(bool fallthroughByDefault)
             => new AsyncMatch<TInput>(fallthroughByDefault);
 

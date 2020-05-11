@@ -338,9 +338,6 @@ namespace Matchmaker
         /// <exception cref="MatchException">
         /// The match failed for all cases.
         /// </exception>
-        /// <seealso cref="ExecuteNonStrictAsync(TInput)" />
-        /// <seealso cref="ExecuteWithFallthroughAsync(TInput)" />
-        /// <seealso cref="ToFunction" />
         public async Task ExecuteAsync(TInput input)
         {
             bool isMatched = await this.ExecuteNonStrictAsync(input);
@@ -359,9 +356,6 @@ namespace Matchmaker
         /// <see langword="true" />, if the match was successful.
         /// Otherwise, <see langword="false" />.
         /// </returns>
-        /// <seealso cref="ExecuteAsync(TInput)" />
-        /// <seealso cref="ExecuteWithFallthroughAsync(TInput)" />
-        /// <seealso cref="ToNonStrictFunction" />
         public async Task<bool> ExecuteNonStrictAsync(TInput input)
         {
             foreach (var @case in this.cases)
@@ -385,9 +379,6 @@ namespace Matchmaker
         /// An enumerable of <see langword="null" /> objects which enables the execution to be lazy.
         /// The number of items in this enumerable equals the number of successful cases.
         /// </returns>
-        /// <seealso cref="ExecuteAsync(TInput)" />
-        /// <seealso cref="ExecuteNonStrictAsync(TInput)" />
-        /// <seealso cref="ToFunctionWithFallthrough" />
         public async IAsyncEnumerable<object?> ExecuteWithFallthroughAsync(TInput input)
         {
             foreach (var @case in this.cases)
@@ -410,9 +401,6 @@ namespace Matchmaker
         /// Returns an action which, when called, will match the specified value.
         /// </summary>
         /// <returns>An action which, when called, will match the specified value.</returns>
-        /// <seealso cref="ExecuteAsync(TInput)" />
-        /// <seealso cref="ToNonStrictFunction" />
-        /// <seealso cref="ToFunctionWithFallthrough" />
         public Func<TInput, Task> ToFunction()
             => this.ExecuteAsync;
 
@@ -420,9 +408,6 @@ namespace Matchmaker
         /// Returns a function which, when called, will match the specified value non-strictly.
         /// </summary>
         /// <returns>A function which, when called, will match the specified value non-strictly.</returns>
-        /// <seealso cref="ExecuteNonStrictAsync(TInput)" />
-        /// <seealso cref="ToFunction" />
-        /// <seealso cref="ToFunctionWithFallthrough" />
         public Func<TInput, Task<bool>> ToNonStrictFunction()
             => this.ExecuteNonStrictAsync;
 
@@ -430,9 +415,6 @@ namespace Matchmaker
         /// Returns a function which, when called, will match the specified value with fallthrough.
         /// </summary>
         /// <returns>A function which, when called, will match the specified value with fallthrough.</returns>
-        /// <seealso cref="ExecuteWithFallthroughAsync(TInput)" />
-        /// <seealso cref="ToFunction" />
-        /// <seealso cref="ToNonStrictFunction" />
         public Func<TInput, IAsyncEnumerable<object?>> ToFunctionWithFallthrough()
             => this.ExecuteWithFallthroughAsync;
 

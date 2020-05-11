@@ -5,14 +5,8 @@ namespace Matchmaker.Patterns
     /// <summary>
     /// Represnts types of pattern composition.
     /// </summary>
-    /// <seealso cref="PatternExtensions.Compose{T}(IPattern{T, T}, IPattern{T, T}, PatternComposition)" />
-    /// <seealso cref="PatternExtensions.Compose{T}(IPattern{T, T}, IPattern{T, T}, PatternComposition, string)" />
-    /// <seealso cref="PatternExtensions.And{T}(IPattern{T, T}, IPattern{T, T})" />
-    /// <seealso cref="PatternExtensions.And{T}(IPattern{T, T}, IPattern{T, T}, string)" />
-    /// <seealso cref="PatternExtensions.Or{T}(IPattern{T, T}, IPattern{T, T})" />
-    /// <seealso cref="PatternExtensions.Or{T}(IPattern{T, T}, IPattern{T, T}, string)" />
-    /// <seealso cref="PatternExtensions.Xor{T}(IPattern{T, T}, IPattern{T, T})" />
-    /// <seealso cref="PatternExtensions.Xor{T}(IPattern{T, T}, IPattern{T, T}, string)" />
+    /// <seealso cref="PatternExtensions" />
+    /// <seealso cref="AsyncPatternExtensions" />
     public enum PatternComposition
     {
         /// <summary>

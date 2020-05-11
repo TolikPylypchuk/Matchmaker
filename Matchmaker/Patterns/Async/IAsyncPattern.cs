@@ -31,7 +31,7 @@ namespace Matchmaker.Patterns.Async
         /// if this match is successful. Otherwise, a failed match result.
         /// </returns>
         /// <remarks>
-        /// Implementations of this this method may throw <see cref="InvalidOperationException" />
+        /// Implementations of this method may throw <see cref="InvalidOperationException" />
         /// if they combine instances of <see cref="Task" /> or <see cref="Task{TResult}" /> and one
         /// of those instances is <see langword="null" />.
         /// </remarks>

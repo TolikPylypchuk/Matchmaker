@@ -66,10 +66,6 @@ namespace Matchmaker
         /// <see langword="true" /> if this match result is equal to the other object.
         /// Otherwise, <see langword="false" />.
         /// </returns>
-        /// <seealso cref="Equals(MatchResult{T})" />
-        /// <seealso cref="GetHashCode()" />
-        /// <seealso cref="operator ==(MatchResult{T}, MatchResult{T})" />
-        /// <seealso cref="operator !=(MatchResult{T}, MatchResult{T})" />
         public override bool Equals(object? obj)
             => obj is MatchResult<T> other && this.Equals(other);
 
@@ -81,10 +77,6 @@ namespace Matchmaker
         /// <see langword="true" /> if this match result is equal to the other match result.
         /// Otherwise, <see langword="false" />.
         /// </returns>
-        /// <seealso cref="Equals(object)" />
-        /// <seealso cref="GetHashCode()" />
-        /// <seealso cref="operator ==(MatchResult{T}, MatchResult{T})" />
-        /// <seealso cref="operator !=(MatchResult{T}, MatchResult{T})" />
         public bool Equals(MatchResult<T> other)
             => (this.IsSuccessful == other.IsSuccessful) && Equals(this.value, other.value);
 
@@ -92,10 +84,6 @@ namespace Matchmaker
         /// Returns the hash code of this match result.
         /// </summary>
         /// <returns>The hash code of this match result.</returns>
-        /// <seealso cref="Equals(object)" />
-        /// <seealso cref="Equals(MatchResult{T})" />
-        /// <seealso cref="operator ==(MatchResult{T}, MatchResult{T})" />
-        /// <seealso cref="operator !=(MatchResult{T}, MatchResult{T})" />
         public override int GetHashCode()
             => HashCode.Combine(this.IsSuccessful, this.value);
 
@@ -114,10 +102,6 @@ namespace Matchmaker
         /// <returns>
         /// <see langword="true" /> if the match results are equal. Otherwise, <see langword="false" />.
         /// </returns>
-        /// <seealso cref="Equals(object)" />
-        /// <seealso cref="Equals(MatchResult{T})" />
-        /// <seealso cref="GetHashCode()" />
-        /// <seealso cref="operator !=(MatchResult{T}, MatchResult{T})" />
         public static bool operator ==(MatchResult<T> left, MatchResult<T> right)
             => left.Equals(right);
 
@@ -129,10 +113,6 @@ namespace Matchmaker
         /// <returns>
         /// <see langword="true" /> if the match results are not equal. Otherwise, <see langword="false" />.
         /// </returns>
-        /// <seealso cref="Equals(object)" />
-        /// <seealso cref="Equals(MatchResult{T})" />
-        /// <seealso cref="GetHashCode()" />
-        /// <seealso cref="operator ==(MatchResult{T}, MatchResult{T})" />
         public static bool operator !=(MatchResult<T> left, MatchResult<T> right)
             => !left.Equals(right);
     }

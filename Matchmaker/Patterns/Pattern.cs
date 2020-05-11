@@ -13,102 +13,76 @@ namespace Matchmaker.Patterns
         /// <summary>
         /// The default description of the 'any' pattern.
         /// </summary>
-        /// <seealso cref="Any{TInput}()" />
         public static readonly string DefaultAnyDescription = "any x";
 
         /// <summary>
         /// The default description of the 'return' pattern.
         /// </summary>
-        /// <seealso cref="Return{TInput, TValue}(TValue)" />
         public static readonly string DefaultReturnDescriptionFormat = "return {0}";
 
         /// <summary>
         /// The default description of the lazy 'return' pattern.
         /// </summary>
-        /// <seealso cref="Return{TInput, TValue}(Func{TValue})" />
         public static readonly string DefaultLazyReturnDescription = "return <provided value>";
 
         /// <summary>
         /// The default description of 'null' patterns.
         /// </summary>
-        /// <seealso cref="Null{TInput}()" />
-        /// <seealso cref="ValueNull{TInput}()" />
         public static readonly string DefaultNullDescription = "x is null";
 
         /// <summary>
         /// The default description of equality patterns.
         /// </summary>
-        /// <seealso cref="EqualTo{TInput}(TInput)" />
-        /// <seealso cref="EqualTo{TInput}(TInput, IEqualityComparer{TInput})" />
         public static readonly string DefaultEqualToDescriptionFormat = "x = {0}";
 
         /// <summary>
         /// The default description of lazy equality patterns.
         /// </summary>
-        /// <seealso cref="EqualTo{TInput}(Func{TInput})" />
-        /// <seealso cref="EqualTo{TInput}(Func{TInput}, IEqualityComparer{TInput})" />
         public static readonly string DefaultLazyEqualToDescription = "x = <provided value>";
 
         /// <summary>
         /// The default description of less-than patterns.
         /// </summary>
-        /// <seealso cref="LessThan{TInput}(TInput)" />
-        /// <seealso cref="LessThan{TInput}(TInput, IComparer{TInput})" />
         public static readonly string DefaultLessThanDescriptionFormat = "x < {0}";
 
         /// <summary>
         /// The default description of lazy less-than patterns.
         /// </summary>
-        /// <seealso cref="LessThan{TInput}(Func{TInput})" />
-        /// <seealso cref="LessThan{TInput}(Func{TInput}, IComparer{TInput})" />
         public static readonly string DefaultLazyLessThanDescription = "x < <provided value>";
 
         /// <summary>
         /// The default description of less-or-equal patterns.
         /// </summary>
-        /// <seealso cref="LessOrEqual{TInput}(TInput)" />
-        /// <seealso cref="LessOrEqual{TInput}(TInput, IComparer{TInput})" />
         public static readonly string DefaultLessOrEqualDescriptionFormat = "x <= {0}";
 
         /// <summary>
         /// The default description of lazy less-or-equal patterns.
         /// </summary>
-        /// <seealso cref="LessOrEqual{TInput}(Func{TInput})" />
-        /// <seealso cref="LessOrEqual{TInput}(Func{TInput}, IComparer{TInput})" />
         public static readonly string DefaultLazyLessOrEqualDescription = "x <= <provided value>";
 
         /// <summary>
         /// The default description of greater-than patterns.
         /// </summary>
-        /// <seealso cref="GreaterThan{TInput}(TInput)" />
-        /// <seealso cref="GreaterThan{TInput}(TInput, IComparer{TInput})" />
         public static readonly string DefaultGreaterThanDescriptionFormat = "x > {0}";
 
         /// <summary>
         /// The default description of lazy greater-than patterns.
         /// </summary>
-        /// <seealso cref="GreaterThan{TInput}(Func{TInput})" />
-        /// <seealso cref="GreaterThan{TInput}(Func{TInput}, IComparer{TInput})" />
         public static readonly string DefaultLazyGreaterThanDescription = "x > <provided value>";
 
         /// <summary>
         /// The default description of greater-or-equal patterns.
         /// </summary>
-        /// <seealso cref="GreaterOrEqual{TInput}(TInput)" />
-        /// <seealso cref="GreaterOrEqual{TInput}(TInput, IComparer{TInput})" />
         public static readonly string DefaultGreaterOrEqualDescriptionFormat = "x >= {0}";
 
         /// <summary>
         /// The default description of lazy greater-or-equal patterns.
         /// </summary>
-        /// <seealso cref="GreaterOrEqual{TInput}(Func{TInput})" />
-        /// <seealso cref="GreaterOrEqual{TInput}(Func{TInput}, IComparer{TInput})" />
         public static readonly string DefaultLazyGreaterOrEqualDescription = "x >= <provided value>";
 
         /// <summary>
         /// The default description of type patterns.
         /// </summary>
-        /// <seealso cref="Type{TInput, TType}()" />
         public static readonly string DefaultTypeDescriptionFormat = "x is {0}";
 
         /// <summary>
@@ -134,7 +108,6 @@ namespace Matchmaker.Patterns
         /// <summary>
         /// The default description of the 'not' pattern combinators.
         /// </summary>
-        /// <seealso cref="Not{TInput, TMatchResult}(IPattern{TInput, TMatchResult})" />
         public static readonly string DefaultNotDescriptionFormat = "not ({0})";
 
         /// <summary>
@@ -149,9 +122,6 @@ namespace Matchmaker.Patterns
         /// <exception cref="ArgumentNullException">
         /// <paramref name="matcher" /> is <see langword="null" />.
         /// </exception>
-        /// <seealso cref="CreatePattern{TInput, TMatchResult}(Func{TInput, MatchResult{TMatchResult}}, string)" />
-        /// <seealso cref="CreatePattern{TInput}(Func{TInput, bool})" />
-        /// <seealso cref="CreatePattern{TInput}(Func{TInput, bool}, string)" />
         public static IPattern<TInput, TMatchResult> CreatePattern<TInput, TMatchResult>(
             Func<TInput, MatchResult<TMatchResult>> matcher)
             => new SimplePattern<TInput, TMatchResult>(matcher ?? throw new ArgumentNullException(nameof(matcher)));
@@ -169,9 +139,6 @@ namespace Matchmaker.Patterns
         /// <exception cref="ArgumentNullException">
         /// <paramref name="matcher" /> or <paramref name="description" /> is <see langword="null" />.
         /// </exception>
-        /// <seealso cref="CreatePattern{TInput, TMatchResult}(Func{TInput, MatchResult{TMatchResult}})" />
-        /// <seealso cref="CreatePattern{TInput}(Func{TInput, bool})" />
-        /// <seealso cref="CreatePattern{TInput}(Func{TInput, bool}, string)" />
         public static IPattern<TInput, TMatchResult> CreatePattern<TInput, TMatchResult>(
             Func<TInput, MatchResult<TMatchResult>> matcher,
             string description)
@@ -190,9 +157,6 @@ namespace Matchmaker.Patterns
         /// <exception cref="ArgumentNullException">
         /// <paramref name="predicate" /> is <see langword="null" />.
         /// </exception>
-        /// <seealso cref="CreatePattern{TInput, TMatchResult}(Func{TInput, MatchResult{TMatchResult}})" />
-        /// <seealso cref="CreatePattern{TInput, TMatchResult}(Func{TInput, MatchResult{TMatchResult}}, string)" />
-        /// <seealso cref="CreatePattern{TInput}(Func{TInput, bool}, string)" />
         public static IPattern<TInput, TInput> CreatePattern<TInput>(Func<TInput, bool> predicate)
             => predicate != null
                 ? new SimplePattern<TInput, TInput>(
@@ -213,9 +177,6 @@ namespace Matchmaker.Patterns
         /// <exception cref="ArgumentNullException">
         /// <paramref name="predicate" /> or <paramref name="description" /> is <see langword="null" />.
         /// </exception>
-        /// <seealso cref="CreatePattern{TInput, TMatchResult}(Func{TInput, MatchResult{TMatchResult}})" />
-        /// <seealso cref="CreatePattern{TInput, TMatchResult}(Func{TInput, MatchResult{TMatchResult}}, string)" />
-        /// <seealso cref="CreatePattern{TInput}(Func{TInput, bool})" />
         public static IPattern<TInput, TInput> CreatePattern<TInput>(
             Func<TInput, bool> predicate,
             string description)
@@ -235,7 +196,6 @@ namespace Matchmaker.Patterns
         /// <remarks>
         /// This pattern should be used as the default case of a match expression, if one is needed.
         /// </remarks>
-        /// <seealso cref="Any{TInput}(string)" />
         public static IPattern<TInput, TInput> Any<TInput>()
             => Any<TInput>(DefaultAnyDescription);
 
@@ -251,7 +211,6 @@ namespace Matchmaker.Patterns
         /// <exception cref="ArgumentNullException">
         /// <paramref name="description" /> is <see langword="null" />.
         /// </exception>
-        /// <seealso cref="Any{TInput}()" />
         public static IPattern<TInput, TInput> Any<TInput>(string description)
             => CreatePattern<TInput>(_ => true, description ?? throw new ArgumentNullException(nameof(description)));
 
@@ -266,9 +225,6 @@ namespace Matchmaker.Patterns
         /// This pattern is much like the <see cref="Any{TInput}()" /> pattern,
         /// except it returns the specified value instead of the pattern's input.
         /// </remarks>
-        /// <seealso cref="Return{TInput, TValue}(TValue, string)" />
-        /// <seealso cref="Return{TInput, TValue}(Func{TValue})" />
-        /// <seealso cref="Return{TInput, TValue}(Func{TValue}, string)" />
         public static IPattern<TInput, TValue> Return<TInput, TValue>(TValue value)
             => Return<TInput, TValue>(value, String.Format(DefaultReturnDescriptionFormat, value));
 
@@ -287,9 +243,6 @@ namespace Matchmaker.Patterns
         /// <exception cref="ArgumentNullException">
         /// <paramref name="description" /> is <see langword="null" />.
         /// </exception>
-        /// <seealso cref="Return{TInput, TValue}(TValue)" />
-        /// <seealso cref="Return{TInput, TValue}(Func{TValue})" />
-        /// <seealso cref="Return{TInput, TValue}(Func{TValue}, string)" />
         public static IPattern<TInput, TValue> Return<TInput, TValue>(TValue value, string description)
             => CreatePattern<TInput, TValue>(
                 _ => MatchResult.Success(value),
@@ -321,9 +274,6 @@ namespace Matchmaker.Patterns
         /// <exception cref="ArgumentNullException">
         /// <paramref name="valueProvider"/> is <see langword="null" />.
         /// </exception>
-        /// <seealso cref="Return{TInput, TValue}(TValue)" />
-        /// <seealso cref="Return{TInput, TValue}(TValue, string)" />
-        /// <seealso cref="Return{TInput, TValue}(Func{TValue}, string)" />
         public static IPattern<TInput, TValue> Return<TInput, TValue>(Func<TValue> valueProvider)
             => Return<TInput, TValue>(valueProvider, DefaultLazyReturnDescription);
 
@@ -354,9 +304,6 @@ namespace Matchmaker.Patterns
         /// <exception cref="ArgumentNullException">
         /// <paramref name="valueProvider" /> or <paramref name="description" /> is <see langword="null" />.
         /// </exception>
-        /// <seealso cref="Return{TInput, TValue}(TValue)" />
-        /// <seealso cref="Return{TInput, TValue}(TValue, string)" />
-        /// <seealso cref="Return{TInput, TValue}(Func{TValue})" />
         public static IPattern<TInput, TValue> Return<TInput, TValue>(Func<TValue> valueProvider, string description)
         {
             var memoizedProvider = Memoize(valueProvider ?? throw new ArgumentNullException(nameof(valueProvider)));
@@ -370,9 +317,6 @@ namespace Matchmaker.Patterns
         /// </summary>
         /// <typeparam name="TInput">The type of the input value of the expression.</typeparam>
         /// <returns>A pattern which is matched successfully when the input value is <see langword="null" />.</returns>
-        /// <seealso cref="Null{TInput}(string)" />
-        /// <seealso cref="ValueNull{TInput}()" />
-        /// <seealso cref="ValueNull{TInput}(string)" />
         public static IPattern<TInput, TInput> Null<TInput>()
             where TInput : class
             => Null<TInput>(DefaultNullDescription);
@@ -386,9 +330,6 @@ namespace Matchmaker.Patterns
         /// <exception cref="ArgumentNullException">
         /// <paramref name="description" /> is <see langword="null" />.
         /// </exception>
-        /// <seealso cref="Null{TInput}()" />
-        /// <seealso cref="ValueNull{TInput}()" />
-        /// <seealso cref="ValueNull{TInput}(string)" />
         public static IPattern<TInput, TInput> Null<TInput>(string description)
             where TInput : class
             => CreatePattern<TInput>(
@@ -400,9 +341,6 @@ namespace Matchmaker.Patterns
         /// </summary>
         /// <typeparam name="TInput">The type of the input value of the expression.</typeparam>
         /// <returns>A pattern which is matched successfully when the input value is <see langword="null" />.</returns>
-        /// <seealso cref="Null{TInput}()" />
-        /// <seealso cref="Null{TInput}(string)" />
-        /// <seealso cref="ValueNull{TInput}(string)" />
         public static IPattern<TInput?, TInput?> ValueNull<TInput>()
             where TInput : struct
             => ValueNull<TInput>(DefaultNullDescription);
@@ -416,9 +354,6 @@ namespace Matchmaker.Patterns
         /// <exception cref="ArgumentNullException">
         /// <paramref name="description" /> is <see langword="null" />.
         /// </exception>
-        /// <seealso cref="Null{TInput}()" />
-        /// <seealso cref="Null{TInput}(string)" />
-        /// <seealso cref="ValueNull{TInput}()" />
         public static IPattern<TInput?, TInput?> ValueNull<TInput>(string description)
             where TInput : struct
             => CreatePattern<TInput?>(
@@ -433,13 +368,6 @@ namespace Matchmaker.Patterns
         /// <returns>
         /// A pattern which is matched successfully when the input value is equal to the specified value.
         /// </returns>
-        /// <seealso cref="EqualTo{TInput}(Func{TInput})" />
-        /// <seealso cref="EqualTo{TInput}(TInput, IEqualityComparer{TInput})" />
-        /// <seealso cref="EqualTo{TInput}(Func{TInput}, IEqualityComparer{TInput})" />
-        /// <seealso cref="EqualTo{TInput}(TInput, string)" />
-        /// <seealso cref="EqualTo{TInput}(Func{TInput}, string)" />
-        /// <seealso cref="EqualTo{TInput}(TInput, IEqualityComparer{TInput}, string)" />
-        /// <seealso cref="EqualTo{TInput}(Func{TInput}, IEqualityComparer{TInput}, string)" />
         public static IPattern<TInput, TInput> EqualTo<TInput>(TInput value)
             => EqualTo(value, String.Format(DefaultEqualToDescriptionFormat, value));
 
@@ -454,13 +382,6 @@ namespace Matchmaker.Patterns
         /// <exception cref="ArgumentNullException">
         /// <paramref name="valueProvider" /> is <see langword="null" />.
         /// </exception>
-        /// <seealso cref="EqualTo{TInput}(TInput)" />
-        /// <seealso cref="EqualTo{TInput}(TInput, IEqualityComparer{TInput})" />
-        /// <seealso cref="EqualTo{TInput}(Func{TInput}, IEqualityComparer{TInput})" />
-        /// <seealso cref="EqualTo{TInput}(TInput, string)" />
-        /// <seealso cref="EqualTo{TInput}(Func{TInput}, string)" />
-        /// <seealso cref="EqualTo{TInput}(TInput, IEqualityComparer{TInput}, string)" />
-        /// <seealso cref="EqualTo{TInput}(Func{TInput}, IEqualityComparer{TInput}, string)" />
         public static IPattern<TInput, TInput> EqualTo<TInput>(Func<TInput> valueProvider)
             => EqualTo(valueProvider, DefaultLazyEqualToDescription);
 
@@ -477,13 +398,6 @@ namespace Matchmaker.Patterns
         /// <exception cref="ArgumentNullException">
         /// <paramref name="comparer" /> is <see langword="null" />.
         /// </exception>
-        /// <seealso cref="EqualTo{TInput}(TInput)" />
-        /// <seealso cref="EqualTo{TInput}(Func{TInput})" />
-        /// <seealso cref="EqualTo{TInput}(Func{TInput}, IEqualityComparer{TInput})" />
-        /// <seealso cref="EqualTo{TInput}(TInput, string)" />
-        /// <seealso cref="EqualTo{TInput}(Func{TInput}, string)" />
-        /// <seealso cref="EqualTo{TInput}(TInput, IEqualityComparer{TInput}, string)" />
-        /// <seealso cref="EqualTo{TInput}(Func{TInput}, IEqualityComparer{TInput}, string)" />
         public static IPattern<TInput, TInput> EqualTo<TInput>(TInput value, IEqualityComparer<TInput> comparer)
             => EqualTo(value, comparer, String.Format(DefaultEqualToDescriptionFormat, value));
 
@@ -512,13 +426,6 @@ namespace Matchmaker.Patterns
         /// <exception cref="ArgumentNullException">
         /// <paramref name="valueProvider" /> or <paramref name="comparer" /> is <see langword="null" />.
         /// </exception>
-        /// <seealso cref="EqualTo{TInput}(TInput)" />
-        /// <seealso cref="EqualTo{TInput}(Func{TInput})" />
-        /// <seealso cref="EqualTo{TInput}(TInput, IEqualityComparer{TInput})" />
-        /// <seealso cref="EqualTo{TInput}(TInput, string)" />
-        /// <seealso cref="EqualTo{TInput}(Func{TInput}, string)" />
-        /// <seealso cref="EqualTo{TInput}(TInput, IEqualityComparer{TInput}, string)" />
-        /// <seealso cref="EqualTo{TInput}(Func{TInput}, IEqualityComparer{TInput}, string)" />
         public static IPattern<TInput, TInput> EqualTo<TInput>(
             Func<TInput> valueProvider,
             IEqualityComparer<TInput> comparer)
@@ -536,13 +443,6 @@ namespace Matchmaker.Patterns
         /// <exception cref="ArgumentNullException">
         /// <paramref name="description" /> is <see langword="null" />.
         /// </exception>
-        /// <seealso cref="EqualTo{TInput}(TInput)" />
-        /// <seealso cref="EqualTo{TInput}(Func{TInput})" />
-        /// <seealso cref="EqualTo{TInput}(TInput, IEqualityComparer{TInput})" />
-        /// <seealso cref="EqualTo{TInput}(Func{TInput}, IEqualityComparer{TInput})" />
-        /// <seealso cref="EqualTo{TInput}(Func{TInput}, string)" />
-        /// <seealso cref="EqualTo{TInput}(TInput, IEqualityComparer{TInput}, string)" />
-        /// <seealso cref="EqualTo{TInput}(Func{TInput}, IEqualityComparer{TInput}, string)" />
         public static IPattern<TInput, TInput> EqualTo<TInput>(TInput value, string description)
             => EqualTo(value, EqualityComparer<TInput>.Default, description);
 
@@ -570,13 +470,6 @@ namespace Matchmaker.Patterns
         /// <exception cref="ArgumentNullException">
         /// <paramref name="valueProvider" /> or <paramref name="description" /> is <see langword="null" />.
         /// </exception>
-        /// <seealso cref="EqualTo{TInput}(TInput)" />
-        /// <seealso cref="EqualTo{TInput}(Func{TInput})" />
-        /// <seealso cref="EqualTo{TInput}(TInput, IEqualityComparer{TInput})" />
-        /// <seealso cref="EqualTo{TInput}(Func{TInput}, IEqualityComparer{TInput})" />
-        /// <seealso cref="EqualTo{TInput}(TInput, string)" />
-        /// <seealso cref="EqualTo{TInput}(TInput, IEqualityComparer{TInput}, string)" />
-        /// <seealso cref="EqualTo{TInput}(Func{TInput}, IEqualityComparer{TInput}, string)" />
         public static IPattern<TInput, TInput> EqualTo<TInput>(Func<TInput> valueProvider, string description)
             => EqualTo(valueProvider, EqualityComparer<TInput>.Default, description);
 
@@ -594,13 +487,6 @@ namespace Matchmaker.Patterns
         /// <exception cref="ArgumentNullException">
         /// <paramref name="comparer" /> or <paramref name="description" /> is <see langword="null" />.
         /// </exception>
-        /// <seealso cref="EqualTo{TInput}(TInput)" />
-        /// <seealso cref="EqualTo{TInput}(Func{TInput})" />
-        /// <seealso cref="EqualTo{TInput}(TInput, IEqualityComparer{TInput})" />
-        /// <seealso cref="EqualTo{TInput}(Func{TInput}, IEqualityComparer{TInput})" />
-        /// <seealso cref="EqualTo{TInput}(TInput, string)" />
-        /// <seealso cref="EqualTo{TInput}(Func{TInput}, string)" />
-        /// <seealso cref="EqualTo{TInput}(TInput, IEqualityComparer{TInput}, string)" />
         public static IPattern<TInput, TInput> EqualTo<TInput>(
             TInput value,
             IEqualityComparer<TInput> comparer,
@@ -638,13 +524,6 @@ namespace Matchmaker.Patterns
         /// <paramref name="valueProvider" />, <paramref name="comparer" /> or <paramref name="description" />
         /// is <see langword="null" />.
         /// </exception>
-        /// <seealso cref="EqualTo{TInput}(TInput)" />
-        /// <seealso cref="EqualTo{TInput}(Func{TInput})" />
-        /// <seealso cref="EqualTo{TInput}(TInput, IEqualityComparer{TInput})" />
-        /// <seealso cref="EqualTo{TInput}(Func{TInput}, IEqualityComparer{TInput})" />
-        /// <seealso cref="EqualTo{TInput}(TInput, string)" />
-        /// <seealso cref="EqualTo{TInput}(Func{TInput}, string)" />
-        /// <seealso cref="EqualTo{TInput}(TInput, IEqualityComparer{TInput}, string)" />
         public static IPattern<TInput, TInput> EqualTo<TInput>(
             Func<TInput> valueProvider,
             IEqualityComparer<TInput> comparer,
@@ -667,13 +546,6 @@ namespace Matchmaker.Patterns
         /// <returns>
         /// A pattern which is matched successfully when the input value is less than the specified value.
         /// </returns>
-        /// <seealso cref="LessThan{TInput}(Func{TInput})" />
-        /// <seealso cref="LessThan{TInput}(TInput, IComparer{TInput})" />
-        /// <seealso cref="LessThan{TInput}(Func{TInput}, IComparer{TInput})" />
-        /// <seealso cref="LessThan{TInput}(TInput, string)" />
-        /// <seealso cref="LessThan{TInput}(Func{TInput}, string)" />
-        /// <seealso cref="LessThan{TInput}(TInput, IComparer{TInput}, string)" />
-        /// <seealso cref="LessThan{TInput}(Func{TInput}, IComparer{TInput}, string)" />
         public static IPattern<TInput, TInput> LessThan<TInput>(TInput value)
             where TInput : IComparable<TInput>
             => LessThan(value, Comparer<TInput>.Default, String.Format(DefaultLessThanDescriptionFormat, value));
@@ -701,13 +573,6 @@ namespace Matchmaker.Patterns
         /// <exception cref="ArgumentNullException">
         /// <paramref name="valueProvider" /> is <see langword="null" />.
         /// </exception>
-        /// <seealso cref="LessThan{TInput}(TInput)" />
-        /// <seealso cref="LessThan{TInput}(TInput, IComparer{TInput})" />
-        /// <seealso cref="LessThan{TInput}(Func{TInput}, IComparer{TInput})" />
-        /// <seealso cref="LessThan{TInput}(TInput, string)" />
-        /// <seealso cref="LessThan{TInput}(Func{TInput}, string)" />
-        /// <seealso cref="LessThan{TInput}(TInput, IComparer{TInput}, string)" />
-        /// <seealso cref="LessThan{TInput}(Func{TInput}, IComparer{TInput}, string)" />
         public static IPattern<TInput, TInput> LessThan<TInput>(Func<TInput> valueProvider)
             where TInput : IComparable<TInput>
             => LessThan(valueProvider, Comparer<TInput>.Default, DefaultLazyLessThanDescription);
@@ -725,13 +590,6 @@ namespace Matchmaker.Patterns
         /// <exception cref="ArgumentNullException">
         /// <paramref name="comparer" /> is <see langword="null" />.
         /// </exception>
-        /// <seealso cref="LessThan{TInput}(TInput)" />
-        /// <seealso cref="LessThan{TInput}(Func{TInput})" />
-        /// <seealso cref="LessThan{TInput}(Func{TInput}, IComparer{TInput})" />
-        /// <seealso cref="LessThan{TInput}(TInput, string)" />
-        /// <seealso cref="LessThan{TInput}(Func{TInput}, string)" />
-        /// <seealso cref="LessThan{TInput}(TInput, IComparer{TInput}, string)" />
-        /// <seealso cref="LessThan{TInput}(Func{TInput}, IComparer{TInput}, string)" />
         public static IPattern<TInput, TInput> LessThan<TInput>(TInput value, IComparer<TInput> comparer)
             => LessThan(value, comparer, String.Format(DefaultLessThanDescriptionFormat, value));
 
@@ -760,13 +618,6 @@ namespace Matchmaker.Patterns
         /// <exception cref="ArgumentNullException">
         /// <paramref name="valueProvider" /> or <paramref name="comparer" /> is <see langword="null" />.
         /// </exception>
-        /// <seealso cref="LessThan{TInput}(TInput)" />
-        /// <seealso cref="LessThan{TInput}(Func{TInput})" />
-        /// <seealso cref="LessThan{TInput}(TInput, IComparer{TInput})" />
-        /// <seealso cref="LessThan{TInput}(TInput, string)" />
-        /// <seealso cref="LessThan{TInput}(Func{TInput}, string)" />
-        /// <seealso cref="LessThan{TInput}(TInput, IComparer{TInput}, string)" />
-        /// <seealso cref="LessThan{TInput}(Func{TInput}, IComparer{TInput}, string)" />
         public static IPattern<TInput, TInput> LessThan<TInput>(Func<TInput> valueProvider, IComparer<TInput> comparer)
             => LessThan(valueProvider, comparer, DefaultLazyLessThanDescription);
 
@@ -782,13 +633,6 @@ namespace Matchmaker.Patterns
         /// <exception cref="ArgumentNullException">
         /// <paramref name="description" /> is <see langword="null" />.
         /// </exception>
-        /// <seealso cref="LessThan{TInput}(TInput)" />
-        /// <seealso cref="LessThan{TInput}(Func{TInput})" />
-        /// <seealso cref="LessThan{TInput}(TInput, IComparer{TInput})" />
-        /// <seealso cref="LessThan{TInput}(Func{TInput}, IComparer{TInput})" />
-        /// <seealso cref="LessThan{TInput}(Func{TInput}, string)" />
-        /// <seealso cref="LessThan{TInput}(TInput, IComparer{TInput}, string)" />
-        /// <seealso cref="LessThan{TInput}(Func{TInput}, IComparer{TInput}, string)" />
         public static IPattern<TInput, TInput> LessThan<TInput>(TInput value, string description)
             where TInput : IComparable<TInput>
             => LessThan(value, Comparer<TInput>.Default, description);
@@ -817,13 +661,6 @@ namespace Matchmaker.Patterns
         /// <exception cref="ArgumentNullException">
         /// <paramref name="valueProvider" /> or <paramref name="description" /> is <see langword="null" />.
         /// </exception>
-        /// <seealso cref="LessThan{TInput}(TInput)" />
-        /// <seealso cref="LessThan{TInput}(Func{TInput})" />
-        /// <seealso cref="LessThan{TInput}(TInput, IComparer{TInput})" />
-        /// <seealso cref="LessThan{TInput}(Func{TInput}, IComparer{TInput})" />
-        /// <seealso cref="LessThan{TInput}(TInput, string)" />
-        /// <seealso cref="LessThan{TInput}(TInput, IComparer{TInput}, string)" />
-        /// <seealso cref="LessThan{TInput}(Func{TInput}, IComparer{TInput}, string)" />
         public static IPattern<TInput, TInput> LessThan<TInput>(Func<TInput> valueProvider, string description)
             where TInput : IComparable<TInput>
             => LessThan(valueProvider, Comparer<TInput>.Default, description);
@@ -842,13 +679,6 @@ namespace Matchmaker.Patterns
         /// <exception cref="ArgumentNullException">
         /// <paramref name="comparer" /> or <paramref name="description" /> is <see langword="null" />.
         /// </exception>
-        /// <seealso cref="LessThan{TInput}(TInput)" />
-        /// <seealso cref="LessThan{TInput}(Func{TInput})" />
-        /// <seealso cref="LessThan{TInput}(TInput, IComparer{TInput})" />
-        /// <seealso cref="LessThan{TInput}(Func{TInput}, IComparer{TInput})" />
-        /// <seealso cref="LessThan{TInput}(TInput, string)" />
-        /// <seealso cref="LessThan{TInput}(Func{TInput}, string)" />
-        /// <seealso cref="LessThan{TInput}(Func{TInput}, IComparer{TInput}, string)" />
         public static IPattern<TInput, TInput> LessThan<TInput>(
             TInput value,
             IComparer<TInput> comparer,
@@ -886,13 +716,6 @@ namespace Matchmaker.Patterns
         /// <paramref name="valueProvider" />, <paramref name="comparer" /> or <paramref name="description" />
         /// is <see langword="null" />.
         /// </exception>
-        /// <seealso cref="LessThan{TInput}(TInput)" />
-        /// <seealso cref="LessThan{TInput}(Func{TInput})" />
-        /// <seealso cref="LessThan{TInput}(TInput, IComparer{TInput})" />
-        /// <seealso cref="LessThan{TInput}(Func{TInput}, IComparer{TInput})" />
-        /// <seealso cref="LessThan{TInput}(TInput, string)" />
-        /// <seealso cref="LessThan{TInput}(Func{TInput}, string)" />
-        /// <seealso cref="LessThan{TInput}(TInput, IComparer{TInput}, string)" />
         public static IPattern<TInput, TInput> LessThan<TInput>(
             Func<TInput> valueProvider,
             IComparer<TInput> comparer,
@@ -916,13 +739,6 @@ namespace Matchmaker.Patterns
         /// <returns>
         /// A pattern which is matched successfully when the input value is less than or equal to the specified value.
         /// </returns>
-        /// <seealso cref="LessOrEqual{TInput}(Func{TInput})" />
-        /// <seealso cref="LessOrEqual{TInput}(TInput, IComparer{TInput})" />
-        /// <seealso cref="LessOrEqual{TInput}(Func{TInput}, IComparer{TInput})" />
-        /// <seealso cref="LessOrEqual{TInput}(TInput, string)" />
-        /// <seealso cref="LessOrEqual{TInput}(Func{TInput}, string)" />
-        /// <seealso cref="LessOrEqual{TInput}(TInput, IComparer{TInput}, string)" />
-        /// <seealso cref="LessOrEqual{TInput}(Func{TInput}, IComparer{TInput}, string)" />
         public static IPattern<TInput, TInput> LessOrEqual<TInput>(TInput value)
             where TInput : IComparable<TInput>
             => LessOrEqual(value, Comparer<TInput>.Default, String.Format(DefaultLessOrEqualDescriptionFormat, value));
@@ -951,13 +767,6 @@ namespace Matchmaker.Patterns
         /// <exception cref="ArgumentNullException">
         /// <paramref name="valueProvider" /> is <see langword="null" />.
         /// </exception>
-        /// <seealso cref="LessOrEqual{TInput}(TInput)" />
-        /// <seealso cref="LessOrEqual{TInput}(TInput, IComparer{TInput})" />
-        /// <seealso cref="LessOrEqual{TInput}(Func{TInput}, IComparer{TInput})" />
-        /// <seealso cref="LessOrEqual{TInput}(TInput, string)" />
-        /// <seealso cref="LessOrEqual{TInput}(Func{TInput}, string)" />
-        /// <seealso cref="LessOrEqual{TInput}(TInput, IComparer{TInput}, string)" />
-        /// <seealso cref="LessOrEqual{TInput}(Func{TInput}, IComparer{TInput}, string)" />
         public static IPattern<TInput, TInput> LessOrEqual<TInput>(Func<TInput> valueProvider)
             where TInput : IComparable<TInput>
             => LessOrEqual(valueProvider, Comparer<TInput>.Default, DefaultLazyLessOrEqualDescription);
@@ -975,13 +784,6 @@ namespace Matchmaker.Patterns
         /// <exception cref="ArgumentNullException">
         /// <paramref name="comparer" /> is <see langword="null" />.
         /// </exception>
-        /// <seealso cref="LessOrEqual{TInput}(TInput)" />
-        /// <seealso cref="LessOrEqual{TInput}(Func{TInput})" />
-        /// <seealso cref="LessOrEqual{TInput}(Func{TInput}, IComparer{TInput})" />
-        /// <seealso cref="LessOrEqual{TInput}(TInput, string)" />
-        /// <seealso cref="LessOrEqual{TInput}(Func{TInput}, string)" />
-        /// <seealso cref="LessOrEqual{TInput}(TInput, IComparer{TInput}, string)" />
-        /// <seealso cref="LessOrEqual{TInput}(Func{TInput}, IComparer{TInput}, string)" />
         public static IPattern<TInput, TInput> LessOrEqual<TInput>(TInput value, IComparer<TInput> comparer)
             => LessOrEqual(value, comparer, String.Format(DefaultLessOrEqualDescriptionFormat, value));
 
@@ -1010,13 +812,6 @@ namespace Matchmaker.Patterns
         /// <exception cref="ArgumentNullException">
         /// <paramref name="valueProvider" /> or <paramref name="comparer" /> is <see langword="null" />.
         /// </exception>
-        /// <seealso cref="LessOrEqual{TInput}(TInput)" />
-        /// <seealso cref="LessOrEqual{TInput}(Func{TInput})" />
-        /// <seealso cref="LessOrEqual{TInput}(TInput, IComparer{TInput})" />
-        /// <seealso cref="LessOrEqual{TInput}(TInput, string)" />
-        /// <seealso cref="LessOrEqual{TInput}(Func{TInput}, string)" />
-        /// <seealso cref="LessOrEqual{TInput}(TInput, IComparer{TInput}, string)" />
-        /// <seealso cref="LessOrEqual{TInput}(Func{TInput}, IComparer{TInput}, string)" />
         public static IPattern<TInput, TInput> LessOrEqual<TInput>(
             Func<TInput> valueProvider,
             IComparer<TInput> comparer)
@@ -1035,13 +830,6 @@ namespace Matchmaker.Patterns
         /// <exception cref="ArgumentNullException">
         /// <paramref name="description" /> is <see langword="null" />.
         /// </exception>
-        /// <seealso cref="LessOrEqual{TInput}(TInput)" />
-        /// <seealso cref="LessOrEqual{TInput}(Func{TInput})" />
-        /// <seealso cref="LessOrEqual{TInput}(TInput, IComparer{TInput})" />
-        /// <seealso cref="LessOrEqual{TInput}(Func{TInput}, IComparer{TInput})" />
-        /// <seealso cref="LessOrEqual{TInput}(Func{TInput}, string)" />
-        /// <seealso cref="LessOrEqual{TInput}(TInput, IComparer{TInput}, string)" />
-        /// <seealso cref="LessOrEqual{TInput}(Func{TInput}, IComparer{TInput}, string)" />
         public static IPattern<TInput, TInput> LessOrEqual<TInput>(TInput value, string description)
             where TInput : IComparable<TInput>
             => LessOrEqual(value, Comparer<TInput>.Default, description);
@@ -1071,13 +859,6 @@ namespace Matchmaker.Patterns
         /// <exception cref="ArgumentNullException">
         /// <paramref name="valueProvider" /> or <paramref name="description" /> is <see langword="null" />.
         /// </exception>
-        /// <seealso cref="LessOrEqual{TInput}(TInput)" />
-        /// <seealso cref="LessOrEqual{TInput}(Func{TInput})" />
-        /// <seealso cref="LessOrEqual{TInput}(TInput, IComparer{TInput})" />
-        /// <seealso cref="LessOrEqual{TInput}(Func{TInput}, IComparer{TInput})" />
-        /// <seealso cref="LessOrEqual{TInput}(TInput, string)" />
-        /// <seealso cref="LessOrEqual{TInput}(TInput, IComparer{TInput}, string)" />
-        /// <seealso cref="LessOrEqual{TInput}(Func{TInput}, IComparer{TInput}, string)" />
         public static IPattern<TInput, TInput> LessOrEqual<TInput>(Func<TInput> valueProvider, string description)
             where TInput : IComparable<TInput>
             => LessOrEqual(valueProvider, Comparer<TInput>.Default, description);
@@ -1096,13 +877,6 @@ namespace Matchmaker.Patterns
         /// <exception cref="ArgumentNullException">
         /// <paramref name="comparer" /> or <paramref name="description" /> is <see langword="null" />.
         /// </exception>
-        /// <seealso cref="LessOrEqual{TInput}(TInput)" />
-        /// <seealso cref="LessOrEqual{TInput}(Func{TInput})" />
-        /// <seealso cref="LessOrEqual{TInput}(TInput, IComparer{TInput})" />
-        /// <seealso cref="LessOrEqual{TInput}(Func{TInput}, IComparer{TInput})" />
-        /// <seealso cref="LessOrEqual{TInput}(TInput, string)" />
-        /// <seealso cref="LessOrEqual{TInput}(Func{TInput}, string)" />
-        /// <seealso cref="LessOrEqual{TInput}(Func{TInput}, IComparer{TInput}, string)" />
         public static IPattern<TInput, TInput> LessOrEqual<TInput>(
             TInput value,
             IComparer<TInput> comparer,
@@ -1140,13 +914,6 @@ namespace Matchmaker.Patterns
         /// <paramref name="valueProvider" />, <paramref name="comparer" /> or <paramref name="description" />
         /// is <see langword="null" />.
         /// </exception>
-        /// <seealso cref="LessOrEqual{TInput}(TInput)" />
-        /// <seealso cref="LessOrEqual{TInput}(Func{TInput})" />
-        /// <seealso cref="LessOrEqual{TInput}(TInput, IComparer{TInput})" />
-        /// <seealso cref="LessOrEqual{TInput}(Func{TInput}, IComparer{TInput})" />
-        /// <seealso cref="LessOrEqual{TInput}(TInput, string)" />
-        /// <seealso cref="LessOrEqual{TInput}(Func{TInput}, string)" />
-        /// <seealso cref="LessOrEqual{TInput}(TInput, IComparer{TInput}, string)" />
         public static IPattern<TInput, TInput> LessOrEqual<TInput>(
             Func<TInput> valueProvider,
             IComparer<TInput> comparer,
@@ -1169,13 +936,6 @@ namespace Matchmaker.Patterns
         /// <returns>
         /// A pattern which is matched successfully when the input value is greater than the specified value.
         /// </returns>
-        /// <seealso cref="GreaterThan{TInput}(Func{TInput})" />
-        /// <seealso cref="GreaterThan{TInput}(TInput, IComparer{TInput})" />
-        /// <seealso cref="GreaterThan{TInput}(Func{TInput}, IComparer{TInput})" />
-        /// <seealso cref="GreaterThan{TInput}(TInput, string)" />
-        /// <seealso cref="GreaterThan{TInput}(Func{TInput}, string)" />
-        /// <seealso cref="GreaterThan{TInput}(TInput, IComparer{TInput}, string)" />
-        /// <seealso cref="GreaterThan{TInput}(Func{TInput}, IComparer{TInput}, string)" />
         public static IPattern<TInput, TInput> GreaterThan<TInput>(TInput value)
             where TInput : IComparable<TInput>
             => GreaterThan(value, Comparer<TInput>.Default, String.Format(DefaultGreaterThanDescriptionFormat, value));
@@ -1203,13 +963,6 @@ namespace Matchmaker.Patterns
         /// <exception cref="ArgumentNullException">
         /// <paramref name="valueProvider" /> is <see langword="null" />.
         /// </exception>
-        /// <seealso cref="GreaterThan{TInput}(TInput)" />
-        /// <seealso cref="GreaterThan{TInput}(TInput, IComparer{TInput})" />
-        /// <seealso cref="GreaterThan{TInput}(Func{TInput}, IComparer{TInput})" />
-        /// <seealso cref="GreaterThan{TInput}(TInput, string)" />
-        /// <seealso cref="GreaterThan{TInput}(Func{TInput}, string)" />
-        /// <seealso cref="GreaterThan{TInput}(TInput, IComparer{TInput}, string)" />
-        /// <seealso cref="GreaterThan{TInput}(Func{TInput}, IComparer{TInput}, string)" />
         public static IPattern<TInput, TInput> GreaterThan<TInput>(Func<TInput> valueProvider)
             where TInput : IComparable<TInput>
             => GreaterThan(valueProvider, Comparer<TInput>.Default, DefaultLazyGreaterThanDescription);
@@ -1227,13 +980,6 @@ namespace Matchmaker.Patterns
         /// <exception cref="ArgumentNullException">
         /// <paramref name="comparer" /> is <see langword="null" />.
         /// </exception>
-        /// <seealso cref="GreaterThan{TInput}(TInput)" />
-        /// <seealso cref="GreaterThan{TInput}(Func{TInput})" />
-        /// <seealso cref="GreaterThan{TInput}(Func{TInput}, IComparer{TInput})" />
-        /// <seealso cref="GreaterThan{TInput}(TInput, string)" />
-        /// <seealso cref="GreaterThan{TInput}(Func{TInput}, string)" />
-        /// <seealso cref="GreaterThan{TInput}(TInput, IComparer{TInput}, string)" />
-        /// <seealso cref="GreaterThan{TInput}(Func{TInput}, IComparer{TInput}, string)" />
         public static IPattern<TInput, TInput> GreaterThan<TInput>(TInput value, IComparer<TInput> comparer)
             => GreaterThan(value, comparer, String.Format(DefaultGreaterThanDescriptionFormat, value));
 
@@ -1262,13 +1008,6 @@ namespace Matchmaker.Patterns
         /// <exception cref="ArgumentNullException">
         /// <paramref name="valueProvider" /> or <paramref name="comparer" /> is <see langword="null" />.
         /// </exception>
-        /// <seealso cref="GreaterThan{TInput}(TInput)" />
-        /// <seealso cref="GreaterThan{TInput}(Func{TInput})" />
-        /// <seealso cref="GreaterThan{TInput}(TInput, IComparer{TInput})" />
-        /// <seealso cref="GreaterThan{TInput}(TInput, string)" />
-        /// <seealso cref="GreaterThan{TInput}(Func{TInput}, string)" />
-        /// <seealso cref="GreaterThan{TInput}(TInput, IComparer{TInput}, string)" />
-        /// <seealso cref="GreaterThan{TInput}(Func{TInput}, IComparer{TInput}, string)" />
         public static IPattern<TInput, TInput> GreaterThan<TInput>(
             Func<TInput> valueProvider,
             IComparer<TInput> comparer)
@@ -1286,13 +1025,6 @@ namespace Matchmaker.Patterns
         /// <exception cref="ArgumentNullException">
         /// <paramref name="description" /> is <see langword="null" />.
         /// </exception>
-        /// <seealso cref="GreaterThan{TInput}(TInput)" />
-        /// <seealso cref="GreaterThan{TInput}(Func{TInput})" />
-        /// <seealso cref="GreaterThan{TInput}(TInput, IComparer{TInput})" />
-        /// <seealso cref="GreaterThan{TInput}(Func{TInput}, IComparer{TInput})" />
-        /// <seealso cref="GreaterThan{TInput}(Func{TInput}, string)" />
-        /// <seealso cref="GreaterThan{TInput}(TInput, IComparer{TInput}, string)" />
-        /// <seealso cref="GreaterThan{TInput}(Func{TInput}, IComparer{TInput}, string)" />
         public static IPattern<TInput, TInput> GreaterThan<TInput>(TInput value, string description)
             where TInput : IComparable<TInput>
             => GreaterThan(value, Comparer<TInput>.Default, description);
@@ -1321,13 +1053,6 @@ namespace Matchmaker.Patterns
         /// <exception cref="ArgumentNullException">
         /// <paramref name="valueProvider" /> or <paramref name="description" /> is <see langword="null" />.
         /// </exception>
-        /// <seealso cref="GreaterThan{TInput}(TInput)" />
-        /// <seealso cref="GreaterThan{TInput}(Func{TInput})" />
-        /// <seealso cref="GreaterThan{TInput}(TInput, IComparer{TInput})" />
-        /// <seealso cref="GreaterThan{TInput}(Func{TInput}, IComparer{TInput})" />
-        /// <seealso cref="GreaterThan{TInput}(TInput, string)" />
-        /// <seealso cref="GreaterThan{TInput}(TInput, IComparer{TInput}, string)" />
-        /// <seealso cref="GreaterThan{TInput}(Func{TInput}, IComparer{TInput}, string)" />
         public static IPattern<TInput, TInput> GreaterThan<TInput>(Func<TInput> valueProvider, string description)
             where TInput : IComparable<TInput>
             => GreaterThan(valueProvider, Comparer<TInput>.Default, description);
@@ -1346,13 +1071,6 @@ namespace Matchmaker.Patterns
         /// <exception cref="ArgumentNullException">
         /// <paramref name="comparer" /> or <paramref name="description" /> is <see langword="null" />.
         /// </exception>
-        /// <seealso cref="GreaterThan{TInput}(TInput)" />
-        /// <seealso cref="GreaterThan{TInput}(Func{TInput})" />
-        /// <seealso cref="GreaterThan{TInput}(TInput, IComparer{TInput})" />
-        /// <seealso cref="GreaterThan{TInput}(Func{TInput}, IComparer{TInput})" />
-        /// <seealso cref="GreaterThan{TInput}(TInput, string)" />
-        /// <seealso cref="GreaterThan{TInput}(Func{TInput}, string)" />
-        /// <seealso cref="GreaterThan{TInput}(Func{TInput}, IComparer{TInput}, string)" />
         public static IPattern<TInput, TInput> GreaterThan<TInput>(
             TInput value,
             IComparer<TInput> comparer,
@@ -1390,13 +1108,6 @@ namespace Matchmaker.Patterns
         /// <paramref name="valueProvider" />, <paramref name="comparer" /> or <paramref name="description" />
         /// is <see langword="null" />.
         /// </exception>
-        /// <seealso cref="GreaterThan{TInput}(TInput)" />
-        /// <seealso cref="GreaterThan{TInput}(Func{TInput})" />
-        /// <seealso cref="GreaterThan{TInput}(TInput, IComparer{TInput})" />
-        /// <seealso cref="GreaterThan{TInput}(Func{TInput}, IComparer{TInput})" />
-        /// <seealso cref="GreaterThan{TInput}(TInput, string)" />
-        /// <seealso cref="GreaterThan{TInput}(Func{TInput}, string)" />
-        /// <seealso cref="GreaterThan{TInput}(TInput, IComparer{TInput}, string)" />
         public static IPattern<TInput, TInput> GreaterThan<TInput>(
             Func<TInput> valueProvider,
             IComparer<TInput> comparer,
@@ -1421,13 +1132,6 @@ namespace Matchmaker.Patterns
         /// A pattern which is matched successfully when the input value is greater than
         /// or equal to the specified value.
         /// </returns>
-        /// <seealso cref="GreaterOrEqual{TInput}(Func{TInput})" />
-        /// <seealso cref="GreaterOrEqual{TInput}(TInput, IComparer{TInput})" />
-        /// <seealso cref="GreaterOrEqual{TInput}(Func{TInput}, IComparer{TInput})" />
-        /// <seealso cref="GreaterOrEqual{TInput}(TInput, string)" />
-        /// <seealso cref="GreaterOrEqual{TInput}(Func{TInput}, string)" />
-        /// <seealso cref="GreaterOrEqual{TInput}(TInput, IComparer{TInput}, string)" />
-        /// <seealso cref="GreaterOrEqual{TInput}(Func{TInput}, IComparer{TInput}, string)" />
         public static IPattern<TInput, TInput> GreaterOrEqual<TInput>(TInput value)
             where TInput : IComparable<TInput>
             => GreaterOrEqual(
@@ -1458,13 +1162,6 @@ namespace Matchmaker.Patterns
         /// <exception cref="ArgumentNullException">
         /// <paramref name="valueProvider" /> is <see langword="null" />.
         /// </exception>
-        /// <seealso cref="GreaterOrEqual{TInput}(TInput)" />
-        /// <seealso cref="GreaterOrEqual{TInput}(TInput, IComparer{TInput})" />
-        /// <seealso cref="GreaterOrEqual{TInput}(Func{TInput}, IComparer{TInput})" />
-        /// <seealso cref="GreaterOrEqual{TInput}(TInput, string)" />
-        /// <seealso cref="GreaterOrEqual{TInput}(Func{TInput}, string)" />
-        /// <seealso cref="GreaterOrEqual{TInput}(TInput, IComparer{TInput}, string)" />
-        /// <seealso cref="GreaterOrEqual{TInput}(Func{TInput}, IComparer{TInput}, string)" />
         public static IPattern<TInput, TInput> GreaterOrEqual<TInput>(Func<TInput> valueProvider)
             where TInput : IComparable<TInput>
             => GreaterOrEqual(valueProvider, Comparer<TInput>.Default, DefaultLazyGreaterOrEqualDescription);
@@ -1483,13 +1180,6 @@ namespace Matchmaker.Patterns
         /// <exception cref="ArgumentNullException">
         /// <paramref name="comparer" /> is <see langword="null" />.
         /// </exception>
-        /// <seealso cref="GreaterOrEqual{TInput}(TInput)" />
-        /// <seealso cref="GreaterOrEqual{TInput}(Func{TInput})" />
-        /// <seealso cref="GreaterOrEqual{TInput}(Func{TInput}, IComparer{TInput})" />
-        /// <seealso cref="GreaterOrEqual{TInput}(TInput, string)" />
-        /// <seealso cref="GreaterOrEqual{TInput}(Func{TInput}, string)" />
-        /// <seealso cref="GreaterOrEqual{TInput}(TInput, IComparer{TInput}, string)" />
-        /// <seealso cref="GreaterOrEqual{TInput}(Func{TInput}, IComparer{TInput}, string)" />
         public static IPattern<TInput, TInput> GreaterOrEqual<TInput>(TInput value, IComparer<TInput> comparer)
             => GreaterOrEqual(value, comparer, String.Format(DefaultGreaterOrEqualDescriptionFormat, value));
 
@@ -1519,13 +1209,6 @@ namespace Matchmaker.Patterns
         /// <exception cref="ArgumentNullException">
         /// <paramref name="valueProvider" /> or <paramref name="comparer" /> is <see langword="null" />.
         /// </exception>
-        /// <seealso cref="GreaterOrEqual{TInput}(TInput)" />
-        /// <seealso cref="GreaterOrEqual{TInput}(Func{TInput})" />
-        /// <seealso cref="GreaterOrEqual{TInput}(TInput, IComparer{TInput})" />
-        /// <seealso cref="GreaterOrEqual{TInput}(TInput, string)" />
-        /// <seealso cref="GreaterOrEqual{TInput}(Func{TInput}, string)" />
-        /// <seealso cref="GreaterOrEqual{TInput}(TInput, IComparer{TInput}, string)" />
-        /// <seealso cref="GreaterOrEqual{TInput}(Func{TInput}, IComparer{TInput}, string)" />
         public static IPattern<TInput, TInput> GreaterOrEqual<TInput>(
             Func<TInput> valueProvider,
             IComparer<TInput> comparer)
@@ -1545,13 +1228,6 @@ namespace Matchmaker.Patterns
         /// <exception cref="ArgumentNullException">
         /// <paramref name="description" /> is <see langword="null" />.
         /// </exception>
-        /// <seealso cref="GreaterOrEqual{TInput}(TInput)" />
-        /// <seealso cref="GreaterOrEqual{TInput}(Func{TInput})" />
-        /// <seealso cref="GreaterOrEqual{TInput}(TInput, IComparer{TInput})" />
-        /// <seealso cref="GreaterOrEqual{TInput}(Func{TInput}, IComparer{TInput})" />
-        /// <seealso cref="GreaterOrEqual{TInput}(Func{TInput}, string)" />
-        /// <seealso cref="GreaterOrEqual{TInput}(TInput, IComparer{TInput}, string)" />
-        /// <seealso cref="GreaterOrEqual{TInput}(Func{TInput}, IComparer{TInput}, string)" />
         public static IPattern<TInput, TInput> GreaterOrEqual<TInput>(TInput value, string description)
             where TInput : IComparable<TInput>
             => GreaterOrEqual(value, Comparer<TInput>.Default, description);
@@ -1582,13 +1258,6 @@ namespace Matchmaker.Patterns
         /// <exception cref="ArgumentNullException">
         /// <paramref name="valueProvider" /> or <paramref name="description" /> is <see langword="null" />.
         /// </exception>
-        /// <seealso cref="GreaterOrEqual{TInput}(TInput)" />
-        /// <seealso cref="GreaterOrEqual{TInput}(Func{TInput})" />
-        /// <seealso cref="GreaterOrEqual{TInput}(TInput, IComparer{TInput})" />
-        /// <seealso cref="GreaterOrEqual{TInput}(Func{TInput}, IComparer{TInput})" />
-        /// <seealso cref="GreaterOrEqual{TInput}(TInput, string)" />
-        /// <seealso cref="GreaterOrEqual{TInput}(TInput, IComparer{TInput}, string)" />
-        /// <seealso cref="GreaterOrEqual{TInput}(Func{TInput}, IComparer{TInput}, string)" />
         public static IPattern<TInput, TInput> GreaterOrEqual<TInput>(Func<TInput> valueProvider, string description)
             where TInput : IComparable<TInput>
             => GreaterOrEqual(valueProvider, Comparer<TInput>.Default, description);
@@ -1608,13 +1277,6 @@ namespace Matchmaker.Patterns
         /// <exception cref="ArgumentNullException">
         /// <paramref name="comparer" /> or <paramref name="description" /> is <see langword="null" />.
         /// </exception>
-        /// <seealso cref="GreaterOrEqual{TInput}(TInput)" />
-        /// <seealso cref="GreaterOrEqual{TInput}(Func{TInput})" />
-        /// <seealso cref="GreaterOrEqual{TInput}(TInput, IComparer{TInput})" />
-        /// <seealso cref="GreaterOrEqual{TInput}(Func{TInput}, IComparer{TInput})" />
-        /// <seealso cref="GreaterOrEqual{TInput}(TInput, string)" />
-        /// <seealso cref="GreaterOrEqual{TInput}(Func{TInput}, string)" />
-        /// <seealso cref="GreaterOrEqual{TInput}(Func{TInput}, IComparer{TInput}, string)" />
         public static IPattern<TInput, TInput> GreaterOrEqual<TInput>(
             TInput value,
             IComparer<TInput> comparer,
@@ -1653,13 +1315,6 @@ namespace Matchmaker.Patterns
         /// <paramref name="valueProvider" />, <paramref name="comparer" /> or <paramref name="description" />
         /// is <see langword="null" />.
         /// </exception>
-        /// <seealso cref="GreaterOrEqual{TInput}(TInput)" />
-        /// <seealso cref="GreaterOrEqual{TInput}(Func{TInput})" />
-        /// <seealso cref="GreaterOrEqual{TInput}(TInput, IComparer{TInput})" />
-        /// <seealso cref="GreaterOrEqual{TInput}(Func{TInput}, IComparer{TInput})" />
-        /// <seealso cref="GreaterOrEqual{TInput}(TInput, string)" />
-        /// <seealso cref="GreaterOrEqual{TInput}(Func{TInput}, string)" />
-        /// <seealso cref="GreaterOrEqual{TInput}(TInput, IComparer{TInput}, string)" />
         public static IPattern<TInput, TInput> GreaterOrEqual<TInput>(
             Func<TInput> valueProvider,
             IComparer<TInput> comparer,
@@ -1686,7 +1341,6 @@ namespace Matchmaker.Patterns
         /// If the input is <see langword="null" />, then this pattern fails only when <typeparamref name="TType"/>
         /// is a non-nullable value type.
         /// </remarks>
-        /// <seealso cref="Type{TInput, TType}(string)" />
         public static IPattern<TInput, TType> Type<TInput, TType>()
             where TType : TInput
             => Type<TInput, TType>(String.Format(DefaultTypeDescriptionFormat, typeof(TType)));
@@ -1707,7 +1361,6 @@ namespace Matchmaker.Patterns
         /// <exception cref="ArgumentNullException">
         /// <paramref name="description" /> is <see langword="null" />.
         /// </exception>
-        /// <seealso cref="Type{TInput, TType}()" />
         public static IPattern<TInput, TType> Type<TInput, TType>(string description)
             where TType : TInput
             => CreatePattern<TInput, TType>(
@@ -1732,7 +1385,6 @@ namespace Matchmaker.Patterns
         /// <exception cref="ArgumentNullException">
         /// <paramref name="pattern" /> is <see langword="null" />.
         /// </exception>
-        /// <seealso cref="Not{TInput, TMatchResult}(IPattern{TInput, TMatchResult}, string)" />
         public static IPattern<TInput, TInput> Not<TInput, TMatchResult>(IPattern<TInput, TMatchResult> pattern)
             => pattern != null
                 ? Not(
@@ -1759,7 +1411,6 @@ namespace Matchmaker.Patterns
         /// <exception cref="ArgumentNullException">
         /// <paramref name="pattern" /> or <paramref name="description" /> is <see langword="null" />.
         /// </exception>
-        /// <seealso cref="Not{TInput, TMatchResult}(IPattern{TInput, TMatchResult})" />
         public static IPattern<TInput, TInput> Not<TInput, TMatchResult>(
             IPattern<TInput, TMatchResult> pattern,
             string description)

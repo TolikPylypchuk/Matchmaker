@@ -10,8 +10,6 @@ namespace Matchmaker.Patterns
     /// <typeparam name="TInput">The type of the input value of the expression.</typeparam>
     /// <typeparam name="TIntermediateResult">The type of the result of the provided pattern's match.</typeparam>
     /// <typeparam name="TMatchResult">The type of the result of this pattern's match.</typeparam>
-    /// <seealso cref="IPattern{TInput, TMatchResult}" />
-    /// <seealso cref="Pattern" />
     internal sealed class BindingPattern<TInput, TIntermediateResult, TMatchResult> : Pattern<TInput, TMatchResult>
     {
         /// <summary>

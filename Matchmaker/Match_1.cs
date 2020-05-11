@@ -165,9 +165,6 @@ namespace Matchmaker
         /// <exception cref="MatchException">
         /// The match failed for all cases.
         /// </exception>
-        /// <seealso cref="ExecuteNonStrict(TInput)" />
-        /// <seealso cref="ExecuteWithFallthrough(TInput)" />
-        /// <seealso cref="ToFunction" />
         public void ExecuteOn(TInput input)
         {
             bool isMatched = this.ExecuteNonStrict(input);
@@ -186,9 +183,6 @@ namespace Matchmaker
         /// <see langword="true" />, if the match was successful.
         /// Otherwise, <see langword="false" />.
         /// </returns>
-        /// <seealso cref="ExecuteOn(TInput)" />
-        /// <seealso cref="ExecuteWithFallthrough(TInput)" />
-        /// <seealso cref="ToNonStrictFunction" />
         public bool ExecuteNonStrict(TInput input)
         {
             foreach (var @case in this.cases)
@@ -212,9 +206,6 @@ namespace Matchmaker
         /// An enumerable of <see langword="null" /> objects which enables the execution to be lazy.
         /// The number of items in this enumerable equals the number of successful cases.
         /// </returns>
-        /// <seealso cref="ExecuteOn(TInput)" />
-        /// <seealso cref="ExecuteNonStrict(TInput)" />
-        /// <seealso cref="ToFunctionWithFallthrough" />
         public IEnumerable<object?> ExecuteWithFallthrough(TInput input)
         {
             foreach (var @case in this.cases)
@@ -237,9 +228,6 @@ namespace Matchmaker
         /// Returns an action which, when called, will match the specified value.
         /// </summary>
         /// <returns>An action which, when called, will match the specified value.</returns>
-        /// <seealso cref="ExecuteOn(TInput)" />
-        /// <seealso cref="ToNonStrictFunction" />
-        /// <seealso cref="ToFunctionWithFallthrough" />
         public Action<TInput> ToFunction()
             => this.ExecuteOn;
 
@@ -247,9 +235,6 @@ namespace Matchmaker
         /// Returns a function which, when called, will match the specified value non-strictly.
         /// </summary>
         /// <returns>A function which, when called, will match the specified value non-strictly.</returns>
-        /// <seealso cref="ExecuteNonStrict(TInput)" />
-        /// <seealso cref="ToFunction" />
-        /// <seealso cref="ToFunctionWithFallthrough" />
         public Func<TInput, bool> ToNonStrictFunction()
             => this.ExecuteNonStrict;
 
@@ -257,9 +242,6 @@ namespace Matchmaker
         /// Returns a function which, when called, will match the specified value with fallthrough.
         /// </summary>
         /// <returns>A function which, when called, will match the specified value with fallthrough.</returns>
-        /// <seealso cref="ExecuteWithFallthrough(TInput)" />
-        /// <seealso cref="ToFunction" />
-        /// <seealso cref="ToNonStrictFunction" />
         public Func<TInput, IEnumerable<object?>> ToFunctionWithFallthrough()
             => this.ExecuteWithFallthrough;
 

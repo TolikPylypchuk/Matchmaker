@@ -13,7 +13,6 @@ namespace Matchmaker
         /// </summary>
         /// <param name="value">The value of the result.</param>
         /// <returns>A successful match result with the specified value.</returns>
-        /// <seealso cref="Failure{T}()" />
         public static MatchResult<T> Success<T>([AllowNull] T value)
             => new MatchResult<T>(true, value);
 
@@ -21,7 +20,6 @@ namespace Matchmaker
         /// Returns a failed match result.
         /// </summary>
         /// <returns>A failed match result.</returns>
-        /// <seealso cref="Success{T}(T)" />
         public static MatchResult<T> Failure<T>()
             => MatchResult<T>.Failure;
     }

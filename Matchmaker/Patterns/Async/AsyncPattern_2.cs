@@ -50,7 +50,7 @@ namespace Matchmaker.Patterns.Async
         /// </summary>
         /// <returns>
         /// The description of this pattern, if it has one.
-        /// If it doesn't, then the name of this pattern's type.
+        /// Otherwise, the name of this pattern's type.
         /// </returns>
         public override string ToString()
             => String.IsNullOrEmpty(this.Description) ? base.ToString() : this.Description;

@@ -8,9 +8,6 @@ namespace Matchmaker.Patterns.Async
     /// </summary>
     /// <typeparam name="TInput">The type of the input value of the expression.</typeparam>
     /// <typeparam name="TMatchResult">The type of the result of this pattern's match.</typeparam>
-    /// <seealso cref="IAsyncPattern{TInput, TMatchResult}" />
-    /// <seealso cref="AsyncPattern{TInput, TMatchResult}" />
-    /// <seealso cref="AsyncPattern" />
     internal sealed class SimpleAsyncPattern<TInput, TMatchResult> : AsyncPattern<TInput, TMatchResult>
     {
         /// <summary>

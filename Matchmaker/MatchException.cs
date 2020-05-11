@@ -9,6 +9,8 @@ namespace Matchmaker
     /// </summary>
     /// <seealso cref="Match{TInput, TOutput}" />
     /// <seealso cref="Match{TInput}" />
+    /// <seealso cref="AsyncMatch{TInput, TOutput}" />
+    /// <seealso cref="AsyncMatch{TInput}" />
     [ExcludeFromCodeCoverage]
     public class MatchException : Exception
     {

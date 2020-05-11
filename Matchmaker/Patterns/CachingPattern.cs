@@ -9,8 +9,6 @@ namespace Matchmaker.Patterns
     /// </summary>
     /// <typeparam name="TInput">The type of the input value of the expression.</typeparam>
     /// <typeparam name="TMatchResult">The type of the result of this pattern's match.</typeparam>
-    /// <seealso cref="IPattern{TInput, TMatchResult}" />
-    /// <seealso cref="Pattern" />
     internal sealed class CachingPattern<TInput, TMatchResult> : Pattern<TInput, TMatchResult>
     {
         /// <summary>

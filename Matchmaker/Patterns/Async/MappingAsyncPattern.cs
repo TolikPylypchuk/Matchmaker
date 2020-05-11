@@ -11,8 +11,6 @@ namespace Matchmaker.Patterns.Async
     /// <typeparam name="TInput">The type of the input value of the expression.</typeparam>
     /// <typeparam name="TIntermediateResult">The type of the result of the provided pattern's match.</typeparam>
     /// <typeparam name="TMatchResult">The type of the result of this pattern's match.</typeparam>
-    /// <seealso cref="IAsyncPattern{TInput, TMatchResult}" />
-    /// <seealso cref="AsyncPattern" />
     internal sealed class MappingAsyncPattern<TInput, TIntermediateResult, TMatchResult>
         : AsyncPattern<TInput, TMatchResult>
     {

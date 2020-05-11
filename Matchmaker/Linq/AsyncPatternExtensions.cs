@@ -28,7 +28,6 @@ namespace Matchmaker.Linq
         /// <exception cref="ArgumentNullException">
         /// <paramref name="pattern" /> or <paramref name="mapper" /> is <see langword="null" />.
         /// </exception>
-        /// <seealso cref="Select{TInput, TIntermediateResult, TMatchResult}(IAsyncPattern{TInput, TIntermediateResult}, Func{TIntermediateResult, TMatchResult}, string)" />
         public static IAsyncPattern<TInput, TMatchResult> Select<TInput, TIntermediateResult, TMatchResult>(
             this IAsyncPattern<TInput, TIntermediateResult> pattern,
             Func<TIntermediateResult, TMatchResult> mapper)
@@ -52,7 +51,6 @@ namespace Matchmaker.Linq
         /// <paramref name="pattern" />, <paramref name="mapper" /> or <paramref name="description" />
         /// is <see langword="null" />.
         /// </exception>
-        /// <seealso cref="Select{TInput, TIntermediateResult, TMatchResult}(IAsyncPattern{TInput, TIntermediateResult}, Func{TIntermediateResult, TMatchResult})" />
         public static IAsyncPattern<TInput, TMatchResult> Select<TInput, TIntermediateResult, TMatchResult>(
             this IAsyncPattern<TInput, TIntermediateResult> pattern,
             Func<TIntermediateResult, TMatchResult> mapper,
@@ -76,9 +74,6 @@ namespace Matchmaker.Linq
         /// <exception cref="ArgumentNullException">
         /// <paramref name="firstPattern" /> or <paramref name="secondPattern" /> is <see langword="null" />.
         /// </exception>
-        /// <seealso cref="Pipe{TInput, TIntermediateResult, TMatchResult}(IAsyncPattern{TInput, TIntermediateResult}, Func{TIntermediateResult, Task{MatchResult{TMatchResult}}}, string)" />
-        /// <seealso cref="Pipe{TInput, TIntermediateResult, TMatchResult}(IAsyncPattern{TInput, TIntermediateResult}, IAsyncPattern{TIntermediateResult, TMatchResult})" />
-        /// <seealso cref="Pipe{TInput, TIntermediateResult, TMatchResult}(IAsyncPattern{TInput, TIntermediateResult}, IAsyncPattern{TIntermediateResult, TMatchResult}, string)" />
         public static IAsyncPattern<TInput, TMatchResult> Pipe<TInput, TIntermediateResult, TMatchResult>(
             this IAsyncPattern<TInput, TIntermediateResult> firstPattern,
             IAsyncPattern<TIntermediateResult, TMatchResult> secondPattern)
@@ -102,9 +97,6 @@ namespace Matchmaker.Linq
         /// <paramref name="firstPattern" />, <paramref name="secondPattern" /> or <paramref name="description" />
         /// is <see langword="null" />.
         /// </exception>
-        /// <seealso cref="Pipe{TInput, TIntermediateResult, TMatchResult}(IAsyncPattern{TInput, TIntermediateResult}, Func{TIntermediateResult, Task{MatchResult{TMatchResult}}})" />
-        /// <seealso cref="Pipe{TInput, TIntermediateResult, TMatchResult}(IAsyncPattern{TInput, TIntermediateResult}, IAsyncPattern{TIntermediateResult, TMatchResult})" />
-        /// <seealso cref="Pipe{TInput, TIntermediateResult, TMatchResult}(IAsyncPattern{TInput, TIntermediateResult}, IAsyncPattern{TIntermediateResult, TMatchResult}, string)" />
         public static IAsyncPattern<TInput, TMatchResult> Pipe<TInput, TIntermediateResult, TMatchResult>(
             this IAsyncPattern<TInput, TIntermediateResult> firstPattern,
             IAsyncPattern<TIntermediateResult, TMatchResult> secondPattern,
@@ -136,9 +128,6 @@ namespace Matchmaker.Linq
         /// <exception cref="ArgumentNullException">
         /// <paramref name="pattern" /> or <paramref name="matcher" /> is <see langword="null" />.
         /// </exception>
-        /// <seealso cref="Pipe{TInput, TIntermediateResult, TMatchResult}(IAsyncPattern{TInput, TIntermediateResult}, Func{TIntermediateResult, Task{MatchResult{TMatchResult}}}, string)" />
-        /// <seealso cref="Pipe{TInput, TIntermediateResult, TMatchResult}(IAsyncPattern{TInput, TIntermediateResult}, IAsyncPattern{TIntermediateResult, TMatchResult})" />
-        /// <seealso cref="Pipe{TInput, TIntermediateResult, TMatchResult}(IAsyncPattern{TInput, TIntermediateResult}, IAsyncPattern{TIntermediateResult, TMatchResult}, string)" />
         public static IAsyncPattern<TInput, TMatchResult> Pipe<TInput, TIntermediateResult, TMatchResult>(
             this IAsyncPattern<TInput, TIntermediateResult> pattern,
             Func<TIntermediateResult, Task<MatchResult<TMatchResult>>> matcher)
@@ -168,9 +157,6 @@ namespace Matchmaker.Linq
         /// <paramref name="pattern" />, <paramref name="matcher" /> or <paramref name="description" />
         /// is <see langword="null" />.
         /// </exception>
-        /// <seealso cref="Pipe{TInput, TIntermediateResult, TMatchResult}(IAsyncPattern{TInput, TIntermediateResult}, Func{TIntermediateResult, Task{MatchResult{TMatchResult}}})" />
-        /// <seealso cref="Pipe{TInput, TIntermediateResult, TMatchResult}(IAsyncPattern{TInput, TIntermediateResult}, IAsyncPattern{TIntermediateResult, TMatchResult})" />
-        /// <seealso cref="Pipe{TInput, TIntermediateResult, TMatchResult}(IAsyncPattern{TInput, TIntermediateResult}, IAsyncPattern{TIntermediateResult, TMatchResult}, string)" />
         public static IAsyncPattern<TInput, TMatchResult> Pipe<TInput, TIntermediateResult, TMatchResult>(
             this IAsyncPattern<TInput, TIntermediateResult> pattern,
             Func<TIntermediateResult, Task<MatchResult<TMatchResult>>> matcher,
@@ -201,7 +187,6 @@ namespace Matchmaker.Linq
         /// <exception cref="ArgumentNullException">
         /// <paramref name="pattern" /> is <see langword="null" />.
         /// </exception>
-        /// <seealso cref="Cast{TInput, TIntermediateResult, TMatchResult}(IAsyncPattern{TInput, TIntermediateResult}, string)" />
         public static IAsyncPattern<TInput, TMatchResult> Cast<TInput, TIntermediateResult, TMatchResult>(
             this IAsyncPattern<TInput, TIntermediateResult> pattern)
             where TMatchResult : TIntermediateResult
@@ -229,7 +214,6 @@ namespace Matchmaker.Linq
         /// <exception cref="ArgumentNullException">
         /// <paramref name="pattern" /> or <paramref name="description" /> is <see langword="null" />.
         /// </exception>
-        /// <seealso cref="Cast{TInput, TIntermediateResult, TMatchResult}(IAsyncPattern{TInput, TIntermediateResult})" />
         public static IAsyncPattern<TInput, TMatchResult> Cast<TInput, TIntermediateResult, TMatchResult>(
             this IAsyncPattern<TInput, TIntermediateResult> pattern,
             string description)
@@ -250,7 +234,6 @@ namespace Matchmaker.Linq
         /// <exception cref="ArgumentNullException">
         /// <paramref name="pattern" /> or <paramref name="binder" /> is <see langword="null" />.
         /// </exception>
-        /// <seealso cref="Bind{TInput, TIntermediateResult, TMatchResult}(IAsyncPattern{TInput, TIntermediateResult}, Func{TIntermediateResult, IAsyncPattern{TInput, TMatchResult}}, string)" />
         public static IAsyncPattern<TInput, TMatchResult> Bind<TInput, TIntermediateResult, TMatchResult>(
             this IAsyncPattern<TInput, TIntermediateResult> pattern,
             Func<TIntermediateResult, IAsyncPattern<TInput, TMatchResult>> binder)
@@ -274,7 +257,6 @@ namespace Matchmaker.Linq
         /// <paramref name="pattern" />, <paramref name="binder" /> or <paramref name="description" />
         /// is <see langword="null" />.
         /// </exception>
-        /// <seealso cref="Bind{TInput, TIntermediateResult, TMatchResult}(IAsyncPattern{TInput, TIntermediateResult}, Func{TIntermediateResult, IAsyncPattern{TInput, TMatchResult}})" />
         public static IAsyncPattern<TInput, TMatchResult> Bind<TInput, TIntermediateResult, TMatchResult>(
             this IAsyncPattern<TInput, TIntermediateResult> pattern,
             Func<TIntermediateResult, IAsyncPattern<TInput, TMatchResult>> binder,
@@ -297,9 +279,6 @@ namespace Matchmaker.Linq
         /// <exception cref="ArgumentNullException">
         /// <paramref name="pattern" /> or <paramref name="predicate" /> is <see langword="null" />.
         /// </exception>
-        /// <seealso cref="Where{TInput, TMatchResult}(IAsyncPattern{TInput, TMatchResult}, Func{TMatchResult, bool}, string)" />
-        /// <seealso cref="Where{TInput, TMatchResult}(IAsyncPattern{TInput, TMatchResult}, Func{TMatchResult, Task{bool}})" />
-        /// <seealso cref="Where{TInput, TMatchResult}(IAsyncPattern{TInput, TMatchResult}, Func{TMatchResult, Task{bool}}, string)" />
         public static IAsyncPattern<TInput, TMatchResult> Where<TInput, TMatchResult>(
             this IAsyncPattern<TInput, TMatchResult> pattern,
             Func<TMatchResult, bool> predicate)
@@ -321,9 +300,6 @@ namespace Matchmaker.Linq
         /// <exception cref="ArgumentNullException">
         /// <paramref name="pattern" /> or <paramref name="predicate" /> is <see langword="null" />.
         /// </exception>
-        /// <seealso cref="Where{TInput, TMatchResult}(IAsyncPattern{TInput, TMatchResult}, Func{TMatchResult, bool})" />
-        /// <seealso cref="Where{TInput, TMatchResult}(IAsyncPattern{TInput, TMatchResult}, Func{TMatchResult, Task{bool}})" />
-        /// <seealso cref="Where{TInput, TMatchResult}(IAsyncPattern{TInput, TMatchResult}, Func{TMatchResult, Task{bool}}, string)" />
         public static IAsyncPattern<TInput, TMatchResult> Where<TInput, TMatchResult>(
             this IAsyncPattern<TInput, TMatchResult> pattern,
             Func<TMatchResult, bool> predicate,
@@ -345,9 +321,6 @@ namespace Matchmaker.Linq
         /// <exception cref="ArgumentNullException">
         /// <paramref name="pattern" /> or <paramref name="predicate" /> is <see langword="null" />.
         /// </exception>
-        /// <seealso cref="Where{TInput, TMatchResult}(IAsyncPattern{TInput, TMatchResult}, Func{TMatchResult, bool})" />
-        /// <seealso cref="Where{TInput, TMatchResult}(IAsyncPattern{TInput, TMatchResult}, Func{TMatchResult, bool}, string)" />
-        /// <seealso cref="Where{TInput, TMatchResult}(IAsyncPattern{TInput, TMatchResult}, Func{TMatchResult, Task{bool}}, string)" />
         public static IAsyncPattern<TInput, TMatchResult> Where<TInput, TMatchResult>(
             this IAsyncPattern<TInput, TMatchResult> pattern,
             Func<TMatchResult, Task<bool>> predicate)
@@ -369,9 +342,6 @@ namespace Matchmaker.Linq
         /// <exception cref="ArgumentNullException">
         /// <paramref name="pattern" /> or <paramref name="predicate" /> is <see langword="null" />.
         /// </exception>
-        /// <seealso cref="Where{TInput, TMatchResult}(IAsyncPattern{TInput, TMatchResult}, Func{TMatchResult, bool})" />
-        /// <seealso cref="Where{TInput, TMatchResult}(IAsyncPattern{TInput, TMatchResult}, Func{TMatchResult, bool}, string)" />
-        /// <seealso cref="Where{TInput, TMatchResult}(IAsyncPattern{TInput, TMatchResult}, Func{TMatchResult, Task{bool}})" />
         public static IAsyncPattern<TInput, TMatchResult> Where<TInput, TMatchResult>(
             this IAsyncPattern<TInput, TMatchResult> pattern,
             Func<TMatchResult, Task<bool>> predicate,
@@ -400,13 +370,6 @@ namespace Matchmaker.Linq
         /// <exception cref="ArgumentNullException">
         /// <paramref name="leftPattern" /> or <paramref name="rightPattern" /> is <see langword="null" />.
         /// </exception>
-        /// <seealso cref="Compose{T}(IAsyncPattern{T, T}, IAsyncPattern{T, T}, PatternComposition, string)" />
-        /// <seealso cref="And{T}(IAsyncPattern{T, T}, IAsyncPattern{T, T})" />
-        /// <seealso cref="And{T}(IAsyncPattern{T, T}, IAsyncPattern{T, T}, string)" />
-        /// <seealso cref="Or{T}(IAsyncPattern{T, T}, IAsyncPattern{T, T})" />
-        /// <seealso cref="Or{T}(IAsyncPattern{T, T}, IAsyncPattern{T, T}, string)" />
-        /// <seealso cref="Xor{T}(IAsyncPattern{T, T}, IAsyncPattern{T, T})" />
-        /// <seealso cref="Xor{T}(IAsyncPattern{T, T}, IAsyncPattern{T, T}, string)" />
         public static IAsyncPattern<T, T> Compose<T>(
             this IAsyncPattern<T, T> leftPattern,
             IAsyncPattern<T, T> rightPattern,
@@ -437,13 +400,6 @@ namespace Matchmaker.Linq
         /// <paramref name="leftPattern" />, <paramref name="rightPattern" /> or <paramref name="description" />
         /// is <see langword="null" />.
         /// </exception>
-        /// <seealso cref="Compose{T}(IAsyncPattern{T, T}, IAsyncPattern{T, T}, PatternComposition)" />
-        /// <seealso cref="And{T}(IAsyncPattern{T, T}, IAsyncPattern{T, T})" />
-        /// <seealso cref="And{T}(IAsyncPattern{T, T}, IAsyncPattern{T, T}, string)" />
-        /// <seealso cref="Or{T}(IAsyncPattern{T, T}, IAsyncPattern{T, T})" />
-        /// <seealso cref="Or{T}(IAsyncPattern{T, T}, IAsyncPattern{T, T}, string)" />
-        /// <seealso cref="Xor{T}(IAsyncPattern{T, T}, IAsyncPattern{T, T})" />
-        /// <seealso cref="Xor{T}(IAsyncPattern{T, T}, IAsyncPattern{T, T}, string)" />
         public static IAsyncPattern<T, T> Compose<T>(
             this IAsyncPattern<T, T> leftPattern,
             IAsyncPattern<T, T> rightPattern,
@@ -483,13 +439,6 @@ namespace Matchmaker.Linq
         /// <exception cref="ArgumentNullException">
         /// <paramref name="leftPattern" /> or <paramref name="rightPattern" /> is <see langword="null" />.
         /// </exception>
-        /// <seealso cref="Compose{T}(IAsyncPattern{T, T}, IAsyncPattern{T, T}, PatternComposition)" />
-        /// <seealso cref="Compose{T}(IAsyncPattern{T, T}, IAsyncPattern{T, T}, PatternComposition, string)" />
-        /// <seealso cref="And{T}(IAsyncPattern{T, T}, IAsyncPattern{T, T}, string)" />
-        /// <seealso cref="Or{T}(IAsyncPattern{T, T}, IAsyncPattern{T, T})" />
-        /// <seealso cref="Or{T}(IAsyncPattern{T, T}, IAsyncPattern{T, T}, string)" />
-        /// <seealso cref="Xor{T}(IAsyncPattern{T, T}, IAsyncPattern{T, T})" />
-        /// <seealso cref="Xor{T}(IAsyncPattern{T, T}, IAsyncPattern{T, T}, string)" />
         public static IAsyncPattern<T, T> And<T>(this IAsyncPattern<T, T> leftPattern, IAsyncPattern<T, T> rightPattern)
             => leftPattern.Compose(rightPattern, PatternComposition.And);
 
@@ -523,13 +472,6 @@ namespace Matchmaker.Linq
         /// <paramref name="leftPattern" />, <paramref name="rightPattern" /> or <paramref name="description" />
         /// is <see langword="null" />.
         /// </exception>
-        /// <seealso cref="Compose{T}(IAsyncPattern{T, T}, IAsyncPattern{T, T}, PatternComposition)" />
-        /// <seealso cref="Compose{T}(IAsyncPattern{T, T}, IAsyncPattern{T, T}, PatternComposition, string)" />
-        /// <seealso cref="And{T}(IAsyncPattern{T, T}, IAsyncPattern{T, T})" />
-        /// <seealso cref="Or{T}(IAsyncPattern{T, T}, IAsyncPattern{T, T})" />
-        /// <seealso cref="Or{T}(IAsyncPattern{T, T}, IAsyncPattern{T, T}, string)" />
-        /// <seealso cref="Xor{T}(IAsyncPattern{T, T}, IAsyncPattern{T, T})" />
-        /// <seealso cref="Xor{T}(IAsyncPattern{T, T}, IAsyncPattern{T, T}, string)" />
         public static IAsyncPattern<T, T> And<T>(
             this IAsyncPattern<T, T> leftPattern,
             IAsyncPattern<T, T> rightPattern,
@@ -564,13 +506,6 @@ namespace Matchmaker.Linq
         /// <exception cref="ArgumentNullException">
         /// <paramref name="leftPattern" /> or <paramref name="rightPattern" /> is <see langword="null" />.
         /// </exception>
-        /// <seealso cref="Compose{T}(IAsyncPattern{T, T}, IAsyncPattern{T, T}, PatternComposition)" />
-        /// <seealso cref="Compose{T}(IAsyncPattern{T, T}, IAsyncPattern{T, T}, PatternComposition, string)" />
-        /// <seealso cref="And{T}(IAsyncPattern{T, T}, IAsyncPattern{T, T})" />
-        /// <seealso cref="And{T}(IAsyncPattern{T, T}, IAsyncPattern{T, T}, string)" />
-        /// <seealso cref="Or{T}(IAsyncPattern{T, T}, IAsyncPattern{T, T}, string)" />
-        /// <seealso cref="Xor{T}(IAsyncPattern{T, T}, IAsyncPattern{T, T})" />
-        /// <seealso cref="Xor{T}(IAsyncPattern{T, T}, IAsyncPattern{T, T}, string)" />
         public static IAsyncPattern<T, T> Or<T>(this IAsyncPattern<T, T> leftPattern, IAsyncPattern<T, T> rightPattern)
             => leftPattern.Compose(rightPattern, PatternComposition.Or);
 
@@ -604,13 +539,6 @@ namespace Matchmaker.Linq
         /// <paramref name="leftPattern" />, <paramref name="rightPattern" /> or <paramref name="description" />
         /// is <see langword="null" />.
         /// </exception>
-        /// <seealso cref="Compose{T}(IAsyncPattern{T, T}, IAsyncPattern{T, T}, PatternComposition)" />
-        /// <seealso cref="Compose{T}(IAsyncPattern{T, T}, IAsyncPattern{T, T}, PatternComposition, string)" />
-        /// <seealso cref="And{T}(IAsyncPattern{T, T}, IAsyncPattern{T, T})" />
-        /// <seealso cref="And{T}(IAsyncPattern{T, T}, IAsyncPattern{T, T}, string)" />
-        /// <seealso cref="Or{T}(IAsyncPattern{T, T}, IAsyncPattern{T, T})" />
-        /// <seealso cref="Xor{T}(IAsyncPattern{T, T}, IAsyncPattern{T, T})" />
-        /// <seealso cref="Xor{T}(IAsyncPattern{T, T}, IAsyncPattern{T, T}, string)" />
         public static IAsyncPattern<T, T> Or<T>(
             this IAsyncPattern<T, T> leftPattern,
             IAsyncPattern<T, T> rightPattern,
@@ -645,13 +573,6 @@ namespace Matchmaker.Linq
         /// <exception cref="ArgumentNullException">
         /// <paramref name="leftPattern" /> or <paramref name="rightPattern" /> is <see langword="null" />.
         /// </exception>
-        /// <seealso cref="Compose{T}(IAsyncPattern{T, T}, IAsyncPattern{T, T}, PatternComposition)" />
-        /// <seealso cref="Compose{T}(IAsyncPattern{T, T}, IAsyncPattern{T, T}, PatternComposition, string)" />
-        /// <seealso cref="And{T}(IAsyncPattern{T, T}, IAsyncPattern{T, T})" />
-        /// <seealso cref="And{T}(IAsyncPattern{T, T}, IAsyncPattern{T, T}, string)" />
-        /// <seealso cref="Or{T}(IAsyncPattern{T, T}, IAsyncPattern{T, T})" />
-        /// <seealso cref="Or{T}(IAsyncPattern{T, T}, IAsyncPattern{T, T}, string)" />
-        /// <seealso cref="Xor{T}(IAsyncPattern{T, T}, IAsyncPattern{T, T}, string)" />
         public static IAsyncPattern<T, T> Xor<T>(this IAsyncPattern<T, T> leftPattern, IAsyncPattern<T, T> rightPattern)
             => leftPattern.Compose(rightPattern, PatternComposition.Xor);
 
@@ -685,13 +606,6 @@ namespace Matchmaker.Linq
         /// <paramref name="leftPattern" />, <paramref name="rightPattern" /> or <paramref name="description" />
         /// is <see langword="null" />.
         /// </exception>
-        /// <seealso cref="Compose{T}(IAsyncPattern{T, T}, IAsyncPattern{T, T}, PatternComposition)" />
-        /// <seealso cref="Compose{T}(IAsyncPattern{T, T}, IAsyncPattern{T, T}, PatternComposition, string)" />
-        /// <seealso cref="And{T}(IAsyncPattern{T, T}, IAsyncPattern{T, T})" />
-        /// <seealso cref="And{T}(IAsyncPattern{T, T}, IAsyncPattern{T, T}, string)" />
-        /// <seealso cref="Or{T}(IAsyncPattern{T, T}, IAsyncPattern{T, T})" />
-        /// <seealso cref="Or{T}(IAsyncPattern{T, T}, IAsyncPattern{T, T}, string)" />
-        /// <seealso cref="Xor{T}(IAsyncPattern{T, T}, IAsyncPattern{T, T})" />
         public static IAsyncPattern<T, T> Xor<T>(
             this IAsyncPattern<T, T> leftPattern,
             IAsyncPattern<T, T> rightPattern,
