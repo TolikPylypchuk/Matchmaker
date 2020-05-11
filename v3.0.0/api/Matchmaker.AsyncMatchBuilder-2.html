@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class AsyncMatchBuilder&lt;TInput, TOutput&gt;
    ">
-    <meta name="generator" content="docfx 2.52.0.0">
+    <meta name="generator" content="docfx 2.53.1.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -115,7 +115,7 @@
     <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_AsyncMatchBuilder_2_Case__1_Func___0__1__.md&amp;value=---%0Auid%3A%20Matchmaker.AsyncMatchBuilder%602.Case%60%601(Func%7B%60%600%2C%601%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/AsyncMatchBuilder_2.cs/#L106">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/AsyncMatchBuilder_2.cs/#L223">View Source</a>
   </span>
   <a id="Matchmaker_AsyncMatchBuilder_2_Case_" data-uid="Matchmaker.AsyncMatchBuilder`2.Case*"></a>
   <h4 id="Matchmaker_AsyncMatchBuilder_2_Case__1_Func___0__1__" data-uid="Matchmaker.AsyncMatchBuilder`2.Case``1(Func{``0,`1})">Case&lt;TType&gt;(Func&lt;TType, TOutput&gt;)</h4>
@@ -183,10 +183,81 @@
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_AsyncMatchBuilder_2_Case__1_Func___0_Task__1___.md&amp;value=---%0Auid%3A%20Matchmaker.AsyncMatchBuilder%602.Case%60%601(Func%7B%60%600%2CTask%7B%601%7D%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/AsyncMatchBuilder_2.cs/#L204">View Source</a>
+  </span>
+  <a id="Matchmaker_AsyncMatchBuilder_2_Case_" data-uid="Matchmaker.AsyncMatchBuilder`2.Case*"></a>
+  <h4 id="Matchmaker_AsyncMatchBuilder_2_Case__1_Func___0_Task__1___" data-uid="Matchmaker.AsyncMatchBuilder`2.Case``1(Func{``0,Task{`1}})">Case&lt;TType&gt;(Func&lt;TType, Task&lt;TOutput&gt;&gt;)</h4>
+  <div class="markdown level1 summary"><p>Add the specified case to the match expression.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public AsyncMatchBuilder&lt;TInput, TOutput&gt; Case&lt;TType&gt;(Func&lt;TType, Task&lt;TOutput&gt;&gt; func)
+    where TType : TInput</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Func</span>&lt;TType, <span class="xref">Task</span>&lt;TOutput&gt;&gt;</td>
+        <td><span class="parametername">func</span></td>
+        <td><p>The function to execute if the match is successful.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Matchmaker.AsyncMatchBuilder-2.html">AsyncMatchBuilder</a>&lt;TInput, TOutput&gt;</td>
+        <td><p>The calling builder.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TType</span></td>
+        <td><p>The type of the result of the pattern's match.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Matchmaker_AsyncMatchBuilder_2_Case__1_Func___0_Task__1____remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>This method is functionally equivalent to the following:</p>
+<pre><code>builder.Case(AsyncPattern.Type&lt;TInput, TType>(), func)</code></pre>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
     <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_AsyncMatchBuilder_2_Case__1_Matchmaker_Patterns_Async_IAsyncPattern__0___0__Func___0__1__.md&amp;value=---%0Auid%3A%20Matchmaker.AsyncMatchBuilder%602.Case%60%601(Matchmaker.Patterns.Async.IAsyncPattern%7B%600%2C%60%600%7D%2CFunc%7B%60%600%2C%601%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/AsyncMatchBuilder_2.cs/#L57">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/AsyncMatchBuilder_2.cs/#L74">View Source</a>
   </span>
   <a id="Matchmaker_AsyncMatchBuilder_2_Case_" data-uid="Matchmaker.AsyncMatchBuilder`2.Case*"></a>
   <h4 id="Matchmaker_AsyncMatchBuilder_2_Case__1_Matchmaker_Patterns_Async_IAsyncPattern__0___0__Func___0__1__" data-uid="Matchmaker.AsyncMatchBuilder`2.Case``1(Matchmaker.Patterns.Async.IAsyncPattern{`0,``0},Func{``0,`1})">Case&lt;TMatchResult&gt;(IAsyncPattern&lt;TInput, TMatchResult&gt;, Func&lt;TMatchResult, TOutput&gt;)</h4>
@@ -255,10 +326,82 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_AsyncMatchBuilder_2_Case__1_Matchmaker_Patterns_Async_IAsyncPattern__0___0__Func___0_Task__1___.md&amp;value=---%0Auid%3A%20Matchmaker.AsyncMatchBuilder%602.Case%60%601(Matchmaker.Patterns.Async.IAsyncPattern%7B%600%2C%60%600%7D%2CFunc%7B%60%600%2CTask%7B%601%7D%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/AsyncMatchBuilder_2.cs/#L59">View Source</a>
+  </span>
+  <a id="Matchmaker_AsyncMatchBuilder_2_Case_" data-uid="Matchmaker.AsyncMatchBuilder`2.Case*"></a>
+  <h4 id="Matchmaker_AsyncMatchBuilder_2_Case__1_Matchmaker_Patterns_Async_IAsyncPattern__0___0__Func___0_Task__1___" data-uid="Matchmaker.AsyncMatchBuilder`2.Case``1(Matchmaker.Patterns.Async.IAsyncPattern{`0,``0},Func{``0,Task{`1}})">Case&lt;TMatchResult&gt;(IAsyncPattern&lt;TInput, TMatchResult&gt;, Func&lt;TMatchResult, Task&lt;TOutput&gt;&gt;)</h4>
+  <div class="markdown level1 summary"><p>Add the specified case to the match expression.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public AsyncMatchBuilder&lt;TInput, TOutput&gt; Case&lt;TMatchResult&gt;(IAsyncPattern&lt;TInput, TMatchResult&gt; pattern, Func&lt;TMatchResult, Task&lt;TOutput&gt;&gt; func)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Matchmaker.Patterns.Async.IAsyncPattern-2.html">IAsyncPattern</a>&lt;TInput, TMatchResult&gt;</td>
+        <td><span class="parametername">pattern</span></td>
+        <td><p>The pattern to match with.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Func</span>&lt;TMatchResult, <span class="xref">Task</span>&lt;TOutput&gt;&gt;</td>
+        <td><span class="parametername">func</span></td>
+        <td><p>The function to execute if the match is successful.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Matchmaker.AsyncMatchBuilder-2.html">AsyncMatchBuilder</a>&lt;TInput, TOutput&gt;</td>
+        <td><p>The calling builder.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TMatchResult</span></td>
+        <td><p>The type of the result of the pattern's match.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
     <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_AsyncMatchBuilder_2_Case__1_Matchmaker_Patterns_Async_IAsyncPattern__0___0__System_Boolean_Func___0__1__.md&amp;value=---%0Auid%3A%20Matchmaker.AsyncMatchBuilder%602.Case%60%601(Matchmaker.Patterns.Async.IAsyncPattern%7B%600%2C%60%600%7D%2CSystem.Boolean%2CFunc%7B%60%600%2C%601%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/AsyncMatchBuilder_2.cs/#L73">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/AsyncMatchBuilder_2.cs/#L149">View Source</a>
   </span>
   <a id="Matchmaker_AsyncMatchBuilder_2_Case_" data-uid="Matchmaker.AsyncMatchBuilder`2.Case*"></a>
   <h4 id="Matchmaker_AsyncMatchBuilder_2_Case__1_Matchmaker_Patterns_Async_IAsyncPattern__0___0__System_Boolean_Func___0__1__" data-uid="Matchmaker.AsyncMatchBuilder`2.Case``1(Matchmaker.Patterns.Async.IAsyncPattern{`0,``0},System.Boolean,Func{``0,`1})">Case&lt;TMatchResult&gt;(IAsyncPattern&lt;TInput, TMatchResult&gt;, Boolean, Func&lt;TMatchResult, TOutput&gt;)</h4>
@@ -333,10 +476,388 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_AsyncMatchBuilder_2_Case__1_Matchmaker_Patterns_Async_IAsyncPattern__0___0__System_Boolean_Func___0_Task__1___.md&amp;value=---%0Auid%3A%20Matchmaker.AsyncMatchBuilder%602.Case%60%601(Matchmaker.Patterns.Async.IAsyncPattern%7B%600%2C%60%600%7D%2CSystem.Boolean%2CFunc%7B%60%600%2CTask%7B%601%7D%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/AsyncMatchBuilder_2.cs/#L120">View Source</a>
+  </span>
+  <a id="Matchmaker_AsyncMatchBuilder_2_Case_" data-uid="Matchmaker.AsyncMatchBuilder`2.Case*"></a>
+  <h4 id="Matchmaker_AsyncMatchBuilder_2_Case__1_Matchmaker_Patterns_Async_IAsyncPattern__0___0__System_Boolean_Func___0_Task__1___" data-uid="Matchmaker.AsyncMatchBuilder`2.Case``1(Matchmaker.Patterns.Async.IAsyncPattern{`0,``0},System.Boolean,Func{``0,Task{`1}})">Case&lt;TMatchResult&gt;(IAsyncPattern&lt;TInput, TMatchResult&gt;, Boolean, Func&lt;TMatchResult, Task&lt;TOutput&gt;&gt;)</h4>
+  <div class="markdown level1 summary"><p>Add the specified case to the match expression.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public AsyncMatchBuilder&lt;TInput, TOutput&gt; Case&lt;TMatchResult&gt;(IAsyncPattern&lt;TInput, TMatchResult&gt; pattern, bool fallthrough, Func&lt;TMatchResult, Task&lt;TOutput&gt;&gt; func)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Matchmaker.Patterns.Async.IAsyncPattern-2.html">IAsyncPattern</a>&lt;TInput, TMatchResult&gt;</td>
+        <td><span class="parametername">pattern</span></td>
+        <td><p>The pattern to match with.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">fallthrough</span></td>
+        <td><p>The fallthrough behavior.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Func</span>&lt;TMatchResult, <span class="xref">Task</span>&lt;TOutput&gt;&gt;</td>
+        <td><span class="parametername">func</span></td>
+        <td><p>The function to execute if the match is successful.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Matchmaker.AsyncMatchBuilder-2.html">AsyncMatchBuilder</a>&lt;TInput, TOutput&gt;</td>
+        <td><p>The calling builder.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TMatchResult</span></td>
+        <td><p>The type of the result of the pattern's match.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_AsyncMatchBuilder_2_Case__1_Matchmaker_Patterns_IPattern__0___0__Func___0__1__.md&amp;value=---%0Auid%3A%20Matchmaker.AsyncMatchBuilder%602.Case%60%601(Matchmaker.Patterns.IPattern%7B%600%2C%60%600%7D%2CFunc%7B%60%600%2C%601%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/AsyncMatchBuilder_2.cs/#L104">View Source</a>
+  </span>
+  <a id="Matchmaker_AsyncMatchBuilder_2_Case_" data-uid="Matchmaker.AsyncMatchBuilder`2.Case*"></a>
+  <h4 id="Matchmaker_AsyncMatchBuilder_2_Case__1_Matchmaker_Patterns_IPattern__0___0__Func___0__1__" data-uid="Matchmaker.AsyncMatchBuilder`2.Case``1(Matchmaker.Patterns.IPattern{`0,``0},Func{``0,`1})">Case&lt;TMatchResult&gt;(IPattern&lt;TInput, TMatchResult&gt;, Func&lt;TMatchResult, TOutput&gt;)</h4>
+  <div class="markdown level1 summary"><p>Add the specified case to the match expression.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public AsyncMatchBuilder&lt;TInput, TOutput&gt; Case&lt;TMatchResult&gt;(IPattern&lt;TInput, TMatchResult&gt; pattern, Func&lt;TMatchResult, TOutput&gt; func)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Matchmaker.Patterns.IPattern-2.html">IPattern</a>&lt;TInput, TMatchResult&gt;</td>
+        <td><span class="parametername">pattern</span></td>
+        <td><p>The pattern to match with.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Func</span>&lt;TMatchResult, TOutput&gt;</td>
+        <td><span class="parametername">func</span></td>
+        <td><p>The function to execute if the match is successful.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Matchmaker.AsyncMatchBuilder-2.html">AsyncMatchBuilder</a>&lt;TInput, TOutput&gt;</td>
+        <td><p>The calling builder.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TMatchResult</span></td>
+        <td><p>The type of the result of the pattern's match.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_AsyncMatchBuilder_2_Case__1_Matchmaker_Patterns_IPattern__0___0__Func___0_Task__1___.md&amp;value=---%0Auid%3A%20Matchmaker.AsyncMatchBuilder%602.Case%60%601(Matchmaker.Patterns.IPattern%7B%600%2C%60%600%7D%2CFunc%7B%60%600%2CTask%7B%601%7D%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/AsyncMatchBuilder_2.cs/#L89">View Source</a>
+  </span>
+  <a id="Matchmaker_AsyncMatchBuilder_2_Case_" data-uid="Matchmaker.AsyncMatchBuilder`2.Case*"></a>
+  <h4 id="Matchmaker_AsyncMatchBuilder_2_Case__1_Matchmaker_Patterns_IPattern__0___0__Func___0_Task__1___" data-uid="Matchmaker.AsyncMatchBuilder`2.Case``1(Matchmaker.Patterns.IPattern{`0,``0},Func{``0,Task{`1}})">Case&lt;TMatchResult&gt;(IPattern&lt;TInput, TMatchResult&gt;, Func&lt;TMatchResult, Task&lt;TOutput&gt;&gt;)</h4>
+  <div class="markdown level1 summary"><p>Add the specified case to the match expression.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public AsyncMatchBuilder&lt;TInput, TOutput&gt; Case&lt;TMatchResult&gt;(IPattern&lt;TInput, TMatchResult&gt; pattern, Func&lt;TMatchResult, Task&lt;TOutput&gt;&gt; func)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Matchmaker.Patterns.IPattern-2.html">IPattern</a>&lt;TInput, TMatchResult&gt;</td>
+        <td><span class="parametername">pattern</span></td>
+        <td><p>The pattern to match with.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Func</span>&lt;TMatchResult, <span class="xref">Task</span>&lt;TOutput&gt;&gt;</td>
+        <td><span class="parametername">func</span></td>
+        <td><p>The function to execute if the match is successful.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Matchmaker.AsyncMatchBuilder-2.html">AsyncMatchBuilder</a>&lt;TInput, TOutput&gt;</td>
+        <td><p>The calling builder.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TMatchResult</span></td>
+        <td><p>The type of the result of the pattern's match.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_AsyncMatchBuilder_2_Case__1_Matchmaker_Patterns_IPattern__0___0__System_Boolean_Func___0__1__.md&amp;value=---%0Auid%3A%20Matchmaker.AsyncMatchBuilder%602.Case%60%601(Matchmaker.Patterns.IPattern%7B%600%2C%60%600%7D%2CSystem.Boolean%2CFunc%7B%60%600%2C%601%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/AsyncMatchBuilder_2.cs/#L183">View Source</a>
+  </span>
+  <a id="Matchmaker_AsyncMatchBuilder_2_Case_" data-uid="Matchmaker.AsyncMatchBuilder`2.Case*"></a>
+  <h4 id="Matchmaker_AsyncMatchBuilder_2_Case__1_Matchmaker_Patterns_IPattern__0___0__System_Boolean_Func___0__1__" data-uid="Matchmaker.AsyncMatchBuilder`2.Case``1(Matchmaker.Patterns.IPattern{`0,``0},System.Boolean,Func{``0,`1})">Case&lt;TMatchResult&gt;(IPattern&lt;TInput, TMatchResult&gt;, Boolean, Func&lt;TMatchResult, TOutput&gt;)</h4>
+  <div class="markdown level1 summary"><p>Add the specified case to the match expression.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public AsyncMatchBuilder&lt;TInput, TOutput&gt; Case&lt;TMatchResult&gt;(IPattern&lt;TInput, TMatchResult&gt; pattern, bool fallthrough, Func&lt;TMatchResult, TOutput&gt; func)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Matchmaker.Patterns.IPattern-2.html">IPattern</a>&lt;TInput, TMatchResult&gt;</td>
+        <td><span class="parametername">pattern</span></td>
+        <td><p>The pattern to match with.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">fallthrough</span></td>
+        <td><p>The fallthrough behavior.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Func</span>&lt;TMatchResult, TOutput&gt;</td>
+        <td><span class="parametername">func</span></td>
+        <td><p>The function to execute if the match is successful.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Matchmaker.AsyncMatchBuilder-2.html">AsyncMatchBuilder</a>&lt;TInput, TOutput&gt;</td>
+        <td><p>The calling builder.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TMatchResult</span></td>
+        <td><p>The type of the result of the pattern's match.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_AsyncMatchBuilder_2_Case__1_Matchmaker_Patterns_IPattern__0___0__System_Boolean_Func___0_Task__1___.md&amp;value=---%0Auid%3A%20Matchmaker.AsyncMatchBuilder%602.Case%60%601(Matchmaker.Patterns.IPattern%7B%600%2C%60%600%7D%2CSystem.Boolean%2CFunc%7B%60%600%2CTask%7B%601%7D%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/AsyncMatchBuilder_2.cs/#L166">View Source</a>
+  </span>
+  <a id="Matchmaker_AsyncMatchBuilder_2_Case_" data-uid="Matchmaker.AsyncMatchBuilder`2.Case*"></a>
+  <h4 id="Matchmaker_AsyncMatchBuilder_2_Case__1_Matchmaker_Patterns_IPattern__0___0__System_Boolean_Func___0_Task__1___" data-uid="Matchmaker.AsyncMatchBuilder`2.Case``1(Matchmaker.Patterns.IPattern{`0,``0},System.Boolean,Func{``0,Task{`1}})">Case&lt;TMatchResult&gt;(IPattern&lt;TInput, TMatchResult&gt;, Boolean, Func&lt;TMatchResult, Task&lt;TOutput&gt;&gt;)</h4>
+  <div class="markdown level1 summary"><p>Add the specified case to the match expression.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public AsyncMatchBuilder&lt;TInput, TOutput&gt; Case&lt;TMatchResult&gt;(IPattern&lt;TInput, TMatchResult&gt; pattern, bool fallthrough, Func&lt;TMatchResult, Task&lt;TOutput&gt;&gt; func)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Matchmaker.Patterns.IPattern-2.html">IPattern</a>&lt;TInput, TMatchResult&gt;</td>
+        <td><span class="parametername">pattern</span></td>
+        <td><p>The pattern to match with.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">fallthrough</span></td>
+        <td><p>The fallthrough behavior.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Func</span>&lt;TMatchResult, <span class="xref">Task</span>&lt;TOutput&gt;&gt;</td>
+        <td><span class="parametername">func</span></td>
+        <td><p>The function to execute if the match is successful.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Matchmaker.AsyncMatchBuilder-2.html">AsyncMatchBuilder</a>&lt;TInput, TOutput&gt;</td>
+        <td><p>The calling builder.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TMatchResult</span></td>
+        <td><p>The type of the result of the pattern's match.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
     <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_AsyncMatchBuilder_2_Case__1_System_Boolean_Func___0__1__.md&amp;value=---%0Auid%3A%20Matchmaker.AsyncMatchBuilder%602.Case%60%601(System.Boolean%2CFunc%7B%60%600%2C%601%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/AsyncMatchBuilder_2.cs/#L126">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/AsyncMatchBuilder_2.cs/#L263">View Source</a>
   </span>
   <a id="Matchmaker_AsyncMatchBuilder_2_Case_" data-uid="Matchmaker.AsyncMatchBuilder`2.Case*"></a>
   <h4 id="Matchmaker_AsyncMatchBuilder_2_Case__1_System_Boolean_Func___0__1__" data-uid="Matchmaker.AsyncMatchBuilder`2.Case``1(System.Boolean,Func{``0,`1})">Case&lt;TType&gt;(Boolean, Func&lt;TType, TOutput&gt;)</h4>
@@ -410,10 +931,87 @@
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_AsyncMatchBuilder_2_Case__1_System_Boolean_Func___0_Task__1___.md&amp;value=---%0Auid%3A%20Matchmaker.AsyncMatchBuilder%602.Case%60%601(System.Boolean%2CFunc%7B%60%600%2CTask%7B%601%7D%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/AsyncMatchBuilder_2.cs/#L243">View Source</a>
+  </span>
+  <a id="Matchmaker_AsyncMatchBuilder_2_Case_" data-uid="Matchmaker.AsyncMatchBuilder`2.Case*"></a>
+  <h4 id="Matchmaker_AsyncMatchBuilder_2_Case__1_System_Boolean_Func___0_Task__1___" data-uid="Matchmaker.AsyncMatchBuilder`2.Case``1(System.Boolean,Func{``0,Task{`1}})">Case&lt;TType&gt;(Boolean, Func&lt;TType, Task&lt;TOutput&gt;&gt;)</h4>
+  <div class="markdown level1 summary"><p>Add the specified case to the match expression.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public AsyncMatchBuilder&lt;TInput, TOutput&gt; Case&lt;TType&gt;(bool fallthrough, Func&lt;TType, Task&lt;TOutput&gt;&gt; func)
+    where TType : TInput</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">fallthrough</span></td>
+        <td><p>The fallthrough behavior.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Func</span>&lt;TType, <span class="xref">Task</span>&lt;TOutput&gt;&gt;</td>
+        <td><span class="parametername">func</span></td>
+        <td><p>The function to execute if the match is successful.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Matchmaker.AsyncMatchBuilder-2.html">AsyncMatchBuilder</a>&lt;TInput, TOutput&gt;</td>
+        <td><p>The calling builder.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TType</span></td>
+        <td><p>The type of the result of the pattern's match.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Matchmaker_AsyncMatchBuilder_2_Case__1_System_Boolean_Func___0_Task__1____remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>This method is functionally equivalent to the following:</p>
+<pre><code>builder.Case(AsyncPattern.Type&lt;TInput, TType>(), fallthrough, func)</code></pre>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
     <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_AsyncMatchBuilder_2_Fallthrough_System_Boolean_.md&amp;value=---%0Auid%3A%20Matchmaker.AsyncMatchBuilder%602.Fallthrough(System.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/AsyncMatchBuilder_2.cs/#L41">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/AsyncMatchBuilder_2.cs/#L43">View Source</a>
   </span>
   <a id="Matchmaker_AsyncMatchBuilder_2_Fallthrough_" data-uid="Matchmaker.AsyncMatchBuilder`2.Fallthrough*"></a>
   <h4 id="Matchmaker_AsyncMatchBuilder_2_Fallthrough_System_Boolean_" data-uid="Matchmaker.AsyncMatchBuilder`2.Fallthrough(System.Boolean)">Fallthrough(Boolean)</h4>
@@ -473,7 +1071,7 @@
                     <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_AsyncMatchBuilder_2.md&amp;value=---%0Auid%3A%20Matchmaker.AsyncMatchBuilder%602%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/AsyncMatchBuilder_2.cs/#L15" class="contribution-link">View Source</a>
+                    <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/AsyncMatchBuilder_2.cs/#L17" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>
