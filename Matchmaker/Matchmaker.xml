@@ -1801,6 +1801,16 @@
             <paramref name="items" /> is <see langword="null" />.
             </exception>
         </member>
+        <member name="M:Matchmaker.Linq.MatchExtensions.EnumerateAsync``1(System.Collections.Generic.IAsyncEnumerable{``0})">
+            <summary>
+            Forces the enumeration of an <see cref="T:System.Collections.Generic.IAsyncEnumerable`1" /> asynchronously and ignores the result.
+            </summary>
+            <typeparam name="T">The type of the items in the enumerate.</typeparam>
+            <param name="items">The async enumerable to enumerate.</param>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="items" /> is <see langword="null" />.
+            </exception>
+        </member>
         <member name="T:Matchmaker.Linq.MatchResultExtensions">
             <summary>
             A container class for extension methods for <see cref="T:Matchmaker.MatchResult`1" />.

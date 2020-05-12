@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Matchmaker.Linq
 {
@@ -19,6 +20,19 @@ namespace Matchmaker.Linq
         public static void Enumerate<T>(this IEnumerable<T> items)
         {
             foreach (var _ in items ?? throw new ArgumentNullException(nameof(items))) { }
+        }
+
+        /// <summary>
+        /// Forces the enumeration of an <see cref="IAsyncEnumerable{T}" /> asynchronously and ignores the result.
+        /// </summary>
+        /// <typeparam name="T">The type of the items in the enumerate.</typeparam>
+        /// <param name="items">The async enumerable to enumerate.</param>
+        /// <exception cref="ArgumentNullException">
+        /// <paramref name="items" /> is <see langword="null" />.
+        /// </exception>
+        public static async Task EnumerateAsync<T>(this IAsyncEnumerable<T> items)
+        {
+            await foreach (var _ in items ?? throw new ArgumentNullException(nameof(items))) { }
         }
     }
 }
