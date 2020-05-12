@@ -1168,6 +1168,22 @@ references:
   fullName.vb: Matchmaker.Linq.MatchExtensions.Enumerate(Of T)(IEnumerable(Of T))
   nameWithType: MatchExtensions.Enumerate<T>(IEnumerable<T>)
   nameWithType.vb: MatchExtensions.Enumerate(Of T)(IEnumerable(Of T))
+- uid: Matchmaker.Linq.MatchExtensions.EnumerateAsync*
+  name: EnumerateAsync
+  href: api/Matchmaker.Linq.MatchExtensions.html#Matchmaker_Linq_MatchExtensions_EnumerateAsync_
+  commentId: Overload:Matchmaker.Linq.MatchExtensions.EnumerateAsync
+  isSpec: "True"
+  fullName: Matchmaker.Linq.MatchExtensions.EnumerateAsync
+  nameWithType: MatchExtensions.EnumerateAsync
+- uid: Matchmaker.Linq.MatchExtensions.EnumerateAsync``1(IAsyncEnumerable{``0})
+  name: EnumerateAsync<T>(IAsyncEnumerable<T>)
+  href: api/Matchmaker.Linq.MatchExtensions.html#Matchmaker_Linq_MatchExtensions_EnumerateAsync__1_IAsyncEnumerable___0__
+  commentId: M:Matchmaker.Linq.MatchExtensions.EnumerateAsync``1(IAsyncEnumerable{``0})
+  name.vb: EnumerateAsync(Of T)(IAsyncEnumerable(Of T))
+  fullName: Matchmaker.Linq.MatchExtensions.EnumerateAsync<T>(IAsyncEnumerable<T>)
+  fullName.vb: Matchmaker.Linq.MatchExtensions.EnumerateAsync(Of T)(IAsyncEnumerable(Of T))
+  nameWithType: MatchExtensions.EnumerateAsync<T>(IAsyncEnumerable<T>)
+  nameWithType.vb: MatchExtensions.EnumerateAsync(Of T)(IAsyncEnumerable(Of T))
 - uid: Matchmaker.Linq.MatchResultExtensions
   name: MatchResultExtensions
   href: api/Matchmaker.Linq.MatchResultExtensions.html
