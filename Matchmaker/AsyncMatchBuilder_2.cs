@@ -89,7 +89,7 @@ namespace Matchmaker
         public AsyncMatchBuilder<TInput, TOutput> Case<TMatchResult>(
             IPattern<TInput, TMatchResult> pattern,
             Func<TMatchResult, Task<TOutput>> func)
-            => this.Case(pattern.AsAsync(), func);
+            => this.Case(pattern, this.FallthroughByDefault, func);
 
         /// <summary>
         /// Add the specified case to the match expression.
@@ -104,7 +104,7 @@ namespace Matchmaker
         public AsyncMatchBuilder<TInput, TOutput> Case<TMatchResult>(
             IPattern<TInput, TMatchResult> pattern,
             Func<TMatchResult, TOutput> func)
-            => this.Case(pattern, func.AsAsync());
+            => this.Case(pattern, this.FallthroughByDefault, func);
 
         /// <summary>
         /// Add the specified case to the match expression.
