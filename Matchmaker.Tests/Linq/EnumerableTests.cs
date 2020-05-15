@@ -15,7 +15,7 @@ namespace Matchmaker.Linq
     public class EnumerableTests
     {
         [Fact]
-        public Property EnumerateForcesEnumeration()
+        public Property EnumerateShouldForceEnumeration()
         {
             const int count = 100;
 
@@ -29,9 +29,35 @@ namespace Matchmaker.Linq
         }
 
         [Fact]
-        public void EnumerateThrowsIfEnumerableIsNull()
+        public void EnumerateShouldThrowIfEnumerableIsNull()
         {
             Action action = () => ((IEnumerable<object>)null).Enumerate();
+            action.Should().Throw<ArgumentNullException>();
+        }
+
+        [Fact]
+        public Property EnumerateAsyncShouldForceEnumeration()
+        {
+            const int count = 100;
+
+            int result = 0;
+
+            AsyncEnumerable.Range(0, count)
+                .Select(_ => result++)
+                .EnumerateAsync()
+                .Wait();
+
+            return (result == count).ToProperty();
+        }
+
+        [Fact]
+        public void EnumerateAsyncShouldThrowIfEnumerableIsNull()
+        {
+            Action action = () =>
+            {
+                _ = ((IAsyncEnumerable<object>)null).EnumerateAsync();
+            };
+
             action.Should().Throw<ArgumentNullException>();
         }
     }

@@ -30,9 +30,19 @@ namespace Matchmaker.Linq
         /// <exception cref="ArgumentNullException">
         /// <paramref name="items" /> is <see langword="null" />.
         /// </exception>
-        public static async Task EnumerateAsync<T>(this IAsyncEnumerable<T> items)
+        public static Task EnumerateAsync<T>(this IAsyncEnumerable<T> items)
         {
-            await foreach (var _ in items ?? throw new ArgumentNullException(nameof(items))) { }
+            if (items == null)
+            {
+                throw new ArgumentNullException(nameof(items));
+            }
+
+            async Task SafeEnumerateAsync()
+            {
+                await foreach (var _ in items) { }
+            }
+
+            return SafeEnumerateAsync();
         }
     }
 }
