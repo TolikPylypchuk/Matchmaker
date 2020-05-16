@@ -365,11 +365,23 @@
     },
     {
       "type": "Conceptual",
+      "source_relative_path": "articles/async.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/async.html",
+          "hash": "7zqqW2kRCWfzqTXvtwjecw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
       "source_relative_path": "articles/expressions.md",
       "output": {
         ".html": {
           "relative_path": "articles/expressions.html",
-          "hash": "nPBbn6wQpRcFnaXDzMXiUg=="
+          "hash": "6WEC0JVPsvbX6BbpssQNbQ=="
         }
       },
       "is_incremental": false,
@@ -381,7 +393,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/intro.html",
-          "hash": "r97LiGNjY7LOumvwgNYM/Q=="
+          "hash": "K/PRnPJEuAqrU6nMyXRmfA=="
         }
       },
       "is_incremental": false,
@@ -393,7 +405,19 @@
       "output": {
         ".html": {
           "relative_path": "articles/migration.html",
-          "hash": "rCcznVhyDfRF9ptefEB+2Q=="
+          "hash": "2bvLHF9iF5i3G+67sXrSyw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/nullable.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/nullable.html",
+          "hash": "mqjvcyESDYGyMx0ltRzGwQ=="
         }
       },
       "is_incremental": false,
@@ -405,7 +429,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/patterns.html",
-          "hash": "eutOT77ukJe6MkAZ6HYVCQ=="
+          "hash": "EEp+DTn/P/2pXyPQD1V9Gg=="
         }
       },
       "is_incremental": false,
@@ -441,7 +465,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/unions.html",
-          "hash": "yOS40jtqaJuAW73ArIyH3A=="
+          "hash": "sDYs0RYMeRzTdVfM03rtwQ=="
         }
       },
       "is_incremental": false,
@@ -453,7 +477,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/why.html",
-          "hash": "5EiTuaPsekPyKxBehiTPtw=="
+          "hash": "so8CeowAi4s23s1Z7RV9Cg=="
         }
       },
       "is_incremental": false,
@@ -476,7 +500,7 @@
       "output": {
         ".html": {
           "relative_path": "index.html",
-          "hash": "LHiDx39uDcZ9qw6loi7Vsg=="
+          "hash": "vbvfqCP3feUkAtyGy9mUyA=="
         }
       },
       "is_incremental": false,
@@ -520,7 +544,7 @@
         "ConceptualDocumentProcessor": {
           "can_incremental": false,
           "incrementalPhase": "build",
-          "total_file_count": 9,
+          "total_file_count": 11,
           "skipped_file_count": 0
         },
         "ManagedReferenceDocumentProcessor": {

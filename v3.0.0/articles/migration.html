@@ -76,6 +76,8 @@ changelog, because previous versions contained much fewer changes and it's much 
 <p>In order to migrate from version 2.0.0 to version 2.1.0 action is required only if you implemented the
 <code>IPattern&lt;TInput, TMatchResult&gt;</code> interface (which wasn't recommended). The less generic <code>IPattern&lt;TInput&gt;</code>
 interface was removed, so you should remove its <code>Match</code> method. That's it.</p>
+<p>To migrate from version 2.1.0 to 3.0.0, you need a platform which supports .NET Standard 2.1. If it does, then you
+can upgrade without any fuss as this version doesn't contain breaking changes.</p>
 <h2 id="general">General</h2>
 <p>Since this library has a new name, the namespace is different as well. Instead of the <code>PatternMatching</code> namespace
 there are three namespaces: <code>Matchmaker</code>, <code>Matchmaker.Patterns</code> and <code>Matchmaker.Linq</code>.</p>
@@ -86,10 +88,11 @@ this library now uses its own <code>MatchResult</code>.</p>
 <p>The <code>Match</code> method in <code>IPattern&lt;TInput, TMatchResult&gt;</code> now returns <code>MatchResult&lt;TMatchResult&gt;</code> instead of
 <code>OptionUnsafe&lt;TMatchResult&gt;</code>.</p>
 <p>The <code>IPattern&lt;TInput, TMatchResult&gt;</code> now contains the <code>Description</code> property. If you implemented this interface,
-you can add it and make it return an empty string if you don't want a description.</p>
+you must add it and make it return an empty string if you don't want a description.</p>
 <p><code>IPattern&lt;TInput, TMatchResult&gt;</code> now extends <code>IPattern&lt;TInput&gt;</code>. If you implemented this interface, it's better
 to extend the new <code>Pattern&lt;TInput, TMatchResult&gt;</code> class instead, as it provides both an implementation of the less
-generic interface, and the <code>Description</code> property.</p>
+generic interface, and the <code>Description</code> property. Bear in mind that <code>IPattern&lt;TInput&gt;</code> was removed in version
+2.1.0 so don't bother with it much.</p>
 <p>The <code>ConditionalPattern&lt;TInput, TMatchResult, TPattern&gt;</code> is gone. It's too much work for the users to implement
 filtering of patterns if they want a highly customized pattern. If you filtered pattern results with the <code>When</code> method
 before, now  you can do that using the <code>Where</code> extension method from the <code>Matchmaker.Linq</code> namespace, which works on

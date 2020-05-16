@@ -73,7 +73,7 @@
 against a certain 'shape'. For example, 'the input value is equal to some value' or 'the input value
 has some type'.</p>
 <h2 id="the-ipatterntinput-tmatchresult-interface">The <code>IPattern&lt;TInput, TMatchResult&gt;</code> interface</h2>
-<p>A pattern is an object which implements the <code>IPattern&lt;TInput, TMatchResult&gt;</code> interface.
+<p>A pattern is an object which implements the <code>Matchmaker.Patterns.IPattern&lt;TInput, TMatchResult&gt;</code> interface.
 This interface contains two members:</p>
 <pre><code>string Description { get; }
 
@@ -153,12 +153,12 @@ of the <code>IPattern&lt;TInput, TMatchResult&gt;</code> interface. This functio
 <p>There are also overloads which take a description.</p>
 <h3 id="the-hard-way">The Hard Way</h3>
 <p>If you want something more complex than a single function, you can create a class which extends the
-<code>Pattern&lt;TInput, TMatchResult&gt;</code> class. This is a base class for patterns, and it implements the Description
-property which you don't have to use if you don't want – by default the description is empty, which means that the
-pattern doesn't have a description.</p>
+<code>Matchmaker.Patterns.Pattern&lt;TInput, TMatchResult&gt;</code> class. This is a base class for patterns, and it implements
+the <code>Description</code> property which you don't have to use if you don't want – by default the description is empty, which
+means that the pattern doesn't have a description.</p>
 <p>You can also implement the <code>IPattern&lt;TInput, TMatchResult&gt;</code> interface directly. But there is no reason to do that
-instead of extending the Pattern&lt;TInput, TMatchResult&gt; class unless your class already extends another class. But in
-that case making your class a pattern will break the single responsibility principle. So, don't do that.</p>
+instead of extending the <code>Pattern&lt;TInput, TMatchResult&gt;</code> class unless your class already extends another class. But
+in that case making your class a pattern will break the single responsibility principle. So, don't do that.</p>
 <p>Next article: <a href="expressions.html">Match expressions</a></p>
 </article>
           </div>
