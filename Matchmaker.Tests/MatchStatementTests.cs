@@ -16,7 +16,7 @@ namespace Matchmaker
     [SuppressMessage("ReSharper", "ConditionIsAlwaysTrueOrFalse")]
     [SuppressMessage("ReSharper", "AssignNullToNotNullAttribute")]
     [SuppressMessage("ReSharper", "IteratorMethodResultIsIgnored")]
-    public class NonStrictMatchStatementTests
+    public class MatchStatementTests
     {
         [Fact]
         public void MatchCreateShouldNeverReturnNull()
