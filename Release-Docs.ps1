@@ -1,5 +1,5 @@
 git config --global credential.helper store
-Add-Content "$env:USERPROFILE/.git-credentials" "https://$($env:github_access_token):x-oauth-basic@github.com`n"
+Add-Content "$env:USERPROFILE/.git-credentials" "https://$($env:github_access_token):x-oauth-basic@github.com`n" -NoNewline
 git config --global user.email "$($env:github_email)"
 git config --global user.name "Tolik Pylypchuk"
 
