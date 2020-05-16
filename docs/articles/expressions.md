@@ -180,4 +180,4 @@ per type (so `Match<int, int>` uses a different cache than `Match<int, string>`)
 cache. Clearing the cache will force all static match expressions of that type to be reinitialized. This process is
 not thread-safe as well.
 
-Next article: [Discriminated unions](unions.md)
+Next article: [Asynchronous pattern matching](async.md)

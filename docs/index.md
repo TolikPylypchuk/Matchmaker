@@ -10,12 +10,14 @@ the [API reference](api/index.md).
  - [Match results](articles/results.md)
  - [Patterns](articles/patterns.md)
  - [Match expressions](articles/expressions.md)
+ - [Asynchronous pattern matching](articles/async.md)
  - [Discriminated unions](articles/unions.md)
+ - [Nullable reference types](articles/nullable.md)
  - [Migration guide](articles/migration.md)
  - [Why this library was written](articles/why.md)
  - [API reference](api/index.md)
 
-# GitHub Repository
+## GitHub Repository
 
 https://github.com/TolikPylypchuk/Matchmaker
 

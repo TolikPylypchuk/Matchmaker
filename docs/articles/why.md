@@ -101,6 +101,12 @@ A couple days after releasing version 2.0.0 I realized once again that I was bei
 Once again, even though this change is potentially breaking, I didn't bump the major version, because I don't think
 it will break any actual code.
 
+After releasing version 2.1.0 I started working on version 3.0.0 which contains 2 major additions: support for nullable
+reference types and asynchronous pattern matching. Because of those additions, the .NET Standard version had to be
+bumped to 2.1 (sorry, .NET Framework). Asynchronous pattern matching will probably not be used often. I wrote it simply
+because I can, and why not - we have asynchronous enumeration, asynchronous disposal, asynchronous almost everything,
+so why not asynchronous pattern matching?
+
 ## So Why Was This Library Written?
 
 Having recapped some history and explained some design decisions, I haven't actually said why I wrote this library.
@@ -115,3 +121,10 @@ All of this is a lot of work, and this is an exceedingly small library. But I re
 and documented. I know what it's like when you want to use a library and the only way of doing that is to browse its
 source code. It's not fun. In the process of writing this library I've gained more appreciation of people that maintain
 libraries. I realize now just how much work this actually is.
+
+## What's Next
+
+I'm not planning on writing new versions beyond 3.0 (or maybe 3.1 if some stuff needs fixing). To be fair, I thought
+the same thing after releasing version 1.1 and yet here we are. This time I do believe that this library has enough
+features (probably more than enough). Maybe one day I'll revisit this decision, but for now (May 2020) this is it;
+this is as good as it gets.

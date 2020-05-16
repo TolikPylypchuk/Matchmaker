@@ -6,7 +6,7 @@ has some type'.
 
 ## The `IPattern<TInput, TMatchResult>` interface
 
-A pattern is an object which implements the `IPattern<TInput, TMatchResult>` interface.
+A pattern is an object which implements the `Matchmaker.Patterns.IPattern<TInput, TMatchResult>` interface.
 This interface contains two members:
 
 ```
@@ -110,12 +110,12 @@ There are also overloads which take a description.
 ### The Hard Way
 
 If you want something more complex than a single function, you can create a class which extends the
-`Pattern<TInput, TMatchResult>` class. This is a base class for patterns, and it implements the Description
-property which you don't have to use if you don't want – by default the description is empty, which means that the
-pattern doesn't have a description.
+`Matchmaker.Patterns.Pattern<TInput, TMatchResult>` class. This is a base class for patterns, and it implements
+the `Description` property which you don't have to use if you don't want – by default the description is empty, which
+means that the pattern doesn't have a description.
 
 You can also implement the `IPattern<TInput, TMatchResult>` interface directly. But there is no reason to do that
-instead of extending the Pattern<TInput, TMatchResult> class unless your class already extends another class. But in
-that case making your class a pattern will break the single responsibility principle. So, don't do that.
+instead of extending the `Pattern<TInput, TMatchResult>` class unless your class already extends another class. But
+in that case making your class a pattern will break the single responsibility principle. So, don't do that.
 
 Next article: [Match expressions](expressions.md)

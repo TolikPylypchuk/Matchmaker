@@ -10,6 +10,9 @@ In order to migrate from version 2.0.0 to version 2.1.0 action is required only 
 `IPattern<TInput, TMatchResult>` interface (which wasn't recommended). The less generic `IPattern<TInput>`
 interface was removed, so you should remove its `Match` method. That's it.
 
+To migrate from version 2.1.0 to 3.0.0, you need a platform which supports .NET Standard 2.1. If it does, then you
+can upgrade without any fuss as this version doesn't contain breaking changes.
+
 ## General
 
 Since this library has a new name, the namespace is different as well. Instead of the `PatternMatching` namespace
@@ -26,11 +29,12 @@ The `Match` method in `IPattern<TInput, TMatchResult>` now returns `MatchResult<
 `OptionUnsafe<TMatchResult>`.
 
 The `IPattern<TInput, TMatchResult>` now contains the `Description` property. If you implemented this interface,
-you can add it and make it return an empty string if you don't want a description.
+you must add it and make it return an empty string if you don't want a description.
 
 `IPattern<TInput, TMatchResult>` now extends `IPattern<TInput>`. If you implemented this interface, it's better
 to extend the new `Pattern<TInput, TMatchResult>` class instead, as it provides both an implementation of the less
-generic interface, and the `Description` property.
+generic interface, and the `Description` property. Bear in mind that `IPattern<TInput>` was removed in version
+2.1.0 so don't bother with it much.
 
 The `ConditionalPattern<TInput, TMatchResult, TPattern>` is gone. It's too much work for the users to implement
 filtering of patterns if they want a highly customized pattern. If you filtered pattern results with the `When` method
