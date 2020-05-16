@@ -11,7 +11,7 @@ Version 1.x can be found there. This repository contains version 2+.
 
 ## Installation
 
-If your platform supports .NET Standard, you can install the latest version:
+If your platform supports .NET Standard 2.1, you can install the latest version:
 
 ```
 Install-Package Matchmaker -Version 3.0.0
