@@ -11,6 +11,14 @@ Version 1.x can be found there. This repository contains version 2+.
 
 ## Installation
 
+If your platform supports .NET Standard, you can install the latest version:
+
+```
+Install-Package Matchmaker -Version 3.0.0
+```
+
+If it doesn't, then stick to versions 2.x:
+
 ```
 Install-Package Matchmaker -Version 2.1.0
 ```
@@ -101,22 +109,32 @@ you can think about.
 ## More Info
 
 If you want to learn how to use this library, you should read the
-[documentation](https://tolikpylypchuk.github.io/Matchmaker/v2.1.0). The articles provide everything you need to know
+[documentation](https://tolikpylypchuk.github.io/Matchmaker/v3.0.0). The articles provide everything you need to know
 to use this library.
 
 If you need extensive information, go to the
-[API reference](https://tolikpylypchuk.github.io/Matchmaker/v2.1.0/api/index.html).
+[API reference](https://tolikpylypchuk.github.io/Matchmaker/v3.0.0/api/index.html).
 
 If you need even more info about this library, you can go through the
-[tests](https://github.com/TolikPylypchuk/Matchmaker/tree/v2.1.0/Matchmaker.Tests). They are property-based and as such
+[tests](https://github.com/TolikPylypchuk/Matchmaker/tree/v3.0.0/Matchmaker.Tests). They are property-based and as such
 they describe every aspect of the classes and their members.
 
 The documentation can be found here:
 
- - Version 3.0.0 (WIP): https://tolikpylypchuk.github.io/Matchmaker/v3.0.0
+ - Version 3.0.0: https://tolikpylypchuk.github.io/Matchmaker/v3.0.0
  - Version 2.1.0: https://tolikpylypchuk.github.io/Matchmaker/v2.1.0
  - Version 2.0.0: https://tolikpylypchuk.github.io/Matchmaker/v2.0.0
  - Older versions: https://github.com/TolikPylypchuk/PatternMatching
+
+## Is This Library Still Maintained?
+
+I'm not planning on writing new versions beyond 3.0 (or maybe 3.1 if some stuff needs fixing). To be fair, I thought
+the same thing after releasing version 1.1 and yet here we are. This time I do believe that this library has enough
+features (probably more than enough). Maybe one day I'll revisit this decision, but for now (May 2020) this is it;
+this is as good as it gets.
+
+That said, if you report a bug or request a new feature, I'll definitely look into it. I'm not giving up on this
+library any time soon.
 
 ## License
 

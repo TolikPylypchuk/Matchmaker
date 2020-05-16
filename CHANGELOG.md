@@ -1,8 +1,8 @@
 # Changelog
 
-# v3.0 (WIP)
+# v3.0
 
-Whta's new in version 3.0:
+Whats's new in version 3.0:
 
 - Changed the .NET Standard version to 2.1
 - Added support for nullable reference types
