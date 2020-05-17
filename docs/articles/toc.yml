@@ -6,8 +6,12 @@
   href: patterns.md
 - name: Match Expressions
   href: expressions.md
+- name: Asynchronous Pattern Matching
+  href: async.md
 - name: Discriminated Unions
   href: unions.md
+- name: Nullable Reference Types
+  href: nullable.md
 - name: Migration Guide
   href: migration.md
 - name: Why This Library Was Written
