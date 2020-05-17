@@ -5,7 +5,7 @@
 This is what the simplest match expression looks like:
 
 ```
-using static Matchmaker.Pattern;
+using static Matchmaker.Patterns.Pattern;
 
 // ...
 

@@ -28,7 +28,7 @@ Install-Package Matchmaker -Version 2.1.0
 This is what the simplest match expression looks like:
 
 ```
-using static Matchmaker.Pattern;
+using static Matchmaker.Patterns.Pattern;
 
 // ...
 
