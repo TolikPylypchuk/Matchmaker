@@ -56,12 +56,11 @@ in an object and use it multiple times on different input values.
  - Like in `switch` the patterns are tried out sequentially. This means that the `Any` pattern should always
 come last.
 
-The release C# 8.0 included a new way to write switch expressions which yield a value. While this drastically reduced
-the need for external libraries like this one for pattern matching, the language itself includes only the simplest
-patterns. This library lets the user define arbitrary patterns, which makes this library more powerful than the switch
-expressions.
+C# 8 included a new way to write `switch` expressions which yield a value, and C# 9 extended it quite a bit. This
+drastically reduced the need for external libraries like this one for pattern matching. However, this library lets the
+user define arbitrary patterns, which makes this library more powerful than the `switch` expressions.
 
-Here's what the equivalent switch expression looks like in C# 8.0:
+Here's what the equivalent switch expression looks like in C# 8:
 
 ```
 int i = 5;
@@ -77,8 +76,7 @@ string result = i switch
 ```
 
 OK, this is much shorter and cleaner than the previous two examples. But this library shines when the patterns are
-more complex. C# allows only constant patterns, type patterns, and `when` expressions. This library allows anything
-you can think about.
+more complex. While C# allowes various kinds of patterns, this library allows anything you can think about.
 
 ## Performance
 

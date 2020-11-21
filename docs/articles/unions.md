@@ -77,7 +77,7 @@ of the cases in `switch` or in a match, we'll get an exception. In F# a warning 
 incomplete, but C# doesn't have the notion of complete or incomplete matches. Of course, this match will fail if the
 provided list is `null`, but this can be handled using the `Null` pattern.
 
-With C# 8.0 there's a better way to match on discriminated unions, but we still have to explicitly throw an exception
+With C# 8 there's a better way to match on discriminated unions, but we still have to explicitly throw an exception
 in the default case (which we know won't happen):
 
 ```

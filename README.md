@@ -14,13 +14,13 @@ Version 1.x can be found there. This repository contains version 2+.
 If your platform supports .NET Standard 2.1, you can install the latest version:
 
 ```
-Install-Package Matchmaker -Version 3.0.0
+dotnet add package Matchmaker --version 3.0.0
 ```
 
 If it doesn't, then stick to versions 2.x:
 
 ```
-Install-Package Matchmaker -Version 2.1.0
+dotnet add package Matchmaker --version 2.1.0
 ```
 
 ## A Simple Example
@@ -82,12 +82,11 @@ in an object, and use it multiple times on different input values.
  - Like in `switch` the patterns are tried out sequentially. This means that the `Any` pattern should always
 come last.
 
-The release C# 8.0 included a new way to write `switch` expressions which yield a value. While this drastically reduced
-the need for external libraries like this one for pattern matching, the language itself includes only the simplest
-patterns. This library lets the user define arbitrary patterns, which makes this library more powerful than the
-`switch` expressions.
+C# 8 included a new way to write `switch` expressions which yield a value, and C# 9 extended it quite a bit. This
+drastically reduced the need for external libraries like this one for pattern matching. However, this library lets the
+user define arbitrary patterns, which makes this library more powerful than the `switch` expressions.
 
-Here's what the equivalent switch expression looks like in C# 8.0:
+Here's what the equivalent switch expression looks like in C# 8:
 
 ```
 int i = 5;
@@ -103,8 +102,7 @@ string result = i switch
 ```
 
 OK, this is much shorter and cleaner than the previous two examples. But this library shines when the patterns are
-more complex. C# allows only constant patterns, type patterns, and `when` expressions. This library allows anything
-you can think about.
+more complex. While C# allowes various kinds of patterns, this library allows anything you can think about.
 
 ## Another Example
 
@@ -178,7 +176,7 @@ and `Empty` are the only possible subclasses of `ConsList`. And for that reason,
 of the cases in `switch` or in a match, we'll get an exception. In F# a warning is issued when the match is
 incomplete, but C# doesn't have the notion of complete or incomplete matches.
 
-With C# 8.0 there's a better way to do this, but we still have to explicitly throw an exception
+With C# 8 there's a better way to do this, but we still have to explicitly throw an exception
 in the default case (which we know won't happen):
 
 ```
