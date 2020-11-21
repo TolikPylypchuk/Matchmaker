@@ -8,7 +8,7 @@
     <title>Discriminated Unions </title>
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Discriminated Unions ">
-    <meta name="generator" content="docfx 2.53.1.0">
+    <meta name="generator" content="docfx 2.56.5.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -133,7 +133,7 @@ and <code>Empty</code> are the only possible subclasses of <code>ConsList</code>
 of the cases in <code>switch</code> or in a match, we'll get an exception. In F# a warning is issued when the match is
 incomplete, but C# doesn't have the notion of complete or incomplete matches. Of course, this match will fail if the
 provided list is <code>null</code>, but this can be handled using the <code>Null</code> pattern.</p>
-<p>With C# 8.0 there's a better way to match on discriminated unions, but we still have to explicitly throw an exception
+<p>With C# 8 there's a better way to match on discriminated unions, but we still have to explicitly throw an exception
 in the default case (which we know won't happen):</p>
 <pre><code>public int Sum(ConsList list)
     =&gt; list switch
@@ -158,7 +158,8 @@ in the default case (which we know won't happen):</p>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>
