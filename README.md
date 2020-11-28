@@ -193,8 +193,7 @@ public int Sum(ConsList list)
 ## Matching with Fall-through
 
 C, C++ and, Java support fall-through in `switch` statements. So does this library, although it works differently here.
-You can read more
-[here](https://tolikpylypchuk.github.io/Matchmaker/v3.0.0/articles/expressions.html#matching-with-fall-through).
+You can read more [here](https://matchmaker.tolik.io/v3.0.0/articles/expressions.html#matching-with-fall-through).
 
 Here's an implementation of the famous fizz-buzz program which uses matching with fall-through: 
 
@@ -240,17 +239,14 @@ string result = Match.CreateStatic<int, string>(match => match
 ```
 
 Now this match expression will be initialized only once even if its containing method is executed multiple times.
-You can read more
-[here](https://tolikpylypchuk.github.io/Matchmaker/v3.0.0/articles/expressions.html#static-match-expressions).
+You can read more [here](https://matchmaker.tolik.io/v3.0.0/articles/expressions.html#static-match-expressions).
 
 ## More Info
 
-If you want to learn how to use this library, you should read the
-[documentation](https://tolikpylypchuk.github.io/Matchmaker/v3.0.0). The articles provide everything you need to know
-to use this library.
+If you want to learn how to use this library, you should read the [documentation](https://matchmaker.tolik.io/v3.0.0).
+The articles provide everything you need to know to use this library.
 
-If you need extensive information, go to the
-[API reference](https://tolikpylypchuk.github.io/Matchmaker/v3.0.0/api/index.html).
+If you need extensive information, go to the [API reference](https://matchmaker.tolik.io/v3.0.0/api/index.html).
 
 If you need even more info about this library, you can go through the
 [tests](https://github.com/TolikPylypchuk/Matchmaker/tree/v3.0.0/Matchmaker.Tests). They are property-based and as such
@@ -258,9 +254,9 @@ they describe every aspect of the classes and their members.
 
 The documentation can be found here:
 
- - Version 3.0.0: https://tolikpylypchuk.github.io/Matchmaker/v3.0.0
- - Version 2.1.0: https://tolikpylypchuk.github.io/Matchmaker/v2.1.0
- - Version 2.0.0: https://tolikpylypchuk.github.io/Matchmaker/v2.0.0
+ - Version 3.0.0: https://matchmaker.tolik.io/v3.0.0
+ - Version 2.1.0: https://matchmaker.tolik.io/v2.1.0
+ - Version 2.0.0: https://matchmaker.tolik.io/v2.0.0
  - Older versions: https://github.com/TolikPylypchuk/PatternMatching
 
 ## Is This Library Still Maintained?

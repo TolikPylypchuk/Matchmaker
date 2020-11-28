@@ -33,7 +33,7 @@ What's new in version 2.0 (almost all changes are breaking):
 - Creating custom patterns became possible through factory methods and extension methods
 - The default mode of match statements changed from non-strict to strict
 
-Read the [migration guide](https://tolikpylypchuk.github.io/Matchmaker/v2.1.0/articles/migration.html) for more info.
+Read the [migration guide](https://matchmaker.tolik.io/v2.1.0/articles/migration.html) for more info.
 
 ## v1.2
 
