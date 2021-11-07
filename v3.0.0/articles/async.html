@@ -8,7 +8,7 @@
     <title>Asynchronous Pattern Matching </title>
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Asynchronous Pattern Matching ">
-    <meta name="generator" content="docfx 2.56.6.0">
+    <meta name="generator" content="docfx 2.58.9.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -84,7 +84,7 @@ from <code>MatchMaker.Linq</code> are basically the same. There are also extensi
 manner.</p>
 <p>Creating custom async patterns is also basically the same as creating custom patterns: you can use the <code>CreatePattern</code>
 methods from the <code>AsyncPattern</code> class, extend the
-<code>Matchmaker.Patterns.Async.AsyncPattern&lt;TInput, TMatchResult</code> class to get the <code>Description</code> property for
+<code>Matchmaker.Patterns.Async.AsyncPattern&lt;TInput, TMatchResult&gt;</code> class to get the <code>Description</code> property for
 free, or implement the <code>IAsyncPattern&lt;TInput, TMatchResult&gt;</code> directly (which is not recommended).</p>
 <p>Normal patterns can be turned into async patterns by calling the <code>AsAsync()</code> extension (defined in the
 <code>Matchmaker.Linq</code> namespace).</p>

@@ -8,7 +8,7 @@
     <title>Match Expressions </title>
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Match Expressions ">
-    <meta name="generator" content="docfx 2.56.6.0">
+    <meta name="generator" content="docfx 2.58.9.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -130,8 +130,8 @@ using static Matchmaker.Patterns.Pattern;
 
 // ...
 
-IPattern&lt;int, int&gt; DivisibleBy(int n)
-    =&gt; CreatePattern&lt;int&gt;(input =&gt; input % n == 0);
+IPattern&lt;int, int&gt; DivisibleBy(int n) =&gt;
+    CreatePattern&lt;int&gt;(input =&gt; input % n == 0);
 
 var result = Enumerable.Range(0, 15)
     .Select(Match.Create&lt;int, string&gt;(fallthroughByDefault: true)
@@ -148,8 +148,8 @@ var result = Enumerable.Range(0, 15)
 <h3 id="the-initialization-problem">The Initialization Problem</h3>
 <p>One pain point of match expressions is that whenever a method which contains a match expression is executed, the match
 expression is initialized from scratch. Take a look at this example:</p>
-<pre><code>void DoStuff(int i)
-    =&gt; Match.Create&lt;int, string&gt;()
+<pre><code>void DoStuff(int i) =&gt;
+    Match.Create&lt;int, string&gt;()
         .Case(...)
         .Case(...)
         .Case(...)
@@ -165,8 +165,8 @@ much less readable because the case definitions are in a different place from th
 <p>There is a way to create 'static match expressions' - expressions which will be initialized only once.</p>
 <p>The <code>Match</code> class contains the <code>CreateStatic</code> methods which allow the creation of static match expressions.
 Take a look at the modified example:</p>
-<pre><code>void DoStuff(int i)
-    =&gt; Match.CreateStatic&lt;int, string&gt;(builder =&gt; builder
+<pre><code>void DoStuff(int i) =&gt;
+    Match.CreateStatic&lt;int, string&gt;(builder =&gt; builder
             .Case(...)
             .Case(...)
             .Case(...)

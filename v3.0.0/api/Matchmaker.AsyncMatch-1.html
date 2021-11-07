@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class AsyncMatch&lt;TInput&gt;
    ">
-    <meta name="generator" content="docfx 2.56.6.0">
+    <meta name="generator" content="docfx 2.58.9.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -1039,7 +1039,7 @@ pattern is matched successfully.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task ExecuteAsync(TInput input)</code></pre>
+    <pre><code class="lang-csharp hljs">public async Task ExecuteAsync(TInput input)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -1104,7 +1104,7 @@ pattern is matched successfully.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;bool&gt; ExecuteNonStrictAsync(TInput input)</code></pre>
+    <pre><code class="lang-csharp hljs">public async Task&lt;bool&gt; ExecuteNonStrictAsync(TInput input)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -1155,7 +1155,7 @@ Otherwise, <span class="xref">false</span>.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public IAsyncEnumerable&lt;object?&gt; ExecuteWithFallthroughAsync(TInput input)</code></pre>
+    <pre><code class="lang-csharp hljs">public async IAsyncEnumerable&lt;object?&gt; ExecuteWithFallthroughAsync(TInput input)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">

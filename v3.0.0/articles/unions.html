@@ -8,7 +8,7 @@
     <title>Discriminated Unions </title>
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Discriminated Unions ">
-    <meta name="generator" content="docfx 2.56.6.0">
+    <meta name="generator" content="docfx 2.58.9.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -80,11 +80,11 @@ generic for simplicity.</p>
     private protected ConsList()
     { }
     
-    public static ConsList Cell(int head, ConsList tail)
-        =&gt; new ConsCell(head, tail);
+    public static ConsList Cell(int head, ConsList tail) =&gt;
+        new ConsCell(head, tail);
     
-    public static ConsList Empty
-        =&gt; new Empty();
+    public static ConsList Empty =&gt;
+        new Empty();
 }
 
 public sealed class ConsCell : ConsList
@@ -107,8 +107,8 @@ public sealed class Empty : ConsList
 </code></pre>
 <p>Now let's look what pattern matching on the list would look like. Let's create
 a function which finds the sum of all items of the list.</p>
-<pre><code>public int Sum(ConsList list)
-    =&gt; Match.Create&lt;ConsList, int&gt;()
+<pre><code>public int Sum(ConsList list) =&gt;
+    Match.Create&lt;ConsList, int&gt;()
         .Case&lt;ConsCell&gt;(cell =&gt; cell.Head + Sum(cell.Tail))
         .Case&lt;Empty&gt;(_ =&gt; 0)
         .ExecuteOn(list);
@@ -135,8 +135,8 @@ incomplete, but C# doesn't have the notion of complete or incomplete matches. Of
 provided list is <code>null</code>, but this can be handled using the <code>Null</code> pattern.</p>
 <p>With C# 8 there's a better way to match on discriminated unions, but we still have to explicitly throw an exception
 in the default case (which we know won't happen):</p>
-<pre><code>public int Sum(ConsList list)
-    =&gt; list switch
+<pre><code>public int Sum(ConsList list) =&gt;
+    list switch
     {
         ConsCell cell =&gt; cell.Head + Sum(cell.Tail),
         Empty _ =&gt; 0,

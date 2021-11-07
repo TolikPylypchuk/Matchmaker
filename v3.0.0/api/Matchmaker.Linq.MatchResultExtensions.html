@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class MatchResultExtensions
    ">
-    <meta name="generator" content="docfx 2.56.6.0">
+    <meta name="generator" content="docfx 2.58.9.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -183,7 +183,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Task&lt;MatchResult&lt;TResult&gt;&gt; Bind&lt;T, TResult&gt;(this Task&lt;MatchResult&lt;T&gt;&gt; futureResult, Func&lt;T, Task&lt;MatchResult&lt;TResult&gt;&gt;&gt; binder)</code></pre>
+    <pre><code class="lang-csharp hljs">public static async Task&lt;MatchResult&lt;TResult&gt;&gt; Bind&lt;T, TResult&gt;(this Task&lt;MatchResult&lt;T&gt;&gt; futureResult, Func&lt;T, Task&lt;MatchResult&lt;TResult&gt;&gt;&gt; binder)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -494,7 +494,7 @@ and contains a value that can be cast to <code data-dev-comment-type="typeparamr
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Task&lt;MatchResult&lt;T&gt;&gt; Do&lt;T&gt;(this Task&lt;MatchResult&lt;T&gt;&gt; futureResult, Action&lt;T&gt; action)</code></pre>
+    <pre><code class="lang-csharp hljs">public static async Task&lt;MatchResult&lt;T&gt;&gt; Do&lt;T&gt;(this Task&lt;MatchResult&lt;T&gt;&gt; futureResult, Action&lt;T&gt; action)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -569,7 +569,7 @@ and contains a value that can be cast to <code data-dev-comment-type="typeparamr
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Task&lt;MatchResult&lt;T&gt;&gt; Do&lt;T&gt;(this Task&lt;MatchResult&lt;T&gt;&gt; futureResult, Func&lt;T, Task&gt; action)</code></pre>
+    <pre><code class="lang-csharp hljs">public static async Task&lt;MatchResult&lt;T&gt;&gt; Do&lt;T&gt;(this Task&lt;MatchResult&lt;T&gt;&gt; futureResult, Func&lt;T, Task&gt; action)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -854,7 +854,7 @@ and contains a value that can be cast to <code data-dev-comment-type="typeparamr
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Task&lt;T&gt; GetValueOrDefault&lt;T&gt;(this Task&lt;MatchResult&lt;T&gt;&gt; futureResult)</code></pre>
+    <pre><code class="lang-csharp hljs">public static async Task&lt;T&gt; GetValueOrDefault&lt;T&gt;(this Task&lt;MatchResult&lt;T&gt;&gt; futureResult)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -923,7 +923,7 @@ and contains a value that can be cast to <code data-dev-comment-type="typeparamr
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Task&lt;T&gt; GetValueOrDefault&lt;T&gt;(this Task&lt;MatchResult&lt;T&gt;&gt; futureResult, T defaultValue)</code></pre>
+    <pre><code class="lang-csharp hljs">public static async Task&lt;T&gt; GetValueOrDefault&lt;T&gt;(this Task&lt;MatchResult&lt;T&gt;&gt; futureResult, T defaultValue)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -998,7 +998,7 @@ and contains a value that can be cast to <code data-dev-comment-type="typeparamr
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Task&lt;T&gt; GetValueOrDefault&lt;T&gt;(this Task&lt;MatchResult&lt;T&gt;&gt; futureResult, Func&lt;T&gt; defaultValueProvider)</code></pre>
+    <pre><code class="lang-csharp hljs">public static async Task&lt;T&gt; GetValueOrDefault&lt;T&gt;(this Task&lt;MatchResult&lt;T&gt;&gt; futureResult, Func&lt;T&gt; defaultValueProvider)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -1073,7 +1073,7 @@ and contains a value that can be cast to <code data-dev-comment-type="typeparamr
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Task&lt;T&gt; GetValueOrDefault&lt;T&gt;(this Task&lt;MatchResult&lt;T&gt;&gt; futureResult, Func&lt;Task&lt;T&gt;&gt; defaultValueProvider)</code></pre>
+    <pre><code class="lang-csharp hljs">public static async Task&lt;T&gt; GetValueOrDefault&lt;T&gt;(this Task&lt;MatchResult&lt;T&gt;&gt; futureResult, Func&lt;Task&lt;T&gt;&gt; defaultValueProvider)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -1220,7 +1220,7 @@ and contains a value that can be cast to <code data-dev-comment-type="typeparamr
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Task&lt;T&gt; GetValueOrThrow&lt;T&gt;(this Task&lt;MatchResult&lt;T&gt;&gt; futureResult, Func&lt;Exception&gt; exceptionProvider)</code></pre>
+    <pre><code class="lang-csharp hljs">public static async Task&lt;T&gt; GetValueOrThrow&lt;T&gt;(this Task&lt;MatchResult&lt;T&gt;&gt; futureResult, Func&lt;Exception&gt; exceptionProvider)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -1375,7 +1375,7 @@ and contains a value that can be cast to <code data-dev-comment-type="typeparamr
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Task&lt;MatchResult&lt;TResult&gt;&gt; Select&lt;T, TResult&gt;(this Task&lt;MatchResult&lt;T&gt;&gt; futureResult, Func&lt;T, TResult&gt; mapper)</code></pre>
+    <pre><code class="lang-csharp hljs">public static async Task&lt;MatchResult&lt;TResult&gt;&gt; Select&lt;T, TResult&gt;(this Task&lt;MatchResult&lt;T&gt;&gt; futureResult, Func&lt;T, TResult&gt; mapper)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -1533,7 +1533,7 @@ and its value satisfies a specified predicate.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Task&lt;MatchResult&lt;T&gt;&gt; Where&lt;T&gt;(this Task&lt;MatchResult&lt;T&gt;&gt; futureResult, Func&lt;T, bool&gt; predicate)</code></pre>
+    <pre><code class="lang-csharp hljs">public static async Task&lt;MatchResult&lt;T&gt;&gt; Where&lt;T&gt;(this Task&lt;MatchResult&lt;T&gt;&gt; futureResult, Func&lt;T, bool&gt; predicate)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -1610,7 +1610,7 @@ and its value satisfies a specified predicate.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Task&lt;MatchResult&lt;T&gt;&gt; Where&lt;T&gt;(this Task&lt;MatchResult&lt;T&gt;&gt; futureResult, Func&lt;T, Task&lt;bool&gt;&gt; predicate)</code></pre>
+    <pre><code class="lang-csharp hljs">public static async Task&lt;MatchResult&lt;T&gt;&gt; Where&lt;T&gt;(this Task&lt;MatchResult&lt;T&gt;&gt; futureResult, Func&lt;T, Task&lt;bool&gt;&gt; predicate)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">

@@ -8,7 +8,7 @@
     <title>Nullable Reference Types </title>
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Nullable Reference Types ">
-    <meta name="generator" content="docfx 2.56.6.0">
+    <meta name="generator" content="docfx 2.58.9.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -76,8 +76,8 @@ NRTs.</p>
 <code>null</code> values. This may be inconvenient if you know that <code>null</code> values are not used as match results.</p>
 <p>In addition, extensions in <code>Matchmaker.Linq</code> also don't fully support NRTs. Look at the (simplified) implementation
 of the <code>Select</code> extension for match results:</p>
-<pre><code>public static MatchResult&lt;TResult&gt; Select&lt;T, TResult&gt;(this MatchResult&lt;T&gt; result, Func&lt;T, TResult&gt; mapper)
-    =&gt; result.IsSuccessful ? MatchResult.Success(mapper(result.Value!)) : MatchResult.Failure&lt;TResult&gt;();
+<pre><code>public static MatchResult&lt;TResult&gt; Select&lt;T, TResult&gt;(this MatchResult&lt;T&gt; result, Func&lt;T, TResult&gt; mapper) =&gt;
+    result.IsSuccessful ? MatchResult.Success(mapper(result.Value!)) : MatchResult.Failure&lt;TResult&gt;();
 </code></pre>
 <p>Here's the interesting part: <code>mapper(result.Value!)</code>. There is no way to tell C# that <code>mapper</code> can receive <code>null</code>
 inputs, because <code>T</code> is generic and we cannot use <code>T?</code>.</p>
