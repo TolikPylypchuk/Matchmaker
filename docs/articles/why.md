@@ -50,7 +50,7 @@ The one big change in version 1.1 was introduction of matching with fall-through
 'experimental' feature in the library. I understand that matching with fall-through probably makes code more difficult
 to comprehend, but it was fun to play around with designing this feature. It includes major design deviations from the
 established way of fall-through that's present in C, C++, and Java. C# doesn't have fall-through at all and I think
-it's a good thing because the way it's implemented in those languages is, in my opinion, stupid. I understand why it
+it's a good thing because the way it's implemented in those languages can lead to subtle errors. I understand why it
 works this way, but the probability of making an error and letting code fall through to the next case is quite big
 (I should know, I've done that mistake myself). That is why I've implemented it in a way that lets code fall through to
 the next successful case, and it should be explicitly enabled in several places. I can't really say whether it's better

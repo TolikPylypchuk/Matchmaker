@@ -22,7 +22,7 @@ manner.
 
 Creating custom async patterns is also basically the same as creating custom patterns: you can use the `CreatePattern`
 methods from the `AsyncPattern` class, extend the
-`Matchmaker.Patterns.Async.AsyncPattern<TInput, TMatchResult` class to get the `Description` property for
+`Matchmaker.Patterns.Async.AsyncPattern<TInput, TMatchResult>` class to get the `Description` property for
 free, or implement the `IAsyncPattern<TInput, TMatchResult>` directly (which is not recommended).
 
 Normal patterns can be turned into async patterns by calling the `AsAsync()` extension (defined in the

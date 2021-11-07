@@ -49,11 +49,11 @@ switch (i)
 
 While this example doesn't show the full power of pattern matching, there are a few things to note here:
 
- - The match expression yields a result. We don't have to assign the result explicitly in each case.
- - The input of the match expression is specified _after_ all the cases. This allows us to save the match expression
+- The match expression yields a result. We don't have to assign the result explicitly in each case.
+- The input of the match expression is specified _after_ all the cases. This allows us to save the match expression
 in an object and use it multiple times on different input values.
- - The default case is a pattern, just like any other. It's called `Any` and is always matched successfully.
- - Like in `switch` the patterns are tried out sequentially. This means that the `Any` pattern should always
+- The default case is a pattern, just like any other. It's called `Any` and is always matched successfully.
+- Like in `switch` the patterns are tried out sequentially. This means that the `Any` pattern should always
 come last.
 
 C# 8 included a new way to write `switch` expressions which yield a value, and C# 9 extended it quite a bit. This
@@ -87,7 +87,6 @@ benchmarks).
 Versions 2+ of this library don't use the DLR anymore - I've found a better way to do this, and frankly, I'm amazed I
 didn't think of this way before. So, I'm guessing the performance of the new versions must be much better than versions
 1.x.
-
 
 ## More Info
 

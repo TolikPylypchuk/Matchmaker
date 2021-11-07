@@ -12,8 +12,8 @@ In addition, extensions in `Matchmaker.Linq` also don't fully support NRTs. Look
 of the `Select` extension for match results:
 
 ```
-public static MatchResult<TResult> Select<T, TResult>(this MatchResult<T> result, Func<T, TResult> mapper)
-    => result.IsSuccessful ? MatchResult.Success(mapper(result.Value!)) : MatchResult.Failure<TResult>();
+public static MatchResult<TResult> Select<T, TResult>(this MatchResult<T> result, Func<T, TResult> mapper) =>
+    result.IsSuccessful ? MatchResult.Success(mapper(result.Value!)) : MatchResult.Failure<TResult>();
 ```
 
 Here's the interesting part: `mapper(result.Value!)`. There is no way to tell C# that `mapper` can receive `null`
@@ -25,7 +25,7 @@ accounted for.
 
 When using this library with NRTs enabled, remember two things:
 
- - `MatchResult<T>` may contain `null` and so patterns can return `null` as their results as well
- - Match expressions' results may be `null`
+- `MatchResult<T>` may contain `null` and so patterns can return `null` as their results as well
+- Match expressions' results may be `null`
 
 Next article: [Migration guide](migration.md)

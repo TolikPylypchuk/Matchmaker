@@ -72,14 +72,14 @@ switch (i)
 
 While this example doesn't show the full power of pattern matching, there are a few things to note here:
 
- - The match expression yields a result. We don't have to assign the result explicitly in each case.
+- The match expression yields a result. We don't have to assign the result explicitly in each case.
 
- - The input of the match expression is specified _after_ all the cases. This allows us to save the match expression
+- The input of the match expression is specified _after_ all the cases. This allows us to save the match expression
 in an object, and use it multiple times on different input values.
 
- - The default case is a pattern, just like any other. It's called `Any` and is always matched successfully.
+- The default case is a pattern, just like any other. It's called `Any` and is always matched successfully.
 
- - Like in `switch` the patterns are tried out sequentially. This means that the `Any` pattern should always
+- Like in `switch` the patterns are tried out sequentially. This means that the `Any` pattern should always
 come last.
 
 C# 8 included a new way to write `switch` expressions which yield a value, and C# 9 extended it quite a bit. This
@@ -115,11 +115,11 @@ public abstract class ConsList
     private protected ConsList()
     { }
     
-    public static ConsList Cell(int head, ConsList tail)
-        => new ConsCell(head, tail);
+    public static ConsList Cell(int head, ConsList tail) =>
+        new ConsCell(head, tail);
     
-    public static ConsList Empty
-        => new Empty();
+    public static ConsList Empty =>
+        new Empty();
 }
 
 public sealed class ConsCell : ConsList
@@ -145,8 +145,8 @@ Now let's look what pattern matching on the list would look like. Let's create
 a function which finds the sum of all items of the list.
 
 ```
-public int Sum(ConsList list)
-    => Match.Create<ConsList, int>()
+public int Sum(ConsList list) =>
+    Match.Create<ConsList, int>()
         .Case<ConsCell>(cell => cell.Head + Sum(cell.Tail))
         .Case<Empty>(_ => 0)
         .ExecuteOn(list);
@@ -180,8 +180,8 @@ With C# 8 there's a better way to do this, but we still have to explicitly throw
 in the default case (which we know won't happen):
 
 ```
-public int Sum(ConsList list)
-    => list switch
+public int Sum(ConsList list) =>
+    list switch
     {
         ConsCell cell => cell.Head + Sum(cell.Tail),
         Empty _ => 0,
@@ -195,7 +195,7 @@ public int Sum(ConsList list)
 C, C++ and, Java support fall-through in `switch` statements. So does this library, although it works differently here.
 You can read more [here](https://matchmaker.tolik.io/v3.0.0/articles/expressions.html#matching-with-fall-through).
 
-Here's an implementation of the famous fizz-buzz program which uses matching with fall-through: 
+Here's an implementation of the famous fizz-buzz program which uses matching with fall-through:
 
 ```
 using System.Linq;
@@ -207,8 +207,8 @@ using static Matchmaker.Patterns.Pattern;
 
 // ...
 
-IPattern<int, int> DivisibleBy(int n)
-    => CreatePattern<int>(input => input % n == 0);
+IPattern<int, int> DivisibleBy(int n) =>
+    CreatePattern<int>(input => input % n == 0);
 
 var result = Enumerable.Range(0, 15)
     .Select(Match.Create<int, string>(fallthroughByDefault: true)
@@ -254,10 +254,10 @@ they describe every aspect of the classes and their members.
 
 The documentation can be found here:
 
- - Version 3.0.0: https://matchmaker.tolik.io/v3.0.0
- - Version 2.1.0: https://matchmaker.tolik.io/v2.1.0
- - Version 2.0.0: https://matchmaker.tolik.io/v2.0.0
- - Older versions: https://github.com/TolikPylypchuk/PatternMatching
+- Version 3.0.0: https://matchmaker.tolik.io/v3.0.0
+- Version 2.1.0: https://matchmaker.tolik.io/v2.1.0
+- Version 2.0.0: https://matchmaker.tolik.io/v2.0.0
+- Older versions: https://github.com/TolikPylypchuk/PatternMatching
 
 ## Is This Library Still Maintained?
 

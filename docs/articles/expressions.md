@@ -87,8 +87,8 @@ using static Matchmaker.Patterns.Pattern;
 
 // ...
 
-IPattern<int, int> DivisibleBy(int n)
-    => CreatePattern<int>(input => input % n == 0);
+IPattern<int, int> DivisibleBy(int n) =>
+    CreatePattern<int>(input => input % n == 0);
 
 var result = Enumerable.Range(0, 15)
     .Select(Match.Create<int, string>(fallthroughByDefault: true)
@@ -110,8 +110,8 @@ One pain point of match expressions is that whenever a method which contains a m
 expression is initialized from scratch. Take a look at this example:
 
 ```
-void DoStuff(int i)
-    => Match.Create<int, string>()
+void DoStuff(int i) =>
+    Match.Create<int, string>()
         .Case(...)
         .Case(...)
         .Case(...)
@@ -134,8 +134,8 @@ The `Match` class contains the `CreateStatic` methods which allow the creation o
 Take a look at the modified example:
 
 ```
-void DoStuff(int i)
-    => Match.CreateStatic<int, string>(builder => builder
+void DoStuff(int i) =>
+    Match.CreateStatic<int, string>(builder => builder
             .Case(...)
             .Case(...)
             .Case(...)

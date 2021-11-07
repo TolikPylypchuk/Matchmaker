@@ -17,8 +17,8 @@ MatchResult<TMatchResult> Match(Tinput input);
 
 The `Match` method actually does two things:
 
- - Matches the input value with the pattern and returns a successful result if the match is successful.
- - Transforms the input value. The returned result contains the transformed value if it's successful.
+- Matches the input value with the pattern and returns a successful result if the match is successful.
+- Transforms the input value. The returned result contains the transformed value if it's successful.
 
 Since options are not supported natively in C#, a custom type - [`MatchResult<T>`](results.md) - is used.
 
@@ -35,16 +35,16 @@ The results of patterns' matching can be `null`. This is why the `MatchResult<T>
 
 There are several predefined patterns in the `Matchmaker.Patterns.Pattern` class:
 
- - `Any` is always matched successfully and returns its input.
- - `Return` is also always matched successfully but returns the specified value instead of its input.
- - `Null` is matched successfully if its input is `null`.
- - `ValueNull` is also matched successfully if its input is `null` but is used for nullable value types.
- - `EqualTo` is matched successfully if its input is equal to the specified value.
- - `LessThan`, `LessOrEqual`, `GreaterThan` and `GreaterOrEqual` are matched successfully if their input
+- `Any` is always matched successfully and returns its input.
+- `Return` is also always matched successfully but returns the specified value instead of its input.
+- `Null` is matched successfully if its input is `null`.
+- `ValueNull` is also matched successfully if its input is `null` but is used for nullable value types.
+- `EqualTo` is matched successfully if its input is equal to the specified value.
+- `LessThan`, `LessOrEqual`, `GreaterThan` and `GreaterOrEqual` are matched successfully if their input
 is compared successfully to the specified value.
- - `Type` is matched successfully if its input has the specified type. It returns its input as a value of that type.
+- `Type` is matched successfully if its input has the specified type. It returns its input as a value of that type.
 If the input is `null`, then the match will fail only if the destination type is a non-nullable value type.
- - `Not` is matched successfully if the specified pattern is not matched successfully. It ignores the specified
+- `Not` is matched successfully if the specified pattern is not matched successfully. It ignores the specified
 pattern's transformation and returns its input if matched successfully.
 
 The patterns which compare their inputs can also take a custom comparer which will be used to compare values.
@@ -59,18 +59,18 @@ All methods for getting predefined patterns are overloaded to take a custom desc
 
 The `Matchmaker.Linq` namespace provides several extension methods for patterns:
 
- - `Select` maps a pattern's result value if it's successful.
- - `Pipe` creates a pattern pipeline - the result of the first pattern is the input of the second pattern.
- - `Cast` casts a pattern's result to a specified type. It's the same as piping a pattern to the `Type` pattern.
+- `Select` maps a pattern's result value if it's successful.
+- `Pipe` creates a pattern pipeline - the result of the first pattern is the input of the second pattern.
+- `Cast` casts a pattern's result to a specified type. It's the same as piping a pattern to the `Type` pattern.
 If the input is `null`, then the match will fail only if the destination type is a non-nullable value type.
- - `Bind` flat-maps a pattern's result. If a pattern's result is successful, it calls the
+- `Bind` flat-maps a pattern's result. If a pattern's result is successful, it calls the
 specified function and passes the result to it. The function returns another pattern which is then used to match
 the input. The second pattern's result is the final result.
- - `Where` filters the pattern's result if it's successful.
- - `And`, `Or` and `Xor` compose two patterns. The resulting pattern ignores the patterns' transformations and
+- `Where` filters the pattern's result if it's successful.
+- `And`, `Or` and `Xor` compose two patterns. The resulting pattern ignores the patterns' transformations and
 returns the input if successful.
- - `Compose` is the same as the three methods above, but the composition operator is passed to it as well.
- - `Cached` returns a pattern which matches the same as the specified pattern but caches its results in a `null`-safe
+- `Compose` is the same as the three methods above, but the composition operator is passed to it as well.
+- `Cached` returns a pattern which matches the same as the specified pattern but caches its results in a `null`-safe
 hash table. Every input will be matched only once - if it's matched again, the result will be taken from the
 cache. The caching process is not thread-safe.
 
@@ -100,9 +100,9 @@ This library works with arbitrary patterns. There are several ways to create cus
 The `Pattern` class contains the `CreatePattern` methods which create patterns from functions. There are two
 variations:
 
- - Create a pattern from a predicate. This predicate will be used to test the value. If it returns `true`, then the
+- Create a pattern from a predicate. This predicate will be used to test the value. If it returns `true`, then the
 input value will be the result.
- - Create a pattern from a matcher function. This is a function which has the same signature as the `Match` method
+- Create a pattern from a matcher function. This is a function which has the same signature as the `Match` method
 of the `IPattern<TInput, TMatchResult>` interface. This function will be used to match inputs.
 
 There are also overloads which take a description.

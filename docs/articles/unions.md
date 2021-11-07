@@ -15,11 +15,11 @@ public abstract class ConsList
     private protected ConsList()
     { }
     
-    public static ConsList Cell(int head, ConsList tail)
-        => new ConsCell(head, tail);
+    public static ConsList Cell(int head, ConsList tail) =>
+        new ConsCell(head, tail);
     
-    public static ConsList Empty
-        => new Empty();
+    public static ConsList Empty =>
+        new Empty();
 }
 
 public sealed class ConsCell : ConsList
@@ -45,8 +45,8 @@ Now let's look what pattern matching on the list would look like. Let's create
 a function which finds the sum of all items of the list.
 
 ```
-public int Sum(ConsList list)
-    => Match.Create<ConsList, int>()
+public int Sum(ConsList list) =>
+    Match.Create<ConsList, int>()
         .Case<ConsCell>(cell => cell.Head + Sum(cell.Tail))
         .Case<Empty>(_ => 0)
         .ExecuteOn(list);
@@ -81,8 +81,8 @@ With C# 8 there's a better way to match on discriminated unions, but we still ha
 in the default case (which we know won't happen):
 
 ```
-public int Sum(ConsList list)
-    => list switch
+public int Sum(ConsList list) =>
+    list switch
     {
         ConsCell cell => cell.Head + Sum(cell.Tail),
         Empty _ => 0,
