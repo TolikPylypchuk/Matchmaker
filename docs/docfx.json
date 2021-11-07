@@ -58,6 +58,9 @@
         ]
       }
     ],
+    "xrefService": [
+      "https://xref.docs.microsoft.com/query?uid={uid}"
+    ],
     "dest": "../docs-dest",
     "globalMetadata": {
       "_appLogoPath": "logo.svg",
