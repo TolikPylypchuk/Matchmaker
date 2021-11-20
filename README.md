@@ -1,7 +1,6 @@
 # Matchmaker
 
 [![NuGet](https://img.shields.io/nuget/v/Matchmaker.svg)](https://www.nuget.org/packages/Matchmaker/)
-[![Build status](https://ci.appveyor.com/api/projects/status/wptuo5d5mi4blss0?svg=true)](https://ci.appveyor.com/project/TolikPylypchuk/matchmaker)
 
 A library which enables more powerful pattern matching than is currently available in the C#'s `switch`
 statement/expression.
@@ -114,10 +113,10 @@ public abstract class ConsList
 {
     private protected ConsList()
     { }
-    
+
     public static ConsList Cell(int head, ConsList tail) =>
         new ConsCell(head, tail);
-    
+
     public static ConsList Empty =>
         new Empty();
 }
@@ -126,7 +125,7 @@ public sealed class ConsCell : ConsList
 {
     public int Head { get; }
     public ConsList Tail { get; }
-    
+
     internal ConsCell(int head, ConsList tail)
     {
         this.Head = head;
