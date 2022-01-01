@@ -8,7 +8,7 @@
     <PackageId>Matchmaker</PackageId>
     <Authors>Tolik Pylypchuk</Authors>
     <Description>A library which enables more powerful pattern matching than is currently available in the switch statement/expression.</Description>
-    <Copyright>Copyright © 2018-2021 Anatoliy Pylypchuk</Copyright>
+    <Copyright>Copyright © 2018 Anatoliy Pylypchuk</Copyright>
     <PackageLicenseUrl></PackageLicenseUrl>
     <RepositoryUrl>https://github.com/TolikPylypchuk/Matchmaker</RepositoryUrl>
     <PackageProjectUrl>https://tolikpylypchuk.github.io/Matchmaker</PackageProjectUrl>
