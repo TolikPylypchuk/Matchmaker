@@ -4912,7 +4912,7 @@
         </member>
         <member name="T:Matchmaker.Patterns.Async.AsyncPatternWrapper`2">
             <summary>
-            Represents an ssynchronous pattern which wraps a synchronous pattern.
+            Represents an asynchronous pattern which wraps a synchronous pattern.
             </summary>
             <typeparam name="TInput">The type of the input value of the expression.</typeparam>
             <typeparam name="TMatchResult">The type of the result of this pattern's match.</typeparam>
@@ -4992,8 +4992,7 @@
             Returns the description of this pattern, if it has one.
             </summary>
             <returns>
-            The description of this pattern, if it has one.
-            Otherwise, the name of this pattern's type.
+            The description of this pattern, if it has one. Otherwise, the name of this pattern's type.
             </returns>
         </member>
         <member name="T:Matchmaker.Patterns.Async.BindingAsyncPattern`3">

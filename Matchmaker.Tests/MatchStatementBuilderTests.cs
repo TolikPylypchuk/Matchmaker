@@ -1,5 +1,6 @@
+namespace Matchmaker;
+
 using System;
-using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 
 using FluentAssertions;
@@ -11,488 +12,481 @@ using Matchmaker.Patterns;
 
 using Xunit;
 
-namespace Matchmaker
+public class MatchStatementBuilderTests
 {
-    [SuppressMessage("ReSharper", "ConditionIsAlwaysTrueOrFalse")]
-    [SuppressMessage("ReSharper", "AssignNullToNotNullAttribute")]
-    [SuppressMessage("ReSharper", "ExplicitCallerInfoArgument")]
-    [SuppressMessage("ReSharper", "IteratorMethodResultIsIgnored")]
-    public class MatchStatementBuilderTests
+    [Fact]
+    public void MatchCreateStaticShouldNeverReturnNull() =>
+        Match.CreateStatic<int>(match => { })
+            .Should()
+            .NotBeNull();
+
+    [Fact]
+    public void MatchCreateStaticShouldCreateStatementOnce()
     {
-        [Fact]
-        public void MatchCreateStaticShouldNeverReturnNull()
-            => Match.CreateStatic<int>(match => { })
-                .Should()
-                .NotBeNull();
+        int counter = 0;
 
-        [Fact]
-        public void MatchCreateStaticShouldCreateStatementOnce()
+        for (int i = 0; i < 5; i++)
         {
-            int counter = 0;
-
-            for (int i = 0; i < 5; i++)
-            {
-                Match.CreateStatic<int>(match => { counter++; });
-            }
-
-            counter.Should().Be(1);
+            Match.CreateStatic<int>(match => { counter++; });
         }
 
-        [Fact]
-        public void MatchClearCacheShouldForceStaticMatchCreation()
-        {
-            int counter = 0;
+        counter.Should().Be(1);
+    }
 
-            void CreateMatchExression()
-                => Match.CreateStatic<int>(match => { counter++; });
+    [Fact]
+    public void MatchClearCacheShouldForceStaticMatchCreation()
+    {
+        int counter = 0;
 
-            CreateMatchExression();
+        void CreateMatchExression() =>
+            Match.CreateStatic<int>(match => { counter++; });
 
-            Match.ClearCache<int>();
+        CreateMatchExression();
 
-            CreateMatchExression();
+        Match.ClearCache<int>();
 
-            counter.Should().Be(2);
-        }
+        CreateMatchExression();
 
-        [Fact]
-        public void MatchCreateStaticShouldThrowIfBuildActionIsNull()
-        {
-            Action action = () => Match.CreateStatic<int>(null);
-            action.Should().Throw<ArgumentNullException>();
-        }
+        counter.Should().Be(2);
+    }
 
-        [Fact]
-        public void MatchCreateStaticShouldThrowIfFilePathIsNull()
-        {
-            Action action = () => Match.CreateStatic<int>(match => { }, null);
-            action.Should().Throw<ArgumentNullException>();
-        }
+    [Fact]
+    public void MatchCreateStaticShouldThrowIfBuildActionIsNull()
+    {
+        var action = () => Match.CreateStatic<int>(null);
+        action.Should().Throw<ArgumentNullException>();
+    }
 
-        [Property(Arbitrary = new[] { typeof(Generators) })]
-        public Property MatchShouldMatchPatternsCorrectly(Func<string, bool> predicate, string value)
-        {
-            Match.ClearCache<string>();
+    [Fact]
+    public void MatchCreateStaticShouldThrowIfFilePathIsNull()
+    {
+        var action = () => Match.CreateStatic<int>(match => { }, null);
+        action.Should().Throw<ArgumentNullException>();
+    }
 
-            var pattern = Pattern.CreatePattern(predicate);
-            bool matchSuccessful = false;
+    [Property(Arbitrary = new[] { typeof(Generators) })]
+    public Property MatchShouldMatchPatternsCorrectly(Func<string, bool> predicate, string value)
+    {
+        Match.ClearCache<string>();
 
+        var pattern = Pattern.CreatePattern(predicate);
+        bool matchSuccessful = false;
+
+        Match.CreateStatic<string>(match => match
+                .Case(pattern, _ => matchSuccessful = true)
+                .Case(Pattern.Any<string>(), _ => matchSuccessful = false))
+            .ExecuteOn(value);
+
+        return (matchSuccessful == pattern.Match(value).IsSuccessful).ToProperty();
+    }
+
+    [Property(Arbitrary = new[] { typeof(Generators) })]
+    public Property NonStrictMatchShouldMatchPatternsCorrectly(Func<string, bool> predicate, string value)
+    {
+        Match.ClearCache<string>();
+
+        var pattern = Pattern.CreatePattern(predicate);
+        bool matchSuccessful = false;
+
+        Match.CreateStatic<string>(match => match
+                .Case(pattern, _ => matchSuccessful = true)
+                .Case(Pattern.Any<string>(), _ => matchSuccessful = false))
+            .ExecuteNonStrict(value);
+
+        return (matchSuccessful == pattern.Match(value).IsSuccessful).ToProperty();
+    }
+
+    [Property(Arbitrary = new[] { typeof(Generators) })]
+    public void MatchShouldThrowIfNoMatchFound(Func<string, bool> predicate, string value)
+    {
+        Match.ClearCache<string>();
+
+        var pattern = Pattern.CreatePattern(predicate);
+
+        var action = () =>
             Match.CreateStatic<string>(match => match
-                    .Case(pattern, _ => matchSuccessful = true)
-                    .Case(Pattern.Any<string>(), _ => matchSuccessful = false))
+                    .Case(pattern, _ => { }))
                 .ExecuteOn(value);
 
-            return (matchSuccessful == pattern.Match(value).IsSuccessful).ToProperty();
-        }
-
-        [Property(Arbitrary = new[] { typeof(Generators) })]
-        public Property NonStrictMatchShouldMatchPatternsCorrectly(Func<string, bool> predicate, string value)
+        if (pattern.Match(value).IsSuccessful)
         {
-            Match.ClearCache<string>();
-
-            var pattern = Pattern.CreatePattern(predicate);
-            bool matchSuccessful = false;
-
-            Match.CreateStatic<string>(match => match
-                    .Case(pattern, _ => matchSuccessful = true)
-                    .Case(Pattern.Any<string>(), _ => matchSuccessful = false))
-                .ExecuteNonStrict(value);
-
-            return (matchSuccessful == pattern.Match(value).IsSuccessful).ToProperty();
-        }
-
-        [Property(Arbitrary = new[] { typeof(Generators) })]
-        public void MatchShouldThrowIfNoMatchFound(Func<string, bool> predicate, string value)
-        {
-            Match.ClearCache<string>();
-
-            var pattern = Pattern.CreatePattern(predicate);
-
-            Action action = () =>
-                Match.CreateStatic<string>(match => match
-                        .Case(pattern, _ => { }))
-                    .ExecuteOn(value);
-
-            if (pattern.Match(value).IsSuccessful)
-            {
-                action.Should().NotThrow<MatchException>();
-            } else
-            {
-                action.Should().Throw<MatchException>();
-            }
-        }
-
-        [Property(Arbitrary = new[] { typeof(Generators) })]
-        public Property NonStrictMatchShouldReturnFalseIfNoMatchFound(Func<string, bool> predicate, string value)
-        {
-            Match.ClearCache<string>();
-
-            var pattern = Pattern.CreatePattern(predicate);
-
-            bool matched = Match.CreateStatic<string>(match => match
-                    .Case(pattern, _ => { }))
-                .ExecuteNonStrict(value);
-
-            return (matched == pattern.Match(value).IsSuccessful).ToProperty();
-        }
-
-        [Property(Arbitrary = new[] { typeof(Generators) })]
-        public void NonStrictMatchShouldNotThrowIfNoMatchFound(Func<string, bool> predicate, string value)
-        {
-            Match.ClearCache<string>();
-
-            var pattern = Pattern.CreatePattern(predicate);
-
-            Action action = () =>
-                Match.CreateStatic<string>(match => match
-                        .Case(pattern, _ => { }))
-                    .ExecuteNonStrict(value);
-
             action.Should().NotThrow<MatchException>();
-        }
-
-        [Property(Arbitrary = new[] { typeof(Generators) })]
-        public Property MatchWithFallthroughShouldMatchPatternsCorrectly(Func<string, bool> predicate, string value)
+        } else
         {
-            Match.ClearCache<string>();
-
-            var pattern = Pattern.CreatePattern(predicate);
-            int matchCount = 0;
-
-            int result = Match.CreateStatic<string>(match => match
-                    .Fallthrough(true)
-                    .Case(pattern, _ => { matchCount++; })
-                    .Case(Pattern.Any<string>(), _ => { matchCount++; }))
-                .ExecuteWithFallthrough(value)
-                .Count();
-
-            return pattern.Match(value).IsSuccessful
-                ? (result == 2 && matchCount == 2).ToProperty()
-                : (result == 1 && matchCount == 1).ToProperty();
+            action.Should().Throw<MatchException>();
         }
+    }
 
-        [Property(Arbitrary = new[] { typeof(Generators) })]
-        public Property MatchWithFallthroughShouldBeLazy(Func<string, bool> predicate, string value)
-        {
-            Match.ClearCache<string>();
+    [Property(Arbitrary = new[] { typeof(Generators) })]
+    public Property NonStrictMatchShouldReturnFalseIfNoMatchFound(Func<string, bool> predicate, string value)
+    {
+        Match.ClearCache<string>();
 
-            var pattern = Pattern.CreatePattern(predicate);
+        var pattern = Pattern.CreatePattern(predicate);
 
-            int count = 0;
+        bool matched = Match.CreateStatic<string>(match => match
+                .Case(pattern, _ => { }))
+            .ExecuteNonStrict(value);
 
+        return (matched == pattern.Match(value).IsSuccessful).ToProperty();
+    }
+
+    [Property(Arbitrary = new[] { typeof(Generators) })]
+    public void NonStrictMatchShouldNotThrowIfNoMatchFound(Func<string, bool> predicate, string value)
+    {
+        Match.ClearCache<string>();
+
+        var pattern = Pattern.CreatePattern(predicate);
+
+        var action = () =>
             Match.CreateStatic<string>(match => match
-                    .Fallthrough(true)
-                    .Case(pattern, _ => count++)
-                    .Case(Pattern.Any<string>(), _ => count++))
-                .ExecuteWithFallthrough(value);
-
-            return (count == 0).ToProperty();
-        }
-
-        [Property(Arbitrary = new[] { typeof(Generators) })]
-        public Property MatchWithFallthroughFalseShouldMatchPatternsCorrectly(
-            Func<string, bool> predicate,
-            string value)
-        {
-            Match.ClearCache<string>();
-
-            var pattern = Pattern.CreatePattern(predicate);
-            int matchCount = 0;
-
-            int result = Match.CreateStatic<string>(match => match
-                    .Fallthrough(true)
-                    .Case(pattern, fallthrough: false, _ => { matchCount++; })
-                    .Case(Pattern.Any<string>(), _ => { matchCount++; }))
-                .ExecuteWithFallthrough(value)
-                .Count();
-
-            return (result == 1 && matchCount == 1).ToProperty();
-        }
-
-        [Property(Arbitrary = new[] { typeof(Generators) })]
-        public Property MatchWithFallthroughTrueShouldMatchPatternsCorrectly(
-            Func<string, bool> predicate,
-            string value)
-        {
-            Match.ClearCache<string>();
-
-            var pattern = Pattern.CreatePattern(predicate);
-            int matchCount = 0;
-
-            int result = Match.CreateStatic<string>(match => match
-                    .Fallthrough(false)
-                    .Case(pattern, fallthrough: true, _ => { matchCount++; })
-                    .Case(Pattern.Any<string>(), _ => { matchCount++; }))
-                .ExecuteWithFallthrough(value)
-                .Count();
-
-            return pattern.Match(value).IsSuccessful
-                ? (result == 2 && matchCount == 2).ToProperty()
-                : (result == 1 && matchCount == 1).ToProperty();
-        }
-
-        [Property(Arbitrary = new[] { typeof(Generators) })]
-        public Property MatchWithFallthroughTrueShouldBeLazy(Func<string, bool> predicate, string value)
-        {
-            Match.ClearCache<string>();
-
-            var pattern = Pattern.CreatePattern(predicate);
-
-            int count = 0;
-
-            Match.CreateStatic<string>(match => match
-                    .Fallthrough(false)
-                    .Case(pattern, fallthrough: true, _ => count++)
-                    .Case(Pattern.Any<string>(), fallthrough: true, _ => count++))
-                .ExecuteWithFallthrough(value);
-
-            return (count == 0).ToProperty();
-        }
-
-        [Property(Arbitrary = new[] { typeof(Generators) })]
-        public Property MatchWithFallthroughShouldReturnEmptyEnumerableIfNoMatchFound(string value)
-        {
-            Match.ClearCache<string>();
-
-            var pattern = Pattern.CreatePattern<string>(_ => false);
-
-            int result = Match.CreateStatic<string>(match => match
-                    .Fallthrough(true)
                     .Case(pattern, _ => { }))
-                .ExecuteWithFallthrough(value)
-                .Count();
+                .ExecuteNonStrict(value);
 
-            return (result == 0).ToProperty();
-        }
+        action.Should().NotThrow<MatchException>();
+    }
 
-        [Property(Arbitrary = new[] { typeof(Generators) })]
-        public Property MatchToFunctionShouldMatchPatternsCorrectly(
-            Func<string, bool> predicate,
-            string value)
-        {
-            Match.ClearCache<string>();
+    [Property(Arbitrary = new[] { typeof(Generators) })]
+    public Property MatchWithFallthroughShouldMatchPatternsCorrectly(Func<string, bool> predicate, string value)
+    {
+        Match.ClearCache<string>();
 
-            var pattern = Pattern.CreatePattern(predicate);
-            bool matchSuccessful = false;
+        var pattern = Pattern.CreatePattern(predicate);
+        int matchCount = 0;
 
+        int result = Match.CreateStatic<string>(match => match
+                .Fallthrough(true)
+                .Case(pattern, _ => { matchCount++; })
+                .Case(Pattern.Any<string>(), _ => { matchCount++; }))
+            .ExecuteWithFallthrough(value)
+            .Count();
+
+        return pattern.Match(value).IsSuccessful
+            ? (result == 2 && matchCount == 2).ToProperty()
+            : (result == 1 && matchCount == 1).ToProperty();
+    }
+
+    [Property(Arbitrary = new[] { typeof(Generators) })]
+    public Property MatchWithFallthroughShouldBeLazy(Func<string, bool> predicate, string value)
+    {
+        Match.ClearCache<string>();
+
+        var pattern = Pattern.CreatePattern(predicate);
+
+        int count = 0;
+
+        Match.CreateStatic<string>(match => match
+                .Fallthrough(true)
+                .Case(pattern, _ => count++)
+                .Case(Pattern.Any<string>(), _ => count++))
+            .ExecuteWithFallthrough(value);
+
+        return (count == 0).ToProperty();
+    }
+
+    [Property(Arbitrary = new[] { typeof(Generators) })]
+    public Property MatchWithFallthroughFalseShouldMatchPatternsCorrectly(
+        Func<string, bool> predicate,
+        string value)
+    {
+        Match.ClearCache<string>();
+
+        var pattern = Pattern.CreatePattern(predicate);
+        int matchCount = 0;
+
+        int result = Match.CreateStatic<string>(match => match
+                .Fallthrough(true)
+                .Case(pattern, fallthrough: false, _ => { matchCount++; })
+                .Case(Pattern.Any<string>(), _ => { matchCount++; }))
+            .ExecuteWithFallthrough(value)
+            .Count();
+
+        return (result == 1 && matchCount == 1).ToProperty();
+    }
+
+    [Property(Arbitrary = new[] { typeof(Generators) })]
+    public Property MatchWithFallthroughTrueShouldMatchPatternsCorrectly(
+        Func<string, bool> predicate,
+        string value)
+    {
+        Match.ClearCache<string>();
+
+        var pattern = Pattern.CreatePattern(predicate);
+        int matchCount = 0;
+
+        int result = Match.CreateStatic<string>(match => match
+                .Fallthrough(false)
+                .Case(pattern, fallthrough: true, _ => { matchCount++; })
+                .Case(Pattern.Any<string>(), _ => { matchCount++; }))
+            .ExecuteWithFallthrough(value)
+            .Count();
+
+        return pattern.Match(value).IsSuccessful
+            ? (result == 2 && matchCount == 2).ToProperty()
+            : (result == 1 && matchCount == 1).ToProperty();
+    }
+
+    [Property(Arbitrary = new[] { typeof(Generators) })]
+    public Property MatchWithFallthroughTrueShouldBeLazy(Func<string, bool> predicate, string value)
+    {
+        Match.ClearCache<string>();
+
+        var pattern = Pattern.CreatePattern(predicate);
+
+        int count = 0;
+
+        Match.CreateStatic<string>(match => match
+                .Fallthrough(false)
+                .Case(pattern, fallthrough: true, _ => count++)
+                .Case(Pattern.Any<string>(), fallthrough: true, _ => count++))
+            .ExecuteWithFallthrough(value);
+
+        return (count == 0).ToProperty();
+    }
+
+    [Property(Arbitrary = new[] { typeof(Generators) })]
+    public Property MatchWithFallthroughShouldReturnEmptyEnumerableIfNoMatchFound(string value)
+    {
+        Match.ClearCache<string>();
+
+        var pattern = Pattern.CreatePattern<string>(_ => false);
+
+        int result = Match.CreateStatic<string>(match => match
+                .Fallthrough(true)
+                .Case(pattern, _ => { }))
+            .ExecuteWithFallthrough(value)
+            .Count();
+
+        return (result == 0).ToProperty();
+    }
+
+    [Property(Arbitrary = new[] { typeof(Generators) })]
+    public Property MatchToFunctionShouldMatchPatternsCorrectly(
+        Func<string, bool> predicate,
+        string value)
+    {
+        Match.ClearCache<string>();
+
+        var pattern = Pattern.CreatePattern(predicate);
+        bool matchSuccessful = false;
+
+        Match.CreateStatic<string>(match => match
+                .Case(pattern, _ => matchSuccessful = true)
+                .Case(Pattern.Any<string>(), _ => matchSuccessful = false))
+            .ToFunction()(value);
+
+        return (matchSuccessful == pattern.Match(value).IsSuccessful).ToProperty();
+    }
+
+    [Property(Arbitrary = new[] { typeof(Generators) })]
+    public Property NonStrictMatchToFunctionShouldMatchPatternsCorrectly(
+        Func<string, bool> predicate,
+        string value)
+    {
+        Match.ClearCache<string>();
+
+        var pattern = Pattern.CreatePattern(predicate);
+        bool matchSuccessful = false;
+
+        Match.CreateStatic<string>(match => match
+                .Case(pattern, _ => matchSuccessful = true)
+                .Case(Pattern.Any<string>(), _ => matchSuccessful = false))
+            .ToNonStrictFunction()(value);
+
+        return (matchSuccessful == pattern.Match(value).IsSuccessful).ToProperty();
+    }
+
+    [Property(Arbitrary = new[] { typeof(Generators) })]
+    public void MatchToFunctionShouldThrowIfNoMatchFound(Func<string, bool> predicate, string value)
+    {
+        Match.ClearCache<string>();
+
+        var pattern = Pattern.CreatePattern(predicate);
+
+        var action = () =>
             Match.CreateStatic<string>(match => match
-                    .Case(pattern, _ => matchSuccessful = true)
-                    .Case(Pattern.Any<string>(), _ => matchSuccessful = false))
+                    .Case(pattern, _ => { }))
                 .ToFunction()(value);
 
-            return (matchSuccessful == pattern.Match(value).IsSuccessful).ToProperty();
-        }
-
-        [Property(Arbitrary = new[] { typeof(Generators) })]
-        public Property NonStrictMatchToFunctionShouldMatchPatternsCorrectly(
-            Func<string, bool> predicate,
-            string value)
+        if (pattern.Match(value).IsSuccessful)
         {
-            Match.ClearCache<string>();
-
-            var pattern = Pattern.CreatePattern(predicate);
-            bool matchSuccessful = false;
-
-            Match.CreateStatic<string>(match => match
-                    .Case(pattern, _ => matchSuccessful = true)
-                    .Case(Pattern.Any<string>(), _ => matchSuccessful = false))
-                .ToNonStrictFunction()(value);
-
-            return (matchSuccessful == pattern.Match(value).IsSuccessful).ToProperty();
-        }
-
-        [Property(Arbitrary = new[] { typeof(Generators) })]
-        public void MatchToFunctionShouldThrowIfNoMatchFound(Func<string, bool> predicate, string value)
-        {
-            Match.ClearCache<string>();
-
-            var pattern = Pattern.CreatePattern(predicate);
-
-            Action action = () =>
-                Match.CreateStatic<string>(match => match
-                        .Case(pattern, _ => { }))
-                    .ToFunction()(value);
-
-            if (pattern.Match(value).IsSuccessful)
-            {
-                action.Should().NotThrow<MatchException>();
-            } else
-            {
-                action.Should().Throw<MatchException>();
-            }
-        }
-
-        [Property(Arbitrary = new[] { typeof(Generators) })]
-        public Property NonStrictMatchToFunctionShouldReturnFalseIfNoMatchFound(
-            Func<string, bool> predicate,
-            string value)
-        {
-            Match.ClearCache<string>();
-
-            var pattern = Pattern.CreatePattern(predicate);
-
-            bool matched = Match.CreateStatic<string>(match => match
-                    .Case(pattern, _ => { }))
-                .ToNonStrictFunction()(value);
-
-            return (matched == pattern.Match(value).IsSuccessful).ToProperty();
-        }
-
-        [Property(Arbitrary = new[] { typeof(Generators) })]
-        public void NonStrictMatchToFunctionShouldNotThrowIfNoMatchFound(Func<string, bool> predicate, string value)
-        {
-            Match.ClearCache<string>();
-
-            var pattern = Pattern.CreatePattern(predicate);
-
-            Action action = () =>
-                Match.CreateStatic<string>(match => match
-                        .Case(pattern, _ => { }))
-                    .ToNonStrictFunction()(value);
-
             action.Should().NotThrow<MatchException>();
-        }
-
-        [Property(Arbitrary = new[] { typeof(Generators) })]
-        public Property MatchToFunctionWithFallthroughShouldMatchPatternsCorrectly(
-            Func<string, bool> predicate,
-            string value)
+        } else
         {
-            Match.ClearCache<string>();
-
-            var pattern = Pattern.CreatePattern(predicate);
-            int matchCount = 0;
-
-            int result = Match.CreateStatic<string>(match => match
-                    .Fallthrough(true)
-                    .Case(pattern, _ => { matchCount++; })
-                    .Case(Pattern.Any<string>(), _ => { matchCount++; }))
-                .ToFunctionWithFallthrough()(value)
-                .Count();
-
-            return pattern.Match(value).IsSuccessful
-                ? (result == 2 && matchCount == 2).ToProperty()
-                : (result == 1 && matchCount == 1).ToProperty();
+            action.Should().Throw<MatchException>();
         }
+    }
 
-        [Property(Arbitrary = new[] { typeof(Generators) })]
-        public Property MatchToFunctionWithFallthroughFalseShouldMatchPatternsCorrectly(
-            Func<string, bool> predicate,
-            string value)
-        {
-            Match.ClearCache<string>();
+    [Property(Arbitrary = new[] { typeof(Generators) })]
+    public Property NonStrictMatchToFunctionShouldReturnFalseIfNoMatchFound(
+        Func<string, bool> predicate,
+        string value)
+    {
+        Match.ClearCache<string>();
 
-            var pattern = Pattern.CreatePattern(predicate);
-            int matchCount = 0;
+        var pattern = Pattern.CreatePattern(predicate);
 
-            int result = Match.CreateStatic<string>(match => match
-                    .Fallthrough(true)
-                    .Case(pattern, fallthrough: false, _ => { matchCount++; })
-                    .Case(Pattern.Any<string>(), _ => { matchCount++; }))
-                .ToFunctionWithFallthrough()(value)
-                .Count();
+        bool matched = Match.CreateStatic<string>(match => match
+                .Case(pattern, _ => { }))
+            .ToNonStrictFunction()(value);
 
-            return (result == 1 && matchCount == 1).ToProperty();
-        }
+        return (matched == pattern.Match(value).IsSuccessful).ToProperty();
+    }
 
-        [Property(Arbitrary = new[] { typeof(Generators) })]
-        public Property MatchToFunctionWithFallthroughTrueShouldMatchPatternsCorrectly(
-            Func<string, bool> predicate,
-            string value)
-        {
-            Match.ClearCache<string>();
+    [Property(Arbitrary = new[] { typeof(Generators) })]
+    public void NonStrictMatchToFunctionShouldNotThrowIfNoMatchFound(Func<string, bool> predicate, string value)
+    {
+        Match.ClearCache<string>();
 
-            var pattern = Pattern.CreatePattern(predicate);
-            int matchCount = 0;
+        var pattern = Pattern.CreatePattern(predicate);
 
-            int result = Match.CreateStatic<string>(match => match
-                    .Fallthrough(false)
-                    .Case(pattern, fallthrough: true, _ => { matchCount++; })
-                    .Case(Pattern.Any<string>(), _ => { matchCount++; }))
-                .ToFunctionWithFallthrough()(value)
-                .Count();
-
-            return pattern.Match(value).IsSuccessful
-                ? (result == 2 && matchCount == 2).ToProperty()
-                : (result == 1 && matchCount == 1).ToProperty();
-        }
-
-        [Property(Arbitrary = new[] { typeof(Generators) })]
-        public Property MatchToFunctionWithFallthroughShouldReturnEmptyEnumerableIfNoMatchFound(string value)
-        {
-            Match.ClearCache<string>();
-
-            var pattern = Pattern.CreatePattern<string>(_ => false);
-
-            int result = Match.CreateStatic<string>(match => match
-                    .Fallthrough(true)
+        var action = () =>
+            Match.CreateStatic<string>(match => match
                     .Case(pattern, _ => { }))
-                .ToFunctionWithFallthrough()(value)
-                .Count();
+                .ToNonStrictFunction()(value);
 
-            return (result == 0).ToProperty();
-        }
+        action.Should().NotThrow<MatchException>();
+    }
 
-        [Fact]
-        public void MatchShouldThrowIfPatternIsNull()
-        {
-            Action action = () =>
-                Match.CreateStatic<string>(match => match.Case<string>(null, _ => { }));
+    [Property(Arbitrary = new[] { typeof(Generators) })]
+    public Property MatchToFunctionWithFallthroughShouldMatchPatternsCorrectly(
+        Func<string, bool> predicate,
+        string value)
+    {
+        Match.ClearCache<string>();
 
-            action.Should().Throw<ArgumentNullException>();
-        }
+        var pattern = Pattern.CreatePattern(predicate);
+        int matchCount = 0;
 
-        [Property(Arbitrary = new[] { typeof(Generators) })]
-        public void MatchShouldThrowIfCaseFunctionIsNull(Func<string, bool> predicate)
-        {
-            var pattern = Pattern.CreatePattern(predicate);
+        int result = Match.CreateStatic<string>(match => match
+                .Fallthrough(true)
+                .Case(pattern, _ => { matchCount++; })
+                .Case(Pattern.Any<string>(), _ => { matchCount++; }))
+            .ToFunctionWithFallthrough()(value)
+            .Count();
 
-            Action action = () =>
-                Match.CreateStatic<string>(match => match.Case(pattern, null));
+        return pattern.Match(value).IsSuccessful
+            ? (result == 2 && matchCount == 2).ToProperty()
+            : (result == 1 && matchCount == 1).ToProperty();
+    }
 
-            action.Should().Throw<ArgumentNullException>();
-        }
+    [Property(Arbitrary = new[] { typeof(Generators) })]
+    public Property MatchToFunctionWithFallthroughFalseShouldMatchPatternsCorrectly(
+        Func<string, bool> predicate,
+        string value)
+    {
+        Match.ClearCache<string>();
 
-        [Fact]
-        public void MatchShouldThrowIfCaseTypeFunctionIsNull()
-        {
-            Action action = () =>
-                Match.CreateStatic<string>(match => match.Case<string>(null));
+        var pattern = Pattern.CreatePattern(predicate);
+        int matchCount = 0;
 
-            action.Should().Throw<ArgumentNullException>();
-        }
+        int result = Match.CreateStatic<string>(match => match
+                .Fallthrough(true)
+                .Case(pattern, fallthrough: false, _ => { matchCount++; })
+                .Case(Pattern.Any<string>(), _ => { matchCount++; }))
+            .ToFunctionWithFallthrough()(value)
+            .Count();
 
-        [Theory]
-        [InlineData(true)]
-        [InlineData(false)]
-        public void MatchShouldThrowIfPatternWithFallthroughIsNull(bool fallthrough)
-        {
-            Action action = () =>
-                Match.CreateStatic<string>(match => match.Case<string>(null, fallthrough, _ => { }));
+        return (result == 1 && matchCount == 1).ToProperty();
+    }
 
-            action.Should().Throw<ArgumentNullException>();
-        }
+    [Property(Arbitrary = new[] { typeof(Generators) })]
+    public Property MatchToFunctionWithFallthroughTrueShouldMatchPatternsCorrectly(
+        Func<string, bool> predicate,
+        string value)
+    {
+        Match.ClearCache<string>();
 
-        [Property(Arbitrary = new[] { typeof(Generators) })]
-        public void MatchShouldThrowIfCaseFunctionWithFallthroughIsNull(
-            Func<string, bool> predicate,
-            bool fallthrough)
-        {
-            var pattern = Pattern.CreatePattern(predicate);
+        var pattern = Pattern.CreatePattern(predicate);
+        int matchCount = 0;
 
-            Action action = () =>
-                Match.CreateStatic<string>(match => match.Case(pattern, fallthrough, null));
+        int result = Match.CreateStatic<string>(match => match
+                .Fallthrough(false)
+                .Case(pattern, fallthrough: true, _ => { matchCount++; })
+                .Case(Pattern.Any<string>(), _ => { matchCount++; }))
+            .ToFunctionWithFallthrough()(value)
+            .Count();
 
-            action.Should().Throw<ArgumentNullException>();
-        }
+        return pattern.Match(value).IsSuccessful
+            ? (result == 2 && matchCount == 2).ToProperty()
+            : (result == 1 && matchCount == 1).ToProperty();
+    }
 
-        [Property(Arbitrary = new[] { typeof(Generators) })]
-        public void MatchShouldThrowIfCaseTypeFunctionWithFallthroughIsNull(bool fallthrough)
-        {
-            Action action = () =>
-                Match.CreateStatic<string>(match => match.Case<string>(fallthrough, null));
+    [Property(Arbitrary = new[] { typeof(Generators) })]
+    public Property MatchToFunctionWithFallthroughShouldReturnEmptyEnumerableIfNoMatchFound(string value)
+    {
+        Match.ClearCache<string>();
 
-            action.Should().Throw<ArgumentNullException>();
-        }
+        var pattern = Pattern.CreatePattern<string>(_ => false);
+
+        int result = Match.CreateStatic<string>(match => match
+                .Fallthrough(true)
+                .Case(pattern, _ => { }))
+            .ToFunctionWithFallthrough()(value)
+            .Count();
+
+        return (result == 0).ToProperty();
+    }
+
+    [Fact]
+    public void MatchShouldThrowIfPatternIsNull()
+    {
+        var action = () =>
+            Match.CreateStatic<string>(match => match.Case<string>(null, _ => { }));
+
+        action.Should().Throw<ArgumentNullException>();
+    }
+
+    [Property(Arbitrary = new[] { typeof(Generators) })]
+    public void MatchShouldThrowIfCaseFunctionIsNull(Func<string, bool> predicate)
+    {
+        var pattern = Pattern.CreatePattern(predicate);
+
+        var action = () =>
+            Match.CreateStatic<string>(match => match.Case(pattern, null));
+
+        action.Should().Throw<ArgumentNullException>();
+    }
+
+    [Fact]
+    public void MatchShouldThrowIfCaseTypeFunctionIsNull()
+    {
+        var action = () =>
+            Match.CreateStatic<string>(match => match.Case<string>(null));
+
+        action.Should().Throw<ArgumentNullException>();
+    }
+
+    [Theory]
+    [InlineData(true)]
+    [InlineData(false)]
+    public void MatchShouldThrowIfPatternWithFallthroughIsNull(bool fallthrough)
+    {
+        var action = () =>
+            Match.CreateStatic<string>(match => match.Case<string>(null, fallthrough, _ => { }));
+
+        action.Should().Throw<ArgumentNullException>();
+    }
+
+    [Property(Arbitrary = new[] { typeof(Generators) })]
+    public void MatchShouldThrowIfCaseFunctionWithFallthroughIsNull(
+        Func<string, bool> predicate,
+        bool fallthrough)
+    {
+        var pattern = Pattern.CreatePattern(predicate);
+
+        var action = () =>
+            Match.CreateStatic<string>(match => match.Case(pattern, fallthrough, null));
+
+        action.Should().Throw<ArgumentNullException>();
+    }
+
+    [Property(Arbitrary = new[] { typeof(Generators) })]
+    public void MatchShouldThrowIfCaseTypeFunctionWithFallthroughIsNull(bool fallthrough)
+    {
+        var action = () =>
+            Match.CreateStatic<string>(match => match.Case<string>(fallthrough, null));
+
+        action.Should().Throw<ArgumentNullException>();
     }
 }
