@@ -1,0 +1,90 @@
+name: Build
+
+on:
+  push:
+    branches:
+      - master
+    tags:
+      - v*.*.*
+      - v*.*.*-preview.*
+
+  workflow_dispatch:
+
+env:
+  MATCHMAKER_VERSION: v3.0.1
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: 6.0.x
+
+      - name: Setup DocFX
+        uses: crazy-max/ghaction-chocolatey@v1
+        with:
+          args: install docfx
+
+      - name: Test Matchmaker
+        shell: pwsh
+        run: |
+          dotnet test Matchmaker.sln --nologo -c Release /p:ContinuousIntegrationBuild=true
+
+      - name: Pack Matchmaker
+        shell: pwsh
+        run: |
+          cd Matchmaker
+          dotnet pack --nologo -c Release -o ${{github.workspace}}\build\ /p:ContinuousIntegrationBuild=true
+
+      - name: Upload Matchmaker
+        uses: actions/upload-artifact@v2
+        with:
+          name: matchmaker-build
+          path: ${{github.workspace}}\build\*
+
+      - name: Build Docs
+        shell: pwsh
+        working-directory: docs
+        run: docfx docfx.json
+        continue-on-error: false
+
+      - name: Publish Docs
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{secrets.GITHUB_TOKEN}}
+          publish_dir: docs/_site/
+          destination_dir: ${{env.MATCHMAKER_VERSION}}
+          user_name: "Tolik Pylypchuk"
+          user_email: "pylypchuk.tolik@gmail.com"
+          commit_message: "Deploy docs to GitHub Pages"
+
+  publish:
+    runs-on: windows-latest
+    if: github.event_name == 'push' && contains(github.ref, 'refs/tags/')
+    needs: [build]
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: 6.0.x
+
+      - name: Fetch Package
+        uses: actions/download-artifact@v2
+        with:
+          name: matchmaker-build
+          path: matchmaker-build
+
+      - name: Publish Package
+        shell: pwsh
+        run: |
+          cd .\matchmaker-build
+          dotnet nuget push "*.nupkg" --api-key ${{secrets.NUGET_API_KEY}} --source https://api.nuget.org/v3/index.json
