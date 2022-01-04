@@ -1,0 +1,649 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class Match
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class Match
+   ">
+    <meta name="generator" content="docfx 2.58.9.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Matchmaker.Match">
+  
+  
+  <h1 id="Matchmaker_Match" data-uid="Matchmaker.Match" class="text-break">Class Match
+  </h1>
+  <div class="markdown level0 summary"><p>A static class which is used to create match expressions.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a></div>
+    <div class="level1"><span class="xref">Match</span></div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Matchmaker.html">Matchmaker</a></h6>
+  <h6><strong>Assembly</strong>: Matchmaker.dll</h6>
+  <h5 id="Matchmaker_Match_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static class Match : object</code></pre>
+  </div>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Match_ClearCache__1.md&amp;value=---%0Auid%3A%20Matchmaker.Match.ClearCache%60%601%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/Match.cs/#L198">View Source</a>
+  </span>
+  <a id="Matchmaker_Match_ClearCache_" data-uid="Matchmaker.Match.ClearCache*"></a>
+  <h4 id="Matchmaker_Match_ClearCache__1" data-uid="Matchmaker.Match.ClearCache``1">ClearCache&lt;TInput&gt;()</h4>
+  <div class="markdown level1 summary"><p>Clears the global cache of static <a class="xref" href="Matchmaker.Match-1.html">Match&lt;TInput&gt;</a> instances.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void ClearCache&lt;TInput&gt;()</code></pre>
+  </div>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TInput</span></td>
+        <td><p>The type of the input value.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Matchmaker_Match_ClearCache__1_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>
+After calling this method all <a class="xref" href="Matchmaker.Match.html#Matchmaker_Match_CreateStatic__1_Action_Matchmaker_MatchBuilder___0___System_String_System_Int32_">CreateStatic&lt;TInput&gt;(Action&lt;MatchBuilder&lt;TInput&gt;&gt;, String, Int32)</a>
+calls will recalculate match statements for type <code data-dev-comment-type="typeparamref" class="typeparamref">TInput</code>.
+</p>
+<p>
+Clearing the cache is not thread-safe.
+</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Match_ClearCache__2.md&amp;value=---%0Auid%3A%20Matchmaker.Match.ClearCache%60%602%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/Match.cs/#L182">View Source</a>
+  </span>
+  <a id="Matchmaker_Match_ClearCache_" data-uid="Matchmaker.Match.ClearCache*"></a>
+  <h4 id="Matchmaker_Match_ClearCache__2" data-uid="Matchmaker.Match.ClearCache``2">ClearCache&lt;TInput, TOutput&gt;()</h4>
+  <div class="markdown level1 summary"><p>Clears the global cache of static <a class="xref" href="Matchmaker.Match-2.html">Match&lt;TInput, TOutput&gt;</a> instances.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void ClearCache&lt;TInput, TOutput&gt;()</code></pre>
+  </div>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TInput</span></td>
+        <td><p>The type of the input value.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TOutput</span></td>
+        <td><p>The type of the result.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Matchmaker_Match_ClearCache__2_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>
+After calling this method all
+<a class="xref" href="Matchmaker.Match.html#Matchmaker_Match_CreateStatic__2_Action_Matchmaker_MatchBuilder___0___1___System_String_System_Int32_">CreateStatic&lt;TInput, TOutput&gt;(Action&lt;MatchBuilder&lt;TInput, TOutput&gt;&gt;, String, Int32)</a>
+calls will recalculate match expressions for types <code data-dev-comment-type="typeparamref" class="typeparamref">TInput</code> and
+<code data-dev-comment-type="typeparamref" class="typeparamref">TOutput</code>.
+</p>
+<p>
+Clearing the cache is not thread-safe.
+</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Match_Create__1.md&amp;value=---%0Auid%3A%20Matchmaker.Match.Create%60%601%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/Match.cs/#L45">View Source</a>
+  </span>
+  <a id="Matchmaker_Match_Create_" data-uid="Matchmaker.Match.Create*"></a>
+  <h4 id="Matchmaker_Match_Create__1" data-uid="Matchmaker.Match.Create``1">Create&lt;TInput&gt;()</h4>
+  <div class="markdown level1 summary"><p>Creates a match statement.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Match&lt;TInput&gt; Create&lt;TInput&gt;()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Matchmaker.Match-1.html">Match</a>&lt;TInput&gt;</td>
+        <td><p>A match statement which specifies the patterns to match with and actions which are executed.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TInput</span></td>
+        <td><p>The type of the input value.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Match_Create__1_System_Boolean_.md&amp;value=---%0Auid%3A%20Matchmaker.Match.Create%60%601(System.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/Match.cs/#L56">View Source</a>
+  </span>
+  <a id="Matchmaker_Match_Create_" data-uid="Matchmaker.Match.Create*"></a>
+  <h4 id="Matchmaker_Match_Create__1_System_Boolean_" data-uid="Matchmaker.Match.Create``1(System.Boolean)">Create&lt;TInput&gt;(Boolean)</h4>
+  <div class="markdown level1 summary"><p>Creates a match statement with the specified default fallthrough behaviour.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Match&lt;TInput&gt; Create&lt;TInput&gt;(bool fallthroughByDefault)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td><span class="parametername">fallthroughByDefault</span></td>
+        <td><p>The default fallthrough behaviour.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Matchmaker.Match-1.html">Match</a>&lt;TInput&gt;</td>
+        <td><p>A match statement which specifies the patterns to match with and actions which are executed.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TInput</span></td>
+        <td><p>The type of the input value.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Match_Create__2.md&amp;value=---%0Auid%3A%20Matchmaker.Match.Create%60%602%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/Match.cs/#L23">View Source</a>
+  </span>
+  <a id="Matchmaker_Match_Create_" data-uid="Matchmaker.Match.Create*"></a>
+  <h4 id="Matchmaker_Match_Create__2" data-uid="Matchmaker.Match.Create``2">Create&lt;TInput, TOutput&gt;()</h4>
+  <div class="markdown level1 summary"><p>Creates a match expression.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Match&lt;TInput, TOutput&gt; Create&lt;TInput, TOutput&gt;()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Matchmaker.Match-2.html">Match</a>&lt;TInput, TOutput&gt;</td>
+        <td><p>A match expression which specifies the patterns to match with and functions which are executed.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TInput</span></td>
+        <td><p>The type of the input value.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TOutput</span></td>
+        <td><p>The type of the result.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Match_Create__2_System_Boolean_.md&amp;value=---%0Auid%3A%20Matchmaker.Match.Create%60%602(System.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/Match.cs/#L35">View Source</a>
+  </span>
+  <a id="Matchmaker_Match_Create_" data-uid="Matchmaker.Match.Create*"></a>
+  <h4 id="Matchmaker_Match_Create__2_System_Boolean_" data-uid="Matchmaker.Match.Create``2(System.Boolean)">Create&lt;TInput, TOutput&gt;(Boolean)</h4>
+  <div class="markdown level1 summary"><p>Creates a match expression.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Match&lt;TInput, TOutput&gt; Create&lt;TInput, TOutput&gt;(bool fallthroughByDefault)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td><span class="parametername">fallthroughByDefault</span></td>
+        <td><p>The default fallthrough behaviour.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Matchmaker.Match-2.html">Match</a>&lt;TInput, TOutput&gt;</td>
+        <td><p>A match expression which specifies the patterns to match with and functions which are executed.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TInput</span></td>
+        <td><p>The type of the input value.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TOutput</span></td>
+        <td><p>The type of the result.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Match_CreateStatic__1_Action_Matchmaker_MatchBuilder___0___System_String_System_Int32_.md&amp;value=---%0Auid%3A%20Matchmaker.Match.CreateStatic%60%601(Action%7BMatchmaker.MatchBuilder%7B%60%600%7D%7D%2CSystem.String%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/Match.cs/#L134">View Source</a>
+  </span>
+  <a id="Matchmaker_Match_CreateStatic_" data-uid="Matchmaker.Match.CreateStatic*"></a>
+  <h4 id="Matchmaker_Match_CreateStatic__1_Action_Matchmaker_MatchBuilder___0___System_String_System_Int32_" data-uid="Matchmaker.Match.CreateStatic``1(Action{Matchmaker.MatchBuilder{``0}},System.String,System.Int32)">CreateStatic&lt;TInput&gt;(Action&lt;MatchBuilder&lt;TInput&gt;&gt;, String, Int32)</h4>
+  <div class="markdown level1 summary"><p>Creates a match statement which is then globally cached.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Match&lt;TInput&gt; CreateStatic&lt;TInput&gt;(Action&lt;MatchBuilder&lt;TInput&gt;&gt; buildAction, string sourceFilePath = &quot;&quot;, int sourceLineNumber = 0)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Action</span>&lt;<a class="xref" href="Matchmaker.MatchBuilder-1.html">MatchBuilder</a>&lt;TInput&gt;&gt;</td>
+        <td><span class="parametername">buildAction</span></td>
+        <td><p>The action which builds the match statement.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">sourceFilePath</span></td>
+        <td><p>The path to the source file in which this method is called.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+        <td><span class="parametername">sourceLineNumber</span></td>
+        <td><p>The line in the source file where this method is called.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Matchmaker.Match-1.html">Match</a>&lt;TInput&gt;</td>
+        <td><p>The globally cached match expression.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TInput</span></td>
+        <td><p>The type of the input value.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Matchmaker_Match_CreateStatic__1_Action_Matchmaker_MatchBuilder___0___System_String_System_Int32__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>
+The key of the cache is the location of this method&apos;s call in the source code.
+This way, a new match statement object will not be allocated every time pattern matching occurs
+in the same place more than once.
+</p>
+<p>
+The pattern caching process is not thread-safe.
+</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Match_CreateStatic__2_Action_Matchmaker_MatchBuilder___0___1___System_String_System_Int32_.md&amp;value=---%0Auid%3A%20Matchmaker.Match.CreateStatic%60%602(Action%7BMatchmaker.MatchBuilder%7B%60%600%2C%60%601%7D%7D%2CSystem.String%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/Match.cs/#L81">View Source</a>
+  </span>
+  <a id="Matchmaker_Match_CreateStatic_" data-uid="Matchmaker.Match.CreateStatic*"></a>
+  <h4 id="Matchmaker_Match_CreateStatic__2_Action_Matchmaker_MatchBuilder___0___1___System_String_System_Int32_" data-uid="Matchmaker.Match.CreateStatic``2(Action{Matchmaker.MatchBuilder{``0,``1}},System.String,System.Int32)">CreateStatic&lt;TInput, TOutput&gt;(Action&lt;MatchBuilder&lt;TInput, TOutput&gt;&gt;, String, Int32)</h4>
+  <div class="markdown level1 summary"><p>Creates a match expression which is then globally cached.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Match&lt;TInput, TOutput&gt; CreateStatic&lt;TInput, TOutput&gt;(Action&lt;MatchBuilder&lt;TInput, TOutput&gt;&gt; buildAction, string sourceFilePath = &quot;&quot;, int sourceLineNumber = 0)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Action</span>&lt;<a class="xref" href="Matchmaker.MatchBuilder-2.html">MatchBuilder</a>&lt;TInput, TOutput&gt;&gt;</td>
+        <td><span class="parametername">buildAction</span></td>
+        <td><p>The action which builds the match expression.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">sourceFilePath</span></td>
+        <td><p>The path to the source file in which this method is called.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+        <td><span class="parametername">sourceLineNumber</span></td>
+        <td><p>The line in the source file where this method is called.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Matchmaker.Match-2.html">Match</a>&lt;TInput, TOutput&gt;</td>
+        <td><p>The globally cached match expression.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TInput</span></td>
+        <td><p>The type of the input value.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TOutput</span></td>
+        <td><p>The type of the result.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Matchmaker_Match_CreateStatic__2_Action_Matchmaker_MatchBuilder___0___1___System_String_System_Int32__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>
+The key of the cache is the location of this method&apos;s call in the source code.
+This way, a new match expression object will not be allocated every time pattern matching occurs
+in the same place more than once.
+</p>
+<p>
+The pattern caching process is not thread-safe.
+</p>
+</div>
+  <h3 id="seealso">See Also</h3>
+  <div class="seealso">
+      <div><a class="xref" href="Matchmaker.Match-2.html">Match</a>&lt;TInput, TOutput&gt;</div>
+      <div><a class="xref" href="Matchmaker.Match-1.html">Match</a>&lt;TInput&gt;</div>
+      <div><a class="xref" href="Matchmaker.MatchBuilder-2.html">MatchBuilder</a>&lt;TInput, TOutput&gt;</div>
+      <div><a class="xref" href="Matchmaker.MatchBuilder-1.html">MatchBuilder</a>&lt;TInput&gt;</div>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Match.md&amp;value=---%0Auid%3A%20Matchmaker.Match%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/Match.cs/#L13" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            <div>Copyright (c) 2018 Anatoliy Pylypchuk</div><span>Generated by <strong>DocFx</strong>.</span> <span>Icons made by <a href="https" ://www.flaticon.com/authors/roundicons"="" title="Roundicons">Roundicons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></span>
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>
