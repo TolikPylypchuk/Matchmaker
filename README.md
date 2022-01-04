@@ -13,7 +13,7 @@ Version 1.x can be found there. This repository contains version 2+.
 If your platform supports .NET Standard 2.1, you can install the latest version:
 
 ```
-dotnet add package Matchmaker --version 3.0.0
+dotnet add package Matchmaker --version 3.0.1
 ```
 
 If it doesn't, then stick to versions 2.x:
@@ -192,7 +192,7 @@ public int Sum(ConsList list) =>
 ## Matching with Fall-through
 
 C, C++ and, Java support fall-through in `switch` statements. So does this library, although it works differently here.
-You can read more [here](https://matchmaker.tolik.io/v3.0.0/articles/expressions.html#matching-with-fall-through).
+You can read more [here](https://matchmaker.tolik.io/v3.0.1/articles/expressions.html#matching-with-fall-through).
 
 Here's an implementation of the famous fizz-buzz program which uses matching with fall-through:
 
@@ -238,21 +238,22 @@ string result = Match.CreateStatic<int, string>(match => match
 ```
 
 Now this match expression will be initialized only once even if its containing method is executed multiple times.
-You can read more [here](https://matchmaker.tolik.io/v3.0.0/articles/expressions.html#static-match-expressions).
+You can read more [here](https://matchmaker.tolik.io/v3.0.1/articles/expressions.html#static-match-expressions).
 
 ## More Info
 
-If you want to learn how to use this library, you should read the [documentation](https://matchmaker.tolik.io/v3.0.0).
+If you want to learn how to use this library, you should read the [documentation](https://matchmaker.tolik.io/v3.0.1).
 The articles provide everything you need to know to use this library.
 
-If you need extensive information, go to the [API reference](https://matchmaker.tolik.io/v3.0.0/api/index.html).
+If you need extensive information, go to the [API reference](https://matchmaker.tolik.io/v3.0.1/api/index.html).
 
 If you need even more info about this library, you can go through the
-[tests](https://github.com/TolikPylypchuk/Matchmaker/tree/v3.0.0/Matchmaker.Tests). They are property-based and as such
+[tests](https://github.com/TolikPylypchuk/Matchmaker/tree/v3.0.1/Matchmaker.Tests). They are property-based and as such
 they describe every aspect of the classes and their members.
 
 The documentation can be found here:
 
+- Version 3.0.1: https://matchmaker.tolik.io/v3.0.1
 - Version 3.0.0: https://matchmaker.tolik.io/v3.0.0
 - Version 2.1.0: https://matchmaker.tolik.io/v2.1.0
 - Version 2.0.0: https://matchmaker.tolik.io/v2.0.0
@@ -262,7 +263,7 @@ The documentation can be found here:
 
 I'm not planning on writing new versions beyond 3.0 (or maybe 3.1 if some stuff needs fixing). To be fair, I thought
 the same thing after releasing version 1.1 and yet here we are. This time I do believe that this library has enough
-features (probably more than enough). Maybe one day I'll revisit this decision, but for now (May 2020) this is it;
+features (probably more than enough). Maybe one day I'll revisit this decision, but for now (January 2022) this is it;
 this is as good as it gets.
 
 That said, if you report a bug or request a new feature, I'll definitely look into it. I'm not giving up on this

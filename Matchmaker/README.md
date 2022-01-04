@@ -239,7 +239,7 @@ they describe every aspect of the classes and their members.
 
 I'm not planning on writing new versions beyond 3.0 (or maybe 3.1 if some stuff needs fixing). To be fair, I thought
 the same thing after releasing version 1.1 and yet here we are. This time I do believe that this library has enough
-features (probably more than enough). Maybe one day I'll revisit this decision, but for now (May 2020) this is it;
+features (probably more than enough). Maybe one day I'll revisit this decision, but for now (January 2022) this is it;
 this is as good as it gets.
 
 That said, if you report a bug or request a new feature, I'll definitely look into it. I'm not giving up on this

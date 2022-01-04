@@ -24,5 +24,5 @@ https://github.com/TolikPylypchuk/Matchmaker
 ## Installation
 
 ```
-dotnet add package Matchmaker --version 3.0.0
+dotnet add package Matchmaker --version 3.0.1
 ```
