@@ -6,7 +6,7 @@ Whats's new in version 3.0.1:
 
 - No changes to the library's code or API
 - Matchmaker is now built with .NET 6 and uses C# 10 (but still targets .NET Standard 2.1)
-- Improved the NuGet package (added a symbol package, a readme, Source Link, and updated the docs)
+- Improved the NuGet package (added a symbol package, a readme, and Source Link)
 - The library is now trimmable
 - GitHub Actions are now used for CI instead of AppVeyor
 
