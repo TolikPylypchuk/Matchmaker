@@ -81,23 +81,47 @@
     <div class="level0"><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a></div>
     <div class="level1"><span class="xref">MatchResultExtensions</span></div>
   </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.equals#System_Object_Equals_System_Object_">Object.Equals(Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.equals#System_Object_Equals_System_Object_System_Object_">Object.Equals(Object, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.gethashcode#System_Object_GetHashCode">Object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.gettype#System_Object_GetType">Object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.memberwiseclone#System_Object_MemberwiseClone">Object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.referenceequals#System_Object_ReferenceEquals_System_Object_System_Object_">Object.ReferenceEquals(Object, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.tostring#System_Object_ToString">Object.ToString()</a>
+    </div>
+  </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="Matchmaker.Linq.html">Matchmaker.Linq</a></h6>
   <h6><strong>Assembly</strong>: Matchmaker.dll</h6>
   <h5 id="Matchmaker_Linq_MatchResultExtensions_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static class MatchResultExtensions : object</code></pre>
+    <pre><code class="lang-csharp hljs">public static class MatchResultExtensions</code></pre>
   </div>
   <h3 id="methods">Methods
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Linq_MatchResultExtensions_Bind__2_Matchmaker_MatchResult___0__Func___0_Matchmaker_MatchResult___1___.md&amp;value=---%0Auid%3A%20Matchmaker.Linq.MatchResultExtensions.Bind%60%602(Matchmaker.MatchResult%7B%60%600%7D%2CFunc%7B%60%600%2CMatchmaker.MatchResult%7B%60%601%7D%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Linq_MatchResultExtensions_Bind__2_Matchmaker_MatchResult___0__System_Func___0_Matchmaker_MatchResult___1___.md&amp;value=---%0Auid%3A%20Matchmaker.Linq.MatchResultExtensions.Bind%60%602(Matchmaker.MatchResult%7B%60%600%7D%2CSystem.Func%7B%60%600%2CMatchmaker.MatchResult%7B%60%601%7D%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/Linq/MatchResultExtensions.cs/#L114">View Source</a>
   </span>
   <a id="Matchmaker_Linq_MatchResultExtensions_Bind_" data-uid="Matchmaker.Linq.MatchResultExtensions.Bind*"></a>
-  <h4 id="Matchmaker_Linq_MatchResultExtensions_Bind__2_Matchmaker_MatchResult___0__Func___0_Matchmaker_MatchResult___1___" data-uid="Matchmaker.Linq.MatchResultExtensions.Bind``2(Matchmaker.MatchResult{``0},Func{``0,Matchmaker.MatchResult{``1}})">Bind&lt;T, TResult&gt;(MatchResult&lt;T&gt;, Func&lt;T, MatchResult&lt;TResult&gt;&gt;)</h4>
+  <h4 id="Matchmaker_Linq_MatchResultExtensions_Bind__2_Matchmaker_MatchResult___0__System_Func___0_Matchmaker_MatchResult___1___" data-uid="Matchmaker.Linq.MatchResultExtensions.Bind``2(Matchmaker.MatchResult{``0},System.Func{``0,Matchmaker.MatchResult{``1}})">Bind&lt;T, TResult&gt;(MatchResult&lt;T&gt;, Func&lt;T, MatchResult&lt;TResult&gt;&gt;)</h4>
   <div class="markdown level1 summary"><p>Returns a flat-mapped result if the specified result is successful.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -122,7 +146,7 @@
 </td>
       </tr>
       <tr>
-        <td><span class="xref">Func</span>&lt;T, <a class="xref" href="Matchmaker.MatchResult-1.html">MatchResult</a>&lt;TResult&gt;&gt;</td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;T, <a class="xref" href="Matchmaker.MatchResult-1.html">MatchResult</a>&lt;TResult&gt;&gt;</td>
         <td><span class="parametername">binder</span></td>
         <td><p>The result binding function.</p>
 </td>
@@ -166,18 +190,34 @@
       </tr>
     </tbody>
   </table>
-  <h5 id="Matchmaker_Linq_MatchResultExtensions_Bind__2_Matchmaker_MatchResult___0__Func___0_Matchmaker_MatchResult___1____remarks">Remarks</h5>
+  <h5 id="Matchmaker_Linq_MatchResultExtensions_Bind__2_Matchmaker_MatchResult___0__System_Func___0_Matchmaker_MatchResult___1____remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>The <code data-dev-comment-type="paramref" class="paramref">binder</code> function's parameter may be <span class="xref">null</span>.</p>
 </div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p><code data-dev-comment-type="paramref" class="paramref">binder</code> is <span class="xref">null</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Linq_MatchResultExtensions_Bind__2_Task_Matchmaker_MatchResult___0___Func___0_Task_Matchmaker_MatchResult___1____.md&amp;value=---%0Auid%3A%20Matchmaker.Linq.MatchResultExtensions.Bind%60%602(Task%7BMatchmaker.MatchResult%7B%60%600%7D%7D%2CFunc%7B%60%600%2CTask%7BMatchmaker.MatchResult%7B%60%601%7D%7D%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Linq_MatchResultExtensions_Bind__2_System_Threading_Tasks_Task_Matchmaker_MatchResult___0___System_Func___0_System_Threading_Tasks_Task_Matchmaker_MatchResult___1____.md&amp;value=---%0Auid%3A%20Matchmaker.Linq.MatchResultExtensions.Bind%60%602(System.Threading.Tasks.Task%7BMatchmaker.MatchResult%7B%60%600%7D%7D%2CSystem.Func%7B%60%600%2CSystem.Threading.Tasks.Task%7BMatchmaker.MatchResult%7B%60%601%7D%7D%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/Linq/MatchResultExtensions.cs/#L397">View Source</a>
   </span>
   <a id="Matchmaker_Linq_MatchResultExtensions_Bind_" data-uid="Matchmaker.Linq.MatchResultExtensions.Bind*"></a>
-  <h4 id="Matchmaker_Linq_MatchResultExtensions_Bind__2_Task_Matchmaker_MatchResult___0___Func___0_Task_Matchmaker_MatchResult___1____" data-uid="Matchmaker.Linq.MatchResultExtensions.Bind``2(Task{Matchmaker.MatchResult{``0}},Func{``0,Task{Matchmaker.MatchResult{``1}}})">Bind&lt;T, TResult&gt;(Task&lt;MatchResult&lt;T&gt;&gt;, Func&lt;T, Task&lt;MatchResult&lt;TResult&gt;&gt;&gt;)</h4>
+  <h4 id="Matchmaker_Linq_MatchResultExtensions_Bind__2_System_Threading_Tasks_Task_Matchmaker_MatchResult___0___System_Func___0_System_Threading_Tasks_Task_Matchmaker_MatchResult___1____" data-uid="Matchmaker.Linq.MatchResultExtensions.Bind``2(System.Threading.Tasks.Task{Matchmaker.MatchResult{``0}},System.Func{``0,System.Threading.Tasks.Task{Matchmaker.MatchResult{``1}}})">Bind&lt;T, TResult&gt;(Task&lt;MatchResult&lt;T&gt;&gt;, Func&lt;T, Task&lt;MatchResult&lt;TResult&gt;&gt;&gt;)</h4>
   <div class="markdown level1 summary"><p>Returns a flat-mapped result if the specified result is successful.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -196,13 +236,13 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Task</span>&lt;<a class="xref" href="Matchmaker.MatchResult-1.html">MatchResult</a>&lt;T&gt;&gt;</td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="Matchmaker.MatchResult-1.html">MatchResult</a>&lt;T&gt;&gt;</td>
         <td><span class="parametername">futureResult</span></td>
         <td><p>The result whose value should be flat-mapped.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">Func</span>&lt;T, <span class="xref">Task</span>&lt;<a class="xref" href="Matchmaker.MatchResult-1.html">MatchResult</a>&lt;TResult&gt;&gt;&gt;</td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;T, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="Matchmaker.MatchResult-1.html">MatchResult</a>&lt;TResult&gt;&gt;&gt;</td>
         <td><span class="parametername">binder</span></td>
         <td><p>The result binding function.</p>
 </td>
@@ -219,7 +259,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Task</span>&lt;<a class="xref" href="Matchmaker.MatchResult-1.html">MatchResult</a>&lt;TResult&gt;&gt;</td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="Matchmaker.MatchResult-1.html">MatchResult</a>&lt;TResult&gt;&gt;</td>
         <td><p>A flat-mapped result if the specified result is successful. Otherwise, a failed result.</p>
 </td>
       </tr>
@@ -246,9 +286,30 @@
       </tr>
     </tbody>
   </table>
-  <h5 id="Matchmaker_Linq_MatchResultExtensions_Bind__2_Task_Matchmaker_MatchResult___0___Func___0_Task_Matchmaker_MatchResult___1_____remarks">Remarks</h5>
+  <h5 id="Matchmaker_Linq_MatchResultExtensions_Bind__2_System_Threading_Tasks_Task_Matchmaker_MatchResult___0___System_Func___0_System_Threading_Tasks_Task_Matchmaker_MatchResult___1_____remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>The <code data-dev-comment-type="paramref" class="paramref">binder</code> function's parameter may be <span class="xref">null</span>.</p>
 </div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p><code data-dev-comment-type="paramref" class="paramref">futureResult</code> or <code data-dev-comment-type="paramref" class="paramref">binder</code> is <span class="xref">null</span>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></td>
+        <td><p><code data-dev-comment-type="paramref" class="paramref">binder</code> returned <span class="xref">null</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Linq_MatchResultExtensions_Cast__2_Matchmaker_MatchResult___0__.md&amp;value=---%0Auid%3A%20Matchmaker.Linq.MatchResultExtensions.Cast%60%602(Matchmaker.MatchResult%7B%60%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
@@ -329,13 +390,13 @@ and contains a value that can be cast to <code data-dev-comment-type="typeparamr
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Linq_MatchResultExtensions_Cast__2_Task_Matchmaker_MatchResult___0___.md&amp;value=---%0Auid%3A%20Matchmaker.Linq.MatchResultExtensions.Cast%60%602(Task%7BMatchmaker.MatchResult%7B%60%600%7D%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Linq_MatchResultExtensions_Cast__2_System_Threading_Tasks_Task_Matchmaker_MatchResult___0___.md&amp;value=---%0Auid%3A%20Matchmaker.Linq.MatchResultExtensions.Cast%60%602(System.Threading.Tasks.Task%7BMatchmaker.MatchResult%7B%60%600%7D%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/Linq/MatchResultExtensions.cs/#L511">View Source</a>
   </span>
   <a id="Matchmaker_Linq_MatchResultExtensions_Cast_" data-uid="Matchmaker.Linq.MatchResultExtensions.Cast*"></a>
-  <h4 id="Matchmaker_Linq_MatchResultExtensions_Cast__2_Task_Matchmaker_MatchResult___0___" data-uid="Matchmaker.Linq.MatchResultExtensions.Cast``2(Task{Matchmaker.MatchResult{``0}})">Cast&lt;T, TResult&gt;(Task&lt;MatchResult&lt;T&gt;&gt;)</h4>
+  <h4 id="Matchmaker_Linq_MatchResultExtensions_Cast__2_System_Threading_Tasks_Task_Matchmaker_MatchResult___0___" data-uid="Matchmaker.Linq.MatchResultExtensions.Cast``2(System.Threading.Tasks.Task{Matchmaker.MatchResult{``0}})">Cast&lt;T, TResult&gt;(Task&lt;MatchResult&lt;T&gt;&gt;)</h4>
   <div class="markdown level1 summary"><p>Returns a successful result if the specified result is successful
 and contains a value that can be cast to <code data-dev-comment-type="typeparamref" class="typeparamref">TResult</code>.</p>
 </div>
@@ -356,7 +417,7 @@ and contains a value that can be cast to <code data-dev-comment-type="typeparamr
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Task</span>&lt;<a class="xref" href="Matchmaker.MatchResult-1.html">MatchResult</a>&lt;T&gt;&gt;</td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="Matchmaker.MatchResult-1.html">MatchResult</a>&lt;T&gt;&gt;</td>
         <td><span class="parametername">futureResult</span></td>
         <td><p>The result whose value should be cast.</p>
 </td>
@@ -373,7 +434,7 @@ and contains a value that can be cast to <code data-dev-comment-type="typeparamr
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Task</span>&lt;<a class="xref" href="Matchmaker.MatchResult-1.html">MatchResult</a>&lt;TResult&gt;&gt;</td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="Matchmaker.MatchResult-1.html">MatchResult</a>&lt;TResult&gt;&gt;</td>
         <td><p>A successful result if the specified result is successful and contains a value that can be cast to
 <code data-dev-comment-type="typeparamref" class="typeparamref">TResult</code>. Otherwise, a failed result.</p>
 </td>
@@ -401,19 +462,35 @@ and contains a value that can be cast to <code data-dev-comment-type="typeparamr
       </tr>
     </tbody>
   </table>
-  <h5 id="Matchmaker_Linq_MatchResultExtensions_Cast__2_Task_Matchmaker_MatchResult___0____remarks">Remarks</h5>
+  <h5 id="Matchmaker_Linq_MatchResultExtensions_Cast__2_System_Threading_Tasks_Task_Matchmaker_MatchResult___0____remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>If the result contains <span class="xref">null</span>, then this method returns a failed result only when
 <code data-dev-comment-type="typeparamref" class="typeparamref">TResult</code> is a non-nullable value type.</p>
 </div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p><code data-dev-comment-type="paramref" class="paramref">futureResult</code> is <span class="xref">null</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Linq_MatchResultExtensions_Do__1_Matchmaker_MatchResult___0__Action___0__.md&amp;value=---%0Auid%3A%20Matchmaker.Linq.MatchResultExtensions.Do%60%601(Matchmaker.MatchResult%7B%60%600%7D%2CAction%7B%60%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Linq_MatchResultExtensions_Do__1_Matchmaker_MatchResult___0__System_Action___0__.md&amp;value=---%0Auid%3A%20Matchmaker.Linq.MatchResultExtensions.Do%60%601(Matchmaker.MatchResult%7B%60%600%7D%2CSystem.Action%7B%60%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/Linq/MatchResultExtensions.cs/#L178">View Source</a>
   </span>
   <a id="Matchmaker_Linq_MatchResultExtensions_Do_" data-uid="Matchmaker.Linq.MatchResultExtensions.Do*"></a>
-  <h4 id="Matchmaker_Linq_MatchResultExtensions_Do__1_Matchmaker_MatchResult___0__Action___0__" data-uid="Matchmaker.Linq.MatchResultExtensions.Do``1(Matchmaker.MatchResult{``0},Action{``0})">Do&lt;T&gt;(MatchResult&lt;T&gt;, Action&lt;T&gt;)</h4>
+  <h4 id="Matchmaker_Linq_MatchResultExtensions_Do__1_Matchmaker_MatchResult___0__System_Action___0__" data-uid="Matchmaker.Linq.MatchResultExtensions.Do``1(Matchmaker.MatchResult{``0},System.Action{``0})">Do&lt;T&gt;(MatchResult&lt;T&gt;, Action&lt;T&gt;)</h4>
   <div class="markdown level1 summary"><p>Performs a specified action on the result's value if it's successful.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -438,7 +515,7 @@ and contains a value that can be cast to <code data-dev-comment-type="typeparamr
 </td>
       </tr>
       <tr>
-        <td><span class="xref">Action</span>&lt;T&gt;</td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;T&gt;</td>
         <td><span class="parametername">action</span></td>
         <td><p>The action to perform.</p>
 </td>
@@ -477,18 +554,34 @@ and contains a value that can be cast to <code data-dev-comment-type="typeparamr
       </tr>
     </tbody>
   </table>
-  <h5 id="Matchmaker_Linq_MatchResultExtensions_Do__1_Matchmaker_MatchResult___0__Action___0___remarks">Remarks</h5>
+  <h5 id="Matchmaker_Linq_MatchResultExtensions_Do__1_Matchmaker_MatchResult___0__System_Action___0___remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>The <code data-dev-comment-type="paramref" class="paramref">action</code>'s parameter may be <span class="xref">null</span>.</p>
 </div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p><code data-dev-comment-type="paramref" class="paramref">action</code> is <span class="xref">null</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Linq_MatchResultExtensions_Do__1_Task_Matchmaker_MatchResult___0___Action___0__.md&amp;value=---%0Auid%3A%20Matchmaker.Linq.MatchResultExtensions.Do%60%601(Task%7BMatchmaker.MatchResult%7B%60%600%7D%7D%2CAction%7B%60%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Linq_MatchResultExtensions_Do__1_System_Threading_Tasks_Task_Matchmaker_MatchResult___0___System_Action___0__.md&amp;value=---%0Auid%3A%20Matchmaker.Linq.MatchResultExtensions.Do%60%601(System.Threading.Tasks.Task%7BMatchmaker.MatchResult%7B%60%600%7D%7D%2CSystem.Action%7B%60%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/Linq/MatchResultExtensions.cs/#L533">View Source</a>
   </span>
   <a id="Matchmaker_Linq_MatchResultExtensions_Do_" data-uid="Matchmaker.Linq.MatchResultExtensions.Do*"></a>
-  <h4 id="Matchmaker_Linq_MatchResultExtensions_Do__1_Task_Matchmaker_MatchResult___0___Action___0__" data-uid="Matchmaker.Linq.MatchResultExtensions.Do``1(Task{Matchmaker.MatchResult{``0}},Action{``0})">Do&lt;T&gt;(Task&lt;MatchResult&lt;T&gt;&gt;, Action&lt;T&gt;)</h4>
+  <h4 id="Matchmaker_Linq_MatchResultExtensions_Do__1_System_Threading_Tasks_Task_Matchmaker_MatchResult___0___System_Action___0__" data-uid="Matchmaker.Linq.MatchResultExtensions.Do``1(System.Threading.Tasks.Task{Matchmaker.MatchResult{``0}},System.Action{``0})">Do&lt;T&gt;(Task&lt;MatchResult&lt;T&gt;&gt;, Action&lt;T&gt;)</h4>
   <div class="markdown level1 summary"><p>Performs a specified action on the result's value if it's successful.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -507,13 +600,13 @@ and contains a value that can be cast to <code data-dev-comment-type="typeparamr
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Task</span>&lt;<a class="xref" href="Matchmaker.MatchResult-1.html">MatchResult</a>&lt;T&gt;&gt;</td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="Matchmaker.MatchResult-1.html">MatchResult</a>&lt;T&gt;&gt;</td>
         <td><span class="parametername">futureResult</span></td>
         <td><p>The result whose value should be passed to the action.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">Action</span>&lt;T&gt;</td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;T&gt;</td>
         <td><span class="parametername">action</span></td>
         <td><p>The action to perform.</p>
 </td>
@@ -530,7 +623,7 @@ and contains a value that can be cast to <code data-dev-comment-type="typeparamr
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Task</span>&lt;<a class="xref" href="Matchmaker.MatchResult-1.html">MatchResult</a>&lt;T&gt;&gt;</td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="Matchmaker.MatchResult-1.html">MatchResult</a>&lt;T&gt;&gt;</td>
         <td><p>The result for which the action should be executed.</p>
 </td>
       </tr>
@@ -552,18 +645,34 @@ and contains a value that can be cast to <code data-dev-comment-type="typeparamr
       </tr>
     </tbody>
   </table>
-  <h5 id="Matchmaker_Linq_MatchResultExtensions_Do__1_Task_Matchmaker_MatchResult___0___Action___0___remarks">Remarks</h5>
+  <h5 id="Matchmaker_Linq_MatchResultExtensions_Do__1_System_Threading_Tasks_Task_Matchmaker_MatchResult___0___System_Action___0___remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>The <code data-dev-comment-type="paramref" class="paramref">action</code>'s parameter may be <span class="xref">null</span>.</p>
 </div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p><code data-dev-comment-type="paramref" class="paramref">futureResult</code> or <code data-dev-comment-type="paramref" class="paramref">action</code> is <span class="xref">null</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Linq_MatchResultExtensions_Do__1_Task_Matchmaker_MatchResult___0___Func___0_Task__.md&amp;value=---%0Auid%3A%20Matchmaker.Linq.MatchResultExtensions.Do%60%601(Task%7BMatchmaker.MatchResult%7B%60%600%7D%7D%2CFunc%7B%60%600%2CTask%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Linq_MatchResultExtensions_Do__1_System_Threading_Tasks_Task_Matchmaker_MatchResult___0___System_Func___0_System_Threading_Tasks_Task__.md&amp;value=---%0Auid%3A%20Matchmaker.Linq.MatchResultExtensions.Do%60%601(System.Threading.Tasks.Task%7BMatchmaker.MatchResult%7B%60%600%7D%7D%2CSystem.Func%7B%60%600%2CSystem.Threading.Tasks.Task%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/Linq/MatchResultExtensions.cs/#L571">View Source</a>
   </span>
   <a id="Matchmaker_Linq_MatchResultExtensions_Do_" data-uid="Matchmaker.Linq.MatchResultExtensions.Do*"></a>
-  <h4 id="Matchmaker_Linq_MatchResultExtensions_Do__1_Task_Matchmaker_MatchResult___0___Func___0_Task__" data-uid="Matchmaker.Linq.MatchResultExtensions.Do``1(Task{Matchmaker.MatchResult{``0}},Func{``0,Task})">Do&lt;T&gt;(Task&lt;MatchResult&lt;T&gt;&gt;, Func&lt;T, Task&gt;)</h4>
+  <h4 id="Matchmaker_Linq_MatchResultExtensions_Do__1_System_Threading_Tasks_Task_Matchmaker_MatchResult___0___System_Func___0_System_Threading_Tasks_Task__" data-uid="Matchmaker.Linq.MatchResultExtensions.Do``1(System.Threading.Tasks.Task{Matchmaker.MatchResult{``0}},System.Func{``0,System.Threading.Tasks.Task})">Do&lt;T&gt;(Task&lt;MatchResult&lt;T&gt;&gt;, Func&lt;T, Task&gt;)</h4>
   <div class="markdown level1 summary"><p>Performs a specified action on the result's value if it's successful.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -582,13 +691,13 @@ and contains a value that can be cast to <code data-dev-comment-type="typeparamr
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Task</span>&lt;<a class="xref" href="Matchmaker.MatchResult-1.html">MatchResult</a>&lt;T&gt;&gt;</td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="Matchmaker.MatchResult-1.html">MatchResult</a>&lt;T&gt;&gt;</td>
         <td><span class="parametername">futureResult</span></td>
         <td><p>The result whose value should be passed to the action.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">Func</span>&lt;T, <span class="xref">Task</span>&gt;</td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;T, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a>&gt;</td>
         <td><span class="parametername">action</span></td>
         <td><p>The action to perform.</p>
 </td>
@@ -605,7 +714,7 @@ and contains a value that can be cast to <code data-dev-comment-type="typeparamr
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Task</span>&lt;<a class="xref" href="Matchmaker.MatchResult-1.html">MatchResult</a>&lt;T&gt;&gt;</td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="Matchmaker.MatchResult-1.html">MatchResult</a>&lt;T&gt;&gt;</td>
         <td><p>The result for which the action should be executed.</p>
 </td>
       </tr>
@@ -627,9 +736,30 @@ and contains a value that can be cast to <code data-dev-comment-type="typeparamr
       </tr>
     </tbody>
   </table>
-  <h5 id="Matchmaker_Linq_MatchResultExtensions_Do__1_Task_Matchmaker_MatchResult___0___Func___0_Task___remarks">Remarks</h5>
+  <h5 id="Matchmaker_Linq_MatchResultExtensions_Do__1_System_Threading_Tasks_Task_Matchmaker_MatchResult___0___System_Func___0_System_Threading_Tasks_Task___remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>The <code data-dev-comment-type="paramref" class="paramref">action</code>'s parameter may be <span class="xref">null</span>.</p>
 </div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p><code data-dev-comment-type="paramref" class="paramref">futureResult</code> or <code data-dev-comment-type="paramref" class="paramref">action</code> is <span class="xref">null</span>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></td>
+        <td><p><code data-dev-comment-type="paramref" class="paramref">action</code> returned <span class="xref">null</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Linq_MatchResultExtensions_GetValueOrDefault__1_Matchmaker_MatchResult___0__.md&amp;value=---%0Auid%3A%20Matchmaker.Linq.MatchResultExtensions.GetValueOrDefault%60%601(Matchmaker.MatchResult%7B%60%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
@@ -770,13 +900,13 @@ and contains a value that can be cast to <code data-dev-comment-type="typeparamr
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Linq_MatchResultExtensions_GetValueOrDefault__1_Matchmaker_MatchResult___0__Func___0__.md&amp;value=---%0Auid%3A%20Matchmaker.Linq.MatchResultExtensions.GetValueOrDefault%60%601(Matchmaker.MatchResult%7B%60%600%7D%2CFunc%7B%60%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Linq_MatchResultExtensions_GetValueOrDefault__1_Matchmaker_MatchResult___0__System_Func___0__.md&amp;value=---%0Auid%3A%20Matchmaker.Linq.MatchResultExtensions.GetValueOrDefault%60%601(Matchmaker.MatchResult%7B%60%600%7D%2CSystem.Func%7B%60%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/Linq/MatchResultExtensions.cs/#L53">View Source</a>
   </span>
   <a id="Matchmaker_Linq_MatchResultExtensions_GetValueOrDefault_" data-uid="Matchmaker.Linq.MatchResultExtensions.GetValueOrDefault*"></a>
-  <h4 id="Matchmaker_Linq_MatchResultExtensions_GetValueOrDefault__1_Matchmaker_MatchResult___0__Func___0__" data-uid="Matchmaker.Linq.MatchResultExtensions.GetValueOrDefault``1(Matchmaker.MatchResult{``0},Func{``0})">GetValueOrDefault&lt;T&gt;(MatchResult&lt;T&gt;, Func&lt;T&gt;)</h4>
+  <h4 id="Matchmaker_Linq_MatchResultExtensions_GetValueOrDefault__1_Matchmaker_MatchResult___0__System_Func___0__" data-uid="Matchmaker.Linq.MatchResultExtensions.GetValueOrDefault``1(Matchmaker.MatchResult{``0},System.Func{``0})">GetValueOrDefault&lt;T&gt;(MatchResult&lt;T&gt;, Func&lt;T&gt;)</h4>
   <div class="markdown level1 summary"><p>Returns the result's value if it's successful, or the default one otherwise.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -801,7 +931,7 @@ and contains a value that can be cast to <code data-dev-comment-type="typeparamr
 </td>
       </tr>
       <tr>
-        <td><span class="xref">Func</span>&lt;T&gt;</td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;T&gt;</td>
         <td><span class="parametername">defaultValueProvider</span></td>
         <td><p>The function which provides the value to return if the result is not successful.</p>
 </td>
@@ -840,15 +970,31 @@ and contains a value that can be cast to <code data-dev-comment-type="typeparamr
       </tr>
     </tbody>
   </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p><code data-dev-comment-type="paramref" class="paramref">defaultValueProvider</code> is <span class="xref">null</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Linq_MatchResultExtensions_GetValueOrDefault__1_Task_Matchmaker_MatchResult___0___.md&amp;value=---%0Auid%3A%20Matchmaker.Linq.MatchResultExtensions.GetValueOrDefault%60%601(Task%7BMatchmaker.MatchResult%7B%60%600%7D%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Linq_MatchResultExtensions_GetValueOrDefault__1_System_Threading_Tasks_Task_Matchmaker_MatchResult___0___.md&amp;value=---%0Auid%3A%20Matchmaker.Linq.MatchResultExtensions.GetValueOrDefault%60%601(System.Threading.Tasks.Task%7BMatchmaker.MatchResult%7B%60%600%7D%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/Linq/MatchResultExtensions.cs/#L207">View Source</a>
   </span>
   <a id="Matchmaker_Linq_MatchResultExtensions_GetValueOrDefault_" data-uid="Matchmaker.Linq.MatchResultExtensions.GetValueOrDefault*"></a>
-  <h4 id="Matchmaker_Linq_MatchResultExtensions_GetValueOrDefault__1_Task_Matchmaker_MatchResult___0___" data-uid="Matchmaker.Linq.MatchResultExtensions.GetValueOrDefault``1(Task{Matchmaker.MatchResult{``0}})">GetValueOrDefault&lt;T&gt;(Task&lt;MatchResult&lt;T&gt;&gt;)</h4>
+  <h4 id="Matchmaker_Linq_MatchResultExtensions_GetValueOrDefault__1_System_Threading_Tasks_Task_Matchmaker_MatchResult___0___" data-uid="Matchmaker.Linq.MatchResultExtensions.GetValueOrDefault``1(System.Threading.Tasks.Task{Matchmaker.MatchResult{``0}})">GetValueOrDefault&lt;T&gt;(Task&lt;MatchResult&lt;T&gt;&gt;)</h4>
   <div class="markdown level1 summary"><p>Returns the result's value if it's successful, or the default one otherwise.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -867,7 +1013,7 @@ and contains a value that can be cast to <code data-dev-comment-type="typeparamr
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Task</span>&lt;<a class="xref" href="Matchmaker.MatchResult-1.html">MatchResult</a>&lt;T&gt;&gt;</td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="Matchmaker.MatchResult-1.html">MatchResult</a>&lt;T&gt;&gt;</td>
         <td><span class="parametername">futureResult</span></td>
         <td><p>The result whose value should be mapped.</p>
 </td>
@@ -884,7 +1030,7 @@ and contains a value that can be cast to <code data-dev-comment-type="typeparamr
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Task</span>&lt;T&gt;</td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;T&gt;</td>
         <td><p>The result's value if it's successful, or the default one otherwise.</p>
 </td>
       </tr>
@@ -906,18 +1052,34 @@ and contains a value that can be cast to <code data-dev-comment-type="typeparamr
       </tr>
     </tbody>
   </table>
-  <h5 id="Matchmaker_Linq_MatchResultExtensions_GetValueOrDefault__1_Task_Matchmaker_MatchResult___0____remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>The resulting <see cref="!:Task&lt;TResult>"></see> may contain <span class="xref">null</span>.</p>
+  <h5 id="Matchmaker_Linq_MatchResultExtensions_GetValueOrDefault__1_System_Threading_Tasks_Task_Matchmaker_MatchResult___0____remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>The resulting <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task&lt;TResult&gt;</a> may contain <span class="xref">null</span>.</p>
 </div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p><code data-dev-comment-type="paramref" class="paramref">futureResult</code> is <span class="xref">null</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Linq_MatchResultExtensions_GetValueOrDefault__1_Task_Matchmaker_MatchResult___0_____0_.md&amp;value=---%0Auid%3A%20Matchmaker.Linq.MatchResultExtensions.GetValueOrDefault%60%601(Task%7BMatchmaker.MatchResult%7B%60%600%7D%7D%2C%60%600)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Linq_MatchResultExtensions_GetValueOrDefault__1_System_Threading_Tasks_Task_Matchmaker_MatchResult___0_____0_.md&amp;value=---%0Auid%3A%20Matchmaker.Linq.MatchResultExtensions.GetValueOrDefault%60%601(System.Threading.Tasks.Task%7BMatchmaker.MatchResult%7B%60%600%7D%7D%2C%60%600)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/Linq/MatchResultExtensions.cs/#L228">View Source</a>
   </span>
   <a id="Matchmaker_Linq_MatchResultExtensions_GetValueOrDefault_" data-uid="Matchmaker.Linq.MatchResultExtensions.GetValueOrDefault*"></a>
-  <h4 id="Matchmaker_Linq_MatchResultExtensions_GetValueOrDefault__1_Task_Matchmaker_MatchResult___0_____0_" data-uid="Matchmaker.Linq.MatchResultExtensions.GetValueOrDefault``1(Task{Matchmaker.MatchResult{``0}},``0)">GetValueOrDefault&lt;T&gt;(Task&lt;MatchResult&lt;T&gt;&gt;, T)</h4>
+  <h4 id="Matchmaker_Linq_MatchResultExtensions_GetValueOrDefault__1_System_Threading_Tasks_Task_Matchmaker_MatchResult___0_____0_" data-uid="Matchmaker.Linq.MatchResultExtensions.GetValueOrDefault``1(System.Threading.Tasks.Task{Matchmaker.MatchResult{``0}},``0)">GetValueOrDefault&lt;T&gt;(Task&lt;MatchResult&lt;T&gt;&gt;, T)</h4>
   <div class="markdown level1 summary"><p>Returns the result's value if it's successful, or the default one otherwise.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -936,7 +1098,7 @@ and contains a value that can be cast to <code data-dev-comment-type="typeparamr
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Task</span>&lt;<a class="xref" href="Matchmaker.MatchResult-1.html">MatchResult</a>&lt;T&gt;&gt;</td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="Matchmaker.MatchResult-1.html">MatchResult</a>&lt;T&gt;&gt;</td>
         <td><span class="parametername">futureResult</span></td>
         <td><p>The result whose value should be returned.</p>
 </td>
@@ -959,7 +1121,7 @@ and contains a value that can be cast to <code data-dev-comment-type="typeparamr
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Task</span>&lt;T&gt;</td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;T&gt;</td>
         <td><p>The result's value if it's successful, or the default one otherwise.</p>
 </td>
       </tr>
@@ -981,18 +1143,34 @@ and contains a value that can be cast to <code data-dev-comment-type="typeparamr
       </tr>
     </tbody>
   </table>
-  <h5 id="Matchmaker_Linq_MatchResultExtensions_GetValueOrDefault__1_Task_Matchmaker_MatchResult___0_____0__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>The resulting <see cref="!:Task&lt;TResult>"></see> may contain <span class="xref">null</span>.</p>
+  <h5 id="Matchmaker_Linq_MatchResultExtensions_GetValueOrDefault__1_System_Threading_Tasks_Task_Matchmaker_MatchResult___0_____0__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>The resulting <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task&lt;TResult&gt;</a> may contain <span class="xref">null</span>.</p>
 </div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p><code data-dev-comment-type="paramref" class="paramref">futureResult</code> is <span class="xref">null</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Linq_MatchResultExtensions_GetValueOrDefault__1_Task_Matchmaker_MatchResult___0___Func___0__.md&amp;value=---%0Auid%3A%20Matchmaker.Linq.MatchResultExtensions.GetValueOrDefault%60%601(Task%7BMatchmaker.MatchResult%7B%60%600%7D%7D%2CFunc%7B%60%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Linq_MatchResultExtensions_GetValueOrDefault__1_System_Threading_Tasks_Task_Matchmaker_MatchResult___0___System_Func___0__.md&amp;value=---%0Auid%3A%20Matchmaker.Linq.MatchResultExtensions.GetValueOrDefault%60%601(System.Threading.Tasks.Task%7BMatchmaker.MatchResult%7B%60%600%7D%7D%2CSystem.Func%7B%60%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/Linq/MatchResultExtensions.cs/#L251">View Source</a>
   </span>
   <a id="Matchmaker_Linq_MatchResultExtensions_GetValueOrDefault_" data-uid="Matchmaker.Linq.MatchResultExtensions.GetValueOrDefault*"></a>
-  <h4 id="Matchmaker_Linq_MatchResultExtensions_GetValueOrDefault__1_Task_Matchmaker_MatchResult___0___Func___0__" data-uid="Matchmaker.Linq.MatchResultExtensions.GetValueOrDefault``1(Task{Matchmaker.MatchResult{``0}},Func{``0})">GetValueOrDefault&lt;T&gt;(Task&lt;MatchResult&lt;T&gt;&gt;, Func&lt;T&gt;)</h4>
+  <h4 id="Matchmaker_Linq_MatchResultExtensions_GetValueOrDefault__1_System_Threading_Tasks_Task_Matchmaker_MatchResult___0___System_Func___0__" data-uid="Matchmaker.Linq.MatchResultExtensions.GetValueOrDefault``1(System.Threading.Tasks.Task{Matchmaker.MatchResult{``0}},System.Func{``0})">GetValueOrDefault&lt;T&gt;(Task&lt;MatchResult&lt;T&gt;&gt;, Func&lt;T&gt;)</h4>
   <div class="markdown level1 summary"><p>Returns the result's value if it's successful, or the default one otherwise.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -1011,13 +1189,13 @@ and contains a value that can be cast to <code data-dev-comment-type="typeparamr
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Task</span>&lt;<a class="xref" href="Matchmaker.MatchResult-1.html">MatchResult</a>&lt;T&gt;&gt;</td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="Matchmaker.MatchResult-1.html">MatchResult</a>&lt;T&gt;&gt;</td>
         <td><span class="parametername">futureResult</span></td>
         <td><p>The result whose value should be mapped.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">Func</span>&lt;T&gt;</td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;T&gt;</td>
         <td><span class="parametername">defaultValueProvider</span></td>
         <td><p>The function which provides the value to return if the result is not successful.</p>
 </td>
@@ -1034,7 +1212,7 @@ and contains a value that can be cast to <code data-dev-comment-type="typeparamr
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Task</span>&lt;T&gt;</td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;T&gt;</td>
         <td><p>The result's value if it's successful, or the default one otherwise.</p>
 </td>
       </tr>
@@ -1056,18 +1234,34 @@ and contains a value that can be cast to <code data-dev-comment-type="typeparamr
       </tr>
     </tbody>
   </table>
-  <h5 id="Matchmaker_Linq_MatchResultExtensions_GetValueOrDefault__1_Task_Matchmaker_MatchResult___0___Func___0___remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>The resulting <see cref="!:Task&lt;TResult>"></see> may contain <span class="xref">null</span>.</p>
+  <h5 id="Matchmaker_Linq_MatchResultExtensions_GetValueOrDefault__1_System_Threading_Tasks_Task_Matchmaker_MatchResult___0___System_Func___0___remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>The resulting <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task&lt;TResult&gt;</a> may contain <span class="xref">null</span>.</p>
 </div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p><code data-dev-comment-type="paramref" class="paramref">futureResult</code> or <code data-dev-comment-type="paramref" class="paramref">defaultValueProvider</code> is <span class="xref">null</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Linq_MatchResultExtensions_GetValueOrDefault__1_Task_Matchmaker_MatchResult___0___Func_Task___0___.md&amp;value=---%0Auid%3A%20Matchmaker.Linq.MatchResultExtensions.GetValueOrDefault%60%601(Task%7BMatchmaker.MatchResult%7B%60%600%7D%7D%2CFunc%7BTask%7B%60%600%7D%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Linq_MatchResultExtensions_GetValueOrDefault__1_System_Threading_Tasks_Task_Matchmaker_MatchResult___0___System_Func_System_Threading_Tasks_Task___0___.md&amp;value=---%0Auid%3A%20Matchmaker.Linq.MatchResultExtensions.GetValueOrDefault%60%601(System.Threading.Tasks.Task%7BMatchmaker.MatchResult%7B%60%600%7D%7D%2CSystem.Func%7BSystem.Threading.Tasks.Task%7B%60%600%7D%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/Linq/MatchResultExtensions.cs/#L290">View Source</a>
   </span>
   <a id="Matchmaker_Linq_MatchResultExtensions_GetValueOrDefault_" data-uid="Matchmaker.Linq.MatchResultExtensions.GetValueOrDefault*"></a>
-  <h4 id="Matchmaker_Linq_MatchResultExtensions_GetValueOrDefault__1_Task_Matchmaker_MatchResult___0___Func_Task___0___" data-uid="Matchmaker.Linq.MatchResultExtensions.GetValueOrDefault``1(Task{Matchmaker.MatchResult{``0}},Func{Task{``0}})">GetValueOrDefault&lt;T&gt;(Task&lt;MatchResult&lt;T&gt;&gt;, Func&lt;Task&lt;T&gt;&gt;)</h4>
+  <h4 id="Matchmaker_Linq_MatchResultExtensions_GetValueOrDefault__1_System_Threading_Tasks_Task_Matchmaker_MatchResult___0___System_Func_System_Threading_Tasks_Task___0___" data-uid="Matchmaker.Linq.MatchResultExtensions.GetValueOrDefault``1(System.Threading.Tasks.Task{Matchmaker.MatchResult{``0}},System.Func{System.Threading.Tasks.Task{``0}})">GetValueOrDefault&lt;T&gt;(Task&lt;MatchResult&lt;T&gt;&gt;, Func&lt;Task&lt;T&gt;&gt;)</h4>
   <div class="markdown level1 summary"><p>Returns the result's value if it's successful, or the default one otherwise.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -1086,13 +1280,13 @@ and contains a value that can be cast to <code data-dev-comment-type="typeparamr
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Task</span>&lt;<a class="xref" href="Matchmaker.MatchResult-1.html">MatchResult</a>&lt;T&gt;&gt;</td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="Matchmaker.MatchResult-1.html">MatchResult</a>&lt;T&gt;&gt;</td>
         <td><span class="parametername">futureResult</span></td>
         <td><p>The result whose value should be mapped.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">Func</span>&lt;<span class="xref">Task</span>&lt;T&gt;&gt;</td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;T&gt;&gt;</td>
         <td><span class="parametername">defaultValueProvider</span></td>
         <td><p>The function which provides the value to return if the result is not successful.</p>
 </td>
@@ -1109,7 +1303,7 @@ and contains a value that can be cast to <code data-dev-comment-type="typeparamr
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Task</span>&lt;T&gt;</td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;T&gt;</td>
         <td><p>The result's value if it's successful, or the default one otherwise.</p>
 </td>
       </tr>
@@ -1131,18 +1325,39 @@ and contains a value that can be cast to <code data-dev-comment-type="typeparamr
       </tr>
     </tbody>
   </table>
-  <h5 id="Matchmaker_Linq_MatchResultExtensions_GetValueOrDefault__1_Task_Matchmaker_MatchResult___0___Func_Task___0____remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>The resulting <see cref="!:Task&lt;TResult>"></see> may contain <span class="xref">null</span>.</p>
+  <h5 id="Matchmaker_Linq_MatchResultExtensions_GetValueOrDefault__1_System_Threading_Tasks_Task_Matchmaker_MatchResult___0___System_Func_System_Threading_Tasks_Task___0____remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>The resulting <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task&lt;TResult&gt;</a> may contain <span class="xref">null</span>.</p>
 </div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p><code data-dev-comment-type="paramref" class="paramref">futureResult</code> or <code data-dev-comment-type="paramref" class="paramref">defaultValueProvider</code> is <span class="xref">null</span>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></td>
+        <td><p><code data-dev-comment-type="paramref" class="paramref">defaultValueProvider</code> returned <span class="xref">null</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Linq_MatchResultExtensions_GetValueOrThrow__1_Matchmaker_MatchResult___0__Func_Exception__.md&amp;value=---%0Auid%3A%20Matchmaker.Linq.MatchResultExtensions.GetValueOrThrow%60%601(Matchmaker.MatchResult%7B%60%600%7D%2CFunc%7BException%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Linq_MatchResultExtensions_GetValueOrThrow__1_Matchmaker_MatchResult___0__System_Func_System_Exception__.md&amp;value=---%0Auid%3A%20Matchmaker.Linq.MatchResultExtensions.GetValueOrThrow%60%601(Matchmaker.MatchResult%7B%60%600%7D%2CSystem.Func%7BSystem.Exception%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/Linq/MatchResultExtensions.cs/#L71">View Source</a>
   </span>
   <a id="Matchmaker_Linq_MatchResultExtensions_GetValueOrThrow_" data-uid="Matchmaker.Linq.MatchResultExtensions.GetValueOrThrow*"></a>
-  <h4 id="Matchmaker_Linq_MatchResultExtensions_GetValueOrThrow__1_Matchmaker_MatchResult___0__Func_Exception__" data-uid="Matchmaker.Linq.MatchResultExtensions.GetValueOrThrow``1(Matchmaker.MatchResult{``0},Func{Exception})">GetValueOrThrow&lt;T&gt;(MatchResult&lt;T&gt;, Func&lt;Exception&gt;)</h4>
+  <h4 id="Matchmaker_Linq_MatchResultExtensions_GetValueOrThrow__1_Matchmaker_MatchResult___0__System_Func_System_Exception__" data-uid="Matchmaker.Linq.MatchResultExtensions.GetValueOrThrow``1(Matchmaker.MatchResult{``0},System.Func{System.Exception})">GetValueOrThrow&lt;T&gt;(MatchResult&lt;T&gt;, Func&lt;Exception&gt;)</h4>
   <div class="markdown level1 summary"><p>Returns the result's value if it's successful, or throws the provided exception otherwise.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -1167,7 +1382,7 @@ and contains a value that can be cast to <code data-dev-comment-type="typeparamr
 </td>
       </tr>
       <tr>
-        <td><span class="xref">Func</span>&lt;<span class="xref">Exception</span>&gt;</td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.exception">Exception</a>&gt;</td>
         <td><span class="parametername">exceptionProvider</span></td>
         <td><p>The function which provides the exception to throw if the result is not successful.</p>
 </td>
@@ -1206,15 +1421,31 @@ and contains a value that can be cast to <code data-dev-comment-type="typeparamr
       </tr>
     </tbody>
   </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p><code data-dev-comment-type="paramref" class="paramref">exceptionProvider</code> is <span class="xref">null</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Linq_MatchResultExtensions_GetValueOrThrow__1_Task_Matchmaker_MatchResult___0___Func_Exception__.md&amp;value=---%0Auid%3A%20Matchmaker.Linq.MatchResultExtensions.GetValueOrThrow%60%601(Task%7BMatchmaker.MatchResult%7B%60%600%7D%7D%2CFunc%7BException%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Linq_MatchResultExtensions_GetValueOrThrow__1_System_Threading_Tasks_Task_Matchmaker_MatchResult___0___System_Func_System_Exception__.md&amp;value=---%0Auid%3A%20Matchmaker.Linq.MatchResultExtensions.GetValueOrThrow%60%601(System.Threading.Tasks.Task%7BMatchmaker.MatchResult%7B%60%600%7D%7D%2CSystem.Func%7BSystem.Exception%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/Linq/MatchResultExtensions.cs/#L326">View Source</a>
   </span>
   <a id="Matchmaker_Linq_MatchResultExtensions_GetValueOrThrow_" data-uid="Matchmaker.Linq.MatchResultExtensions.GetValueOrThrow*"></a>
-  <h4 id="Matchmaker_Linq_MatchResultExtensions_GetValueOrThrow__1_Task_Matchmaker_MatchResult___0___Func_Exception__" data-uid="Matchmaker.Linq.MatchResultExtensions.GetValueOrThrow``1(Task{Matchmaker.MatchResult{``0}},Func{Exception})">GetValueOrThrow&lt;T&gt;(Task&lt;MatchResult&lt;T&gt;&gt;, Func&lt;Exception&gt;)</h4>
+  <h4 id="Matchmaker_Linq_MatchResultExtensions_GetValueOrThrow__1_System_Threading_Tasks_Task_Matchmaker_MatchResult___0___System_Func_System_Exception__" data-uid="Matchmaker.Linq.MatchResultExtensions.GetValueOrThrow``1(System.Threading.Tasks.Task{Matchmaker.MatchResult{``0}},System.Func{System.Exception})">GetValueOrThrow&lt;T&gt;(Task&lt;MatchResult&lt;T&gt;&gt;, Func&lt;Exception&gt;)</h4>
   <div class="markdown level1 summary"><p>Returns the result's value if it's successful, or throws the provided exception otherwise.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -1233,13 +1464,13 @@ and contains a value that can be cast to <code data-dev-comment-type="typeparamr
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Task</span>&lt;<a class="xref" href="Matchmaker.MatchResult-1.html">MatchResult</a>&lt;T&gt;&gt;</td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="Matchmaker.MatchResult-1.html">MatchResult</a>&lt;T&gt;&gt;</td>
         <td><span class="parametername">futureResult</span></td>
         <td><p>The result whose value should be mapped.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">Func</span>&lt;<span class="xref">Exception</span>&gt;</td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.exception">Exception</a>&gt;</td>
         <td><span class="parametername">exceptionProvider</span></td>
         <td><p>The function which provides the exception to throw if the result is not successful.</p>
 </td>
@@ -1256,7 +1487,7 @@ and contains a value that can be cast to <code data-dev-comment-type="typeparamr
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Task</span>&lt;T&gt;</td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;T&gt;</td>
         <td><p>The result's value if it's successful.</p>
 </td>
       </tr>
@@ -1278,18 +1509,34 @@ and contains a value that can be cast to <code data-dev-comment-type="typeparamr
       </tr>
     </tbody>
   </table>
-  <h5 id="Matchmaker_Linq_MatchResultExtensions_GetValueOrThrow__1_Task_Matchmaker_MatchResult___0___Func_Exception___remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>The resulting <see cref="!:Task&lt;TResult>"></see> may contain <span class="xref">null</span>.</p>
+  <h5 id="Matchmaker_Linq_MatchResultExtensions_GetValueOrThrow__1_System_Threading_Tasks_Task_Matchmaker_MatchResult___0___System_Func_System_Exception___remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>The resulting <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task&lt;TResult&gt;</a> may contain <span class="xref">null</span>.</p>
 </div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p><code data-dev-comment-type="paramref" class="paramref">futureResult</code> or <code data-dev-comment-type="paramref" class="paramref">exceptionProvider</code> is <span class="xref">null</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Linq_MatchResultExtensions_Select__2_Matchmaker_MatchResult___0__Func___0___1__.md&amp;value=---%0Auid%3A%20Matchmaker.Linq.MatchResultExtensions.Select%60%602(Matchmaker.MatchResult%7B%60%600%7D%2CFunc%7B%60%600%2C%60%601%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Linq_MatchResultExtensions_Select__2_Matchmaker_MatchResult___0__System_Func___0___1__.md&amp;value=---%0Auid%3A%20Matchmaker.Linq.MatchResultExtensions.Select%60%602(Matchmaker.MatchResult%7B%60%600%7D%2CSystem.Func%7B%60%600%2C%60%601%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/Linq/MatchResultExtensions.cs/#L93">View Source</a>
   </span>
   <a id="Matchmaker_Linq_MatchResultExtensions_Select_" data-uid="Matchmaker.Linq.MatchResultExtensions.Select*"></a>
-  <h4 id="Matchmaker_Linq_MatchResultExtensions_Select__2_Matchmaker_MatchResult___0__Func___0___1__" data-uid="Matchmaker.Linq.MatchResultExtensions.Select``2(Matchmaker.MatchResult{``0},Func{``0,``1})">Select&lt;T, TResult&gt;(MatchResult&lt;T&gt;, Func&lt;T, TResult&gt;)</h4>
+  <h4 id="Matchmaker_Linq_MatchResultExtensions_Select__2_Matchmaker_MatchResult___0__System_Func___0___1__" data-uid="Matchmaker.Linq.MatchResultExtensions.Select``2(Matchmaker.MatchResult{``0},System.Func{``0,``1})">Select&lt;T, TResult&gt;(MatchResult&lt;T&gt;, Func&lt;T, TResult&gt;)</h4>
   <div class="markdown level1 summary"><p>Returns a result which contains a mapped value if the specified result is successful.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -1314,7 +1561,7 @@ and contains a value that can be cast to <code data-dev-comment-type="typeparamr
 </td>
       </tr>
       <tr>
-        <td><span class="xref">Func</span>&lt;T, TResult&gt;</td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;T, TResult&gt;</td>
         <td><span class="parametername">mapper</span></td>
         <td><p>The result mapping function.</p>
 </td>
@@ -1358,18 +1605,34 @@ and contains a value that can be cast to <code data-dev-comment-type="typeparamr
       </tr>
     </tbody>
   </table>
-  <h5 id="Matchmaker_Linq_MatchResultExtensions_Select__2_Matchmaker_MatchResult___0__Func___0___1___remarks">Remarks</h5>
+  <h5 id="Matchmaker_Linq_MatchResultExtensions_Select__2_Matchmaker_MatchResult___0__System_Func___0___1___remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>The <code data-dev-comment-type="paramref" class="paramref">mapper</code> function's parameter may be <span class="xref">null</span>.</p>
 </div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p><code data-dev-comment-type="paramref" class="paramref">mapper</code> is <span class="xref">null</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Linq_MatchResultExtensions_Select__2_Task_Matchmaker_MatchResult___0___Func___0___1__.md&amp;value=---%0Auid%3A%20Matchmaker.Linq.MatchResultExtensions.Select%60%602(Task%7BMatchmaker.MatchResult%7B%60%600%7D%7D%2CFunc%7B%60%600%2C%60%601%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Linq_MatchResultExtensions_Select__2_System_Threading_Tasks_Task_Matchmaker_MatchResult___0___System_Func___0___1__.md&amp;value=---%0Auid%3A%20Matchmaker.Linq.MatchResultExtensions.Select%60%602(System.Threading.Tasks.Task%7BMatchmaker.MatchResult%7B%60%600%7D%7D%2CSystem.Func%7B%60%600%2C%60%601%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/Linq/MatchResultExtensions.cs/#L361">View Source</a>
   </span>
   <a id="Matchmaker_Linq_MatchResultExtensions_Select_" data-uid="Matchmaker.Linq.MatchResultExtensions.Select*"></a>
-  <h4 id="Matchmaker_Linq_MatchResultExtensions_Select__2_Task_Matchmaker_MatchResult___0___Func___0___1__" data-uid="Matchmaker.Linq.MatchResultExtensions.Select``2(Task{Matchmaker.MatchResult{``0}},Func{``0,``1})">Select&lt;T, TResult&gt;(Task&lt;MatchResult&lt;T&gt;&gt;, Func&lt;T, TResult&gt;)</h4>
+  <h4 id="Matchmaker_Linq_MatchResultExtensions_Select__2_System_Threading_Tasks_Task_Matchmaker_MatchResult___0___System_Func___0___1__" data-uid="Matchmaker.Linq.MatchResultExtensions.Select``2(System.Threading.Tasks.Task{Matchmaker.MatchResult{``0}},System.Func{``0,``1})">Select&lt;T, TResult&gt;(Task&lt;MatchResult&lt;T&gt;&gt;, Func&lt;T, TResult&gt;)</h4>
   <div class="markdown level1 summary"><p>Returns a result which contains a mapped value if the specified result is successful.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -1388,13 +1651,13 @@ and contains a value that can be cast to <code data-dev-comment-type="typeparamr
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Task</span>&lt;<a class="xref" href="Matchmaker.MatchResult-1.html">MatchResult</a>&lt;T&gt;&gt;</td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="Matchmaker.MatchResult-1.html">MatchResult</a>&lt;T&gt;&gt;</td>
         <td><span class="parametername">futureResult</span></td>
         <td><p>The result whose value should be mapped.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">Func</span>&lt;T, TResult&gt;</td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;T, TResult&gt;</td>
         <td><span class="parametername">mapper</span></td>
         <td><p>The result mapping function.</p>
 </td>
@@ -1411,7 +1674,7 @@ and contains a value that can be cast to <code data-dev-comment-type="typeparamr
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Task</span>&lt;<a class="xref" href="Matchmaker.MatchResult-1.html">MatchResult</a>&lt;TResult&gt;&gt;</td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="Matchmaker.MatchResult-1.html">MatchResult</a>&lt;TResult&gt;&gt;</td>
         <td><p>A result which contains a mapped value if the specified result is successful. Otherwise, a failed result.</p>
 </td>
       </tr>
@@ -1438,18 +1701,34 @@ and contains a value that can be cast to <code data-dev-comment-type="typeparamr
       </tr>
     </tbody>
   </table>
-  <h5 id="Matchmaker_Linq_MatchResultExtensions_Select__2_Task_Matchmaker_MatchResult___0___Func___0___1___remarks">Remarks</h5>
+  <h5 id="Matchmaker_Linq_MatchResultExtensions_Select__2_System_Threading_Tasks_Task_Matchmaker_MatchResult___0___System_Func___0___1___remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>The <code data-dev-comment-type="paramref" class="paramref">mapper</code> function's parameter may be <span class="xref">null</span>.</p>
 </div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p><code data-dev-comment-type="paramref" class="paramref">futureResult</code> or <code data-dev-comment-type="paramref" class="paramref">mapper</code> is <span class="xref">null</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Linq_MatchResultExtensions_Where__1_Matchmaker_MatchResult___0__Func___0_System_Boolean__.md&amp;value=---%0Auid%3A%20Matchmaker.Linq.MatchResultExtensions.Where%60%601(Matchmaker.MatchResult%7B%60%600%7D%2CFunc%7B%60%600%2CSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Linq_MatchResultExtensions_Where__1_Matchmaker_MatchResult___0__System_Func___0_System_Boolean__.md&amp;value=---%0Auid%3A%20Matchmaker.Linq.MatchResultExtensions.Where%60%601(Matchmaker.MatchResult%7B%60%600%7D%2CSystem.Func%7B%60%600%2CSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/Linq/MatchResultExtensions.cs/#L138">View Source</a>
   </span>
   <a id="Matchmaker_Linq_MatchResultExtensions_Where_" data-uid="Matchmaker.Linq.MatchResultExtensions.Where*"></a>
-  <h4 id="Matchmaker_Linq_MatchResultExtensions_Where__1_Matchmaker_MatchResult___0__Func___0_System_Boolean__" data-uid="Matchmaker.Linq.MatchResultExtensions.Where``1(Matchmaker.MatchResult{``0},Func{``0,System.Boolean})">Where&lt;T&gt;(MatchResult&lt;T&gt;, Func&lt;T, Boolean&gt;)</h4>
+  <h4 id="Matchmaker_Linq_MatchResultExtensions_Where__1_Matchmaker_MatchResult___0__System_Func___0_System_Boolean__" data-uid="Matchmaker.Linq.MatchResultExtensions.Where``1(Matchmaker.MatchResult{``0},System.Func{``0,System.Boolean})">Where&lt;T&gt;(MatchResult&lt;T&gt;, Func&lt;T, Boolean&gt;)</h4>
   <div class="markdown level1 summary"><p>Returns a successful result only if the specified result is successful
 and its value satisfies a specified predicate.</p>
 </div>
@@ -1475,7 +1754,7 @@ and its value satisfies a specified predicate.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">Func</span>&lt;T, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a>&gt;</td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;T, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a>&gt;</td>
         <td><span class="parametername">predicate</span></td>
         <td><p>The predicate to use to check the value.</p>
 </td>
@@ -1515,18 +1794,34 @@ Otherwise, a failed result.</p>
       </tr>
     </tbody>
   </table>
-  <h5 id="Matchmaker_Linq_MatchResultExtensions_Where__1_Matchmaker_MatchResult___0__Func___0_System_Boolean___remarks">Remarks</h5>
+  <h5 id="Matchmaker_Linq_MatchResultExtensions_Where__1_Matchmaker_MatchResult___0__System_Func___0_System_Boolean___remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>The <code data-dev-comment-type="paramref" class="paramref">predicate</code> function's parameter may be <span class="xref">null</span>.</p>
 </div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p><code data-dev-comment-type="paramref" class="paramref">predicate</code> is <span class="xref">null</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Linq_MatchResultExtensions_Where__1_Task_Matchmaker_MatchResult___0___Func___0_System_Boolean__.md&amp;value=---%0Auid%3A%20Matchmaker.Linq.MatchResultExtensions.Where%60%601(Task%7BMatchmaker.MatchResult%7B%60%600%7D%7D%2CFunc%7B%60%600%2CSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Linq_MatchResultExtensions_Where__1_System_Threading_Tasks_Task_Matchmaker_MatchResult___0___System_Func___0_System_Boolean__.md&amp;value=---%0Auid%3A%20Matchmaker.Linq.MatchResultExtensions.Where%60%601(System.Threading.Tasks.Task%7BMatchmaker.MatchResult%7B%60%600%7D%7D%2CSystem.Func%7B%60%600%2CSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/Linq/MatchResultExtensions.cs/#L435">View Source</a>
   </span>
   <a id="Matchmaker_Linq_MatchResultExtensions_Where_" data-uid="Matchmaker.Linq.MatchResultExtensions.Where*"></a>
-  <h4 id="Matchmaker_Linq_MatchResultExtensions_Where__1_Task_Matchmaker_MatchResult___0___Func___0_System_Boolean__" data-uid="Matchmaker.Linq.MatchResultExtensions.Where``1(Task{Matchmaker.MatchResult{``0}},Func{``0,System.Boolean})">Where&lt;T&gt;(Task&lt;MatchResult&lt;T&gt;&gt;, Func&lt;T, Boolean&gt;)</h4>
+  <h4 id="Matchmaker_Linq_MatchResultExtensions_Where__1_System_Threading_Tasks_Task_Matchmaker_MatchResult___0___System_Func___0_System_Boolean__" data-uid="Matchmaker.Linq.MatchResultExtensions.Where``1(System.Threading.Tasks.Task{Matchmaker.MatchResult{``0}},System.Func{``0,System.Boolean})">Where&lt;T&gt;(Task&lt;MatchResult&lt;T&gt;&gt;, Func&lt;T, Boolean&gt;)</h4>
   <div class="markdown level1 summary"><p>Returns a successful result only if the specified result is successful
 and its value satisfies a specified predicate.</p>
 </div>
@@ -1546,13 +1841,13 @@ and its value satisfies a specified predicate.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Task</span>&lt;<a class="xref" href="Matchmaker.MatchResult-1.html">MatchResult</a>&lt;T&gt;&gt;</td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="Matchmaker.MatchResult-1.html">MatchResult</a>&lt;T&gt;&gt;</td>
         <td><span class="parametername">futureResult</span></td>
         <td><p>The result whose value should be checked.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">Func</span>&lt;T, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a>&gt;</td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;T, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a>&gt;</td>
         <td><span class="parametername">predicate</span></td>
         <td><p>The predicate to use to check the value.</p>
 </td>
@@ -1569,7 +1864,7 @@ and its value satisfies a specified predicate.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Task</span>&lt;<a class="xref" href="Matchmaker.MatchResult-1.html">MatchResult</a>&lt;T&gt;&gt;</td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="Matchmaker.MatchResult-1.html">MatchResult</a>&lt;T&gt;&gt;</td>
         <td><p>A successfult result if the specified result is successful and its value satisfies a specified predicate.
 Otherwise, a failed result.</p>
 </td>
@@ -1592,18 +1887,34 @@ Otherwise, a failed result.</p>
       </tr>
     </tbody>
   </table>
-  <h5 id="Matchmaker_Linq_MatchResultExtensions_Where__1_Task_Matchmaker_MatchResult___0___Func___0_System_Boolean___remarks">Remarks</h5>
+  <h5 id="Matchmaker_Linq_MatchResultExtensions_Where__1_System_Threading_Tasks_Task_Matchmaker_MatchResult___0___System_Func___0_System_Boolean___remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>The <code data-dev-comment-type="paramref" class="paramref">predicate</code> function's parameter may be <span class="xref">null</span>.</p>
 </div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p><code data-dev-comment-type="paramref" class="paramref">futureResult</code> or <code data-dev-comment-type="paramref" class="paramref">predicate</code> is <span class="xref">null</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Linq_MatchResultExtensions_Where__1_Task_Matchmaker_MatchResult___0___Func___0_Task_System_Boolean___.md&amp;value=---%0Auid%3A%20Matchmaker.Linq.MatchResultExtensions.Where%60%601(Task%7BMatchmaker.MatchResult%7B%60%600%7D%7D%2CFunc%7B%60%600%2CTask%7BSystem.Boolean%7D%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Linq_MatchResultExtensions_Where__1_System_Threading_Tasks_Task_Matchmaker_MatchResult___0___System_Func___0_System_Threading_Tasks_Task_System_Boolean___.md&amp;value=---%0Auid%3A%20Matchmaker.Linq.MatchResultExtensions.Where%60%601(System.Threading.Tasks.Task%7BMatchmaker.MatchResult%7B%60%600%7D%7D%2CSystem.Func%7B%60%600%2CSystem.Threading.Tasks.Task%7BSystem.Boolean%7D%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/Linq/MatchResultExtensions.cs/#L472">View Source</a>
   </span>
   <a id="Matchmaker_Linq_MatchResultExtensions_Where_" data-uid="Matchmaker.Linq.MatchResultExtensions.Where*"></a>
-  <h4 id="Matchmaker_Linq_MatchResultExtensions_Where__1_Task_Matchmaker_MatchResult___0___Func___0_Task_System_Boolean___" data-uid="Matchmaker.Linq.MatchResultExtensions.Where``1(Task{Matchmaker.MatchResult{``0}},Func{``0,Task{System.Boolean}})">Where&lt;T&gt;(Task&lt;MatchResult&lt;T&gt;&gt;, Func&lt;T, Task&lt;Boolean&gt;&gt;)</h4>
+  <h4 id="Matchmaker_Linq_MatchResultExtensions_Where__1_System_Threading_Tasks_Task_Matchmaker_MatchResult___0___System_Func___0_System_Threading_Tasks_Task_System_Boolean___" data-uid="Matchmaker.Linq.MatchResultExtensions.Where``1(System.Threading.Tasks.Task{Matchmaker.MatchResult{``0}},System.Func{``0,System.Threading.Tasks.Task{System.Boolean}})">Where&lt;T&gt;(Task&lt;MatchResult&lt;T&gt;&gt;, Func&lt;T, Task&lt;Boolean&gt;&gt;)</h4>
   <div class="markdown level1 summary"><p>Returns a successful result only if the specified result is successful
 and its value satisfies a specified predicate.</p>
 </div>
@@ -1623,13 +1934,13 @@ and its value satisfies a specified predicate.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Task</span>&lt;<a class="xref" href="Matchmaker.MatchResult-1.html">MatchResult</a>&lt;T&gt;&gt;</td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="Matchmaker.MatchResult-1.html">MatchResult</a>&lt;T&gt;&gt;</td>
         <td><span class="parametername">futureResult</span></td>
         <td><p>The result whose value should be checked.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">Func</span>&lt;T, <span class="xref">Task</span>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a>&gt;&gt;</td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;T, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a>&gt;&gt;</td>
         <td><span class="parametername">predicate</span></td>
         <td><p>The predicate to use to check the value.</p>
 </td>
@@ -1646,7 +1957,7 @@ and its value satisfies a specified predicate.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Task</span>&lt;<a class="xref" href="Matchmaker.MatchResult-1.html">MatchResult</a>&lt;T&gt;&gt;</td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="Matchmaker.MatchResult-1.html">MatchResult</a>&lt;T&gt;&gt;</td>
         <td><p>A successfult result if the specified result is successful and its value satisfies a specified predicate.
 Otherwise, a failed result.</p>
 </td>
@@ -1669,9 +1980,30 @@ Otherwise, a failed result.</p>
       </tr>
     </tbody>
   </table>
-  <h5 id="Matchmaker_Linq_MatchResultExtensions_Where__1_Task_Matchmaker_MatchResult___0___Func___0_Task_System_Boolean____remarks">Remarks</h5>
+  <h5 id="Matchmaker_Linq_MatchResultExtensions_Where__1_System_Threading_Tasks_Task_Matchmaker_MatchResult___0___System_Func___0_System_Threading_Tasks_Task_System_Boolean____remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>The <code data-dev-comment-type="paramref" class="paramref">predicate</code> function's parameter may be <span class="xref">null</span>.</p>
 </div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p><code data-dev-comment-type="paramref" class="paramref">futureResult</code> or <code data-dev-comment-type="paramref" class="paramref">predicate</code> is <span class="xref">null</span>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></td>
+        <td><p><code data-dev-comment-type="paramref" class="paramref">predicate</code> returned <span class="xref">null</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
   <h3 id="seealso">See Also</h3>
   <div class="seealso">
       <div><a class="xref" href="Matchmaker.MatchResult-1.html">MatchResult</a>&lt;T&gt;</div>

@@ -85,11 +85,32 @@
     <h5>Implements</h5>
     <div><a class="xref" href="Matchmaker.Patterns.Async.IAsyncPattern-2.html">IAsyncPattern</a>&lt;TInput, TMatchResult&gt;</div>
   </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.equals#System_Object_Equals_System_Object_">Object.Equals(Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.equals#System_Object_Equals_System_Object_System_Object_">Object.Equals(Object, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.gethashcode#System_Object_GetHashCode">Object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.gettype#System_Object_GetType">Object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.memberwiseclone#System_Object_MemberwiseClone">Object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.referenceequals#System_Object_ReferenceEquals_System_Object_System_Object_">Object.ReferenceEquals(Object, Object)</a>
+    </div>
+  </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="Matchmaker.Patterns.Async.html">Matchmaker.Patterns.Async</a></h6>
   <h6><strong>Assembly</strong>: Matchmaker.dll</h6>
   <h5 id="Matchmaker_Patterns_Async_AsyncPattern_2_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public abstract class AsyncPattern&lt;TInput, TMatchResult&gt; : object, IAsyncPattern&lt;TInput, TMatchResult&gt;</code></pre>
+    <pre><code class="lang-csharp hljs">public abstract class AsyncPattern&lt;TInput, TMatchResult&gt; : IAsyncPattern&lt;TInput, TMatchResult&gt;</code></pre>
   </div>
   <h5 class="typeParameters">Type Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -161,6 +182,22 @@ with the specified description.</p>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
         <td><span class="parametername">description</span></td>
         <td><p>The description of this pattern.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p><code data-dev-comment-type="paramref" class="paramref">description</code> is <span class="xref">null</span>.</p>
 </td>
       </tr>
     </tbody>
@@ -244,7 +281,7 @@ with the specified description.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Task</span>&lt;<a class="xref" href="Matchmaker.MatchResult-1.html">MatchResult</a>&lt;TMatchResult&gt;&gt;</td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="Matchmaker.MatchResult-1.html">MatchResult</a>&lt;TMatchResult&gt;&gt;</td>
         <td><p>A successful match result which contains the transformed result of the match,
 if this match is successful. Otherwise, a failed match result.</p>
 </td>
@@ -283,9 +320,60 @@ if this match is successful. Otherwise, a failed match result.</p>
       </tr>
     </tbody>
   </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.tostring#System_Object_ToString">Object.ToString()</a></div>
   <h3 id="implements">Implements</h3>
   <div>
       <a class="xref" href="Matchmaker.Patterns.Async.IAsyncPattern-2.html">IAsyncPattern&lt;TInput, TMatchResult&gt;</a>
+  </div>
+  <h3 id="extensionmethods">Extension Methods</h3>
+  <div>
+      <a class="xref" href="Matchmaker.Linq.AsyncPatternExtensions.html#Matchmaker_Linq_AsyncPatternExtensions_Select__3_Matchmaker_Patterns_Async_IAsyncPattern___0___1__System_Func___1___2__">AsyncPatternExtensions.Select&lt;TInput, TIntermediateResult, TMatchResult&gt;(IAsyncPattern&lt;TInput, TIntermediateResult&gt;, Func&lt;TIntermediateResult, TMatchResult&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="Matchmaker.Linq.AsyncPatternExtensions.html#Matchmaker_Linq_AsyncPatternExtensions_Select__3_Matchmaker_Patterns_Async_IAsyncPattern___0___1__System_Func___1___2__System_String_">AsyncPatternExtensions.Select&lt;TInput, TIntermediateResult, TMatchResult&gt;(IAsyncPattern&lt;TInput, TIntermediateResult&gt;, Func&lt;TIntermediateResult, TMatchResult&gt;, String)</a>
+  </div>
+  <div>
+      <a class="xref" href="Matchmaker.Linq.AsyncPatternExtensions.html#Matchmaker_Linq_AsyncPatternExtensions_Pipe__3_Matchmaker_Patterns_Async_IAsyncPattern___0___1__Matchmaker_Patterns_Async_IAsyncPattern___1___2__">AsyncPatternExtensions.Pipe&lt;TInput, TIntermediateResult, TMatchResult&gt;(IAsyncPattern&lt;TInput, TIntermediateResult&gt;, IAsyncPattern&lt;TIntermediateResult, TMatchResult&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="Matchmaker.Linq.AsyncPatternExtensions.html#Matchmaker_Linq_AsyncPatternExtensions_Pipe__3_Matchmaker_Patterns_Async_IAsyncPattern___0___1__Matchmaker_Patterns_Async_IAsyncPattern___1___2__System_String_">AsyncPatternExtensions.Pipe&lt;TInput, TIntermediateResult, TMatchResult&gt;(IAsyncPattern&lt;TInput, TIntermediateResult&gt;, IAsyncPattern&lt;TIntermediateResult, TMatchResult&gt;, String)</a>
+  </div>
+  <div>
+      <a class="xref" href="Matchmaker.Linq.AsyncPatternExtensions.html#Matchmaker_Linq_AsyncPatternExtensions_Pipe__3_Matchmaker_Patterns_Async_IAsyncPattern___0___1__System_Func___1_System_Threading_Tasks_Task_Matchmaker_MatchResult___2____">AsyncPatternExtensions.Pipe&lt;TInput, TIntermediateResult, TMatchResult&gt;(IAsyncPattern&lt;TInput, TIntermediateResult&gt;, Func&lt;TIntermediateResult, Task&lt;MatchResult&lt;TMatchResult&gt;&gt;&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="Matchmaker.Linq.AsyncPatternExtensions.html#Matchmaker_Linq_AsyncPatternExtensions_Pipe__3_Matchmaker_Patterns_Async_IAsyncPattern___0___1__System_Func___1_System_Threading_Tasks_Task_Matchmaker_MatchResult___2____System_String_">AsyncPatternExtensions.Pipe&lt;TInput, TIntermediateResult, TMatchResult&gt;(IAsyncPattern&lt;TInput, TIntermediateResult&gt;, Func&lt;TIntermediateResult, Task&lt;MatchResult&lt;TMatchResult&gt;&gt;&gt;, String)</a>
+  </div>
+  <div>
+      <a class="xref" href="Matchmaker.Linq.AsyncPatternExtensions.html#Matchmaker_Linq_AsyncPatternExtensions_Cast__3_Matchmaker_Patterns_Async_IAsyncPattern___0___1__">AsyncPatternExtensions.Cast&lt;TInput, TIntermediateResult, TMatchResult&gt;(IAsyncPattern&lt;TInput, TIntermediateResult&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="Matchmaker.Linq.AsyncPatternExtensions.html#Matchmaker_Linq_AsyncPatternExtensions_Cast__3_Matchmaker_Patterns_Async_IAsyncPattern___0___1__System_String_">AsyncPatternExtensions.Cast&lt;TInput, TIntermediateResult, TMatchResult&gt;(IAsyncPattern&lt;TInput, TIntermediateResult&gt;, String)</a>
+  </div>
+  <div>
+      <a class="xref" href="Matchmaker.Linq.AsyncPatternExtensions.html#Matchmaker_Linq_AsyncPatternExtensions_Bind__3_Matchmaker_Patterns_Async_IAsyncPattern___0___1__System_Func___1_Matchmaker_Patterns_Async_IAsyncPattern___0___2___">AsyncPatternExtensions.Bind&lt;TInput, TIntermediateResult, TMatchResult&gt;(IAsyncPattern&lt;TInput, TIntermediateResult&gt;, Func&lt;TIntermediateResult, IAsyncPattern&lt;TInput, TMatchResult&gt;&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="Matchmaker.Linq.AsyncPatternExtensions.html#Matchmaker_Linq_AsyncPatternExtensions_Bind__3_Matchmaker_Patterns_Async_IAsyncPattern___0___1__System_Func___1_Matchmaker_Patterns_Async_IAsyncPattern___0___2___System_String_">AsyncPatternExtensions.Bind&lt;TInput, TIntermediateResult, TMatchResult&gt;(IAsyncPattern&lt;TInput, TIntermediateResult&gt;, Func&lt;TIntermediateResult, IAsyncPattern&lt;TInput, TMatchResult&gt;&gt;, String)</a>
+  </div>
+  <div>
+      <a class="xref" href="Matchmaker.Linq.AsyncPatternExtensions.html#Matchmaker_Linq_AsyncPatternExtensions_Where__2_Matchmaker_Patterns_Async_IAsyncPattern___0___1__System_Func___1_System_Boolean__">AsyncPatternExtensions.Where&lt;TInput, TMatchResult&gt;(IAsyncPattern&lt;TInput, TMatchResult&gt;, Func&lt;TMatchResult, Boolean&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="Matchmaker.Linq.AsyncPatternExtensions.html#Matchmaker_Linq_AsyncPatternExtensions_Where__2_Matchmaker_Patterns_Async_IAsyncPattern___0___1__System_Func___1_System_Boolean__System_String_">AsyncPatternExtensions.Where&lt;TInput, TMatchResult&gt;(IAsyncPattern&lt;TInput, TMatchResult&gt;, Func&lt;TMatchResult, Boolean&gt;, String)</a>
+  </div>
+  <div>
+      <a class="xref" href="Matchmaker.Linq.AsyncPatternExtensions.html#Matchmaker_Linq_AsyncPatternExtensions_Where__2_Matchmaker_Patterns_Async_IAsyncPattern___0___1__System_Func___1_System_Threading_Tasks_Task_System_Boolean___">AsyncPatternExtensions.Where&lt;TInput, TMatchResult&gt;(IAsyncPattern&lt;TInput, TMatchResult&gt;, Func&lt;TMatchResult, Task&lt;Boolean&gt;&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="Matchmaker.Linq.AsyncPatternExtensions.html#Matchmaker_Linq_AsyncPatternExtensions_Where__2_Matchmaker_Patterns_Async_IAsyncPattern___0___1__System_Func___1_System_Threading_Tasks_Task_System_Boolean___System_String_">AsyncPatternExtensions.Where&lt;TInput, TMatchResult&gt;(IAsyncPattern&lt;TInput, TMatchResult&gt;, Func&lt;TMatchResult, Task&lt;Boolean&gt;&gt;, String)</a>
+  </div>
+  <div>
+      <a class="xref" href="Matchmaker.Linq.AsyncPatternExtensions.html#Matchmaker_Linq_AsyncPatternExtensions_Cached__2_Matchmaker_Patterns_Async_IAsyncPattern___0___1__">AsyncPatternExtensions.Cached&lt;TInput, TMatchResult&gt;(IAsyncPattern&lt;TInput, TMatchResult&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="Matchmaker.Linq.AsyncPatternExtensions.html#Matchmaker_Linq_AsyncPatternExtensions_Cached__2_Matchmaker_Patterns_Async_IAsyncPattern___0___1__System_String_">AsyncPatternExtensions.Cached&lt;TInput, TMatchResult&gt;(IAsyncPattern&lt;TInput, TMatchResult&gt;, String)</a>
   </div>
   <h3 id="seealso">See Also</h3>
   <div class="seealso">

@@ -81,11 +81,35 @@
     <div class="level0"><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a></div>
     <div class="level1"><span class="xref">Pattern</span></div>
   </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.equals#System_Object_Equals_System_Object_">Object.Equals(Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.equals#System_Object_Equals_System_Object_System_Object_">Object.Equals(Object, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.gethashcode#System_Object_GetHashCode">Object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.gettype#System_Object_GetType">Object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.memberwiseclone#System_Object_MemberwiseClone">Object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.referenceequals#System_Object_ReferenceEquals_System_Object_System_Object_">Object.ReferenceEquals(Object, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.tostring#System_Object_ToString">Object.ToString()</a>
+    </div>
+  </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="Matchmaker.Patterns.html">Matchmaker.Patterns</a></h6>
   <h6><strong>Assembly</strong>: Matchmaker.dll</h6>
   <h5 id="Matchmaker_Patterns_Pattern_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static class Pattern : object</code></pre>
+    <pre><code class="lang-csharp hljs">public static class Pattern</code></pre>
   </div>
   <h3 id="fields">Fields
   </h3>
@@ -811,15 +835,31 @@
   <h5 id="Matchmaker_Patterns_Pattern_Any__1_System_String__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>This pattern should be used as the default case of a match expression, if one is needed.</p>
 </div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p><code data-dev-comment-type="paramref" class="paramref">description</code> is <span class="xref">null</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Patterns_Pattern_CreatePattern__1_Func___0_System_Boolean__.md&amp;value=---%0Auid%3A%20Matchmaker.Patterns.Pattern.CreatePattern%60%601(Func%7B%60%600%2CSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Patterns_Pattern_CreatePattern__1_System_Func___0_System_Boolean__.md&amp;value=---%0Auid%3A%20Matchmaker.Patterns.Pattern.CreatePattern%60%601(System.Func%7B%60%600%2CSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/Patterns/Pattern.cs/#L160">View Source</a>
   </span>
   <a id="Matchmaker_Patterns_Pattern_CreatePattern_" data-uid="Matchmaker.Patterns.Pattern.CreatePattern*"></a>
-  <h4 id="Matchmaker_Patterns_Pattern_CreatePattern__1_Func___0_System_Boolean__" data-uid="Matchmaker.Patterns.Pattern.CreatePattern``1(Func{``0,System.Boolean})">CreatePattern&lt;TInput&gt;(Func&lt;TInput, Boolean&gt;)</h4>
+  <h4 id="Matchmaker_Patterns_Pattern_CreatePattern__1_System_Func___0_System_Boolean__" data-uid="Matchmaker.Patterns.Pattern.CreatePattern``1(System.Func{``0,System.Boolean})">CreatePattern&lt;TInput&gt;(Func&lt;TInput, Boolean&gt;)</h4>
   <div class="markdown level1 summary"><p>Creates a pattern which uses a specified predicate to match its inputs.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -838,7 +878,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Func</span>&lt;TInput, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a>&gt;</td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;TInput, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a>&gt;</td>
         <td><span class="parametername">predicate</span></td>
         <td><p>The predicate which matches the inputs.</p>
 </td>
@@ -877,15 +917,31 @@
       </tr>
     </tbody>
   </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p><code data-dev-comment-type="paramref" class="paramref">predicate</code> is <span class="xref">null</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Patterns_Pattern_CreatePattern__1_Func___0_System_Boolean__System_String_.md&amp;value=---%0Auid%3A%20Matchmaker.Patterns.Pattern.CreatePattern%60%601(Func%7B%60%600%2CSystem.Boolean%7D%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Patterns_Pattern_CreatePattern__1_System_Func___0_System_Boolean__System_String_.md&amp;value=---%0Auid%3A%20Matchmaker.Patterns.Pattern.CreatePattern%60%601(System.Func%7B%60%600%2CSystem.Boolean%7D%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/Patterns/Pattern.cs/#L180">View Source</a>
   </span>
   <a id="Matchmaker_Patterns_Pattern_CreatePattern_" data-uid="Matchmaker.Patterns.Pattern.CreatePattern*"></a>
-  <h4 id="Matchmaker_Patterns_Pattern_CreatePattern__1_Func___0_System_Boolean__System_String_" data-uid="Matchmaker.Patterns.Pattern.CreatePattern``1(Func{``0,System.Boolean},System.String)">CreatePattern&lt;TInput&gt;(Func&lt;TInput, Boolean&gt;, String)</h4>
+  <h4 id="Matchmaker_Patterns_Pattern_CreatePattern__1_System_Func___0_System_Boolean__System_String_" data-uid="Matchmaker.Patterns.Pattern.CreatePattern``1(System.Func{``0,System.Boolean},System.String)">CreatePattern&lt;TInput&gt;(Func&lt;TInput, Boolean&gt;, String)</h4>
   <div class="markdown level1 summary"><p>Creates a pattern which uses a specified predicate to match its inputs and has a specified description.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -904,7 +960,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Func</span>&lt;TInput, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a>&gt;</td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;TInput, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a>&gt;</td>
         <td><span class="parametername">predicate</span></td>
         <td><p>The predicate which matches the inputs.</p>
 </td>
@@ -949,15 +1005,31 @@
       </tr>
     </tbody>
   </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p><code data-dev-comment-type="paramref" class="paramref">predicate</code> or <code data-dev-comment-type="paramref" class="paramref">description</code> is <span class="xref">null</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Patterns_Pattern_CreatePattern__2_Func___0_Matchmaker_MatchResult___1___.md&amp;value=---%0Auid%3A%20Matchmaker.Patterns.Pattern.CreatePattern%60%602(Func%7B%60%600%2CMatchmaker.MatchResult%7B%60%601%7D%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Patterns_Pattern_CreatePattern__2_System_Func___0_Matchmaker_MatchResult___1___.md&amp;value=---%0Auid%3A%20Matchmaker.Patterns.Pattern.CreatePattern%60%602(System.Func%7B%60%600%2CMatchmaker.MatchResult%7B%60%601%7D%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/Patterns/Pattern.cs/#L125">View Source</a>
   </span>
   <a id="Matchmaker_Patterns_Pattern_CreatePattern_" data-uid="Matchmaker.Patterns.Pattern.CreatePattern*"></a>
-  <h4 id="Matchmaker_Patterns_Pattern_CreatePattern__2_Func___0_Matchmaker_MatchResult___1___" data-uid="Matchmaker.Patterns.Pattern.CreatePattern``2(Func{``0,Matchmaker.MatchResult{``1}})">CreatePattern&lt;TInput, TMatchResult&gt;(Func&lt;TInput, MatchResult&lt;TMatchResult&gt;&gt;)</h4>
+  <h4 id="Matchmaker_Patterns_Pattern_CreatePattern__2_System_Func___0_Matchmaker_MatchResult___1___" data-uid="Matchmaker.Patterns.Pattern.CreatePattern``2(System.Func{``0,Matchmaker.MatchResult{``1}})">CreatePattern&lt;TInput, TMatchResult&gt;(Func&lt;TInput, MatchResult&lt;TMatchResult&gt;&gt;)</h4>
   <div class="markdown level1 summary"><p>Creates a pattern which uses a specified function to match its inputs.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -976,7 +1048,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Func</span>&lt;TInput, <a class="xref" href="Matchmaker.MatchResult-1.html">MatchResult</a>&lt;TMatchResult&gt;&gt;</td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;TInput, <a class="xref" href="Matchmaker.MatchResult-1.html">MatchResult</a>&lt;TMatchResult&gt;&gt;</td>
         <td><span class="parametername">matcher</span></td>
         <td><p>The function which matches the inputs.</p>
 </td>
@@ -1020,15 +1092,31 @@
       </tr>
     </tbody>
   </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p><code data-dev-comment-type="paramref" class="paramref">matcher</code> is <span class="xref">null</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Patterns_Pattern_CreatePattern__2_Func___0_Matchmaker_MatchResult___1___System_String_.md&amp;value=---%0Auid%3A%20Matchmaker.Patterns.Pattern.CreatePattern%60%602(Func%7B%60%600%2CMatchmaker.MatchResult%7B%60%601%7D%7D%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Patterns_Pattern_CreatePattern__2_System_Func___0_Matchmaker_MatchResult___1___System_String_.md&amp;value=---%0Auid%3A%20Matchmaker.Patterns.Pattern.CreatePattern%60%602(System.Func%7B%60%600%2CMatchmaker.MatchResult%7B%60%601%7D%7D%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/Patterns/Pattern.cs/#L142">View Source</a>
   </span>
   <a id="Matchmaker_Patterns_Pattern_CreatePattern_" data-uid="Matchmaker.Patterns.Pattern.CreatePattern*"></a>
-  <h4 id="Matchmaker_Patterns_Pattern_CreatePattern__2_Func___0_Matchmaker_MatchResult___1___System_String_" data-uid="Matchmaker.Patterns.Pattern.CreatePattern``2(Func{``0,Matchmaker.MatchResult{``1}},System.String)">CreatePattern&lt;TInput, TMatchResult&gt;(Func&lt;TInput, MatchResult&lt;TMatchResult&gt;&gt;, String)</h4>
+  <h4 id="Matchmaker_Patterns_Pattern_CreatePattern__2_System_Func___0_Matchmaker_MatchResult___1___System_String_" data-uid="Matchmaker.Patterns.Pattern.CreatePattern``2(System.Func{``0,Matchmaker.MatchResult{``1}},System.String)">CreatePattern&lt;TInput, TMatchResult&gt;(Func&lt;TInput, MatchResult&lt;TMatchResult&gt;&gt;, String)</h4>
   <div class="markdown level1 summary"><p>Creates a pattern which uses a specified function to match its inputs and has a specified description.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -1047,7 +1135,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Func</span>&lt;TInput, <a class="xref" href="Matchmaker.MatchResult-1.html">MatchResult</a>&lt;TMatchResult&gt;&gt;</td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;TInput, <a class="xref" href="Matchmaker.MatchResult-1.html">MatchResult</a>&lt;TMatchResult&gt;&gt;</td>
         <td><span class="parametername">matcher</span></td>
         <td><p>The function which matches the inputs.</p>
 </td>
@@ -1093,6 +1181,22 @@
       <tr>
         <td><span class="parametername">TMatchResult</span></td>
         <td><p>The type of the pattern's results.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p><code data-dev-comment-type="paramref" class="paramref">matcher</code> or <code data-dev-comment-type="paramref" class="paramref">description</code> is <span class="xref">null</span>.</p>
 </td>
       </tr>
     </tbody>
@@ -1165,13 +1269,13 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Patterns_Pattern_EqualTo__1___0_IEqualityComparer___0__.md&amp;value=---%0Auid%3A%20Matchmaker.Patterns.Pattern.EqualTo%60%601(%60%600%2CIEqualityComparer%7B%60%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Patterns_Pattern_EqualTo__1___0_System_Collections_Generic_IEqualityComparer___0__.md&amp;value=---%0Auid%3A%20Matchmaker.Patterns.Pattern.EqualTo%60%601(%60%600%2CSystem.Collections.Generic.IEqualityComparer%7B%60%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/Patterns/Pattern.cs/#L401">View Source</a>
   </span>
   <a id="Matchmaker_Patterns_Pattern_EqualTo_" data-uid="Matchmaker.Patterns.Pattern.EqualTo*"></a>
-  <h4 id="Matchmaker_Patterns_Pattern_EqualTo__1___0_IEqualityComparer___0__" data-uid="Matchmaker.Patterns.Pattern.EqualTo``1(``0,IEqualityComparer{``0})">EqualTo&lt;TInput&gt;(TInput, IEqualityComparer&lt;TInput&gt;)</h4>
+  <h4 id="Matchmaker_Patterns_Pattern_EqualTo__1___0_System_Collections_Generic_IEqualityComparer___0__" data-uid="Matchmaker.Patterns.Pattern.EqualTo``1(``0,System.Collections.Generic.IEqualityComparer{``0})">EqualTo&lt;TInput&gt;(TInput, IEqualityComparer&lt;TInput&gt;)</h4>
   <div class="markdown level1 summary"><p>Returns a pattern which is matched successfully when the input value is equal to the specified value
 according to the specified equality comparer.</p>
 </div>
@@ -1197,7 +1301,7 @@ according to the specified equality comparer.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">IEqualityComparer</span>&lt;TInput&gt;</td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.iequalitycomparer-1">IEqualityComparer</a>&lt;TInput&gt;</td>
         <td><span class="parametername">comparer</span></td>
         <td><p>The equality comparer to use for checking equality.</p>
 </td>
@@ -1236,15 +1340,31 @@ according to the specified equality comparer.</p>
       </tr>
     </tbody>
   </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p><code data-dev-comment-type="paramref" class="paramref">comparer</code> is <span class="xref">null</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Patterns_Pattern_EqualTo__1___0_IEqualityComparer___0__System_String_.md&amp;value=---%0Auid%3A%20Matchmaker.Patterns.Pattern.EqualTo%60%601(%60%600%2CIEqualityComparer%7B%60%600%7D%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Patterns_Pattern_EqualTo__1___0_System_Collections_Generic_IEqualityComparer___0__System_String_.md&amp;value=---%0Auid%3A%20Matchmaker.Patterns.Pattern.EqualTo%60%601(%60%600%2CSystem.Collections.Generic.IEqualityComparer%7B%60%600%7D%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/Patterns/Pattern.cs/#L490">View Source</a>
   </span>
   <a id="Matchmaker_Patterns_Pattern_EqualTo_" data-uid="Matchmaker.Patterns.Pattern.EqualTo*"></a>
-  <h4 id="Matchmaker_Patterns_Pattern_EqualTo__1___0_IEqualityComparer___0__System_String_" data-uid="Matchmaker.Patterns.Pattern.EqualTo``1(``0,IEqualityComparer{``0},System.String)">EqualTo&lt;TInput&gt;(TInput, IEqualityComparer&lt;TInput&gt;, String)</h4>
+  <h4 id="Matchmaker_Patterns_Pattern_EqualTo__1___0_System_Collections_Generic_IEqualityComparer___0__System_String_" data-uid="Matchmaker.Patterns.Pattern.EqualTo``1(``0,System.Collections.Generic.IEqualityComparer{``0},System.String)">EqualTo&lt;TInput&gt;(TInput, IEqualityComparer&lt;TInput&gt;, String)</h4>
   <div class="markdown level1 summary"><p>Returns a pattern which is matched successfully when the input value is equal to the specified value
 according to the specified equality comparer.</p>
 </div>
@@ -1270,7 +1390,7 @@ according to the specified equality comparer.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">IEqualityComparer</span>&lt;TInput&gt;</td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.iequalitycomparer-1">IEqualityComparer</a>&lt;TInput&gt;</td>
         <td><span class="parametername">comparer</span></td>
         <td><p>The equality comparer to use for checking equality.</p>
 </td>
@@ -1311,6 +1431,22 @@ according to the specified equality comparer.</p>
       <tr>
         <td><span class="parametername">TInput</span></td>
         <td><p>The type of the input value of the expression.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p><code data-dev-comment-type="paramref" class="paramref">comparer</code> or <code data-dev-comment-type="paramref" class="paramref">description</code> is <span class="xref">null</span>.</p>
 </td>
       </tr>
     </tbody>
@@ -1387,15 +1523,31 @@ according to the specified equality comparer.</p>
       </tr>
     </tbody>
   </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p><code data-dev-comment-type="paramref" class="paramref">description</code> is <span class="xref">null</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Patterns_Pattern_EqualTo__1_Func___0__.md&amp;value=---%0Auid%3A%20Matchmaker.Patterns.Pattern.EqualTo%60%601(Func%7B%60%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Patterns_Pattern_EqualTo__1_System_Func___0__.md&amp;value=---%0Auid%3A%20Matchmaker.Patterns.Pattern.EqualTo%60%601(System.Func%7B%60%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/Patterns/Pattern.cs/#L385">View Source</a>
   </span>
   <a id="Matchmaker_Patterns_Pattern_EqualTo_" data-uid="Matchmaker.Patterns.Pattern.EqualTo*"></a>
-  <h4 id="Matchmaker_Patterns_Pattern_EqualTo__1_Func___0__" data-uid="Matchmaker.Patterns.Pattern.EqualTo``1(Func{``0})">EqualTo&lt;TInput&gt;(Func&lt;TInput&gt;)</h4>
+  <h4 id="Matchmaker_Patterns_Pattern_EqualTo__1_System_Func___0__" data-uid="Matchmaker.Patterns.Pattern.EqualTo``1(System.Func{``0})">EqualTo&lt;TInput&gt;(Func&lt;TInput&gt;)</h4>
   <div class="markdown level1 summary"><p>Returns a pattern which is matched successfully when the input value is equal to the provided value.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -1414,7 +1566,7 @@ according to the specified equality comparer.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Func</span>&lt;TInput&gt;</td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;TInput&gt;</td>
         <td><span class="parametername">valueProvider</span></td>
         <td><p>The provider of the value to check for equality.</p>
 </td>
@@ -1453,15 +1605,31 @@ according to the specified equality comparer.</p>
       </tr>
     </tbody>
   </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p><code data-dev-comment-type="paramref" class="paramref">valueProvider</code> is <span class="xref">null</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Patterns_Pattern_EqualTo__1_Func___0__IEqualityComparer___0__.md&amp;value=---%0Auid%3A%20Matchmaker.Patterns.Pattern.EqualTo%60%601(Func%7B%60%600%7D%2CIEqualityComparer%7B%60%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Patterns_Pattern_EqualTo__1_System_Func___0__System_Collections_Generic_IEqualityComparer___0__.md&amp;value=---%0Auid%3A%20Matchmaker.Patterns.Pattern.EqualTo%60%601(System.Func%7B%60%600%7D%2CSystem.Collections.Generic.IEqualityComparer%7B%60%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/Patterns/Pattern.cs/#L429">View Source</a>
   </span>
   <a id="Matchmaker_Patterns_Pattern_EqualTo_" data-uid="Matchmaker.Patterns.Pattern.EqualTo*"></a>
-  <h4 id="Matchmaker_Patterns_Pattern_EqualTo__1_Func___0__IEqualityComparer___0__" data-uid="Matchmaker.Patterns.Pattern.EqualTo``1(Func{``0},IEqualityComparer{``0})">EqualTo&lt;TInput&gt;(Func&lt;TInput&gt;, IEqualityComparer&lt;TInput&gt;)</h4>
+  <h4 id="Matchmaker_Patterns_Pattern_EqualTo__1_System_Func___0__System_Collections_Generic_IEqualityComparer___0__" data-uid="Matchmaker.Patterns.Pattern.EqualTo``1(System.Func{``0},System.Collections.Generic.IEqualityComparer{``0})">EqualTo&lt;TInput&gt;(Func&lt;TInput&gt;, IEqualityComparer&lt;TInput&gt;)</h4>
   <div class="markdown level1 summary"><p>Returns a pattern which is matched successfully when the input value is equal to the provided value
 according to the specified equality comparer.</p>
 </div>
@@ -1481,13 +1649,13 @@ according to the specified equality comparer.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Func</span>&lt;TInput&gt;</td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;TInput&gt;</td>
         <td><span class="parametername">valueProvider</span></td>
         <td><p>The provider of the value to check for equality.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">IEqualityComparer</span>&lt;TInput&gt;</td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.iequalitycomparer-1">IEqualityComparer</a>&lt;TInput&gt;</td>
         <td><span class="parametername">comparer</span></td>
         <td><p>The equality comparer to use for checking equality.</p>
 </td>
@@ -1526,7 +1694,7 @@ according to the specified equality comparer.</p>
       </tr>
     </tbody>
   </table>
-  <h5 id="Matchmaker_Patterns_Pattern_EqualTo__1_Func___0__IEqualityComparer___0___remarks">Remarks</h5>
+  <h5 id="Matchmaker_Patterns_Pattern_EqualTo__1_System_Func___0__System_Collections_Generic_IEqualityComparer___0___remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>
 The <code data-dev-comment-type="paramref" class="paramref">valueProvider</code> is not called until this pattern&apos;s
 <a class="xref" href="Matchmaker.Patterns.IPattern-2.html#Matchmaker_Patterns_IPattern_2_Match__0_">Match(TInput)</a> method is called.
@@ -1538,15 +1706,31 @@ so there is a chance that the <code data-dev-comment-type="paramref" class="para
 more than once.
 </p>
 </div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p><code data-dev-comment-type="paramref" class="paramref">valueProvider</code> or <code data-dev-comment-type="paramref" class="paramref">comparer</code> is <span class="xref">null</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Patterns_Pattern_EqualTo__1_Func___0__IEqualityComparer___0__System_String_.md&amp;value=---%0Auid%3A%20Matchmaker.Patterns.Pattern.EqualTo%60%601(Func%7B%60%600%7D%2CIEqualityComparer%7B%60%600%7D%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Patterns_Pattern_EqualTo__1_System_Func___0__System_Collections_Generic_IEqualityComparer___0__System_String_.md&amp;value=---%0Auid%3A%20Matchmaker.Patterns.Pattern.EqualTo%60%601(System.Func%7B%60%600%7D%2CSystem.Collections.Generic.IEqualityComparer%7B%60%600%7D%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/Patterns/Pattern.cs/#L527">View Source</a>
   </span>
   <a id="Matchmaker_Patterns_Pattern_EqualTo_" data-uid="Matchmaker.Patterns.Pattern.EqualTo*"></a>
-  <h4 id="Matchmaker_Patterns_Pattern_EqualTo__1_Func___0__IEqualityComparer___0__System_String_" data-uid="Matchmaker.Patterns.Pattern.EqualTo``1(Func{``0},IEqualityComparer{``0},System.String)">EqualTo&lt;TInput&gt;(Func&lt;TInput&gt;, IEqualityComparer&lt;TInput&gt;, String)</h4>
+  <h4 id="Matchmaker_Patterns_Pattern_EqualTo__1_System_Func___0__System_Collections_Generic_IEqualityComparer___0__System_String_" data-uid="Matchmaker.Patterns.Pattern.EqualTo``1(System.Func{``0},System.Collections.Generic.IEqualityComparer{``0},System.String)">EqualTo&lt;TInput&gt;(Func&lt;TInput&gt;, IEqualityComparer&lt;TInput&gt;, String)</h4>
   <div class="markdown level1 summary"><p>Returns a pattern which is matched successfully when the input value is equal to the provided value
 according to the specified equality comparer.</p>
 </div>
@@ -1566,13 +1750,13 @@ according to the specified equality comparer.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Func</span>&lt;TInput&gt;</td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;TInput&gt;</td>
         <td><span class="parametername">valueProvider</span></td>
         <td><p>The provider of the value to check for equality.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">IEqualityComparer</span>&lt;TInput&gt;</td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.iequalitycomparer-1">IEqualityComparer</a>&lt;TInput&gt;</td>
         <td><span class="parametername">comparer</span></td>
         <td><p>The equality comparer to use for checking equality.</p>
 </td>
@@ -1617,7 +1801,7 @@ according to the specified equality comparer.</p>
       </tr>
     </tbody>
   </table>
-  <h5 id="Matchmaker_Patterns_Pattern_EqualTo__1_Func___0__IEqualityComparer___0__System_String__remarks">Remarks</h5>
+  <h5 id="Matchmaker_Patterns_Pattern_EqualTo__1_System_Func___0__System_Collections_Generic_IEqualityComparer___0__System_String__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>
 The <code data-dev-comment-type="paramref" class="paramref">valueProvider</code> is not called until this pattern&apos;s
 <a class="xref" href="Matchmaker.Patterns.IPattern-2.html#Matchmaker_Patterns_IPattern_2_Match__0_">Match(TInput)</a> method is called.
@@ -1629,15 +1813,32 @@ so there is a chance that the <code data-dev-comment-type="paramref" class="para
 more than once.
 </p>
 </div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p><code data-dev-comment-type="paramref" class="paramref">valueProvider</code>, <code data-dev-comment-type="paramref" class="paramref">comparer</code> or <code data-dev-comment-type="paramref" class="paramref">description</code>
+is <span class="xref">null</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Patterns_Pattern_EqualTo__1_Func___0__System_String_.md&amp;value=---%0Auid%3A%20Matchmaker.Patterns.Pattern.EqualTo%60%601(Func%7B%60%600%7D%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Patterns_Pattern_EqualTo__1_System_Func___0__System_String_.md&amp;value=---%0Auid%3A%20Matchmaker.Patterns.Pattern.EqualTo%60%601(System.Func%7B%60%600%7D%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/Patterns/Pattern.cs/#L473">View Source</a>
   </span>
   <a id="Matchmaker_Patterns_Pattern_EqualTo_" data-uid="Matchmaker.Patterns.Pattern.EqualTo*"></a>
-  <h4 id="Matchmaker_Patterns_Pattern_EqualTo__1_Func___0__System_String_" data-uid="Matchmaker.Patterns.Pattern.EqualTo``1(Func{``0},System.String)">EqualTo&lt;TInput&gt;(Func&lt;TInput&gt;, String)</h4>
+  <h4 id="Matchmaker_Patterns_Pattern_EqualTo__1_System_Func___0__System_String_" data-uid="Matchmaker.Patterns.Pattern.EqualTo``1(System.Func{``0},System.String)">EqualTo&lt;TInput&gt;(Func&lt;TInput&gt;, String)</h4>
   <div class="markdown level1 summary"><p>Returns a pattern which is matched successfully when the input value is equal to the provided value.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -1656,7 +1857,7 @@ more than once.
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Func</span>&lt;TInput&gt;</td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;TInput&gt;</td>
         <td><span class="parametername">valueProvider</span></td>
         <td><p>The provider of the value to check for equality.</p>
 </td>
@@ -1701,7 +1902,7 @@ more than once.
       </tr>
     </tbody>
   </table>
-  <h5 id="Matchmaker_Patterns_Pattern_EqualTo__1_Func___0__System_String__remarks">Remarks</h5>
+  <h5 id="Matchmaker_Patterns_Pattern_EqualTo__1_System_Func___0__System_String__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>
 The <code data-dev-comment-type="paramref" class="paramref">valueProvider</code> is not called until this pattern&apos;s
 <a class="xref" href="Matchmaker.Patterns.IPattern-2.html#Matchmaker_Patterns_IPattern_2_Match__0_">Match(TInput)</a> method is called.
@@ -1713,6 +1914,22 @@ so there is a chance that the <code data-dev-comment-type="paramref" class="para
 more than once.
 </p>
 </div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p><code data-dev-comment-type="paramref" class="paramref">valueProvider</code> or <code data-dev-comment-type="paramref" class="paramref">description</code> is <span class="xref">null</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Patterns_Pattern_GreaterOrEqual__1___0_.md&amp;value=---%0Auid%3A%20Matchmaker.Patterns.Pattern.GreaterOrEqual%60%601(%60%600)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
@@ -1784,13 +2001,13 @@ or equal to the specified value.</p>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Patterns_Pattern_GreaterOrEqual__1___0_IComparer___0__.md&amp;value=---%0Auid%3A%20Matchmaker.Patterns.Pattern.GreaterOrEqual%60%601(%60%600%2CIComparer%7B%60%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Patterns_Pattern_GreaterOrEqual__1___0_System_Collections_Generic_IComparer___0__.md&amp;value=---%0Auid%3A%20Matchmaker.Patterns.Pattern.GreaterOrEqual%60%601(%60%600%2CSystem.Collections.Generic.IComparer%7B%60%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/Patterns/Pattern.cs/#L1182">View Source</a>
   </span>
   <a id="Matchmaker_Patterns_Pattern_GreaterOrEqual_" data-uid="Matchmaker.Patterns.Pattern.GreaterOrEqual*"></a>
-  <h4 id="Matchmaker_Patterns_Pattern_GreaterOrEqual__1___0_IComparer___0__" data-uid="Matchmaker.Patterns.Pattern.GreaterOrEqual``1(``0,IComparer{``0})">GreaterOrEqual&lt;TInput&gt;(TInput, IComparer&lt;TInput&gt;)</h4>
+  <h4 id="Matchmaker_Patterns_Pattern_GreaterOrEqual__1___0_System_Collections_Generic_IComparer___0__" data-uid="Matchmaker.Patterns.Pattern.GreaterOrEqual``1(``0,System.Collections.Generic.IComparer{``0})">GreaterOrEqual&lt;TInput&gt;(TInput, IComparer&lt;TInput&gt;)</h4>
   <div class="markdown level1 summary"><p>Returns a pattern which is matched successfully when the input value is greater than or equal
 to the specified value according to the specified comparer.</p>
 </div>
@@ -1816,7 +2033,7 @@ to the specified value according to the specified comparer.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">IComparer</span>&lt;TInput&gt;</td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.icomparer-1">IComparer</a>&lt;TInput&gt;</td>
         <td><span class="parametername">comparer</span></td>
         <td><p>The comparer to use for comparison.</p>
 </td>
@@ -1856,15 +2073,31 @@ or equal to the specified value.</p>
       </tr>
     </tbody>
   </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p><code data-dev-comment-type="paramref" class="paramref">comparer</code> is <span class="xref">null</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Patterns_Pattern_GreaterOrEqual__1___0_IComparer___0__System_String_.md&amp;value=---%0Auid%3A%20Matchmaker.Patterns.Pattern.GreaterOrEqual%60%601(%60%600%2CIComparer%7B%60%600%7D%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Patterns_Pattern_GreaterOrEqual__1___0_System_Collections_Generic_IComparer___0__System_String_.md&amp;value=---%0Auid%3A%20Matchmaker.Patterns.Pattern.GreaterOrEqual%60%601(%60%600%2CSystem.Collections.Generic.IComparer%7B%60%600%7D%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/Patterns/Pattern.cs/#L1279">View Source</a>
   </span>
   <a id="Matchmaker_Patterns_Pattern_GreaterOrEqual_" data-uid="Matchmaker.Patterns.Pattern.GreaterOrEqual*"></a>
-  <h4 id="Matchmaker_Patterns_Pattern_GreaterOrEqual__1___0_IComparer___0__System_String_" data-uid="Matchmaker.Patterns.Pattern.GreaterOrEqual``1(``0,IComparer{``0},System.String)">GreaterOrEqual&lt;TInput&gt;(TInput, IComparer&lt;TInput&gt;, String)</h4>
+  <h4 id="Matchmaker_Patterns_Pattern_GreaterOrEqual__1___0_System_Collections_Generic_IComparer___0__System_String_" data-uid="Matchmaker.Patterns.Pattern.GreaterOrEqual``1(``0,System.Collections.Generic.IComparer{``0},System.String)">GreaterOrEqual&lt;TInput&gt;(TInput, IComparer&lt;TInput&gt;, String)</h4>
   <div class="markdown level1 summary"><p>Returns a pattern which is matched successfully when the input value is greater than or equal
 to the specified value according to the specified comparer.</p>
 </div>
@@ -1890,7 +2123,7 @@ to the specified value according to the specified comparer.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">IComparer</span>&lt;TInput&gt;</td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.icomparer-1">IComparer</a>&lt;TInput&gt;</td>
         <td><span class="parametername">comparer</span></td>
         <td><p>The comparer to use for comparison.</p>
 </td>
@@ -1932,6 +2165,22 @@ or equal to the specified value.</p>
       <tr>
         <td><span class="parametername">TInput</span></td>
         <td><p>The type of the input value of the expression.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p><code data-dev-comment-type="paramref" class="paramref">comparer</code> or <code data-dev-comment-type="paramref" class="paramref">description</code> is <span class="xref">null</span>.</p>
 </td>
       </tr>
     </tbody>
@@ -2011,15 +2260,31 @@ or equal to the specified value.</p>
       </tr>
     </tbody>
   </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p><code data-dev-comment-type="paramref" class="paramref">description</code> is <span class="xref">null</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Patterns_Pattern_GreaterOrEqual__1_Func___0__.md&amp;value=---%0Auid%3A%20Matchmaker.Patterns.Pattern.GreaterOrEqual%60%601(Func%7B%60%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Patterns_Pattern_GreaterOrEqual__1_System_Func___0__.md&amp;value=---%0Auid%3A%20Matchmaker.Patterns.Pattern.GreaterOrEqual%60%601(System.Func%7B%60%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/Patterns/Pattern.cs/#L1164">View Source</a>
   </span>
   <a id="Matchmaker_Patterns_Pattern_GreaterOrEqual_" data-uid="Matchmaker.Patterns.Pattern.GreaterOrEqual*"></a>
-  <h4 id="Matchmaker_Patterns_Pattern_GreaterOrEqual__1_Func___0__" data-uid="Matchmaker.Patterns.Pattern.GreaterOrEqual``1(Func{``0})">GreaterOrEqual&lt;TInput&gt;(Func&lt;TInput&gt;)</h4>
+  <h4 id="Matchmaker_Patterns_Pattern_GreaterOrEqual__1_System_Func___0__" data-uid="Matchmaker.Patterns.Pattern.GreaterOrEqual``1(System.Func{``0})">GreaterOrEqual&lt;TInput&gt;(Func&lt;TInput&gt;)</h4>
   <div class="markdown level1 summary"><p>Returns a pattern which is matched successfully when the input value is greater than or equal to
 the provided value.</p>
 </div>
@@ -2040,7 +2305,7 @@ the provided value.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Func</span>&lt;TInput&gt;</td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;TInput&gt;</td>
         <td><span class="parametername">valueProvider</span></td>
         <td><p>The provider of the value to compare with.</p>
 </td>
@@ -2080,7 +2345,7 @@ or equal to the provided value.</p>
       </tr>
     </tbody>
   </table>
-  <h5 id="Matchmaker_Patterns_Pattern_GreaterOrEqual__1_Func___0___remarks">Remarks</h5>
+  <h5 id="Matchmaker_Patterns_Pattern_GreaterOrEqual__1_System_Func___0___remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>
 The <code data-dev-comment-type="paramref" class="paramref">valueProvider</code> is not called until this pattern&apos;s
 <a class="xref" href="Matchmaker.Patterns.IPattern-2.html#Matchmaker_Patterns_IPattern_2_Match__0_">Match(TInput)</a> method is called.
@@ -2092,15 +2357,31 @@ so there is a chance that the <code data-dev-comment-type="paramref" class="para
 more than once.
 </p>
 </div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p><code data-dev-comment-type="paramref" class="paramref">valueProvider</code> is <span class="xref">null</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Patterns_Pattern_GreaterOrEqual__1_Func___0__IComparer___0__.md&amp;value=---%0Auid%3A%20Matchmaker.Patterns.Pattern.GreaterOrEqual%60%601(Func%7B%60%600%7D%2CIComparer%7B%60%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Patterns_Pattern_GreaterOrEqual__1_System_Func___0__System_Collections_Generic_IComparer___0__.md&amp;value=---%0Auid%3A%20Matchmaker.Patterns.Pattern.GreaterOrEqual%60%601(System.Func%7B%60%600%7D%2CSystem.Collections.Generic.IComparer%7B%60%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/Patterns/Pattern.cs/#L1211">View Source</a>
   </span>
   <a id="Matchmaker_Patterns_Pattern_GreaterOrEqual_" data-uid="Matchmaker.Patterns.Pattern.GreaterOrEqual*"></a>
-  <h4 id="Matchmaker_Patterns_Pattern_GreaterOrEqual__1_Func___0__IComparer___0__" data-uid="Matchmaker.Patterns.Pattern.GreaterOrEqual``1(Func{``0},IComparer{``0})">GreaterOrEqual&lt;TInput&gt;(Func&lt;TInput&gt;, IComparer&lt;TInput&gt;)</h4>
+  <h4 id="Matchmaker_Patterns_Pattern_GreaterOrEqual__1_System_Func___0__System_Collections_Generic_IComparer___0__" data-uid="Matchmaker.Patterns.Pattern.GreaterOrEqual``1(System.Func{``0},System.Collections.Generic.IComparer{``0})">GreaterOrEqual&lt;TInput&gt;(Func&lt;TInput&gt;, IComparer&lt;TInput&gt;)</h4>
   <div class="markdown level1 summary"><p>Returns a pattern which is matched successfully when the input value is greater than or equal to
 the provided value according to the specified comparer.</p>
 </div>
@@ -2120,13 +2401,13 @@ the provided value according to the specified comparer.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Func</span>&lt;TInput&gt;</td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;TInput&gt;</td>
         <td><span class="parametername">valueProvider</span></td>
         <td><p>The provider of the value to compare with.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">IComparer</span>&lt;TInput&gt;</td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.icomparer-1">IComparer</a>&lt;TInput&gt;</td>
         <td><span class="parametername">comparer</span></td>
         <td><p>The comparer to use for comparison.</p>
 </td>
@@ -2166,7 +2447,7 @@ or equal to the provided value.</p>
       </tr>
     </tbody>
   </table>
-  <h5 id="Matchmaker_Patterns_Pattern_GreaterOrEqual__1_Func___0__IComparer___0___remarks">Remarks</h5>
+  <h5 id="Matchmaker_Patterns_Pattern_GreaterOrEqual__1_System_Func___0__System_Collections_Generic_IComparer___0___remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>
 The <code data-dev-comment-type="paramref" class="paramref">valueProvider</code> is not called until this pattern&apos;s
 <a class="xref" href="Matchmaker.Patterns.IPattern-2.html#Matchmaker_Patterns_IPattern_2_Match__0_">Match(TInput)</a> method is called.
@@ -2178,15 +2459,31 @@ so there is a chance that the <code data-dev-comment-type="paramref" class="para
 more than once.
 </p>
 </div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p><code data-dev-comment-type="paramref" class="paramref">valueProvider</code> or <code data-dev-comment-type="paramref" class="paramref">comparer</code> is <span class="xref">null</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Patterns_Pattern_GreaterOrEqual__1_Func___0__IComparer___0__System_String_.md&amp;value=---%0Auid%3A%20Matchmaker.Patterns.Pattern.GreaterOrEqual%60%601(Func%7B%60%600%7D%2CIComparer%7B%60%600%7D%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Patterns_Pattern_GreaterOrEqual__1_System_Func___0__System_Collections_Generic_IComparer___0__System_String_.md&amp;value=---%0Auid%3A%20Matchmaker.Patterns.Pattern.GreaterOrEqual%60%601(System.Func%7B%60%600%7D%2CSystem.Collections.Generic.IComparer%7B%60%600%7D%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/Patterns/Pattern.cs/#L1317">View Source</a>
   </span>
   <a id="Matchmaker_Patterns_Pattern_GreaterOrEqual_" data-uid="Matchmaker.Patterns.Pattern.GreaterOrEqual*"></a>
-  <h4 id="Matchmaker_Patterns_Pattern_GreaterOrEqual__1_Func___0__IComparer___0__System_String_" data-uid="Matchmaker.Patterns.Pattern.GreaterOrEqual``1(Func{``0},IComparer{``0},System.String)">GreaterOrEqual&lt;TInput&gt;(Func&lt;TInput&gt;, IComparer&lt;TInput&gt;, String)</h4>
+  <h4 id="Matchmaker_Patterns_Pattern_GreaterOrEqual__1_System_Func___0__System_Collections_Generic_IComparer___0__System_String_" data-uid="Matchmaker.Patterns.Pattern.GreaterOrEqual``1(System.Func{``0},System.Collections.Generic.IComparer{``0},System.String)">GreaterOrEqual&lt;TInput&gt;(Func&lt;TInput&gt;, IComparer&lt;TInput&gt;, String)</h4>
   <div class="markdown level1 summary"><p>Returns a pattern which is matched successfully when the input value is greater than or equal
 to the provided value according to the specified comparer.</p>
 </div>
@@ -2206,13 +2503,13 @@ to the provided value according to the specified comparer.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Func</span>&lt;TInput&gt;</td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;TInput&gt;</td>
         <td><span class="parametername">valueProvider</span></td>
         <td><p>The provider of the value to compare with.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">IComparer</span>&lt;TInput&gt;</td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.icomparer-1">IComparer</a>&lt;TInput&gt;</td>
         <td><span class="parametername">comparer</span></td>
         <td><p>The comparer to use for comparison.</p>
 </td>
@@ -2258,7 +2555,7 @@ or equal to the provided value.</p>
       </tr>
     </tbody>
   </table>
-  <h5 id="Matchmaker_Patterns_Pattern_GreaterOrEqual__1_Func___0__IComparer___0__System_String__remarks">Remarks</h5>
+  <h5 id="Matchmaker_Patterns_Pattern_GreaterOrEqual__1_System_Func___0__System_Collections_Generic_IComparer___0__System_String__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>
 The <code data-dev-comment-type="paramref" class="paramref">valueProvider</code> is not called until this pattern&apos;s
 <a class="xref" href="Matchmaker.Patterns.IPattern-2.html#Matchmaker_Patterns_IPattern_2_Match__0_">Match(TInput)</a> method is called.
@@ -2270,15 +2567,32 @@ so there is a chance that the <code data-dev-comment-type="paramref" class="para
 more than once.
 </p>
 </div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p><code data-dev-comment-type="paramref" class="paramref">valueProvider</code>, <code data-dev-comment-type="paramref" class="paramref">comparer</code> or <code data-dev-comment-type="paramref" class="paramref">description</code>
+is <span class="xref">null</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Patterns_Pattern_GreaterOrEqual__1_Func___0__System_String_.md&amp;value=---%0Auid%3A%20Matchmaker.Patterns.Pattern.GreaterOrEqual%60%601(Func%7B%60%600%7D%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Patterns_Pattern_GreaterOrEqual__1_System_Func___0__System_String_.md&amp;value=---%0Auid%3A%20Matchmaker.Patterns.Pattern.GreaterOrEqual%60%601(System.Func%7B%60%600%7D%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/Patterns/Pattern.cs/#L1260">View Source</a>
   </span>
   <a id="Matchmaker_Patterns_Pattern_GreaterOrEqual_" data-uid="Matchmaker.Patterns.Pattern.GreaterOrEqual*"></a>
-  <h4 id="Matchmaker_Patterns_Pattern_GreaterOrEqual__1_Func___0__System_String_" data-uid="Matchmaker.Patterns.Pattern.GreaterOrEqual``1(Func{``0},System.String)">GreaterOrEqual&lt;TInput&gt;(Func&lt;TInput&gt;, String)</h4>
+  <h4 id="Matchmaker_Patterns_Pattern_GreaterOrEqual__1_System_Func___0__System_String_" data-uid="Matchmaker.Patterns.Pattern.GreaterOrEqual``1(System.Func{``0},System.String)">GreaterOrEqual&lt;TInput&gt;(Func&lt;TInput&gt;, String)</h4>
   <div class="markdown level1 summary"><p>Returns a pattern which is matched successfully when the input value is greater than or equal
 to the provided value.</p>
 </div>
@@ -2299,7 +2613,7 @@ to the provided value.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Func</span>&lt;TInput&gt;</td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;TInput&gt;</td>
         <td><span class="parametername">valueProvider</span></td>
         <td><p>The provider of the value to compare with.</p>
 </td>
@@ -2345,7 +2659,7 @@ or equal to the provided value.</p>
       </tr>
     </tbody>
   </table>
-  <h5 id="Matchmaker_Patterns_Pattern_GreaterOrEqual__1_Func___0__System_String__remarks">Remarks</h5>
+  <h5 id="Matchmaker_Patterns_Pattern_GreaterOrEqual__1_System_Func___0__System_String__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>
 The <code data-dev-comment-type="paramref" class="paramref">valueProvider</code> is not called until this pattern&apos;s
 <a class="xref" href="Matchmaker.Patterns.IPattern-2.html#Matchmaker_Patterns_IPattern_2_Match__0_">Match(TInput)</a> method is called.
@@ -2357,6 +2671,22 @@ so there is a chance that the <code data-dev-comment-type="paramref" class="para
 more than once.
 </p>
 </div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p><code data-dev-comment-type="paramref" class="paramref">valueProvider</code> or <code data-dev-comment-type="paramref" class="paramref">description</code> is <span class="xref">null</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Patterns_Pattern_GreaterThan__1___0_.md&amp;value=---%0Auid%3A%20Matchmaker.Patterns.Pattern.GreaterThan%60%601(%60%600)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
@@ -2426,13 +2756,13 @@ more than once.
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Patterns_Pattern_GreaterThan__1___0_IComparer___0__.md&amp;value=---%0Auid%3A%20Matchmaker.Patterns.Pattern.GreaterThan%60%601(%60%600%2CIComparer%7B%60%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Patterns_Pattern_GreaterThan__1___0_System_Collections_Generic_IComparer___0__.md&amp;value=---%0Auid%3A%20Matchmaker.Patterns.Pattern.GreaterThan%60%601(%60%600%2CSystem.Collections.Generic.IComparer%7B%60%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/Patterns/Pattern.cs/#L983">View Source</a>
   </span>
   <a id="Matchmaker_Patterns_Pattern_GreaterThan_" data-uid="Matchmaker.Patterns.Pattern.GreaterThan*"></a>
-  <h4 id="Matchmaker_Patterns_Pattern_GreaterThan__1___0_IComparer___0__" data-uid="Matchmaker.Patterns.Pattern.GreaterThan``1(``0,IComparer{``0})">GreaterThan&lt;TInput&gt;(TInput, IComparer&lt;TInput&gt;)</h4>
+  <h4 id="Matchmaker_Patterns_Pattern_GreaterThan__1___0_System_Collections_Generic_IComparer___0__" data-uid="Matchmaker.Patterns.Pattern.GreaterThan``1(``0,System.Collections.Generic.IComparer{``0})">GreaterThan&lt;TInput&gt;(TInput, IComparer&lt;TInput&gt;)</h4>
   <div class="markdown level1 summary"><p>Returns a pattern which is matched successfully when the input value is greater than the specified value
 according to the specified comparer.</p>
 </div>
@@ -2458,7 +2788,7 @@ according to the specified comparer.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">IComparer</span>&lt;TInput&gt;</td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.icomparer-1">IComparer</a>&lt;TInput&gt;</td>
         <td><span class="parametername">comparer</span></td>
         <td><p>The comparer to use for comparison.</p>
 </td>
@@ -2497,15 +2827,31 @@ according to the specified comparer.</p>
       </tr>
     </tbody>
   </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p><code data-dev-comment-type="paramref" class="paramref">comparer</code> is <span class="xref">null</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Patterns_Pattern_GreaterThan__1___0_IComparer___0__System_String_.md&amp;value=---%0Auid%3A%20Matchmaker.Patterns.Pattern.GreaterThan%60%601(%60%600%2CIComparer%7B%60%600%7D%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Patterns_Pattern_GreaterThan__1___0_System_Collections_Generic_IComparer___0__System_String_.md&amp;value=---%0Auid%3A%20Matchmaker.Patterns.Pattern.GreaterThan%60%601(%60%600%2CSystem.Collections.Generic.IComparer%7B%60%600%7D%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/Patterns/Pattern.cs/#L1074">View Source</a>
   </span>
   <a id="Matchmaker_Patterns_Pattern_GreaterThan_" data-uid="Matchmaker.Patterns.Pattern.GreaterThan*"></a>
-  <h4 id="Matchmaker_Patterns_Pattern_GreaterThan__1___0_IComparer___0__System_String_" data-uid="Matchmaker.Patterns.Pattern.GreaterThan``1(``0,IComparer{``0},System.String)">GreaterThan&lt;TInput&gt;(TInput, IComparer&lt;TInput&gt;, String)</h4>
+  <h4 id="Matchmaker_Patterns_Pattern_GreaterThan__1___0_System_Collections_Generic_IComparer___0__System_String_" data-uid="Matchmaker.Patterns.Pattern.GreaterThan``1(``0,System.Collections.Generic.IComparer{``0},System.String)">GreaterThan&lt;TInput&gt;(TInput, IComparer&lt;TInput&gt;, String)</h4>
   <div class="markdown level1 summary"><p>Returns a pattern which is matched successfully when the input value is greater than the specified value
 according to the specified comparer.</p>
 </div>
@@ -2531,7 +2877,7 @@ according to the specified comparer.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">IComparer</span>&lt;TInput&gt;</td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.icomparer-1">IComparer</a>&lt;TInput&gt;</td>
         <td><span class="parametername">comparer</span></td>
         <td><p>The comparer to use for comparison.</p>
 </td>
@@ -2572,6 +2918,22 @@ according to the specified comparer.</p>
       <tr>
         <td><span class="parametername">TInput</span></td>
         <td><p>The type of the input value of the expression.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p><code data-dev-comment-type="paramref" class="paramref">comparer</code> or <code data-dev-comment-type="paramref" class="paramref">description</code> is <span class="xref">null</span>.</p>
 </td>
       </tr>
     </tbody>
@@ -2649,15 +3011,31 @@ according to the specified comparer.</p>
       </tr>
     </tbody>
   </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p><code data-dev-comment-type="paramref" class="paramref">description</code> is <span class="xref">null</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Patterns_Pattern_GreaterThan__1_Func___0__.md&amp;value=---%0Auid%3A%20Matchmaker.Patterns.Pattern.GreaterThan%60%601(Func%7B%60%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Patterns_Pattern_GreaterThan__1_System_Func___0__.md&amp;value=---%0Auid%3A%20Matchmaker.Patterns.Pattern.GreaterThan%60%601(System.Func%7B%60%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/Patterns/Pattern.cs/#L966">View Source</a>
   </span>
   <a id="Matchmaker_Patterns_Pattern_GreaterThan_" data-uid="Matchmaker.Patterns.Pattern.GreaterThan*"></a>
-  <h4 id="Matchmaker_Patterns_Pattern_GreaterThan__1_Func___0__" data-uid="Matchmaker.Patterns.Pattern.GreaterThan``1(Func{``0})">GreaterThan&lt;TInput&gt;(Func&lt;TInput&gt;)</h4>
+  <h4 id="Matchmaker_Patterns_Pattern_GreaterThan__1_System_Func___0__" data-uid="Matchmaker.Patterns.Pattern.GreaterThan``1(System.Func{``0})">GreaterThan&lt;TInput&gt;(Func&lt;TInput&gt;)</h4>
   <div class="markdown level1 summary"><p>Returns a pattern which is matched successfully when the input value is greater than the provided value.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -2677,7 +3055,7 @@ according to the specified comparer.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Func</span>&lt;TInput&gt;</td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;TInput&gt;</td>
         <td><span class="parametername">valueProvider</span></td>
         <td><p>The provider of the value to compare with.</p>
 </td>
@@ -2716,7 +3094,7 @@ according to the specified comparer.</p>
       </tr>
     </tbody>
   </table>
-  <h5 id="Matchmaker_Patterns_Pattern_GreaterThan__1_Func___0___remarks">Remarks</h5>
+  <h5 id="Matchmaker_Patterns_Pattern_GreaterThan__1_System_Func___0___remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>
 The <code data-dev-comment-type="paramref" class="paramref">valueProvider</code> is not called until this pattern&apos;s
 <a class="xref" href="Matchmaker.Patterns.IPattern-2.html#Matchmaker_Patterns_IPattern_2_Match__0_">Match(TInput)</a> method is called.
@@ -2728,15 +3106,31 @@ so there is a chance that the <code data-dev-comment-type="paramref" class="para
 more than once.
 </p>
 </div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p><code data-dev-comment-type="paramref" class="paramref">valueProvider</code> is <span class="xref">null</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Patterns_Pattern_GreaterThan__1_Func___0__IComparer___0__.md&amp;value=---%0Auid%3A%20Matchmaker.Patterns.Pattern.GreaterThan%60%601(Func%7B%60%600%7D%2CIComparer%7B%60%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Patterns_Pattern_GreaterThan__1_System_Func___0__System_Collections_Generic_IComparer___0__.md&amp;value=---%0Auid%3A%20Matchmaker.Patterns.Pattern.GreaterThan%60%601(System.Func%7B%60%600%7D%2CSystem.Collections.Generic.IComparer%7B%60%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/Patterns/Pattern.cs/#L1011">View Source</a>
   </span>
   <a id="Matchmaker_Patterns_Pattern_GreaterThan_" data-uid="Matchmaker.Patterns.Pattern.GreaterThan*"></a>
-  <h4 id="Matchmaker_Patterns_Pattern_GreaterThan__1_Func___0__IComparer___0__" data-uid="Matchmaker.Patterns.Pattern.GreaterThan``1(Func{``0},IComparer{``0})">GreaterThan&lt;TInput&gt;(Func&lt;TInput&gt;, IComparer&lt;TInput&gt;)</h4>
+  <h4 id="Matchmaker_Patterns_Pattern_GreaterThan__1_System_Func___0__System_Collections_Generic_IComparer___0__" data-uid="Matchmaker.Patterns.Pattern.GreaterThan``1(System.Func{``0},System.Collections.Generic.IComparer{``0})">GreaterThan&lt;TInput&gt;(Func&lt;TInput&gt;, IComparer&lt;TInput&gt;)</h4>
   <div class="markdown level1 summary"><p>Returns a pattern which is matched successfully when the input value is greater than the provided value
 according to the specified comparer.</p>
 </div>
@@ -2756,13 +3150,13 @@ according to the specified comparer.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Func</span>&lt;TInput&gt;</td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;TInput&gt;</td>
         <td><span class="parametername">valueProvider</span></td>
         <td><p>The provider of the value to compare with.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">IComparer</span>&lt;TInput&gt;</td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.icomparer-1">IComparer</a>&lt;TInput&gt;</td>
         <td><span class="parametername">comparer</span></td>
         <td><p>The comparer to use for comparison.</p>
 </td>
@@ -2801,7 +3195,7 @@ according to the specified comparer.</p>
       </tr>
     </tbody>
   </table>
-  <h5 id="Matchmaker_Patterns_Pattern_GreaterThan__1_Func___0__IComparer___0___remarks">Remarks</h5>
+  <h5 id="Matchmaker_Patterns_Pattern_GreaterThan__1_System_Func___0__System_Collections_Generic_IComparer___0___remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>
 The <code data-dev-comment-type="paramref" class="paramref">valueProvider</code> is not called until this pattern&apos;s
 <a class="xref" href="Matchmaker.Patterns.IPattern-2.html#Matchmaker_Patterns_IPattern_2_Match__0_">Match(TInput)</a> method is called.
@@ -2813,15 +3207,31 @@ so there is a chance that the <code data-dev-comment-type="paramref" class="para
 more than once.
 </p>
 </div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p><code data-dev-comment-type="paramref" class="paramref">valueProvider</code> or <code data-dev-comment-type="paramref" class="paramref">comparer</code> is <span class="xref">null</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Patterns_Pattern_GreaterThan__1_Func___0__IComparer___0__System_String_.md&amp;value=---%0Auid%3A%20Matchmaker.Patterns.Pattern.GreaterThan%60%601(Func%7B%60%600%7D%2CIComparer%7B%60%600%7D%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Patterns_Pattern_GreaterThan__1_System_Func___0__System_Collections_Generic_IComparer___0__System_String_.md&amp;value=---%0Auid%3A%20Matchmaker.Patterns.Pattern.GreaterThan%60%601(System.Func%7B%60%600%7D%2CSystem.Collections.Generic.IComparer%7B%60%600%7D%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/Patterns/Pattern.cs/#L1111">View Source</a>
   </span>
   <a id="Matchmaker_Patterns_Pattern_GreaterThan_" data-uid="Matchmaker.Patterns.Pattern.GreaterThan*"></a>
-  <h4 id="Matchmaker_Patterns_Pattern_GreaterThan__1_Func___0__IComparer___0__System_String_" data-uid="Matchmaker.Patterns.Pattern.GreaterThan``1(Func{``0},IComparer{``0},System.String)">GreaterThan&lt;TInput&gt;(Func&lt;TInput&gt;, IComparer&lt;TInput&gt;, String)</h4>
+  <h4 id="Matchmaker_Patterns_Pattern_GreaterThan__1_System_Func___0__System_Collections_Generic_IComparer___0__System_String_" data-uid="Matchmaker.Patterns.Pattern.GreaterThan``1(System.Func{``0},System.Collections.Generic.IComparer{``0},System.String)">GreaterThan&lt;TInput&gt;(Func&lt;TInput&gt;, IComparer&lt;TInput&gt;, String)</h4>
   <div class="markdown level1 summary"><p>Returns a pattern which is matched successfully when the input value is greater than the provided value
 according to the specified comparer.</p>
 </div>
@@ -2841,13 +3251,13 @@ according to the specified comparer.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Func</span>&lt;TInput&gt;</td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;TInput&gt;</td>
         <td><span class="parametername">valueProvider</span></td>
         <td><p>The provider of the value to compare with.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">IComparer</span>&lt;TInput&gt;</td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.icomparer-1">IComparer</a>&lt;TInput&gt;</td>
         <td><span class="parametername">comparer</span></td>
         <td><p>The comparer to use for comparison.</p>
 </td>
@@ -2892,7 +3302,7 @@ according to the specified comparer.</p>
       </tr>
     </tbody>
   </table>
-  <h5 id="Matchmaker_Patterns_Pattern_GreaterThan__1_Func___0__IComparer___0__System_String__remarks">Remarks</h5>
+  <h5 id="Matchmaker_Patterns_Pattern_GreaterThan__1_System_Func___0__System_Collections_Generic_IComparer___0__System_String__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>
 The <code data-dev-comment-type="paramref" class="paramref">valueProvider</code> is not called until this pattern&apos;s
 <a class="xref" href="Matchmaker.Patterns.IPattern-2.html#Matchmaker_Patterns_IPattern_2_Match__0_">Match(TInput)</a> method is called.
@@ -2904,15 +3314,32 @@ so there is a chance that the <code data-dev-comment-type="paramref" class="para
 more than once.
 </p>
 </div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p><code data-dev-comment-type="paramref" class="paramref">valueProvider</code>, <code data-dev-comment-type="paramref" class="paramref">comparer</code> or <code data-dev-comment-type="paramref" class="paramref">description</code>
+is <span class="xref">null</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Patterns_Pattern_GreaterThan__1_Func___0__System_String_.md&amp;value=---%0Auid%3A%20Matchmaker.Patterns.Pattern.GreaterThan%60%601(Func%7B%60%600%7D%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Patterns_Pattern_GreaterThan__1_System_Func___0__System_String_.md&amp;value=---%0Auid%3A%20Matchmaker.Patterns.Pattern.GreaterThan%60%601(System.Func%7B%60%600%7D%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/Patterns/Pattern.cs/#L1056">View Source</a>
   </span>
   <a id="Matchmaker_Patterns_Pattern_GreaterThan_" data-uid="Matchmaker.Patterns.Pattern.GreaterThan*"></a>
-  <h4 id="Matchmaker_Patterns_Pattern_GreaterThan__1_Func___0__System_String_" data-uid="Matchmaker.Patterns.Pattern.GreaterThan``1(Func{``0},System.String)">GreaterThan&lt;TInput&gt;(Func&lt;TInput&gt;, String)</h4>
+  <h4 id="Matchmaker_Patterns_Pattern_GreaterThan__1_System_Func___0__System_String_" data-uid="Matchmaker.Patterns.Pattern.GreaterThan``1(System.Func{``0},System.String)">GreaterThan&lt;TInput&gt;(Func&lt;TInput&gt;, String)</h4>
   <div class="markdown level1 summary"><p>Returns a pattern which is matched successfully when the input value is greater than the provided value.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -2932,7 +3359,7 @@ more than once.
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Func</span>&lt;TInput&gt;</td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;TInput&gt;</td>
         <td><span class="parametername">valueProvider</span></td>
         <td><p>The provider of the value to compare with.</p>
 </td>
@@ -2977,7 +3404,7 @@ more than once.
       </tr>
     </tbody>
   </table>
-  <h5 id="Matchmaker_Patterns_Pattern_GreaterThan__1_Func___0__System_String__remarks">Remarks</h5>
+  <h5 id="Matchmaker_Patterns_Pattern_GreaterThan__1_System_Func___0__System_String__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>
 The <code data-dev-comment-type="paramref" class="paramref">valueProvider</code> is not called until this pattern&apos;s
 <a class="xref" href="Matchmaker.Patterns.IPattern-2.html#Matchmaker_Patterns_IPattern_2_Match__0_">Match(TInput)</a> method is called.
@@ -2989,6 +3416,22 @@ so there is a chance that the <code data-dev-comment-type="paramref" class="para
 more than once.
 </p>
 </div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p><code data-dev-comment-type="paramref" class="paramref">valueProvider</code> or <code data-dev-comment-type="paramref" class="paramref">description</code> is <span class="xref">null</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Patterns_Pattern_LessOrEqual__1___0_.md&amp;value=---%0Auid%3A%20Matchmaker.Patterns.Pattern.LessOrEqual%60%601(%60%600)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
@@ -3059,13 +3502,13 @@ to the specified value.</p>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Patterns_Pattern_LessOrEqual__1___0_IComparer___0__.md&amp;value=---%0Auid%3A%20Matchmaker.Patterns.Pattern.LessOrEqual%60%601(%60%600%2CIComparer%7B%60%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Patterns_Pattern_LessOrEqual__1___0_System_Collections_Generic_IComparer___0__.md&amp;value=---%0Auid%3A%20Matchmaker.Patterns.Pattern.LessOrEqual%60%601(%60%600%2CSystem.Collections.Generic.IComparer%7B%60%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/Patterns/Pattern.cs/#L787">View Source</a>
   </span>
   <a id="Matchmaker_Patterns_Pattern_LessOrEqual_" data-uid="Matchmaker.Patterns.Pattern.LessOrEqual*"></a>
-  <h4 id="Matchmaker_Patterns_Pattern_LessOrEqual__1___0_IComparer___0__" data-uid="Matchmaker.Patterns.Pattern.LessOrEqual``1(``0,IComparer{``0})">LessOrEqual&lt;TInput&gt;(TInput, IComparer&lt;TInput&gt;)</h4>
+  <h4 id="Matchmaker_Patterns_Pattern_LessOrEqual__1___0_System_Collections_Generic_IComparer___0__" data-uid="Matchmaker.Patterns.Pattern.LessOrEqual``1(``0,System.Collections.Generic.IComparer{``0})">LessOrEqual&lt;TInput&gt;(TInput, IComparer&lt;TInput&gt;)</h4>
   <div class="markdown level1 summary"><p>Returns a pattern which is matched successfully when the input value is less than or equal
 to the specified value according to the specified comparer.</p>
 </div>
@@ -3091,7 +3534,7 @@ to the specified value according to the specified comparer.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">IComparer</span>&lt;TInput&gt;</td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.icomparer-1">IComparer</a>&lt;TInput&gt;</td>
         <td><span class="parametername">comparer</span></td>
         <td><p>The comparer to use for comparison.</p>
 </td>
@@ -3130,15 +3573,31 @@ to the specified value according to the specified comparer.</p>
       </tr>
     </tbody>
   </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p><code data-dev-comment-type="paramref" class="paramref">comparer</code> is <span class="xref">null</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Patterns_Pattern_LessOrEqual__1___0_IComparer___0__System_String_.md&amp;value=---%0Auid%3A%20Matchmaker.Patterns.Pattern.LessOrEqual%60%601(%60%600%2CIComparer%7B%60%600%7D%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Patterns_Pattern_LessOrEqual__1___0_System_Collections_Generic_IComparer___0__System_String_.md&amp;value=---%0Auid%3A%20Matchmaker.Patterns.Pattern.LessOrEqual%60%601(%60%600%2CSystem.Collections.Generic.IComparer%7B%60%600%7D%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/Patterns/Pattern.cs/#L880">View Source</a>
   </span>
   <a id="Matchmaker_Patterns_Pattern_LessOrEqual_" data-uid="Matchmaker.Patterns.Pattern.LessOrEqual*"></a>
-  <h4 id="Matchmaker_Patterns_Pattern_LessOrEqual__1___0_IComparer___0__System_String_" data-uid="Matchmaker.Patterns.Pattern.LessOrEqual``1(``0,IComparer{``0},System.String)">LessOrEqual&lt;TInput&gt;(TInput, IComparer&lt;TInput&gt;, String)</h4>
+  <h4 id="Matchmaker_Patterns_Pattern_LessOrEqual__1___0_System_Collections_Generic_IComparer___0__System_String_" data-uid="Matchmaker.Patterns.Pattern.LessOrEqual``1(``0,System.Collections.Generic.IComparer{``0},System.String)">LessOrEqual&lt;TInput&gt;(TInput, IComparer&lt;TInput&gt;, String)</h4>
   <div class="markdown level1 summary"><p>Returns a pattern which is matched successfully when the input value is less than or equal
 to the specified value according to the specified comparer.</p>
 </div>
@@ -3164,7 +3623,7 @@ to the specified value according to the specified comparer.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">IComparer</span>&lt;TInput&gt;</td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.icomparer-1">IComparer</a>&lt;TInput&gt;</td>
         <td><span class="parametername">comparer</span></td>
         <td><p>The comparer to use for comparison.</p>
 </td>
@@ -3205,6 +3664,22 @@ to the specified value according to the specified comparer.</p>
       <tr>
         <td><span class="parametername">TInput</span></td>
         <td><p>The type of the input value of the expression.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p><code data-dev-comment-type="paramref" class="paramref">comparer</code> or <code data-dev-comment-type="paramref" class="paramref">description</code> is <span class="xref">null</span>.</p>
 </td>
       </tr>
     </tbody>
@@ -3283,15 +3758,31 @@ to the specified value.</p>
       </tr>
     </tbody>
   </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p><code data-dev-comment-type="paramref" class="paramref">description</code> is <span class="xref">null</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Patterns_Pattern_LessOrEqual__1_Func___0__.md&amp;value=---%0Auid%3A%20Matchmaker.Patterns.Pattern.LessOrEqual%60%601(Func%7B%60%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Patterns_Pattern_LessOrEqual__1_System_Func___0__.md&amp;value=---%0Auid%3A%20Matchmaker.Patterns.Pattern.LessOrEqual%60%601(System.Func%7B%60%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/Patterns/Pattern.cs/#L770">View Source</a>
   </span>
   <a id="Matchmaker_Patterns_Pattern_LessOrEqual_" data-uid="Matchmaker.Patterns.Pattern.LessOrEqual*"></a>
-  <h4 id="Matchmaker_Patterns_Pattern_LessOrEqual__1_Func___0__" data-uid="Matchmaker.Patterns.Pattern.LessOrEqual``1(Func{``0})">LessOrEqual&lt;TInput&gt;(Func&lt;TInput&gt;)</h4>
+  <h4 id="Matchmaker_Patterns_Pattern_LessOrEqual__1_System_Func___0__" data-uid="Matchmaker.Patterns.Pattern.LessOrEqual``1(System.Func{``0})">LessOrEqual&lt;TInput&gt;(Func&lt;TInput&gt;)</h4>
   <div class="markdown level1 summary"><p>Returns a pattern which is matched successfully when the input value is less than or equal to
 the provided value.</p>
 </div>
@@ -3312,7 +3803,7 @@ the provided value.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Func</span>&lt;TInput&gt;</td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;TInput&gt;</td>
         <td><span class="parametername">valueProvider</span></td>
         <td><p>The provider of the value to compare with.</p>
 </td>
@@ -3351,7 +3842,7 @@ the provided value.</p>
       </tr>
     </tbody>
   </table>
-  <h5 id="Matchmaker_Patterns_Pattern_LessOrEqual__1_Func___0___remarks">Remarks</h5>
+  <h5 id="Matchmaker_Patterns_Pattern_LessOrEqual__1_System_Func___0___remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>
 The <code data-dev-comment-type="paramref" class="paramref">valueProvider</code> is not called until this pattern&apos;s
 <a class="xref" href="Matchmaker.Patterns.IPattern-2.html#Matchmaker_Patterns_IPattern_2_Match__0_">Match(TInput)</a> method is called.
@@ -3363,15 +3854,31 @@ so there is a chance that the <code data-dev-comment-type="paramref" class="para
 more than once.
 </p>
 </div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p><code data-dev-comment-type="paramref" class="paramref">valueProvider</code> is <span class="xref">null</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Patterns_Pattern_LessOrEqual__1_Func___0__IComparer___0__.md&amp;value=---%0Auid%3A%20Matchmaker.Patterns.Pattern.LessOrEqual%60%601(Func%7B%60%600%7D%2CIComparer%7B%60%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Patterns_Pattern_LessOrEqual__1_System_Func___0__System_Collections_Generic_IComparer___0__.md&amp;value=---%0Auid%3A%20Matchmaker.Patterns.Pattern.LessOrEqual%60%601(System.Func%7B%60%600%7D%2CSystem.Collections.Generic.IComparer%7B%60%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/Patterns/Pattern.cs/#L815">View Source</a>
   </span>
   <a id="Matchmaker_Patterns_Pattern_LessOrEqual_" data-uid="Matchmaker.Patterns.Pattern.LessOrEqual*"></a>
-  <h4 id="Matchmaker_Patterns_Pattern_LessOrEqual__1_Func___0__IComparer___0__" data-uid="Matchmaker.Patterns.Pattern.LessOrEqual``1(Func{``0},IComparer{``0})">LessOrEqual&lt;TInput&gt;(Func&lt;TInput&gt;, IComparer&lt;TInput&gt;)</h4>
+  <h4 id="Matchmaker_Patterns_Pattern_LessOrEqual__1_System_Func___0__System_Collections_Generic_IComparer___0__" data-uid="Matchmaker.Patterns.Pattern.LessOrEqual``1(System.Func{``0},System.Collections.Generic.IComparer{``0})">LessOrEqual&lt;TInput&gt;(Func&lt;TInput&gt;, IComparer&lt;TInput&gt;)</h4>
   <div class="markdown level1 summary"><p>Returns a pattern which is matched successfully when the input value is less than or equal to
 the provided value according to the specified comparer.</p>
 </div>
@@ -3391,13 +3898,13 @@ the provided value according to the specified comparer.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Func</span>&lt;TInput&gt;</td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;TInput&gt;</td>
         <td><span class="parametername">valueProvider</span></td>
         <td><p>The provider of the value to compare with.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">IComparer</span>&lt;TInput&gt;</td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.icomparer-1">IComparer</a>&lt;TInput&gt;</td>
         <td><span class="parametername">comparer</span></td>
         <td><p>The comparer to use for comparison.</p>
 </td>
@@ -3436,7 +3943,7 @@ the provided value according to the specified comparer.</p>
       </tr>
     </tbody>
   </table>
-  <h5 id="Matchmaker_Patterns_Pattern_LessOrEqual__1_Func___0__IComparer___0___remarks">Remarks</h5>
+  <h5 id="Matchmaker_Patterns_Pattern_LessOrEqual__1_System_Func___0__System_Collections_Generic_IComparer___0___remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>
 The <code data-dev-comment-type="paramref" class="paramref">valueProvider</code> is not called until this pattern&apos;s
 <a class="xref" href="Matchmaker.Patterns.IPattern-2.html#Matchmaker_Patterns_IPattern_2_Match__0_">Match(TInput)</a> method is called.
@@ -3448,15 +3955,31 @@ so there is a chance that the <code data-dev-comment-type="paramref" class="para
 more than once.
 </p>
 </div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p><code data-dev-comment-type="paramref" class="paramref">valueProvider</code> or <code data-dev-comment-type="paramref" class="paramref">comparer</code> is <span class="xref">null</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Patterns_Pattern_LessOrEqual__1_Func___0__IComparer___0__System_String_.md&amp;value=---%0Auid%3A%20Matchmaker.Patterns.Pattern.LessOrEqual%60%601(Func%7B%60%600%7D%2CIComparer%7B%60%600%7D%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Patterns_Pattern_LessOrEqual__1_System_Func___0__System_Collections_Generic_IComparer___0__System_String_.md&amp;value=---%0Auid%3A%20Matchmaker.Patterns.Pattern.LessOrEqual%60%601(System.Func%7B%60%600%7D%2CSystem.Collections.Generic.IComparer%7B%60%600%7D%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/Patterns/Pattern.cs/#L917">View Source</a>
   </span>
   <a id="Matchmaker_Patterns_Pattern_LessOrEqual_" data-uid="Matchmaker.Patterns.Pattern.LessOrEqual*"></a>
-  <h4 id="Matchmaker_Patterns_Pattern_LessOrEqual__1_Func___0__IComparer___0__System_String_" data-uid="Matchmaker.Patterns.Pattern.LessOrEqual``1(Func{``0},IComparer{``0},System.String)">LessOrEqual&lt;TInput&gt;(Func&lt;TInput&gt;, IComparer&lt;TInput&gt;, String)</h4>
+  <h4 id="Matchmaker_Patterns_Pattern_LessOrEqual__1_System_Func___0__System_Collections_Generic_IComparer___0__System_String_" data-uid="Matchmaker.Patterns.Pattern.LessOrEqual``1(System.Func{``0},System.Collections.Generic.IComparer{``0},System.String)">LessOrEqual&lt;TInput&gt;(Func&lt;TInput&gt;, IComparer&lt;TInput&gt;, String)</h4>
   <div class="markdown level1 summary"><p>Returns a pattern which is matched successfully when the input value is less than or equal
 to the provided value according to the specified comparer.</p>
 </div>
@@ -3476,13 +3999,13 @@ to the provided value according to the specified comparer.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Func</span>&lt;TInput&gt;</td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;TInput&gt;</td>
         <td><span class="parametername">valueProvider</span></td>
         <td><p>The provider of the value to compare with.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">IComparer</span>&lt;TInput&gt;</td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.icomparer-1">IComparer</a>&lt;TInput&gt;</td>
         <td><span class="parametername">comparer</span></td>
         <td><p>The comparer to use for comparison.</p>
 </td>
@@ -3527,7 +4050,7 @@ to the provided value according to the specified comparer.</p>
       </tr>
     </tbody>
   </table>
-  <h5 id="Matchmaker_Patterns_Pattern_LessOrEqual__1_Func___0__IComparer___0__System_String__remarks">Remarks</h5>
+  <h5 id="Matchmaker_Patterns_Pattern_LessOrEqual__1_System_Func___0__System_Collections_Generic_IComparer___0__System_String__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>
 The <code data-dev-comment-type="paramref" class="paramref">valueProvider</code> is not called until this pattern&apos;s
 <a class="xref" href="Matchmaker.Patterns.IPattern-2.html#Matchmaker_Patterns_IPattern_2_Match__0_">Match(TInput)</a> method is called.
@@ -3539,15 +4062,32 @@ so there is a chance that the <code data-dev-comment-type="paramref" class="para
 more than once.
 </p>
 </div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p><code data-dev-comment-type="paramref" class="paramref">valueProvider</code>, <code data-dev-comment-type="paramref" class="paramref">comparer</code> or <code data-dev-comment-type="paramref" class="paramref">description</code>
+is <span class="xref">null</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Patterns_Pattern_LessOrEqual__1_Func___0__System_String_.md&amp;value=---%0Auid%3A%20Matchmaker.Patterns.Pattern.LessOrEqual%60%601(Func%7B%60%600%7D%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Patterns_Pattern_LessOrEqual__1_System_Func___0__System_String_.md&amp;value=---%0Auid%3A%20Matchmaker.Patterns.Pattern.LessOrEqual%60%601(System.Func%7B%60%600%7D%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/Patterns/Pattern.cs/#L862">View Source</a>
   </span>
   <a id="Matchmaker_Patterns_Pattern_LessOrEqual_" data-uid="Matchmaker.Patterns.Pattern.LessOrEqual*"></a>
-  <h4 id="Matchmaker_Patterns_Pattern_LessOrEqual__1_Func___0__System_String_" data-uid="Matchmaker.Patterns.Pattern.LessOrEqual``1(Func{``0},System.String)">LessOrEqual&lt;TInput&gt;(Func&lt;TInput&gt;, String)</h4>
+  <h4 id="Matchmaker_Patterns_Pattern_LessOrEqual__1_System_Func___0__System_String_" data-uid="Matchmaker.Patterns.Pattern.LessOrEqual``1(System.Func{``0},System.String)">LessOrEqual&lt;TInput&gt;(Func&lt;TInput&gt;, String)</h4>
   <div class="markdown level1 summary"><p>Returns a pattern which is matched successfully when the input value is less than or equal
 to the provided value.</p>
 </div>
@@ -3568,7 +4108,7 @@ to the provided value.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Func</span>&lt;TInput&gt;</td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;TInput&gt;</td>
         <td><span class="parametername">valueProvider</span></td>
         <td><p>The provider of the value to compare with.</p>
 </td>
@@ -3613,7 +4153,7 @@ to the provided value.</p>
       </tr>
     </tbody>
   </table>
-  <h5 id="Matchmaker_Patterns_Pattern_LessOrEqual__1_Func___0__System_String__remarks">Remarks</h5>
+  <h5 id="Matchmaker_Patterns_Pattern_LessOrEqual__1_System_Func___0__System_String__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>
 The <code data-dev-comment-type="paramref" class="paramref">valueProvider</code> is not called until this pattern&apos;s
 <a class="xref" href="Matchmaker.Patterns.IPattern-2.html#Matchmaker_Patterns_IPattern_2_Match__0_">Match(TInput)</a> method is called.
@@ -3625,6 +4165,22 @@ so there is a chance that the <code data-dev-comment-type="paramref" class="para
 more than once.
 </p>
 </div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p><code data-dev-comment-type="paramref" class="paramref">valueProvider</code> or <code data-dev-comment-type="paramref" class="paramref">description</code> is <span class="xref">null</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Patterns_Pattern_LessThan__1___0_.md&amp;value=---%0Auid%3A%20Matchmaker.Patterns.Pattern.LessThan%60%601(%60%600)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
@@ -3694,13 +4250,13 @@ more than once.
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Patterns_Pattern_LessThan__1___0_IComparer___0__.md&amp;value=---%0Auid%3A%20Matchmaker.Patterns.Pattern.LessThan%60%601(%60%600%2CIComparer%7B%60%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Patterns_Pattern_LessThan__1___0_System_Collections_Generic_IComparer___0__.md&amp;value=---%0Auid%3A%20Matchmaker.Patterns.Pattern.LessThan%60%601(%60%600%2CSystem.Collections.Generic.IComparer%7B%60%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/Patterns/Pattern.cs/#L593">View Source</a>
   </span>
   <a id="Matchmaker_Patterns_Pattern_LessThan_" data-uid="Matchmaker.Patterns.Pattern.LessThan*"></a>
-  <h4 id="Matchmaker_Patterns_Pattern_LessThan__1___0_IComparer___0__" data-uid="Matchmaker.Patterns.Pattern.LessThan``1(``0,IComparer{``0})">LessThan&lt;TInput&gt;(TInput, IComparer&lt;TInput&gt;)</h4>
+  <h4 id="Matchmaker_Patterns_Pattern_LessThan__1___0_System_Collections_Generic_IComparer___0__" data-uid="Matchmaker.Patterns.Pattern.LessThan``1(``0,System.Collections.Generic.IComparer{``0})">LessThan&lt;TInput&gt;(TInput, IComparer&lt;TInput&gt;)</h4>
   <div class="markdown level1 summary"><p>Returns a pattern which is matched successfully when the input value is less than the specified value
 according to the specified comparer.</p>
 </div>
@@ -3726,7 +4282,7 @@ according to the specified comparer.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">IComparer</span>&lt;TInput&gt;</td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.icomparer-1">IComparer</a>&lt;TInput&gt;</td>
         <td><span class="parametername">comparer</span></td>
         <td><p>The comparer to use for comparison.</p>
 </td>
@@ -3765,15 +4321,31 @@ according to the specified comparer.</p>
       </tr>
     </tbody>
   </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p><code data-dev-comment-type="paramref" class="paramref">comparer</code> is <span class="xref">null</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Patterns_Pattern_LessThan__1___0_IComparer___0__System_String_.md&amp;value=---%0Auid%3A%20Matchmaker.Patterns.Pattern.LessThan%60%601(%60%600%2CIComparer%7B%60%600%7D%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Patterns_Pattern_LessThan__1___0_System_Collections_Generic_IComparer___0__System_String_.md&amp;value=---%0Auid%3A%20Matchmaker.Patterns.Pattern.LessThan%60%601(%60%600%2CSystem.Collections.Generic.IComparer%7B%60%600%7D%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/Patterns/Pattern.cs/#L682">View Source</a>
   </span>
   <a id="Matchmaker_Patterns_Pattern_LessThan_" data-uid="Matchmaker.Patterns.Pattern.LessThan*"></a>
-  <h4 id="Matchmaker_Patterns_Pattern_LessThan__1___0_IComparer___0__System_String_" data-uid="Matchmaker.Patterns.Pattern.LessThan``1(``0,IComparer{``0},System.String)">LessThan&lt;TInput&gt;(TInput, IComparer&lt;TInput&gt;, String)</h4>
+  <h4 id="Matchmaker_Patterns_Pattern_LessThan__1___0_System_Collections_Generic_IComparer___0__System_String_" data-uid="Matchmaker.Patterns.Pattern.LessThan``1(``0,System.Collections.Generic.IComparer{``0},System.String)">LessThan&lt;TInput&gt;(TInput, IComparer&lt;TInput&gt;, String)</h4>
   <div class="markdown level1 summary"><p>Returns a pattern which is matched successfully when the input value is less than the specified value
 according to the specified comparer.</p>
 </div>
@@ -3799,7 +4371,7 @@ according to the specified comparer.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">IComparer</span>&lt;TInput&gt;</td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.icomparer-1">IComparer</a>&lt;TInput&gt;</td>
         <td><span class="parametername">comparer</span></td>
         <td><p>The comparer to use for comparison.</p>
 </td>
@@ -3840,6 +4412,22 @@ according to the specified comparer.</p>
       <tr>
         <td><span class="parametername">TInput</span></td>
         <td><p>The type of the input value of the expression.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p><code data-dev-comment-type="paramref" class="paramref">comparer</code> or <code data-dev-comment-type="paramref" class="paramref">description</code> is <span class="xref">null</span>.</p>
 </td>
       </tr>
     </tbody>
@@ -3917,15 +4505,31 @@ according to the specified comparer.</p>
       </tr>
     </tbody>
   </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p><code data-dev-comment-type="paramref" class="paramref">description</code> is <span class="xref">null</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Patterns_Pattern_LessThan__1_Func___0__.md&amp;value=---%0Auid%3A%20Matchmaker.Patterns.Pattern.LessThan%60%601(Func%7B%60%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Patterns_Pattern_LessThan__1_System_Func___0__.md&amp;value=---%0Auid%3A%20Matchmaker.Patterns.Pattern.LessThan%60%601(System.Func%7B%60%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/Patterns/Pattern.cs/#L576">View Source</a>
   </span>
   <a id="Matchmaker_Patterns_Pattern_LessThan_" data-uid="Matchmaker.Patterns.Pattern.LessThan*"></a>
-  <h4 id="Matchmaker_Patterns_Pattern_LessThan__1_Func___0__" data-uid="Matchmaker.Patterns.Pattern.LessThan``1(Func{``0})">LessThan&lt;TInput&gt;(Func&lt;TInput&gt;)</h4>
+  <h4 id="Matchmaker_Patterns_Pattern_LessThan__1_System_Func___0__" data-uid="Matchmaker.Patterns.Pattern.LessThan``1(System.Func{``0})">LessThan&lt;TInput&gt;(Func&lt;TInput&gt;)</h4>
   <div class="markdown level1 summary"><p>Returns a pattern which is matched successfully when the input value is less than the provided value.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -3945,7 +4549,7 @@ according to the specified comparer.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Func</span>&lt;TInput&gt;</td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;TInput&gt;</td>
         <td><span class="parametername">valueProvider</span></td>
         <td><p>The provider of the value to compare with.</p>
 </td>
@@ -3984,7 +4588,7 @@ according to the specified comparer.</p>
       </tr>
     </tbody>
   </table>
-  <h5 id="Matchmaker_Patterns_Pattern_LessThan__1_Func___0___remarks">Remarks</h5>
+  <h5 id="Matchmaker_Patterns_Pattern_LessThan__1_System_Func___0___remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>
 The <code data-dev-comment-type="paramref" class="paramref">valueProvider</code> is not called until this pattern&apos;s
 <a class="xref" href="Matchmaker.Patterns.IPattern-2.html#Matchmaker_Patterns_IPattern_2_Match__0_">Match(TInput)</a> method is called.
@@ -3996,15 +4600,31 @@ so there is a chance that the <code data-dev-comment-type="paramref" class="para
 more than once.
 </p>
 </div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p><code data-dev-comment-type="paramref" class="paramref">valueProvider</code> is <span class="xref">null</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Patterns_Pattern_LessThan__1_Func___0__IComparer___0__.md&amp;value=---%0Auid%3A%20Matchmaker.Patterns.Pattern.LessThan%60%601(Func%7B%60%600%7D%2CIComparer%7B%60%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Patterns_Pattern_LessThan__1_System_Func___0__System_Collections_Generic_IComparer___0__.md&amp;value=---%0Auid%3A%20Matchmaker.Patterns.Pattern.LessThan%60%601(System.Func%7B%60%600%7D%2CSystem.Collections.Generic.IComparer%7B%60%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/Patterns/Pattern.cs/#L621">View Source</a>
   </span>
   <a id="Matchmaker_Patterns_Pattern_LessThan_" data-uid="Matchmaker.Patterns.Pattern.LessThan*"></a>
-  <h4 id="Matchmaker_Patterns_Pattern_LessThan__1_Func___0__IComparer___0__" data-uid="Matchmaker.Patterns.Pattern.LessThan``1(Func{``0},IComparer{``0})">LessThan&lt;TInput&gt;(Func&lt;TInput&gt;, IComparer&lt;TInput&gt;)</h4>
+  <h4 id="Matchmaker_Patterns_Pattern_LessThan__1_System_Func___0__System_Collections_Generic_IComparer___0__" data-uid="Matchmaker.Patterns.Pattern.LessThan``1(System.Func{``0},System.Collections.Generic.IComparer{``0})">LessThan&lt;TInput&gt;(Func&lt;TInput&gt;, IComparer&lt;TInput&gt;)</h4>
   <div class="markdown level1 summary"><p>Returns a pattern which is matched successfully when the input value is less than the provided value
 according to the specified comparer.</p>
 </div>
@@ -4024,13 +4644,13 @@ according to the specified comparer.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Func</span>&lt;TInput&gt;</td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;TInput&gt;</td>
         <td><span class="parametername">valueProvider</span></td>
         <td><p>The provider of the value to compare with.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">IComparer</span>&lt;TInput&gt;</td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.icomparer-1">IComparer</a>&lt;TInput&gt;</td>
         <td><span class="parametername">comparer</span></td>
         <td><p>The comparer to use for comparison.</p>
 </td>
@@ -4069,7 +4689,7 @@ according to the specified comparer.</p>
       </tr>
     </tbody>
   </table>
-  <h5 id="Matchmaker_Patterns_Pattern_LessThan__1_Func___0__IComparer___0___remarks">Remarks</h5>
+  <h5 id="Matchmaker_Patterns_Pattern_LessThan__1_System_Func___0__System_Collections_Generic_IComparer___0___remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>
 The <code data-dev-comment-type="paramref" class="paramref">valueProvider</code> is not called until this pattern&apos;s
 <a class="xref" href="Matchmaker.Patterns.IPattern-2.html#Matchmaker_Patterns_IPattern_2_Match__0_">Match(TInput)</a> method is called.
@@ -4081,15 +4701,31 @@ so there is a chance that the <code data-dev-comment-type="paramref" class="para
 more than once.
 </p>
 </div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p><code data-dev-comment-type="paramref" class="paramref">valueProvider</code> or <code data-dev-comment-type="paramref" class="paramref">comparer</code> is <span class="xref">null</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Patterns_Pattern_LessThan__1_Func___0__IComparer___0__System_String_.md&amp;value=---%0Auid%3A%20Matchmaker.Patterns.Pattern.LessThan%60%601(Func%7B%60%600%7D%2CIComparer%7B%60%600%7D%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Patterns_Pattern_LessThan__1_System_Func___0__System_Collections_Generic_IComparer___0__System_String_.md&amp;value=---%0Auid%3A%20Matchmaker.Patterns.Pattern.LessThan%60%601(System.Func%7B%60%600%7D%2CSystem.Collections.Generic.IComparer%7B%60%600%7D%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/Patterns/Pattern.cs/#L719">View Source</a>
   </span>
   <a id="Matchmaker_Patterns_Pattern_LessThan_" data-uid="Matchmaker.Patterns.Pattern.LessThan*"></a>
-  <h4 id="Matchmaker_Patterns_Pattern_LessThan__1_Func___0__IComparer___0__System_String_" data-uid="Matchmaker.Patterns.Pattern.LessThan``1(Func{``0},IComparer{``0},System.String)">LessThan&lt;TInput&gt;(Func&lt;TInput&gt;, IComparer&lt;TInput&gt;, String)</h4>
+  <h4 id="Matchmaker_Patterns_Pattern_LessThan__1_System_Func___0__System_Collections_Generic_IComparer___0__System_String_" data-uid="Matchmaker.Patterns.Pattern.LessThan``1(System.Func{``0},System.Collections.Generic.IComparer{``0},System.String)">LessThan&lt;TInput&gt;(Func&lt;TInput&gt;, IComparer&lt;TInput&gt;, String)</h4>
   <div class="markdown level1 summary"><p>Returns a pattern which is matched successfully when the input value is less than the provided value
 according to the specified comparer.</p>
 </div>
@@ -4109,13 +4745,13 @@ according to the specified comparer.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Func</span>&lt;TInput&gt;</td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;TInput&gt;</td>
         <td><span class="parametername">valueProvider</span></td>
         <td><p>The provider of the value to compare with.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">IComparer</span>&lt;TInput&gt;</td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.icomparer-1">IComparer</a>&lt;TInput&gt;</td>
         <td><span class="parametername">comparer</span></td>
         <td><p>The comparer to use for comparison.</p>
 </td>
@@ -4160,7 +4796,7 @@ according to the specified comparer.</p>
       </tr>
     </tbody>
   </table>
-  <h5 id="Matchmaker_Patterns_Pattern_LessThan__1_Func___0__IComparer___0__System_String__remarks">Remarks</h5>
+  <h5 id="Matchmaker_Patterns_Pattern_LessThan__1_System_Func___0__System_Collections_Generic_IComparer___0__System_String__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>
 The <code data-dev-comment-type="paramref" class="paramref">valueProvider</code> is not called until this pattern&apos;s
 <a class="xref" href="Matchmaker.Patterns.IPattern-2.html#Matchmaker_Patterns_IPattern_2_Match__0_">Match(TInput)</a> method is called.
@@ -4172,15 +4808,32 @@ so there is a chance that the <code data-dev-comment-type="paramref" class="para
 more than once.
 </p>
 </div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p><code data-dev-comment-type="paramref" class="paramref">valueProvider</code>, <code data-dev-comment-type="paramref" class="paramref">comparer</code> or <code data-dev-comment-type="paramref" class="paramref">description</code>
+is <span class="xref">null</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Patterns_Pattern_LessThan__1_Func___0__System_String_.md&amp;value=---%0Auid%3A%20Matchmaker.Patterns.Pattern.LessThan%60%601(Func%7B%60%600%7D%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Patterns_Pattern_LessThan__1_System_Func___0__System_String_.md&amp;value=---%0Auid%3A%20Matchmaker.Patterns.Pattern.LessThan%60%601(System.Func%7B%60%600%7D%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/Patterns/Pattern.cs/#L664">View Source</a>
   </span>
   <a id="Matchmaker_Patterns_Pattern_LessThan_" data-uid="Matchmaker.Patterns.Pattern.LessThan*"></a>
-  <h4 id="Matchmaker_Patterns_Pattern_LessThan__1_Func___0__System_String_" data-uid="Matchmaker.Patterns.Pattern.LessThan``1(Func{``0},System.String)">LessThan&lt;TInput&gt;(Func&lt;TInput&gt;, String)</h4>
+  <h4 id="Matchmaker_Patterns_Pattern_LessThan__1_System_Func___0__System_String_" data-uid="Matchmaker.Patterns.Pattern.LessThan``1(System.Func{``0},System.String)">LessThan&lt;TInput&gt;(Func&lt;TInput&gt;, String)</h4>
   <div class="markdown level1 summary"><p>Returns a pattern which is matched successfully when the input value is less than the provided value.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -4200,7 +4853,7 @@ more than once.
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Func</span>&lt;TInput&gt;</td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;TInput&gt;</td>
         <td><span class="parametername">valueProvider</span></td>
         <td><p>The provider of the value to compare with.</p>
 </td>
@@ -4245,7 +4898,7 @@ more than once.
       </tr>
     </tbody>
   </table>
-  <h5 id="Matchmaker_Patterns_Pattern_LessThan__1_Func___0__System_String__remarks">Remarks</h5>
+  <h5 id="Matchmaker_Patterns_Pattern_LessThan__1_System_Func___0__System_String__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>
 The <code data-dev-comment-type="paramref" class="paramref">valueProvider</code> is not called until this pattern&apos;s
 <a class="xref" href="Matchmaker.Patterns.IPattern-2.html#Matchmaker_Patterns_IPattern_2_Match__0_">Match(TInput)</a> method is called.
@@ -4257,6 +4910,22 @@ so there is a chance that the <code data-dev-comment-type="paramref" class="para
 more than once.
 </p>
 </div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p><code data-dev-comment-type="paramref" class="paramref">valueProvider</code> or <code data-dev-comment-type="paramref" class="paramref">description</code> is <span class="xref">null</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Patterns_Pattern_Not__2_Matchmaker_Patterns_IPattern___0___1__.md&amp;value=---%0Auid%3A%20Matchmaker.Patterns.Pattern.Not%60%602(Matchmaker.Patterns.IPattern%7B%60%600%2C%60%601%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
@@ -4332,6 +5001,22 @@ more than once.
   <div class="markdown level1 remarks"><p>This pattern ignores the specified pattern's transformation
 and returns the input value if matched successfully.</p>
 </div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p><code data-dev-comment-type="paramref" class="paramref">pattern</code> is <span class="xref">null</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Patterns_Pattern_Not__2_Matchmaker_Patterns_IPattern___0___1__System_String_.md&amp;value=---%0Auid%3A%20Matchmaker.Patterns.Pattern.Not%60%602(Matchmaker.Patterns.IPattern%7B%60%600%2C%60%601%7D%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
@@ -4413,6 +5098,22 @@ and returns the input value if matched successfully.</p>
   <div class="markdown level1 remarks"><p>This pattern ignores the specified pattern's transformation
 and returns the input value if matched successfully.</p>
 </div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p><code data-dev-comment-type="paramref" class="paramref">pattern</code> or <code data-dev-comment-type="paramref" class="paramref">description</code> is <span class="xref">null</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Patterns_Pattern_Null__1.md&amp;value=---%0Auid%3A%20Matchmaker.Patterns.Pattern.Null%60%601%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
@@ -4525,6 +5226,22 @@ and returns the input value if matched successfully.</p>
       <tr>
         <td><span class="parametername">TInput</span></td>
         <td><p>The type of the input value of the expression.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p><code data-dev-comment-type="paramref" class="paramref">description</code> is <span class="xref">null</span>.</p>
 </td>
       </tr>
     </tbody>
@@ -4685,15 +5402,31 @@ except it returns the specified value instead of the pattern's input.</p>
   <div class="markdown level1 remarks"><p>This pattern is much like the <a class="xref" href="Matchmaker.Patterns.Pattern.html#Matchmaker_Patterns_Pattern_Any__1_System_String_">Any&lt;TInput&gt;(String)</a> pattern,
 except it returns the specified value instead of the pattern's input.</p>
 </div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p><code data-dev-comment-type="paramref" class="paramref">description</code> is <span class="xref">null</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Patterns_Pattern_Return__2_Func___1__.md&amp;value=---%0Auid%3A%20Matchmaker.Patterns.Pattern.Return%60%602(Func%7B%60%601%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Patterns_Pattern_Return__2_System_Func___1__.md&amp;value=---%0Auid%3A%20Matchmaker.Patterns.Pattern.Return%60%602(System.Func%7B%60%601%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/Patterns/Pattern.cs/#L277">View Source</a>
   </span>
   <a id="Matchmaker_Patterns_Pattern_Return_" data-uid="Matchmaker.Patterns.Pattern.Return*"></a>
-  <h4 id="Matchmaker_Patterns_Pattern_Return__2_Func___1__" data-uid="Matchmaker.Patterns.Pattern.Return``2(Func{``1})">Return&lt;TInput, TValue&gt;(Func&lt;TValue&gt;)</h4>
+  <h4 id="Matchmaker_Patterns_Pattern_Return__2_System_Func___1__" data-uid="Matchmaker.Patterns.Pattern.Return``2(System.Func{``1})">Return&lt;TInput, TValue&gt;(Func&lt;TValue&gt;)</h4>
   <div class="markdown level1 summary"><p>Returns a pattern which always successfully returns the provided value, discarding its input value.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -4712,7 +5445,7 @@ except it returns the specified value instead of the pattern's input.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Func</span>&lt;TValue&gt;</td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;TValue&gt;</td>
         <td><span class="parametername">valueProvider</span></td>
         <td><p>The provider of the value to return.</p>
 </td>
@@ -4756,7 +5489,7 @@ except it returns the specified value instead of the pattern's input.</p>
       </tr>
     </tbody>
   </table>
-  <h5 id="Matchmaker_Patterns_Pattern_Return__2_Func___1___remarks">Remarks</h5>
+  <h5 id="Matchmaker_Patterns_Pattern_Return__2_System_Func___1___remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>
 The <code data-dev-comment-type="paramref" class="paramref">valueProvider</code> is not called until this pattern&apos;s
 <a class="xref" href="Matchmaker.Patterns.IPattern-2.html#Matchmaker_Patterns_IPattern_2_Match__0_">Match(TInput)</a> method is called.
@@ -4772,15 +5505,31 @@ This pattern is much like the <a class="xref" href="Matchmaker.Patterns.Pattern.
 except it returns the provided value instead of the pattern&apos;s input.
 </p>
 </div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p><code data-dev-comment-type="paramref" class="paramref">valueProvider</code> is <span class="xref">null</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Patterns_Pattern_Return__2_Func___1__System_String_.md&amp;value=---%0Auid%3A%20Matchmaker.Patterns.Pattern.Return%60%602(Func%7B%60%601%7D%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Patterns_Pattern_Return__2_System_Func___1__System_String_.md&amp;value=---%0Auid%3A%20Matchmaker.Patterns.Pattern.Return%60%602(System.Func%7B%60%601%7D%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/Matchmaker/Patterns/Pattern.cs/#L307">View Source</a>
   </span>
   <a id="Matchmaker_Patterns_Pattern_Return_" data-uid="Matchmaker.Patterns.Pattern.Return*"></a>
-  <h4 id="Matchmaker_Patterns_Pattern_Return__2_Func___1__System_String_" data-uid="Matchmaker.Patterns.Pattern.Return``2(Func{``1},System.String)">Return&lt;TInput, TValue&gt;(Func&lt;TValue&gt;, String)</h4>
+  <h4 id="Matchmaker_Patterns_Pattern_Return__2_System_Func___1__System_String_" data-uid="Matchmaker.Patterns.Pattern.Return``2(System.Func{``1},System.String)">Return&lt;TInput, TValue&gt;(Func&lt;TValue&gt;, String)</h4>
   <div class="markdown level1 summary"><p>Returns a pattern which always successfully returns the provided value, discarding its input value.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -4799,7 +5548,7 @@ except it returns the provided value instead of the pattern&apos;s input.
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Func</span>&lt;TValue&gt;</td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;TValue&gt;</td>
         <td><span class="parametername">valueProvider</span></td>
         <td><p>The provider of the value to return.</p>
 </td>
@@ -4849,7 +5598,7 @@ except it returns the provided value instead of the pattern&apos;s input.
       </tr>
     </tbody>
   </table>
-  <h5 id="Matchmaker_Patterns_Pattern_Return__2_Func___1__System_String__remarks">Remarks</h5>
+  <h5 id="Matchmaker_Patterns_Pattern_Return__2_System_Func___1__System_String__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>
 The <code data-dev-comment-type="paramref" class="paramref">valueProvider</code> is not called until this pattern&apos;s
 <a class="xref" href="Matchmaker.Patterns.IPattern-2.html#Matchmaker_Patterns_IPattern_2_Match__0_">Match(TInput)</a> method is called.
@@ -4865,6 +5614,22 @@ This pattern is much like the <a class="xref" href="Matchmaker.Patterns.Pattern.
 except it returns the provided value instead of the pattern&apos;s input.
 </p>
 </div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p><code data-dev-comment-type="paramref" class="paramref">valueProvider</code> or <code data-dev-comment-type="paramref" class="paramref">description</code> is <span class="xref">null</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Patterns_Pattern_Type__2.md&amp;value=---%0Auid%3A%20Matchmaker.Patterns.Pattern.Type%60%602%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
@@ -4999,6 +5764,22 @@ is a non-nullable value type.</p>
   <div class="markdown level1 remarks"><p>If the input is <span class="xref">null</span>, then this pattern fails only when <code data-dev-comment-type="typeparamref" class="typeparamref">TType</code>
 is a non-nullable value type.</p>
 </div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p><code data-dev-comment-type="paramref" class="paramref">description</code> is <span class="xref">null</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/TolikPylypchuk/Matchmaker/new/master/apiSpec/new?filename=Matchmaker_Patterns_Pattern_ValueNull__1.md&amp;value=---%0Auid%3A%20Matchmaker.Patterns.Pattern.ValueNull%60%601%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
@@ -5111,6 +5892,22 @@ is a non-nullable value type.</p>
       <tr>
         <td><span class="parametername">TInput</span></td>
         <td><p>The type of the input value of the expression.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p><code data-dev-comment-type="paramref" class="paramref">description</code> is <span class="xref">null</span>.</p>
 </td>
       </tr>
     </tbody>
