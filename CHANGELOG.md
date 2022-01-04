@@ -1,6 +1,6 @@
 # Changelog
 
-# v3.0.1
+## v3.0.1
 
 Whats's new in version 3.0.1:
 
@@ -8,8 +8,9 @@ Whats's new in version 3.0.1:
 - Matchmaker is now built with .NET 6 and uses C# 10 (but still targets .NET Standard 2.1)
 - Improved the NuGet package (added a symbol package, a readme, Source Link, and updated the docs)
 - The library is now trimmable
+- GitHub Actions are now used for CI instead of AppVeyor
 
-# v3.0
+## v3.0
 
 Whats's new in version 3.0:
 
@@ -17,7 +18,7 @@ Whats's new in version 3.0:
 - Added support for nullable reference types
 - Added asynchronous pattern matcing
 
-# v2.1
+## v2.1
 
 What's new in version 2.1:
 
@@ -27,7 +28,7 @@ What's new in version 2.1:
 Even though this release contains a potentially breaking change, it is very unlikely that the removal of an
 interface which was designed to be internal will actually break anything.
 
-# v2.0
+## v2.0
 
 What's new in version 2.0 (almost all changes are breaking):
 
