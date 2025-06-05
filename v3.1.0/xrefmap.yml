@@ -1987,15 +1987,6 @@ references:
   fullName.vb: Matchmaker.MatchException.New()
   nameWithType: MatchException.MatchException()
   nameWithType.vb: MatchException.New()
-- uid: Matchmaker.MatchException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
-  name: MatchException(SerializationInfo, StreamingContext)
-  href: api/Matchmaker.MatchException.html#Matchmaker_MatchException__ctor_System_Runtime_Serialization_SerializationInfo_System_Runtime_Serialization_StreamingContext_
-  commentId: M:Matchmaker.MatchException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
-  name.vb: New(SerializationInfo, StreamingContext)
-  fullName: Matchmaker.MatchException.MatchException(System.Runtime.Serialization.SerializationInfo, System.Runtime.Serialization.StreamingContext)
-  fullName.vb: Matchmaker.MatchException.New(System.Runtime.Serialization.SerializationInfo, System.Runtime.Serialization.StreamingContext)
-  nameWithType: MatchException.MatchException(SerializationInfo, StreamingContext)
-  nameWithType.vb: MatchException.New(SerializationInfo, StreamingContext)
 - uid: Matchmaker.MatchException.#ctor(System.String)
   name: MatchException(string)
   href: api/Matchmaker.MatchException.html#Matchmaker_MatchException__ctor_System_String_
