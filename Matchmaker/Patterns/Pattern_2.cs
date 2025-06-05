@@ -52,5 +52,5 @@ public abstract class Pattern<TInput, TMatchResult> : IPattern<TInput, TMatchRes
     /// Otherwise, the name of this pattern's type.
     /// </returns>
     public override string ToString() =>
-        String.IsNullOrEmpty(this.Description) ? base.ToString() : this.Description;
+        String.IsNullOrEmpty(this.Description) ? base.ToString()! : this.Description;
 }

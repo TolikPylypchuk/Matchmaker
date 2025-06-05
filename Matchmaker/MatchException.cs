@@ -2,7 +2,6 @@ namespace Matchmaker;
 
 using System;
 using System.Diagnostics.CodeAnalysis;
-using System.Runtime.Serialization;
 
 /// <summary>
 /// Represents an exception which is thrown when a match expression hasn't found a successful pattern.
@@ -35,14 +34,5 @@ public class MatchException : Exception
     /// <param name="innerException">The exception, which caused this exception.</param>
     public MatchException(string message, Exception innerException)
         : base(message, innerException)
-    { }
-
-    /// <summary>
-    /// Initializes a new instance of the <see cref="MatchException" /> class.
-    /// </summary>
-    /// <param name="info">The serialization info.</param>
-    /// <param name="context">The streaming context.</param>
-    protected MatchException(SerializationInfo info, StreamingContext context)
-        : base(info, context)
     { }
 }

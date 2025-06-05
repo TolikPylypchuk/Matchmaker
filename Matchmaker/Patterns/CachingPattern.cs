@@ -18,7 +18,9 @@ internal sealed class CachingPattern<TInput, TMatchResult> : Pattern<TInput, TMa
     /// <summary>
     /// The dictionary which holds this pattern's cache.
     /// </summary>
-    private readonly Dictionary<TInput, MatchResult<TMatchResult>> cache = new();
+#nullable disable
+    private readonly Dictionary<TInput, MatchResult<TMatchResult>> cache = [];
+#nullable enable
 
     /// <summary>
     /// The cached result for the <see langword="null" /> input.

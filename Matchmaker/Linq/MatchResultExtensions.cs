@@ -1,7 +1,9 @@
 namespace Matchmaker.Linq;
 
 using System;
+#if NETSTANDARD2_1_OR_GREATER || NET8_0_OR_GREATER
 using System.Diagnostics.CodeAnalysis;
+#endif
 using System.Threading.Tasks;
 
 /// <summary>
@@ -19,7 +21,9 @@ public static class MatchResultExtensions
     /// <returns>
     /// The result's value if it's successful, or the default one otherwise.
     /// </returns>
+#if NETSTANDARD2_1_OR_GREATER || NET8_0_OR_GREATER
     [return: MaybeNull]
+#endif
     public static T GetValueOrDefault<T>(this MatchResult<T> result) =>
         result!.GetValueOrDefault(default(T));
 
@@ -32,8 +36,15 @@ public static class MatchResultExtensions
     /// <returns>
     /// The result's value if it's successful, or the default one otherwise.
     /// </returns>
+#if NETSTANDARD2_1_OR_GREATER || NET8_0_OR_GREATER
     [return: MaybeNull]
-    public static T GetValueOrDefault<T>(this MatchResult<T> result, [AllowNull] T defaultValue) =>
+#endif
+    public static T GetValueOrDefault<T>(
+        this MatchResult<T> result,
+#if NETSTANDARD2_1_OR_GREATER || NET8_0_OR_GREATER
+        [AllowNull]
+#endif
+        T defaultValue) =>
         result.IsSuccessful ? result.Value : defaultValue;
 
     /// <summary>
@@ -50,7 +61,9 @@ public static class MatchResultExtensions
     /// <exception cref="ArgumentNullException">
     /// <paramref name="defaultValueProvider" /> is <see langword="null" />.
     /// </exception>
+#if NETSTANDARD2_1_OR_GREATER || NET8_0_OR_GREATER
     [return: MaybeNull]
+#endif
     public static T GetValueOrDefault<T>(this MatchResult<T> result, Func<T> defaultValueProvider) =>
         defaultValueProvider != null
             ? result.IsSuccessful ? result.Value : defaultValueProvider()
@@ -68,7 +81,9 @@ public static class MatchResultExtensions
     /// <exception cref="ArgumentNullException">
     /// <paramref name="exceptionProvider" /> is <see langword="null" />.
     /// </exception>
+#if NETSTANDARD2_1_OR_GREATER || NET8_0_OR_GREATER
     [return: MaybeNull]
+#endif
     public static T GetValueOrThrow<T>(this MatchResult<T> result, Func<Exception> exceptionProvider) =>
         exceptionProvider != null
             ? result.IsSuccessful ? result.Value : throw exceptionProvider()
@@ -225,7 +240,12 @@ public static class MatchResultExtensions
     /// <exception cref="ArgumentNullException">
     /// <paramref name="futureResult" /> is <see langword="null" />.
     /// </exception>
-    public static async Task<T> GetValueOrDefault<T>(this Task<MatchResult<T>> futureResult, [AllowNull] T defaultValue)
+    public static async Task<T> GetValueOrDefault<T>(
+        this Task<MatchResult<T>> futureResult,
+#if NETSTANDARD2_1_OR_GREATER || NET8_0_OR_GREATER
+        [AllowNull]
+#endif
+        T defaultValue)
     {
         var result = await (futureResult ?? throw new ArgumentNullException(nameof(futureResult)));
         return result.IsSuccessful ? result.Value! : defaultValue!;

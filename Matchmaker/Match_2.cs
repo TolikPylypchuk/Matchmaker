@@ -2,7 +2,10 @@ namespace Matchmaker;
 
 using System;
 using System.Collections.Generic;
+#if NETSTANDARD2_1_OR_GREATER || NET8_0_OR_GREATER
 using System.Diagnostics.CodeAnalysis;
+#endif
+
 
 using Matchmaker.Linq;
 using Matchmaker.Patterns;
@@ -170,7 +173,9 @@ public sealed class Match<TInput, TOutput>
     /// <exception cref="MatchException">
     /// The match failed for all cases.
     /// </exception>
+#if NETSTANDARD2_1_OR_GREATER || NET8_0_OR_GREATER
     [return: MaybeNull]
+#endif
     public TOutput ExecuteOn(TInput input) =>
         this.ExecuteNonStrict(input).GetValueOrThrow(() => new MatchException($"Could not match {input}"));
 

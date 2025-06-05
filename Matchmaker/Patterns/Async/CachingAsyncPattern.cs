@@ -19,7 +19,9 @@ internal sealed class CachingAsyncPattern<TInput, TMatchResult> : AsyncPattern<T
     /// <summary>
     /// The dictionary which holds this pattern's cache.
     /// </summary>
+#nullable disable
     private readonly ConcurrentDictionary<TInput, Task<MatchResult<TMatchResult>>> cache = new();
+#nullable enable
 
     /// <summary>
     /// The cached result for the <see langword="null" /> input.

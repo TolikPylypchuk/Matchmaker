@@ -52,5 +52,5 @@ public abstract class AsyncPattern<TInput, TMatchResult> : IAsyncPattern<TInput,
     /// The description of this pattern, if it has one. Otherwise, the name of this pattern's type.
     /// </returns>
     public override string ToString() =>
-        String.IsNullOrEmpty(this.Description) ? base.ToString() : this.Description;
+        String.IsNullOrEmpty(this.Description) ? base.ToString()! : this.Description;
 }

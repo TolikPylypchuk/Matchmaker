@@ -3098,13 +3098,6 @@
             <param name="message">The message which describes this exception.</param>
             <param name="innerException">The exception, which caused this exception.</param>
         </member>
-        <member name="M:Matchmaker.MatchException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
-            <summary>
-            Initializes a new instance of the <see cref="T:Matchmaker.MatchException" /> class.
-            </summary>
-            <param name="info">The serialization info.</param>
-            <param name="context">The streaming context.</param>
-        </member>
         <member name="T:Matchmaker.MatchResult">
             <summary>
             A static class which is used to create match results.
