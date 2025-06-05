@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Introduction </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Introduction ">
+    
+    
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="introduction">Introduction</h1>
+
+<h2 id="a-simple-example">A Simple Example</h2>
+<p>This is what the simplest match expression looks like:</p>
+<pre><code>using static Matchmaker.Patterns.Pattern;
+
+// ...
+
+string result =
+    Match.Create&lt;int, string&gt;()
+        .Case(EqualTo(1), _ =&gt; &quot;one&quot;)
+        .Case(EqualTo(2), _ =&gt; &quot;two&quot;)
+        .Case(EqualTo(3), _ =&gt; &quot;three&quot;)
+        .Case(EqualTo(4), _ =&gt; &quot;four&quot;)
+        .Case(Any&lt;int&gt;(), i =&gt; i.ToString())
+        .ExecuteOn(5);
+</code></pre>
+<p><code>EqualTo</code> is a predefined pattern.</p>
+<p>This is what an equivalent <code>switch</code> statement looks like (pre-C# 8):</p>
+<pre><code>string result;
+int i = 5;
+
+switch (i)
+{
+    case 1:
+        result = &quot;one&quot;;
+        break;
+    case 2:
+        result = &quot;two&quot;;
+        break;
+    case 3:
+        result = &quot;three&quot;;
+        break;
+    case 4:
+        result = &quot;four&quot;;
+        break;
+    default:
+        result = i.ToString();
+        break;
+}
+</code></pre>
+<p>While this example doesn't show the full power of pattern matching, there are a few things to note here:</p>
+<ul>
+<li>The match expression yields a result. We don't have to assign the result explicitly in each case.</li>
+<li>The input of the match expression is specified <em>after</em> all the cases. This allows us to save the match expression
+in an object and use it multiple times on different input values.</li>
+<li>The default case is a pattern, just like any other. It's called <code>Any</code> and is always matched successfully.</li>
+<li>Like in <code>switch</code> the patterns are tried out sequentially. This means that the <code>Any</code> pattern should always
+come last.</li>
+</ul>
+<p>C# 8 included a new way to write <code>switch</code> expressions which yield a value, and C# 9 extended it quite a bit. This
+drastically reduced the need for external libraries like this one for pattern matching. However, this library lets the
+user define arbitrary patterns, which makes this library more powerful than the <code>switch</code> expressions.</p>
+<p>Here's what the equivalent switch expression looks like in C# 8:</p>
+<pre><code>int i = 5;
+
+string result = i switch
+{
+    1 =&gt; &quot;one&quot;,
+    2 =&gt; &quot;two&quot;,
+    3 =&gt; &quot;three&quot;,
+    4 =&gt; &quot;four&quot;,
+    _ =&gt; i.ToString()
+};
+</code></pre>
+<p>OK, this is much shorter and cleaner than the previous two examples. But this library shines when the patterns are
+more complex. While C# allowes various kinds of patterns, this library allows anything you can think about.</p>
+<h2 id="performance">Performance</h2>
+<p>Versions 1.x used the DLR to provide type-safe pattern matching on any types without having to remember all those types.
+Thus, the performance was <em>much</em> worse than C#'s switch statements/expressions (even though I didn't perform any
+benchmarks).</p>
+<p>Versions 2+ of this library don't use the DLR anymore - I've found a better way to do this, and frankly, I'm amazed I
+didn't think of this way before. So, I'm guessing the performance of the new versions must be much better than versions
+1.x.</p>
+<h2 id="more-info">More Info</h2>
+<p>If you want to learn how to use this library, you should read these articles. They provide everything you need to know
+to use this library.</p>
+<p>If you need extensive information, go to the <a href="../api/index.html">API reference</a>.</p>
+<p>If you need even more info about this library, you can go through the
+<a href="https://github.com/TolikPylypchuk/Matchmaker/tree/v3.0.0/Matchmaker.Tests">tests</a>. They are property-based and as such
+they describe every aspect of the classes and their members. They cover 100% of this library's code (except
+the <code>MatchException</code> class which is trivial).</p>
+<p>Next article: <a href="results.html">Match results</a>.</p>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/docs/articles/intro.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      <div>Copyright (c) 2018 Anatoliy Pylypchuk</div><span>Generated by <strong>DocFx</strong>.</span> <span>Icons made by <a href="https" : www.flaticon.com authors roundicons" title="Roundicons">Roundicons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></span>
+      
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Nullable Reference Types </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Nullable Reference Types ">
+    
+    
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="nullable-reference-types">Nullable Reference Types</h1>
+
+<p>Starting with version 3.0 support for nullable reference types (NRTs) is enabled.</p>
+<p>Support for NRTs is limited in this library because it uses generics extensively, and generics don't play nicely with
+NRTs.</p>
+<p>Since match expressions can work will <code>null</code>, their return types are marked as such. Match results may also contain
+<code>null</code> values. This may be inconvenient if you know that <code>null</code> values are not used as match results.</p>
+<p>In addition, extensions in <code>Matchmaker.Linq</code> also don't fully support NRTs. Look at the (simplified) implementation
+of the <code>Select</code> extension for match results:</p>
+<pre><code>public static MatchResult&lt;TResult&gt; Select&lt;T, TResult&gt;(this MatchResult&lt;T&gt; result, Func&lt;T, TResult&gt; mapper) =&gt;
+    result.IsSuccessful ? MatchResult.Success(mapper(result.Value!)) : MatchResult.Failure&lt;TResult&gt;();
+</code></pre>
+<p>Here's the interesting part: <code>mapper(result.Value!)</code>. There is no way to tell C# that <code>mapper</code> can receive <code>null</code>
+inputs, because <code>T</code> is generic and we cannot use <code>T?</code>.</p>
+<p>Since extensions for patterns use extensions for match results, this also applies to extensions for patterns. There is
+no way to tell C# that functions passed to those extensions can receive <code>null</code>, but they can, and this should be
+accounted for.</p>
+<p>When using this library with NRTs enabled, remember two things:</p>
+<ul>
+<li><code>MatchResult&lt;T&gt;</code> may contain <code>null</code> and so patterns can return <code>null</code> as their results as well</li>
+<li>Match expressions' results may be <code>null</code></li>
+</ul>
+<p>Next article: <a href="migration.html">Migration guide</a></p>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/master/docs/articles/nullable.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      <div>Copyright (c) 2018 Anatoliy Pylypchuk</div><span>Generated by <strong>DocFx</strong>.</span> <span>Icons made by <a href="https" : www.flaticon.com authors roundicons" title="Roundicons">Roundicons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></span>
+      
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>
