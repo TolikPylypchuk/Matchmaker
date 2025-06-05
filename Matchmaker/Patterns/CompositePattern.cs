@@ -1,7 +1,5 @@
 namespace Matchmaker.Patterns;
 
-using System;
-
 /// <summary>
 /// Represents a pattern which is composed of two other patterns.
 /// </summary>

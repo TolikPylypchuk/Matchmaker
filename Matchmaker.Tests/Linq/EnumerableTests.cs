@@ -1,15 +1,5 @@
 namespace Matchmaker.Linq;
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-
-using FluentAssertions;
-
-using FsCheck;
-
-using Xunit;
-
 public class EnumerableTests
 {
     [Fact]

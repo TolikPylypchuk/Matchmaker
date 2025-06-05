@@ -1,16 +1,5 @@
 namespace Matchmaker.Patterns.Async;
 
-using System;
-using System.Threading.Tasks;
-
-using FluentAssertions;
-using FluentAssertions.Execution;
-
-using FsCheck;
-using FsCheck.Xunit;
-
-using Xunit;
-
 public class AsyncPatternTests
 {
     [Property(Arbitrary = new[] { typeof(Generators) })]

@@ -1,17 +1,5 @@
 namespace Matchmaker;
 
-using System;
-using System.Linq;
-
-using FluentAssertions;
-
-using FsCheck;
-using FsCheck.Xunit;
-
-using Matchmaker.Patterns;
-
-using Xunit;
-
 public class MatchStatementBuilderTests
 {
     [Fact]

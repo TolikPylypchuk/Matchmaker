@@ -1,19 +1,5 @@
 namespace Matchmaker;
 
-using System;
-using System.Linq;
-using System.Threading.Tasks;
-
-using FluentAssertions;
-
-using FsCheck;
-using FsCheck.Xunit;
-
-using Matchmaker.Patterns;
-using Matchmaker.Patterns.Async;
-
-using Xunit;
-
 public class AsyncMatchStatementTests
 {
     [Fact]

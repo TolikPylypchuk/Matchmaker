@@ -1,17 +1,5 @@
 namespace Matchmaker.Patterns.Async;
 
-using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-
-using FluentAssertions;
-using FluentAssertions.Execution;
-
-using FsCheck;
-using FsCheck.Xunit;
-
-using Xunit;
-
 public class LessOrEqualTests
 {
     private static readonly IComparer<string> StringComparer = Comparer<string>.Default;

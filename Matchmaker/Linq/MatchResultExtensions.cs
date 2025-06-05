@@ -1,11 +1,5 @@
 namespace Matchmaker.Linq;
 
-using System;
-#if NETSTANDARD2_1_OR_GREATER || NET8_0_OR_GREATER
-using System.Diagnostics.CodeAnalysis;
-#endif
-using System.Threading.Tasks;
-
 /// <summary>
 /// A container class for extension methods for <see cref="MatchResult{T}" />.
 /// </summary>
@@ -21,7 +15,7 @@ public static class MatchResultExtensions
     /// <returns>
     /// The result's value if it's successful, or the default one otherwise.
     /// </returns>
-#if NETSTANDARD2_1_OR_GREATER || NET8_0_OR_GREATER
+#if NETSTANDARD2_1_OR_GREATER || NET6_0_OR_GREATER
     [return: MaybeNull]
 #endif
     public static T GetValueOrDefault<T>(this MatchResult<T> result) =>
@@ -36,12 +30,12 @@ public static class MatchResultExtensions
     /// <returns>
     /// The result's value if it's successful, or the default one otherwise.
     /// </returns>
-#if NETSTANDARD2_1_OR_GREATER || NET8_0_OR_GREATER
+#if NETSTANDARD2_1_OR_GREATER || NET6_0_OR_GREATER
     [return: MaybeNull]
 #endif
     public static T GetValueOrDefault<T>(
         this MatchResult<T> result,
-#if NETSTANDARD2_1_OR_GREATER || NET8_0_OR_GREATER
+#if NETSTANDARD2_1_OR_GREATER || NET6_0_OR_GREATER
         [AllowNull]
 #endif
         T defaultValue) =>
@@ -61,7 +55,7 @@ public static class MatchResultExtensions
     /// <exception cref="ArgumentNullException">
     /// <paramref name="defaultValueProvider" /> is <see langword="null" />.
     /// </exception>
-#if NETSTANDARD2_1_OR_GREATER || NET8_0_OR_GREATER
+#if NETSTANDARD2_1_OR_GREATER || NET6_0_OR_GREATER
     [return: MaybeNull]
 #endif
     public static T GetValueOrDefault<T>(this MatchResult<T> result, Func<T> defaultValueProvider) =>
@@ -81,7 +75,7 @@ public static class MatchResultExtensions
     /// <exception cref="ArgumentNullException">
     /// <paramref name="exceptionProvider" /> is <see langword="null" />.
     /// </exception>
-#if NETSTANDARD2_1_OR_GREATER || NET8_0_OR_GREATER
+#if NETSTANDARD2_1_OR_GREATER || NET6_0_OR_GREATER
     [return: MaybeNull]
 #endif
     public static T GetValueOrThrow<T>(this MatchResult<T> result, Func<Exception> exceptionProvider) =>
@@ -242,7 +236,7 @@ public static class MatchResultExtensions
     /// </exception>
     public static async Task<T> GetValueOrDefault<T>(
         this Task<MatchResult<T>> futureResult,
-#if NETSTANDARD2_1_OR_GREATER || NET8_0_OR_GREATER
+#if NETSTANDARD2_1_OR_GREATER || NET6_0_OR_GREATER
         [AllowNull]
 #endif
         T defaultValue)

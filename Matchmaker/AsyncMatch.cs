@@ -1,7 +1,6 @@
-namespace Matchmaker;
-
-using System;
 using System.Runtime.CompilerServices;
+
+namespace Matchmaker;
 
 /// <summary>
 /// A static class which is used to create asynchronous match expressions.

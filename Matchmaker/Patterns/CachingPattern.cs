@@ -1,8 +1,5 @@
 namespace Matchmaker.Patterns;
 
-using System;
-using System.Collections.Generic;
-
 /// <summary>
 /// Represents a pattern which caches another pattern's results.
 /// </summary>

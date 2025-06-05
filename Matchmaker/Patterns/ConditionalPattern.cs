@@ -1,9 +1,5 @@
 namespace Matchmaker.Patterns;
 
-using System;
-
-using Matchmaker.Linq;
-
 /// <summary>
 /// Represents a pattern with an additional condition.
 /// </summary>

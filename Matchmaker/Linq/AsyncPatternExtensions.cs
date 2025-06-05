@@ -1,12 +1,6 @@
-namespace Matchmaker.Linq;
-
-using System;
-using System.Threading.Tasks;
-
-using Matchmaker.Patterns;
-using Matchmaker.Patterns.Async;
-
 using static Matchmaker.Patterns.Async.AsyncPattern;
+
+namespace Matchmaker.Linq;
 
 /// <summary>
 /// A container class for extension methods for <see cref="IAsyncPattern{TInput, TMatchResult}" />.

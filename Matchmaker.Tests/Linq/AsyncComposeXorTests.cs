@@ -1,16 +1,5 @@
 namespace Matchmaker.Linq;
 
-using System;
-using System.Threading.Tasks;
-
-using FluentAssertions;
-
-using FsCheck;
-using FsCheck.Xunit;
-
-using Matchmaker.Patterns;
-using Matchmaker.Patterns.Async;
-
 public class AsyncComposeXorTests
 {
     [Property(Arbitrary = new[] { typeof(Generators) })]

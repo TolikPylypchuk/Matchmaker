@@ -1,8 +1,5 @@
 namespace Matchmaker.Patterns;
 
-using System;
-using System.Collections.Generic;
-
 /// <summary>
 /// Contains factory methods for creating patterns.
 /// </summary>

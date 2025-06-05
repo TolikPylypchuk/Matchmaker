@@ -1,15 +1,5 @@
 namespace Matchmaker.Linq;
 
-using System;
-
-using FluentAssertions;
-using FluentAssertions.Execution;
-
-using FsCheck;
-using FsCheck.Xunit;
-
-using Xunit;
-
 public class MatchResultExtensionsTests
 {
     [Property(Arbitrary = new[] { typeof(Generators) })]

@@ -1,7 +1,5 @@
 namespace Matchmaker.Patterns;
 
-using Matchmaker.Linq;
-
 /// <summary>
 /// Represnts types of pattern composition.
 /// </summary>

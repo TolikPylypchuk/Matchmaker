@@ -1,14 +1,5 @@
 namespace Matchmaker.Linq;
 
-using System;
-
-using FluentAssertions;
-
-using FsCheck;
-using FsCheck.Xunit;
-
-using Matchmaker.Patterns;
-
 public class WhereTests
 {
     [Property(Arbitrary = new[] { typeof(Generators) })]

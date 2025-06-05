@@ -1,7 +1,5 @@
 namespace Matchmaker.Patterns;
 
-using Matchmaker.Linq;
-
 /// <summary>
 /// Represents a pattern to match with in a match expression.
 /// </summary>

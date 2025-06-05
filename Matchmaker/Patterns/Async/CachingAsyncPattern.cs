@@ -1,8 +1,6 @@
-namespace Matchmaker.Patterns.Async;
-
-using System;
 using System.Collections.Concurrent;
-using System.Threading.Tasks;
+
+namespace Matchmaker.Patterns.Async;
 
 /// <summary>
 /// Represents a pattern which caches another pattern's results.

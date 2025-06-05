@@ -1,7 +1,5 @@
 namespace Matchmaker.Patterns;
 
-using System;
-
 /// <summary>
 /// Represents a pattern which uses a function to match its inputs.
 /// </summary>

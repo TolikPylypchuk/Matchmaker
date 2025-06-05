@@ -1,8 +1,5 @@
 namespace Matchmaker;
 
-using System;
-using System.Threading.Tasks;
-
 /// <summary>
 /// Contains extension methods for internal use.
 /// </summary>

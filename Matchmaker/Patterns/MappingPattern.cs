@@ -1,9 +1,5 @@
 namespace Matchmaker.Patterns;
 
-using System;
-
-using Matchmaker.Linq;
-
 /// <summary>
 /// Represents a pattern which maps another pattern's result.
 /// </summary>

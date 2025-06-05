@@ -1,8 +1,5 @@
 namespace Matchmaker.Patterns.Async;
 
-using System;
-using System.Threading.Tasks;
-
 /// <summary>
 /// Represents a pattern to match with in an asynchronous match expression.
 /// </summary>

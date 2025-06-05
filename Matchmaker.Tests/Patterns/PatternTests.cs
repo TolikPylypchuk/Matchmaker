@@ -1,15 +1,5 @@
 namespace Matchmaker.Patterns;
 
-using System;
-
-using FluentAssertions;
-using FluentAssertions.Execution;
-
-using FsCheck;
-using FsCheck.Xunit;
-
-using Xunit;
-
 public class PatternTests
 {
     [Property(Arbitrary = new[] { typeof(Generators) })]

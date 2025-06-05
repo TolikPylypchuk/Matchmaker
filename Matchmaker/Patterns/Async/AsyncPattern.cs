@@ -1,9 +1,5 @@
 namespace Matchmaker.Patterns.Async;
 
-using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-
 /// <summary>
 /// Contains factory methods for creating asynchronous patterns.
 /// </summary>

@@ -1,8 +1,5 @@
 namespace Matchmaker;
 
-using System;
-using System.Diagnostics.CodeAnalysis;
-
 /// <summary>
 /// Represents an exception which is thrown when a match expression hasn't found a successful pattern.
 /// </summary>

@@ -1,11 +1,6 @@
-namespace Matchmaker.Linq;
-
-using System;
-
-using Matchmaker.Patterns;
-using Matchmaker.Patterns.Async;
-
 using static Matchmaker.Patterns.Pattern;
+
+namespace Matchmaker.Linq;
 
 /// <summary>
 /// A container class for extension methods for <see cref="IPattern{TInput, TMatchResult}" />.

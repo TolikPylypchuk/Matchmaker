@@ -1,16 +1,5 @@
 namespace Matchmaker.Patterns;
 
-using System;
-using System.Collections.Generic;
-
-using FluentAssertions;
-using FluentAssertions.Execution;
-
-using FsCheck;
-using FsCheck.Xunit;
-
-using Xunit;
-
 public class LessThanTests
 {
     private static readonly IComparer<string> StringComparer = Comparer<string>.Default;

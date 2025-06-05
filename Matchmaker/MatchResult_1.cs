@@ -1,12 +1,5 @@
 namespace Matchmaker;
 
-using System;
-#if NETSTANDARD2_1_OR_GREATER || NET8_0_OR_GREATER
-using System.Diagnostics.CodeAnalysis;
-#endif
-
-using Matchmaker.Linq;
-
 /// <summary>
 /// Represents the result of a pattern match.
 /// </summary>
@@ -22,7 +15,7 @@ public readonly struct MatchResult<T> : IEquatable<MatchResult<T>>
     /// <summary>
     /// The value of the result if it's successful.
     /// </summary>
-#if NETSTANDARD2_1_OR_GREATER || NET8_0_OR_GREATER
+#if NETSTANDARD2_1_OR_GREATER || NET6_0_OR_GREATER
     [AllowNull]
     [MaybeNull]
 #endif
@@ -35,7 +28,7 @@ public readonly struct MatchResult<T> : IEquatable<MatchResult<T>>
     /// <param name="value">The value of the result, if it is successful.</param>
     internal MatchResult(
         bool isSuccessful,
-#if NETSTANDARD2_1_OR_GREATER || NET8_0_OR_GREATER
+#if NETSTANDARD2_1_OR_GREATER || NET6_0_OR_GREATER
         [AllowNull]
 #endif
         T value)
@@ -56,7 +49,7 @@ public readonly struct MatchResult<T> : IEquatable<MatchResult<T>>
     /// <exception cref="InvalidOperationException">
     /// The result is not successful.
     /// </exception>
-#if NETSTANDARD2_1_OR_GREATER || NET8_0_OR_GREATER
+#if NETSTANDARD2_1_OR_GREATER || NET6_0_OR_GREATER
     [MaybeNull]
 #endif
     public T Value =>
@@ -96,7 +89,7 @@ public readonly struct MatchResult<T> : IEquatable<MatchResult<T>>
     /// </summary>
     /// <returns>The hash code of this match result.</returns>
     public override int GetHashCode() =>
-#if NETSTANDARD2_1_OR_GREATER || NET8_0_OR_GREATER
+#if NETSTANDARD2_1_OR_GREATER || NET6_0_OR_GREATER
         HashCode.Combine(this.IsSuccessful, this.value);
 #else
         this.value?.GetHashCode() ?? 0;

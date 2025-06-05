@@ -1,16 +1,5 @@
 namespace Matchmaker;
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-using FsCheck;
-
-using Matchmaker.Linq;
-using Matchmaker.Patterns;
-using Matchmaker.Patterns.Async;
-
 public static class Generators
 {
     public static Arbitrary<IPattern<string, string>> ArbPattern() =>

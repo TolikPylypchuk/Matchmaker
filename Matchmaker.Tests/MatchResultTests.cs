@@ -1,14 +1,5 @@
 namespace Matchmaker;
 
-using System;
-
-using FluentAssertions;
-
-using FsCheck;
-using FsCheck.Xunit;
-
-using Xunit;
-
 public class MatchResultTests
 {
     [Property]

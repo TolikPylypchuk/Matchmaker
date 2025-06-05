@@ -1,7 +1,5 @@
 namespace Matchmaker.Patterns;
 
-using System;
-
 /// <summary>
 /// Represents a base class for patterns.
 /// </summary>

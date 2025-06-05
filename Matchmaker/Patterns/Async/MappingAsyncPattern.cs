@@ -1,10 +1,5 @@
 namespace Matchmaker.Patterns.Async;
 
-using System;
-using System.Threading.Tasks;
-
-using Matchmaker.Linq;
-
 /// <summary>
 /// Represents a pattern which maps another pattern's result.
 /// </summary>

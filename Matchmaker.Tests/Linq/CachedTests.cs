@@ -1,16 +1,5 @@
 namespace Matchmaker.Linq;
 
-using System;
-
-using FluentAssertions;
-
-using FsCheck;
-using FsCheck.Xunit;
-
-using Matchmaker.Patterns;
-
-using Xunit;
-
 public class CachedTests
 {
     [Property(Arbitrary = new[] { typeof(Generators) })]

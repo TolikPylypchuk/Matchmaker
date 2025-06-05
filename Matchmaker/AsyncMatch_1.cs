@@ -1,13 +1,6 @@
-namespace Matchmaker;
-
-using System;
 using System.Collections.Concurrent;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 
-using Matchmaker.Linq;
-using Matchmaker.Patterns;
-using Matchmaker.Patterns.Async;
+namespace Matchmaker;
 
 /// <summary>
 /// Represents an asynchronous match statement - a match expression that doesn't yield a value.

@@ -1,9 +1,5 @@
 namespace Matchmaker;
 
-#if NETSTANDARD2_1_OR_GREATER || NET8_0_OR_GREATER
-using System.Diagnostics.CodeAnalysis;
-#endif
-
 /// <summary>
 /// A static class which is used to create match results.
 /// </summary>
@@ -16,7 +12,7 @@ public static class MatchResult
     /// <param name="value">The value of the result.</param>
     /// <returns>A successful match result with the specified value.</returns>
     public static MatchResult<T> Success<T>(
-#if NETSTANDARD2_1_OR_GREATER || NET8_0_OR_GREATER
+#if NETSTANDARD2_1_OR_GREATER || NET6_0_OR_GREATER
         [AllowNull]
 #endif
         T value) =>

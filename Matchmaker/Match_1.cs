@@ -1,11 +1,5 @@
 namespace Matchmaker;
 
-using System;
-using System.Collections.Generic;
-
-using Matchmaker.Linq;
-using Matchmaker.Patterns;
-
 /// <summary>
 /// Represents a match statement - a match expression that doesn't yield a value.
 /// </summary>
