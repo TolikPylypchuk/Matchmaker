@@ -13,7 +13,6 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
-    <Nullable>disable</Nullable>
     <NoWarn>$(NoWarn);nullable</NoWarn>
   </PropertyGroup>
 
@@ -30,8 +29,7 @@
     <RepositoryType>git</RepositoryType>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     <Version>3.1.0</Version>
-    <PackageLicenseFile>LICENSE</PackageLicenseFile>
-    <PackageLicenseUrl></PackageLicenseUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageIcon>logo.png</PackageIcon>
     <PackageIconUrl></PackageIconUrl>
     <PackageReadmeFile>README.md</PackageReadmeFile>
@@ -46,10 +44,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="..\LICENSE">
-      <Pack>True</Pack>
-      <PackagePath></PackagePath>
-    </None>
     <None Include="..\logo.png">
       <Pack>True</Pack>
       <PackagePath></PackagePath>
