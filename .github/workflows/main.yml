@@ -3,15 +3,12 @@ name: Build and Publish
 on:
   push:
     branches:
-      - master
+      - main
     tags:
       - v*.*.*
       - v*.*.*-preview.*
 
   workflow_dispatch:
-
-env:
-  MATCHMAKER_VERSION: v3.1.0
 
 jobs:
   build:
@@ -58,10 +55,10 @@ jobs:
         with:
           github_token: ${{secrets.GITHUB_TOKEN}}
           publish_dir: docs-dest/
-          destination_dir: ${{env.MATCHMAKER_VERSION}}
           user_name: "Tolik Pylypchuk"
           user_email: "pylypchuk.tolik@gmail.com"
           commit_message: "Deploy docs to GitHub Pages"
+          cname: matchmaker.tolik.io
 
   publish:
     runs-on: windows-latest
