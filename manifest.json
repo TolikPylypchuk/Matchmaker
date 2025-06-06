@@ -1,0 +1,572 @@
+{
+  "source_base_path": "D:/a/Matchmaker/Matchmaker/docs",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Matchmaker.AsyncMatch-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Matchmaker.AsyncMatch-1.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Matchmaker.AsyncMatch<TInput>",
+      "Summary": "<p sourcefile=\"api/Matchmaker.AsyncMatch-1.yml\" sourcestartlinenumber=\"1\">Represents an asynchronous match statement - a match expression that doesn't yield a value.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Matchmaker.AsyncMatch-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Matchmaker.AsyncMatch-2.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Matchmaker.AsyncMatch<TInput, TOutput>",
+      "Summary": "<p sourcefile=\"api/Matchmaker.AsyncMatch-2.yml\" sourcestartlinenumber=\"1\">Represents an asynchronous match expression.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Matchmaker.AsyncMatch.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Matchmaker.AsyncMatch.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Matchmaker.AsyncMatch",
+      "Summary": "<p sourcefile=\"api/Matchmaker.AsyncMatch.yml\" sourcestartlinenumber=\"1\">A static class which is used to create asynchronous match expressions.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Matchmaker.AsyncMatchBuilder-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Matchmaker.AsyncMatchBuilder-1.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Matchmaker.AsyncMatchBuilder<TInput>",
+      "Summary": "<p sourcefile=\"api/Matchmaker.AsyncMatchBuilder-1.yml\" sourcestartlinenumber=\"1\">Represents an asynchronous match statement builder.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Matchmaker.AsyncMatchBuilder-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Matchmaker.AsyncMatchBuilder-2.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Matchmaker.AsyncMatchBuilder<TInput, TOutput>",
+      "Summary": "<p sourcefile=\"api/Matchmaker.AsyncMatchBuilder-2.yml\" sourcestartlinenumber=\"1\">Represents an asynchronous match expression builder.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Matchmaker.Linq.AsyncPatternExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Matchmaker.Linq.AsyncPatternExtensions.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Matchmaker.Linq.AsyncPatternExtensions",
+      "Summary": "<p sourcefile=\"api/Matchmaker.Linq.AsyncPatternExtensions.yml\" sourcestartlinenumber=\"1\">A container class for extension methods for <xref href=\"Matchmaker.Patterns.Async.IAsyncPattern%602\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Matchmaker.Linq.MatchExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Matchmaker.Linq.MatchExtensions.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Matchmaker.Linq.MatchExtensions",
+      "Summary": "<p sourcefile=\"api/Matchmaker.Linq.MatchExtensions.yml\" sourcestartlinenumber=\"1\">A general container class for extension methods.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Matchmaker.Linq.MatchResultExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Matchmaker.Linq.MatchResultExtensions.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Matchmaker.Linq.MatchResultExtensions",
+      "Summary": "<p sourcefile=\"api/Matchmaker.Linq.MatchResultExtensions.yml\" sourcestartlinenumber=\"1\">A container class for extension methods for <xref href=\"Matchmaker.MatchResult%601\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Matchmaker.Linq.PatternExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Matchmaker.Linq.PatternExtensions.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Matchmaker.Linq.PatternExtensions",
+      "Summary": "<p sourcefile=\"api/Matchmaker.Linq.PatternExtensions.yml\" sourcestartlinenumber=\"1\">A container class for extension methods for <xref href=\"Matchmaker.Patterns.IPattern%602\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Matchmaker.Linq.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Matchmaker.Linq.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Matchmaker.Linq",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Matchmaker.Match-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Matchmaker.Match-1.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Matchmaker.Match<TInput>",
+      "Summary": "<p sourcefile=\"api/Matchmaker.Match-1.yml\" sourcestartlinenumber=\"1\">Represents a match statement - a match expression that doesn't yield a value.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Matchmaker.Match-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Matchmaker.Match-2.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Matchmaker.Match<TInput, TOutput>",
+      "Summary": "<p sourcefile=\"api/Matchmaker.Match-2.yml\" sourcestartlinenumber=\"1\">Represents a match expression.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Matchmaker.Match.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Matchmaker.Match.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Matchmaker.Match",
+      "Summary": "<p sourcefile=\"api/Matchmaker.Match.yml\" sourcestartlinenumber=\"1\">A static class which is used to create match expressions.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Matchmaker.MatchBuilder-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Matchmaker.MatchBuilder-1.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Matchmaker.MatchBuilder<TInput>",
+      "Summary": "<p sourcefile=\"api/Matchmaker.MatchBuilder-1.yml\" sourcestartlinenumber=\"1\">Represents a match statement builder.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Matchmaker.MatchBuilder-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Matchmaker.MatchBuilder-2.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Matchmaker.MatchBuilder<TInput, TOutput>",
+      "Summary": "<p sourcefile=\"api/Matchmaker.MatchBuilder-2.yml\" sourcestartlinenumber=\"1\">Represents a match expression builder.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Matchmaker.MatchException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Matchmaker.MatchException.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Matchmaker.MatchException",
+      "Summary": "<p sourcefile=\"api/Matchmaker.MatchException.yml\" sourcestartlinenumber=\"1\">Represents an exception which is thrown when a match expression hasn't found a successful pattern.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Matchmaker.MatchResult-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Matchmaker.MatchResult-1.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Matchmaker.MatchResult<T>",
+      "Summary": "<p sourcefile=\"api/Matchmaker.MatchResult-1.yml\" sourcestartlinenumber=\"1\">Represents the result of a pattern match.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Matchmaker.MatchResult.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Matchmaker.MatchResult.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Matchmaker.MatchResult",
+      "Summary": "<p sourcefile=\"api/Matchmaker.MatchResult.yml\" sourcestartlinenumber=\"1\">A static class which is used to create match results.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Matchmaker.Patterns.Async.AsyncPattern-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Matchmaker.Patterns.Async.AsyncPattern-2.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Matchmaker.Patterns.Async.AsyncPattern<TInput, TMatchResult>",
+      "Summary": "<p sourcefile=\"api/Matchmaker.Patterns.Async.AsyncPattern-2.yml\" sourcestartlinenumber=\"1\">Represents a base class for asynchronous patterns.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Matchmaker.Patterns.Async.AsyncPattern.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Matchmaker.Patterns.Async.AsyncPattern.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Matchmaker.Patterns.Async.AsyncPattern",
+      "Summary": "<p sourcefile=\"api/Matchmaker.Patterns.Async.AsyncPattern.yml\" sourcestartlinenumber=\"1\">Contains factory methods for creating asynchronous patterns.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Matchmaker.Patterns.Async.IAsyncPattern-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Matchmaker.Patterns.Async.IAsyncPattern-2.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Matchmaker.Patterns.Async.IAsyncPattern<TInput, TMatchResult>",
+      "Summary": "<p sourcefile=\"api/Matchmaker.Patterns.Async.IAsyncPattern-2.yml\" sourcestartlinenumber=\"1\">Represents a pattern to match with in an asynchronous match expression.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Matchmaker.Patterns.Async.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Matchmaker.Patterns.Async.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Matchmaker.Patterns.Async",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Matchmaker.Patterns.IPattern-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Matchmaker.Patterns.IPattern-2.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Matchmaker.Patterns.IPattern<TInput, TMatchResult>",
+      "Summary": "<p sourcefile=\"api/Matchmaker.Patterns.IPattern-2.yml\" sourcestartlinenumber=\"1\">Represents a pattern to match with in a match expression.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Matchmaker.Patterns.Pattern-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Matchmaker.Patterns.Pattern-2.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Matchmaker.Patterns.Pattern<TInput, TMatchResult>",
+      "Summary": "<p sourcefile=\"api/Matchmaker.Patterns.Pattern-2.yml\" sourcestartlinenumber=\"1\">Represents a base class for patterns.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Matchmaker.Patterns.Pattern.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Matchmaker.Patterns.Pattern.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Matchmaker.Patterns.Pattern",
+      "Summary": "<p sourcefile=\"api/Matchmaker.Patterns.Pattern.yml\" sourcestartlinenumber=\"1\">Contains factory methods for creating patterns.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Matchmaker.Patterns.PatternComposition.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Matchmaker.Patterns.PatternComposition.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Matchmaker.Patterns.PatternComposition",
+      "Summary": "<p sourcefile=\"api/Matchmaker.Patterns.PatternComposition.yml\" sourcestartlinenumber=\"1\">Represnts types of pattern composition.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Matchmaker.Patterns.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Matchmaker.Patterns.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Matchmaker.Patterns",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Matchmaker.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Matchmaker.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Matchmaker",
+      "Summary": null
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "api/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "api/index.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "api/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/toc.html"
+        },
+        ".json": {
+          "relative_path": "api/toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/async.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/async.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/expressions.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/expressions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/intro.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/intro.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/migration.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/migration.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/nullable.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/nullable.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/patterns.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/patterns.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/results.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/results.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "articles/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "articles/toc.html"
+        },
+        ".json": {
+          "relative_path": "articles/toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/unions.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/unions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/why.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/why.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "favicon.ico",
+      "output": {
+        "resource": {
+          "relative_path": "favicon.ico"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "logo.svg",
+      "output": {
+        "resource": {
+          "relative_path": "logo.svg"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "toc.html"
+        },
+        ".json": {
+          "relative_path": "toc.json"
+        }
+      },
+      "version": ""
+    }
+  ],
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}
