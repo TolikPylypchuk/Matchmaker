@@ -1,86 +1,141 @@
 <!DOCTYPE html>
-<!--[if IE]><![endif]-->
-<html>
-
+<html lang="en">
   <head>
     <meta charset="utf-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-      <title>Class Match&lt;TInput, TOutput&gt; </title>
-      <meta name="viewport" content="width=device-width">
-      <meta name="title" content="Class Match&lt;TInput, TOutput&gt; ">
-    
-    <meta name="description" content="Represents a match expression.">
-      <link rel="shortcut icon" href="../favicon.ico">
-      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
-      <link rel="stylesheet" href="../styles/docfx.css">
-      <link rel="stylesheet" href="../styles/main.css">
-      <meta property="docfx:navrel" content="../toc.html">
-      <meta property="docfx:tocrel" content="toc.html">
-    
-    
-    
+      <title>Class Match&lt;TInput, TOutput&gt; | Matchmaker </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class Match&lt;TInput, TOutput&gt; | Matchmaker ">
+      
+      <meta name="description" content="Represents a match expression.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
   </head>
-  <body data-spy="scroll" data-target="#affix" data-offset="120">
-    <div id="wrapper">
-      <header>
 
-        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
-          <div class="container">
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-
-              <a class="navbar-brand" href="../index.html">
-                <img id="logo" class="svg" src="../logo.svg" alt="">
-              </a>
-            </div>
-            <div class="collapse navbar-collapse" id="navbar">
-              <form class="navbar-form navbar-right" role="search" id="search">
-                <div class="form-group">
-                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
-                </div>
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="Matchmaker">
+            Matchmaker
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
               </form>
             </div>
           </div>
-        </nav>
+        </div>
+      </nav>
+    </header>
 
-        <div class="subnav navbar navbar-default">
-          <div class="container hide-when-search" id="breadcrumb">
-            <ul class="breadcrumb">
-              <li></li>
-            </ul>
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
           </div>
         </div>
-      </header>
-      <div role="main" class="container body-content hide-when-search">
+      </div>
 
-        <div class="sidenav hide-when-search">
-          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
-          <div class="sidetoggle collapse" id="sidetoggle">
-            <div id="sidetoc"></div>
-          </div>
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
         </div>
-        <div class="article row grid-right">
-          <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="Matchmaker.Match`2">
+
+        <article data-uid="Matchmaker.Match`2">
 
 
 
-  <h1 id="Matchmaker_Match_2" data-uid="Matchmaker.Match`2" class="text-break">Class Match&lt;TInput, TOutput&gt;</h1>
-  <div class="markdown level0 summary"><p>Represents a match expression.</p>
-</div>
-  <div class="markdown level0 conceptual"></div>
-  <div class="inheritance">
-    <h5>Inheritance</h5>
-    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
-    <div class="level1"><span class="xref">Match&lt;TInput, TOutput&gt;</span></div>
+  <h1 id="Matchmaker_Match_2" data-uid="Matchmaker.Match`2" class="text-break">
+Class Match&lt;TInput, TOutput&gt;  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/Matchmaker/blob/main/Matchmaker/Match_2.cs"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Matchmaker.html">Matchmaker</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Matchmaker.dll</dd></dl>
   </div>
-  <div class="inheritedMembers">
-    <h5>Inherited Members</h5>
+
+  <div class="markdown summary"><p>Represents a match expression.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class Match&lt;TInput, TOutput&gt;</code></pre>
+  </div>
+
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TInput</code></dt>
+    <dd><p>The type of the input value of the expression.</p>
+</dd>
+    <dt><code>TOutput</code></dt>
+    <dd><p>The type of the output value of the expression.</p>
+</dd>
+  </dl>
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">Match&lt;TInput, TOutput&gt;</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
     </div>
@@ -88,582 +143,374 @@
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
     </div>
     <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
-    </div>
-    <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
-    </div>
-    <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
     </div>
     <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
     </div>
-  </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="Matchmaker.html">Matchmaker</a></h6>
-  <h6><strong>Assembly</strong>: Matchmaker.dll</h6>
-  <h5 id="Matchmaker_Match_2_syntax">Syntax</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public sealed class Match&lt;TInput, TOutput&gt;</code></pre>
-  </div>
-  <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="parametername">TInput</span></td>
-        <td><p>The type of the input value of the expression.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="parametername">TOutput</span></td>
-        <td><p>The type of the output value of the expression.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h3 id="methods">Methods
-</h3>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/main/apiSpec/new?filename=Matchmaker_Match_2_Case__1_Matchmaker_Patterns_IPattern__0___0__System_Boolean_System_Func___0__1__.md&amp;value=---%0Auid%3A%20Matchmaker.Match%602.Case%60%601(Matchmaker.Patterns.IPattern%7B%600%2C%60%600%7D%2CSystem.Boolean%2CSystem.Func%7B%60%600%2C%601%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/main/Matchmaker/Match_2.cs/#L93">View Source</a>
-  </span>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
   <a id="Matchmaker_Match_2_Case_" data-uid="Matchmaker.Match`2.Case*"></a>
-  <h4 id="Matchmaker_Match_2_Case__1_Matchmaker_Patterns_IPattern__0___0__System_Boolean_System_Func___0__1__" data-uid="Matchmaker.Match`2.Case``1(Matchmaker.Patterns.IPattern{`0,``0},System.Boolean,System.Func{``0,`1})">Case&lt;TMatchResult&gt;(IPattern&lt;TInput, TMatchResult&gt;, bool, Func&lt;TMatchResult, TOutput&gt;)</h4>
+
+  <h3 id="Matchmaker_Match_2_Case__1_Matchmaker_Patterns_IPattern__0___0__System_Boolean_System_Func___0__1__" data-uid="Matchmaker.Match`2.Case``1(Matchmaker.Patterns.IPattern{`0,``0},System.Boolean,System.Func{``0,`1})">
+  Case&lt;TMatchResult&gt;(IPattern&lt;TInput, TMatchResult&gt;, bool, Func&lt;TMatchResult, TOutput&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/Matchmaker/blob/main/Matchmaker/Match_2.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Returns a new match expression which includes the specified pattern and function to execute if this
 pattern is matched successfully.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public Match&lt;TInput, TOutput&gt; Case&lt;TMatchResult&gt;(IPattern&lt;TInput, TMatchResult&gt; pattern, bool fallthrough, Func&lt;TMatchResult, TOutput&gt; func)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Matchmaker.Patterns.IPattern-2.html">IPattern</a>&lt;TInput, TMatchResult&gt;</td>
-        <td><span class="parametername">pattern</span></td>
-        <td><p>The pattern to match with.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
-        <td><span class="parametername">fallthrough</span></td>
-        <td><p>The fallthrough behaviour.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;TMatchResult, TOutput&gt;</td>
-        <td><span class="parametername">func</span></td>
-        <td><p>The function to execute if the match is successful.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Matchmaker.Match-2.html">Match</a>&lt;TInput, TOutput&gt;</td>
-        <td><p>A new match expression which includes the specified pattern and function to execute if this
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pattern</code> <a class="xref" href="Matchmaker.Patterns.IPattern-2.html">IPattern</a>&lt;TInput, TMatchResult&gt;</dt>
+    <dd><p>The pattern to match with.</p>
+</dd>
+    <dt><code>fallthrough</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>The fallthrough behaviour.</p>
+</dd>
+    <dt><code>func</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;TMatchResult, TOutput&gt;</dt>
+    <dd><p>The function to execute if the match is successful.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Matchmaker.Match-2.html">Match</a>&lt;TInput, TOutput&gt;</dt>
+    <dd><p>A new match expression which includes the specified pattern and function to execute if this
 pattern is matched successfully.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="parametername">TMatchResult</span></td>
-        <td><p>The type of the result of the pattern's match.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
-        <td><p><code class="paramref">pattern</code> or <code class="paramref">func</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/main/apiSpec/new?filename=Matchmaker_Match_2_Case__1_Matchmaker_Patterns_IPattern__0___0__System_Func___0__1__.md&amp;value=---%0Auid%3A%20Matchmaker.Match%602.Case%60%601(Matchmaker.Patterns.IPattern%7B%600%2C%60%600%7D%2CSystem.Func%7B%60%600%2C%601%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/main/Matchmaker/Match_2.cs/#L73">View Source</a>
-  </span>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TMatchResult</code></dt>
+    <dd><p>The type of the result of the pattern's match.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">pattern</code> or <code class="paramref">func</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+  </dl>
+
+
+
   <a id="Matchmaker_Match_2_Case_" data-uid="Matchmaker.Match`2.Case*"></a>
-  <h4 id="Matchmaker_Match_2_Case__1_Matchmaker_Patterns_IPattern__0___0__System_Func___0__1__" data-uid="Matchmaker.Match`2.Case``1(Matchmaker.Patterns.IPattern{`0,``0},System.Func{``0,`1})">Case&lt;TMatchResult&gt;(IPattern&lt;TInput, TMatchResult&gt;, Func&lt;TMatchResult, TOutput&gt;)</h4>
+
+  <h3 id="Matchmaker_Match_2_Case__1_Matchmaker_Patterns_IPattern__0___0__System_Func___0__1__" data-uid="Matchmaker.Match`2.Case``1(Matchmaker.Patterns.IPattern{`0,``0},System.Func{``0,`1})">
+  Case&lt;TMatchResult&gt;(IPattern&lt;TInput, TMatchResult&gt;, Func&lt;TMatchResult, TOutput&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/Matchmaker/blob/main/Matchmaker/Match_2.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Returns a new match expression which includes the specified pattern and function to execute if this
 pattern is matched successfully.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public Match&lt;TInput, TOutput&gt; Case&lt;TMatchResult&gt;(IPattern&lt;TInput, TMatchResult&gt; pattern, Func&lt;TMatchResult, TOutput&gt; func)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Matchmaker.Patterns.IPattern-2.html">IPattern</a>&lt;TInput, TMatchResult&gt;</td>
-        <td><span class="parametername">pattern</span></td>
-        <td><p>The pattern to match with.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;TMatchResult, TOutput&gt;</td>
-        <td><span class="parametername">func</span></td>
-        <td><p>The function to execute if the match is successful.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Matchmaker.Match-2.html">Match</a>&lt;TInput, TOutput&gt;</td>
-        <td><p>A new match expression which includes the specified pattern and function to execute if this
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pattern</code> <a class="xref" href="Matchmaker.Patterns.IPattern-2.html">IPattern</a>&lt;TInput, TMatchResult&gt;</dt>
+    <dd><p>The pattern to match with.</p>
+</dd>
+    <dt><code>func</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;TMatchResult, TOutput&gt;</dt>
+    <dd><p>The function to execute if the match is successful.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Matchmaker.Match-2.html">Match</a>&lt;TInput, TOutput&gt;</dt>
+    <dd><p>A new match expression which includes the specified pattern and function to execute if this
 pattern is matched successfully.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="parametername">TMatchResult</span></td>
-        <td><p>The type of the result of the pattern's match.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
-        <td><p><code class="paramref">pattern</code> or <code class="paramref">func</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/main/apiSpec/new?filename=Matchmaker_Match_2_Case__1_System_Boolean_System_Func___0__1__.md&amp;value=---%0Auid%3A%20Matchmaker.Match%602.Case%60%601(System.Boolean%2CSystem.Func%7B%60%600%2C%601%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/main/Matchmaker/Match_2.cs/#L154">View Source</a>
-  </span>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TMatchResult</code></dt>
+    <dd><p>The type of the result of the pattern's match.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">pattern</code> or <code class="paramref">func</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+  </dl>
+
+
+
   <a id="Matchmaker_Match_2_Case_" data-uid="Matchmaker.Match`2.Case*"></a>
-  <h4 id="Matchmaker_Match_2_Case__1_System_Boolean_System_Func___0__1__" data-uid="Matchmaker.Match`2.Case``1(System.Boolean,System.Func{``0,`1})">Case&lt;TType&gt;(bool, Func&lt;TType, TOutput&gt;)</h4>
+
+  <h3 id="Matchmaker_Match_2_Case__1_System_Boolean_System_Func___0__1__" data-uid="Matchmaker.Match`2.Case``1(System.Boolean,System.Func{``0,`1})">
+  Case&lt;TType&gt;(bool, Func&lt;TType, TOutput&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/Matchmaker/blob/main/Matchmaker/Match_2.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Returns a new match expression which includes the pattern for the specified type
 and function to execute if this pattern is matched successfully.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public Match&lt;TInput, TOutput&gt; Case&lt;TType&gt;(bool fallthrough, Func&lt;TType, TOutput&gt; func) where TType : TInput</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
-        <td><span class="parametername">fallthrough</span></td>
-        <td><p>The fallthrough behaviour.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;TType, TOutput&gt;</td>
-        <td><span class="parametername">func</span></td>
-        <td><p>The function to execute if the match is successful.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Matchmaker.Match-2.html">Match</a>&lt;TInput, TOutput&gt;</td>
-        <td><p>A new match expression which includes the type pattern and function to execute if this
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>fallthrough</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>The fallthrough behaviour.</p>
+</dd>
+    <dt><code>func</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;TType, TOutput&gt;</dt>
+    <dd><p>The function to execute if the match is successful.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Matchmaker.Match-2.html">Match</a>&lt;TInput, TOutput&gt;</dt>
+    <dd><p>A new match expression which includes the type pattern and function to execute if this
 pattern is matched successfully.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="parametername">TType</span></td>
-        <td><p>The type of the result of the pattern's match.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 id="Matchmaker_Match_2_Case__1_System_Boolean_System_Func___0__1___remarks">Remarks</h5>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TType</code></dt>
+    <dd><p>The type of the result of the pattern's match.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="Matchmaker_Match_2_Case__1_System_Boolean_System_Func___0__1___remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>This method is functionally equivalent to the following:</p>
 <pre><code class="lang-csharp">match.Case(Pattern.Type&lt;TInput, TType&gt;(), fallthrough, func)</code></pre>
 </div>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
-        <td><p><code class="paramref">func</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/main/apiSpec/new?filename=Matchmaker_Match_2_Case__1_System_Func___0__1__.md&amp;value=---%0Auid%3A%20Matchmaker.Match%602.Case%60%601(System.Func%7B%60%600%2C%601%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/main/Matchmaker/Match_2.cs/#L130">View Source</a>
-  </span>
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">func</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+  </dl>
+
+
+
   <a id="Matchmaker_Match_2_Case_" data-uid="Matchmaker.Match`2.Case*"></a>
-  <h4 id="Matchmaker_Match_2_Case__1_System_Func___0__1__" data-uid="Matchmaker.Match`2.Case``1(System.Func{``0,`1})">Case&lt;TType&gt;(Func&lt;TType, TOutput&gt;)</h4>
+
+  <h3 id="Matchmaker_Match_2_Case__1_System_Func___0__1__" data-uid="Matchmaker.Match`2.Case``1(System.Func{``0,`1})">
+  Case&lt;TType&gt;(Func&lt;TType, TOutput&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/Matchmaker/blob/main/Matchmaker/Match_2.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Returns a new match expression which includes the pattern for the specified type
 and function to execute if this pattern is matched successfully.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public Match&lt;TInput, TOutput&gt; Case&lt;TType&gt;(Func&lt;TType, TOutput&gt; func) where TType : TInput</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;TType, TOutput&gt;</td>
-        <td><span class="parametername">func</span></td>
-        <td><p>The function to execute if the match is successful.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Matchmaker.Match-2.html">Match</a>&lt;TInput, TOutput&gt;</td>
-        <td><p>A new match expression which includes the type pattern and function to execute if this
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>func</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;TType, TOutput&gt;</dt>
+    <dd><p>The function to execute if the match is successful.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Matchmaker.Match-2.html">Match</a>&lt;TInput, TOutput&gt;</dt>
+    <dd><p>A new match expression which includes the type pattern and function to execute if this
 pattern is matched successfully.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="parametername">TType</span></td>
-        <td><p>The type of the result of the pattern's match.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 id="Matchmaker_Match_2_Case__1_System_Func___0__1___remarks">Remarks</h5>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TType</code></dt>
+    <dd><p>The type of the result of the pattern's match.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="Matchmaker_Match_2_Case__1_System_Func___0__1___remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>This method is functionally equivalent to the following:</p>
 <pre><code class="lang-csharp">match.Case(Pattern.Type&lt;TInput, TType&gt;(), func)</code></pre>
 </div>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
-        <td><p><code class="paramref">func</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/main/apiSpec/new?filename=Matchmaker_Match_2_ExecuteNonStrict__0_.md&amp;value=---%0Auid%3A%20Matchmaker.Match%602.ExecuteNonStrict(%600)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/main/Matchmaker/Match_2.cs/#L179">View Source</a>
-  </span>
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">func</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+  </dl>
+
+
+
   <a id="Matchmaker_Match_2_ExecuteNonStrict_" data-uid="Matchmaker.Match`2.ExecuteNonStrict*"></a>
-  <h4 id="Matchmaker_Match_2_ExecuteNonStrict__0_" data-uid="Matchmaker.Match`2.ExecuteNonStrict(`0)">ExecuteNonStrict(TInput)</h4>
+
+  <h3 id="Matchmaker_Match_2_ExecuteNonStrict__0_" data-uid="Matchmaker.Match`2.ExecuteNonStrict(`0)">
+  ExecuteNonStrict(TInput)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/Matchmaker/blob/main/Matchmaker/Match_2.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Executes the match expression on the specified input and returns the result.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public MatchResult&lt;TOutput&gt; ExecuteNonStrict(TInput input)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">TInput</span></td>
-        <td><span class="parametername">input</span></td>
-        <td><p>The input value of the expression.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Matchmaker.MatchResult-1.html">MatchResult</a>&lt;TOutput&gt;</td>
-        <td><p>The result of the match expression, or a failed result if no pattern was matched successfully.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/main/apiSpec/new?filename=Matchmaker_Match_2_ExecuteOn__0_.md&amp;value=---%0Auid%3A%20Matchmaker.Match%602.ExecuteOn(%600)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/main/Matchmaker/Match_2.cs/#L167">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>input</code> <span class="xref">TInput</span></dt>
+    <dd><p>The input value of the expression.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Matchmaker.MatchResult-1.html">MatchResult</a>&lt;TOutput&gt;</dt>
+    <dd><p>The result of the match expression, or a failed result if no pattern was matched successfully.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="Matchmaker_Match_2_ExecuteOn_" data-uid="Matchmaker.Match`2.ExecuteOn*"></a>
-  <h4 id="Matchmaker_Match_2_ExecuteOn__0_" data-uid="Matchmaker.Match`2.ExecuteOn(`0)">ExecuteOn(TInput)</h4>
+
+  <h3 id="Matchmaker_Match_2_ExecuteOn__0_" data-uid="Matchmaker.Match`2.ExecuteOn(`0)">
+  ExecuteOn(TInput)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/Matchmaker/blob/main/Matchmaker/Match_2.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Executes the match expression on the specified input and returns the result.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public TOutput ExecuteOn(TInput input)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">TInput</span></td>
-        <td><span class="parametername">input</span></td>
-        <td><p>The input value of the expression.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">TOutput</span></td>
-        <td><p>The result of the match expression.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Matchmaker.MatchException.html">MatchException</a></td>
-        <td><p>The match failed for all cases.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/main/apiSpec/new?filename=Matchmaker_Match_2_ExecuteWithFallthrough__0_.md&amp;value=---%0Auid%3A%20Matchmaker.Match%602.ExecuteWithFallthrough(%600)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/main/Matchmaker/Match_2.cs/#L209">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>input</code> <span class="xref">TInput</span></dt>
+    <dd><p>The input value of the expression.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">TOutput</span></dt>
+    <dd><p>The result of the match expression.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Matchmaker.MatchException.html">MatchException</a></dt>
+    <dd><p>The match failed for all cases.</p>
+</dd>
+  </dl>
+
+
+
   <a id="Matchmaker_Match_2_ExecuteWithFallthrough_" data-uid="Matchmaker.Match`2.ExecuteWithFallthrough*"></a>
-  <h4 id="Matchmaker_Match_2_ExecuteWithFallthrough__0_" data-uid="Matchmaker.Match`2.ExecuteWithFallthrough(`0)">ExecuteWithFallthrough(TInput)</h4>
+
+  <h3 id="Matchmaker_Match_2_ExecuteWithFallthrough__0_" data-uid="Matchmaker.Match`2.ExecuteWithFallthrough(`0)">
+  ExecuteWithFallthrough(TInput)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/Matchmaker/blob/main/Matchmaker/Match_2.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Executes the match expression on the specified input with fallthrough and lazily returns the results.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public IEnumerable&lt;TOutput&gt; ExecuteWithFallthrough(TInput input)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">TInput</span></td>
-        <td><span class="parametername">input</span></td>
-        <td><p>The input value of the expression.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;TOutput&gt;</td>
-        <td><p>The results of the match expression, empty if no pattern is matched successfully.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 id="Matchmaker_Match_2_ExecuteWithFallthrough__0__remarks">Remarks</h5>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>input</code> <span class="xref">TInput</span></dt>
+    <dd><p>The input value of the expression.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;TOutput&gt;</dt>
+    <dd><p>The results of the match expression, empty if no pattern is matched successfully.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="Matchmaker_Match_2_ExecuteWithFallthrough__0__remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>
 This method returns a lazy enumerable - it will check only as many patterns,
 as are needed to return one result at a time.
@@ -672,71 +519,73 @@ as are needed to return one result at a time.
 The enumerable may contain <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> values.
 </p>
 </div>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/main/apiSpec/new?filename=Matchmaker_Match_2_ToFunction.md&amp;value=---%0Auid%3A%20Matchmaker.Match%602.ToFunction%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/main/Matchmaker/Match_2.cs/#L230">View Source</a>
-  </span>
+
+
+
+
   <a id="Matchmaker_Match_2_ToFunction_" data-uid="Matchmaker.Match`2.ToFunction*"></a>
-  <h4 id="Matchmaker_Match_2_ToFunction" data-uid="Matchmaker.Match`2.ToFunction">ToFunction()</h4>
+
+  <h3 id="Matchmaker_Match_2_ToFunction" data-uid="Matchmaker.Match`2.ToFunction">
+  ToFunction()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/Matchmaker/blob/main/Matchmaker/Match_2.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Returns a function which, when called, will match the specified value.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public Func&lt;TInput, TOutput&gt; ToFunction()</code></pre>
   </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;TInput, TOutput&gt;</td>
-        <td><p>A function which, when called, will match the specified value.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/main/apiSpec/new?filename=Matchmaker_Match_2_ToFunctionWithFallthrough.md&amp;value=---%0Auid%3A%20Matchmaker.Match%602.ToFunctionWithFallthrough%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/main/Matchmaker/Match_2.cs/#L253">View Source</a>
-  </span>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;TInput, TOutput&gt;</dt>
+    <dd><p>A function which, when called, will match the specified value.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="Matchmaker_Match_2_ToFunctionWithFallthrough_" data-uid="Matchmaker.Match`2.ToFunctionWithFallthrough*"></a>
-  <h4 id="Matchmaker_Match_2_ToFunctionWithFallthrough" data-uid="Matchmaker.Match`2.ToFunctionWithFallthrough">ToFunctionWithFallthrough()</h4>
+
+  <h3 id="Matchmaker_Match_2_ToFunctionWithFallthrough" data-uid="Matchmaker.Match`2.ToFunctionWithFallthrough">
+  ToFunctionWithFallthrough()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/Matchmaker/blob/main/Matchmaker/Match_2.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Returns a function which, when called, will match the specified value.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public Func&lt;TInput, IEnumerable&lt;TOutput&gt;&gt; ToFunctionWithFallthrough()</code></pre>
   </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;TInput, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;TOutput&gt;&gt;</td>
-        <td><p>A function which, when called, will match the specified value.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 id="Matchmaker_Match_2_ToFunctionWithFallthrough_remarks">Remarks</h5>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;TInput, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;TOutput&gt;&gt;</dt>
+    <dd><p>A function which, when called, will match the specified value.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="Matchmaker_Match_2_ToFunctionWithFallthrough_remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>
 This method returns a lazy enumerable - it will check only as many patterns,
 as are needed to return one result at a time.
@@ -745,39 +594,44 @@ as are needed to return one result at a time.
 The enumerable may contain <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> values.
 </p>
 </div>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/main/apiSpec/new?filename=Matchmaker_Match_2_ToNonStrictFunction.md&amp;value=---%0Auid%3A%20Matchmaker.Match%602.ToNonStrictFunction%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/main/Matchmaker/Match_2.cs/#L237">View Source</a>
-  </span>
+
+
+
+
   <a id="Matchmaker_Match_2_ToNonStrictFunction_" data-uid="Matchmaker.Match`2.ToNonStrictFunction*"></a>
-  <h4 id="Matchmaker_Match_2_ToNonStrictFunction" data-uid="Matchmaker.Match`2.ToNonStrictFunction">ToNonStrictFunction()</h4>
+
+  <h3 id="Matchmaker_Match_2_ToNonStrictFunction" data-uid="Matchmaker.Match`2.ToNonStrictFunction">
+  ToNonStrictFunction()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/Matchmaker/blob/main/Matchmaker/Match_2.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Returns a function which, when called, will match the specified value.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public Func&lt;TInput, MatchResult&lt;TOutput&gt;&gt; ToNonStrictFunction()</code></pre>
   </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;TInput, <a class="xref" href="Matchmaker.MatchResult-1.html">MatchResult</a>&lt;TOutput&gt;&gt;</td>
-        <td><p>A function which, when called, will match the specified value.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h3 id="seealso">See Also</h3>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;TInput, <a class="xref" href="Matchmaker.MatchResult-1.html">MatchResult</a>&lt;TOutput&gt;&gt;</dt>
+    <dd><p>A function which, when called, will match the specified value.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <h2 id="seealso">See Also</h2>
   <div class="seealso">
       <div><a class="xref" href="Matchmaker.Match-1.html">Match</a>&lt;TInput&gt;</div>
       <div><a class="xref" href="Matchmaker.Match.html">Match</a></div>
@@ -785,45 +639,27 @@ The enumerable may contain <a href="https://learn.microsoft.com/dotnet/csharp/la
   </div>
 
 </article>
-          </div>
 
-          <div class="hidden-sm col-md-2" role="complementary">
-            <div class="sideaffix">
-              <div class="contribution">
-                <ul class="nav">
-                  <li>
-                    <a href="https://github.com/TolikPylypchuk/Matchmaker/new/main/apiSpec/new?filename=Matchmaker_Match_2.md&amp;value=---%0Auid%3A%20Matchmaker.Match%602%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Edit this page</a>
-                  </li>
-                  <li>
-                    <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/main/Matchmaker/Match_2.cs/#L11" class="contribution-link">View Source</a>
-                  </li>
-                </ul>
-              </div>
-              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-                <h5>In this article</h5>
-                <div></div>
-              </nav>
-            </div>
-          </div>
+        <div class="contribution d-print-none">
+          <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/main/Matchmaker/Match_2.cs" class="edit-link">Edit this page</a>
         </div>
+
+
       </div>
 
-      <footer>
-        <div class="grad-bottom"></div>
-        <div class="footer">
-          <div class="container">
-            <span class="pull-right">
-              <a href="#top">Back to top</a>
-            </span>
-      <div>Copyright (c) 2018 Anatoliy Pylypchuk</div><span>Generated by <strong>DocFx</strong>.</span> <span>Icons made by <a href="https" : www.flaticon.com authors roundicons" title="Roundicons">Roundicons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></span>
-      
-          </div>
-        </div>
-      </footer>
-    </div>
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
 
-    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
-    <script type="text/javascript" src="../styles/docfx.js"></script>
-    <script type="text/javascript" src="../styles/main.js"></script>
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Created by <a href="https://tolik.io">Tolik Pylypchuk</a>. Docs made with <a href="https://dotnet.github.io/docfx">docfx</a></span>.
+        </div>
+      </div>
+    </footer>
   </body>
 </html>

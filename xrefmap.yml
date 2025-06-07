@@ -17,7 +17,6 @@ references:
   name: ClearCache
   href: api/Matchmaker.AsyncMatch.html#Matchmaker_AsyncMatch_ClearCache_
   commentId: Overload:Matchmaker.AsyncMatch.ClearCache
-  isSpec: "True"
   fullName: Matchmaker.AsyncMatch.ClearCache
   nameWithType: AsyncMatch.ClearCache
 - uid: Matchmaker.AsyncMatch.ClearCache``1
@@ -42,14 +41,12 @@ references:
   name: Create
   href: api/Matchmaker.AsyncMatch.html#Matchmaker_AsyncMatch_Create_
   commentId: Overload:Matchmaker.AsyncMatch.Create
-  isSpec: "True"
   fullName: Matchmaker.AsyncMatch.Create
   nameWithType: AsyncMatch.Create
 - uid: Matchmaker.AsyncMatch.CreateStatic*
   name: CreateStatic
   href: api/Matchmaker.AsyncMatch.html#Matchmaker_AsyncMatch_CreateStatic_
   commentId: Overload:Matchmaker.AsyncMatch.CreateStatic
-  isSpec: "True"
   fullName: Matchmaker.AsyncMatch.CreateStatic
   nameWithType: AsyncMatch.CreateStatic
 - uid: Matchmaker.AsyncMatch.CreateStatic``1(System.Action{Matchmaker.AsyncMatchBuilder{``0}},System.String,System.Int32)
@@ -119,7 +116,6 @@ references:
   name: Case
   href: api/Matchmaker.AsyncMatchBuilder-1.html#Matchmaker_AsyncMatchBuilder_1_Case_
   commentId: Overload:Matchmaker.AsyncMatchBuilder`1.Case
-  isSpec: "True"
   fullName: Matchmaker.AsyncMatchBuilder<TInput>.Case
   fullName.vb: Matchmaker.AsyncMatchBuilder(Of TInput).Case
   nameWithType: AsyncMatchBuilder<TInput>.Case
@@ -245,7 +241,6 @@ references:
   name: Fallthrough
   href: api/Matchmaker.AsyncMatchBuilder-1.html#Matchmaker_AsyncMatchBuilder_1_Fallthrough_
   commentId: Overload:Matchmaker.AsyncMatchBuilder`1.Fallthrough
-  isSpec: "True"
   fullName: Matchmaker.AsyncMatchBuilder<TInput>.Fallthrough
   fullName.vb: Matchmaker.AsyncMatchBuilder(Of TInput).Fallthrough
   nameWithType: AsyncMatchBuilder<TInput>.Fallthrough
@@ -263,7 +258,6 @@ references:
   name: Case
   href: api/Matchmaker.AsyncMatchBuilder-2.html#Matchmaker_AsyncMatchBuilder_2_Case_
   commentId: Overload:Matchmaker.AsyncMatchBuilder`2.Case
-  isSpec: "True"
   fullName: Matchmaker.AsyncMatchBuilder<TInput, TOutput>.Case
   fullName.vb: Matchmaker.AsyncMatchBuilder(Of TInput, TOutput).Case
   nameWithType: AsyncMatchBuilder<TInput, TOutput>.Case
@@ -389,7 +383,6 @@ references:
   name: Fallthrough
   href: api/Matchmaker.AsyncMatchBuilder-2.html#Matchmaker_AsyncMatchBuilder_2_Fallthrough_
   commentId: Overload:Matchmaker.AsyncMatchBuilder`2.Fallthrough
-  isSpec: "True"
   fullName: Matchmaker.AsyncMatchBuilder<TInput, TOutput>.Fallthrough
   fullName.vb: Matchmaker.AsyncMatchBuilder(Of TInput, TOutput).Fallthrough
   nameWithType: AsyncMatchBuilder<TInput, TOutput>.Fallthrough
@@ -407,7 +400,6 @@ references:
   name: Case
   href: api/Matchmaker.AsyncMatch-1.html#Matchmaker_AsyncMatch_1_Case_
   commentId: Overload:Matchmaker.AsyncMatch`1.Case
-  isSpec: "True"
   fullName: Matchmaker.AsyncMatch<TInput>.Case
   fullName.vb: Matchmaker.AsyncMatch(Of TInput).Case
   nameWithType: AsyncMatch<TInput>.Case
@@ -532,7 +524,6 @@ references:
   name: ExecuteAsync
   href: api/Matchmaker.AsyncMatch-1.html#Matchmaker_AsyncMatch_1_ExecuteAsync_
   commentId: Overload:Matchmaker.AsyncMatch`1.ExecuteAsync
-  isSpec: "True"
   fullName: Matchmaker.AsyncMatch<TInput>.ExecuteAsync
   fullName.vb: Matchmaker.AsyncMatch(Of TInput).ExecuteAsync
   nameWithType: AsyncMatch<TInput>.ExecuteAsync
@@ -549,7 +540,6 @@ references:
   name: ExecuteNonStrictAsync
   href: api/Matchmaker.AsyncMatch-1.html#Matchmaker_AsyncMatch_1_ExecuteNonStrictAsync_
   commentId: Overload:Matchmaker.AsyncMatch`1.ExecuteNonStrictAsync
-  isSpec: "True"
   fullName: Matchmaker.AsyncMatch<TInput>.ExecuteNonStrictAsync
   fullName.vb: Matchmaker.AsyncMatch(Of TInput).ExecuteNonStrictAsync
   nameWithType: AsyncMatch<TInput>.ExecuteNonStrictAsync
@@ -566,7 +556,6 @@ references:
   name: ExecuteWithFallthroughAsync
   href: api/Matchmaker.AsyncMatch-1.html#Matchmaker_AsyncMatch_1_ExecuteWithFallthroughAsync_
   commentId: Overload:Matchmaker.AsyncMatch`1.ExecuteWithFallthroughAsync
-  isSpec: "True"
   fullName: Matchmaker.AsyncMatch<TInput>.ExecuteWithFallthroughAsync
   fullName.vb: Matchmaker.AsyncMatch(Of TInput).ExecuteWithFallthroughAsync
   nameWithType: AsyncMatch<TInput>.ExecuteWithFallthroughAsync
@@ -583,7 +572,6 @@ references:
   name: ToFunction
   href: api/Matchmaker.AsyncMatch-1.html#Matchmaker_AsyncMatch_1_ToFunction_
   commentId: Overload:Matchmaker.AsyncMatch`1.ToFunction
-  isSpec: "True"
   fullName: Matchmaker.AsyncMatch<TInput>.ToFunction
   fullName.vb: Matchmaker.AsyncMatch(Of TInput).ToFunction
   nameWithType: AsyncMatch<TInput>.ToFunction
@@ -600,7 +588,6 @@ references:
   name: ToFunctionWithFallthrough
   href: api/Matchmaker.AsyncMatch-1.html#Matchmaker_AsyncMatch_1_ToFunctionWithFallthrough_
   commentId: Overload:Matchmaker.AsyncMatch`1.ToFunctionWithFallthrough
-  isSpec: "True"
   fullName: Matchmaker.AsyncMatch<TInput>.ToFunctionWithFallthrough
   fullName.vb: Matchmaker.AsyncMatch(Of TInput).ToFunctionWithFallthrough
   nameWithType: AsyncMatch<TInput>.ToFunctionWithFallthrough
@@ -617,7 +604,6 @@ references:
   name: ToNonStrictFunction
   href: api/Matchmaker.AsyncMatch-1.html#Matchmaker_AsyncMatch_1_ToNonStrictFunction_
   commentId: Overload:Matchmaker.AsyncMatch`1.ToNonStrictFunction
-  isSpec: "True"
   fullName: Matchmaker.AsyncMatch<TInput>.ToNonStrictFunction
   fullName.vb: Matchmaker.AsyncMatch(Of TInput).ToNonStrictFunction
   nameWithType: AsyncMatch<TInput>.ToNonStrictFunction
@@ -635,7 +621,6 @@ references:
   name: Case
   href: api/Matchmaker.AsyncMatch-2.html#Matchmaker_AsyncMatch_2_Case_
   commentId: Overload:Matchmaker.AsyncMatch`2.Case
-  isSpec: "True"
   fullName: Matchmaker.AsyncMatch<TInput, TOutput>.Case
   fullName.vb: Matchmaker.AsyncMatch(Of TInput, TOutput).Case
   nameWithType: AsyncMatch<TInput, TOutput>.Case
@@ -760,7 +745,6 @@ references:
   name: ExecuteAsync
   href: api/Matchmaker.AsyncMatch-2.html#Matchmaker_AsyncMatch_2_ExecuteAsync_
   commentId: Overload:Matchmaker.AsyncMatch`2.ExecuteAsync
-  isSpec: "True"
   fullName: Matchmaker.AsyncMatch<TInput, TOutput>.ExecuteAsync
   fullName.vb: Matchmaker.AsyncMatch(Of TInput, TOutput).ExecuteAsync
   nameWithType: AsyncMatch<TInput, TOutput>.ExecuteAsync
@@ -777,7 +761,6 @@ references:
   name: ExecuteNonStrictAsync
   href: api/Matchmaker.AsyncMatch-2.html#Matchmaker_AsyncMatch_2_ExecuteNonStrictAsync_
   commentId: Overload:Matchmaker.AsyncMatch`2.ExecuteNonStrictAsync
-  isSpec: "True"
   fullName: Matchmaker.AsyncMatch<TInput, TOutput>.ExecuteNonStrictAsync
   fullName.vb: Matchmaker.AsyncMatch(Of TInput, TOutput).ExecuteNonStrictAsync
   nameWithType: AsyncMatch<TInput, TOutput>.ExecuteNonStrictAsync
@@ -794,7 +777,6 @@ references:
   name: ExecuteWithFallthroughAsync
   href: api/Matchmaker.AsyncMatch-2.html#Matchmaker_AsyncMatch_2_ExecuteWithFallthroughAsync_
   commentId: Overload:Matchmaker.AsyncMatch`2.ExecuteWithFallthroughAsync
-  isSpec: "True"
   fullName: Matchmaker.AsyncMatch<TInput, TOutput>.ExecuteWithFallthroughAsync
   fullName.vb: Matchmaker.AsyncMatch(Of TInput, TOutput).ExecuteWithFallthroughAsync
   nameWithType: AsyncMatch<TInput, TOutput>.ExecuteWithFallthroughAsync
@@ -811,7 +793,6 @@ references:
   name: ToFunction
   href: api/Matchmaker.AsyncMatch-2.html#Matchmaker_AsyncMatch_2_ToFunction_
   commentId: Overload:Matchmaker.AsyncMatch`2.ToFunction
-  isSpec: "True"
   fullName: Matchmaker.AsyncMatch<TInput, TOutput>.ToFunction
   fullName.vb: Matchmaker.AsyncMatch(Of TInput, TOutput).ToFunction
   nameWithType: AsyncMatch<TInput, TOutput>.ToFunction
@@ -828,7 +809,6 @@ references:
   name: ToFunctionWithFallthrough
   href: api/Matchmaker.AsyncMatch-2.html#Matchmaker_AsyncMatch_2_ToFunctionWithFallthrough_
   commentId: Overload:Matchmaker.AsyncMatch`2.ToFunctionWithFallthrough
-  isSpec: "True"
   fullName: Matchmaker.AsyncMatch<TInput, TOutput>.ToFunctionWithFallthrough
   fullName.vb: Matchmaker.AsyncMatch(Of TInput, TOutput).ToFunctionWithFallthrough
   nameWithType: AsyncMatch<TInput, TOutput>.ToFunctionWithFallthrough
@@ -845,7 +825,6 @@ references:
   name: ToNonStrictFunction
   href: api/Matchmaker.AsyncMatch-2.html#Matchmaker_AsyncMatch_2_ToNonStrictFunction_
   commentId: Overload:Matchmaker.AsyncMatch`2.ToNonStrictFunction
-  isSpec: "True"
   fullName: Matchmaker.AsyncMatch<TInput, TOutput>.ToNonStrictFunction
   fullName.vb: Matchmaker.AsyncMatch(Of TInput, TOutput).ToNonStrictFunction
   nameWithType: AsyncMatch<TInput, TOutput>.ToNonStrictFunction
@@ -866,7 +845,6 @@ references:
   name: And
   href: api/Matchmaker.Linq.AsyncPatternExtensions.html#Matchmaker_Linq_AsyncPatternExtensions_And_
   commentId: Overload:Matchmaker.Linq.AsyncPatternExtensions.And
-  isSpec: "True"
   fullName: Matchmaker.Linq.AsyncPatternExtensions.And
   nameWithType: AsyncPatternExtensions.And
 - uid: Matchmaker.Linq.AsyncPatternExtensions.And``1(Matchmaker.Patterns.Async.IAsyncPattern{``0,``0},Matchmaker.Patterns.Async.IAsyncPattern{``0,``0})
@@ -891,7 +869,6 @@ references:
   name: Bind
   href: api/Matchmaker.Linq.AsyncPatternExtensions.html#Matchmaker_Linq_AsyncPatternExtensions_Bind_
   commentId: Overload:Matchmaker.Linq.AsyncPatternExtensions.Bind
-  isSpec: "True"
   fullName: Matchmaker.Linq.AsyncPatternExtensions.Bind
   nameWithType: AsyncPatternExtensions.Bind
 - uid: Matchmaker.Linq.AsyncPatternExtensions.Bind``3(Matchmaker.Patterns.Async.IAsyncPattern{``0,``1},System.Func{``1,Matchmaker.Patterns.Async.IAsyncPattern{``0,``2}})
@@ -916,7 +893,6 @@ references:
   name: Cached
   href: api/Matchmaker.Linq.AsyncPatternExtensions.html#Matchmaker_Linq_AsyncPatternExtensions_Cached_
   commentId: Overload:Matchmaker.Linq.AsyncPatternExtensions.Cached
-  isSpec: "True"
   fullName: Matchmaker.Linq.AsyncPatternExtensions.Cached
   nameWithType: AsyncPatternExtensions.Cached
 - uid: Matchmaker.Linq.AsyncPatternExtensions.Cached``2(Matchmaker.Patterns.Async.IAsyncPattern{``0,``1})
@@ -941,7 +917,6 @@ references:
   name: Cast
   href: api/Matchmaker.Linq.AsyncPatternExtensions.html#Matchmaker_Linq_AsyncPatternExtensions_Cast_
   commentId: Overload:Matchmaker.Linq.AsyncPatternExtensions.Cast
-  isSpec: "True"
   fullName: Matchmaker.Linq.AsyncPatternExtensions.Cast
   nameWithType: AsyncPatternExtensions.Cast
 - uid: Matchmaker.Linq.AsyncPatternExtensions.Cast``3(Matchmaker.Patterns.Async.IAsyncPattern{``0,``1})
@@ -966,7 +941,6 @@ references:
   name: Compose
   href: api/Matchmaker.Linq.AsyncPatternExtensions.html#Matchmaker_Linq_AsyncPatternExtensions_Compose_
   commentId: Overload:Matchmaker.Linq.AsyncPatternExtensions.Compose
-  isSpec: "True"
   fullName: Matchmaker.Linq.AsyncPatternExtensions.Compose
   nameWithType: AsyncPatternExtensions.Compose
 - uid: Matchmaker.Linq.AsyncPatternExtensions.Compose``1(Matchmaker.Patterns.Async.IAsyncPattern{``0,``0},Matchmaker.Patterns.Async.IAsyncPattern{``0,``0},Matchmaker.Patterns.PatternComposition)
@@ -991,7 +965,6 @@ references:
   name: Or
   href: api/Matchmaker.Linq.AsyncPatternExtensions.html#Matchmaker_Linq_AsyncPatternExtensions_Or_
   commentId: Overload:Matchmaker.Linq.AsyncPatternExtensions.Or
-  isSpec: "True"
   fullName: Matchmaker.Linq.AsyncPatternExtensions.Or
   nameWithType: AsyncPatternExtensions.Or
 - uid: Matchmaker.Linq.AsyncPatternExtensions.Or``1(Matchmaker.Patterns.Async.IAsyncPattern{``0,``0},Matchmaker.Patterns.Async.IAsyncPattern{``0,``0})
@@ -1016,7 +989,6 @@ references:
   name: Pipe
   href: api/Matchmaker.Linq.AsyncPatternExtensions.html#Matchmaker_Linq_AsyncPatternExtensions_Pipe_
   commentId: Overload:Matchmaker.Linq.AsyncPatternExtensions.Pipe
-  isSpec: "True"
   fullName: Matchmaker.Linq.AsyncPatternExtensions.Pipe
   nameWithType: AsyncPatternExtensions.Pipe
 - uid: Matchmaker.Linq.AsyncPatternExtensions.Pipe``3(Matchmaker.Patterns.Async.IAsyncPattern{``0,``1},Matchmaker.Patterns.Async.IAsyncPattern{``1,``2})
@@ -1059,7 +1031,6 @@ references:
   name: Select
   href: api/Matchmaker.Linq.AsyncPatternExtensions.html#Matchmaker_Linq_AsyncPatternExtensions_Select_
   commentId: Overload:Matchmaker.Linq.AsyncPatternExtensions.Select
-  isSpec: "True"
   fullName: Matchmaker.Linq.AsyncPatternExtensions.Select
   nameWithType: AsyncPatternExtensions.Select
 - uid: Matchmaker.Linq.AsyncPatternExtensions.Select``3(Matchmaker.Patterns.Async.IAsyncPattern{``0,``1},System.Func{``1,``2})
@@ -1084,7 +1055,6 @@ references:
   name: Where
   href: api/Matchmaker.Linq.AsyncPatternExtensions.html#Matchmaker_Linq_AsyncPatternExtensions_Where_
   commentId: Overload:Matchmaker.Linq.AsyncPatternExtensions.Where
-  isSpec: "True"
   fullName: Matchmaker.Linq.AsyncPatternExtensions.Where
   nameWithType: AsyncPatternExtensions.Where
 - uid: Matchmaker.Linq.AsyncPatternExtensions.Where``2(Matchmaker.Patterns.Async.IAsyncPattern{``0,``1},System.Func{``1,System.Boolean})
@@ -1127,7 +1097,6 @@ references:
   name: Xor
   href: api/Matchmaker.Linq.AsyncPatternExtensions.html#Matchmaker_Linq_AsyncPatternExtensions_Xor_
   commentId: Overload:Matchmaker.Linq.AsyncPatternExtensions.Xor
-  isSpec: "True"
   fullName: Matchmaker.Linq.AsyncPatternExtensions.Xor
   nameWithType: AsyncPatternExtensions.Xor
 - uid: Matchmaker.Linq.AsyncPatternExtensions.Xor``1(Matchmaker.Patterns.Async.IAsyncPattern{``0,``0},Matchmaker.Patterns.Async.IAsyncPattern{``0,``0})
@@ -1158,14 +1127,12 @@ references:
   name: Enumerate
   href: api/Matchmaker.Linq.MatchExtensions.html#Matchmaker_Linq_MatchExtensions_Enumerate_
   commentId: Overload:Matchmaker.Linq.MatchExtensions.Enumerate
-  isSpec: "True"
   fullName: Matchmaker.Linq.MatchExtensions.Enumerate
   nameWithType: MatchExtensions.Enumerate
 - uid: Matchmaker.Linq.MatchExtensions.EnumerateAsync*
   name: EnumerateAsync
   href: api/Matchmaker.Linq.MatchExtensions.html#Matchmaker_Linq_MatchExtensions_EnumerateAsync_
   commentId: Overload:Matchmaker.Linq.MatchExtensions.EnumerateAsync
-  isSpec: "True"
   fullName: Matchmaker.Linq.MatchExtensions.EnumerateAsync
   nameWithType: MatchExtensions.EnumerateAsync
 - uid: Matchmaker.Linq.MatchExtensions.EnumerateAsync``1(System.Collections.Generic.IAsyncEnumerable{``0})
@@ -1196,7 +1163,6 @@ references:
   name: Bind
   href: api/Matchmaker.Linq.MatchResultExtensions.html#Matchmaker_Linq_MatchResultExtensions_Bind_
   commentId: Overload:Matchmaker.Linq.MatchResultExtensions.Bind
-  isSpec: "True"
   fullName: Matchmaker.Linq.MatchResultExtensions.Bind
   nameWithType: MatchResultExtensions.Bind
 - uid: Matchmaker.Linq.MatchResultExtensions.Bind``2(Matchmaker.MatchResult{``0},System.Func{``0,Matchmaker.MatchResult{``1}})
@@ -1221,7 +1187,6 @@ references:
   name: Cast
   href: api/Matchmaker.Linq.MatchResultExtensions.html#Matchmaker_Linq_MatchResultExtensions_Cast_
   commentId: Overload:Matchmaker.Linq.MatchResultExtensions.Cast
-  isSpec: "True"
   fullName: Matchmaker.Linq.MatchResultExtensions.Cast
   nameWithType: MatchResultExtensions.Cast
 - uid: Matchmaker.Linq.MatchResultExtensions.Cast``2(Matchmaker.MatchResult{``0})
@@ -1246,7 +1211,6 @@ references:
   name: Do
   href: api/Matchmaker.Linq.MatchResultExtensions.html#Matchmaker_Linq_MatchResultExtensions_Do_
   commentId: Overload:Matchmaker.Linq.MatchResultExtensions.Do
-  isSpec: "True"
   fullName: Matchmaker.Linq.MatchResultExtensions.Do
   nameWithType: MatchResultExtensions.Do
 - uid: Matchmaker.Linq.MatchResultExtensions.Do``1(Matchmaker.MatchResult{``0},System.Action{``0})
@@ -1280,7 +1244,6 @@ references:
   name: GetValueOrDefault
   href: api/Matchmaker.Linq.MatchResultExtensions.html#Matchmaker_Linq_MatchResultExtensions_GetValueOrDefault_
   commentId: Overload:Matchmaker.Linq.MatchResultExtensions.GetValueOrDefault
-  isSpec: "True"
   fullName: Matchmaker.Linq.MatchResultExtensions.GetValueOrDefault
   nameWithType: MatchResultExtensions.GetValueOrDefault
 - uid: Matchmaker.Linq.MatchResultExtensions.GetValueOrDefault``1(Matchmaker.MatchResult{``0})
@@ -1350,7 +1313,6 @@ references:
   name: GetValueOrThrow
   href: api/Matchmaker.Linq.MatchResultExtensions.html#Matchmaker_Linq_MatchResultExtensions_GetValueOrThrow_
   commentId: Overload:Matchmaker.Linq.MatchResultExtensions.GetValueOrThrow
-  isSpec: "True"
   fullName: Matchmaker.Linq.MatchResultExtensions.GetValueOrThrow
   nameWithType: MatchResultExtensions.GetValueOrThrow
 - uid: Matchmaker.Linq.MatchResultExtensions.GetValueOrThrow``1(Matchmaker.MatchResult{``0},System.Func{System.Exception})
@@ -1375,7 +1337,6 @@ references:
   name: Select
   href: api/Matchmaker.Linq.MatchResultExtensions.html#Matchmaker_Linq_MatchResultExtensions_Select_
   commentId: Overload:Matchmaker.Linq.MatchResultExtensions.Select
-  isSpec: "True"
   fullName: Matchmaker.Linq.MatchResultExtensions.Select
   nameWithType: MatchResultExtensions.Select
 - uid: Matchmaker.Linq.MatchResultExtensions.Select``2(Matchmaker.MatchResult{``0},System.Func{``0,``1})
@@ -1400,7 +1361,6 @@ references:
   name: Where
   href: api/Matchmaker.Linq.MatchResultExtensions.html#Matchmaker_Linq_MatchResultExtensions_Where_
   commentId: Overload:Matchmaker.Linq.MatchResultExtensions.Where
-  isSpec: "True"
   fullName: Matchmaker.Linq.MatchResultExtensions.Where
   nameWithType: MatchResultExtensions.Where
 - uid: Matchmaker.Linq.MatchResultExtensions.Where``1(Matchmaker.MatchResult{``0},System.Func{``0,System.Boolean})
@@ -1440,7 +1400,6 @@ references:
   name: And
   href: api/Matchmaker.Linq.PatternExtensions.html#Matchmaker_Linq_PatternExtensions_And_
   commentId: Overload:Matchmaker.Linq.PatternExtensions.And
-  isSpec: "True"
   fullName: Matchmaker.Linq.PatternExtensions.And
   nameWithType: PatternExtensions.And
 - uid: Matchmaker.Linq.PatternExtensions.And``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0})
@@ -1465,7 +1424,6 @@ references:
   name: AsAsync
   href: api/Matchmaker.Linq.PatternExtensions.html#Matchmaker_Linq_PatternExtensions_AsAsync_
   commentId: Overload:Matchmaker.Linq.PatternExtensions.AsAsync
-  isSpec: "True"
   fullName: Matchmaker.Linq.PatternExtensions.AsAsync
   nameWithType: PatternExtensions.AsAsync
 - uid: Matchmaker.Linq.PatternExtensions.AsAsync``2(Matchmaker.Patterns.IPattern{``0,``1})
@@ -1490,7 +1448,6 @@ references:
   name: Bind
   href: api/Matchmaker.Linq.PatternExtensions.html#Matchmaker_Linq_PatternExtensions_Bind_
   commentId: Overload:Matchmaker.Linq.PatternExtensions.Bind
-  isSpec: "True"
   fullName: Matchmaker.Linq.PatternExtensions.Bind
   nameWithType: PatternExtensions.Bind
 - uid: Matchmaker.Linq.PatternExtensions.Bind``3(Matchmaker.Patterns.IPattern{``0,``1},System.Func{``1,Matchmaker.Patterns.IPattern{``0,``2}})
@@ -1515,7 +1472,6 @@ references:
   name: Cached
   href: api/Matchmaker.Linq.PatternExtensions.html#Matchmaker_Linq_PatternExtensions_Cached_
   commentId: Overload:Matchmaker.Linq.PatternExtensions.Cached
-  isSpec: "True"
   fullName: Matchmaker.Linq.PatternExtensions.Cached
   nameWithType: PatternExtensions.Cached
 - uid: Matchmaker.Linq.PatternExtensions.Cached``2(Matchmaker.Patterns.IPattern{``0,``1})
@@ -1540,7 +1496,6 @@ references:
   name: Cast
   href: api/Matchmaker.Linq.PatternExtensions.html#Matchmaker_Linq_PatternExtensions_Cast_
   commentId: Overload:Matchmaker.Linq.PatternExtensions.Cast
-  isSpec: "True"
   fullName: Matchmaker.Linq.PatternExtensions.Cast
   nameWithType: PatternExtensions.Cast
 - uid: Matchmaker.Linq.PatternExtensions.Cast``3(Matchmaker.Patterns.IPattern{``0,``1})
@@ -1565,7 +1520,6 @@ references:
   name: Compose
   href: api/Matchmaker.Linq.PatternExtensions.html#Matchmaker_Linq_PatternExtensions_Compose_
   commentId: Overload:Matchmaker.Linq.PatternExtensions.Compose
-  isSpec: "True"
   fullName: Matchmaker.Linq.PatternExtensions.Compose
   nameWithType: PatternExtensions.Compose
 - uid: Matchmaker.Linq.PatternExtensions.Compose``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.PatternComposition)
@@ -1590,7 +1544,6 @@ references:
   name: Or
   href: api/Matchmaker.Linq.PatternExtensions.html#Matchmaker_Linq_PatternExtensions_Or_
   commentId: Overload:Matchmaker.Linq.PatternExtensions.Or
-  isSpec: "True"
   fullName: Matchmaker.Linq.PatternExtensions.Or
   nameWithType: PatternExtensions.Or
 - uid: Matchmaker.Linq.PatternExtensions.Or``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0})
@@ -1615,7 +1568,6 @@ references:
   name: Pipe
   href: api/Matchmaker.Linq.PatternExtensions.html#Matchmaker_Linq_PatternExtensions_Pipe_
   commentId: Overload:Matchmaker.Linq.PatternExtensions.Pipe
-  isSpec: "True"
   fullName: Matchmaker.Linq.PatternExtensions.Pipe
   nameWithType: PatternExtensions.Pipe
 - uid: Matchmaker.Linq.PatternExtensions.Pipe``3(Matchmaker.Patterns.IPattern{``0,``1},Matchmaker.Patterns.IPattern{``1,``2})
@@ -1658,7 +1610,6 @@ references:
   name: Select
   href: api/Matchmaker.Linq.PatternExtensions.html#Matchmaker_Linq_PatternExtensions_Select_
   commentId: Overload:Matchmaker.Linq.PatternExtensions.Select
-  isSpec: "True"
   fullName: Matchmaker.Linq.PatternExtensions.Select
   nameWithType: PatternExtensions.Select
 - uid: Matchmaker.Linq.PatternExtensions.Select``3(Matchmaker.Patterns.IPattern{``0,``1},System.Func{``1,``2})
@@ -1683,7 +1634,6 @@ references:
   name: Where
   href: api/Matchmaker.Linq.PatternExtensions.html#Matchmaker_Linq_PatternExtensions_Where_
   commentId: Overload:Matchmaker.Linq.PatternExtensions.Where
-  isSpec: "True"
   fullName: Matchmaker.Linq.PatternExtensions.Where
   nameWithType: PatternExtensions.Where
 - uid: Matchmaker.Linq.PatternExtensions.Where``2(Matchmaker.Patterns.IPattern{``0,``1},System.Func{``1,System.Boolean})
@@ -1708,7 +1658,6 @@ references:
   name: Xor
   href: api/Matchmaker.Linq.PatternExtensions.html#Matchmaker_Linq_PatternExtensions_Xor_
   commentId: Overload:Matchmaker.Linq.PatternExtensions.Xor
-  isSpec: "True"
   fullName: Matchmaker.Linq.PatternExtensions.Xor
   nameWithType: PatternExtensions.Xor
 - uid: Matchmaker.Linq.PatternExtensions.Xor``1(Matchmaker.Patterns.IPattern{``0,``0},Matchmaker.Patterns.IPattern{``0,``0})
@@ -1739,7 +1688,6 @@ references:
   name: ClearCache
   href: api/Matchmaker.Match.html#Matchmaker_Match_ClearCache_
   commentId: Overload:Matchmaker.Match.ClearCache
-  isSpec: "True"
   fullName: Matchmaker.Match.ClearCache
   nameWithType: Match.ClearCache
 - uid: Matchmaker.Match.ClearCache``1
@@ -1764,14 +1712,12 @@ references:
   name: Create
   href: api/Matchmaker.Match.html#Matchmaker_Match_Create_
   commentId: Overload:Matchmaker.Match.Create
-  isSpec: "True"
   fullName: Matchmaker.Match.Create
   nameWithType: Match.Create
 - uid: Matchmaker.Match.CreateStatic*
   name: CreateStatic
   href: api/Matchmaker.Match.html#Matchmaker_Match_CreateStatic_
   commentId: Overload:Matchmaker.Match.CreateStatic
-  isSpec: "True"
   fullName: Matchmaker.Match.CreateStatic
   nameWithType: Match.CreateStatic
 - uid: Matchmaker.Match.CreateStatic``1(System.Action{Matchmaker.MatchBuilder{``0}},System.String,System.Int32)
@@ -1841,7 +1787,6 @@ references:
   name: Case
   href: api/Matchmaker.MatchBuilder-1.html#Matchmaker_MatchBuilder_1_Case_
   commentId: Overload:Matchmaker.MatchBuilder`1.Case
-  isSpec: "True"
   fullName: Matchmaker.MatchBuilder<TInput>.Case
   fullName.vb: Matchmaker.MatchBuilder(Of TInput).Case
   nameWithType: MatchBuilder<TInput>.Case
@@ -1895,7 +1840,6 @@ references:
   name: Fallthrough
   href: api/Matchmaker.MatchBuilder-1.html#Matchmaker_MatchBuilder_1_Fallthrough_
   commentId: Overload:Matchmaker.MatchBuilder`1.Fallthrough
-  isSpec: "True"
   fullName: Matchmaker.MatchBuilder<TInput>.Fallthrough
   fullName.vb: Matchmaker.MatchBuilder(Of TInput).Fallthrough
   nameWithType: MatchBuilder<TInput>.Fallthrough
@@ -1913,7 +1857,6 @@ references:
   name: Case
   href: api/Matchmaker.MatchBuilder-2.html#Matchmaker_MatchBuilder_2_Case_
   commentId: Overload:Matchmaker.MatchBuilder`2.Case
-  isSpec: "True"
   fullName: Matchmaker.MatchBuilder<TInput, TOutput>.Case
   fullName.vb: Matchmaker.MatchBuilder(Of TInput, TOutput).Case
   nameWithType: MatchBuilder<TInput, TOutput>.Case
@@ -1967,7 +1910,6 @@ references:
   name: Fallthrough
   href: api/Matchmaker.MatchBuilder-2.html#Matchmaker_MatchBuilder_2_Fallthrough_
   commentId: Overload:Matchmaker.MatchBuilder`2.Fallthrough
-  isSpec: "True"
   fullName: Matchmaker.MatchBuilder<TInput, TOutput>.Fallthrough
   fullName.vb: Matchmaker.MatchBuilder(Of TInput, TOutput).Fallthrough
   nameWithType: MatchBuilder<TInput, TOutput>.Fallthrough
@@ -2009,7 +1951,6 @@ references:
   name: MatchException
   href: api/Matchmaker.MatchException.html#Matchmaker_MatchException__ctor_
   commentId: Overload:Matchmaker.MatchException.#ctor
-  isSpec: "True"
   name.vb: New
   fullName: Matchmaker.MatchException.MatchException
   fullName.vb: Matchmaker.MatchException.New
@@ -2025,7 +1966,6 @@ references:
   name: Failure
   href: api/Matchmaker.MatchResult.html#Matchmaker_MatchResult_Failure_
   commentId: Overload:Matchmaker.MatchResult.Failure
-  isSpec: "True"
   fullName: Matchmaker.MatchResult.Failure
   nameWithType: MatchResult.Failure
 - uid: Matchmaker.MatchResult.Failure``1
@@ -2041,7 +1981,6 @@ references:
   name: Success
   href: api/Matchmaker.MatchResult.html#Matchmaker_MatchResult_Success_
   commentId: Overload:Matchmaker.MatchResult.Success
-  isSpec: "True"
   fullName: Matchmaker.MatchResult.Success
   nameWithType: MatchResult.Success
 - uid: Matchmaker.MatchResult.Success``1(``0)
@@ -2084,7 +2023,6 @@ references:
   name: Equals
   href: api/Matchmaker.MatchResult-1.html#Matchmaker_MatchResult_1_Equals_
   commentId: Overload:Matchmaker.MatchResult`1.Equals
-  isSpec: "True"
   fullName: Matchmaker.MatchResult<T>.Equals
   fullName.vb: Matchmaker.MatchResult(Of T).Equals
   nameWithType: MatchResult<T>.Equals
@@ -2101,7 +2039,6 @@ references:
   name: GetHashCode
   href: api/Matchmaker.MatchResult-1.html#Matchmaker_MatchResult_1_GetHashCode_
   commentId: Overload:Matchmaker.MatchResult`1.GetHashCode
-  isSpec: "True"
   fullName: Matchmaker.MatchResult<T>.GetHashCode
   fullName.vb: Matchmaker.MatchResult(Of T).GetHashCode
   nameWithType: MatchResult<T>.GetHashCode
@@ -2118,7 +2055,6 @@ references:
   name: IsSuccessful
   href: api/Matchmaker.MatchResult-1.html#Matchmaker_MatchResult_1_IsSuccessful_
   commentId: Overload:Matchmaker.MatchResult`1.IsSuccessful
-  isSpec: "True"
   fullName: Matchmaker.MatchResult<T>.IsSuccessful
   fullName.vb: Matchmaker.MatchResult(Of T).IsSuccessful
   nameWithType: MatchResult<T>.IsSuccessful
@@ -2135,7 +2071,6 @@ references:
   name: ToString
   href: api/Matchmaker.MatchResult-1.html#Matchmaker_MatchResult_1_ToString_
   commentId: Overload:Matchmaker.MatchResult`1.ToString
-  isSpec: "True"
   fullName: Matchmaker.MatchResult<T>.ToString
   fullName.vb: Matchmaker.MatchResult(Of T).ToString
   nameWithType: MatchResult<T>.ToString
@@ -2152,7 +2087,6 @@ references:
   name: Value
   href: api/Matchmaker.MatchResult-1.html#Matchmaker_MatchResult_1_Value_
   commentId: Overload:Matchmaker.MatchResult`1.Value
-  isSpec: "True"
   fullName: Matchmaker.MatchResult<T>.Value
   fullName.vb: Matchmaker.MatchResult(Of T).Value
   nameWithType: MatchResult<T>.Value
@@ -2170,7 +2104,6 @@ references:
   name: operator ==
   href: api/Matchmaker.MatchResult-1.html#Matchmaker_MatchResult_1_op_Equality_
   commentId: Overload:Matchmaker.MatchResult`1.op_Equality
-  isSpec: "True"
   name.vb: =
   fullName: Matchmaker.MatchResult<T>.operator ==
   fullName.vb: Matchmaker.MatchResult(Of T).=
@@ -2189,7 +2122,6 @@ references:
   name: operator !=
   href: api/Matchmaker.MatchResult-1.html#Matchmaker_MatchResult_1_op_Inequality_
   commentId: Overload:Matchmaker.MatchResult`1.op_Inequality
-  isSpec: "True"
   name.vb: <>
   fullName: Matchmaker.MatchResult<T>.operator !=
   fullName.vb: Matchmaker.MatchResult(Of T).<>
@@ -2208,7 +2140,6 @@ references:
   name: Case
   href: api/Matchmaker.Match-1.html#Matchmaker_Match_1_Case_
   commentId: Overload:Matchmaker.Match`1.Case
-  isSpec: "True"
   fullName: Matchmaker.Match<TInput>.Case
   fullName.vb: Matchmaker.Match(Of TInput).Case
   nameWithType: Match<TInput>.Case
@@ -2261,7 +2192,6 @@ references:
   name: ExecuteNonStrict
   href: api/Matchmaker.Match-1.html#Matchmaker_Match_1_ExecuteNonStrict_
   commentId: Overload:Matchmaker.Match`1.ExecuteNonStrict
-  isSpec: "True"
   fullName: Matchmaker.Match<TInput>.ExecuteNonStrict
   fullName.vb: Matchmaker.Match(Of TInput).ExecuteNonStrict
   nameWithType: Match<TInput>.ExecuteNonStrict
@@ -2278,7 +2208,6 @@ references:
   name: ExecuteOn
   href: api/Matchmaker.Match-1.html#Matchmaker_Match_1_ExecuteOn_
   commentId: Overload:Matchmaker.Match`1.ExecuteOn
-  isSpec: "True"
   fullName: Matchmaker.Match<TInput>.ExecuteOn
   fullName.vb: Matchmaker.Match(Of TInput).ExecuteOn
   nameWithType: Match<TInput>.ExecuteOn
@@ -2295,7 +2224,6 @@ references:
   name: ExecuteWithFallthrough
   href: api/Matchmaker.Match-1.html#Matchmaker_Match_1_ExecuteWithFallthrough_
   commentId: Overload:Matchmaker.Match`1.ExecuteWithFallthrough
-  isSpec: "True"
   fullName: Matchmaker.Match<TInput>.ExecuteWithFallthrough
   fullName.vb: Matchmaker.Match(Of TInput).ExecuteWithFallthrough
   nameWithType: Match<TInput>.ExecuteWithFallthrough
@@ -2312,7 +2240,6 @@ references:
   name: ToFunction
   href: api/Matchmaker.Match-1.html#Matchmaker_Match_1_ToFunction_
   commentId: Overload:Matchmaker.Match`1.ToFunction
-  isSpec: "True"
   fullName: Matchmaker.Match<TInput>.ToFunction
   fullName.vb: Matchmaker.Match(Of TInput).ToFunction
   nameWithType: Match<TInput>.ToFunction
@@ -2329,7 +2256,6 @@ references:
   name: ToFunctionWithFallthrough
   href: api/Matchmaker.Match-1.html#Matchmaker_Match_1_ToFunctionWithFallthrough_
   commentId: Overload:Matchmaker.Match`1.ToFunctionWithFallthrough
-  isSpec: "True"
   fullName: Matchmaker.Match<TInput>.ToFunctionWithFallthrough
   fullName.vb: Matchmaker.Match(Of TInput).ToFunctionWithFallthrough
   nameWithType: Match<TInput>.ToFunctionWithFallthrough
@@ -2346,7 +2272,6 @@ references:
   name: ToNonStrictFunction
   href: api/Matchmaker.Match-1.html#Matchmaker_Match_1_ToNonStrictFunction_
   commentId: Overload:Matchmaker.Match`1.ToNonStrictFunction
-  isSpec: "True"
   fullName: Matchmaker.Match<TInput>.ToNonStrictFunction
   fullName.vb: Matchmaker.Match(Of TInput).ToNonStrictFunction
   nameWithType: Match<TInput>.ToNonStrictFunction
@@ -2364,7 +2289,6 @@ references:
   name: Case
   href: api/Matchmaker.Match-2.html#Matchmaker_Match_2_Case_
   commentId: Overload:Matchmaker.Match`2.Case
-  isSpec: "True"
   fullName: Matchmaker.Match<TInput, TOutput>.Case
   fullName.vb: Matchmaker.Match(Of TInput, TOutput).Case
   nameWithType: Match<TInput, TOutput>.Case
@@ -2417,7 +2341,6 @@ references:
   name: ExecuteNonStrict
   href: api/Matchmaker.Match-2.html#Matchmaker_Match_2_ExecuteNonStrict_
   commentId: Overload:Matchmaker.Match`2.ExecuteNonStrict
-  isSpec: "True"
   fullName: Matchmaker.Match<TInput, TOutput>.ExecuteNonStrict
   fullName.vb: Matchmaker.Match(Of TInput, TOutput).ExecuteNonStrict
   nameWithType: Match<TInput, TOutput>.ExecuteNonStrict
@@ -2434,7 +2357,6 @@ references:
   name: ExecuteOn
   href: api/Matchmaker.Match-2.html#Matchmaker_Match_2_ExecuteOn_
   commentId: Overload:Matchmaker.Match`2.ExecuteOn
-  isSpec: "True"
   fullName: Matchmaker.Match<TInput, TOutput>.ExecuteOn
   fullName.vb: Matchmaker.Match(Of TInput, TOutput).ExecuteOn
   nameWithType: Match<TInput, TOutput>.ExecuteOn
@@ -2451,7 +2373,6 @@ references:
   name: ExecuteWithFallthrough
   href: api/Matchmaker.Match-2.html#Matchmaker_Match_2_ExecuteWithFallthrough_
   commentId: Overload:Matchmaker.Match`2.ExecuteWithFallthrough
-  isSpec: "True"
   fullName: Matchmaker.Match<TInput, TOutput>.ExecuteWithFallthrough
   fullName.vb: Matchmaker.Match(Of TInput, TOutput).ExecuteWithFallthrough
   nameWithType: Match<TInput, TOutput>.ExecuteWithFallthrough
@@ -2468,7 +2389,6 @@ references:
   name: ToFunction
   href: api/Matchmaker.Match-2.html#Matchmaker_Match_2_ToFunction_
   commentId: Overload:Matchmaker.Match`2.ToFunction
-  isSpec: "True"
   fullName: Matchmaker.Match<TInput, TOutput>.ToFunction
   fullName.vb: Matchmaker.Match(Of TInput, TOutput).ToFunction
   nameWithType: Match<TInput, TOutput>.ToFunction
@@ -2485,7 +2405,6 @@ references:
   name: ToFunctionWithFallthrough
   href: api/Matchmaker.Match-2.html#Matchmaker_Match_2_ToFunctionWithFallthrough_
   commentId: Overload:Matchmaker.Match`2.ToFunctionWithFallthrough
-  isSpec: "True"
   fullName: Matchmaker.Match<TInput, TOutput>.ToFunctionWithFallthrough
   fullName.vb: Matchmaker.Match(Of TInput, TOutput).ToFunctionWithFallthrough
   nameWithType: Match<TInput, TOutput>.ToFunctionWithFallthrough
@@ -2502,7 +2421,6 @@ references:
   name: ToNonStrictFunction
   href: api/Matchmaker.Match-2.html#Matchmaker_Match_2_ToNonStrictFunction_
   commentId: Overload:Matchmaker.Match`2.ToNonStrictFunction
-  isSpec: "True"
   fullName: Matchmaker.Match<TInput, TOutput>.ToNonStrictFunction
   fullName.vb: Matchmaker.Match(Of TInput, TOutput).ToNonStrictFunction
   nameWithType: Match<TInput, TOutput>.ToNonStrictFunction
@@ -2529,7 +2447,6 @@ references:
   name: Any
   href: api/Matchmaker.Patterns.Async.AsyncPattern.html#Matchmaker_Patterns_Async_AsyncPattern_Any_
   commentId: Overload:Matchmaker.Patterns.Async.AsyncPattern.Any
-  isSpec: "True"
   fullName: Matchmaker.Patterns.Async.AsyncPattern.Any
   nameWithType: AsyncPattern.Any
 - uid: Matchmaker.Patterns.Async.AsyncPattern.Any``1
@@ -2554,7 +2471,6 @@ references:
   name: CreatePattern
   href: api/Matchmaker.Patterns.Async.AsyncPattern.html#Matchmaker_Patterns_Async_AsyncPattern_CreatePattern_
   commentId: Overload:Matchmaker.Patterns.Async.AsyncPattern.CreatePattern
-  isSpec: "True"
   fullName: Matchmaker.Patterns.Async.AsyncPattern.CreatePattern
   nameWithType: AsyncPattern.CreatePattern
 - uid: Matchmaker.Patterns.Async.AsyncPattern.CreatePattern``1(System.Func{``0,System.Threading.Tasks.Task{System.Boolean}})
@@ -2681,7 +2597,6 @@ references:
   name: EqualTo
   href: api/Matchmaker.Patterns.Async.AsyncPattern.html#Matchmaker_Patterns_Async_AsyncPattern_EqualTo_
   commentId: Overload:Matchmaker.Patterns.Async.AsyncPattern.EqualTo
-  isSpec: "True"
   fullName: Matchmaker.Patterns.Async.AsyncPattern.EqualTo
   nameWithType: AsyncPattern.EqualTo
 - uid: Matchmaker.Patterns.Async.AsyncPattern.EqualTo``1(System.Func{System.Threading.Tasks.Task{``0}})
@@ -2760,7 +2675,6 @@ references:
   name: GreaterOrEqual
   href: api/Matchmaker.Patterns.Async.AsyncPattern.html#Matchmaker_Patterns_Async_AsyncPattern_GreaterOrEqual_
   commentId: Overload:Matchmaker.Patterns.Async.AsyncPattern.GreaterOrEqual
-  isSpec: "True"
   fullName: Matchmaker.Patterns.Async.AsyncPattern.GreaterOrEqual
   nameWithType: AsyncPattern.GreaterOrEqual
 - uid: Matchmaker.Patterns.Async.AsyncPattern.GreaterOrEqual``1(System.Func{System.Threading.Tasks.Task{``0}})
@@ -2839,7 +2753,6 @@ references:
   name: GreaterThan
   href: api/Matchmaker.Patterns.Async.AsyncPattern.html#Matchmaker_Patterns_Async_AsyncPattern_GreaterThan_
   commentId: Overload:Matchmaker.Patterns.Async.AsyncPattern.GreaterThan
-  isSpec: "True"
   fullName: Matchmaker.Patterns.Async.AsyncPattern.GreaterThan
   nameWithType: AsyncPattern.GreaterThan
 - uid: Matchmaker.Patterns.Async.AsyncPattern.GreaterThan``1(System.Func{System.Threading.Tasks.Task{``0}})
@@ -2918,7 +2831,6 @@ references:
   name: LessOrEqual
   href: api/Matchmaker.Patterns.Async.AsyncPattern.html#Matchmaker_Patterns_Async_AsyncPattern_LessOrEqual_
   commentId: Overload:Matchmaker.Patterns.Async.AsyncPattern.LessOrEqual
-  isSpec: "True"
   fullName: Matchmaker.Patterns.Async.AsyncPattern.LessOrEqual
   nameWithType: AsyncPattern.LessOrEqual
 - uid: Matchmaker.Patterns.Async.AsyncPattern.LessOrEqual``1(System.Func{System.Threading.Tasks.Task{``0}})
@@ -2997,7 +2909,6 @@ references:
   name: LessThan
   href: api/Matchmaker.Patterns.Async.AsyncPattern.html#Matchmaker_Patterns_Async_AsyncPattern_LessThan_
   commentId: Overload:Matchmaker.Patterns.Async.AsyncPattern.LessThan
-  isSpec: "True"
   fullName: Matchmaker.Patterns.Async.AsyncPattern.LessThan
   nameWithType: AsyncPattern.LessThan
 - uid: Matchmaker.Patterns.Async.AsyncPattern.LessThan``1(System.Func{System.Threading.Tasks.Task{``0}})
@@ -3076,7 +2987,6 @@ references:
   name: Not
   href: api/Matchmaker.Patterns.Async.AsyncPattern.html#Matchmaker_Patterns_Async_AsyncPattern_Not_
   commentId: Overload:Matchmaker.Patterns.Async.AsyncPattern.Not
-  isSpec: "True"
   fullName: Matchmaker.Patterns.Async.AsyncPattern.Not
   nameWithType: AsyncPattern.Not
 - uid: Matchmaker.Patterns.Async.AsyncPattern.Not``2(Matchmaker.Patterns.Async.IAsyncPattern{``0,``1})
@@ -3101,7 +3011,6 @@ references:
   name: "Null"
   href: api/Matchmaker.Patterns.Async.AsyncPattern.html#Matchmaker_Patterns_Async_AsyncPattern_Null_
   commentId: Overload:Matchmaker.Patterns.Async.AsyncPattern.Null
-  isSpec: "True"
   fullName: Matchmaker.Patterns.Async.AsyncPattern.Null
   nameWithType: AsyncPattern.Null
 - uid: Matchmaker.Patterns.Async.AsyncPattern.Null``1
@@ -3126,7 +3035,6 @@ references:
   name: Return
   href: api/Matchmaker.Patterns.Async.AsyncPattern.html#Matchmaker_Patterns_Async_AsyncPattern_Return_
   commentId: Overload:Matchmaker.Patterns.Async.AsyncPattern.Return
-  isSpec: "True"
   fullName: Matchmaker.Patterns.Async.AsyncPattern.Return
   nameWithType: AsyncPattern.Return
 - uid: Matchmaker.Patterns.Async.AsyncPattern.Return``2(System.Func{System.Threading.Tasks.Task{``1}})
@@ -3169,7 +3077,6 @@ references:
   name: Type
   href: api/Matchmaker.Patterns.Async.AsyncPattern.html#Matchmaker_Patterns_Async_AsyncPattern_Type_
   commentId: Overload:Matchmaker.Patterns.Async.AsyncPattern.Type
-  isSpec: "True"
   fullName: Matchmaker.Patterns.Async.AsyncPattern.Type
   nameWithType: AsyncPattern.Type
 - uid: Matchmaker.Patterns.Async.AsyncPattern.Type``2
@@ -3194,7 +3101,6 @@ references:
   name: ValueNull
   href: api/Matchmaker.Patterns.Async.AsyncPattern.html#Matchmaker_Patterns_Async_AsyncPattern_ValueNull_
   commentId: Overload:Matchmaker.Patterns.Async.AsyncPattern.ValueNull
-  isSpec: "True"
   fullName: Matchmaker.Patterns.Async.AsyncPattern.ValueNull
   nameWithType: AsyncPattern.ValueNull
 - uid: Matchmaker.Patterns.Async.AsyncPattern.ValueNull``1
@@ -3246,7 +3152,6 @@ references:
   name: AsyncPattern
   href: api/Matchmaker.Patterns.Async.AsyncPattern-2.html#Matchmaker_Patterns_Async_AsyncPattern_2__ctor_
   commentId: Overload:Matchmaker.Patterns.Async.AsyncPattern`2.#ctor
-  isSpec: "True"
   name.vb: New
   fullName: Matchmaker.Patterns.Async.AsyncPattern<TInput, TMatchResult>.AsyncPattern
   fullName.vb: Matchmaker.Patterns.Async.AsyncPattern(Of TInput, TMatchResult).New
@@ -3264,7 +3169,6 @@ references:
   name: Description
   href: api/Matchmaker.Patterns.Async.AsyncPattern-2.html#Matchmaker_Patterns_Async_AsyncPattern_2_Description_
   commentId: Overload:Matchmaker.Patterns.Async.AsyncPattern`2.Description
-  isSpec: "True"
   fullName: Matchmaker.Patterns.Async.AsyncPattern<TInput, TMatchResult>.Description
   fullName.vb: Matchmaker.Patterns.Async.AsyncPattern(Of TInput, TMatchResult).Description
   nameWithType: AsyncPattern<TInput, TMatchResult>.Description
@@ -3281,7 +3185,6 @@ references:
   name: MatchAsync
   href: api/Matchmaker.Patterns.Async.AsyncPattern-2.html#Matchmaker_Patterns_Async_AsyncPattern_2_MatchAsync_
   commentId: Overload:Matchmaker.Patterns.Async.AsyncPattern`2.MatchAsync
-  isSpec: "True"
   fullName: Matchmaker.Patterns.Async.AsyncPattern<TInput, TMatchResult>.MatchAsync
   fullName.vb: Matchmaker.Patterns.Async.AsyncPattern(Of TInput, TMatchResult).MatchAsync
   nameWithType: AsyncPattern<TInput, TMatchResult>.MatchAsync
@@ -3298,7 +3201,6 @@ references:
   name: ToString
   href: api/Matchmaker.Patterns.Async.AsyncPattern-2.html#Matchmaker_Patterns_Async_AsyncPattern_2_ToString_
   commentId: Overload:Matchmaker.Patterns.Async.AsyncPattern`2.ToString
-  isSpec: "True"
   fullName: Matchmaker.Patterns.Async.AsyncPattern<TInput, TMatchResult>.ToString
   fullName.vb: Matchmaker.Patterns.Async.AsyncPattern(Of TInput, TMatchResult).ToString
   nameWithType: AsyncPattern<TInput, TMatchResult>.ToString
@@ -3324,7 +3226,6 @@ references:
   name: Description
   href: api/Matchmaker.Patterns.Async.IAsyncPattern-2.html#Matchmaker_Patterns_Async_IAsyncPattern_2_Description_
   commentId: Overload:Matchmaker.Patterns.Async.IAsyncPattern`2.Description
-  isSpec: "True"
   fullName: Matchmaker.Patterns.Async.IAsyncPattern<TInput, TMatchResult>.Description
   fullName.vb: Matchmaker.Patterns.Async.IAsyncPattern(Of TInput, TMatchResult).Description
   nameWithType: IAsyncPattern<TInput, TMatchResult>.Description
@@ -3341,7 +3242,6 @@ references:
   name: MatchAsync
   href: api/Matchmaker.Patterns.Async.IAsyncPattern-2.html#Matchmaker_Patterns_Async_IAsyncPattern_2_MatchAsync_
   commentId: Overload:Matchmaker.Patterns.Async.IAsyncPattern`2.MatchAsync
-  isSpec: "True"
   fullName: Matchmaker.Patterns.Async.IAsyncPattern<TInput, TMatchResult>.MatchAsync
   fullName.vb: Matchmaker.Patterns.Async.IAsyncPattern(Of TInput, TMatchResult).MatchAsync
   nameWithType: IAsyncPattern<TInput, TMatchResult>.MatchAsync
@@ -3367,7 +3267,6 @@ references:
   name: Description
   href: api/Matchmaker.Patterns.IPattern-2.html#Matchmaker_Patterns_IPattern_2_Description_
   commentId: Overload:Matchmaker.Patterns.IPattern`2.Description
-  isSpec: "True"
   fullName: Matchmaker.Patterns.IPattern<TInput, TMatchResult>.Description
   fullName.vb: Matchmaker.Patterns.IPattern(Of TInput, TMatchResult).Description
   nameWithType: IPattern<TInput, TMatchResult>.Description
@@ -3384,7 +3283,6 @@ references:
   name: Match
   href: api/Matchmaker.Patterns.IPattern-2.html#Matchmaker_Patterns_IPattern_2_Match_
   commentId: Overload:Matchmaker.Patterns.IPattern`2.Match
-  isSpec: "True"
   fullName: Matchmaker.Patterns.IPattern<TInput, TMatchResult>.Match
   fullName.vb: Matchmaker.Patterns.IPattern(Of TInput, TMatchResult).Match
   nameWithType: IPattern<TInput, TMatchResult>.Match
@@ -3399,7 +3297,6 @@ references:
   name: Any
   href: api/Matchmaker.Patterns.Pattern.html#Matchmaker_Patterns_Pattern_Any_
   commentId: Overload:Matchmaker.Patterns.Pattern.Any
-  isSpec: "True"
   fullName: Matchmaker.Patterns.Pattern.Any
   nameWithType: Pattern.Any
 - uid: Matchmaker.Patterns.Pattern.Any``1
@@ -3424,7 +3321,6 @@ references:
   name: CreatePattern
   href: api/Matchmaker.Patterns.Pattern.html#Matchmaker_Patterns_Pattern_CreatePattern_
   commentId: Overload:Matchmaker.Patterns.Pattern.CreatePattern
-  isSpec: "True"
   fullName: Matchmaker.Patterns.Pattern.CreatePattern
   nameWithType: Pattern.CreatePattern
 - uid: Matchmaker.Patterns.Pattern.CreatePattern``1(System.Func{``0,System.Boolean})
@@ -3587,7 +3483,6 @@ references:
   name: EqualTo
   href: api/Matchmaker.Patterns.Pattern.html#Matchmaker_Patterns_Pattern_EqualTo_
   commentId: Overload:Matchmaker.Patterns.Pattern.EqualTo
-  isSpec: "True"
   fullName: Matchmaker.Patterns.Pattern.EqualTo
   nameWithType: Pattern.EqualTo
 - uid: Matchmaker.Patterns.Pattern.EqualTo``1(System.Func{``0})
@@ -3666,7 +3561,6 @@ references:
   name: GreaterOrEqual
   href: api/Matchmaker.Patterns.Pattern.html#Matchmaker_Patterns_Pattern_GreaterOrEqual_
   commentId: Overload:Matchmaker.Patterns.Pattern.GreaterOrEqual
-  isSpec: "True"
   fullName: Matchmaker.Patterns.Pattern.GreaterOrEqual
   nameWithType: Pattern.GreaterOrEqual
 - uid: Matchmaker.Patterns.Pattern.GreaterOrEqual``1(System.Func{``0})
@@ -3745,7 +3639,6 @@ references:
   name: GreaterThan
   href: api/Matchmaker.Patterns.Pattern.html#Matchmaker_Patterns_Pattern_GreaterThan_
   commentId: Overload:Matchmaker.Patterns.Pattern.GreaterThan
-  isSpec: "True"
   fullName: Matchmaker.Patterns.Pattern.GreaterThan
   nameWithType: Pattern.GreaterThan
 - uid: Matchmaker.Patterns.Pattern.GreaterThan``1(System.Func{``0})
@@ -3824,7 +3717,6 @@ references:
   name: LessOrEqual
   href: api/Matchmaker.Patterns.Pattern.html#Matchmaker_Patterns_Pattern_LessOrEqual_
   commentId: Overload:Matchmaker.Patterns.Pattern.LessOrEqual
-  isSpec: "True"
   fullName: Matchmaker.Patterns.Pattern.LessOrEqual
   nameWithType: Pattern.LessOrEqual
 - uid: Matchmaker.Patterns.Pattern.LessOrEqual``1(System.Func{``0})
@@ -3903,7 +3795,6 @@ references:
   name: LessThan
   href: api/Matchmaker.Patterns.Pattern.html#Matchmaker_Patterns_Pattern_LessThan_
   commentId: Overload:Matchmaker.Patterns.Pattern.LessThan
-  isSpec: "True"
   fullName: Matchmaker.Patterns.Pattern.LessThan
   nameWithType: Pattern.LessThan
 - uid: Matchmaker.Patterns.Pattern.LessThan``1(System.Func{``0})
@@ -3982,7 +3873,6 @@ references:
   name: Not
   href: api/Matchmaker.Patterns.Pattern.html#Matchmaker_Patterns_Pattern_Not_
   commentId: Overload:Matchmaker.Patterns.Pattern.Not
-  isSpec: "True"
   fullName: Matchmaker.Patterns.Pattern.Not
   nameWithType: Pattern.Not
 - uid: Matchmaker.Patterns.Pattern.Not``2(Matchmaker.Patterns.IPattern{``0,``1})
@@ -4007,7 +3897,6 @@ references:
   name: "Null"
   href: api/Matchmaker.Patterns.Pattern.html#Matchmaker_Patterns_Pattern_Null_
   commentId: Overload:Matchmaker.Patterns.Pattern.Null
-  isSpec: "True"
   fullName: Matchmaker.Patterns.Pattern.Null
   nameWithType: Pattern.Null
 - uid: Matchmaker.Patterns.Pattern.Null``1
@@ -4032,7 +3921,6 @@ references:
   name: Return
   href: api/Matchmaker.Patterns.Pattern.html#Matchmaker_Patterns_Pattern_Return_
   commentId: Overload:Matchmaker.Patterns.Pattern.Return
-  isSpec: "True"
   fullName: Matchmaker.Patterns.Pattern.Return
   nameWithType: Pattern.Return
 - uid: Matchmaker.Patterns.Pattern.Return``2(System.Func{``1})
@@ -4075,7 +3963,6 @@ references:
   name: Type
   href: api/Matchmaker.Patterns.Pattern.html#Matchmaker_Patterns_Pattern_Type_
   commentId: Overload:Matchmaker.Patterns.Pattern.Type
-  isSpec: "True"
   fullName: Matchmaker.Patterns.Pattern.Type
   nameWithType: Pattern.Type
 - uid: Matchmaker.Patterns.Pattern.Type``2
@@ -4100,7 +3987,6 @@ references:
   name: ValueNull
   href: api/Matchmaker.Patterns.Pattern.html#Matchmaker_Patterns_Pattern_ValueNull_
   commentId: Overload:Matchmaker.Patterns.Pattern.ValueNull
-  isSpec: "True"
   fullName: Matchmaker.Patterns.Pattern.ValueNull
   nameWithType: Pattern.ValueNull
 - uid: Matchmaker.Patterns.Pattern.ValueNull``1
@@ -4176,7 +4062,6 @@ references:
   name: Pattern
   href: api/Matchmaker.Patterns.Pattern-2.html#Matchmaker_Patterns_Pattern_2__ctor_
   commentId: Overload:Matchmaker.Patterns.Pattern`2.#ctor
-  isSpec: "True"
   name.vb: New
   fullName: Matchmaker.Patterns.Pattern<TInput, TMatchResult>.Pattern
   fullName.vb: Matchmaker.Patterns.Pattern(Of TInput, TMatchResult).New
@@ -4194,7 +4079,6 @@ references:
   name: Description
   href: api/Matchmaker.Patterns.Pattern-2.html#Matchmaker_Patterns_Pattern_2_Description_
   commentId: Overload:Matchmaker.Patterns.Pattern`2.Description
-  isSpec: "True"
   fullName: Matchmaker.Patterns.Pattern<TInput, TMatchResult>.Description
   fullName.vb: Matchmaker.Patterns.Pattern(Of TInput, TMatchResult).Description
   nameWithType: Pattern<TInput, TMatchResult>.Description
@@ -4211,7 +4095,6 @@ references:
   name: Match
   href: api/Matchmaker.Patterns.Pattern-2.html#Matchmaker_Patterns_Pattern_2_Match_
   commentId: Overload:Matchmaker.Patterns.Pattern`2.Match
-  isSpec: "True"
   fullName: Matchmaker.Patterns.Pattern<TInput, TMatchResult>.Match
   fullName.vb: Matchmaker.Patterns.Pattern(Of TInput, TMatchResult).Match
   nameWithType: Pattern<TInput, TMatchResult>.Match
@@ -4228,7 +4111,6 @@ references:
   name: ToString
   href: api/Matchmaker.Patterns.Pattern-2.html#Matchmaker_Patterns_Pattern_2_ToString_
   commentId: Overload:Matchmaker.Patterns.Pattern`2.ToString
-  isSpec: "True"
   fullName: Matchmaker.Patterns.Pattern<TInput, TMatchResult>.ToString
   fullName.vb: Matchmaker.Patterns.Pattern(Of TInput, TMatchResult).ToString
   nameWithType: Pattern<TInput, TMatchResult>.ToString

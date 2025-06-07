@@ -1,7 +1,18 @@
 {
+  "sitemap": {
+    "baseUrl": "https://matchmaker.tolik.io/"
+  },
   "source_base_path": "D:/a/Matchmaker/Matchmaker/docs",
   "xrefmap": "xrefmap.yml",
   "files": [
+    {
+      "type": "Resource",
+      "output": {
+        "resource": {
+          "relative_path": "index.json"
+        }
+      }
+    },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Matchmaker.AsyncMatch-1.yml",
@@ -433,16 +444,6 @@
       "output": {
         ".html": {
           "relative_path": "articles/expressions.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "articles/intro.md",
-      "output": {
-        ".html": {
-          "relative_path": "articles/intro.html"
         }
       },
       "version": ""
