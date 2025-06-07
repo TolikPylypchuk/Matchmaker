@@ -2,229 +2,229 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://matchmaker.tolik.io/api/Matchmaker.AsyncMatch-1.html</loc>
-    <lastmod>2025-06-07T09:51:11+00:00</lastmod>
+    <lastmod>2025-06-07T10:04:11+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://matchmaker.tolik.io/api/Matchmaker.AsyncMatch-2.html</loc>
-    <lastmod>2025-06-07T09:51:11+00:00</lastmod>
+    <lastmod>2025-06-07T10:04:11+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://matchmaker.tolik.io/api/Matchmaker.AsyncMatch.html</loc>
-    <lastmod>2025-06-07T09:51:11+00:00</lastmod>
+    <lastmod>2025-06-07T10:04:11+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://matchmaker.tolik.io/api/Matchmaker.AsyncMatchBuilder-1.html</loc>
-    <lastmod>2025-06-07T09:51:11+00:00</lastmod>
+    <lastmod>2025-06-07T10:04:11+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://matchmaker.tolik.io/api/Matchmaker.AsyncMatchBuilder-2.html</loc>
-    <lastmod>2025-06-07T09:51:11+00:00</lastmod>
+    <lastmod>2025-06-07T10:04:11+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://matchmaker.tolik.io/api/Matchmaker.Linq.AsyncPatternExtensions.html</loc>
-    <lastmod>2025-06-07T09:51:11+00:00</lastmod>
+    <lastmod>2025-06-07T10:04:11+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://matchmaker.tolik.io/api/Matchmaker.Linq.MatchExtensions.html</loc>
-    <lastmod>2025-06-07T09:51:11+00:00</lastmod>
+    <lastmod>2025-06-07T10:04:11+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://matchmaker.tolik.io/api/Matchmaker.Linq.MatchResultExtensions.html</loc>
-    <lastmod>2025-06-07T09:51:11+00:00</lastmod>
+    <lastmod>2025-06-07T10:04:11+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://matchmaker.tolik.io/api/Matchmaker.Linq.PatternExtensions.html</loc>
-    <lastmod>2025-06-07T09:51:11+00:00</lastmod>
+    <lastmod>2025-06-07T10:04:11+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://matchmaker.tolik.io/api/Matchmaker.Linq.html</loc>
-    <lastmod>2025-06-07T09:51:11+00:00</lastmod>
+    <lastmod>2025-06-07T10:04:11+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://matchmaker.tolik.io/api/Matchmaker.Match-1.html</loc>
-    <lastmod>2025-06-07T09:51:11+00:00</lastmod>
+    <lastmod>2025-06-07T10:04:11+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://matchmaker.tolik.io/api/Matchmaker.Match-2.html</loc>
-    <lastmod>2025-06-07T09:51:11+00:00</lastmod>
+    <lastmod>2025-06-07T10:04:11+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://matchmaker.tolik.io/api/Matchmaker.Match.html</loc>
-    <lastmod>2025-06-07T09:51:11+00:00</lastmod>
+    <lastmod>2025-06-07T10:04:11+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://matchmaker.tolik.io/api/Matchmaker.MatchBuilder-1.html</loc>
-    <lastmod>2025-06-07T09:51:11+00:00</lastmod>
+    <lastmod>2025-06-07T10:04:11+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://matchmaker.tolik.io/api/Matchmaker.MatchBuilder-2.html</loc>
-    <lastmod>2025-06-07T09:51:11+00:00</lastmod>
+    <lastmod>2025-06-07T10:04:11+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://matchmaker.tolik.io/api/Matchmaker.MatchException.html</loc>
-    <lastmod>2025-06-07T09:51:11+00:00</lastmod>
+    <lastmod>2025-06-07T10:04:11+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://matchmaker.tolik.io/api/Matchmaker.MatchResult-1.html</loc>
-    <lastmod>2025-06-07T09:51:11+00:00</lastmod>
+    <lastmod>2025-06-07T10:04:11+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://matchmaker.tolik.io/api/Matchmaker.MatchResult.html</loc>
-    <lastmod>2025-06-07T09:51:11+00:00</lastmod>
+    <lastmod>2025-06-07T10:04:11+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://matchmaker.tolik.io/api/Matchmaker.Patterns.Async.AsyncPattern-2.html</loc>
-    <lastmod>2025-06-07T09:51:11+00:00</lastmod>
+    <lastmod>2025-06-07T10:04:11+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://matchmaker.tolik.io/api/Matchmaker.Patterns.Async.AsyncPattern.html</loc>
-    <lastmod>2025-06-07T09:51:11+00:00</lastmod>
+    <lastmod>2025-06-07T10:04:11+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://matchmaker.tolik.io/api/Matchmaker.Patterns.Async.IAsyncPattern-2.html</loc>
-    <lastmod>2025-06-07T09:51:11+00:00</lastmod>
+    <lastmod>2025-06-07T10:04:11+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://matchmaker.tolik.io/api/Matchmaker.Patterns.Async.html</loc>
-    <lastmod>2025-06-07T09:51:11+00:00</lastmod>
+    <lastmod>2025-06-07T10:04:11+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://matchmaker.tolik.io/api/Matchmaker.Patterns.IPattern-2.html</loc>
-    <lastmod>2025-06-07T09:51:11+00:00</lastmod>
+    <lastmod>2025-06-07T10:04:11+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://matchmaker.tolik.io/api/Matchmaker.Patterns.Pattern-2.html</loc>
-    <lastmod>2025-06-07T09:51:11+00:00</lastmod>
+    <lastmod>2025-06-07T10:04:11+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://matchmaker.tolik.io/api/Matchmaker.Patterns.Pattern.html</loc>
-    <lastmod>2025-06-07T09:51:11+00:00</lastmod>
+    <lastmod>2025-06-07T10:04:11+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://matchmaker.tolik.io/api/Matchmaker.Patterns.PatternComposition.html</loc>
-    <lastmod>2025-06-07T09:51:11+00:00</lastmod>
+    <lastmod>2025-06-07T10:04:11+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://matchmaker.tolik.io/api/Matchmaker.Patterns.html</loc>
-    <lastmod>2025-06-07T09:51:11+00:00</lastmod>
+    <lastmod>2025-06-07T10:04:11+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://matchmaker.tolik.io/api/Matchmaker.html</loc>
-    <lastmod>2025-06-07T09:51:11+00:00</lastmod>
+    <lastmod>2025-06-07T10:04:11+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://matchmaker.tolik.io/api/index.html</loc>
-    <lastmod>2025-06-07T09:51:11+00:00</lastmod>
+    <lastmod>2025-06-07T10:04:11+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://matchmaker.tolik.io/articles/async.html</loc>
-    <lastmod>2025-06-07T09:51:11+00:00</lastmod>
+    <lastmod>2025-06-07T10:04:11+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://matchmaker.tolik.io/articles/expressions.html</loc>
-    <lastmod>2025-06-07T09:51:11+00:00</lastmod>
+    <lastmod>2025-06-07T10:04:11+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://matchmaker.tolik.io/articles/migration.html</loc>
-    <lastmod>2025-06-07T09:51:11+00:00</lastmod>
+    <lastmod>2025-06-07T10:04:11+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://matchmaker.tolik.io/articles/nullable.html</loc>
-    <lastmod>2025-06-07T09:51:11+00:00</lastmod>
+    <lastmod>2025-06-07T10:04:11+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://matchmaker.tolik.io/articles/patterns.html</loc>
-    <lastmod>2025-06-07T09:51:11+00:00</lastmod>
+    <lastmod>2025-06-07T10:04:11+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://matchmaker.tolik.io/articles/results.html</loc>
-    <lastmod>2025-06-07T09:51:11+00:00</lastmod>
+    <lastmod>2025-06-07T10:04:11+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://matchmaker.tolik.io/articles/unions.html</loc>
-    <lastmod>2025-06-07T09:51:11+00:00</lastmod>
+    <lastmod>2025-06-07T10:04:11+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://matchmaker.tolik.io/articles/why.html</loc>
-    <lastmod>2025-06-07T09:51:11+00:00</lastmod>
+    <lastmod>2025-06-07T10:04:11+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://matchmaker.tolik.io/index.html</loc>
-    <lastmod>2025-06-07T09:51:11+00:00</lastmod>
+    <lastmod>2025-06-07T10:04:11+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
