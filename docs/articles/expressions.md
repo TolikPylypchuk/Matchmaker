@@ -179,5 +179,3 @@ The `Match` class also contains the `ClearCache` methods which clear a global ca
 per type (so `Match<int, int>` uses a different cache than `Match<int, string>`) so `ClearCache` only clears one
 cache. Clearing the cache will force all static match expressions of that type to be reinitialized. This process is
 not thread-safe as well.
-
-Next article: [Asynchronous pattern matching](async.md)

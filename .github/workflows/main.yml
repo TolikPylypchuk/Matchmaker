@@ -54,7 +54,7 @@ jobs:
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{secrets.GITHUB_TOKEN}}
-          publish_dir: docs-dest/
+          publish_dir: docs/_site/
           user_name: "Tolik Pylypchuk"
           user_email: "pylypchuk.tolik@gmail.com"
           commit_message: "Deploy docs to GitHub Pages"

@@ -50,5 +50,3 @@ Static async match expressions are also available. Use the `AsyncMatch.CreateSta
 like normal match expressions. The methods accept an action on either `AsyncMatchBuilder<TInput, TOutput>` or
 `AsyncMatchBuilder<TInput>`. Static match expressions are globally cached and the caching process is thread-safe.
 Caches can be cleared with the `ClearCache` methods in `AsyncMatch`.
-
-Next article: [Discriminated unions](unions.md)

@@ -90,5 +90,3 @@ public int Sum(ConsList list) =>
     };
 }
 ```
-
-Next article: [Nullable reference types](nullable.md)

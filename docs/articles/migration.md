@@ -67,5 +67,3 @@ of successful cases, you can call `Count()` on the result of the match. Or you c
 `Matchmaker.Linq` if you just want to execute it. Since matching with fall-though is lazy, it doesn't have modes
 of execution - it's just non-strict. The library cannot decide to throw an exception if there are no successful cases
 because the library doesn't decide when to execute the expression.
-
-Next article: [Why this library was written](why.md)

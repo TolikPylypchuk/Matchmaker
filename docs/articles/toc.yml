@@ -1,18 +1,19 @@
-- name: Introduction
-  href: intro.md
-- name: Match Results
-  href: results.md
-- name: Patterns
-  href: patterns.md
-- name: Match Expressions
-  href: expressions.md
-- name: Asynchronous Pattern Matching
-  href: async.md
-- name: Discriminated Unions
-  href: unions.md
-- name: Nullable Reference Types
-  href: nullable.md
-- name: Migration Guide
-  href: migration.md
-- name: Why This Library Was Written
-  href: why.md
+items:
+  - name: Introduction
+    href: ../index.md
+  - name: Match Results
+    href: results.md
+  - name: Patterns
+    href: patterns.md
+  - name: Match Expressions
+    href: expressions.md
+  - name: Asynchronous Pattern Matching
+    href: async.md
+  - name: Discriminated Unions
+    href: unions.md
+  - name: Nullable Reference Types
+    href: nullable.md
+  - name: Migration Guide
+    href: migration.md
+  - name: Why This Library Was Written
+    href: why.md

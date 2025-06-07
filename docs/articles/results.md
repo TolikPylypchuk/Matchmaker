@@ -47,5 +47,3 @@ is cast to a non-nullable value type, you will get a failed result.
 
 Since there are the `Select` and `Where` extensions on `MatchResult<T>`, you can write them using C#'s query
 syntax.
-
-Next article: [Patterns](patterns.md).

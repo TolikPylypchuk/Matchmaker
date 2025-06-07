@@ -117,5 +117,3 @@ means that the pattern doesn't have a description.
 You can also implement the `IPattern<TInput, TMatchResult>` interface directly. But there is no reason to do that
 instead of extending the `Pattern<TInput, TMatchResult>` class unless your class already extends another class. But
 in that case making your class a pattern will break the single responsibility principle. So, don't do that.
-
-Next article: [Match expressions](expressions.md)

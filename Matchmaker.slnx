@@ -5,6 +5,8 @@
     <File Path="docs/favicon.ico" />
     <File Path="docs/index.md" />
     <File Path="docs/logo.svg" />
+    <File Path="docs/template/public/main.css" />
+    <File Path="docs/template/public/main.js" />
     <File Path="docs/toc.yml" />
   </Folder>
   <Folder Name="/docs/api/">
@@ -14,7 +16,6 @@
   <Folder Name="/docs/articles/">
     <File Path="docs/articles/async.md" />
     <File Path="docs/articles/expressions.md" />
-    <File Path="docs/articles/intro.md" />
     <File Path="docs/articles/migration.md" />
     <File Path="docs/articles/nullable.md" />
     <File Path="docs/articles/patterns.md" />

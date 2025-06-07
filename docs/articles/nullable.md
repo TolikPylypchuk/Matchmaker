@@ -27,5 +27,3 @@ When using this library with NRTs enabled, remember two things:
 
 - `MatchResult<T>` may contain `null` and so patterns can return `null` as their results as well
 - Match expressions' results may be `null`
-
-Next article: [Migration guide](migration.md)
