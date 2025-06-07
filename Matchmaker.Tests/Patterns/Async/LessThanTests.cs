@@ -143,37 +143,41 @@ public class LessThanTests
     [Fact(DisplayName = "Lazy LessThan should be lazy")]
     public void LazyLessThanShouldBeLazy()
     {
-        var action = () => AsyncPattern.LessThan<string>(
-            () => throw new AssertionFailedException("Lazy LessThan is not lazy"));
-        action.Should().NotThrow<AssertionFailedException>();
+        var exception = Record.Exception(() => AsyncPattern.LessThan<string>(
+            () => throw new InvalidOperationException("Lazy LessThan is not lazy")));
+
+        Assert.Null(exception);
     }
 
     [Fact(DisplayName = "Lazy LessThan with comparer should be lazy")]
     public void LazyLessThanWithComparerShouldBeLazy()
     {
-        var action = () => AsyncPattern.LessThan(
-            () => throw new AssertionFailedException("Lazy LessThan is not lazy"),
-            StringComparer);
-        action.Should().NotThrow<AssertionFailedException>();
+        var exception = Record.Exception(() => AsyncPattern.LessThan(
+            () => throw new InvalidOperationException("Lazy LessThan is not lazy"),
+            StringComparer));
+
+        Assert.Null(exception);
     }
 
     [Property(DisplayName = "Lazy LessThan with description should be lazy")]
     public void LazyLessThanWithDescriptionShouldBeLazy(NonNull<string> description)
     {
-        var action = () => AsyncPattern.LessThan<string>(
-            () => throw new AssertionFailedException("Lazy LessThan is not lazy"),
-            description.Get);
-        action.Should().NotThrow<AssertionFailedException>();
+        var exception = Record.Exception(() => AsyncPattern.LessThan<string>(
+            () => throw new InvalidOperationException("Lazy LessThan is not lazy"),
+            description.Get));
+
+        Assert.Null(exception);
     }
 
     [Property(DisplayName = "Lazy LessThan with comparer and description should be lazy")]
     public void LazyLessThanWithComparerAndDescriptionShouldBeLazy(NonNull<string> description)
     {
-        var action = () => AsyncPattern.LessThan(
-            () => throw new AssertionFailedException("Lazy LessThan is not lazy"),
+        var exception = Record.Exception(() => AsyncPattern.LessThan(
+            () => throw new InvalidOperationException("Lazy LessThan is not lazy"),
             StringComparer,
-            description.Get);
-        action.Should().NotThrow<AssertionFailedException>();
+            description.Get));
+
+        Assert.Null(exception);
     }
 
     [Property(DisplayName = "Lazy LessThan should be memoized")]
@@ -254,93 +258,57 @@ public class LessThanTests
     }
 
     [Property(DisplayName = "LessThan should throw if comparer is null")]
-    public void LessThanShouldThrowIfComparerIsNull(Task<string> x)
-    {
-        var action = () => AsyncPattern.LessThan(x, (IComparer<string>)null);
-        action.Should().Throw<ArgumentNullException>();
-    }
+    public void LessThanShouldThrowIfComparerIsNull(Task<string> x) =>
+        Assert.Throws<ArgumentNullException>(() => AsyncPattern.LessThan(x, (IComparer<string>)null));
 
     [Property(DisplayName = "Lazy LessThan should throw if comparer is null")]
-    public void LazyLessThanShouldThrowIfComparerIsNull(Task<string> x)
-    {
-        var action = () => AsyncPattern.LessThan(() => x, (IComparer<string>)null);
-        action.Should().Throw<ArgumentNullException>();
-    }
+    public void LazyLessThanShouldThrowIfComparerIsNull(Task<string> x) =>
+        Assert.Throws<ArgumentNullException>(() => AsyncPattern.LessThan(() => x, (IComparer<string>)null));
 
     [Property(DisplayName = "LessThan should throw if description is null")]
-    public void LessThanShouldThrowIfDescriptionIsNull(Task<string> x)
-    {
-        var action = () => AsyncPattern.LessThan(x, (string)null);
-        action.Should().Throw<ArgumentNullException>();
-    }
+    public void LessThanShouldThrowIfDescriptionIsNull(Task<string> x) =>
+        Assert.Throws<ArgumentNullException>(() => AsyncPattern.LessThan(x, (string)null));
 
     [Property(DisplayName = "Lazy LessThan should throw if description is null")]
-    public void LazyLessThanShouldThrowIfDescriptionIsNull(Task<string> x)
-    {
-        var action = () => AsyncPattern.LessThan(() => x, (string)null);
-        action.Should().Throw<ArgumentNullException>();
-    }
+    public void LazyLessThanShouldThrowIfDescriptionIsNull(Task<string> x) =>
+        Assert.Throws<ArgumentNullException>(() => AsyncPattern.LessThan(() => x, (string)null));
 
     [Property(DisplayName = "LessThan should throw if comparer is null and description is not null")]
     public void LessThanShouldThrowIfComparerIsNullAndDescriptionIsNotNull(
         Task<string> x,
-        NonNull<string> description)
-    {
-        var action = () => AsyncPattern.LessThan(x, null, description.Get);
-        action.Should().Throw<ArgumentNullException>();
-    }
+        NonNull<string> description) =>
+        Assert.Throws<ArgumentNullException>(() => AsyncPattern.LessThan(x, null, description.Get));
 
     [Property(DisplayName = "Lazy LessThan should throw if comparer is null and description is not null")]
     public void LazyLessThanShouldThrowIfComparerIsNullAndDescriptionIsNotNull(
         Task<string> x,
-        NonNull<string> description)
-    {
-        var action = () => AsyncPattern.LessThan(() => x, null, description.Get);
-        action.Should().Throw<ArgumentNullException>();
-    }
+        NonNull<string> description) =>
+        Assert.Throws<ArgumentNullException>(() => AsyncPattern.LessThan(() => x, null, description.Get));
 
     [Property(DisplayName = "LessThan should throw if comparer is not null and description is null")]
-    public void LessThanShouldThrowIfComparerIsNotNullAndDescriptionIsNull(Task<string> x)
-    {
-        var action = () => AsyncPattern.LessThan(x, StringComparer, null);
-        action.Should().Throw<ArgumentNullException>();
-    }
+    public void LessThanShouldThrowIfComparerIsNotNullAndDescriptionIsNull(Task<string> x) =>
+        Assert.Throws<ArgumentNullException>(() => AsyncPattern.LessThan(x, StringComparer, null));
 
     [Property(DisplayName = "Lazy LessThan should throw if comparer is not null and description is null")]
-    public void LazyLessThanShouldThrowIfComparerIsNotNullAndDescriptionIsNull(Task<string> x)
-    {
-        var action = () => AsyncPattern.LessThan(() => x, StringComparer, null);
-        action.Should().Throw<ArgumentNullException>();
-    }
+    public void LazyLessThanShouldThrowIfComparerIsNotNullAndDescriptionIsNull(Task<string> x) =>
+        Assert.Throws<ArgumentNullException>(() => AsyncPattern.LessThan(() => x, StringComparer, null));
 
     [Fact(DisplayName = "Lazy LessThan should throw if value provider is null")]
-    public void LazyLessThanShouldThrowIfValueProviderIsNull()
-    {
-        var action = () => AsyncPattern.LessThan((Func<Task<int>>)null);
-        action.Should().Throw<ArgumentNullException>();
-    }
+    public void LazyLessThanShouldThrowIfValueProviderIsNull() =>
+        Assert.Throws<ArgumentNullException>(() => AsyncPattern.LessThan((Func<Task<int>>)null));
 
     [Fact(DisplayName = "Lazy LessThan should throw if value provider is null and comparer is not null")]
-    public void LazyLessThanShouldThrowIfValueProviderIsNullAndComparerIsNotNull()
-    {
-        var action = () => AsyncPattern.LessThan((Func<Task<string>>)null, StringComparer);
-        action.Should().Throw<ArgumentNullException>();
-    }
+    public void LazyLessThanShouldThrowIfValueProviderIsNullAndComparerIsNotNull() =>
+        Assert.Throws<ArgumentNullException>(() => AsyncPattern.LessThan((Func<Task<string>>)null, StringComparer));
 
     [Property(DisplayName = "Lazy LessThan should throw if value provider is null and description is not null")]
-    public void LazyLessThanShouldThrowIfValueProviderIsNullAndDescriptionIsNotNull(NonNull<string> description)
-    {
-        var action = () => AsyncPattern.LessThan((Func<Task<string>>)null, description.Get);
-        action.Should().Throw<ArgumentNullException>();
-    }
+    public void LazyLessThanShouldThrowIfValueProviderIsNullAndDescriptionIsNotNull(NonNull<string> description) =>
+        Assert.Throws<ArgumentNullException>(() => AsyncPattern.LessThan((Func<Task<string>>)null, description.Get));
 
     [Property(DisplayName = "Lazy LessThan should throw if value provider is null " +
         "and comparer is not null and description is not null")]
     public void LazyLessThanShouldThrowIfValueProviderIsNullAndComparerAndDescriptionIsNotNull(
-        NonNull<string> description)
-    {
-        var action = () => AsyncPattern.LessThan(
-            (Func<Task<string>>)null, StringComparer, description.Get);
-        action.Should().Throw<ArgumentNullException>();
-    }
+        NonNull<string> description) =>
+        Assert.Throws<ArgumentNullException>(() =>
+            AsyncPattern.LessThan((Func<Task<string>>)null, StringComparer, description.Get));
 }

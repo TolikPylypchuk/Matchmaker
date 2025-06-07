@@ -81,45 +81,31 @@ public class AsyncPipeTests
         (firstPattern.Pipe(secondPattern, description.Get).Description == description.Get).ToProperty();
 
     [Property(DisplayName = "Pipe pattern should throw if the first pattern is null")]
-    public void PipePatternShouldThrowIfFirstPatternIsNull(IAsyncPattern<string, string> secondPattern)
-    {
-        var action = () => ((IAsyncPattern<string, string>)null).Pipe(secondPattern);
-        action.Should().Throw<ArgumentNullException>();
-    }
+    public void PipePatternShouldThrowIfFirstPatternIsNull(IAsyncPattern<string, string> secondPattern) =>
+        Assert.Throws<ArgumentNullException>(() => ((IAsyncPattern<string, string>)null).Pipe(secondPattern));
 
     [Property(DisplayName = "Pipe pattern with description should throw if the first pattern is null")]
     public void PipePatternWithDescriptionShouldThrowIfFirstPatternIsNull(
         IAsyncPattern<string, string> secondPattern,
-        NonNull<string> description)
-    {
-        var action = () => ((IAsyncPattern<string, string>)null).Pipe(secondPattern, description.Get);
-        action.Should().Throw<ArgumentNullException>();
-    }
+        NonNull<string> description) =>
+        Assert.Throws<ArgumentNullException>(() =>
+            ((IAsyncPattern<string, string>)null).Pipe(secondPattern, description.Get));
 
     [Property(DisplayName = "Pipe pattern should throw if the second pattern is null")]
-    public void PipePatternShouldThrowIfSecondPatternIsNull(IAsyncPattern<string, string> pattern)
-    {
-        var action = () => pattern.Pipe((IAsyncPattern<string, int>)null);
-        action.Should().Throw<ArgumentNullException>();
-    }
+    public void PipePatternShouldThrowIfSecondPatternIsNull(IAsyncPattern<string, string> pattern) =>
+        Assert.Throws<ArgumentNullException>(() => pattern.Pipe((IAsyncPattern<string, int>)null));
 
     [Property(DisplayName = "Pipe pattern with description should throw if the second pattern is null")]
     public void PipePatternWithDescriptionShouldThrowIfSecondPatternIsNull(
         IAsyncPattern<string, string> pattern,
-        NonNull<string> description)
-    {
-        var action = () => pattern.Pipe((IAsyncPattern<string, int>)null, description.Get);
-        action.Should().Throw<ArgumentNullException>();
-    }
+        NonNull<string> description) =>
+        Assert.Throws<ArgumentNullException>(() => pattern.Pipe((IAsyncPattern<string, int>)null, description.Get));
 
     [Property(DisplayName = "Pipe pattern with description should throw if description is null")]
     public void PipePatternWithDescriptionShouldThrowIfDescriptionIsNull(
         IAsyncPattern<string, string> firstPattern,
-        IAsyncPattern<string, string> secondPattern)
-    {
-        var action = () => firstPattern.Pipe(secondPattern, null);
-        action.Should().Throw<ArgumentNullException>();
-    }
+        IAsyncPattern<string, string> secondPattern) =>
+        Assert.Throws<ArgumentNullException>(() => firstPattern.Pipe(secondPattern, null));
 
     [Property(DisplayName = "Pipe pattern with function should never return null")]
     public Property PipePatternWithFunctionShouldNeverReturnNull(
@@ -173,45 +159,32 @@ public class AsyncPipeTests
         (pattern.Pipe(matcher, description.Get).Description == description.Get).ToProperty();
 
     [Property(DisplayName = "Pipe pattern with function should throw if pattern is null")]
-    public void PipePatternWithFunctionShouldThrowIfPatternIsNull(Func<string, Task<MatchResult<string>>> matcher)
-    {
-        var action = () => ((IAsyncPattern<string, string>)null).Pipe(matcher);
-        action.Should().Throw<ArgumentNullException>();
-    }
+    public void PipePatternWithFunctionShouldThrowIfPatternIsNull(Func<string, Task<MatchResult<string>>> matcher) =>
+        Assert.Throws<ArgumentNullException>(() => ((IAsyncPattern<string, string>)null).Pipe(matcher));
 
     [Property(DisplayName = "Pipe pattern with function and description should throw if pattern is null")]
     public void PipePatternWithFunctionAndDescriptionShouldThrowIfPatternIsNull(
         Func<string, Task<MatchResult<string>>> matcher,
-        NonNull<string> description)
-    {
-        var action = () => ((IAsyncPattern<string, string>)null).Pipe(matcher, description.Get);
-        action.Should().Throw<ArgumentNullException>();
-    }
+        NonNull<string> description) =>
+        Assert.Throws<ArgumentNullException>(() =>
+            ((IAsyncPattern<string, string>)null).Pipe(matcher, description.Get));
 
     [Property(DisplayName = "Pipe pattern with function should throw if matcher is null")]
-    public void PipePatternWithFunctionShouldThrowIfMatcherIsNull(IAsyncPattern<string, string> pattern)
-    {
-        var action = () => pattern.Pipe((Func<string, Task<MatchResult<int>>>)null);
-        action.Should().Throw<ArgumentNullException>();
-    }
+    public void PipePatternWithFunctionShouldThrowIfMatcherIsNull(IAsyncPattern<string, string> pattern) =>
+        Assert.Throws<ArgumentNullException>(() => pattern.Pipe((Func<string, Task<MatchResult<int>>>)null));
 
     [Property(DisplayName = "Pipe pattern with function and description should throw if matcher is null")]
     public void PipePatternWithFunctionAndDescriptionShouldThrowIfMatcherIsNull(
         IAsyncPattern<string, string> pattern,
-        NonNull<string> description)
-    {
-        var action = () => pattern.Pipe((Func<string, Task<MatchResult<int>>>)null, description.Get);
-        action.Should().Throw<ArgumentNullException>();
-    }
+        NonNull<string> description) =>
+        Assert.Throws<ArgumentNullException>(() =>
+            pattern.Pipe((Func<string, Task<MatchResult<int>>>)null, description.Get));
 
     [Property(DisplayName = "Pipe pattern with function and description should throw if description is null")]
     public void PipePatternWithFunctionAndDescriptionShouldThrowIfDescriptionIsNull(
         IAsyncPattern<string, string> pattern,
-        Func<string, Task<MatchResult<string>>> matcher)
-    {
-        var action = () => pattern.Pipe(matcher, null);
-        action.Should().Throw<ArgumentNullException>();
-    }
+        Func<string, Task<MatchResult<string>>> matcher) =>
+        Assert.Throws<ArgumentNullException>(() => pattern.Pipe(matcher, null));
 
     [Property(DisplayName = "Cast pattern should never return null")]
     public Property CastPatternShouldNeverReturnNull(IAsyncPattern<string, object> pattern) =>
@@ -272,23 +245,16 @@ public class AsyncPipeTests
         (pattern.Cast<string, object, string>(description.Get).Description == description.Get).ToProperty();
 
     [Fact(DisplayName = "Cast pattern should throw if pattern is null")]
-    public void CastPatternShouldThrowIfPatternIsNull()
-    {
-        var action = () => ((IAsyncPattern<string, object>)null).Cast<string, object, string>();
-        action.Should().Throw<ArgumentNullException>();
-    }
+    public void CastPatternShouldThrowIfPatternIsNull() =>
+        Assert.Throws<ArgumentNullException>(() =>
+            ((IAsyncPattern<string, object>)null).Cast<string, object, string>());
 
     [Property(DisplayName = "Cast pattern with description should throw if pattern is null")]
-    public void CastPatternWithDescriptionShouldThrowIfPatternIsNull(NonNull<string> description)
-    {
-        var action = () => ((IAsyncPattern<string, object>)null).Cast<string, object, string>(description.Get);
-        action.Should().Throw<ArgumentNullException>();
-    }
+    public void CastPatternWithDescriptionShouldThrowIfPatternIsNull(NonNull<string> description) =>
+        Assert.Throws<ArgumentNullException>(() =>
+            ((IAsyncPattern<string, object>)null).Cast<string, object, string>(description.Get));
 
     [Property(DisplayName = "Cast pattern with description should throw if description is null")]
-    public void CastPatternWithDescriptionShouldThrowIfDescriptionIsNull(IAsyncPattern<string, object> pattern)
-    {
-        var action = () => pattern.Cast<string, object, string>(null);
-        action.Should().Throw<ArgumentNullException>();
-    }
+    public void CastPatternWithDescriptionShouldThrowIfDescriptionIsNull(IAsyncPattern<string, object> pattern) =>
+        Assert.Throws<ArgumentNullException>(() => pattern.Cast<string, object, string>(null));
 }

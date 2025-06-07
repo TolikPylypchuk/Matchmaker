@@ -76,46 +76,32 @@ public class ComposeXorTests
             .ToProperty();
 
     [Property(DisplayName = "Compose Xor pattern should throw if left pattern is null")]
-    public void ComposeOrPatternShouldThrowIfLeftPatternIsNull(IPattern<string, string> pattern)
-    {
-        var action = () => ((IPattern<string, string>)null).Compose(pattern, PatternComposition.Or);
-        action.Should().Throw<ArgumentNullException>();
-    }
+    public void ComposeOrPatternShouldThrowIfLeftPatternIsNull(IPattern<string, string> pattern) =>
+        Assert.Throws<ArgumentNullException>(() =>
+            ((IPattern<string, string>)null).Compose(pattern, PatternComposition.Xor));
 
     [Property(DisplayName = "Compose Xor pattern with description should throw if left pattern is null")]
     public void ComposeXorPatternWithDescriptionShouldThrowIfLeftPatternIsNull(
         IPattern<string, string> pattern,
-        NonNull<string> description)
-    {
-        var action = () => ((IPattern<string, string>)null).Compose(
-            pattern, PatternComposition.Xor, description.Get);
-        action.Should().Throw<ArgumentNullException>();
-    }
+        NonNull<string> description) =>
+        Assert.Throws<ArgumentNullException>(() =>
+            ((IPattern<string, string>)null).Compose(pattern, PatternComposition.Xor, description.Get));
 
     [Property(DisplayName = "Compose Xor pattern should throw if right pattern is null")]
-    public void ComposeXorPatternShouldThrowIfRightPatternIsNull(IPattern<string, string> pattern)
-    {
-        var action = () => pattern.Compose(null, PatternComposition.Xor);
-        action.Should().Throw<ArgumentNullException>();
-    }
+    public void ComposeXorPatternShouldThrowIfRightPatternIsNull(IPattern<string, string> pattern) =>
+        Assert.Throws<ArgumentNullException>(() => pattern.Compose(null, PatternComposition.Xor));
 
     [Property(DisplayName = "Compose Xor pattern with description should throw if right pattern is null")]
     public void ComposeXorPatternWithDescriptionShouldThrowIfRightPatternIsNull(
         IPattern<string, string> pattern,
-        NonNull<string> description)
-    {
-        var action = () => pattern.Compose(null, PatternComposition.Xor, description.Get);
-        action.Should().Throw<ArgumentNullException>();
-    }
+        NonNull<string> description) =>
+        Assert.Throws<ArgumentNullException>(() => pattern.Compose(null, PatternComposition.Xor, description.Get));
 
     [Property(DisplayName = "Compose Xor pattern should throw if description is null")]
     public void ComposeXorPatternShouldThrowIfDescriptionIsNull(
         IPattern<string, string> pattern1,
-        IPattern<string, string> pattern2)
-    {
-        var action = () => pattern1.Compose(pattern2, PatternComposition.Xor, null);
-        action.Should().Throw<ArgumentNullException>();
-    }
+        IPattern<string, string> pattern2) =>
+        Assert.Throws<ArgumentNullException>(() => pattern1.Compose(pattern2, PatternComposition.Xor, null));
 
     [Property(DisplayName = "Xor pattern should never return null")]
     public Property XorPatternShouldNeverReturnNull(
@@ -184,43 +170,28 @@ public class ComposeXorTests
         (pattern1.Xor(pattern2, description.Get).Description == description.Get).ToProperty();
 
     [Property(DisplayName = "Xor pattern should throw if left pattern is null")]
-    public void XorPatternShouldThrowIfLeftPatternIsNull(IPattern<string, string> pattern)
-    {
-        var action = () => ((IPattern<string, string>)null).Xor(pattern);
-        action.Should().Throw<ArgumentNullException>();
-    }
+    public void XorPatternShouldThrowIfLeftPatternIsNull(IPattern<string, string> pattern) =>
+        Assert.Throws<ArgumentNullException>(() => ((IPattern<string, string>)null).Xor(pattern));
 
     [Property(DisplayName = "Xor pattern with description should throw if left pattern is null")]
     public void XorPatternWithDescriptionShouldThrowIfLeftPatternIsNull(
         IPattern<string, string> pattern,
-        NonNull<string> description)
-    {
-        var action = () => ((IPattern<string, string>)null).Xor(pattern, description.Get);
-        action.Should().Throw<ArgumentNullException>();
-    }
+        NonNull<string> description) =>
+        Assert.Throws<ArgumentNullException>(() => ((IPattern<string, string>)null).Xor(pattern, description.Get));
 
     [Property(DisplayName = "Xor pattern should throw if right pattern is null")]
-    public void XorPatternShouldThrowIfRightPatternIsNull(IPattern<string, string> pattern)
-    {
-        var action = () => pattern.Xor(null);
-        action.Should().Throw<ArgumentNullException>();
-    }
+    public void XorPatternShouldThrowIfRightPatternIsNull(IPattern<string, string> pattern) =>
+        Assert.Throws<ArgumentNullException>(() => pattern.Xor(null));
 
     [Property(DisplayName = "Xor pattern with description should throw if right pattern is null")]
     public void XorPatternWithDescriptionShouldThrowIfRightPatternIsNull(
         IPattern<string, string> pattern,
-        NonNull<string> description)
-    {
-        var action = () => pattern.Xor(null, description.Get);
-        action.Should().Throw<ArgumentNullException>();
-    }
+        NonNull<string> description) =>
+        Assert.Throws<ArgumentNullException>(() => pattern.Xor(null, description.Get));
 
     [Property(DisplayName = "Xor pattern should throw if description is null")]
     public void XorPatternShouldThrowIfDescriptionIsNull(
         IPattern<string, string> pattern1,
-        IPattern<string, string> pattern2)
-    {
-        var action = () => pattern1.Xor(pattern2, null);
-        action.Should().Throw<ArgumentNullException>();
-    }
+        IPattern<string, string> pattern2) =>
+        Assert.Throws<ArgumentNullException>(() => pattern1.Xor(pattern2, null));
 }

@@ -13,10 +13,9 @@ public class MatchResultTests
     public void FailureConstructionShouldBeCorrect()
     {
         var result = MatchResult.Failure<string>();
-        var getValue = () => { string _ = result.Value; };
 
-        result.IsSuccessful.Should().BeFalse();
-        getValue.Should().Throw<InvalidOperationException>();
+        Assert.False(result.IsSuccessful);
+        Assert.Throws<InvalidOperationException>(() => result.Value);
     }
 
     [Property(DisplayName = "Equals should work correctly")]

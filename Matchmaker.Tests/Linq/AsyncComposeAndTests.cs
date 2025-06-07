@@ -77,46 +77,32 @@ public class AsyncComposeAndTests
             .ToProperty();
 
     [Property(DisplayName = "Compose And pattern should throw if left pattern is null")]
-    public void ComposeAndPatternShouldThrowIfLeftPatternIsNull(IAsyncPattern<string, string> pattern)
-    {
-        var action = () => ((IAsyncPattern<string, string>)null).Compose(pattern, PatternComposition.And);
-        action.Should().Throw<ArgumentNullException>();
-    }
+    public void ComposeAndPatternShouldThrowIfLeftPatternIsNull(IAsyncPattern<string, string> pattern) =>
+        Assert.Throws<ArgumentNullException>(() =>
+            ((IAsyncPattern<string, string>)null).Compose(pattern, PatternComposition.And));
 
     [Property(DisplayName = "Compose And pattern with description should throw if left pattern is null")]
     public void ComposeAndPatternWithDescriptionShouldThrowIfLeftPatternIsNull(
         IAsyncPattern<string, string> pattern,
-        NonNull<string> description)
-    {
-        var action = () => ((IAsyncPattern<string, string>)null).Compose(
-            pattern, PatternComposition.And, description.Get);
-        action.Should().Throw<ArgumentNullException>();
-    }
+        NonNull<string> description) =>
+        Assert.Throws<ArgumentNullException>(() =>
+            ((IAsyncPattern<string, string>)null).Compose(pattern, PatternComposition.And, description.Get));
 
     [Property(DisplayName = "Compose And pattern should throw if right pattern is null")]
-    public void ComposeAndPatternShouldThrowIfRightPatternIsNull(IAsyncPattern<string, string> pattern)
-    {
-        var action = () => pattern.Compose(null, PatternComposition.And);
-        action.Should().Throw<ArgumentNullException>();
-    }
+    public void ComposeAndPatternShouldThrowIfRightPatternIsNull(IAsyncPattern<string, string> pattern) =>
+        Assert.Throws<ArgumentNullException>(() => pattern.Compose(null, PatternComposition.And));
 
     [Property(DisplayName = "Compose And pattern with description should throw if right pattern is null")]
     public void ComposeAndPatternWithDescriptionShouldThrowIfRightPatternIsNull(
         IAsyncPattern<string, string> pattern,
-        NonNull<string> description)
-    {
-        var action = () => pattern.Compose(null, PatternComposition.And, description.Get);
-        action.Should().Throw<ArgumentNullException>();
-    }
+        NonNull<string> description) =>
+        Assert.Throws<ArgumentNullException>(() => pattern.Compose(null, PatternComposition.And, description.Get));
 
     [Property(DisplayName = "Compose And pattern should throw if description is null")]
     public void ComposeAndPatternShouldThrowIfDescriptionIsNull(
         IAsyncPattern<string, string> pattern1,
-        IAsyncPattern<string, string> pattern2)
-    {
-        var action = () => pattern1.Compose(pattern2, PatternComposition.And, null);
-        action.Should().Throw<ArgumentNullException>();
-    }
+        IAsyncPattern<string, string> pattern2) =>
+        Assert.Throws<ArgumentNullException>(() => pattern1.Compose(pattern2, PatternComposition.And, null));
 
     [Property(DisplayName = "And pattern should never return null")]
     public Property AndPatternShouldNeverReturnNull(
@@ -187,43 +173,28 @@ public class AsyncComposeAndTests
         (pattern1.And(pattern2, description.Get).Description == description.Get).ToProperty();
 
     [Property(DisplayName = "And pattern should throw if left pattern is null")]
-    public void AndPatternShouldThrowIfLeftPatternIsNull(IAsyncPattern<string, string> pattern)
-    {
-        var action = () => ((IAsyncPattern<string, string>)null).And(pattern);
-        action.Should().Throw<ArgumentNullException>();
-    }
+    public void AndPatternShouldThrowIfLeftPatternIsNull(IAsyncPattern<string, string> pattern) =>
+        Assert.Throws<ArgumentNullException>(() => ((IAsyncPattern<string, string>)null).And(pattern));
 
     [Property(DisplayName = "And pattern with description should throw if left pattern is null")]
     public void AndPatternWithDescriptionShouldThrowIfLeftPatternIsNull(
         IAsyncPattern<string, string> pattern,
-        NonNull<string> description)
-    {
-        var action = () => ((IAsyncPattern<string, string>)null).And(pattern, description.Get);
-        action.Should().Throw<ArgumentNullException>();
-    }
+        NonNull<string> description) =>
+        Assert.Throws<ArgumentNullException>(() => ((IAsyncPattern<string, string>)null).And(pattern, description.Get));
 
     [Property(DisplayName = "And pattern should throw if right pattern is null")]
-    public void AndPatternShouldThrowIfRightPatternIsNull(IAsyncPattern<string, string> pattern)
-    {
-        var action = () => pattern.And(null);
-        action.Should().Throw<ArgumentNullException>();
-    }
+    public void AndPatternShouldThrowIfRightPatternIsNull(IAsyncPattern<string, string> pattern) =>
+        Assert.Throws<ArgumentNullException>(() => pattern.And(null));
 
     [Property(DisplayName = "And pattern with description should throw if right pattern is null")]
     public void AndPatternWithDescriptionShouldThrowIfRightPatternIsNull(
         IAsyncPattern<string, string> pattern,
-        NonNull<string> description)
-    {
-        var action = () => pattern.And(null, description.Get);
-        action.Should().Throw<ArgumentNullException>();
-    }
+        NonNull<string> description) =>
+        Assert.Throws<ArgumentNullException>(() => pattern.And(null, description.Get));
 
     [Property(DisplayName = "And pattern should throw if description is null")]
     public void AndPatternShouldThrowIfDescriptionIsNull(
         IAsyncPattern<string, string> pattern1,
-        IAsyncPattern<string, string> pattern2)
-    {
-        var action = () => pattern1.And(pattern2, null);
-        action.Should().Throw<ArgumentNullException>();
-    }
+        IAsyncPattern<string, string> pattern2) =>
+        Assert.Throws<ArgumentNullException>(() => pattern1.And(pattern2, null));
 }

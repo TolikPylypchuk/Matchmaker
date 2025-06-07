@@ -34,23 +34,14 @@ public class AsAsyncTests
         (pattern.AsAsync(description.Get).Description == description.Get).ToProperty();
 
     [Fact(DisplayName = "AsAsync should throw if pattern is null")]
-    public void AsAsyncShouldThrowIfPatternIsNull()
-    {
-        var action = () => ((IPattern<string, string>)null).AsAsync();
-        action.Should().Throw<ArgumentNullException>();
-    }
+    public void AsAsyncShouldThrowIfPatternIsNull() =>
+        Assert.Throws<ArgumentNullException>(() => ((IPattern<string, string>)null).AsAsync());
 
     [Property(DisplayName = "AsAsync with description should throw if pattern is null")]
-    public void AsAsyncWithDescriptionShouldThrowIfPatternIsNull(NonNull<string> description)
-    {
-        var action = () => ((IPattern<string, string>)null).AsAsync(description.Get);
-        action.Should().Throw<ArgumentNullException>();
-    }
+    public void AsAsyncWithDescriptionShouldThrowIfPatternIsNull(NonNull<string> description) =>
+        Assert.Throws<ArgumentNullException>(() => ((IPattern<string, string>)null).AsAsync(description.Get));
 
     [Property(DisplayName = "AsAsync with description should throw if description is null")]
-    public void AsAsyncWithDescriptionShouldThrowIfDescriptionIsNull(IPattern<string, string> pattern)
-    {
-        var action = () => pattern.AsAsync(null);
-        action.Should().Throw<ArgumentNullException>();
-    }
+    public void AsAsyncWithDescriptionShouldThrowIfDescriptionIsNull(IPattern<string, string> pattern) =>
+        Assert.Throws<ArgumentNullException>(() => pattern.AsAsync(null));
 }

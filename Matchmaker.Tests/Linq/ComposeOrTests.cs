@@ -77,46 +77,32 @@ public class ComposeOrTests
             .ToProperty();
 
     [Property(DisplayName = "Compose Or pattern should throw if left pattern is null")]
-    public void ComposeOrPatternShouldThrowIfLeftPatternIsNull(IPattern<string, string> pattern)
-    {
-        var action = () => ((IPattern<string, string>)null).Compose(pattern, PatternComposition.Or);
-        action.Should().Throw<ArgumentNullException>();
-    }
+    public void ComposeOrPatternShouldThrowIfLeftPatternIsNull(IPattern<string, string> pattern) =>
+        Assert.Throws<ArgumentNullException>(() =>
+            ((IPattern<string, string>)null).Compose(pattern, PatternComposition.Or));
 
     [Property(DisplayName = "Compose Or pattern with description should throw if left pattern is null")]
     public void ComposeOrPatternWithDescriptionShouldThrowIfLeftPatternIsNull(
         IPattern<string, string> pattern,
-        NonNull<string> description)
-    {
-        var action = () => ((IPattern<string, string>)null).Compose(
-            pattern, PatternComposition.Or, description.Get);
-        action.Should().Throw<ArgumentNullException>();
-    }
+        NonNull<string> description) =>
+        Assert.Throws<ArgumentNullException>(() =>
+            ((IPattern<string, string>)null).Compose(pattern, PatternComposition.Or, description.Get));
 
     [Property(DisplayName = "Compose Or pattern should throw if right pattern is null")]
-    public void ComposeOrPatternShouldThrowIfRightPatternIsNull(IPattern<string, string> pattern)
-    {
-        var action = () => pattern.Compose(null, PatternComposition.Or);
-        action.Should().Throw<ArgumentNullException>();
-    }
+    public void ComposeOrPatternShouldThrowIfRightPatternIsNull(IPattern<string, string> pattern) =>
+        Assert.Throws<ArgumentNullException>(() => pattern.Compose(null, PatternComposition.Or));
 
     [Property(DisplayName = "Compose Or pattern with description should throw if right pattern is null")]
     public void ComposeOrPatternWithDescriptionShouldThrowIfRightPatternIsNull(
         IPattern<string, string> pattern,
-        NonNull<string> description)
-    {
-        var action = () => pattern.Compose(null, PatternComposition.Or, description.Get);
-        action.Should().Throw<ArgumentNullException>();
-    }
+        NonNull<string> description) =>
+        Assert.Throws<ArgumentNullException>(() => pattern.Compose(null, PatternComposition.Or, description.Get));
 
     [Property(DisplayName = "Compose Or pattern should throw if description is null")]
     public void ComposeOrPatternShouldThrowIfDescriptionIsNull(
         IPattern<string, string> pattern1,
-        IPattern<string, string> pattern2)
-    {
-        var action = () => pattern1.Compose(pattern2, PatternComposition.Or, null);
-        action.Should().Throw<ArgumentNullException>();
-    }
+        IPattern<string, string> pattern2) =>
+        Assert.Throws<ArgumentNullException>(() => pattern1.Compose(pattern2, PatternComposition.Or, null));
 
     [Property(DisplayName = "Or pattern should never return null")]
     public Property OrPatternShouldNeverReturnNull(
@@ -186,43 +172,28 @@ public class ComposeOrTests
         (pattern1.Or(pattern2, description.Get).Description == description.Get).ToProperty();
 
     [Property(DisplayName = "Or pattern should throw if left pattern is null")]
-    public void OrPatternShouldThrowIfLeftPatternIsNull(IPattern<string, string> pattern)
-    {
-        var action = () => ((IPattern<string, string>)null).Or(pattern);
-        action.Should().Throw<ArgumentNullException>();
-    }
+    public void OrPatternShouldThrowIfLeftPatternIsNull(IPattern<string, string> pattern) =>
+        Assert.Throws<ArgumentNullException>(() => ((IPattern<string, string>)null).Or(pattern));
 
     [Property(DisplayName = "Or pattern with description should throw if left pattern is null")]
     public void OrPatternWithDescriptionShouldThrowIfLeftPatternIsNull(
         IPattern<string, string> pattern,
-        NonNull<string> description)
-    {
-        var action = () => ((IPattern<string, string>)null).Or(pattern, description.Get);
-        action.Should().Throw<ArgumentNullException>();
-    }
+        NonNull<string> description) =>
+        Assert.Throws<ArgumentNullException>(() => ((IPattern<string, string>)null).Or(pattern, description.Get));
 
     [Property(DisplayName = "Or pattern should throw if right pattern is null")]
-    public void OrPatternShouldThrowIfRightPatternIsNull(IPattern<string, string> pattern)
-    {
-        var action = () => pattern.Or(null);
-        action.Should().Throw<ArgumentNullException>();
-    }
+    public void OrPatternShouldThrowIfRightPatternIsNull(IPattern<string, string> pattern) =>
+        Assert.Throws<ArgumentNullException>(() => pattern.Or(null));
 
     [Property(DisplayName = "Or pattern with description should throw if right pattern is null")]
     public void OrPatternWithDescriptionShouldThrowIfRightPatternIsNull(
         IPattern<string, string> pattern,
-        NonNull<string> description)
-    {
-        var action = () => pattern.Or(null, description.Get);
-        action.Should().Throw<ArgumentNullException>();
-    }
+        NonNull<string> description) =>
+        Assert.Throws<ArgumentNullException>(() => pattern.Or(null, description.Get));
 
     [Property(DisplayName = "Or pattern should throw if description is null")]
     public void OrPatternShouldThrowIfDescriptionIsNull(
         IPattern<string, string> pattern1,
-        IPattern<string, string> pattern2)
-    {
-        var action = () => pattern1.Or(pattern2, null);
-        action.Should().Throw<ArgumentNullException>();
-    }
+        IPattern<string, string> pattern2) =>
+        Assert.Throws<ArgumentNullException>(() => pattern1.Or(pattern2, null));
 }

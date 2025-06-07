@@ -1,6 +1,3 @@
-global using FluentAssertions;
-global using FluentAssertions.Execution;
-
 global using FsCheck;
 global using FsCheck.Fluent;
 global using FsCheck.Xunit;

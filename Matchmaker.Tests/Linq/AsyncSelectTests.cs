@@ -69,43 +69,29 @@ public class AsyncSelectTests
         (pattern.Select(mapper, description.Get).Description == description.Get).ToProperty();
 
     [Property(DisplayName = "Select pattern should throw if pattern is null")]
-    public void SelectPatternShouldThrowIfPatternIsNull(Func<string, int> mapper)
-    {
-        var action = () => ((IAsyncPattern<string, string>)null).Select(mapper);
-        action.Should().Throw<ArgumentNullException>();
-    }
+    public void SelectPatternShouldThrowIfPatternIsNull(Func<string, int> mapper) =>
+        Assert.Throws<ArgumentNullException>(() => ((IAsyncPattern<string, string>)null).Select(mapper));
 
     [Property(DisplayName = "Select pattern with description should throw if pattern is null")]
     public void SelectPatternWithDescriptionShouldThrowIfPatternIsNull(
         Func<string, int> mapper,
-        NonNull<string> description)
-    {
-        var action = () => ((IAsyncPattern<string, string>)null).Select(mapper, description.Get);
-        action.Should().Throw<ArgumentNullException>();
-    }
+        NonNull<string> description) =>
+        Assert.Throws<ArgumentNullException>(() =>
+            ((IAsyncPattern<string, string>)null).Select(mapper, description.Get));
 
     [Property(DisplayName = "Select pattern should throw if mapper is null")]
-    public void SelectPatternShouldThrowIfMapperIsNull(IAsyncPattern<string, string> pattern)
-    {
-        var action = () => pattern.Select<string, string, int>(null);
-        action.Should().Throw<ArgumentNullException>();
-    }
+    public void SelectPatternShouldThrowIfMapperIsNull(IAsyncPattern<string, string> pattern) =>
+        Assert.Throws<ArgumentNullException>(() => pattern.Select<string, string, int>(null));
 
     [Property(DisplayName = "Select pattern with description should throw if mapper is null")]
     public void SelectPatternWithDescriptionShouldThrowIfMapperIsNull(
         IAsyncPattern<string, string> pattern,
-        NonNull<string> description)
-    {
-        var action = () => pattern.Select<string, string, int>(null, description.Get);
-        action.Should().Throw<ArgumentNullException>();
-    }
+        NonNull<string> description) =>
+        Assert.Throws<ArgumentNullException>(() => pattern.Select<string, string, int>(null, description.Get));
 
     [Property(DisplayName = "Select pattern with description should throw if description is null")]
     public void SelectPatternWithDescriptionShouldThrowIfDescriptionIsNull(
         IAsyncPattern<string, string> pattern,
-        Func<string, int> mapper)
-    {
-        var action = () => pattern.Select(mapper, null);
-        action.Should().Throw<ArgumentNullException>();
-    }
+        Func<string, int> mapper) =>
+        Assert.Throws<ArgumentNullException>(() => pattern.Select(mapper, null));
 }

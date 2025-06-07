@@ -141,37 +141,41 @@ public class LessOrEqualTests
     [Fact(DisplayName = "Lazy LessOrEqual should be lazy")]
     public void LazyLessOrEqualShouldBeLazy()
     {
-        var action = () => Pattern.LessOrEqual<string>(
-            () => throw new AssertionFailedException("Lazy LessOrEqual is not lazy"));
-        action.Should().NotThrow<AssertionFailedException>();
+        var exception = Record.Exception(() => Pattern.LessOrEqual<string>(
+            () => throw new InvalidOperationException("Lazy LessOrEqual is not lazy")));
+
+        Assert.Null(exception);
     }
 
     [Fact(DisplayName = "Lazy LessOrEqual with comparer should be lazy")]
     public void LazyLessOrEqualWithComparerShouldBeLazy()
     {
-        var action = () => Pattern.LessOrEqual(
-            () => throw new AssertionFailedException("Lazy LessOrEqual is not lazy"),
-            StringComparer);
-        action.Should().NotThrow<AssertionFailedException>();
+        var exception = Record.Exception(() => Pattern.LessOrEqual(
+            () => throw new InvalidOperationException("Lazy LessOrEqual is not lazy"),
+            StringComparer));
+
+        Assert.Null(exception);
     }
 
     [Property(DisplayName = "Lazy LessOrEqual with description should be lazy")]
     public void LazyLessOrEqualWithDescriptionShouldBeLazy(NonNull<string> description)
     {
-        var action = () => Pattern.LessOrEqual<string>(
-            () => throw new AssertionFailedException("Lazy LessOrEqual is not lazy"),
-            description.Get);
-        action.Should().NotThrow<AssertionFailedException>();
+        var exception = Record.Exception(() => Pattern.LessOrEqual<string>(
+            () => throw new InvalidOperationException("Lazy LessOrEqual is not lazy"),
+            description.Get));
+
+        Assert.Null(exception);
     }
 
     [Property(DisplayName = "Lazy LessOrEqual with comparer and description should be lazy")]
     public void LazyLessOrEqualWithComparerAndDescriptionShouldBeLazy(NonNull<string> description)
     {
-        var action = () => Pattern.LessOrEqual(
-            () => throw new AssertionFailedException("Lazy LessOrEqual is not lazy"),
+        var exception = Record.Exception(() => Pattern.LessOrEqual(
+            () => throw new InvalidOperationException("Lazy LessOrEqual is not lazy"),
             StringComparer,
-            description.Get);
-        action.Should().NotThrow<AssertionFailedException>();
+            description.Get));
+
+        Assert.Null(exception);
     }
 
     [Property(DisplayName = "Lazy LessOrEqual should be memoized")]
@@ -252,93 +256,58 @@ public class LessOrEqualTests
     }
 
     [Property(DisplayName = "LessOrEqual should throw if comparer is null")]
-    public void LessOrEqualShouldThrowIfComparerIsNull(string x)
-    {
-        var action = () => Pattern.LessOrEqual(x, (IComparer<string>)null);
-        action.Should().Throw<ArgumentNullException>();
-    }
+    public void LessOrEqualShouldThrowIfComparerIsNull(string x) =>
+        Assert.Throws<ArgumentNullException>(() => Pattern.LessOrEqual(x, (IComparer<string>)null));
 
     [Property(DisplayName = "Lazy LessOrEqual should throw if comparer is null")]
-    public void LazyLessOrEqualShouldThrowIfComparerIsNull(string x)
-    {
-        var action = () => Pattern.LessOrEqual(() => x, (IComparer<string>)null);
-        action.Should().Throw<ArgumentNullException>();
-    }
+    public void LazyLessOrEqualShouldThrowIfComparerIsNull(string x) =>
+        Assert.Throws<ArgumentNullException>(() => Pattern.LessOrEqual(() => x, (IComparer<string>)null));
 
     [Property(DisplayName = "LessOrEqual should throw if description is null")]
-    public void LessOrEqualShouldThrowIfDescriptionIsNull(string x)
-    {
-        var action = () => Pattern.LessOrEqual(x, (string)null);
-        action.Should().Throw<ArgumentNullException>();
-    }
+    public void LessOrEqualShouldThrowIfDescriptionIsNull(string x) =>
+        Assert.Throws<ArgumentNullException>(() => Pattern.LessOrEqual(x, (string)null));
 
     [Property(DisplayName = "Lazy LessOrEqual should throw if description is null")]
-    public void LazyLessOrEqualShouldThrowIfDescriptionIsNull(string x)
-    {
-        var action = () => Pattern.LessOrEqual(() => x, (string)null);
-        action.Should().Throw<ArgumentNullException>();
-    }
+    public void LazyLessOrEqualShouldThrowIfDescriptionIsNull(string x) =>
+        Assert.Throws<ArgumentNullException>(() => Pattern.LessOrEqual(() => x, (string)null));
 
     [Property(DisplayName = "LessOrEqual should throw if comparer is null and description is not null")]
     public void LessOrEqualShouldThrowIfComparerIsNullAndDescriptionIsNotNull(
         string x,
-        NonNull<string> description)
-    {
-        var action = () => Pattern.LessOrEqual(x, null, description.Get);
-        action.Should().Throw<ArgumentNullException>();
-    }
+        NonNull<string> description) =>
+        Assert.Throws<ArgumentNullException>(() => Pattern.LessOrEqual(x, null, description.Get));
 
     [Property(DisplayName = "Lazy LessOrEqual should throw if comparer is null and description is not null")]
     public void LazyLessOrEqualShouldThrowIfComparerIsNullAndDescriptionIsNotNull(
         string x,
-        NonNull<string> description)
-    {
-        var action = () => Pattern.LessOrEqual(() => x, null, description.Get);
-        action.Should().Throw<ArgumentNullException>();
-    }
+        NonNull<string> description) =>
+        Assert.Throws<ArgumentNullException>(() => Pattern.LessOrEqual(() => x, null, description.Get));
 
     [Property(DisplayName = "LessOrEqual should throw if comparer is not null and description is null")]
-    public void LessOrEqualShouldThrowIfComparerIsNotNullAndDescriptionIsNull(string x)
-    {
-        var action = () => Pattern.LessOrEqual(x, StringComparer, null);
-        action.Should().Throw<ArgumentNullException>();
-    }
+    public void LessOrEqualShouldThrowIfComparerIsNotNullAndDescriptionIsNull(string x) =>
+        Assert.Throws<ArgumentNullException>(() => Pattern.LessOrEqual(x, StringComparer, null));
 
     [Property(DisplayName = "Lazy LessOrEqual should throw if comparer is not null and description is null")]
-    public void LazyLessOrEqualShouldThrowIfComparerIsNotNullAndDescriptionIsNull(string x)
-    {
-        var action = () => Pattern.LessOrEqual(() => x, StringComparer, null);
-        action.Should().Throw<ArgumentNullException>();
-    }
+    public void LazyLessOrEqualShouldThrowIfComparerIsNotNullAndDescriptionIsNull(string x) =>
+        Assert.Throws<ArgumentNullException>(() => Pattern.LessOrEqual(() => x, StringComparer, null));
 
     [Fact(DisplayName = "Lazy LessOrEqual should throw if value provider is null")]
-    public void LazyLessOrEqualShouldThrowIfValueProviderIsNull()
-    {
-        var action = () => Pattern.LessOrEqual((Func<int>)null);
-        action.Should().Throw<ArgumentNullException>();
-    }
+    public void LazyLessOrEqualShouldThrowIfValueProviderIsNull() =>
+        Assert.Throws<ArgumentNullException>(() => Pattern.LessOrEqual((Func<int>)null));
 
     [Fact(DisplayName = "Lazy LessOrEqual should throw if value provider is null and comparer is not null")]
-    public void LazyLessOrEqualShouldThrowIfValueProviderIsNullAndComparerIsNotNull()
-    {
-        var action = () => Pattern.LessOrEqual((Func<string>)null, StringComparer);
-        action.Should().Throw<ArgumentNullException>();
-    }
+    public void LazyLessOrEqualShouldThrowIfValueProviderIsNullAndComparerIsNotNull() =>
+        Assert.Throws<ArgumentNullException>(() => Pattern.LessOrEqual((Func<string>)null, StringComparer));
 
     [Property(DisplayName = "Lazy LessOrEqual should throw if value provider is null and description is not null")]
     public void LazyLessOrEqualShouldThrowIfValueProviderIsNullAndDescriptionIsNotNull(
-        NonNull<string> description)
-    {
-        var action = () => Pattern.LessOrEqual((Func<string>)null, description.Get);
-        action.Should().Throw<ArgumentNullException>();
-    }
+        NonNull<string> description) =>
+        Assert.Throws<ArgumentNullException>(() => Pattern.LessOrEqual((Func<string>)null, description.Get));
 
     [Property(DisplayName = "Lazy LessOrEqual should throw if value provider is null " +
         "and comparer is not null and description is not null")]
     public void LazyLessOrEqualShouldThrowIfValueProviderIsNullAndComparerAndDescriptionIsNotNull(
-        NonNull<string> description)
-    {
-        var action = () => Pattern.LessOrEqual((Func<string>)null, StringComparer, description.Get);
-        action.Should().Throw<ArgumentNullException>();
-    }
+        NonNull<string> description) =>
+        Assert.Throws<ArgumentNullException>(() =>
+            Pattern.LessOrEqual((Func<string>)null, StringComparer, description.Get));
 }

@@ -72,43 +72,28 @@ public class WhereTests
         (pattern.Where(predicate, description.Get).Description == description.Get).ToProperty();
 
     [Property(DisplayName = "Where pattern should throw if pattern is null")]
-    public void WherePatternShouldThrowIfPatternIsNull(Func<string, bool> predicate)
-    {
-        var action = () => ((IPattern<string, string>)null).Where(predicate);
-        action.Should().Throw<ArgumentNullException>();
-    }
+    public void WherePatternShouldThrowIfPatternIsNull(Func<string, bool> predicate) =>
+        Assert.Throws<ArgumentNullException>(() => ((IPattern<string, string>)null).Where(predicate));
 
     [Property(DisplayName = "Where pattern with description should throw if pattern is null")]
     public void WherePatternWithDescriptionShouldThrowIfPatternIsNull(
         Func<string, bool> predicate,
-        NonNull<string> description)
-    {
-        var action = () => ((IPattern<string, string>)null).Where(predicate, description.Get);
-        action.Should().Throw<ArgumentNullException>();
-    }
+        NonNull<string> description) =>
+        Assert.Throws<ArgumentNullException>(() => ((IPattern<string, string>)null).Where(predicate, description.Get));
 
     [Property(DisplayName = "Where pattern should throw if predicate is null")]
-    public void WherePatternShouldThrowIfPredicateIsNull(IPattern<string, string> pattern)
-    {
-        var action = () => pattern.Where(null);
-        action.Should().Throw<ArgumentNullException>();
-    }
+    public void WherePatternShouldThrowIfPredicateIsNull(IPattern<string, string> pattern) =>
+        Assert.Throws<ArgumentNullException>(() => pattern.Where(null));
 
     [Property(DisplayName = "Where pattern with description should throw if predicate is null")]
     public void WherePatternWithDescriptionShouldThrowIfPredicateIsNull(
         IPattern<string, string> pattern,
-        NonNull<string> description)
-    {
-        var action = () => pattern.Where(null, description.Get);
-        action.Should().Throw<ArgumentNullException>();
-    }
+        NonNull<string> description) =>
+        Assert.Throws<ArgumentNullException>(() => pattern.Where(null, description.Get));
 
     [Property(DisplayName = "Where pattern with description should throw if description is null")]
     public void WherePatternWithDescriptionShouldThrowIfDescriptionIsNull(
         IPattern<string, string> pattern,
-        Func<string, bool> predicate)
-    {
-        var action = () => pattern.Where(predicate, null);
-        action.Should().Throw<ArgumentNullException>();
-    }
+        Func<string, bool> predicate) =>
+        Assert.Throws<ArgumentNullException>(() => pattern.Where(predicate, null));
 }

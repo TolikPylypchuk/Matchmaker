@@ -4,15 +4,11 @@ public class AsyncMatchExpressionTests
 {
     [Fact(DisplayName = "AsyncMatch.Create should never return null")]
     public void MatchCreateShouldNeverReturnNull() =>
-        AsyncMatch.Create<int, string>()
-            .Should()
-            .NotBeNull();
+        Assert.NotNull(AsyncMatch.Create<int, string>());
 
     [Property(DisplayName = "AsyncMatch.Create with fall-through should never return null")]
     public void MatchCreateWithFallthroughShouldNeverReturnNull(bool fallthroughByDefault) =>
-        AsyncMatch.Create<int, string>(fallthroughByDefault)
-            .Should()
-            .NotBeNull();
+        Assert.NotNull(AsyncMatch.Create<int, string>(fallthroughByDefault));
 
     [Property(DisplayName = "Match should match patterns correctly with async pattern and async action")]
     public async Task<Property> MatchShouldMatchPatternsCorrectlyWithAsyncPatternAndAsyncAction(
@@ -144,16 +140,18 @@ public class AsyncMatchExpressionTests
     {
         var pattern = AsyncPattern.CreatePattern(predicate);
 
-        var action = () => AsyncMatch.Create<string, bool>()
-            .Case(pattern, _ => true)
-            .ExecuteAsync(value);
+        Task action() =>
+            AsyncMatch.Create<string, bool>()
+                .Case(pattern, _ => true)
+                .ExecuteAsync(value);
 
         if ((await pattern.MatchAsync(value)).IsSuccessful)
         {
-            await action.Should().NotThrowAsync<MatchException>();
+            var exception = await Record.ExceptionAsync(action);
+            Assert.Null(exception);
         } else
         {
-            await action.Should().ThrowAsync<MatchException>();
+            await Assert.ThrowsAsync<MatchException>(action);
         }
     }
 
@@ -162,11 +160,13 @@ public class AsyncMatchExpressionTests
     {
         var pattern = AsyncPattern.CreatePattern(predicate);
 
-        var action = () => AsyncMatch.Create<string, bool>()
-            .Case(pattern, _ => true)
-            .ExecuteNonStrictAsync(value);
+        Task action() =>
+            AsyncMatch.Create<string, bool>()
+                .Case(pattern, _ => true)
+                .ExecuteNonStrictAsync(value);
 
-        await action.Should().NotThrowAsync<MatchException>();
+        var exception = await Record.ExceptionAsync(action);
+        Assert.Null(exception);
     }
 
     [Property(DisplayName = "Match with fall-through should match patterns correctly")]
@@ -439,16 +439,18 @@ public class AsyncMatchExpressionTests
     {
         var pattern = AsyncPattern.CreatePattern(predicate);
 
-        var action = () => AsyncMatch.Create<string, bool>()
-            .Case(pattern, _ => true)
-            .ToFunction()(value);
+        Task action() =>
+            AsyncMatch.Create<string, bool>()
+                .Case(pattern, _ => true)
+                .ToFunction()(value);
 
         if ((await pattern.MatchAsync(value)).IsSuccessful)
         {
-            await action.Should().NotThrowAsync<MatchException>();
+            var exception = await Record.ExceptionAsync(action);
+            Assert.Null(exception);
         } else
         {
-            await action.Should().ThrowAsync<MatchException>();
+            await Assert.ThrowsAsync<MatchException>(action);
         }
     }
 
@@ -459,11 +461,13 @@ public class AsyncMatchExpressionTests
     {
         var pattern = AsyncPattern.CreatePattern(predicate);
 
-        var action = () => AsyncMatch.Create<string, bool>()
-            .Case(pattern, _ => true)
-            .ToNonStrictFunction()(value);
+        Task action() =>
+            AsyncMatch.Create<string, bool>()
+                .Case(pattern, _ => true)
+                .ToNonStrictFunction()(value);
 
-        await action.Should().NotThrowAsync<MatchException>();
+        var exception = await Record.ExceptionAsync(action);
+        Assert.Null(exception);
     }
 
     [Property(DisplayName = "ToFunction with fall-through should match patterns correctly")]
@@ -652,105 +656,68 @@ public class AsyncMatchExpressionTests
     }
 
     [Fact(DisplayName = "Match should throw if async pattern is null")]
-    public void MatchShouldThrowIfAsyncPatternIsNull()
-    {
-        var action = () => AsyncMatch.Create<string, bool>()
-            .Case((IAsyncPattern<string, string>)null, _ => true);
-
-        action.Should().Throw<ArgumentNullException>();
-    }
+    public void MatchShouldThrowIfAsyncPatternIsNull() =>
+        Assert.Throws<ArgumentNullException>(() =>
+            AsyncMatch.Create<string, bool>().Case((IAsyncPattern<string, string>)null, _ => true));
 
     [Fact(DisplayName = "Match should throw if sync pattern is null with async action")]
-    public void MatchShouldThrowIfSyncPatternIsNullWithAsyncAction()
-    {
-        var action = () => AsyncMatch.Create<string, bool>()
-            .Case((IPattern<string, string>)null, _ => Task.FromResult(true));
-
-        action.Should().Throw<ArgumentNullException>();
-    }
+    public void MatchShouldThrowIfSyncPatternIsNullWithAsyncAction() =>
+        Assert.Throws<ArgumentNullException>(() =>
+            AsyncMatch.Create<string, bool>().Case((IPattern<string, string>)null, _ => Task.FromResult(true)));
 
     [Fact(DisplayName = "Match should throw if async pattern is null with async action")]
-    public void MatchShouldThrowIfAsyncPatternIsNullWithAsyncAction()
-    {
-        var action = () => AsyncMatch.Create<string, bool>()
-            .Case((IAsyncPattern<string, string>)null, _ => Task.FromResult(true));
-
-        action.Should().Throw<ArgumentNullException>();
-    }
+    public void MatchShouldThrowIfAsyncPatternIsNullWithAsyncAction() =>
+        Assert.Throws<ArgumentNullException>(() => AsyncMatch.Create<string, bool>()
+            .Case((IAsyncPattern<string, string>)null, _ => Task.FromResult(true)));
 
     [Fact(DisplayName = "Match should throw if sync pattern is null with sync action")]
-    public void MatchShouldThrowIfSyncPatternIsNullWithSyncAction()
-    {
-        var action = () => AsyncMatch.Create<string, bool>()
-            .Case((IPattern<string, string>)null, _ => true);
-
-        action.Should().Throw<ArgumentNullException>();
-    }
+    public void MatchShouldThrowIfSyncPatternIsNullWithSyncAction() =>
+        Assert.Throws<ArgumentNullException>(() =>
+            AsyncMatch.Create<string, bool>().Case((IPattern<string, string>)null, _ => true));
 
     [Property(DisplayName = "Match should throw if case function is null with sync action")]
     public void MatchShouldThrowIfCaseFunctionIsNullWithSyncAction(Func<string, Task<bool>> predicate)
     {
         var pattern = AsyncPattern.CreatePattern(predicate);
-
-        var action = () => AsyncMatch.Create<string, bool>()
-            .Case(pattern, (Func<string, Task<bool>>)null);
-
-        action.Should().Throw<ArgumentNullException>();
+        Assert.Throws<ArgumentNullException>(() =>
+            AsyncMatch.Create<string, bool>().Case(pattern, (Func<string, Task<bool>>)null));
     }
 
     [Fact(DisplayName = "Match Should throw if case type async function is null")]
-    public void MatchShouldThrowIfCaseTypeAsyncFunctionIsNull()
-    {
-        var action = () => AsyncMatch.Create<string, bool>()
-            .Case((Func<string, Task<bool>>)null);
-
-        action.Should().Throw<ArgumentNullException>();
-    }
+    public void MatchShouldThrowIfCaseTypeAsyncFunctionIsNull() =>
+        Assert.Throws<ArgumentNullException>(() =>
+            AsyncMatch.Create<string, bool>().Case((Func<string, Task<bool>>)null));
 
     [Fact(DisplayName = "Match should throw if case type sync function is null")]
-    public void MatchShouldThrowIfCaseTypeSyncFunctionIsNull()
-    {
-        var action = () => AsyncMatch.Create<string, bool>()
-            .Case((Func<string, bool>)null);
-
-        action.Should().Throw<ArgumentNullException>();
-    }
+    public void MatchShouldThrowIfCaseTypeSyncFunctionIsNull() =>
+        Assert.Throws<ArgumentNullException>(() =>
+            AsyncMatch.Create<string, bool>().Case((Func<string, bool>)null));
 
     [Property(DisplayName = "Match should throw if async pattern with fall-through is null with async action")]
     public void MatchShouldThrowIfAsyncPatternWithFallthroughIsNullWithAsyncAction(bool fallthrough)
     {
-        var action = () => AsyncMatch.Create<string, bool>()
-            .Case((IAsyncPattern<string, string>)null, fallthrough, _ => Task.FromResult(true));
-
-        action.Should().Throw<ArgumentNullException>();
+        Assert.Throws<ArgumentNullException>(() =>
+            AsyncMatch.Create<string, bool>()
+                .Case((IAsyncPattern<string, string>)null, fallthrough, _ => Task.FromResult(true)));
     }
 
     [Property(DisplayName = "Match should throw if async pattern with fall-through is null with sync action")]
-    public void MatchShouldThrowIfAsyncPatternWithFallthroughIsNullWithSyncAction(bool fallthrough)
-    {
-        var action = () => AsyncMatch.Create<string, bool>()
-            .Case((IAsyncPattern<string, string>)null, fallthrough, _ => true);
-
-        action.Should().Throw<ArgumentNullException>();
-    }
+    public void MatchShouldThrowIfAsyncPatternWithFallthroughIsNullWithSyncAction(bool fallthrough) =>
+        Assert.Throws<ArgumentNullException>(() =>
+            AsyncMatch.Create<string, bool>().Case((IAsyncPattern<string, string>)null, fallthrough, _ => true));
 
     [Property(DisplayName = "Match should throw if sync pattern with fall-through is null with async action")]
     public void MatchShouldThrowIfSyncPatternWithFallthroughIsNullWithAsyncAction(bool fallthrough)
     {
-        var action = () => AsyncMatch.Create<string, bool>()
-            .Case((IPattern<string, string>)null, fallthrough, _ => Task.FromResult(true));
-
-        action.Should().Throw<ArgumentNullException>();
+        Assert.Throws<ArgumentNullException>(() =>
+            AsyncMatch.Create<string, bool>()
+                .Case((IPattern<string, string>)null, fallthrough, _ => Task.FromResult(true)));
     }
 
     [Property(DisplayName = "Match should throw if sync pattern with fall-through is null with sync action")]
-    public void MatchShouldThrowIfSyncPatternWithFallthroughIsNullWithSyncAction(bool fallthrough)
-    {
-        var action = () => AsyncMatch.Create<string, bool>()
-            .Case((IPattern<string, string>)null, fallthrough, _ => true);
-
-        action.Should().Throw<ArgumentNullException>();
-    }
+    public void MatchShouldThrowIfSyncPatternWithFallthroughIsNullWithSyncAction(bool fallthrough) =>
+        Assert.Throws<ArgumentNullException>(() =>
+            AsyncMatch.Create<string, bool>().Case((IPattern<string, string>)null, fallthrough, _ => true));
 
     [Property(DisplayName = "Match should throw if case async function with fall-through is null with async pattern")]
     public void MatchShouldThrowIfCaseAsyncFunctionWithFallthroughIsNullWithAsyncPattern(
@@ -758,11 +725,8 @@ public class AsyncMatchExpressionTests
         bool fallthrough)
     {
         var pattern = AsyncPattern.CreatePattern(predicate);
-
-        var action = () => AsyncMatch.Create<string, bool>()
-            .Case(pattern, fallthrough, (Func<string, Task<bool>>)null);
-
-        action.Should().Throw<ArgumentNullException>();
+        Assert.Throws<ArgumentNullException>(() =>
+            AsyncMatch.Create<string, bool>().Case(pattern, fallthrough, (Func<string, Task<bool>>)null));
     }
 
     [Property(DisplayName = "Match should throw if case sync function with fall-through is null with async pattern")]
@@ -771,11 +735,8 @@ public class AsyncMatchExpressionTests
         bool fallthrough)
     {
         var pattern = AsyncPattern.CreatePattern(predicate);
-
-        var action = () => AsyncMatch.Create<string, bool>()
-            .Case(pattern, fallthrough, (Func<string, bool>)null);
-
-        action.Should().Throw<ArgumentNullException>();
+        Assert.Throws<ArgumentNullException>(() =>
+            AsyncMatch.Create<string, bool>().Case(pattern, fallthrough, (Func<string, bool>)null));
     }
 
     [Property(DisplayName = "Match should throw if case async function with fallthrough is null with sync pattern")]
@@ -784,11 +745,8 @@ public class AsyncMatchExpressionTests
         bool fallthrough)
     {
         var pattern = Pattern.CreatePattern(predicate);
-
-        var action = () => AsyncMatch.Create<string, bool>()
-            .Case(pattern, fallthrough, (Func<string, Task<bool>>)null);
-
-        action.Should().Throw<ArgumentNullException>();
+        Assert.Throws<ArgumentNullException>(() =>
+            AsyncMatch.Create<string, bool>().Case(pattern, fallthrough, (Func<string, Task<bool>>)null));
     }
 
     [Property(DisplayName = "Match should throw if case sync function with fallthrough is null with sync pattern")]
@@ -797,28 +755,17 @@ public class AsyncMatchExpressionTests
         bool fallthrough)
     {
         var pattern = Pattern.CreatePattern(predicate);
-
-        var action = () => AsyncMatch.Create<string, bool>()
-            .Case(pattern, fallthrough, (Func<string, bool>)null);
-
-        action.Should().Throw<ArgumentNullException>();
+        Assert.Throws<ArgumentNullException>(() =>
+            AsyncMatch.Create<string, bool>().Case(pattern, fallthrough, (Func<string, bool>)null));
     }
 
     [Property(DisplayName = "Match should throw if case type async function with fall-through is null")]
-    public void MatchShouldThrowIfCaseTypeAsyncFunctionWithFallthroughIsNull(bool fallthrough)
-    {
-        var action = () => AsyncMatch.Create<string, bool>()
-            .Case(fallthrough, (Func<string, Task<bool>>)null);
-
-        action.Should().Throw<ArgumentNullException>();
-    }
+    public void MatchShouldThrowIfCaseTypeAsyncFunctionWithFallthroughIsNull(bool fallthrough) =>
+        Assert.Throws<ArgumentNullException>(() =>
+            AsyncMatch.Create<string, bool>().Case(fallthrough, (Func<string, Task<bool>>)null));
 
     [Property(DisplayName = "Match should throw if case type sync function with fallthrough is null")]
-    public void MatchShouldThrowIfCaseTypeSyncFunctionWithFallthroughIsNull(bool fallthrough)
-    {
-        var action = () => AsyncMatch.Create<string, bool>()
-            .Case(fallthrough, (Func<string, bool>)null);
-
-        action.Should().Throw<ArgumentNullException>();
-    }
+    public void MatchShouldThrowIfCaseTypeSyncFunctionWithFallthroughIsNull(bool fallthrough) =>
+        Assert.Throws<ArgumentNullException>(() =>
+            AsyncMatch.Create<string, bool>().Case(fallthrough, (Func<string, bool>)null));
 }

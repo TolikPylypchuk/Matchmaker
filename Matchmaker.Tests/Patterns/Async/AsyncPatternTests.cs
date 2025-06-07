@@ -71,36 +71,24 @@ public class AsyncPatternTests
         (AsyncPattern.CreatePattern(matcher, description.Get) != null).ToProperty();
 
     [Fact(DisplayName = "Simple CreatePattern should throw if predicate is null")]
-    public void SimpleCreatePatternShouldThrowIfPredicateIsNull()
-    {
-        var createWithNull = () => AsyncPattern.CreatePattern<string>(null);
-        createWithNull.Should().Throw<ArgumentNullException>();
-    }
+    public void SimpleCreatePatternShouldThrowIfPredicateIsNull() =>
+        Assert.Throws<ArgumentNullException>(() => AsyncPattern.CreatePattern<string>(null));
 
     [Property(DisplayName = "Simple CreatePattern should throw if description is null")]
-    public void SimpleCreatePatternShouldThrowIfDescriptionIsNull(Func<string, Task<bool>> predicate)
-    {
-        var createWithNull = () => AsyncPattern.CreatePattern(predicate, null);
-        createWithNull.Should().Throw<ArgumentNullException>();
-    }
+    public void SimpleCreatePatternShouldThrowIfDescriptionIsNull(Func<string, Task<bool>> predicate) =>
+        Assert.Throws<ArgumentNullException>(() => AsyncPattern.CreatePattern(predicate, null));
 
     [Fact(DisplayName = "CreatePattern should throw if matcher is null")]
-    public void CreatePatternShouldThrowIfMatcherIsNull()
-    {
-        var createWithNull = () => AsyncPattern.CreatePattern<string, string>(null);
-        createWithNull.Should().Throw<ArgumentNullException>();
-    }
+    public void CreatePatternShouldThrowIfMatcherIsNull() =>
+        Assert.Throws<ArgumentNullException>(() => AsyncPattern.CreatePattern<string, string>(null));
 
     [Property(DisplayName = "CreatePattern should throw if description is null")]
-    public void CreatePatternShouldThrowIfDescriptionIsNull(Func<string, Task<MatchResult<string>>> matcher)
-    {
-        var createWithNull = () => AsyncPattern.CreatePattern(matcher, null);
-        createWithNull.Should().Throw<ArgumentNullException>();
-    }
+    public void CreatePatternShouldThrowIfDescriptionIsNull(Func<string, Task<MatchResult<string>>> matcher) =>
+        Assert.Throws<ArgumentNullException>(() => AsyncPattern.CreatePattern(matcher, null));
 
     [Fact(DisplayName = "Any should never return null")]
     public void AnyShouldNeverReturnNull() =>
-        AsyncPattern.Any<string>().Should().NotBeNull();
+        Assert.NotNull(AsyncPattern.Any<string>());
 
     [Property(DisplayName = "Any with description should never return null")]
     public Property AnyWithDescriptionShouldNeverReturnNull(NonNull<string> description) =>
@@ -116,18 +104,15 @@ public class AsyncPatternTests
 
     [Fact(DisplayName = "Any should have correct default description")]
     public void AnyShouldHaveCorrectDefaultDescription() =>
-        AsyncPattern.Any<string>().Description.Should().Be(AsyncPattern.DefaultAnyDescription);
+        Assert.Equal(AsyncPattern.DefaultAnyDescription, AsyncPattern.Any<string>().Description);
 
     [Property(DisplayName = "Any with description should have the specified description")]
     public Property AnyWithDescriptionShouldHaveSpecifiedDescription(NonNull<string> description) =>
         (AsyncPattern.Any<string>(description.Get).Description == description.Get).ToProperty();
 
     [Fact(DisplayName = "Any should throw if description is null")]
-    public void AnyShouldThrowIfDescriptionIsNull()
-    {
-        var action = () => AsyncPattern.Any<string>(null);
-        action.Should().Throw<ArgumentNullException>();
-    }
+    public void AnyShouldThrowIfDescriptionIsNull() =>
+        Assert.Throws<ArgumentNullException>(() => AsyncPattern.Any<string>(null));
 
     [Property(DisplayName = "Return should never return null")]
     public Property ReturnShouldNeverReturnNull(Task<string> x) =>
@@ -172,11 +157,8 @@ public class AsyncPatternTests
         (AsyncPattern.Return<string, string>(x, description.Get).Description == description.Get).ToProperty();
 
     [Property(DisplayName = "Return should throw if description is null")]
-    public void ReturnShouldThrowIfDescriptionIsNull(Task<string> x)
-    {
-        var action = () => AsyncPattern.Return<string, string>(x, null);
-        action.Should().Throw<ArgumentNullException>();
-    }
+    public void ReturnShouldThrowIfDescriptionIsNull(Task<string> x) =>
+        Assert.Throws<ArgumentNullException>(() => AsyncPattern.Return<string, string>(x, null));
 
     [Property(DisplayName = "Lazy Return should always return the pecified value")]
     public async Task<Property> LazyReturnShouldAlwaysReturnSpecifiedValue(string x, Task<string> y)
@@ -210,17 +192,19 @@ public class AsyncPatternTests
     [Fact(DisplayName = "Lazy Return should be lazy")]
     public void LazyReturnShouldBeLazy()
     {
-        var action = () => AsyncPattern.Return<string, string>(
-            () => throw new AssertionFailedException("Lazy Return is not lazy"));
-        action.Should().NotThrow<AssertionFailedException>();
+        var exception = Record.Exception(() =>
+            AsyncPattern.Return<string, string>(() => throw new InvalidOperationException("Lazy Return is not lazy")));
+
+        Assert.Null(exception);
     }
 
     [Property(DisplayName = "Lazy Return with description should be lazy")]
     public void LazyReturnWithDescriptionShouldBeLazy(NonNull<string> description)
     {
-        var action = () => AsyncPattern.Return<string, string>(
-            () => throw new AssertionFailedException("Lazy Return is not lazy"), description.Get);
-        action.Should().NotThrow<AssertionFailedException>();
+        var exception = Record.Exception(() => AsyncPattern.Return<string, string>(
+            () => throw new InvalidOperationException("Lazy Return is not lazy"), description.Get));
+
+        Assert.Null(exception);
     }
 
     [Property(DisplayName = "Lazy Return should be memoized")]
@@ -260,15 +244,12 @@ public class AsyncPatternTests
     }
 
     [Property(DisplayName = "Lazy Return should throw if description is null")]
-    public void LazyReturnShouldThrowIfDescriptionIsNull(Task<string> x)
-    {
-        var action = () => AsyncPattern.Return<string, string>(() => x, null);
-        action.Should().Throw<ArgumentNullException>();
-    }
+    public void LazyReturnShouldThrowIfDescriptionIsNull(Task<string> x) =>
+        Assert.Throws<ArgumentNullException>(() => AsyncPattern.Return<string, string>(() => x, null));
 
     [Fact(DisplayName = "Null should never return null")]
     public void NullShouldNeverReturnNull() =>
-        AsyncPattern.Null<string>().Should().NotBeNull();
+        Assert.NotNull(AsyncPattern.Null<string>());
 
     [Property(DisplayName = "Null with description should never return null")]
     public Property NullWithDescriptionShouldNeverReturnNull(NonNull<string> description) =>
@@ -285,22 +266,19 @@ public class AsyncPatternTests
 
     [Fact(DisplayName = "Null should have correct default description")]
     public void NullShouldHaveCorrectDefaultDescription() =>
-        AsyncPattern.Null<string>().Description.Should().Be(AsyncPattern.DefaultNullDescription);
+        Assert.Equal(AsyncPattern.DefaultNullDescription, AsyncPattern.Null<string>().Description);
 
     [Property(DisplayName = "Null should have the specified description")]
     public Property NullShouldHaveSpecifiedDescription(NonNull<string> description) =>
         (AsyncPattern.Null<string>(description.Get).Description == description.Get).ToProperty();
 
     [Fact(DisplayName = "Null should throw if description is null")]
-    public void NullShouldThrowIfDescriptionIsNull()
-    {
-        var action = () => AsyncPattern.Null<string>(null);
-        action.Should().Throw<ArgumentNullException>();
-    }
+    public void NullShouldThrowIfDescriptionIsNull() =>
+        Assert.Throws<ArgumentNullException>(() => AsyncPattern.Null<string>(null));
 
     [Fact(DisplayName = "ValueNull should never return null")]
     public void ValueNullShouldNeverReturnNull() =>
-        AsyncPattern.ValueNull<int>().Should().NotBeNull();
+        Assert.NotNull(AsyncPattern.ValueNull<int>());
 
     [Property(DisplayName = "ValueNull with description should never return null")]
     public Property ValueNullWithDescriptionShouldNeverReturnNull(NonNull<string> description) =>
@@ -317,22 +295,19 @@ public class AsyncPatternTests
 
     [Fact(DisplayName = "ValueNull should have correct default description")]
     public void ValueNullShouldHaveCorrectDefaultDescription() =>
-        AsyncPattern.ValueNull<int>().Description.Should().Be(AsyncPattern.DefaultNullDescription);
+        Assert.Equal(AsyncPattern.DefaultNullDescription, AsyncPattern.ValueNull<int>().Description);
 
     [Property(DisplayName = "ValueNull should have the specified description")]
     public Property ValueNullShouldHaveSpecifiedDescription(NonNull<string> description) =>
         (AsyncPattern.ValueNull<int>(description.Get).Description == description.Get).ToProperty();
 
     [Fact(DisplayName = "ValueNull should throw if description is null")]
-    public void ValueNullShouldThrowIfDescriptionIsNull()
-    {
-        var action = () => AsyncPattern.ValueNull<int>(null);
-        action.Should().Throw<ArgumentNullException>();
-    }
+    public void ValueNullShouldThrowIfDescriptionIsNull() =>
+        Assert.Throws<ArgumentNullException>(() => AsyncPattern.ValueNull<int>(null));
 
     [Fact(DisplayName = "Type should never return null")]
     public void TypeShouldNeverReturnNull() =>
-        AsyncPattern.Type<object, string>().Should().NotBeNull();
+        Assert.NotNull(AsyncPattern.Type<object, string>());
 
     [Property(DisplayName = "Type with description should never return null")]
     public Property TypeWithDescriptionShouldNeverReturnNull(NonNull<string> description) =>
@@ -346,15 +321,15 @@ public class AsyncPatternTests
 
     [Fact(DisplayName = "Type should succeed on null")]
     public async Task TypeShouldSucceedOnNull() =>
-        (await AsyncPattern.Type<object, string>().MatchAsync(null)).IsSuccessful.Should().BeTrue();
+        Assert.True((await AsyncPattern.Type<object, string>().MatchAsync(null)).IsSuccessful);
 
     [Fact(DisplayName = "Type should succeed on nullable value null")]
     public async Task TypeShouldSucceedOnNullableValueNull() =>
-        (await AsyncPattern.Type<object, int?>().MatchAsync(null)).IsSuccessful.Should().BeTrue();
+        Assert.True((await AsyncPattern.Type<object, int?>().MatchAsync(null)).IsSuccessful);
 
     [Fact(DisplayName = "Type should fail on value null")]
     public async Task TypeShouldFailOnValueNull() =>
-        (await AsyncPattern.Type<object, int>().MatchAsync(null)).IsSuccessful.Should().BeFalse();
+        Assert.False((await AsyncPattern.Type<object, int>().MatchAsync(null)).IsSuccessful);
 
     [Property(DisplayName = "Type with description should succeed only when the value has the specified type")]
     public async Task<Property> TypeWithDescriptionShouldSucceedOnlyWhenValueHasSpecifiedType(
@@ -377,19 +352,17 @@ public class AsyncPatternTests
 
     [Fact(DisplayName = "Type should have correct default description")]
     public void TypeShouldHaveCorrectDefaultDescription() =>
-        AsyncPattern.Type<object, int>().Description.Should().Be(
-            String.Format(AsyncPattern.DefaultTypeDescriptionFormat, typeof(int)));
+        Assert.Equal(
+            String.Format(AsyncPattern.DefaultTypeDescriptionFormat, typeof(int)),
+            AsyncPattern.Type<object, int>().Description);
 
     [Property(DisplayName = "Type with description should have the specified description")]
     public Property TypeWithDescriptionShouldHaveSpecifiedDescription(NonNull<string> description) =>
         (AsyncPattern.Type<object, string>(description.Get).Description == description.Get).ToProperty();
 
     [Fact(DisplayName = "Type should throw if description is null")]
-    public void TypeShouldThrowIfDescriptionIsNull()
-    {
-        var action = () => AsyncPattern.Type<object, int>(null);
-        action.Should().Throw<ArgumentNullException>();
-    }
+    public void TypeShouldThrowIfDescriptionIsNull() =>
+        Assert.Throws<ArgumentNullException>(() => AsyncPattern.Type<object, int>(null));
 
     [Property(DisplayName = "Not should never return null")]
     public Property NotShouldNeverReturnNull(IAsyncPattern<string, string> pattern) =>
@@ -424,16 +397,10 @@ public class AsyncPatternTests
             .ToProperty();
 
     [Fact(DisplayName = "Not should throw if pattern is null")]
-    public void NotShouldThrowIfPatternIsNull()
-    {
-        var action = () => AsyncPattern.Not<object, object>(null);
-        action.Should().Throw<ArgumentNullException>();
-    }
+    public void NotShouldThrowIfPatternIsNull() =>
+        Assert.Throws<ArgumentNullException>(() => AsyncPattern.Not<object, object>(null));
 
     [Property(DisplayName = "Not should throw if description is null")]
-    public void NotShouldThrowIfDescriptionIsNull(IAsyncPattern<string, string> pattern)
-    {
-        var action = () => AsyncPattern.Not(pattern, null);
-        action.Should().Throw<ArgumentNullException>();
-    }
+    public void NotShouldThrowIfDescriptionIsNull(IAsyncPattern<string, string> pattern) =>
+        Assert.Throws<ArgumentNullException>(() => AsyncPattern.Not(pattern, null));
 }

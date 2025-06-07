@@ -13,7 +13,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="FluentAssertions" Version="8.3.0" />
     <PackageReference Include="FsCheck" Version="3.3.0" />
     <PackageReference Include="FsCheck.Xunit.v3" Version="3.3.0" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.14.1" />

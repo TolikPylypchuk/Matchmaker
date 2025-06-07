@@ -8,7 +8,7 @@ public class MatchResultExtensionsTests
 
     [Fact(DisplayName = "GetValueOrDefault should return the default if result is unsuccessful")]
     public void GetValueOrDefaultShouldReturnDefaultIfResultIsUnsuccessful() =>
-        MatchResult.Failure<string>().GetValueOrDefault().Should().BeNull();
+        Assert.Null(MatchResult.Failure<string>().GetValueOrDefault());
 
     [Property(DisplayName = "GetValueOrDefault with value should return the value if result is successful")]
     public Property GetValueOrDefaultValueShouldReturnValueIfResultIsSuccessful(string value, string defaultValue) =>
@@ -31,35 +31,28 @@ public class MatchResultExtensionsTests
     [Property(DisplayName = "Lazy GetValueOrDefault should be lazy")]
     public void GetValueOrDefaultLazyValueShouldBeLazy(string value)
     {
-        var action = () => MatchResult.Success(value).GetValueOrDefault(
-            () => throw new AssertionFailedException("not lazy"));
-        action.Should().NotThrow<AssertionFailedException>();
+        var exception = Record.Exception(() =>
+            MatchResult.Success(value).GetValueOrDefault(() => throw new InvalidOperationException("not lazy")));
+
+        Assert.Null(exception);
     }
 
     [Property(DisplayName = "Lazy GetValueOrDefault should throw if value provider is null")]
-    public void GetValueOrDefaultLazyValueShouldThrowIfValueProviderIsNull(MatchResult<string> result)
-    {
-        var action = () => result.GetValueOrDefault((Func<string>)null);
-        action.Should().Throw<ArgumentNullException>();
-    }
+    public void GetValueOrDefaultLazyValueShouldThrowIfValueProviderIsNull(MatchResult<string> result) =>
+        Assert.Throws<ArgumentNullException>(() => result.GetValueOrDefault((Func<string>)null));
 
     [Property(DisplayName = "GetValueOrThrow should return value if result is successful")]
     public Property GetValueOrThrowShouldReturnValueIfResultIsSuccessful(string value) =>
         (MatchResult.Success(value).GetValueOrThrow(() => new MatchException()) == value).ToProperty();
 
     [Fact(DisplayName = "GetValueOrThrow should throw if result is unsuccessful")]
-    public void GetValueOrThrowShouldThrowIfResultIsUnsuccessful()
-    {
-        var action = () => MatchResult.Failure<string>().GetValueOrThrow(() => new MatchException());
-        action.Should().Throw<MatchException>();
-    }
+    public void GetValueOrThrowShouldThrowIfResultIsUnsuccessful() =>
+        Assert.Throws<MatchException>(() =>
+            MatchResult.Failure<string>().GetValueOrThrow(() => new MatchException()));
 
     [Property(DisplayName = "GetValueOrThrow should throw if exception provider is null")]
-    public void GetValueOrThrowShouldThrowIfExceptionProviderIsNull(MatchResult<string> result)
-    {
-        var action = () => result.GetValueOrThrow(null);
-        action.Should().Throw<ArgumentNullException>();
-    }
+    public void GetValueOrThrowShouldThrowIfExceptionProviderIsNull(MatchResult<string> result) =>
+        Assert.Throws<ArgumentNullException>(() => result.GetValueOrThrow(null));
 
     [Property(DisplayName = "Select should map value if result is successful")]
     public Property SelectShouldMapValueIfResultIsSuccessful(string value, Func<string, int> mapper) =>
@@ -72,17 +65,16 @@ public class MatchResultExtensionsTests
     [Property(DisplayName = "Select should do nothing if result is unsuccessful")]
     public void SelectShouldDoNothingIfResultIsUnsuccessful()
     {
-        var action = () => MatchResult.Failure<string>().Select<string, int>(
-            _ => throw new AssertionFailedException("select doesn't work"));
-        action.Should().NotThrow<AssertionFailedException>();
+        var exception = Record.Exception(() =>
+            MatchResult.Failure<string>()
+                .Select<string, int>(_ => throw new InvalidOperationException("select doesn't work")));
+
+        Assert.Null(exception);
     }
 
     [Property(DisplayName = "Select should throw if mapper is null")]
-    public void SelectShouldThrowIfMapperIsNull(MatchResult<string> result)
-    {
-        var action = () => result.Select<string, int>(null);
-        action.Should().Throw<ArgumentNullException>();
-    }
+    public void SelectShouldThrowIfMapperIsNull(MatchResult<string> result) =>
+        Assert.Throws<ArgumentNullException>(() => result.Select<string, int>(null));
 
     [Property(DisplayName = "Bind should flat-map value if result is successful")]
     public Property BindShouldFlatMapValueIfResultIsSuccessful(string value, Func<string, MatchResult<int>> binder) =>
@@ -95,17 +87,16 @@ public class MatchResultExtensionsTests
     [Property(DisplayName = "Bind should do nothing if result is unsuccessful")]
     public void BindShouldDoNothingIfResultIsUnsuccessful()
     {
-        var action = () => MatchResult.Failure<string>().Bind<string, int>(
-            _ => throw new AssertionFailedException("bind doesn't work"));
-        action.Should().NotThrow<AssertionFailedException>();
+        var exception = Record.Exception(() =>
+            MatchResult.Failure<string>()
+                .Bind<string, int>(_ => throw new InvalidOperationException("bind doesn't work")));
+
+        Assert.Null(exception);
     }
 
     [Property(DisplayName = "Bind should throw if binder is null")]
-    public void BindShouldThrowIfBinderIsNull(MatchResult<string> result)
-    {
-        var action = () => result.Bind<string, int>(null);
-        action.Should().Throw<ArgumentNullException>();
-    }
+    public void BindShouldThrowIfBinderIsNull(MatchResult<string> result) =>
+        Assert.Throws<ArgumentNullException>(() => result.Bind<string, int>(null));
 
     [Property(DisplayName = "Where should filter value if result is successful")]
     public Property WhereShouldFilterValueIfResultIsSuccessful(string value, Func<string, bool> predicate) =>
@@ -122,17 +113,16 @@ public class MatchResultExtensionsTests
     [Property(DisplayName = "Where should do nothing if result is unsuccessful")]
     public void WhereShouldDoNothingIfResultIsUnsuccessful()
     {
-        var action = () => MatchResult.Failure<string>().Where(
-            _ => throw new AssertionFailedException("where doesn't work"));
-        action.Should().NotThrow<AssertionFailedException>();
+        var exception = Record.Exception(() =>
+            MatchResult.Failure<string>()
+                .Where(_ => throw new InvalidOperationException("where doesn't work")));
+
+        Assert.Null(exception);
     }
 
     [Property(DisplayName = "Where should throw if predicate is null")]
-    public void WhereShouldThrowIfPredicateIsNull(MatchResult<string> result)
-    {
-        var action = () => result.Where(null);
-        action.Should().Throw<ArgumentNullException>();
-    }
+    public void WhereShouldThrowIfPredicateIsNull(MatchResult<string> result) =>
+        Assert.Throws<ArgumentNullException>(() => result.Where(null));
 
     [Property(DisplayName = "Cast should cast value of correct type if result is successful")]
     public Property CastShouldCastValueOfCorrectTypeIfResultIsSuccessful(NonNull<string> value) =>
@@ -141,15 +131,15 @@ public class MatchResultExtensionsTests
 
     [Fact(DisplayName = "Cast should succeed if result contains null")]
     public void CastShouldSucceedIfResultContainsNull() =>
-        MatchResult.Success<object>(null).Cast<object, string>().IsSuccessful.Should().BeTrue();
+        Assert.True(MatchResult.Success<object>(null).Cast<object, string>().IsSuccessful);
 
     [Fact(DisplayName = "Cast to nullable value should succeed if result contains null")]
     public void CastToNullableValueShouldSucceedfResultContainsNull() =>
-        MatchResult.Success<object>(null).Cast<object, int?>().IsSuccessful.Should().BeTrue();
+        Assert.True(MatchResult.Success<object>(null).Cast<object, int?>().IsSuccessful);
 
     [Fact(DisplayName = "Cast to value should fail if result contains null")]
     public void CastToValueShouldFailIfResultContainsNull() =>
-        MatchResult.Success<object>(null).Cast<object, int>().IsSuccessful.Should().BeFalse();
+        Assert.False(MatchResult.Success<object>(null).Cast<object, int>().IsSuccessful);
 
     [Property(DisplayName = "Cast should fail if value has incorrect type and result is successful")]
     public Property CastShouldFailIfValueHasIncorrectTypeAndResultIsSuccessful(string value) =>
@@ -157,14 +147,14 @@ public class MatchResultExtensionsTests
 
     [Fact(DisplayName = "Cast should be unsuccessful if result is unsuccessful")]
     public void CastShouldBeUnsuccessfulIfResultIsUnsuccessful() =>
-        MatchResult.Failure<object>().Cast<object, string>().IsSuccessful.Should().BeFalse();
+        Assert.False(MatchResult.Failure<object>().Cast<object, string>().IsSuccessful);
 
     [Property(DisplayName = "Do should perform action if result is successful")]
     public void DoShouldPerformActionIfResultIsSuccessful(string value)
     {
         int count = 0;
         MatchResult.Success(value).Do(_ => count++);
-        count.Should().Be(1);
+        Assert.Equal(1, count);
     }
 
     [Fact(DisplayName = "Do should not perform action if result is unsuccessful")]
@@ -172,7 +162,7 @@ public class MatchResultExtensionsTests
     {
         int count = 0;
         MatchResult.Failure<string>().Do(_ => count++);
-        count.Should().Be(0);
+        Assert.Equal(0, count);
     }
 
     [Property(DisplayName = "Do should return the same result")]
@@ -184,13 +174,10 @@ public class MatchResultExtensionsTests
     {
         string actualValue = null;
         MatchResult.Success(value).Do(v => actualValue = v);
-        actualValue.Should().Be(value);
+        Assert.Equal(value, actualValue);
     }
 
     [Property(DisplayName = "Do should throw if action is null")]
-    public void DoShouldThrowIfActionIsNull(MatchResult<string> result)
-    {
-        var action = () => result.Do(null);
-        action.Should().Throw<ArgumentNullException>();
-    }
+    public void DoShouldThrowIfActionIsNull(MatchResult<string> result) =>
+        Assert.Throws<ArgumentNullException>(() => result.Do(null));
 }

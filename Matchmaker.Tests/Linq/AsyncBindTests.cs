@@ -54,34 +54,22 @@ public class AsyncBindTests
         (pattern.Bind(binder, description.Get).Description == description.Get).ToProperty();
 
     [Property(DisplayName = "Bind pattern should throw if pattern is null")]
-    public void BindPatternShouldThrowIfPatternIsNull(Func<string, IAsyncPattern<string, string>> binder)
-    {
-        var action = () => ((IAsyncPattern<string, string>)null).Bind(binder);
-        action.Should().Throw<ArgumentNullException>();
-    }
+    public void BindPatternShouldThrowIfPatternIsNull(Func<string, IAsyncPattern<string, string>> binder) =>
+        Assert.Throws<ArgumentNullException>(() => ((IAsyncPattern<string, string>)null).Bind(binder));
 
     [Property(DisplayName = "Bind pattern with description should throw if pattern is null")]
     public void BindPatternWithDescriptionShouldThrowIfPatternIsNull(
         Func<string, IAsyncPattern<string, string>> binder,
-        NonNull<string> description)
-    {
-        var action = () => ((IAsyncPattern<string, string>)null).Bind(binder, description.Get);
-        action.Should().Throw<ArgumentNullException>();
-    }
+        NonNull<string> description) =>
+        Assert.Throws<ArgumentNullException>(() => ((IAsyncPattern<string, string>)null).Bind(binder, description.Get));
 
     [Property(DisplayName = "Bind pattern should throw if binder is null")]
-    public void BindPatternShouldThrowIfBinderIsNull(IAsyncPattern<string, string> pattern)
-    {
-        var action = () => pattern.Bind((Func<string, IAsyncPattern<string, int>>)null);
-        action.Should().Throw<ArgumentNullException>();
-    }
+    public void BindPatternShouldThrowIfBinderIsNull(IAsyncPattern<string, string> pattern) =>
+        Assert.Throws<ArgumentNullException>(() => pattern.Bind((Func<string, IAsyncPattern<string, int>>)null));
 
     [Property(DisplayName = "Bind pattern with description should throw if description is null")]
     public void BindPatternWithDescriptionShouldThrowIfDescriptionIsNull(
         IAsyncPattern<string, string> pattern,
-        Func<string, IAsyncPattern<string, string>> binder)
-    {
-        var action = () => pattern.Bind(binder, null);
-        action.Should().Throw<ArgumentNullException>();
-    }
+        Func<string, IAsyncPattern<string, string>> binder) =>
+        Assert.Throws<ArgumentNullException>(() => pattern.Bind(binder, null));
 }

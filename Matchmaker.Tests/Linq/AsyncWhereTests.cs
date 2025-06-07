@@ -73,45 +73,31 @@ public class AsyncWhereTests
         (pattern.Where(predicate, description.Get).Description == description.Get).ToProperty();
 
     [Property(DisplayName = "Where pattern should throw if pattern is null")]
-    public void WherePatternShouldThrowIfPatternIsNull(Func<string, bool> predicate)
-    {
-        var action = () => ((IAsyncPattern<string, string>)null).Where(predicate);
-        action.Should().Throw<ArgumentNullException>();
-    }
+    public void WherePatternShouldThrowIfPatternIsNull(Func<string, bool> predicate) =>
+        Assert.Throws<ArgumentNullException>(() => ((IAsyncPattern<string, string>)null).Where(predicate));
 
     [Property(DisplayName = "Where pattern with description should throw if pattern is null")]
     public void WherePatternWithDescriptionShouldThrowIfPatternIsNull(
         Func<string, bool> predicate,
-        NonNull<string> description)
-    {
-        var action = () => ((IAsyncPattern<string, string>)null).Where(predicate, description.Get);
-        action.Should().Throw<ArgumentNullException>();
-    }
+        NonNull<string> description) =>
+        Assert.Throws<ArgumentNullException>(() =>
+            ((IAsyncPattern<string, string>)null).Where(predicate, description.Get));
 
     [Property(DisplayName = "Where pattern should throw if predicate is null")]
-    public void WherePatternShouldThrowIfPredicateIsNull(IAsyncPattern<string, string> pattern)
-    {
-        var action = () => pattern.Where((Func<string, bool>)null);
-        action.Should().Throw<ArgumentNullException>();
-    }
+    public void WherePatternShouldThrowIfPredicateIsNull(IAsyncPattern<string, string> pattern) =>
+        Assert.Throws<ArgumentNullException>(() => pattern.Where((Func<string, bool>)null));
 
     [Property(DisplayName = "Where pattern with description should throw if predicate is null")]
     public void WherePatternWithDescriptionShouldThrowIfPredicateIsNull(
         IAsyncPattern<string, string> pattern,
-        NonNull<string> description)
-    {
-        var action = () => pattern.Where((Func<string, bool>)null, description.Get);
-        action.Should().Throw<ArgumentNullException>();
-    }
+        NonNull<string> description) =>
+        Assert.Throws<ArgumentNullException>(() => pattern.Where((Func<string, bool>)null, description.Get));
 
     [Property(DisplayName = "Where pattern with description should throw if description is null")]
     public void WherePatternWithDescriptionShouldThrowIfDescriptionIsNull(
         IAsyncPattern<string, string> pattern,
-        Func<string, bool> predicate)
-    {
-        var action = () => pattern.Where(predicate, null);
-        action.Should().Throw<ArgumentNullException>();
-    }
+        Func<string, bool> predicate) =>
+        Assert.Throws<ArgumentNullException>(() => pattern.Where(predicate, null));
 
     [Property(DisplayName = "Async Where pattern should never return null")]
     public Property AsyncWherePatternShouldNeverReturnNull(
@@ -184,43 +170,29 @@ public class AsyncWhereTests
         (pattern.Where(predicate, description.Get).Description == description.Get).ToProperty();
 
     [Property(DisplayName = "Async Where pattern should throw if pattern is null")]
-    public void AsyncWherePatternShouldThrowIfPatternIsNull(Func<string, Task<bool>> predicate)
-    {
-        var action = () => ((IAsyncPattern<string, string>)null).Where(predicate);
-        action.Should().Throw<ArgumentNullException>();
-    }
+    public void AsyncWherePatternShouldThrowIfPatternIsNull(Func<string, Task<bool>> predicate) =>
+        Assert.Throws<ArgumentNullException>(() => ((IAsyncPattern<string, string>)null).Where(predicate));
 
     [Property(DisplayName = "Async Where pattern with description should throw if pattern is null")]
     public void AsyncWherePatternWithDescriptionShouldThrowIfPatternIsNull(
         Func<string, Task<bool>> predicate,
-        NonNull<string> description)
-    {
-        var action = () => ((IAsyncPattern<string, string>)null).Where(predicate, description.Get);
-        action.Should().Throw<ArgumentNullException>();
-    }
+        NonNull<string> description) =>
+        Assert.Throws<ArgumentNullException>(() =>
+            ((IAsyncPattern<string, string>)null).Where(predicate, description.Get));
 
     [Property(DisplayName = "Async Where pattern should throw if predicate is null")]
-    public void AsyncWherePatternShouldThrowIfPredicateIsNull(IAsyncPattern<string, string> pattern)
-    {
-        var action = () => pattern.Where((Func<string, Task<bool>>)null);
-        action.Should().Throw<ArgumentNullException>();
-    }
+    public void AsyncWherePatternShouldThrowIfPredicateIsNull(IAsyncPattern<string, string> pattern) =>
+        Assert.Throws<ArgumentNullException>(() => pattern.Where((Func<string, Task<bool>>)null));
 
     [Property(DisplayName = "Async Where pattern with description should throw if predicate is null")]
     public void AsyncWherePatternWithDescriptionShouldThrowIfPredicateIsNull(
         IAsyncPattern<string, string> pattern,
-        NonNull<string> description)
-    {
-        var action = () => pattern.Where((Func<string, Task<bool>>)null, description.Get);
-        action.Should().Throw<ArgumentNullException>();
-    }
+        NonNull<string> description) =>
+        Assert.Throws<ArgumentNullException>(() => pattern.Where((Func<string, Task<bool>>)null, description.Get));
 
     [Property(DisplayName = "Async Where pattern with description should throw if description is null")]
     public void AsyncWherePatternWithDescriptionShouldThrowIfDescriptionIsNull(
         IAsyncPattern<string, string> pattern,
-        Func<string, Task<bool>> predicate)
-    {
-        var action = () => pattern.Where(predicate, null);
-        action.Should().Throw<ArgumentNullException>();
-    }
+        Func<string, Task<bool>> predicate) =>
+        Assert.Throws<ArgumentNullException>(() => pattern.Where(predicate, null));
 }

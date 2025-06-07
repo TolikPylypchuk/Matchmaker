@@ -4,9 +4,7 @@ public class MatchStatementBuilderTests
 {
     [Fact(DisplayName = "Match.CreateStatic should never return null")]
     public void MatchCreateStaticShouldNeverReturnNull() =>
-        Match.CreateStatic<int>(match => { })
-            .Should()
-            .NotBeNull();
+        Assert.NotNull(Match.CreateStatic<int>(match => { }));
 
     [Fact(DisplayName = "Match.CreateStatic should create expression once")]
     public void MatchCreateStaticShouldCreateStatementOnce()
@@ -18,7 +16,7 @@ public class MatchStatementBuilderTests
             Match.CreateStatic<int>(match => { counter++; });
         }
 
-        counter.Should().Be(1);
+        Assert.Equal(1, counter);
     }
 
     [Fact(DisplayName = "Match.ClearCache should force static match creation")]
@@ -35,22 +33,16 @@ public class MatchStatementBuilderTests
 
         CreateMatchExression();
 
-        counter.Should().Be(2);
+        Assert.Equal(2, counter);
     }
 
     [Fact(DisplayName = "Match.CreateStatic should throw if build action is null")]
-    public void MatchCreateStaticShouldThrowIfBuildActionIsNull()
-    {
-        var action = () => Match.CreateStatic<int>(null);
-        action.Should().Throw<ArgumentNullException>();
-    }
+    public void MatchCreateStaticShouldThrowIfBuildActionIsNull() =>
+        Assert.Throws<ArgumentNullException>(() => Match.CreateStatic<int>(null));
 
     [Fact(DisplayName = "Match.CreateStatic should throw if file path is null")]
-    public void MatchCreateStaticShouldThrowIfFilePathIsNull()
-    {
-        var action = () => Match.CreateStatic<int>(match => { }, null);
-        action.Should().Throw<ArgumentNullException>();
-    }
+    public void MatchCreateStaticShouldThrowIfFilePathIsNull() =>
+        Assert.Throws<ArgumentNullException>(() => Match.CreateStatic<int>(match => { }, null));
 
     [Property(DisplayName = "Match should match patterns correctly")]
     public Property MatchShouldMatchPatternsCorrectly(Func<string, bool> predicate, string value)
@@ -91,17 +83,18 @@ public class MatchStatementBuilderTests
 
         var pattern = Pattern.CreatePattern(predicate);
 
-        var action = () =>
+        void action() =>
             Match.CreateStatic<string>(match => match
                     .Case(pattern, _ => { }))
                 .ExecuteOn(value);
 
         if (pattern.Match(value).IsSuccessful)
         {
-            action.Should().NotThrow<MatchException>();
+            var exception = Record.Exception(action);
+            Assert.Null(exception);
         } else
         {
-            action.Should().Throw<MatchException>();
+            Assert.Throws<MatchException>(action);
         }
     }
 
@@ -126,12 +119,13 @@ public class MatchStatementBuilderTests
 
         var pattern = Pattern.CreatePattern(predicate);
 
-        var action = () =>
+        void action() =>
             Match.CreateStatic<string>(match => match
                     .Case(pattern, _ => { }))
                 .ExecuteNonStrict(value);
 
-        action.Should().NotThrow<MatchException>();
+        var exception = Record.Exception(action);
+        Assert.Null(exception);
     }
 
     [Property(DisplayName = "Match with fall-through should match patterns correctly")]
@@ -291,17 +285,18 @@ public class MatchStatementBuilderTests
 
         var pattern = Pattern.CreatePattern(predicate);
 
-        var action = () =>
+        void action() =>
             Match.CreateStatic<string>(match => match
                     .Case(pattern, _ => { }))
                 .ToFunction()(value);
 
         if (pattern.Match(value).IsSuccessful)
         {
-            action.Should().NotThrow<MatchException>();
+            var exception = Record.Exception(action);
+            Assert.Null(exception);
         } else
         {
-            action.Should().Throw<MatchException>();
+            Assert.Throws<MatchException>(action);
         }
     }
 
@@ -328,12 +323,13 @@ public class MatchStatementBuilderTests
 
         var pattern = Pattern.CreatePattern(predicate);
 
-        var action = () =>
+        void action() =>
             Match.CreateStatic<string>(match => match
                     .Case(pattern, _ => { }))
                 .ToNonStrictFunction()(value);
 
-        action.Should().NotThrow<MatchException>();
+        var exception = Record.Exception(action);
+        Assert.Null(exception);
     }
 
     [Property(DisplayName = "ToFunction with fall-through should match patterns correctly")]
@@ -417,35 +413,25 @@ public class MatchStatementBuilderTests
     }
 
     [Fact(DisplayName = "Match should throw if pattern is null")]
-    public void MatchShouldThrowIfPatternIsNull()
-    {
-        var action = () => Match.CreateStatic<string>(match => match.Case<string>(null, _ => { }));
-        action.Should().Throw<ArgumentNullException>();
-    }
+    public void MatchShouldThrowIfPatternIsNull() =>
+        Assert.Throws<ArgumentNullException>(() =>
+            Match.CreateStatic<string>(match => match.Case<string>(null, _ => { })));
 
     [Property(DisplayName = "Match should throw if case function is null")]
     public void MatchShouldThrowIfCaseFunctionIsNull(Func<string, bool> predicate)
     {
         var pattern = Pattern.CreatePattern(predicate);
-
-        var action = () => Match.CreateStatic<string>(match => match.Case(pattern, null));
-
-        action.Should().Throw<ArgumentNullException>();
+        Assert.Throws<ArgumentNullException>(() => Match.CreateStatic<string>(match => match.Case(pattern, null)));
     }
 
     [Fact(DisplayName = "Match should throw if case type function is null")]
-    public void MatchShouldThrowIfCaseTypeFunctionIsNull()
-    {
-        var action = () => Match.CreateStatic<string>(match => match.Case<string>(null));
-        action.Should().Throw<ArgumentNullException>();
-    }
+    public void MatchShouldThrowIfCaseTypeFunctionIsNull() =>
+        Assert.Throws<ArgumentNullException>(() => Match.CreateStatic<string>(match => match.Case<string>(null)));
 
     [Property(DisplayName = "Match should throw if pattern with fall-through is null")]
-    public void MatchShouldThrowIfPatternWithFallthroughIsNull(bool fallthrough)
-    {
-        var action = () => Match.CreateStatic<string>(match => match.Case<string>(null, fallthrough, _ => { }));
-        action.Should().Throw<ArgumentNullException>();
-    }
+    public void MatchShouldThrowIfPatternWithFallthroughIsNull(bool fallthrough) =>
+        Assert.Throws<ArgumentNullException>(() =>
+            Match.CreateStatic<string>(match => match.Case<string>(null, fallthrough, _ => { })));
 
     [Property(DisplayName = "Match should throw if case function with fall-through is null")]
     public void MatchShouldThrowIfCaseFunctionWithFallthroughIsNull(
@@ -453,16 +439,12 @@ public class MatchStatementBuilderTests
         bool fallthrough)
     {
         var pattern = Pattern.CreatePattern(predicate);
-
-        var action = () => Match.CreateStatic<string>(match => match.Case(pattern, fallthrough, null));
-
-        action.Should().Throw<ArgumentNullException>();
+        Assert.Throws<ArgumentNullException>(() =>
+            Match.CreateStatic<string>(match => match.Case(pattern, fallthrough, null)));
     }
 
     [Property(DisplayName = "Match should throw if case type sync function with fallthrough is null")]
-    public void MatchShouldThrowIfCaseTypeFunctionWithFallthroughIsNull(bool fallthrough)
-    {
-        var action = () => Match.CreateStatic<string>(match => match.Case<string>(fallthrough, null));
-        action.Should().Throw<ArgumentNullException>();
-    }
+    public void MatchShouldThrowIfCaseTypeFunctionWithFallthroughIsNull(bool fallthrough) =>
+        Assert.Throws<ArgumentNullException>(() =>
+            Match.CreateStatic<string>(match => match.Case<string>(fallthrough, null)));
 }

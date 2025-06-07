@@ -69,23 +69,14 @@ public class AsyncCachedTests
         (pattern.Cached(description.Get).Description == description.Get).ToProperty();
 
     [Fact(DisplayName = "Cached pattern should throw if pattern is null")]
-    public void CachedPatternShouldThrowIfPatternIsNull()
-    {
-        var action = () => ((IAsyncPattern<string, string>)null).Cached();
-        action.Should().Throw<ArgumentNullException>();
-    }
+    public void CachedPatternShouldThrowIfPatternIsNull() =>
+        Assert.Throws<ArgumentNullException>(() => ((IAsyncPattern<string, string>)null).Cached());
 
     [Property(DisplayName = "Cached pattern with description should throw if pattern is null")]
-    public void CachedPatternWithDescriptionShouldThrowIfPatternIsNull(NonNull<string> description)
-    {
-        var action = () => ((IAsyncPattern<string, string>)null).Cached(description.Get);
-        action.Should().Throw<ArgumentNullException>();
-    }
+    public void CachedPatternWithDescriptionShouldThrowIfPatternIsNull(NonNull<string> description) =>
+        Assert.Throws<ArgumentNullException>(() => ((IAsyncPattern<string, string>)null).Cached(description.Get));
 
     [Property(DisplayName = "Cached pattern with description should throw if description is null")]
-    public void CachedPatternWithDescriptionShouldThrowIfDescriptionIsNull(IAsyncPattern<string, string> pattern)
-    {
-        var action = () => pattern.Cached(null);
-        action.Should().Throw<ArgumentNullException>();
-    }
+    public void CachedPatternWithDescriptionShouldThrowIfDescriptionIsNull(IAsyncPattern<string, string> pattern) =>
+        Assert.Throws<ArgumentNullException>(() => pattern.Cached(null));
 }

@@ -13,15 +13,12 @@ public class EnumerableTests
             .Select(_ => result++)
             .Enumerate();
 
-        result.Should().Be(count);
+        Assert.Equal(count, result);
     }
 
     [Fact(DisplayName = "Enumerate should throw if enumerable is null")]
-    public void EnumerateShouldThrowIfEnumerableIsNull()
-    {
-        var action = () => ((IEnumerable<object>)null).Enumerate();
-        action.Should().Throw<ArgumentNullException>();
-    }
+    public void EnumerateShouldThrowIfEnumerableIsNull() =>
+        Assert.Throws<ArgumentNullException>(() => ((IEnumerable<object>)null).Enumerate());
 
     [Fact(DisplayName = "EnumerateAsync should force enumeration")]
     public async Task EnumerateAsyncShouldForceEnumeration()
@@ -34,17 +31,13 @@ public class EnumerableTests
             .Select(_ => result++)
             .EnumerateAsync();
 
-        result.Should().Be(count);
+        Assert.Equal(count, result);
     }
 
     [Fact(DisplayName = "EnumerateAsync should throw if enumerable is null")]
-    public void EnumerateAsyncShouldThrowIfEnumerableIsNull()
-    {
-        var action = () =>
+    public void EnumerateAsyncShouldThrowIfEnumerableIsNull() =>
+        Assert.Throws<ArgumentNullException>(() =>
         {
             _ = ((IAsyncEnumerable<object>)null).EnumerateAsync();
-        };
-
-        action.Should().Throw<ArgumentNullException>();
-    }
+        });
 }

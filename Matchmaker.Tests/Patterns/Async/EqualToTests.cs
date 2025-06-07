@@ -137,37 +137,41 @@ public class EqualToTests
     [Fact(DisplayName = "Lazy EqualTo should be lazy")]
     public void LazyEqualToShouldBeLazy()
     {
-        var action = () => AsyncPattern.EqualTo<string>(
-            () => throw new AssertionFailedException("Lazy EqualTo is not lazy"));
-        action.Should().NotThrow<AssertionFailedException>();
+        var exception = Record.Exception(() =>
+            AsyncPattern.EqualTo<string>(() => throw new InvalidOperationException("Lazy EqualTo is not lazy")));
+
+        Assert.Null(exception);
     }
 
     [Fact(DisplayName = "Lazy EqualTo with comparer should be lazy")]
     public void LazyEqualToWithComparerShouldBeLazy()
     {
-        var action = () => AsyncPattern.EqualTo(
-            () => throw new AssertionFailedException("Lazy EqualTo is not lazy"),
-            StringEqualityComparer);
-        action.Should().NotThrow<AssertionFailedException>();
+        var exception = Record.Exception(() => AsyncPattern.EqualTo(
+            () => throw new InvalidOperationException("Lazy EqualTo is not lazy"),
+            StringEqualityComparer));
+
+        Assert.Null(exception);
     }
 
     [Property(DisplayName = "Lazy EqualTo with description should be lazy")]
     public void LazyEqualToWithDescriptionShouldBeLazy(NonNull<string> description)
     {
-        var action = () => AsyncPattern.EqualTo<string>(
-            () => throw new AssertionFailedException("Lazy EqualTo is not lazy"),
-            description.Get);
-        action.Should().NotThrow<AssertionFailedException>();
+        var exception = Record.Exception(() => AsyncPattern.EqualTo<string>(
+            () => throw new InvalidOperationException("Lazy EqualTo is not lazy"),
+            description.Get));
+
+        Assert.Null(exception);
     }
 
     [Property(DisplayName = "Lazy EqualTo with comparer and description should be lazy")]
     public void LazyEqualToWithComparerAndDescriptionShouldBeLazy(NonNull<string> description)
     {
-        var action = () => AsyncPattern.EqualTo(
-            () => throw new AssertionFailedException("Lazy EqualTo is not lazy"),
+        var exception = Record.Exception(() => AsyncPattern.EqualTo(
+            () => throw new InvalidOperationException("Lazy EqualTo is not lazy"),
             StringEqualityComparer,
-            description.Get);
-        action.Should().NotThrow<AssertionFailedException>();
+            description.Get));
+
+        Assert.Null(exception);
     }
 
     [Property(DisplayName = "Lazy EqualTo should be memoized")]
@@ -248,93 +252,58 @@ public class EqualToTests
     }
 
     [Property(DisplayName = "EqualTo should throw if comparer is null")]
-    public void EqualToShouldThrowIfComparerIsNull(Task<string> x)
-    {
-        var action = () => AsyncPattern.EqualTo(x, (IEqualityComparer<string>)null);
-        action.Should().Throw<ArgumentNullException>();
-    }
+    public void EqualToShouldThrowIfComparerIsNull(Task<string> x) =>
+        Assert.Throws<ArgumentNullException>(() => AsyncPattern.EqualTo(x, (IEqualityComparer<string>)null));
 
     [Property(DisplayName = "Lazy EqualTo should throw if comparer is null")]
-    public void LazyEqualToShouldThrowIfComparerIsNull(Task<string> x)
-    {
-        var action = () => AsyncPattern.EqualTo(() => x, (IEqualityComparer<string>)null);
-        action.Should().Throw<ArgumentNullException>();
-    }
+    public void LazyEqualToShouldThrowIfComparerIsNull(Task<string> x) =>
+        Assert.Throws<ArgumentNullException>(() => AsyncPattern.EqualTo(() => x, (IEqualityComparer<string>)null));
 
     [Property(DisplayName = "EqualTo should throw if description is null")]
-    public void EqualToShouldThrowIfDescriptionIsNull(Task<string> x)
-    {
-        var action = () => AsyncPattern.EqualTo(x, (string)null);
-        action.Should().Throw<ArgumentNullException>();
-    }
+    public void EqualToShouldThrowIfDescriptionIsNull(Task<string> x) =>
+        Assert.Throws<ArgumentNullException>(() => AsyncPattern.EqualTo(x, (string)null));
 
     [Property(DisplayName = "Lazy EqualTo should throw if description is null")]
-    public void LazyEqualToShouldThrowIfDescriptionIsNull(Task<string> x)
-    {
-        var action = () => AsyncPattern.EqualTo(() => x, (string)null);
-        action.Should().Throw<ArgumentNullException>();
-    }
+    public void LazyEqualToShouldThrowIfDescriptionIsNull(Task<string> x) =>
+        Assert.Throws<ArgumentNullException>(() => AsyncPattern.EqualTo(() => x, (string)null));
 
     [Property(DisplayName = "EqualTo should throw if comparer is null and description is not null")]
     public void EqualToShouldThrowIfComparerIsNullAndDescriptionIsNotNull(
         Task<string> x,
-        NonNull<string> description)
-    {
-        var action = () => AsyncPattern.EqualTo(x, null, description.Get);
-        action.Should().Throw<ArgumentNullException>();
-    }
+        NonNull<string> description) =>
+        Assert.Throws<ArgumentNullException>(() => AsyncPattern.EqualTo(x, null, description.Get));
 
     [Property(DisplayName = "Lazy EqualTo should throw if comparer is null and description is not null")]
     public void LazyEqualToShouldThrowIfComparerIsNullAndDescriptionIsNotNull(
         Task<string> x,
-        NonNull<string> description)
-    {
-        var action = () => AsyncPattern.EqualTo(() => x, null, description.Get);
-        action.Should().Throw<ArgumentNullException>();
-    }
+        NonNull<string> description) =>
+        Assert.Throws<ArgumentNullException>(() => AsyncPattern.EqualTo(() => x, null, description.Get));
 
     [Property(DisplayName = "EqualTo should throw if comparer is not null and description is null")]
-    public void EqualToShouldThrowIfComparerIsNotNullAndDescriptionIsNull(Task<string> x)
-    {
-        var action = () => AsyncPattern.EqualTo(x, StringEqualityComparer, null);
-        action.Should().Throw<ArgumentNullException>();
-    }
+    public void EqualToShouldThrowIfComparerIsNotNullAndDescriptionIsNull(Task<string> x) =>
+        Assert.Throws<ArgumentNullException>(() => AsyncPattern.EqualTo(x, StringEqualityComparer, null));
 
     [Property(DisplayName = "Lazy EqualTo should throw if comparer is not null and description is null")]
-    public void LazyEqualToShouldThrowIfComparerIsNotNullAndDescriptionIsNull(Task<string> x)
-    {
-        var action = () => AsyncPattern.EqualTo(() => x, StringEqualityComparer, null);
-        action.Should().Throw<ArgumentNullException>();
-    }
+    public void LazyEqualToShouldThrowIfComparerIsNotNullAndDescriptionIsNull(Task<string> x) =>
+        Assert.Throws<ArgumentNullException>(() => AsyncPattern.EqualTo(() => x, StringEqualityComparer, null));
 
     [Fact(DisplayName = "Lazy EqualTo should throw if value provider is null")]
-    public void LazyEqualToShouldThrowIfValueProviderIsNull()
-    {
-        Action action = () => AsyncPattern.EqualTo((Func<Task<int>>)null);
-        action.Should().Throw<ArgumentNullException>();
-    }
+    public void LazyEqualToShouldThrowIfValueProviderIsNull() =>
+        Assert.Throws<ArgumentNullException>(() => AsyncPattern.EqualTo((Func<Task<int>>)null));
 
     [Fact(DisplayName = "Lazy EqualTo should throw if value provider is null and comparer is not null")]
-    public void LazyEqualToShouldThrowIfValueProviderIsNullAndComparerIsNotNull()
-    {
-        var action = () => AsyncPattern.EqualTo((Func<Task<string>>)null, StringEqualityComparer);
-        action.Should().Throw<ArgumentNullException>();
-    }
+    public void LazyEqualToShouldThrowIfValueProviderIsNullAndComparerIsNotNull() =>
+        Assert.Throws<ArgumentNullException>(() =>
+            AsyncPattern.EqualTo((Func<Task<string>>)null, StringEqualityComparer));
 
     [Property(DisplayName = "Lazy EqualTo should throw if value provider is null and description is not null")]
-    public void LazyEqualToShouldThrowIfValueProviderIsNullAndDescriptionIsNotNull(NonNull<string> description)
-    {
-        var action = () => AsyncPattern.EqualTo((Func<Task<string>>)null, description.Get);
-        action.Should().Throw<ArgumentNullException>();
-    }
+    public void LazyEqualToShouldThrowIfValueProviderIsNullAndDescriptionIsNotNull(NonNull<string> description) =>
+        Assert.Throws<ArgumentNullException>(() => AsyncPattern.EqualTo((Func<Task<string>>)null, description.Get));
 
     [Property(DisplayName = "Lazy EqualTo should throw if value provider is null " +
         "and comparer is not null and description is not null")]
     public void LazyEqualToShouldThrowIfValueProviderIsNullAndComparerIsNotNullAndDescriptionIsNotNull(
-        NonNull<string> description)
-    {
-        var action = () => AsyncPattern.EqualTo(
-            (Func<Task<string>>)null, StringEqualityComparer, description.Get);
-        action.Should().Throw<ArgumentNullException>();
-    }
+        NonNull<string> description) =>
+        Assert.Throws<ArgumentNullException>(() =>
+            AsyncPattern.EqualTo((Func<Task<string>>)null, StringEqualityComparer, description.Get));
 }

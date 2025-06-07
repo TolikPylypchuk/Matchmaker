@@ -4,15 +4,11 @@ public class MatchStatementTests
 {
     [Fact(DisplayName = "Match.Create should never return null")]
     public void MatchCreateShouldNeverReturnNull() =>
-        Match.Create<int>()
-            .Should()
-            .NotBeNull();
+        Assert.NotNull(Match.Create<int>());
 
     [Property(DisplayName = "Match.Create with fall-through should never return null")]
     public void MatchCreateWithFallthroughShouldNeverReturnNull(bool fallthroughByDefault) =>
-        Match.Create<int>(fallthroughByDefault)
-            .Should()
-            .NotBeNull();
+        Assert.NotNull(Match.Create<int>(fallthroughByDefault));
 
     [Property(DisplayName = "Match should match patterns correctly")]
     public Property MatchShouldMatchPatternsCorrectly(Func<string, bool> predicate, string value)
@@ -47,17 +43,18 @@ public class MatchStatementTests
     {
         var pattern = Pattern.CreatePattern(predicate);
 
-        var action = () =>
+        void action() =>
             Match.Create<string>()
                 .Case(pattern, _ => { })
                 .ExecuteOn(value);
 
         if (pattern.Match(value).IsSuccessful)
         {
-            action.Should().NotThrow<MatchException>();
+            var exception = Record.Exception(action);
+            Assert.Null(exception);
         } else
         {
-            action.Should().Throw<MatchException>();
+            Assert.Throws<MatchException>(action);
         }
     }
 
@@ -78,12 +75,13 @@ public class MatchStatementTests
     {
         var pattern = Pattern.CreatePattern(predicate);
 
-        var action = () =>
+        void action() =>
             Match.Create<string>()
                 .Case(pattern, _ => { })
                 .ExecuteNonStrict(value);
 
-        action.Should().NotThrow<MatchException>();
+        var exception = Record.Exception(action);
+        Assert.Null(exception);
     }
 
     [Property(DisplayName = "Match with fall-through should match patterns correctly")]
@@ -219,17 +217,18 @@ public class MatchStatementTests
     {
         var pattern = Pattern.CreatePattern(predicate);
 
-        var action = () =>
+        void action() =>
             Match.Create<string>()
                 .Case(pattern, _ => { })
                 .ToFunction()(value);
 
         if (pattern.Match(value).IsSuccessful)
         {
-            action.Should().NotThrow<MatchException>();
+            var exception = Record.Exception(action);
+            Assert.Null(exception);
         } else
         {
-            action.Should().Throw<MatchException>();
+            Assert.Throws<MatchException>(action);
         }
     }
 
@@ -252,12 +251,13 @@ public class MatchStatementTests
     {
         var pattern = Pattern.CreatePattern(predicate);
 
-        var action = () =>
+        void action() =>
             Match.Create<string>()
                 .Case(pattern, _ => { })
                 .ToNonStrictFunction()(value);
 
-        action.Should().NotThrow<MatchException>();
+        var exception = Record.Exception(action);
+        Assert.Null(exception);
     }
 
     [Property(DisplayName = "ToFunction with fall-through should match patterns correctly")]
@@ -329,42 +329,23 @@ public class MatchStatementTests
     }
 
     [Fact(DisplayName = "Match should throw if pattern is null")]
-    public void MatchShouldThrowIfPatternIsNull()
-    {
-        var action = () => Match.Create<string>()
-            .Case<string>(null, _ => { });
-
-        action.Should().Throw<ArgumentNullException>();
-    }
+    public void MatchShouldThrowIfPatternIsNull() =>
+        Assert.Throws<ArgumentNullException>(() => Match.Create<string>().Case<string>(null, _ => { }));
 
     [Property(DisplayName = "Match should throw if case function is null")]
     public void MatchShouldThrowIfCaseFunctionIsNull(Func<string, bool> predicate)
     {
         var pattern = Pattern.CreatePattern(predicate);
-
-        var action = () => Match.Create<string>()
-            .Case(pattern, null);
-
-        action.Should().Throw<ArgumentNullException>();
+        Assert.Throws<ArgumentNullException>(() => Match.Create<string>().Case(pattern, null));
     }
 
     [Fact(DisplayName = "Match should throw if case type function is null")]
-    public void MatchShouldThrowIfCaseTypeFunctionIsNull()
-    {
-        var action = () => Match.Create<string>()
-            .Case<string>(null);
-
-        action.Should().Throw<ArgumentNullException>();
-    }
+    public void MatchShouldThrowIfCaseTypeFunctionIsNull() =>
+        Assert.Throws<ArgumentNullException>(() => Match.Create<string>().Case<string>(null));
 
     [Property(DisplayName = "Match should throw if pattern with fall-through is null")]
-    public void MatchShouldThrowIfPatternWithFallthroughIsNull(bool fallthrough)
-    {
-        var action = () => Match.Create<string>()
-            .Case<string>(null, fallthrough, _ => { });
-
-        action.Should().Throw<ArgumentNullException>();
-    }
+    public void MatchShouldThrowIfPatternWithFallthroughIsNull(bool fallthrough) =>
+        Assert.Throws<ArgumentNullException>(() => Match.Create<string>().Case<string>(null, fallthrough, _ => { }));
 
     [Property(DisplayName = "Match should throw if case function with fall-through is null")]
     public void MatchShouldThrowIfCaseFunctionWithFallthroughIsNull(
@@ -372,19 +353,10 @@ public class MatchStatementTests
         bool fallthrough)
     {
         var pattern = Pattern.CreatePattern(predicate);
-
-        var action = () => Match.Create<string>()
-            .Case(pattern, fallthrough, null);
-
-        action.Should().Throw<ArgumentNullException>();
+        Assert.Throws<ArgumentNullException>(() => Match.Create<string>().Case(pattern, fallthrough, null));
     }
 
     [Property(DisplayName = "Match should throw if case type function with fall-through is null")]
-    public void MatchShouldThrowIfCaseTypeFunctionWithFallthroughIsNull(bool fallthrough)
-    {
-        var action = () => Match.Create<string>()
-            .Case<string>(fallthrough, null);
-
-        action.Should().Throw<ArgumentNullException>();
-    }
+    public void MatchShouldThrowIfCaseTypeFunctionWithFallthroughIsNull(bool fallthrough) =>
+        Assert.Throws<ArgumentNullException>(() => Match.Create<string>().Case<string>(fallthrough, null));
 }

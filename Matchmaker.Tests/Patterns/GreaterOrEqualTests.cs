@@ -143,37 +143,41 @@ public class GreaterOrEqualTests
     [Fact(DisplayName = "Lazy GreaterOrEqual should be lazy")]
     public void LazyGreaterOrEqualShouldBeLazy()
     {
-        var action = () => Pattern.GreaterOrEqual<string>(
-            () => throw new AssertionFailedException("Lazy GreaterOrEqual is not lazy"));
-        action.Should().NotThrow<AssertionFailedException>();
+        var exception = Record.Exception(() => Pattern.GreaterOrEqual<string>(
+            () => throw new InvalidOperationException("Lazy GreaterOrEqual is not lazy")));
+
+        Assert.Null(exception);
     }
 
     [Fact(DisplayName = "Lazy GreaterOrEqual with comparer should be lazy")]
     public void LazyGreaterOrEqualWithComparerShouldBeLazy()
     {
-        var action = () => Pattern.GreaterOrEqual(
-            () => throw new AssertionFailedException("Lazy GreaterOrEqual is not lazy"),
-            StringComparer);
-        action.Should().NotThrow<AssertionFailedException>();
+        var exception = Record.Exception(() => Pattern.GreaterOrEqual(
+            () => throw new InvalidOperationException("Lazy GreaterOrEqual is not lazy"),
+            StringComparer));
+
+        Assert.Null(exception);
     }
 
     [Property(DisplayName = "Lazy GreaterOrEqual with description should be lazy")]
     public void LazyGreaterOrEqualWithDescriptionShouldBeLazy(NonNull<string> description)
     {
-        var action = () => Pattern.GreaterOrEqual<string>(
-            () => throw new AssertionFailedException("Lazy GreaterOrEqual is not lazy"),
-            description.Get);
-        action.Should().NotThrow<AssertionFailedException>();
+        var exception = Record.Exception(() => Pattern.GreaterOrEqual<string>(
+            () => throw new InvalidOperationException("Lazy GreaterOrEqual is not lazy"),
+            description.Get));
+
+        Assert.Null(exception);
     }
 
     [Property(DisplayName = "Lazy GreaterOrEqual with comparer and description should be lazy")]
     public void LazyGreaterOrEqualWithComparerAndDescriptionShouldBeLazy(NonNull<string> description)
     {
-        var action = () => Pattern.GreaterOrEqual(
-            () => throw new AssertionFailedException("Lazy GreaterOrEqual is not lazy"),
+        var exception = Record.Exception(() => Pattern.GreaterOrEqual(
+            () => throw new InvalidOperationException("Lazy GreaterOrEqual is not lazy"),
             StringComparer,
-            description.Get);
-        action.Should().NotThrow<AssertionFailedException>();
+            description.Get));
+
+        Assert.Null(exception);
     }
 
     [Property(DisplayName = "Lazy GreaterOrEqual should be memoized")]
@@ -254,93 +258,58 @@ public class GreaterOrEqualTests
     }
 
     [Property(DisplayName = "GreaterOrEqual should throw if comparer is null")]
-    public void GreaterOrEqualShouldThrowIfComparerIsNull(string x)
-    {
-        var action = () => Pattern.GreaterOrEqual(x, (IComparer<string>)null);
-        action.Should().Throw<ArgumentNullException>();
-    }
+    public void GreaterOrEqualShouldThrowIfComparerIsNull(string x) =>
+        Assert.Throws<ArgumentNullException>(() => Pattern.GreaterOrEqual(x, (IComparer<string>)null));
 
     [Property(DisplayName = "Lazy GreaterOrEqual should throw if comparer is null")]
-    public void LazyGreaterOrEqualShouldThrowIfComparerIsNull(string x)
-    {
-        var action = () => Pattern.GreaterOrEqual(() => x, (IComparer<string>)null);
-        action.Should().Throw<ArgumentNullException>();
-    }
+    public void LazyGreaterOrEqualShouldThrowIfComparerIsNull(string x) =>
+        Assert.Throws<ArgumentNullException>(() => Pattern.GreaterOrEqual(() => x, (IComparer<string>)null));
 
     [Property(DisplayName = "GreaterOrEqual should throw if description is null")]
-    public void GreaterOrEqualShouldThrowIfDescriptionIsNull(string x)
-    {
-        var action = () => Pattern.GreaterOrEqual(x, (string)null);
-        action.Should().Throw<ArgumentNullException>();
-    }
+    public void GreaterOrEqualShouldThrowIfDescriptionIsNull(string x) =>
+        Assert.Throws<ArgumentNullException>(() => Pattern.GreaterOrEqual(x, (string)null));
 
     [Property(DisplayName = "Lazy GreaterOrEqual should throw if description is null")]
-    public void LazyGreaterOrEqualShouldThrowIfDescriptionIsNull(string x)
-    {
-        var action = () => Pattern.GreaterOrEqual(() => x, (string)null);
-        action.Should().Throw<ArgumentNullException>();
-    }
+    public void LazyGreaterOrEqualShouldThrowIfDescriptionIsNull(string x) =>
+        Assert.Throws<ArgumentNullException>(() => Pattern.GreaterOrEqual(() => x, (string)null));
 
     [Property(DisplayName = "GreaterOrEqual should throw if comparer is null and description is not null")]
     public void GreaterOrEqualShouldThrowIfComparerIsNullAndDescriptionIsNotNull(
         string x,
-        NonNull<string> description)
-    {
-        var action = () => Pattern.GreaterOrEqual(x, null, description.Get);
-        action.Should().Throw<ArgumentNullException>();
-    }
+        NonNull<string> description) =>
+        Assert.Throws<ArgumentNullException>(() => Pattern.GreaterOrEqual(x, null, description.Get));
 
     [Property(DisplayName = "Lazy GreaterOrEqual should throw if comparer is null and description is not null")]
     public void LazyGreaterOrEqualShouldThrowIfComparerIsNullAndDescriptionIsNotNull(
         string x,
-        NonNull<string> description)
-    {
-        var action = () => Pattern.GreaterOrEqual(() => x, null, description.Get);
-        action.Should().Throw<ArgumentNullException>();
-    }
+        NonNull<string> description) =>
+        Assert.Throws<ArgumentNullException>(() => Pattern.GreaterOrEqual(() => x, null, description.Get));
 
     [Property(DisplayName = "GreaterOrEqual should throw if comparer is not null and description is null")]
-    public void GreaterOrEqualShouldThrowIfComparerIsNotNullAndDescriptionIsNull(string x)
-    {
-        var action = () => Pattern.GreaterOrEqual(x, StringComparer, null);
-        action.Should().Throw<ArgumentNullException>();
-    }
+    public void GreaterOrEqualShouldThrowIfComparerIsNotNullAndDescriptionIsNull(string x) =>
+        Assert.Throws<ArgumentNullException>(() => Pattern.GreaterOrEqual(x, StringComparer, null));
 
     [Property(DisplayName = "Lazy GreaterOrEqual should throw if comparer is not null and description is null")]
-    public void LazyGreaterOrEqualShouldThrowIfComparerIsNotNullAndDescriptionIsNull(string x)
-    {
-        var action = () => Pattern.GreaterOrEqual(() => x, StringComparer, null);
-        action.Should().Throw<ArgumentNullException>();
-    }
+    public void LazyGreaterOrEqualShouldThrowIfComparerIsNotNullAndDescriptionIsNull(string x) =>
+        Assert.Throws<ArgumentNullException>(() => Pattern.GreaterOrEqual(() => x, StringComparer, null));
 
     [Fact(DisplayName = "Lazy GreaterOrEqual should throw if value provider is null")]
-    public void LazyGreaterOrEqualShouldThrowIfValueProviderIsNull()
-    {
-        var action = () => Pattern.GreaterOrEqual((Func<int>)null);
-        action.Should().Throw<ArgumentNullException>();
-    }
+    public void LazyGreaterOrEqualShouldThrowIfValueProviderIsNull() =>
+        Assert.Throws<ArgumentNullException>(() => Pattern.GreaterOrEqual((Func<int>)null));
 
     [Fact(DisplayName = "Lazy GreaterOrEqual should throw if value provider is null and comparer is not null")]
-    public void LazyGreaterOrEqualShouldThrowIfValueProviderIsNullAndComparerIsNotNull()
-    {
-        var action = () => Pattern.GreaterOrEqual((Func<string>)null, StringComparer);
-        action.Should().Throw<ArgumentNullException>();
-    }
+    public void LazyGreaterOrEqualShouldThrowIfValueProviderIsNullAndComparerIsNotNull() =>
+        Assert.Throws<ArgumentNullException>(() => Pattern.GreaterOrEqual((Func<string>)null, StringComparer));
 
     [Property(DisplayName = "Lazy GreaterOrEqual should throw if value provider is null and description is not null")]
     public void LazyGreaterOrEqualShouldThrowIfValueProviderIsNullAndDescriptionIsNotNull(
-        NonNull<string> description)
-    {
-        var action = () => Pattern.GreaterOrEqual((Func<string>)null, description.Get);
-        action.Should().Throw<ArgumentNullException>();
-    }
+        NonNull<string> description) =>
+        Assert.Throws<ArgumentNullException>(() => Pattern.GreaterOrEqual((Func<string>)null, description.Get));
 
     [Property(DisplayName = "Lazy GreaterOrEqual should throw if value provider is null " +
         "and comparer is not null and description is not null")]
     public void LazyGreaterOrEqualShouldThrowIfValueProviderIsNullAndComparerAndDescriptionIsNotNull(
-        NonNull<string> description)
-    {
-        var action = () => Pattern.GreaterOrEqual((Func<string>)null, StringComparer, description.Get);
-        action.Should().Throw<ArgumentNullException>();
-    }
+        NonNull<string> description) =>
+        Assert.Throws<ArgumentNullException>(() =>
+            Pattern.GreaterOrEqual((Func<string>)null, StringComparer, description.Get));
 }
