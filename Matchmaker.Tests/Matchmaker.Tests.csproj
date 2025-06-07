@@ -3,13 +3,11 @@
   <PropertyGroup>
     <OutputType>exe</OutputType>
     <TargetFramework>net9.0</TargetFramework>
-    <LangVersion>latest</LangVersion>
     <Nullable>disable</Nullable>
-    <ImplicitUsings>enable</ImplicitUsings>
     <IsPackable>false</IsPackable>
     <IsTestProject>true</IsTestProject>
     <RootNamespace>Matchmaker</RootNamespace>
-    <NoWarn>1701;1702;1718;CA1822;CA2012</NoWarn>
+    <NoWarn>$(NoWarn);1701;1702;1718;CA1822;CA2012</NoWarn>
   </PropertyGroup>
 
   <ItemGroup>

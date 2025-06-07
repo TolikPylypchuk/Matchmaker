@@ -1,14 +1,5 @@
 <Solution>
-  <Folder Name="/Solution Items/">
-    <File Path=".editorconfig" />
-    <File Path=".gitattributes" />
-    <File Path=".github/workflows/main.yml" />
-    <File Path=".gitignore" />
-    <File Path="CHANGELOG.md" />
-    <File Path="LICENSE" />
-    <File Path="README.md" />
-  </Folder>
-  <Folder Name="/Solution Items/docs/">
+  <Folder Name="/docs/">
     <File Path="docs/.gitignore" />
     <File Path="docs/docfx.json" />
     <File Path="docs/favicon.ico" />
@@ -16,11 +7,11 @@
     <File Path="docs/logo.svg" />
     <File Path="docs/toc.yml" />
   </Folder>
-  <Folder Name="/Solution Items/docs/api/">
+  <Folder Name="/docs/api/">
     <File Path="docs/api/.gitignore" />
     <File Path="docs/api/index.md" />
   </Folder>
-  <Folder Name="/Solution Items/docs/articles/">
+  <Folder Name="/docs/articles/">
     <File Path="docs/articles/async.md" />
     <File Path="docs/articles/expressions.md" />
     <File Path="docs/articles/intro.md" />
@@ -31,6 +22,16 @@
     <File Path="docs/articles/toc.yml" />
     <File Path="docs/articles/unions.md" />
     <File Path="docs/articles/why.md" />
+  </Folder>
+  <Folder Name="/Solution Items/">
+    <File Path=".editorconfig" />
+    <File Path=".gitattributes" />
+    <File Path=".github/workflows/main.yml" />
+    <File Path=".gitignore" />
+    <File Path="CHANGELOG.md" />
+    <File Path="Directory.Build.props" />
+    <File Path="LICENSE" />
+    <File Path="README.md" />
   </Folder>
   <Project Path="Matchmaker.Tests/Matchmaker.Tests.csproj" />
   <Project Path="Matchmaker/Matchmaker.csproj" />
