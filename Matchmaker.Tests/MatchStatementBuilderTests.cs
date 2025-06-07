@@ -2,13 +2,13 @@ namespace Matchmaker;
 
 public class MatchStatementBuilderTests
 {
-    [Fact]
+    [Fact(DisplayName = "Match.CreateStatic should never return null")]
     public void MatchCreateStaticShouldNeverReturnNull() =>
         Match.CreateStatic<int>(match => { })
             .Should()
             .NotBeNull();
 
-    [Fact]
+    [Fact(DisplayName = "Match.CreateStatic should create expression once")]
     public void MatchCreateStaticShouldCreateStatementOnce()
     {
         int counter = 0;
@@ -21,7 +21,7 @@ public class MatchStatementBuilderTests
         counter.Should().Be(1);
     }
 
-    [Fact]
+    [Fact(DisplayName = "Match.ClearCache should force static match creation")]
     public void MatchClearCacheShouldForceStaticMatchCreation()
     {
         int counter = 0;
@@ -38,21 +38,21 @@ public class MatchStatementBuilderTests
         counter.Should().Be(2);
     }
 
-    [Fact]
+    [Fact(DisplayName = "Match.CreateStatic should throw if build action is null")]
     public void MatchCreateStaticShouldThrowIfBuildActionIsNull()
     {
         var action = () => Match.CreateStatic<int>(null);
         action.Should().Throw<ArgumentNullException>();
     }
 
-    [Fact]
+    [Fact(DisplayName = "Match.CreateStatic should throw if file path is null")]
     public void MatchCreateStaticShouldThrowIfFilePathIsNull()
     {
         var action = () => Match.CreateStatic<int>(match => { }, null);
         action.Should().Throw<ArgumentNullException>();
     }
 
-    [Property]
+    [Property(DisplayName = "Match should match patterns correctly")]
     public Property MatchShouldMatchPatternsCorrectly(Func<string, bool> predicate, string value)
     {
         Match.ClearCache<string>();
@@ -68,7 +68,7 @@ public class MatchStatementBuilderTests
         return (matchSuccessful == pattern.Match(value).IsSuccessful).ToProperty();
     }
 
-    [Property]
+    [Property(DisplayName = "Non-strict match should match patterns correctly")]
     public Property NonStrictMatchShouldMatchPatternsCorrectly(Func<string, bool> predicate, string value)
     {
         Match.ClearCache<string>();
@@ -84,7 +84,7 @@ public class MatchStatementBuilderTests
         return (matchSuccessful == pattern.Match(value).IsSuccessful).ToProperty();
     }
 
-    [Property]
+    [Property(DisplayName = "Match should throw if no match found")]
     public void MatchShouldThrowIfNoMatchFound(Func<string, bool> predicate, string value)
     {
         Match.ClearCache<string>();
@@ -105,7 +105,7 @@ public class MatchStatementBuilderTests
         }
     }
 
-    [Property]
+    [Property(DisplayName = "Non-strict match should return false if no match found")]
     public Property NonStrictMatchShouldReturnFalseIfNoMatchFound(Func<string, bool> predicate, string value)
     {
         Match.ClearCache<string>();
@@ -119,7 +119,7 @@ public class MatchStatementBuilderTests
         return (matched == pattern.Match(value).IsSuccessful).ToProperty();
     }
 
-    [Property]
+    [Property(DisplayName = "Non-strict match should not throw if no match found")]
     public void NonStrictMatchShouldNotThrowIfNoMatchFound(Func<string, bool> predicate, string value)
     {
         Match.ClearCache<string>();
@@ -134,7 +134,7 @@ public class MatchStatementBuilderTests
         action.Should().NotThrow<MatchException>();
     }
 
-    [Property]
+    [Property(DisplayName = "Match with fall-through should match patterns correctly")]
     public Property MatchWithFallthroughShouldMatchPatternsCorrectly(Func<string, bool> predicate, string value)
     {
         Match.ClearCache<string>();
@@ -154,7 +154,7 @@ public class MatchStatementBuilderTests
             : (result == 1 && matchCount == 1).ToProperty();
     }
 
-    [Property]
+    [Property(DisplayName = "Match with fall-through should be lazy")]
     public Property MatchWithFallthroughShouldBeLazy(Func<string, bool> predicate, string value)
     {
         Match.ClearCache<string>();
@@ -172,7 +172,7 @@ public class MatchStatementBuilderTests
         return (count == 0).ToProperty();
     }
 
-    [Property]
+    [Property(DisplayName = "Match with fall-through being false should match patterns correctly")]
     public Property MatchWithFallthroughFalseShouldMatchPatternsCorrectly(
         Func<string, bool> predicate,
         string value)
@@ -192,7 +192,7 @@ public class MatchStatementBuilderTests
         return (result == 1 && matchCount == 1).ToProperty();
     }
 
-    [Property]
+    [Property(DisplayName = "Match with fall-through being true should match patterns correctly")]
     public Property MatchWithFallthroughTrueShouldMatchPatternsCorrectly(
         Func<string, bool> predicate,
         string value)
@@ -214,7 +214,7 @@ public class MatchStatementBuilderTests
             : (result == 1 && matchCount == 1).ToProperty();
     }
 
-    [Property]
+    [Property(DisplayName = "Match with fall-through being true should be lazy")]
     public Property MatchWithFallthroughTrueShouldBeLazy(Func<string, bool> predicate, string value)
     {
         Match.ClearCache<string>();
@@ -232,7 +232,7 @@ public class MatchStatementBuilderTests
         return (count == 0).ToProperty();
     }
 
-    [Property]
+    [Property(DisplayName = "Match with fall-through should return empty enumerable if no match found")]
     public Property MatchWithFallthroughShouldReturnEmptyEnumerableIfNoMatchFound(string value)
     {
         Match.ClearCache<string>();
@@ -248,7 +248,7 @@ public class MatchStatementBuilderTests
         return (result == 0).ToProperty();
     }
 
-    [Property]
+    [Property(DisplayName = "ToFunction should match patterns correctly")]
     public Property MatchToFunctionShouldMatchPatternsCorrectly(
         Func<string, bool> predicate,
         string value)
@@ -266,7 +266,7 @@ public class MatchStatementBuilderTests
         return (matchSuccessful == pattern.Match(value).IsSuccessful).ToProperty();
     }
 
-    [Property]
+    [Property(DisplayName = "Non-strict ToFunction should match patterns correctly")]
     public Property NonStrictMatchToFunctionShouldMatchPatternsCorrectly(
         Func<string, bool> predicate,
         string value)
@@ -284,7 +284,7 @@ public class MatchStatementBuilderTests
         return (matchSuccessful == pattern.Match(value).IsSuccessful).ToProperty();
     }
 
-    [Property]
+    [Property(DisplayName = "Non-strict ToFunction should return nothing if no match found")]
     public void MatchToFunctionShouldThrowIfNoMatchFound(Func<string, bool> predicate, string value)
     {
         Match.ClearCache<string>();
@@ -305,7 +305,7 @@ public class MatchStatementBuilderTests
         }
     }
 
-    [Property]
+    [Property(DisplayName = "ToFunction should return false if no match found")]
     public Property NonStrictMatchToFunctionShouldReturnFalseIfNoMatchFound(
         Func<string, bool> predicate,
         string value)
@@ -321,7 +321,7 @@ public class MatchStatementBuilderTests
         return (matched == pattern.Match(value).IsSuccessful).ToProperty();
     }
 
-    [Property]
+    [Property(DisplayName = "Non-strict ToFunction should not throw if no match found")]
     public void NonStrictMatchToFunctionShouldNotThrowIfNoMatchFound(Func<string, bool> predicate, string value)
     {
         Match.ClearCache<string>();
@@ -336,7 +336,7 @@ public class MatchStatementBuilderTests
         action.Should().NotThrow<MatchException>();
     }
 
-    [Property]
+    [Property(DisplayName = "ToFunction with fall-through should match patterns correctly")]
     public Property MatchToFunctionWithFallthroughShouldMatchPatternsCorrectly(
         Func<string, bool> predicate,
         string value)
@@ -358,7 +358,7 @@ public class MatchStatementBuilderTests
             : (result == 1 && matchCount == 1).ToProperty();
     }
 
-    [Property]
+    [Property(DisplayName = "ToFunction with fall-through being false should match patterns correctly")]
     public Property MatchToFunctionWithFallthroughFalseShouldMatchPatternsCorrectly(
         Func<string, bool> predicate,
         string value)
@@ -378,7 +378,7 @@ public class MatchStatementBuilderTests
         return (result == 1 && matchCount == 1).ToProperty();
     }
 
-    [Property]
+    [Property(DisplayName = "ToFunction with fall-through being true should match patterns correctly")]
     public Property MatchToFunctionWithFallthroughTrueShouldMatchPatternsCorrectly(
         Func<string, bool> predicate,
         string value)
@@ -400,7 +400,7 @@ public class MatchStatementBuilderTests
             : (result == 1 && matchCount == 1).ToProperty();
     }
 
-    [Property]
+    [Property(DisplayName = "ToFunction with fall-through should return empty enumerable if no match found")]
     public Property MatchToFunctionWithFallthroughShouldReturnEmptyEnumerableIfNoMatchFound(string value)
     {
         Match.ClearCache<string>();
@@ -416,14 +416,14 @@ public class MatchStatementBuilderTests
         return (result == 0).ToProperty();
     }
 
-    [Fact]
+    [Fact(DisplayName = "Match should throw if pattern is null")]
     public void MatchShouldThrowIfPatternIsNull()
     {
         var action = () => Match.CreateStatic<string>(match => match.Case<string>(null, _ => { }));
         action.Should().Throw<ArgumentNullException>();
     }
 
-    [Property]
+    [Property(DisplayName = "Match should throw if case function is null")]
     public void MatchShouldThrowIfCaseFunctionIsNull(Func<string, bool> predicate)
     {
         var pattern = Pattern.CreatePattern(predicate);
@@ -433,23 +433,21 @@ public class MatchStatementBuilderTests
         action.Should().Throw<ArgumentNullException>();
     }
 
-    [Fact]
+    [Fact(DisplayName = "Match should throw if case type function is null")]
     public void MatchShouldThrowIfCaseTypeFunctionIsNull()
     {
         var action = () => Match.CreateStatic<string>(match => match.Case<string>(null));
         action.Should().Throw<ArgumentNullException>();
     }
 
-    [Theory]
-    [InlineData(true)]
-    [InlineData(false)]
+    [Property(DisplayName = "Match should throw if pattern with fall-through is null")]
     public void MatchShouldThrowIfPatternWithFallthroughIsNull(bool fallthrough)
     {
         var action = () => Match.CreateStatic<string>(match => match.Case<string>(null, fallthrough, _ => { }));
         action.Should().Throw<ArgumentNullException>();
     }
 
-    [Property]
+    [Property(DisplayName = "Match should throw if case function with fall-through is null")]
     public void MatchShouldThrowIfCaseFunctionWithFallthroughIsNull(
         Func<string, bool> predicate,
         bool fallthrough)
@@ -461,7 +459,7 @@ public class MatchStatementBuilderTests
         action.Should().Throw<ArgumentNullException>();
     }
 
-    [Property]
+    [Property(DisplayName = "Match should throw if case type sync function with fallthrough is null")]
     public void MatchShouldThrowIfCaseTypeFunctionWithFallthroughIsNull(bool fallthrough)
     {
         var action = () => Match.CreateStatic<string>(match => match.Case<string>(fallthrough, null));

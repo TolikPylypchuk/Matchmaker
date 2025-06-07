@@ -2,7 +2,7 @@ namespace Matchmaker.Linq;
 
 public class EnumerableTests
 {
-    [Fact]
+    [Fact(DisplayName = "Enumerate should force enumeration")]
     public void EnumerateShouldForceEnumeration()
     {
         const int count = 100;
@@ -16,14 +16,14 @@ public class EnumerableTests
         result.Should().Be(count);
     }
 
-    [Fact]
+    [Fact(DisplayName = "Enumerate should throw if enumerable is null")]
     public void EnumerateShouldThrowIfEnumerableIsNull()
     {
         var action = () => ((IEnumerable<object>)null).Enumerate();
         action.Should().Throw<ArgumentNullException>();
     }
 
-    [Fact]
+    [Fact(DisplayName = "EnumerateAsync should force enumeration")]
     public async Task EnumerateAsyncShouldForceEnumeration()
     {
         const int count = 100;
@@ -37,7 +37,7 @@ public class EnumerableTests
         result.Should().Be(count);
     }
 
-    [Fact]
+    [Fact(DisplayName = "EnumerateAsync should throw if enumerable is null")]
     public void EnumerateAsyncShouldThrowIfEnumerableIsNull()
     {
         var action = () =>

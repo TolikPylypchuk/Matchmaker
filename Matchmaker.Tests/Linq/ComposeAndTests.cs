@@ -2,20 +2,20 @@ namespace Matchmaker.Linq;
 
 public class ComposeAndTests
 {
-    [Property]
+    [Property(DisplayName = "Compose And pattern should never return null")]
     public Property ComposeAndPatternShouldNeverReturnNull(
         IPattern<string, string> pattern1,
         IPattern<string, string> pattern2) =>
         (pattern1.Compose(pattern2, PatternComposition.And) != null).ToProperty();
 
-    [Property]
+    [Property(DisplayName = "Compose And pattern with description should never return null")]
     public Property ComposeAndPatternWithDescriptionShouldNeverReturnNull(
         IPattern<string, string> pattern1,
         IPattern<string, string> pattern2,
         NonNull<string> description) =>
         (pattern1.Compose(pattern2, PatternComposition.And, description.Get) != null).ToProperty();
 
-    [Property]
+    [Property(DisplayName = "Compose And pattern should be the same as both patterns")]
     public Property ComposeAndPatternShouldBeSameAsBothPatterns(
         IPattern<string, string> pattern1,
         IPattern<string, string> pattern2,
@@ -24,7 +24,7 @@ public class ComposeAndTests
             pattern1.Compose(pattern2, PatternComposition.And).Match(x).IsSuccessful)
             .ToProperty();
 
-    [Property]
+    [Property(DisplayName = "Compose And pattern with description should be the same as both patterns")]
     public Property ComposeAndPatternWithDescriptionShouldBeSameAsBothPatterns(
         IPattern<string, string> pattern1,
         IPattern<string, string> pattern2,
@@ -34,7 +34,7 @@ public class ComposeAndTests
             pattern1.Compose(pattern2, PatternComposition.And, description.Get).Match(x).IsSuccessful)
             .ToProperty();
 
-    [Property]
+    [Property(DisplayName = "Compose And pattern should have correct description")]
     public Property ComposeAndPatternShouldHaveCorrectDescription(
         IPattern<string, string> pattern1,
         IPattern<string, string> pattern2) =>
@@ -43,23 +43,24 @@ public class ComposeAndTests
              String.Format(Pattern.DefaultAndDescriptionFormat, pattern1.Description, pattern2.Description))
             .ToProperty();
 
-    [Property]
-    public Property ComposeAndPatternShouldHaveEmptyDescriptionIfFirstPatternHasEmptyDescription(
+    [Property(DisplayName = "Compose And pattern should have empty description if left pattern has empty description")]
+    public Property ComposeAndPatternShouldHaveEmptyDescriptionIfLeftPatternHasEmptyDescription(
         IPattern<string, string> pattern,
         Func<string, bool> predicate) =>
         (Pattern.CreatePattern(predicate, String.Empty)
             .Compose(pattern, PatternComposition.And).Description.Length == 0)
             .ToProperty();
 
-    [Property]
-    public Property ComposeAndPatternShouldHaveEmptyDescriptionIfSecondPatternHasEmptyDescription(
+    [Property(DisplayName = "Compose And pattern should have empty description if right pattern has empty description")]
+    public Property ComposeAndPatternShouldHaveEmptyDescriptionIfRightPatternHasEmptyDescription(
         IPattern<string, string> pattern,
         Func<string, bool> predicate) =>
         (pattern.Compose(Pattern.CreatePattern(predicate, String.Empty), PatternComposition.And)
             .Description.Length == 0)
             .ToProperty();
 
-    [Property]
+    [Property(DisplayName = "Compose And pattern should have empty description " +
+        "if both patterns have empty description")]
     public Property ComposeAndPatternShouldHaveEmptyDescriptionIfBothPatternsHaveEmptyDescription(
         Func<string, bool> predicate1,
         Func<string, bool> predicate2) =>
@@ -67,7 +68,7 @@ public class ComposeAndTests
             .Compose(Pattern.CreatePattern(predicate2, String.Empty), PatternComposition.And)
             .Description.Length == 0).ToProperty();
 
-    [Property]
+    [Property(DisplayName = "Compose And pattern should have the specified description")]
     public Property ComposeAndPatternShouldHaveSpecifiedDescription(
         IPattern<string, string> pattern1,
         IPattern<string, string> pattern2,
@@ -75,14 +76,14 @@ public class ComposeAndTests
         (pattern1.Compose(pattern2, PatternComposition.And, description.Get).Description == description.Get)
             .ToProperty();
 
-    [Property]
+    [Property(DisplayName = "Compose And pattern should throw if left pattern is null")]
     public void ComposeAndPatternShouldThrowIfLeftPatternIsNull(IPattern<string, string> pattern)
     {
         var action = () => ((IPattern<string, string>)null).Compose(pattern, PatternComposition.And);
         action.Should().Throw<ArgumentNullException>();
     }
 
-    [Property]
+    [Property(DisplayName = "Compose And pattern with description should throw if left pattern is null")]
     public void ComposeAndPatternWithDescriptionShouldThrowIfLeftPatternIsNull(
         IPattern<string, string> pattern,
         NonNull<string> description)
@@ -92,14 +93,14 @@ public class ComposeAndTests
         action.Should().Throw<ArgumentNullException>();
     }
 
-    [Property]
+    [Property(DisplayName = "Compose And pattern should throw if right pattern is null")]
     public void ComposeAndPatternShouldThrowIfRightPatternIsNull(IPattern<string, string> pattern)
     {
         var action = () => pattern.Compose(null, PatternComposition.And);
         action.Should().Throw<ArgumentNullException>();
     }
 
-    [Property]
+    [Property(DisplayName = "Compose And pattern with description should throw if right pattern is null")]
     public void ComposeAndPatternWithDescriptionShouldThrowIfRightPatternIsNull(
         IPattern<string, string> pattern,
         NonNull<string> description)
@@ -108,7 +109,7 @@ public class ComposeAndTests
         action.Should().Throw<ArgumentNullException>();
     }
 
-    [Property]
+    [Property(DisplayName = "Compose And pattern should throw if description is null")]
     public void ComposeAndPatternShouldThrowIfDescriptionIsNull(
         IPattern<string, string> pattern1,
         IPattern<string, string> pattern2)
@@ -117,20 +118,20 @@ public class ComposeAndTests
         action.Should().Throw<ArgumentNullException>();
     }
 
-    [Property]
+    [Property(DisplayName = "And pattern should never return null")]
     public Property AndPatternShouldNeverReturnNull(
         IPattern<string, string> pattern1,
         IPattern<string, string> pattern2) =>
         (pattern1.And(pattern2) != null).ToProperty();
 
-    [Property]
+    [Property(DisplayName = "And pattern with description should never return null")]
     public Property AndPatternWithDescriptionShouldNeverReturnNull(
         IPattern<string, string> pattern1,
         IPattern<string, string> pattern2,
         NonNull<string> description) =>
         (pattern1.And(pattern2, description.Get) != null).ToProperty();
 
-    [Property]
+    [Property(DisplayName = "And pattern should be the same as both patterns")]
     public Property AndPatternShouldBeSameAsBothPatterns(
         IPattern<string, string> pattern1,
         IPattern<string, string> pattern2,
@@ -139,7 +140,7 @@ public class ComposeAndTests
             pattern1.And(pattern2).Match(x).IsSuccessful)
             .ToProperty();
 
-    [Property]
+    [Property(DisplayName = "And pattern with description should be the same as both patterns")]
     public Property AndPatternWithDescriptionShouldBeSameAsBothPatterns(
         IPattern<string, string> pattern1,
         IPattern<string, string> pattern2,
@@ -149,7 +150,7 @@ public class ComposeAndTests
             pattern1.And(pattern2, description.Get).Match(x).IsSuccessful)
             .ToProperty();
 
-    [Property]
+    [Property(DisplayName = "And pattern should have correct description")]
     public Property AndPatternShouldHaveCorrectDescription(
         IPattern<string, string> pattern1,
         IPattern<string, string> pattern2) =>
@@ -158,40 +159,40 @@ public class ComposeAndTests
                 String.Format(Pattern.DefaultAndDescriptionFormat, pattern1.Description, pattern2.Description))
             .ToProperty();
 
-    [Property]
-    public Property AndPatternShouldHaveEmptyDescriptionIfFirstPatternHasEmptyDescription(
+    [Property(DisplayName = "And pattern should have empty description if left pattern has empty description")]
+    public Property AndPatternShouldHaveEmptyDescriptionIfLeftPatternHasEmptyDescription(
         IPattern<string, string> pattern,
         Func<string, bool> predicate) =>
         (Pattern.CreatePattern(predicate, String.Empty).And(pattern).Description.Length == 0).ToProperty();
 
-    [Property]
-    public Property AndPatternShouldHaveEmptyDescriptionIfSecondPatternHasEmptyDescription(
+    [Property(DisplayName = "And pattern should have empty description if right pattern has empty description")]
+    public Property AndPatternShouldHaveEmptyDescriptionIfRightPatternHasEmptyDescription(
         IPattern<string, string> pattern,
         Func<string, bool> predicate) =>
         (pattern.And(Pattern.CreatePattern(predicate, String.Empty)).Description.Length == 0).ToProperty();
 
-    [Property]
+    [Property(DisplayName = "And pattern should have empty description if both patterns have empty description")]
     public Property AndPatternShouldHaveEmptyDescriptionIfBothPatternsHaveEmptyDescription(
         Func<string, bool> predicate1,
         Func<string, bool> predicate2) =>
         (Pattern.CreatePattern(predicate1, String.Empty).And(Pattern.CreatePattern(predicate2, String.Empty))
             .Description.Length == 0).ToProperty();
 
-    [Property]
+    [Property(DisplayName = "And pattern should have the specified description")]
     public Property AndPatternShouldHaveSpecifiedDescription(
         IPattern<string, string> pattern1,
         IPattern<string, string> pattern2,
         NonNull<string> description) =>
         (pattern1.And(pattern2, description.Get).Description == description.Get).ToProperty();
 
-    [Property]
+    [Property(DisplayName = "And pattern should throw if left pattern is null")]
     public void AndPatternShouldThrowIfLeftPatternIsNull(IPattern<string, string> pattern)
     {
         var action = () => ((IPattern<string, string>)null).And(pattern);
         action.Should().Throw<ArgumentNullException>();
     }
 
-    [Property]
+    [Property(DisplayName = "And pattern with description should throw if left pattern is null")]
     public void AndPatternWithDescriptionShouldThrowIfLeftPatternIsNull(
         IPattern<string, string> pattern,
         NonNull<string> description)
@@ -200,14 +201,14 @@ public class ComposeAndTests
         action.Should().Throw<ArgumentNullException>();
     }
 
-    [Property]
+    [Property(DisplayName = "And pattern should throw if right pattern is null")]
     public void AndPatternShouldThrowIfRightPatternIsNull(IPattern<string, string> pattern)
     {
         var action = () => pattern.And(null);
         action.Should().Throw<ArgumentNullException>();
     }
 
-    [Property]
+    [Property(DisplayName = "And pattern with description should throw if right pattern is null")]
     public void AndPatternWithDescriptionShouldThrowIfRightPatternIsNull(
         IPattern<string, string> pattern,
         NonNull<string> description)
@@ -216,7 +217,7 @@ public class ComposeAndTests
         action.Should().Throw<ArgumentNullException>();
     }
 
-    [Property]
+    [Property(DisplayName = "And pattern should throw if description is null")]
     public void AndPatternShouldThrowIfDescriptionIsNull(
         IPattern<string, string> pattern1,
         IPattern<string, string> pattern2)

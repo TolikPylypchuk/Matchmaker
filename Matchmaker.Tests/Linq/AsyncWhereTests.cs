@@ -2,20 +2,20 @@ namespace Matchmaker.Linq;
 
 public class AsyncWhereTests
 {
-    [Property]
+    [Property(DisplayName = "Where pattern should never return null")]
     public Property WherePatternShouldNeverReturnNull(
         IAsyncPattern<string, string> pattern,
         Func<string, bool> predicate) =>
         (pattern.Where(predicate) != null).ToProperty();
 
-    [Property]
+    [Property(DisplayName = "Where pattern with description should never return null")]
     public Property WherePatternWithDescriptionShouldNeverReturnNull(
         IAsyncPattern<string, string> pattern,
         Func<string, bool> predicate,
         NonNull<string> description) =>
         (pattern.Where(predicate, description.Get) != null).ToProperty();
 
-    [Property]
+    [Property(DisplayName = "Where pattern should match the same as pattern and predicate")]
     public async Task<Property> WherePatternShouldMatchSameAsPatternAndPredicate(
         IAsyncPattern<string, string> pattern,
         Func<string, bool> predicate,
@@ -24,7 +24,7 @@ public class AsyncWhereTests
                    ((await pattern.MatchAsync(input)).IsSuccessful && predicate(input)))
                .ToProperty();
 
-    [Property]
+    [Property(DisplayName = "Where pattern should have same result as pattern when successful")]
     public async Task<Property> WherePatternShouldHaveSameResultAsPatternWhenSuccessful(
         IAsyncPattern<string, string> pattern,
         Func<string, bool> predicate,
@@ -36,7 +36,7 @@ public class AsyncWhereTests
             .ToProperty();
     }
 
-    [Property]
+    [Property(DisplayName = "Where pattern with description should match the same as pattern and predicate")]
     public async Task<Property> WherePatternWithDescriptionShouldMatchSameAsPatternAndPredicate(
         IAsyncPattern<string, string> pattern,
         Func<string, bool> predicate,
@@ -46,7 +46,7 @@ public class AsyncWhereTests
             ((await pattern.MatchAsync(input)).IsSuccessful && predicate(input)))
             .ToProperty();
 
-    [Property]
+    [Property(DisplayName = "Where pattern with description should have the same result as pattern when successful")]
     public async Task<Property> WherePatternWithDescriptionShouldHaveSameResultAsPatternWhenSuccessful(
         IAsyncPattern<string, string> pattern,
         Func<string, bool> predicate,
@@ -59,27 +59,27 @@ public class AsyncWhereTests
             .ToProperty();
     }
 
-    [Property]
+    [Property(DisplayName = "Where pattern should have the same description as pattern")]
     public Property WherePatternShouldHaveSameDescriptionAsPattern(
         IAsyncPattern<string, string> pattern,
         Func<string, bool> predicate) =>
         (pattern.Where(predicate).Description == pattern.Description).ToProperty();
 
-    [Property]
+    [Property(DisplayName = "Where pattern with description should have the specified description")]
     public Property WherePatternWithDescriptionShouldHaveSpecifiedDescription(
         IAsyncPattern<string, string> pattern,
         Func<string, bool> predicate,
         NonNull<string> description) =>
         (pattern.Where(predicate, description.Get).Description == description.Get).ToProperty();
 
-    [Property]
+    [Property(DisplayName = "Where pattern should throw if pattern is null")]
     public void WherePatternShouldThrowIfPatternIsNull(Func<string, bool> predicate)
     {
         var action = () => ((IAsyncPattern<string, string>)null).Where(predicate);
         action.Should().Throw<ArgumentNullException>();
     }
 
-    [Property]
+    [Property(DisplayName = "Where pattern with description should throw if pattern is null")]
     public void WherePatternWithDescriptionShouldThrowIfPatternIsNull(
         Func<string, bool> predicate,
         NonNull<string> description)
@@ -88,14 +88,14 @@ public class AsyncWhereTests
         action.Should().Throw<ArgumentNullException>();
     }
 
-    [Property]
+    [Property(DisplayName = "Where pattern should throw if predicate is null")]
     public void WherePatternShouldThrowIfPredicateIsNull(IAsyncPattern<string, string> pattern)
     {
         var action = () => pattern.Where((Func<string, bool>)null);
         action.Should().Throw<ArgumentNullException>();
     }
 
-    [Property]
+    [Property(DisplayName = "Where pattern with description should throw if predicate is null")]
     public void WherePatternWithDescriptionShouldThrowIfPredicateIsNull(
         IAsyncPattern<string, string> pattern,
         NonNull<string> description)
@@ -104,7 +104,7 @@ public class AsyncWhereTests
         action.Should().Throw<ArgumentNullException>();
     }
 
-    [Property]
+    [Property(DisplayName = "Where pattern with description should throw if description is null")]
     public void WherePatternWithDescriptionShouldThrowIfDescriptionIsNull(
         IAsyncPattern<string, string> pattern,
         Func<string, bool> predicate)
@@ -113,20 +113,20 @@ public class AsyncWhereTests
         action.Should().Throw<ArgumentNullException>();
     }
 
-    [Property]
+    [Property(DisplayName = "Async Where pattern should never return null")]
     public Property AsyncWherePatternShouldNeverReturnNull(
         IAsyncPattern<string, string> pattern,
         Func<string, Task<bool>> predicate) =>
         (pattern.Where(predicate) != null).ToProperty();
 
-    [Property]
+    [Property(DisplayName = "Async Where pattern with description should never return null")]
     public Property AsyncWherePatternWithDescriptionShouldNeverReturnNull(
         IAsyncPattern<string, string> pattern,
         Func<string, Task<bool>> predicate,
         NonNull<string> description) =>
         (pattern.Where(predicate, description.Get) != null).ToProperty();
 
-    [Property]
+    [Property(DisplayName = "Async Where pattern should match the same as pattern and predicate")]
     public async Task<Property> AsyncWherePatternShouldMatchSameAsPatternAndPredicate(
         IAsyncPattern<string, string> pattern,
         Func<string, Task<bool>> predicate,
@@ -135,7 +135,7 @@ public class AsyncWhereTests
                 ((await pattern.MatchAsync(input)).IsSuccessful && await predicate(input)))
             .ToProperty();
 
-    [Property]
+    [Property(DisplayName = "Async Where pattern should have same result as pattern when successful")]
     public async Task<Property> AsyncWherePatternShouldHaveSameResultAsPatternWhenSuccessful(
         IAsyncPattern<string, string> pattern,
         Func<string, Task<bool>> predicate,
@@ -147,7 +147,7 @@ public class AsyncWhereTests
             .ToProperty();
     }
 
-    [Property]
+    [Property(DisplayName = "Async Where pattern with description should match the same as pattern and predicate")]
     public async Task<Property> AsyncWherePatternWithDescriptionShouldMatchSameAsPatternAndPredicate(
         IAsyncPattern<string, string> pattern,
         Func<string, Task<bool>> predicate,
@@ -157,7 +157,7 @@ public class AsyncWhereTests
                 ((await pattern.MatchAsync(input)).IsSuccessful && await predicate(input)))
             .ToProperty();
 
-    [Property]
+    [Property(DisplayName = "Async Where pattern with description should have the same result as pattern when successful")]
     public async Task<Property> AsyncWherePatternWithDescriptionShouldHaveSameResultAsPatternWhenSuccessful(
         IAsyncPattern<string, string> pattern,
         Func<string, Task<bool>> predicate,
@@ -170,27 +170,27 @@ public class AsyncWhereTests
             .ToProperty();
     }
 
-    [Property]
+    [Property(DisplayName = "Async Where pattern should have the same description as pattern")]
     public Property AsyncWherePatternShouldHaveSameDescriptionAsPattern(
         IAsyncPattern<string, string> pattern,
         Func<string, Task<bool>> predicate) =>
         (pattern.Where(predicate).Description == pattern.Description).ToProperty();
 
-    [Property]
+    [Property(DisplayName = "Async Where pattern with description should have the specified description")]
     public Property AsyncWherePatternWithDescriptionShouldHaveSpecifiedDescription(
         IAsyncPattern<string, string> pattern,
         Func<string, Task<bool>> predicate,
         NonNull<string> description) =>
         (pattern.Where(predicate, description.Get).Description == description.Get).ToProperty();
 
-    [Property]
+    [Property(DisplayName = "Async Where pattern should throw if pattern is null")]
     public void AsyncWherePatternShouldThrowIfPatternIsNull(Func<string, Task<bool>> predicate)
     {
         var action = () => ((IAsyncPattern<string, string>)null).Where(predicate);
         action.Should().Throw<ArgumentNullException>();
     }
 
-    [Property]
+    [Property(DisplayName = "Async Where pattern with description should throw if pattern is null")]
     public void AsyncWherePatternWithDescriptionShouldThrowIfPatternIsNull(
         Func<string, Task<bool>> predicate,
         NonNull<string> description)
@@ -199,14 +199,14 @@ public class AsyncWhereTests
         action.Should().Throw<ArgumentNullException>();
     }
 
-    [Property]
+    [Property(DisplayName = "Async Where pattern should throw if predicate is null")]
     public void AsyncWherePatternShouldThrowIfPredicateIsNull(IAsyncPattern<string, string> pattern)
     {
         var action = () => pattern.Where((Func<string, Task<bool>>)null);
         action.Should().Throw<ArgumentNullException>();
     }
 
-    [Property]
+    [Property(DisplayName = "Async Where pattern with description should throw if predicate is null")]
     public void AsyncWherePatternWithDescriptionShouldThrowIfPredicateIsNull(
         IAsyncPattern<string, string> pattern,
         NonNull<string> description)
@@ -215,7 +215,7 @@ public class AsyncWhereTests
         action.Should().Throw<ArgumentNullException>();
     }
 
-    [Property]
+    [Property(DisplayName = "Async Where pattern with description should throw if description is null")]
     public void AsyncWherePatternWithDescriptionShouldThrowIfDescriptionIsNull(
         IAsyncPattern<string, string> pattern,
         Func<string, Task<bool>> predicate)

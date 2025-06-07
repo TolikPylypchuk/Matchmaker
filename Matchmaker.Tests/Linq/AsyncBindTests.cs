@@ -2,20 +2,20 @@ namespace Matchmaker.Linq;
 
 public class AsyncBindTests
 {
-    [Property]
+    [Property(DisplayName = "Bind pattern should never return null")]
     public Property BindPatternShouldNeverReturnNull(
         IAsyncPattern<string, string> pattern,
         Func<string, IAsyncPattern<string, string>> binder) =>
         (pattern.Bind(binder) != null).ToProperty();
 
-    [Property]
+    [Property(DisplayName = "Bind pattern with description should never return null")]
     public Property BindPatternWithDescriptionShouldNeverReturnNull(
         IAsyncPattern<string, string> pattern,
         Func<string, IAsyncPattern<string, string>> binder,
         NonNull<string> description) =>
         (pattern.Bind(binder, description.Get) != null).ToProperty();
 
-    [Property]
+    [Property(DisplayName = "Bind pattern should match the same as binder result")]
     public async Task<Property> BindPatternShouldMatchSameAsBinderResult(
         IAsyncPattern<string, string> pattern,
         Func<string, IAsyncPattern<string, string>> binder,
@@ -27,7 +27,7 @@ public class AsyncBindTests
             .ToProperty();
     }
 
-    [Property]
+    [Property(DisplayName = "Bind pattern with description should match the same as binder result")]
     public async Task<Property> BindPatternWithDescriptionShouldMatchSameAsBinderResult(
         IAsyncPattern<string, string> pattern,
         Func<string, IAsyncPattern<string, string>> binder,
@@ -40,27 +40,27 @@ public class AsyncBindTests
             .ToProperty();
     }
 
-    [Property]
+    [Property(DisplayName = "Bind pattern should have the same description as pattern")]
     public Property BindPatternShouldHaveSameDescriptionAsPattern(
         IAsyncPattern<string, string> pattern,
         Func<string, IAsyncPattern<string, string>> binder) =>
         (pattern.Bind(binder).Description == pattern.Description).ToProperty();
 
-    [Property]
+    [Property(DisplayName = "Bind pattern with description should have the specified description")]
     public Property BindPatternWithDescriptionShouldHaveSpecifiedDescription(
         IAsyncPattern<string, string> pattern,
         Func<string, IAsyncPattern<string, string>> binder,
         NonNull<string> description) =>
         (pattern.Bind(binder, description.Get).Description == description.Get).ToProperty();
 
-    [Property]
+    [Property(DisplayName = "Bind pattern should throw if pattern is null")]
     public void BindPatternShouldThrowIfPatternIsNull(Func<string, IAsyncPattern<string, string>> binder)
     {
         var action = () => ((IAsyncPattern<string, string>)null).Bind(binder);
         action.Should().Throw<ArgumentNullException>();
     }
 
-    [Property]
+    [Property(DisplayName = "Bind pattern with description should throw if pattern is null")]
     public void BindPatternWithDescriptionShouldThrowIfPatternIsNull(
         Func<string, IAsyncPattern<string, string>> binder,
         NonNull<string> description)
@@ -69,14 +69,14 @@ public class AsyncBindTests
         action.Should().Throw<ArgumentNullException>();
     }
 
-    [Property]
+    [Property(DisplayName = "Bind pattern should throw if binder is null")]
     public void BindPatternShouldThrowIfBinderIsNull(IAsyncPattern<string, string> pattern)
     {
         var action = () => pattern.Bind((Func<string, IAsyncPattern<string, int>>)null);
         action.Should().Throw<ArgumentNullException>();
     }
 
-    [Property]
+    [Property(DisplayName = "Bind pattern with description should throw if description is null")]
     public void BindPatternWithDescriptionShouldThrowIfDescriptionIsNull(
         IAsyncPattern<string, string> pattern,
         Func<string, IAsyncPattern<string, string>> binder)

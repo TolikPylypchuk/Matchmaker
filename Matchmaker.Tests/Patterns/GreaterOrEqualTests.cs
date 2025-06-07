@@ -4,63 +4,63 @@ public class GreaterOrEqualTests
 {
     private static readonly Comparer<string> StringComparer = Comparer<string>.Default;
 
-    [Property]
+    [Property(DisplayName = "GreaterOrEqual should never return null")]
     public Property GreaterOrEqualShouldNeverReturnNull(string x) =>
         (Pattern.GreaterOrEqual(x) != null).ToProperty();
 
-    [Property]
+    [Property(DisplayName = "Lazy GreaterOrEqual should never return null")]
     public Property LazyGreaterOrEqualShouldNeverReturnNull(string x) =>
         (Pattern.GreaterOrEqual(() => x) != null).ToProperty();
 
-    [Property]
+    [Property(DisplayName = "GreaterOrEqual with comparer should never return null")]
     public Property GreaterOrEqualWithComparerShouldNeverReturnNull(string x) =>
         (Pattern.GreaterOrEqual(x, StringComparer) != null).ToProperty();
 
-    [Property]
+    [Property(DisplayName = "Lazy GreaterOrEqual with comparer should never return null")]
     public Property LazyGreaterOrEqualWithComparerShouldNeverReturnNull(string x) =>
         (Pattern.GreaterOrEqual(() => x, StringComparer) != null).ToProperty();
 
-    [Property]
+    [Property(DisplayName = "GreaterOrEqual with description should never return null")]
     public Property GreaterOrEqualWithDescriptionShouldNeverReturnNull(string x, NonNull<string> description) =>
         (Pattern.GreaterOrEqual(x, description.Get) != null).ToProperty();
 
-    [Property]
+    [Property(DisplayName = "Lazy GreaterOrEqual with description should never return null")]
     public Property LazyGreaterOrEqualWithDescriptionShouldNeverReturnNull(string x, NonNull<string> description) =>
         (Pattern.GreaterOrEqual(() => x, description.Get) != null).ToProperty();
 
-    [Property]
+    [Property(DisplayName = "GreaterOrEqual with comparer and description should never return null")]
     public Property GreaterOrEqualWithComparerAndDescriptionShouldNeverReturnNull(
         string x,
         NonNull<string> description) =>
         (Pattern.GreaterOrEqual(x, StringComparer, description.Get) != null).ToProperty();
 
-    [Property]
+    [Property(DisplayName = "Lazy GreaterOrEqual with comparer and description should never return null")]
     public Property LazyGreaterOrEqualWithComparerAndDescriptionShouldNeverReturnNull(
         string x,
         NonNull<string> description) =>
         (Pattern.GreaterOrEqual(() => x, StringComparer, description.Get) != null).ToProperty();
 
-    [Property]
+    [Property(DisplayName = "GreaterOrEqual should succeed only on greater or equal objects")]
     public Property GreaterOrEqualShouldSucceedOnlyOnGreaterOrEqual(string x, string y) =>
         (Comparer<string>.Default.Compare(x, y) >= 0 == Pattern.GreaterOrEqual(y).Match(x).IsSuccessful)
             .ToProperty();
 
-    [Property]
+    [Property(DisplayName = "Lazy GreaterOrEqual should succeed only on greater or equal objects")]
     public Property LazyGreaterOrEqualShouldSucceedOnlyOnGreaterOrEqual(string x, string y) =>
         (Comparer<string>.Default.Compare(x, y) >= 0 == Pattern.GreaterOrEqual(() => y).Match(x).IsSuccessful)
             .ToProperty();
 
-    [Property]
+    [Property(DisplayName = "GreaterOrEqual with comparer should succeed only on greater or equal objects")]
     public Property GreaterOrEqualWithComparerShouldSucceedOnlyOnGreaterOrEqual(string x, string y) =>
         (StringComparer.Compare(x, y) >= 0 == Pattern.GreaterOrEqual(y, StringComparer).Match(x).IsSuccessful)
             .ToProperty();
 
-    [Property]
+    [Property(DisplayName = "Lazy GreaterOrEqual with comparer should succeed only on greater or equal objects")]
     public Property LazyGreaterOrEqualWithComparerShouldSucceedOnlyOnGreaterOrEqual(string x, string y) =>
         (StringComparer.Compare(x, y) >= 0 == Pattern.GreaterOrEqual(() => y, StringComparer).Match(x).IsSuccessful)
             .ToProperty();
 
-    [Property]
+    [Property(DisplayName = "GreaterOrEqual with description should succeed only on greater or equal objects")]
     public Property GreaterOrEqualWithDescriptionShouldSucceedOnlyOnGreaterOrEqual(
         string x,
         string y,
@@ -69,7 +69,7 @@ public class GreaterOrEqualTests
             Pattern.GreaterOrEqual(y, description.Get).Match(x).IsSuccessful)
             .ToProperty();
 
-    [Property]
+    [Property(DisplayName = "Lazy GreaterOrEqual with description should succeed only on greater or equal objects")]
     public Property LazyGreaterOrEqualWithDescriptionShouldSucceedOnlyOnGreaterOrEqual(
         string x,
         string y,
@@ -78,7 +78,8 @@ public class GreaterOrEqualTests
             Pattern.GreaterOrEqual(() => y, description.Get).Match(x).IsSuccessful)
             .ToProperty();
 
-    [Property]
+    [Property(DisplayName = "GreaterOrEqual with comparer and description should succeed only " +
+        "on greater or equal objects")]
     public Property GreaterOrEqualWithComparerAndDescriptionShouldSucceedOnlyOnGreaterOrEqual(
         string x,
         string y,
@@ -87,7 +88,8 @@ public class GreaterOrEqualTests
             Pattern.GreaterOrEqual(y, StringComparer, description.Get).Match(x).IsSuccessful)
             .ToProperty();
 
-    [Property]
+    [Property(DisplayName = "Lazy GreaterOrEqual with comparer and description should succeed only " +
+        "on greater or equal objects")]
     public Property LazyGreaterOrEqualWithComparerAndDescriptionShouldSucceedOnlyOnGreaterOrEqual(
         string x,
         string y,
@@ -96,49 +98,49 @@ public class GreaterOrEqualTests
             Pattern.GreaterOrEqual(() => y, StringComparer, description.Get).Match(x).IsSuccessful)
             .ToProperty();
 
-    [Property]
+    [Property(DisplayName = "GreaterOrEqual should have correct default description")]
     public Property GreaterOrEqualShouldHaveCorrectDefaultDescription(string x) =>
         (Pattern.GreaterOrEqual(x).Description ==
             String.Format(Pattern.DefaultGreaterOrEqualDescriptionFormat, x))
             .ToProperty();
 
-    [Property]
+    [Property(DisplayName = "Lazy GreaterOrEqual should have correct default description")]
     public Property LazyGreaterOrEqualShouldHaveCorrectDefaultDescription(string x) =>
         (Pattern.GreaterOrEqual(() => x).Description == Pattern.DefaultLazyGreaterOrEqualDescription)
             .ToProperty();
 
-    [Property]
+    [Property(DisplayName = "GreaterOrEqual with comparer should have correct default description")]
     public Property GreaterOrEqualWithComparerShouldHaveCorrectDefaultDescription(string x) =>
         (Pattern.GreaterOrEqual(x, StringComparer).Description ==
             String.Format(Pattern.DefaultGreaterOrEqualDescriptionFormat, x))
             .ToProperty();
 
-    [Property]
+    [Property(DisplayName = "Lazy GreaterOrEqual with comparer should have correct default description")]
     public Property LazyGreaterOrEqualWithComparerShouldHaveCorrectDefaultDescription(string x) =>
         (Pattern.GreaterOrEqual(() => x, StringComparer).Description ==
             Pattern.DefaultLazyGreaterOrEqualDescription)
             .ToProperty();
 
-    [Property]
+    [Property(DisplayName = "GreaterOrEqual should have specified description")]
     public Property GreaterOrEqualShouldHaveSpecifiedDescription(string x, NonNull<string> description) =>
         (Pattern.GreaterOrEqual(x, description.Get).Description == description.Get).ToProperty();
 
-    [Property]
+    [Property(DisplayName = "Lazy GreaterOrEqual should have specified description")]
     public Property LazyGreaterOrEqualShouldHaveSpecifiedDescription(string x, NonNull<string> description) =>
         (Pattern.GreaterOrEqual(() => x, description.Get).Description == description.Get).ToProperty();
 
-    [Property]
+    [Property(DisplayName = "GreaterOrEqual with comparer should have specified description")]
     public Property GreaterOrEqualWithComparerShouldHaveSpecifiedDescription(string x, NonNull<string> description) =>
         (Pattern.GreaterOrEqual(x, StringComparer, description.Get).Description == description.Get).ToProperty();
 
-    [Property]
+    [Property(DisplayName = "Lazy GreaterOrEqual with comparer should have specified description")]
     public Property LazyGreaterOrEqualWithComparerShouldHaveSpecifiedDescription(
         string x,
         NonNull<string> description) =>
         (Pattern.GreaterOrEqual(() => x, StringComparer, description.Get).Description == description.Get)
             .ToProperty();
 
-    [Fact]
+    [Fact(DisplayName = "Lazy GreaterOrEqual should be lazy")]
     public void LazyGreaterOrEqualShouldBeLazy()
     {
         var action = () => Pattern.GreaterOrEqual<string>(
@@ -146,7 +148,7 @@ public class GreaterOrEqualTests
         action.Should().NotThrow<AssertionFailedException>();
     }
 
-    [Fact]
+    [Fact(DisplayName = "Lazy GreaterOrEqual with comparer should be lazy")]
     public void LazyGreaterOrEqualWithComparerShouldBeLazy()
     {
         var action = () => Pattern.GreaterOrEqual(
@@ -155,7 +157,7 @@ public class GreaterOrEqualTests
         action.Should().NotThrow<AssertionFailedException>();
     }
 
-    [Property]
+    [Property(DisplayName = "Lazy GreaterOrEqual with description should be lazy")]
     public void LazyGreaterOrEqualWithDescriptionShouldBeLazy(NonNull<string> description)
     {
         var action = () => Pattern.GreaterOrEqual<string>(
@@ -164,7 +166,7 @@ public class GreaterOrEqualTests
         action.Should().NotThrow<AssertionFailedException>();
     }
 
-    [Property]
+    [Property(DisplayName = "Lazy GreaterOrEqual with comparer and description should be lazy")]
     public void LazyGreaterOrEqualWithComparerAndDescriptionShouldBeLazy(NonNull<string> description)
     {
         var action = () => Pattern.GreaterOrEqual(
@@ -174,7 +176,7 @@ public class GreaterOrEqualTests
         action.Should().NotThrow<AssertionFailedException>();
     }
 
-    [Property]
+    [Property(DisplayName = "Lazy GreaterOrEqual should be memoized")]
     public Property LazyGreaterOrEqualShouldBeMemoized(string input)
     {
         int counter = 0;
@@ -191,7 +193,7 @@ public class GreaterOrEqualTests
         return (counter == 1).ToProperty();
     }
 
-    [Property]
+    [Property(DisplayName = "Lazy GreaterOrEqual with comparer should be memoized")]
     public Property LazyGreaterOrEqualWithComparerShouldBeMemoized(string input)
     {
         int counter = 0;
@@ -210,7 +212,7 @@ public class GreaterOrEqualTests
         return (counter == 1).ToProperty();
     }
 
-    [Property]
+    [Property(DisplayName = "Lazy GreaterOrEqual with description should be memoized")]
     public Property LazyGreaterOrEqualWithDescriptionShouldBeMemoized(string input, NonNull<string> description)
     {
         int counter = 0;
@@ -229,7 +231,7 @@ public class GreaterOrEqualTests
         return (counter == 1).ToProperty();
     }
 
-    [Property]
+    [Property(DisplayName = "Lazy GreaterOrEqual with comparer and description should be memoized")]
     public Property LazyGreaterOrEqualWithComparerAndDescriptionShouldBeMemoized(
         string input,
         NonNull<string> description)
@@ -251,35 +253,35 @@ public class GreaterOrEqualTests
         return (counter == 1).ToProperty();
     }
 
-    [Property]
+    [Property(DisplayName = "GreaterOrEqual should throw if comparer is null")]
     public void GreaterOrEqualShouldThrowIfComparerIsNull(string x)
     {
         var action = () => Pattern.GreaterOrEqual(x, (IComparer<string>)null);
         action.Should().Throw<ArgumentNullException>();
     }
 
-    [Property]
+    [Property(DisplayName = "Lazy GreaterOrEqual should throw if comparer is null")]
     public void LazyGreaterOrEqualShouldThrowIfComparerIsNull(string x)
     {
         var action = () => Pattern.GreaterOrEqual(() => x, (IComparer<string>)null);
         action.Should().Throw<ArgumentNullException>();
     }
 
-    [Property]
+    [Property(DisplayName = "GreaterOrEqual should throw if description is null")]
     public void GreaterOrEqualShouldThrowIfDescriptionIsNull(string x)
     {
         var action = () => Pattern.GreaterOrEqual(x, (string)null);
         action.Should().Throw<ArgumentNullException>();
     }
 
-    [Property]
+    [Property(DisplayName = "Lazy GreaterOrEqual should throw if description is null")]
     public void LazyGreaterOrEqualShouldThrowIfDescriptionIsNull(string x)
     {
         var action = () => Pattern.GreaterOrEqual(() => x, (string)null);
         action.Should().Throw<ArgumentNullException>();
     }
 
-    [Property]
+    [Property(DisplayName = "GreaterOrEqual should throw if comparer is null and description is not null")]
     public void GreaterOrEqualShouldThrowIfComparerIsNullAndDescriptionIsNotNull(
         string x,
         NonNull<string> description)
@@ -288,7 +290,7 @@ public class GreaterOrEqualTests
         action.Should().Throw<ArgumentNullException>();
     }
 
-    [Property]
+    [Property(DisplayName = "Lazy GreaterOrEqual should throw if comparer is null and description is not null")]
     public void LazyGreaterOrEqualShouldThrowIfComparerIsNullAndDescriptionIsNotNull(
         string x,
         NonNull<string> description)
@@ -297,35 +299,35 @@ public class GreaterOrEqualTests
         action.Should().Throw<ArgumentNullException>();
     }
 
-    [Property]
+    [Property(DisplayName = "GreaterOrEqual should throw if comparer is not null and description is null")]
     public void GreaterOrEqualShouldThrowIfComparerIsNotNullAndDescriptionIsNull(string x)
     {
         var action = () => Pattern.GreaterOrEqual(x, StringComparer, null);
         action.Should().Throw<ArgumentNullException>();
     }
 
-    [Property]
+    [Property(DisplayName = "Lazy GreaterOrEqual should throw if comparer is not null and description is null")]
     public void LazyGreaterOrEqualShouldThrowIfComparerIsNotNullAndDescriptionIsNull(string x)
     {
         var action = () => Pattern.GreaterOrEqual(() => x, StringComparer, null);
         action.Should().Throw<ArgumentNullException>();
     }
 
-    [Fact]
+    [Fact(DisplayName = "Lazy GreaterOrEqual should throw if value provider is null")]
     public void LazyGreaterOrEqualShouldThrowIfValueProviderIsNull()
     {
         var action = () => Pattern.GreaterOrEqual((Func<int>)null);
         action.Should().Throw<ArgumentNullException>();
     }
 
-    [Fact]
+    [Fact(DisplayName = "Lazy GreaterOrEqual should throw if value provider is null and comparer is not null")]
     public void LazyGreaterOrEqualShouldThrowIfValueProviderIsNullAndComparerIsNotNull()
     {
         var action = () => Pattern.GreaterOrEqual((Func<string>)null, StringComparer);
         action.Should().Throw<ArgumentNullException>();
     }
 
-    [Property]
+    [Property(DisplayName = "Lazy GreaterOrEqual should throw if value provider is null and description is not null")]
     public void LazyGreaterOrEqualShouldThrowIfValueProviderIsNullAndDescriptionIsNotNull(
         NonNull<string> description)
     {
@@ -333,7 +335,8 @@ public class GreaterOrEqualTests
         action.Should().Throw<ArgumentNullException>();
     }
 
-    [Property]
+    [Property(DisplayName = "Lazy GreaterOrEqual should throw if value provider is null " +
+        "and comparer is not null and description is not null")]
     public void LazyGreaterOrEqualShouldThrowIfValueProviderIsNullAndComparerAndDescriptionIsNotNull(
         NonNull<string> description)
     {

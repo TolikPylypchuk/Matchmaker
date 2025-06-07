@@ -2,13 +2,13 @@ namespace Matchmaker;
 
 public class AsyncMatchStatementBuilderTests
 {
-    [Fact]
+    [Fact(DisplayName = "AsyncMatch.CreateStatic should never return null")]
     public void MatchCreateStaticShouldNeverReturnNull() =>
         AsyncMatch.CreateStatic<int>(match => { })
             .Should()
             .NotBeNull();
 
-    [Fact]
+    [Fact(DisplayName = "AsyncMatch.CreateStatic should create expression once")]
     public void MatchCreateStaticShouldCreateStatementOnce()
     {
         int counter = 0;
@@ -21,7 +21,7 @@ public class AsyncMatchStatementBuilderTests
         counter.Should().Be(1);
     }
 
-    [Fact]
+    [Fact(DisplayName = "AsyncMatch.ClearCache should force static match creation")]
     public void MatchClearCacheShouldForceStaticMatchCreation()
     {
         int counter = 0;
@@ -38,21 +38,21 @@ public class AsyncMatchStatementBuilderTests
         counter.Should().Be(2);
     }
 
-    [Fact]
+    [Fact(DisplayName = "AsyncMatch.CreateStatic should throw if build action is null")]
     public void MatchCreateStaticShouldThrowIfBuildActionIsNull()
     {
         var action = () => AsyncMatch.CreateStatic<int>(null);
         action.Should().Throw<ArgumentNullException>();
     }
 
-    [Fact]
+    [Fact(DisplayName = "AsyncMatch.CreateStatic should throw if file path is null")]
     public void MatchCreateStaticShouldThrowIfFilePathIsNull()
     {
         var action = () => AsyncMatch.CreateStatic<int>(match => { }, null);
         action.Should().Throw<ArgumentNullException>();
     }
 
-    [Property]
+    [Property(DisplayName = "Match should match patterns correctly with async pattern and async action")]
     public async Task<Property> MatchShouldMatchPatternsCorrectlyWithAsyncPatternAndAsyncAction(
         Func<string, Task<bool>> predicate,
         string value)
@@ -78,7 +78,7 @@ public class AsyncMatchStatementBuilderTests
         return (matchSuccessful == (await pattern.MatchAsync(value)).IsSuccessful).ToProperty();
     }
 
-    [Property]
+    [Property(DisplayName = "Match should match patterns correctly with async pattern and sync action")]
     public async Task<Property> MatchShouldMatchPatternsCorrectlyWithAsyncPatternAndSyncAction(
         Func<string, Task<bool>> predicate,
         string value)
@@ -96,7 +96,7 @@ public class AsyncMatchStatementBuilderTests
         return (matchSuccessful == (await pattern.MatchAsync(value)).IsSuccessful).ToProperty();
     }
 
-    [Property]
+    [Property(DisplayName = "Match should match patterns correctly with sync pattern and async action")]
     public async Task<Property> MatchShouldMatchPatternsCorrectlyWithSyncPatternAndAsyncAction(
         Func<string, bool> predicate,
         string value)
@@ -122,7 +122,7 @@ public class AsyncMatchStatementBuilderTests
         return (matchSuccessful == pattern.Match(value).IsSuccessful).ToProperty();
     }
 
-    [Property]
+    [Property(DisplayName = "Match should match patterns correctly with sync pattern and sync action")]
     public async Task<Property> MatchShouldMatchPatternsCorrectlyWithSyncPatternAndSyncAction(
         Func<string, bool> predicate,
         string value)
@@ -140,7 +140,7 @@ public class AsyncMatchStatementBuilderTests
         return (matchSuccessful == pattern.Match(value).IsSuccessful).ToProperty();
     }
 
-    [Property]
+    [Property(DisplayName = "Non-strict match should match patterns correctly")]
     public async Task<Property> NonStrictMatchShouldMatchPatternsCorrectly(
         Func<string, Task<bool>> predicate,
         string value)
@@ -158,7 +158,7 @@ public class AsyncMatchStatementBuilderTests
         return (matchSuccessful == (await pattern.MatchAsync(value)).IsSuccessful).ToProperty();
     }
 
-    [Property]
+    [Property(DisplayName = "Match should throw if no match found")]
     public async Task MatchShouldThrowIfNoMatchFound(Func<string, Task<bool>> predicate, string value)
     {
         AsyncMatch.ClearCache<string>();
@@ -178,7 +178,7 @@ public class AsyncMatchStatementBuilderTests
         }
     }
 
-    [Property]
+    [Property(DisplayName = "Non-strict match should return false if no match found")]
     public async Task<Property> NonStrictMatchShouldReturnFalseIfNoMatchFound(
         Func<string, Task<bool>> predicate,
         string value)
@@ -194,7 +194,7 @@ public class AsyncMatchStatementBuilderTests
         return (matched == (await pattern.MatchAsync(value)).IsSuccessful).ToProperty();
     }
 
-    [Property]
+    [Property(DisplayName = "Non-strict match should not throw if no match found")]
     public async Task NonStrictMatchShouldNotThrowIfNoMatchFound(Func<string, Task<bool>> predicate, string value)
     {
         AsyncMatch.ClearCache<string>();
@@ -208,7 +208,7 @@ public class AsyncMatchStatementBuilderTests
         await action.Should().NotThrowAsync<MatchException>();
     }
 
-    [Property]
+    [Property(DisplayName = "Match with fall-through should match patterns correctly")]
     public async Task<Property> MatchWithFallthroughShouldMatchPatternsCorrectly(
         Func<string, Task<bool>> predicate,
         string value)
@@ -230,7 +230,7 @@ public class AsyncMatchStatementBuilderTests
             : (result == 1 && matchCount == 1).ToProperty();
     }
 
-    [Property]
+    [Property(DisplayName = "Match with fall-through should be lazy")]
     public Property MatchWithFallthroughShouldBeLazy(Func<string, Task<bool>> predicate, string value)
     {
         AsyncMatch.ClearCache<string>();
@@ -248,7 +248,7 @@ public class AsyncMatchStatementBuilderTests
         return (count == 0).ToProperty();
     }
 
-    [Property]
+    [Property(DisplayName = "Match with fall-through being false should match patterns correctly")]
     public async Task<Property> MatchWithFallthroughFalseShouldMatchPatternsCorrectly(
         Func<string, Task<bool>> predicate,
         string value)
@@ -268,7 +268,7 @@ public class AsyncMatchStatementBuilderTests
         return (result == 1 && matchCount == 1).ToProperty();
     }
 
-    [Property]
+    [Property(DisplayName = "Match with fall-through being true should match patterns correctly")]
     public async Task<Property> MatchWithFallthroughTrueShouldMatchPatternsCorrectly(
         Func<string, Task<bool>> predicate,
         string value)
@@ -290,7 +290,7 @@ public class AsyncMatchStatementBuilderTests
             : (result == 1 && matchCount == 1).ToProperty();
     }
 
-    [Property]
+    [Property(DisplayName = "Match with fall-through being true should be lazy")]
     public Property MatchWithFallthroughTrueShouldBeLazy(Func<string, Task<bool>> predicate, string value)
     {
         AsyncMatch.ClearCache<string>();
@@ -308,7 +308,7 @@ public class AsyncMatchStatementBuilderTests
         return (count == 0).ToProperty();
     }
 
-    [Property]
+    [Property(DisplayName = "Match with fall-through should return empty enumerable if no match found")]
     public async Task<Property> MatchWithFallthroughShouldReturnEmptyEnumerableIfNoMatchFound(string value)
     {
         AsyncMatch.ClearCache<string>();
@@ -324,7 +324,7 @@ public class AsyncMatchStatementBuilderTests
         return (result == 0).ToProperty();
     }
 
-    [Property]
+    [Property(DisplayName = "ToFunction should match patterns correctly")]
     public async Task<Property> MatchToFunctionShouldMatchPatternsCorrectly(
         Func<string, Task<bool>> predicate,
         string value)
@@ -342,7 +342,7 @@ public class AsyncMatchStatementBuilderTests
         return (matchSuccessful == (await pattern.MatchAsync(value)).IsSuccessful).ToProperty();
     }
 
-    [Property]
+    [Property(DisplayName = "Non-strict ToFunction should match patterns correctly")]
     public async Task<Property> NonStrictMatchToFunctionShouldMatchPatternsCorrectly(
         Func<string, Task<bool>> predicate,
         string value)
@@ -360,7 +360,7 @@ public class AsyncMatchStatementBuilderTests
         return (matchSuccessful == (await pattern.MatchAsync(value)).IsSuccessful).ToProperty();
     }
 
-    [Property]
+    [Property(DisplayName = "Non-strict ToFunction should return nothing if no match found")]
     public async Task MatchToFunctionShouldThrowIfNoMatchFound(Func<string, Task<bool>> predicate, string value)
     {
         AsyncMatch.ClearCache<string>();
@@ -380,7 +380,7 @@ public class AsyncMatchStatementBuilderTests
         }
     }
 
-    [Property]
+    [Property(DisplayName = "ToFunction should return false if no match found")]
     public async Task<Property> NonStrictMatchToFunctionShouldReturnFalseIfNoMatchFound(
         Func<string, Task<bool>> predicate,
         string value)
@@ -396,7 +396,7 @@ public class AsyncMatchStatementBuilderTests
         return (matched == (await pattern.MatchAsync(value)).IsSuccessful).ToProperty();
     }
 
-    [Property]
+    [Property(DisplayName = "Non-strict ToFunction should not throw if no match found")]
     public async Task NonStrictMatchToFunctionShouldNotThrowIfNoMatchFound(
         Func<string, Task<bool>> predicate,
         string value)
@@ -412,7 +412,7 @@ public class AsyncMatchStatementBuilderTests
         await action.Should().NotThrowAsync<MatchException>();
     }
 
-    [Property]
+    [Property(DisplayName = "ToFunction with fall-through should match patterns correctly")]
     public async Task<Property> MatchToFunctionWithFallthroughShouldMatchPatternsCorrectly(
         Func<string, Task<bool>> predicate,
         string value)
@@ -434,7 +434,7 @@ public class AsyncMatchStatementBuilderTests
             : (result == 1 && matchCount == 1).ToProperty();
     }
 
-    [Property]
+    [Property(DisplayName = "ToFunction with fall-through being false should match patterns correctly")]
     public async Task<Property> MatchToFunctionWithFallthroughFalseShouldMatchPatternsCorrectly(
         Func<string, Task<bool>> predicate,
         string value)
@@ -454,7 +454,7 @@ public class AsyncMatchStatementBuilderTests
         return (result == 1 && matchCount == 1).ToProperty();
     }
 
-    [Property]
+    [Property(DisplayName = "ToFunction with fall-through being true should match patterns correctly")]
     public async Task<Property> MatchToFunctionWithFallthroughTrueShouldMatchPatternsCorrectly(
         Func<string, Task<bool>> predicate,
         string value)
@@ -476,7 +476,7 @@ public class AsyncMatchStatementBuilderTests
             : (result == 1 && matchCount == 1).ToProperty();
     }
 
-    [Property]
+    [Property(DisplayName = "ToFunction with fall-through should return empty enumerable if no match found")]
     public async Task<Property> MatchToFunctionWithFallthroughShouldReturnEmptyEnumerableIfNoMatchFound(string value)
     {
         AsyncMatch.ClearCache<string>();
@@ -492,7 +492,7 @@ public class AsyncMatchStatementBuilderTests
         return (result == 0).ToProperty();
     }
 
-    [Fact]
+    [Fact(DisplayName = "Match should throw if async pattern is null")]
     public void MatchShouldThrowIfAsyncPatternIsNull()
     {
         var action = () => AsyncMatch.CreateStatic<string>(match => match
@@ -501,7 +501,7 @@ public class AsyncMatchStatementBuilderTests
         action.Should().Throw<ArgumentNullException>();
     }
 
-    [Fact]
+    [Fact(DisplayName = "Match should throw if sync pattern is null with async action")]
     public void MatchShouldThrowIfSyncPatternIsNullWithAsyncAction()
     {
         var action = () => AsyncMatch.CreateStatic<string>(match => match
@@ -510,7 +510,7 @@ public class AsyncMatchStatementBuilderTests
         action.Should().Throw<ArgumentNullException>();
     }
 
-    [Fact]
+    [Fact(DisplayName = "Match should throw if async pattern is null with async action")]
     public void MatchShouldThrowIfAsyncPatternIsNullWithAsyncAction()
     {
         var action = () => AsyncMatch.CreateStatic<string>(match => match
@@ -519,7 +519,7 @@ public class AsyncMatchStatementBuilderTests
         action.Should().Throw<ArgumentNullException>();
     }
 
-    [Fact]
+    [Fact(DisplayName = "Match should throw if sync pattern is null with sync action")]
     public void MatchShouldThrowIfSyncPatternIsNullWithSyncAction()
     {
         Action action = () => AsyncMatch.CreateStatic<string>(match => match
@@ -528,7 +528,7 @@ public class AsyncMatchStatementBuilderTests
         action.Should().Throw<ArgumentNullException>();
     }
 
-    [Property]
+    [Property(DisplayName = "Match should throw if case function is null with sync action")]
     public void MatchShouldThrowIfCaseFunctionIsNullWithSyncAction(Func<string, Task<bool>> predicate)
     {
         var pattern = AsyncPattern.CreatePattern(predicate);
@@ -539,7 +539,7 @@ public class AsyncMatchStatementBuilderTests
         action.Should().Throw<ArgumentNullException>();
     }
 
-    [Fact]
+    [Fact(DisplayName = "Match Should throw if case type async function is null")]
     public void MatchShouldThrowIfCaseTypeAsyncFunctionIsNull()
     {
         var action = () => AsyncMatch.CreateStatic<string>(match => match
@@ -548,7 +548,7 @@ public class AsyncMatchStatementBuilderTests
         action.Should().Throw<ArgumentNullException>();
     }
 
-    [Fact]
+    [Fact(DisplayName = "Match should throw if case type sync function is null")]
     public void MatchShouldThrowIfCaseTypeSyncFunctionIsNull()
     {
         var action = () => AsyncMatch.CreateStatic<string>(match => match
@@ -557,9 +557,7 @@ public class AsyncMatchStatementBuilderTests
         action.Should().Throw<ArgumentNullException>();
     }
 
-    [Theory]
-    [InlineData(true)]
-    [InlineData(false)]
+    [Property(DisplayName = "Match should throw if async pattern with fall-through is null with async action")]
     public void MatchShouldThrowIfAsyncPatternWithFallthroughIsNullWithAsyncAction(bool fallthrough)
     {
         var action = () => AsyncMatch.CreateStatic<string>(match => match
@@ -568,9 +566,7 @@ public class AsyncMatchStatementBuilderTests
         action.Should().Throw<ArgumentNullException>();
     }
 
-    [Theory]
-    [InlineData(true)]
-    [InlineData(false)]
+    [Property(DisplayName = "Match should throw if async pattern with fall-through is null with sync action")]
     public void MatchShouldThrowIfAsyncPatternWithFallthroughIsNullWithSyncAction(bool fallthrough)
     {
         var action = () => AsyncMatch.CreateStatic<string>(match => match
@@ -579,9 +575,7 @@ public class AsyncMatchStatementBuilderTests
         action.Should().Throw<ArgumentNullException>();
     }
 
-    [Theory]
-    [InlineData(true)]
-    [InlineData(false)]
+    [Property(DisplayName = "Match should throw if sync pattern with fall-through is null with async action")]
     public void MatchShouldThrowIfSyncPatternWithFallthroughIsNullWithAsyncAction(bool fallthrough)
     {
         var action = () => AsyncMatch.CreateStatic<string>(match => match
@@ -590,9 +584,7 @@ public class AsyncMatchStatementBuilderTests
         action.Should().Throw<ArgumentNullException>();
     }
 
-    [Theory]
-    [InlineData(true)]
-    [InlineData(false)]
+    [Property(DisplayName = "Match should throw if sync pattern with fall-through is null with sync action")]
     public void MatchShouldThrowIfSyncPatternWithFallthroughIsNullWithSyncAction(bool fallthrough)
     {
         var action = () => AsyncMatch.CreateStatic<string>(match => match
@@ -601,7 +593,7 @@ public class AsyncMatchStatementBuilderTests
         action.Should().Throw<ArgumentNullException>();
     }
 
-    [Property]
+    [Property(DisplayName = "Match should throw if case async function with fall-through is null with async pattern")]
     public void MatchShouldThrowIfCaseAsyncFunctionWithFallthroughIsNullWithAsyncPattern(
         Func<string, Task<bool>> predicate,
         bool fallthrough)
@@ -614,7 +606,7 @@ public class AsyncMatchStatementBuilderTests
         action.Should().Throw<ArgumentNullException>();
     }
 
-    [Property]
+    [Property(DisplayName = "Match should throw if case sync function with fall-through is null with async pattern")]
     public void MatchShouldThrowIfCaseSyncFunctionWithFallthroughIsNullWithAsyncPattern(
         Func<string, Task<bool>> predicate,
         bool fallthrough)
@@ -627,7 +619,7 @@ public class AsyncMatchStatementBuilderTests
         action.Should().Throw<ArgumentNullException>();
     }
 
-    [Property]
+    [Property(DisplayName = "Match should throw if case async function with fallthrough is null with sync pattern")]
     public void MatchShouldThrowIfCaseAsyncFunctionWithFallthroughIsNullWithSyncPattern(
         Func<string, bool> predicate,
         bool fallthrough)
@@ -640,7 +632,7 @@ public class AsyncMatchStatementBuilderTests
         action.Should().Throw<ArgumentNullException>();
     }
 
-    [Property]
+    [Property(DisplayName = "Match should throw if case sync function with fallthrough is null with sync pattern")]
     public void MatchShouldThrowIfCaseSyncFunctionWithFallthroughIsNullWithSyncPattern(
         Func<string, bool> predicate,
         bool fallthrough)
@@ -653,7 +645,7 @@ public class AsyncMatchStatementBuilderTests
         action.Should().Throw<ArgumentNullException>();
     }
 
-    [Property]
+    [Property(DisplayName = "Match should throw if case type async function with fall-through is null")]
     public void MatchShouldThrowIfCaseTypeAsyncFunctionWithFallthroughIsNull(bool fallthrough)
     {
         var action = () => AsyncMatch.CreateStatic<string>(match => match
@@ -662,7 +654,7 @@ public class AsyncMatchStatementBuilderTests
         action.Should().Throw<ArgumentNullException>();
     }
 
-    [Property]
+    [Property(DisplayName = "Match should throw if case type sync function with fallthrough is null")]
     public void MatchShouldThrowIfCaseTypeSyncFunctionWithFallthroughIsNull(bool fallthrough)
     {
         var action = () => AsyncMatch.CreateStatic<string>(match => match
