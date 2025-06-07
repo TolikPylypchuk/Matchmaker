@@ -53,7 +53,7 @@ public sealed class Match<TInput>
     /// <summary>
     /// Gets the global cache of static match statements.
     /// </summary>
-    internal static Dictionary<string, Match<TInput>> Cache { get; } = new();
+    internal static Dictionary<string, Match<TInput>> Cache { get; } = [];
 
     /// <summary>
     /// Returns a new match statement which includes the specified pattern and action to execute if this
@@ -96,7 +96,7 @@ public sealed class Match<TInput>
                 ? new Match<TInput>(
                     new List<CaseData>(this.cases)
                     {
-                            new CaseData(
+                            new(
                                 pattern.Select(result => (object?)result),
                                 fallthrough,
                                 value => action((TMatchResult)value!))
@@ -250,6 +250,10 @@ public sealed class Match<TInput>
         /// <param name="pattern">The pattern of the case.</param>
         /// <param name="fallthrough">The fallthrough behaviour of the case.</param>
         /// <param name="action">The action of the case.</param>
+        [SuppressMessage(
+            "Style",
+            "IDE0290:Use primary constructor",
+            Justification = "Primary constructors don't support XML comments")]
         public CaseData(IPattern<TInput, object?> pattern, bool fallthrough, Action<object?> action)
         {
             this.Pattern = pattern;

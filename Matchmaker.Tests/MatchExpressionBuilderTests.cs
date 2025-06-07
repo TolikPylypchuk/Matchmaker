@@ -372,7 +372,7 @@ public class MatchExpressionBuilderTests
                 .Case(pattern, _ => true))
             .ExecuteWithFallthrough(value);
 
-        return result.SequenceEqual(Enumerable.Empty<bool>()).ToProperty();
+        return result.SequenceEqual([]).ToProperty();
     }
 
     [Property]
@@ -707,7 +707,7 @@ public class MatchExpressionBuilderTests
                 .Case(pattern, _ => true))
             .ToFunctionWithFallthrough()(value);
 
-        return result.SequenceEqual(Enumerable.Empty<bool>()).ToProperty();
+        return result.SequenceEqual([]).ToProperty();
     }
 
     [Fact]

@@ -353,7 +353,7 @@ public class AsyncMatchExpressionTests
             .ExecuteWithFallthroughAsync(value)
             .ToListAsync();
 
-        return result.SequenceEqual(Enumerable.Empty<bool>()).ToProperty();
+        return result.SequenceEqual([]).ToProperty();
     }
 
     [Property]
@@ -650,7 +650,7 @@ public class AsyncMatchExpressionTests
             .ToFunctionWithFallthrough()(value)
             .ToListAsync();
 
-        return result.SequenceEqual(Enumerable.Empty<bool>()).ToProperty();
+        return result.SequenceEqual([]).ToProperty();
     }
 
     [Fact]

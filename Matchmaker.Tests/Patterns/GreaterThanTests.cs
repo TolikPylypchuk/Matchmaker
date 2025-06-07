@@ -2,7 +2,7 @@ namespace Matchmaker.Patterns;
 
 public class GreaterThanTests
 {
-    private static readonly IComparer<string> StringComparer = Comparer<string>.Default;
+    private static readonly Comparer<string> StringComparer = Comparer<string>.Default;
 
     [Property]
     public Property GreaterThanShouldNeverReturnNull(string x) =>

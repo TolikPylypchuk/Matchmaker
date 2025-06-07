@@ -2,7 +2,7 @@ namespace Matchmaker.Patterns;
 
 public class EqualToTests
 {
-    private static readonly IEqualityComparer<string> StringEqualityComparer = EqualityComparer<string>.Default;
+    private static readonly EqualityComparer<string> StringEqualityComparer = EqualityComparer<string>.Default;
 
     [Property]
     public Property EqualToShouldNeverReturnNull(string x) =>

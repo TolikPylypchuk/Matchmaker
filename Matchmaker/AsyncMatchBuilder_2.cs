@@ -13,7 +13,7 @@ public sealed class AsyncMatchBuilder<TInput, TOutput>
     /// </summary>
     internal AsyncMatchBuilder()
     {
-        this.Cases = new List<AsyncMatch<TInput, TOutput>.CaseData>();
+        this.Cases = [];
         this.FallthroughByDefault = false;
     }
 

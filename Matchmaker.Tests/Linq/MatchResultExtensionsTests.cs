@@ -140,24 +140,24 @@ public class MatchResultExtensionsTests
             .ToProperty();
 
     [Fact]
-    public Property CastShouldSucceedIfResultContainsNull() =>
-        MatchResult.Success<object>(null).Cast<object, string>().IsSuccessful.ToProperty();
+    public void CastShouldSucceedIfResultContainsNull() =>
+        MatchResult.Success<object>(null).Cast<object, string>().IsSuccessful.Should().BeTrue();
 
     [Fact]
-    public Property CastToNullableValueShouldFailIfResultContainsNull() =>
-        MatchResult.Success<object>(null).Cast<object, int?>().IsSuccessful.ToProperty();
+    public void CastToNullableValueShouldFailIfResultContainsNull() =>
+        MatchResult.Success<object>(null).Cast<object, int?>().IsSuccessful.Should().BeTrue();
 
     [Fact]
-    public Property CastToValueShouldFailIfResultContainsNull() =>
-        (!MatchResult.Success<object>(null).Cast<object, int>().IsSuccessful).ToProperty();
+    public void CastToValueShouldFailIfResultContainsNull() =>
+        MatchResult.Success<object>(null).Cast<object, int>().IsSuccessful.Should().BeFalse();
 
     [Property]
     public Property CastShouldFailIfValueHasIncorrectTypeAndResultIsSuccessful(string value) =>
         (!MatchResult.Success<object>(value).Cast<object, int>().IsSuccessful).ToProperty();
 
     [Fact]
-    public Property CastShouldBeUnsuccessfulIfResultIsUnsuccessful() =>
-        (!MatchResult.Failure<object>().Cast<object, string>().IsSuccessful).ToProperty();
+    public void CastShouldBeUnsuccessfulIfResultIsUnsuccessful() =>
+        MatchResult.Failure<object>().Cast<object, string>().IsSuccessful.Should().BeFalse();
 
     [Property]
     public void DoShouldPerformActionIfResultIsSuccessful(string value)

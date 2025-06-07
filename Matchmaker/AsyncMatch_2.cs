@@ -158,7 +158,7 @@ public sealed class AsyncMatch<TInput, TOutput>
                 ? new AsyncMatch<TInput, TOutput>(
                     new List<CaseData>(this.cases)
                     {
-                            new CaseData(
+                            new(
                                 pattern.Select(result => (object?)result),
                                 fallthrough,
                                 value => func((TMatchResult)value!))
@@ -431,6 +431,10 @@ public sealed class AsyncMatch<TInput, TOutput>
         /// <param name="pattern">The pattern of the case.</param>
         /// <param name="fallthrough">The fallthrough behaviour of the case.</param>
         /// <param name="func">The function of the case.</param>
+        [SuppressMessage(
+            "Style",
+            "IDE0290:Use primary constructor",
+            Justification = "Primary constructors don't support XML comments")]
         public CaseData(IAsyncPattern<TInput, object?> pattern, bool fallthrough, Func<object?, Task<TOutput>> func)
         {
             this.Pattern = pattern;

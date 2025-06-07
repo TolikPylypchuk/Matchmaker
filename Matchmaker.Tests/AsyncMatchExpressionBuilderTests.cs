@@ -436,7 +436,7 @@ public class AsyncMatchExpressionBuilderTests
             .ExecuteWithFallthroughAsync(value)
             .ToListAsync();
 
-        return result.SequenceEqual(Enumerable.Empty<bool>()).ToProperty();
+        return result.SequenceEqual([]).ToProperty();
     }
 
     [Property]
@@ -776,7 +776,7 @@ public class AsyncMatchExpressionBuilderTests
             .ToFunctionWithFallthrough()(value)
             .ToListAsync();
 
-        return result.SequenceEqual(Enumerable.Empty<bool>()).ToProperty();
+        return result.SequenceEqual([]).ToProperty();
     }
 
     [Fact]

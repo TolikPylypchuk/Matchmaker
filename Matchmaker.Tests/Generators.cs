@@ -53,36 +53,34 @@ public static class Generators
         new ArbitraryAsyncString();
 
     private static IEnumerable<IPattern<string, string>> Patterns(string input) =>
-        new List<IPattern<string, string>>
-        {
-                Pattern.EqualTo(input),
-                Pattern.EqualTo(() => input),
-                Pattern.LessThan(input),
-                Pattern.LessThan(() => input),
-                Pattern.LessOrEqual(input),
-                Pattern.LessOrEqual(() => input),
-                Pattern.GreaterThan(input),
-                Pattern.GreaterThan(() => input),
-                Pattern.GreaterOrEqual(() => input),
-                Pattern.GreaterOrEqual(() => input),
-                Pattern.Any<string>()
-        };
+        [
+            Pattern.EqualTo(input),
+            Pattern.EqualTo(() => input),
+            Pattern.LessThan(input),
+            Pattern.LessThan(() => input),
+            Pattern.LessOrEqual(input),
+            Pattern.LessOrEqual(() => input),
+            Pattern.GreaterThan(input),
+            Pattern.GreaterThan(() => input),
+            Pattern.GreaterOrEqual(() => input),
+            Pattern.GreaterOrEqual(() => input),
+            Pattern.Any<string>()
+        ];
 
     private static IEnumerable<IAsyncPattern<string, string>> AsyncPatterns(string input) =>
-        new List<IAsyncPattern<string, string>>
-        {
-                AsyncPattern.EqualTo(Task.FromResult(input)),
-                AsyncPattern.EqualTo(() => Task.FromResult(input)),
-                AsyncPattern.LessThan(Task.FromResult(input)),
-                AsyncPattern.LessThan(() => Task.FromResult(input)),
-                AsyncPattern.LessOrEqual(Task.FromResult(input)),
-                AsyncPattern.LessOrEqual(() => Task.FromResult(input)),
-                AsyncPattern.GreaterThan(Task.FromResult(input)),
-                AsyncPattern.GreaterThan(() => Task.FromResult(input)),
-                AsyncPattern.GreaterOrEqual(() => Task.FromResult(input)),
-                AsyncPattern.GreaterOrEqual(() => Task.FromResult(input)),
-                AsyncPattern.Any<string>()
-        };
+        [
+            AsyncPattern.EqualTo(Task.FromResult(input)),
+            AsyncPattern.EqualTo(() => Task.FromResult(input)),
+            AsyncPattern.LessThan(Task.FromResult(input)),
+            AsyncPattern.LessThan(() => Task.FromResult(input)),
+            AsyncPattern.LessOrEqual(Task.FromResult(input)),
+            AsyncPattern.LessOrEqual(() => Task.FromResult(input)),
+            AsyncPattern.GreaterThan(Task.FromResult(input)),
+            AsyncPattern.GreaterThan(() => Task.FromResult(input)),
+            AsyncPattern.GreaterOrEqual(() => Task.FromResult(input)),
+            AsyncPattern.GreaterOrEqual(() => Task.FromResult(input)),
+            AsyncPattern.Any<string>()
+        ];
 
     private class ArbitraryPattern : Arbitrary<IPattern<string, string>>
     {
@@ -105,7 +103,7 @@ public static class Generators
                     str => str == null,
                     String.IsNullOrEmpty,
                     str => str == "abc",
-                    str => str != null && str == str.ToLower());
+                    str => str != null && str.Equals(str, StringComparison.InvariantCultureIgnoreCase));
     }
 
     private class ArbitraryMatcher : Arbitrary<Func<string, MatchResult<string>>>
@@ -172,7 +170,8 @@ public static class Generators
                     str => Task.FromResult(str == null),
                     str => Task.FromResult(String.IsNullOrEmpty(str)),
                     str => Task.FromResult(str == "abc"),
-                    str => Task.FromResult(str != null && str == str.ToLower()));
+                    str => Task.FromResult(
+                        str != null && str.Equals(str, StringComparison.InvariantCultureIgnoreCase)));
     }
 
     private class ArbitraryAsyncMatcher : Arbitrary<Func<string, Task<MatchResult<string>>>>

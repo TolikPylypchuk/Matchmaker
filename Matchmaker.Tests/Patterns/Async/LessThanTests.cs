@@ -2,7 +2,7 @@ namespace Matchmaker.Patterns.Async;
 
 public class LessThanTests
 {
-    private static readonly IComparer<string> StringComparer = Comparer<string>.Default;
+    private static readonly Comparer<string> StringComparer = Comparer<string>.Default;
 
     [Property]
     public Property LessThanShouldNeverReturnNull(Task<string> x) =>

@@ -24,6 +24,8 @@ public abstract class Pattern<TInput, TMatchResult> : IPattern<TInput, TMatchRes
     /// <exception cref="ArgumentNullException">
     /// <paramref name="description" /> is <see langword="null" />.
     /// </exception>
+    [SuppressMessage(
+        "Style", "IDE0290:Use primary constructor", Justification = "Primary constructors don't support XML comments")]
     protected Pattern(string description) =>
         this.Description = description ?? throw new ArgumentNullException(nameof(description));
 

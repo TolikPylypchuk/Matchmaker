@@ -12,7 +12,7 @@ public sealed class MatchBuilder<TInput>
     /// </summary>
     internal MatchBuilder()
     {
-        this.Cases = new List<Match<TInput>.CaseData>();
+        this.Cases = [];
         this.FallthroughByDefault = false;
     }
 
