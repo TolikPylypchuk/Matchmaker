@@ -2,28 +2,28 @@ namespace Matchmaker.Linq;
 
 public class CachedTests
 {
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property CachedPatternShouldNeverReturnNull(IPattern<string, string> pattern) =>
         (pattern.Cached() != null).ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property CachedPatternWithDescriptionShouldNeverReturnNull(
         IPattern<string, string> pattern,
         NonNull<string> description) =>
         (pattern.Cached(description.Get) != null).ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property CachedPatternShouldMatchSameAsPattern(IPattern<string, string> pattern, string x) =>
         (pattern.Cached().Match(x) == pattern.Match(x)).ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property CachedPatternWithDescriptionShouldMatchSameAsPattern(
         IPattern<string, string> pattern,
         string x,
         NonNull<string> description) =>
         (pattern.Cached(description.Get).Match(x) == pattern.Match(x)).ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property CachedPatternShouldBeCached(string x)
     {
         int count = 0;
@@ -40,7 +40,7 @@ public class CachedTests
         return (count == 1).ToProperty();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property CachedPatternWithDescriptionShouldBeCached(string x, NonNull<string> description)
     {
         int count = 0;
@@ -57,11 +57,11 @@ public class CachedTests
         return (count == 1).ToProperty();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property CachedPatternShouldHaveSameDescriptionAsPattern(IPattern<string, string> pattern) =>
         (pattern.Cached().Description == pattern.Description).ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property CachedPatternWithDescriptionShouldHaveSpecifiedDescription(
         IPattern<string, string> pattern,
         NonNull<string> description) =>
@@ -74,14 +74,14 @@ public class CachedTests
         action.Should().Throw<ArgumentNullException>();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public void CachedPatternWithDescriptionShouldThrowIfPatternIsNull(NonNull<string> description)
     {
         var action = () => ((IPattern<string, string>)null).Cached(description.Get);
         action.Should().Throw<ArgumentNullException>();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public void CachedPatternWithDescriptionShouldThrowIfDescriptionIsNull(IPattern<string, string> pattern)
     {
         var action = () => pattern.Cached(null);

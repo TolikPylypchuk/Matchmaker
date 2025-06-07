@@ -2,55 +2,55 @@ namespace Matchmaker.Patterns;
 
 public class PatternTests
 {
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property SimplePatternShouldNeverReturnNull(Func<string, bool> predicate) =>
         (Pattern.CreatePattern(predicate) != null).ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property PatternShouldNeverReturnNull(Func<string, MatchResult<string>> matcher) =>
         (Pattern.CreatePattern(matcher) != null).ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property SimplePatternWithDescriptionShouldNeverReturnNull(
         Func<string, bool> predicate,
         NonNull<string> description) =>
         (Pattern.CreatePattern(predicate, description.Get) != null).ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property PatternWithDescriptionShouldNeverReturnNull(
         Func<string, MatchResult<string>> matcher,
         NonNull<string> description) =>
         (Pattern.CreatePattern(matcher, description.Get) != null).ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property SimplePatternShouldMatchSameAsPredicate(Func<string, bool> predicate, string x) =>
         (Pattern.CreatePattern(predicate).Match(x).IsSuccessful == predicate(x)).ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property PatternShouldMatchSameAsMatcher(Func<string, MatchResult<string>> matcher, string x) =>
         (Pattern.CreatePattern(matcher).Match(x) == matcher(x)).ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property SimplePatternShouldHaveCorrectDescription(
         Func<string, bool> predicate,
         NonNull<string> description) =>
         (Pattern.CreatePattern(predicate, description.Get).Description == description.Get).ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property SimplePatternShouldHaveEmptyDescriptionByDefault(Func<string, bool> predicate) =>
         (Pattern.CreatePattern(predicate).Description.Length == 0).ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property PatternShouldHaveCorrectDescription(
         Func<string, MatchResult<string>> matcher,
         NonNull<string> description) =>
         (Pattern.CreatePattern(matcher, description.Get).Description == description.Get).ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property PatternShouldHaveEmptyDescriptionByDefault(Func<string, MatchResult<string>> matcher) =>
         (Pattern.CreatePattern(matcher).Description.Length == 0).ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property PatternToStringShouldReturnDescription(
         Func<string, MatchResult<string>> matcher,
         NonNull<string> description) =>
@@ -58,26 +58,26 @@ public class PatternTests
             Pattern.CreatePattern(matcher, description.Get).ToString() == description.Get)
             .ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property PatternToStringShouldReturnTypeWhenDescriptionIsEmpty(Func<string, MatchResult<string>> matcher) =>
         (Pattern.CreatePattern(matcher).ToString() == Pattern.CreatePattern(matcher).GetType().ToString())
             .ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property SimplePatternCreateShouldNeverReturnNull(Func<string, bool> predicate) =>
         (Pattern.CreatePattern(predicate) != null).ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property SimplePatternCreateWithDescriptionShouldNeverReturnNull(
         Func<string, bool> predicate,
         NonNull<string> description) =>
         (Pattern.CreatePattern(predicate, description.Get) != null).ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property PatternCreateShouldNeverReturnNull(Func<string, MatchResult<string>> matcher) =>
         (Pattern.CreatePattern(matcher) != null).ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property PatternCreateWithDescriptionShouldNeverReturnNull(
         Func<string, MatchResult<string>> matcher,
         NonNull<string> description) =>
@@ -90,7 +90,7 @@ public class PatternTests
         createWithNull.Should().Throw<ArgumentNullException>();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public void SimplePatternCreateShouldThrowIfDescriptionIsNull(Func<string, bool> predicate)
     {
         var createWithNull = () => Pattern.CreatePattern(predicate, null);
@@ -104,7 +104,7 @@ public class PatternTests
         createWithNull.Should().Throw<ArgumentNullException>();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public void PatternCreateShouldThrowIfDescriptionIsNull(Func<string, MatchResult<string>> matcher)
     {
         var createWithNull = () => Pattern.CreatePattern(matcher, null);
@@ -112,10 +112,10 @@ public class PatternTests
     }
 
     [Fact]
-    public Property AnyShouldNeverReturnNull() =>
-        (Pattern.Any<string>() != null).ToProperty();
+    public void AnyShouldNeverReturnNull() =>
+        Pattern.Any<string>().Should().NotBeNull();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property AnyWithDescriptionShouldNeverReturnNull(NonNull<string> description) =>
         (Pattern.Any<string>(description.Get) != null).ToProperty();
 
@@ -128,8 +128,8 @@ public class PatternTests
         Pattern.Any<string>(description.Get).Match(x).IsSuccessful.ToProperty();
 
     [Fact]
-    public Property AnyShouldHaveCorrectDefaultDescription() =>
-        (Pattern.Any<string>().Description == Pattern.DefaultAnyDescription).ToProperty();
+    public void AnyShouldHaveCorrectDefaultDescription() =>
+        Pattern.Any<string>().Description.Should().Be(Pattern.DefaultAnyDescription);
 
     [Property]
     public Property AnyWithDescriptionShouldHaveSpecifiedDescription(NonNull<string> description) =>
@@ -278,8 +278,8 @@ public class PatternTests
     }
 
     [Fact]
-    public Property NullShouldNeverReturnNull() =>
-        (Pattern.Null<string>() != null).ToProperty();
+    public void NullShouldNeverReturnNull() =>
+        Pattern.Null<string>().Should().NotBeNull();
 
     [Property]
     public Property NullWithDescriptionShouldNeverReturnNull(NonNull<string> description) =>
@@ -294,8 +294,8 @@ public class PatternTests
         (x is null == Pattern.Null<string>(description.Get).Match(x).IsSuccessful).ToProperty();
 
     [Fact]
-    public Property NullShouldHaveCorrectDefaultDescription() =>
-        (Pattern.Null<string>().Description == Pattern.DefaultNullDescription).ToProperty();
+    public void NullShouldHaveCorrectDefaultDescription() =>
+        Pattern.Null<string>().Description.Should().Be(Pattern.DefaultNullDescription);
 
     [Property]
     public Property NullShouldHaveSpecifiedDewcription(NonNull<string> description) =>
@@ -309,8 +309,8 @@ public class PatternTests
     }
 
     [Fact]
-    public Property ValueNullShouldNeverReturnNull() =>
-        (Pattern.ValueNull<int>() != null).ToProperty();
+    public void ValueNullShouldNeverReturnNull() =>
+        Pattern.ValueNull<int>().Should().NotBeNull();
 
     [Property]
     public Property ValueNullWithDescriptionShouldNeverReturnNull(NonNull<string> description) =>
@@ -325,8 +325,8 @@ public class PatternTests
         (x is null == Pattern.ValueNull<int>(description.Get).Match(x).IsSuccessful).ToProperty();
 
     [Fact]
-    public Property ValueNullShouldHaveCorrectDefaultDescription() =>
-        (Pattern.ValueNull<int>().Description == Pattern.DefaultNullDescription).ToProperty();
+    public void ValueNullShouldHaveCorrectDefaultDescription() =>
+        Pattern.ValueNull<int>().Description.Should().Be(Pattern.DefaultNullDescription);
 
     [Property]
     public Property ValueNullShouldHaveSpecifiedDewcription(NonNull<string> description) =>
@@ -340,8 +340,8 @@ public class PatternTests
     }
 
     [Fact]
-    public Property TypeShouldNeverReturnNull() =>
-        (Pattern.Type<object, string>() != null).ToProperty();
+    public void TypeShouldNeverReturnNull() =>
+        Pattern.Type<object, string>().Should().NotBeNull();
 
     [Property]
     public Property TypeWithDescriptionShouldNeverReturnNull(NonNull<string> description) =>
@@ -399,31 +399,31 @@ public class PatternTests
         action.Should().Throw<ArgumentNullException>();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property NotShouldNeverReturnNull(IPattern<string, string> pattern) =>
         (Pattern.Not(pattern) != null).ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property NotWithDescriptionShouldNeverReturnNull(
         IPattern<string, string> pattern,
         NonNull<string> description) =>
         (Pattern.Not(pattern, description.Get) != null).ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property NotShouldBeOppositeToPattern(IPattern<string, string> pattern, string x) =>
         (pattern.Match(x).IsSuccessful == !Pattern.Not(pattern).Match(x).IsSuccessful).ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property NotShouldHaveCorrectDescription(IPattern<string, string> pattern) =>
         (Pattern.Not(pattern).Description ==
             String.Format(Pattern.DefaultNotDescriptionFormat, pattern.Description))
             .ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property NotShouldHaveSpecifiedDescription(IPattern<string, string> pattern, NonNull<string> description) =>
         (Pattern.Not(pattern, description.Get).Description == description.Get).ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property NotShouldHaveEmptyDescriptionIfPatternHasEmptyDescription(Func<string, bool> predicate) =>
         (Pattern.Not(Pattern.CreatePattern(predicate, String.Empty)).Description.Length == 0).ToProperty();
 
@@ -434,7 +434,7 @@ public class PatternTests
         action.Should().Throw<ArgumentNullException>();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public void NotShouldThrowIfDescriptionIsNull(IPattern<string, string> pattern)
     {
         var action = () => Pattern.Not(pattern, null);

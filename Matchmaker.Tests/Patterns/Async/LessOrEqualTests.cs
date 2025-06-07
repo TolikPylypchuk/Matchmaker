@@ -4,138 +4,138 @@ public class LessOrEqualTests
 {
     private static readonly IComparer<string> StringComparer = Comparer<string>.Default;
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property LessOrEqualShouldNeverReturnNull(Task<string> x) =>
         (AsyncPattern.LessOrEqual(x) != null).ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property LazyLessOrEqualShouldNeverReturnNull(Task<string> x) =>
         (AsyncPattern.LessOrEqual(() => x) != null).ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property LessOrEqualWithComparerShouldNeverReturnNull(Task<string> x) =>
         (AsyncPattern.LessOrEqual(x, StringComparer) != null).ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property LazyLessOrEqualWithComparerShouldNeverReturnNull(Task<string> x) =>
         (AsyncPattern.LessOrEqual(() => x, StringComparer) != null).ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property LessOrEqualWithDescriptionShouldNeverReturnNull(Task<string> x, NonNull<string> description) =>
         (AsyncPattern.LessOrEqual(x, description.Get) != null).ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property LazyLessOrEqualWithDescriptionShouldNeverReturnNull(Task<string> x, NonNull<string> description) =>
         (AsyncPattern.LessOrEqual(() => x, description.Get) != null).ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property LessOrEqualWithComparerAndDescriptionShouldNeverReturnNull(
         Task<string> x,
         NonNull<string> description) =>
         (AsyncPattern.LessOrEqual(x, StringComparer, description.Get) != null).ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property LazyLessOrEqualWithComparerAndDescriptionShouldNeverReturnNull(
         Task<string> x,
         NonNull<string> description) =>
         (AsyncPattern.LessOrEqual(() => x, StringComparer, description.Get) != null).ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
-    public Property LessOrEqualShouldSucceedOnlyOnEqualObjects(string x, Task<string> y) =>
-        (Comparer<string>.Default.Compare(x, y.Result) <= 0 ==
-            AsyncPattern.LessOrEqual(y).MatchAsync(x).Result.IsSuccessful)
+    [Property]
+    public async Task<Property> LessOrEqualShouldSucceedOnlyOnEqualObjects(string x, Task<string> y) =>
+        (Comparer<string>.Default.Compare(x, await y) <= 0 ==
+            (await AsyncPattern.LessOrEqual(y).MatchAsync(x)).IsSuccessful)
             .ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
-    public Property LazyLessOrEqualShouldSucceedOnlyOnEqualObjects(string x, Task<string> y) =>
-        (Comparer<string>.Default.Compare(x, y.Result) <= 0 ==
-            AsyncPattern.LessOrEqual(() => y).MatchAsync(x).Result.IsSuccessful)
+    [Property]
+    public async Task<Property> LazyLessOrEqualShouldSucceedOnlyOnEqualObjects(string x, Task<string> y) =>
+        (Comparer<string>.Default.Compare(x, await y) <= 0 ==
+            (await AsyncPattern.LessOrEqual(() => y).MatchAsync(x)).IsSuccessful)
             .ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
-    public Property LessOrEqualWithComparerShouldSucceedOnlyOnEqualObjects(string x, Task<string> y) =>
-        (StringComparer.Compare(x, y.Result) <= 0 ==
-            AsyncPattern.LessOrEqual(y, StringComparer).MatchAsync(x).Result.IsSuccessful)
+    [Property]
+    public async Task<Property> LessOrEqualWithComparerShouldSucceedOnlyOnEqualObjects(string x, Task<string> y) =>
+        (StringComparer.Compare(x, await y) <= 0 ==
+            (await AsyncPattern.LessOrEqual(y, StringComparer).MatchAsync(x)).IsSuccessful)
             .ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
-    public Property LazyLessOrEqualWithComparerShouldSucceedOnlyOnEqualObjects(string x, Task<string> y) =>
-        (StringComparer.Compare(x, y.Result) <= 0 ==
-            AsyncPattern.LessOrEqual(() => y, StringComparer).MatchAsync(x).Result.IsSuccessful)
+    [Property]
+    public async Task<Property> LazyLessOrEqualWithComparerShouldSucceedOnlyOnEqualObjects(string x, Task<string> y) =>
+        (StringComparer.Compare(x, await y) <= 0 ==
+            (await AsyncPattern.LessOrEqual(() => y, StringComparer).MatchAsync(x)).IsSuccessful)
             .ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
-    public Property LessOrEqualWithDescriptionShouldSucceedOnlyOnEqualObjects(
+    [Property]
+    public async Task<Property> LessOrEqualWithDescriptionShouldSucceedOnlyOnEqualObjects(
         string x,
         Task<string> y,
         NonNull<string> description) =>
-        (Comparer<string>.Default.Compare(x, y.Result) <= 0 ==
-            AsyncPattern.LessOrEqual(y, description.Get).MatchAsync(x).Result.IsSuccessful)
+        (Comparer<string>.Default.Compare(x, await y) <= 0 ==
+            (await AsyncPattern.LessOrEqual(y, description.Get).MatchAsync(x)).IsSuccessful)
             .ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
-    public Property LazyLessOrEqualWithDescriptionShouldSucceedOnlyOnEqualObjects(
+    [Property]
+    public async Task<Property> LazyLessOrEqualWithDescriptionShouldSucceedOnlyOnEqualObjects(
         string x,
         Task<string> y,
         NonNull<string> description) =>
-        (Comparer<string>.Default.Compare(x, y.Result) <= 0 ==
-            AsyncPattern.LessOrEqual(() => y, description.Get).MatchAsync(x).Result.IsSuccessful)
+        (Comparer<string>.Default.Compare(x, await y) <= 0 ==
+            (await AsyncPattern.LessOrEqual(() => y, description.Get).MatchAsync(x)).IsSuccessful)
             .ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
-    public Property LessOrEqualWithComparerAndDescriptionShouldSucceedOnlyOnEqualObjects(
+    [Property]
+    public async Task<Property> LessOrEqualWithComparerAndDescriptionShouldSucceedOnlyOnEqualObjects(
         string x,
         Task<string> y,
         NonNull<string> description) =>
-        (StringComparer.Compare(x, y.Result) <= 0 ==
-            AsyncPattern.LessOrEqual(y, StringComparer, description.Get).MatchAsync(x).Result.IsSuccessful)
+        (StringComparer.Compare(x, await y) <= 0 ==
+            (await AsyncPattern.LessOrEqual(y, StringComparer, description.Get).MatchAsync(x)).IsSuccessful)
             .ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
-    public Property LazyLessOrEqualWithComparerAndDescriptionShouldSucceedOnlyOnEqualObjects(
+    [Property]
+    public async Task<Property> LazyLessOrEqualWithComparerAndDescriptionShouldSucceedOnlyOnEqualObjects(
         string x,
         Task<string> y,
         NonNull<string> description) =>
-        (StringComparer.Compare(x, y.Result) <= 0 ==
-            AsyncPattern.LessOrEqual(() => y, StringComparer, description.Get).MatchAsync(x).Result.IsSuccessful)
+        (StringComparer.Compare(x, await y) <= 0 ==
+            (await AsyncPattern.LessOrEqual(() => y, StringComparer, description.Get).MatchAsync(x)).IsSuccessful)
             .ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property LessOrEqualShouldHaveCorrectDefaultDescription(Task<string> x) =>
         (AsyncPattern.LessOrEqual(x).Description == AsyncPattern.DefaultLessOrEqualDescription)
             .ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property LazyLessOrEqualShouldHaveCorrectDefaultDescription(Task<string> x) =>
         (AsyncPattern.LessOrEqual(() => x).Description == AsyncPattern.DefaultLessOrEqualDescription).ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property LessOrEqualWithComparerShouldHaveCorrectDefaultDescription(Task<string> x) =>
         (AsyncPattern.LessOrEqual(x, StringComparer).Description == AsyncPattern.DefaultLessOrEqualDescription)
             .ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property LazyLessOrEqualWithComparerShouldHaveCorrectDefaultDescription(Task<string> x) =>
         (AsyncPattern.LessOrEqual(() => x, StringComparer).Description ==
             AsyncPattern.DefaultLessOrEqualDescription)
             .ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property LessOrEqualShouldHaveSpecifiedDescription(Task<string> x, NonNull<string> description) =>
         (AsyncPattern.LessOrEqual(x, description.Get).Description == description.Get).ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property LazyLessOrEqualShouldHaveSpecifiedDescription(Task<string> x, NonNull<string> description) =>
         (AsyncPattern.LessOrEqual(() => x, description.Get).Description == description.Get).ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property LessOrEqualWithComparerShouldHaveSpecifiedDescription(
         Task<string> x,
         NonNull<string> description) =>
         (AsyncPattern.LessOrEqual(x, StringComparer, description.Get).Description == description.Get)
             .ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property LazyLessOrEqualWithComparerShouldHaveSpecifiedDescription(
         Task<string> x,
         NonNull<string> description) =>
@@ -159,7 +159,7 @@ public class LessOrEqualTests
         action.Should().NotThrow<AssertionFailedException>();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public void LazyLessOrEqualWithDescriptionShouldBeLazy(NonNull<string> description)
     {
         var action = () => AsyncPattern.LessOrEqual<string>(
@@ -168,7 +168,7 @@ public class LessOrEqualTests
         action.Should().NotThrow<AssertionFailedException>();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public void LazyLessOrEqualWithComparerAndDescriptionShouldBeLazy(NonNull<string> description)
     {
         var action = () => AsyncPattern.LessOrEqual(
@@ -178,8 +178,8 @@ public class LessOrEqualTests
         action.Should().NotThrow<AssertionFailedException>();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
-    public Property LazyLessOrEqualShouldBeMemoized(string input)
+    [Property]
+    public async Task<Property> LazyLessOrEqualShouldBeMemoized(string input)
     {
         int counter = 0;
 
@@ -189,14 +189,14 @@ public class LessOrEqualTests
             return Task.FromResult(String.Empty);
         });
 
-        pattern.MatchAsync(input);
-        pattern.MatchAsync(input);
+        await pattern.MatchAsync(input);
+        await pattern.MatchAsync(input);
 
         return (counter == 1).ToProperty();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
-    public Property LazyLessOrEqualWithComparerShouldBeMemoized(string input)
+    [Property]
+    public async Task<Property> LazyLessOrEqualWithComparerShouldBeMemoized(string input)
     {
         int counter = 0;
 
@@ -208,14 +208,16 @@ public class LessOrEqualTests
             },
             StringComparer);
 
-        pattern.MatchAsync(input);
-        pattern.MatchAsync(input);
+        await pattern.MatchAsync(input);
+        await pattern.MatchAsync(input);
 
         return (counter == 1).ToProperty();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
-    public Property LazyLessOrEqualWithDescriptionShouldBeMemoized(string input, NonNull<string> description)
+    [Property]
+    public async Task<Property> LazyLessOrEqualWithDescriptionShouldBeMemoized(
+        string input,
+        NonNull<string> description)
     {
         int counter = 0;
 
@@ -227,14 +229,16 @@ public class LessOrEqualTests
             },
             description.Get);
 
-        pattern.MatchAsync(input);
-        pattern.MatchAsync(input);
+        await pattern.MatchAsync(input);
+        await pattern.MatchAsync(input);
 
         return (counter == 1).ToProperty();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
-    public Property LazyLessOrEqualWithComparerAndDescriptionShouldBeMemoized(string input, NonNull<string> description)
+    [Property]
+    public async Task<Property> LazyLessOrEqualWithComparerAndDescriptionShouldBeMemoized(
+        string input,
+        NonNull<string> description)
     {
         int counter = 0;
 
@@ -247,41 +251,41 @@ public class LessOrEqualTests
             StringComparer,
             description.Get);
 
-        pattern.MatchAsync(input);
-        pattern.MatchAsync(input);
+        await pattern.MatchAsync(input);
+        await pattern.MatchAsync(input);
 
         return (counter == 1).ToProperty();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public void LessOrEqualShouldThrowIfComparerIsNull(Task<string> x)
     {
         var action = () => AsyncPattern.LessOrEqual(x, (IComparer<string>)null);
         action.Should().Throw<ArgumentNullException>();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public void LazyLessOrEqualShouldThrowIfComparerIsNull(Task<string> x)
     {
         var action = () => AsyncPattern.LessOrEqual(() => x, (IComparer<string>)null);
         action.Should().Throw<ArgumentNullException>();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public void LessOrEqualShouldThrowIfDescriptionIsNull(Task<string> x)
     {
         var action = () => AsyncPattern.LessOrEqual(x, (string)null);
         action.Should().Throw<ArgumentNullException>();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public void LazyLessOrEqualShouldThrowIfDescriptionIsNull(Task<string> x)
     {
         var action = () => AsyncPattern.LessOrEqual(() => x, (string)null);
         action.Should().Throw<ArgumentNullException>();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public void LessOrEqualShouldThrowIfComparerIsNullAndDescriptionIsNotNull(
         Task<string> x,
         NonNull<string> description)
@@ -290,7 +294,7 @@ public class LessOrEqualTests
         action.Should().Throw<ArgumentNullException>();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public void LazyLessOrEqualShouldThrowIfComparerIsNullAndDescriptionIsNotNull(
         Task<string> x,
         NonNull<string> description)
@@ -299,14 +303,14 @@ public class LessOrEqualTests
         action.Should().Throw<ArgumentNullException>();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public void LessOrEqualShouldThrowIfComparerIsNotNullAndDescriptionIsNull(Task<string> x)
     {
         var action = () => AsyncPattern.LessOrEqual(x, StringComparer, null);
         action.Should().Throw<ArgumentNullException>();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public void LazyLessOrEqualShouldThrowIfComparerIsNotNullAndDescriptionIsNull(Task<string> x)
     {
         var action = () => AsyncPattern.LessOrEqual(() => x, StringComparer, null);
@@ -327,14 +331,14 @@ public class LessOrEqualTests
         action.Should().Throw<ArgumentNullException>();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public void LazyLessOrEqualShouldThrowIfValueProviderIsNullAndDescriptionIsNotNull(NonNull<string> description)
     {
         var action = () => AsyncPattern.LessOrEqual((Func<Task<string>>)null, description.Get);
         action.Should().Throw<ArgumentNullException>();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public void LazyLessOrEqualShouldThrowIfValueProviderIsNullAndComparerAndDescriptionIsNotNull(
         NonNull<string> description)
     {

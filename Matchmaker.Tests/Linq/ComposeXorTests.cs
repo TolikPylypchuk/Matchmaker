@@ -2,20 +2,20 @@ namespace Matchmaker.Linq;
 
 public class ComposeXorTests
 {
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property ComposeXorPatternShouldNeverReturnNull(
         IPattern<string, string> pattern1,
         IPattern<string, string> pattern2) =>
         (pattern1.Compose(pattern2, PatternComposition.Xor) != null).ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property ComposeXorPatternWithDescriptionShouldNeverReturnNull(
         IPattern<string, string> pattern1,
         IPattern<string, string> pattern2,
         NonNull<string> description) =>
         (pattern1.Compose(pattern2, PatternComposition.Xor, description.Get) != null).ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property ComposeXorPatternShouldBeSameAsExcusiveEitherPattern(
         IPattern<string, string> pattern1,
         IPattern<string, string> pattern2,
@@ -23,7 +23,7 @@ public class ComposeXorTests
         ((pattern1.Match(x).IsSuccessful ^ pattern2.Match(x).IsSuccessful) ==
             pattern1.Compose(pattern2, PatternComposition.Xor).Match(x).IsSuccessful).ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property ComposeXorPatternWithDescriptionShouldBeSameAsExcusiveEitherPattern(
         IPattern<string, string> pattern1,
         IPattern<string, string> pattern2,
@@ -33,7 +33,7 @@ public class ComposeXorTests
             pattern1.Compose(pattern2, PatternComposition.Xor, description.Get).Match(x).IsSuccessful)
             .ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property ComposeXorPatternShouldHaveCorrectDescription(
         IPattern<string, string> pattern1,
         IPattern<string, string> pattern2) =>
@@ -42,7 +42,7 @@ public class ComposeXorTests
                 String.Format(Pattern.DefaultXorDescriptionFormat, pattern1.Description, pattern2.Description))
             .ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property ComposeXorPatternShouldHaveEmptyDescriptionIfFirstPatternHasEmptyDescription(
         IPattern<string, string> pattern,
         Func<string, bool> predicate) =>
@@ -50,7 +50,7 @@ public class ComposeXorTests
             .Description.Length == 0)
             .ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property ComposeXorPatternShouldHaveEmptyDescriptionIfSecondPatternHasEmptyDescription(
         IPattern<string, string> pattern,
         Func<string, bool> predicate) =>
@@ -58,7 +58,7 @@ public class ComposeXorTests
             .Description.Length == 0)
             .ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property ComposeXorPatternShouldHaveEmptyDescriptionIfBothPatternsHaveEmptyDescription(
         Func<string, bool> predicate1,
         Func<string, bool> predicate2) =>
@@ -66,7 +66,7 @@ public class ComposeXorTests
             .Compose(Pattern.CreatePattern(predicate2, String.Empty), PatternComposition.Xor)
             .Description.Length == 0).ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property ComposeXorPatternShouldHaveSpecifiedDescription(
         IPattern<string, string> pattern1,
         IPattern<string, string> pattern2,
@@ -74,14 +74,14 @@ public class ComposeXorTests
         (pattern1.Compose(pattern2, PatternComposition.Xor, description.Get).Description == description.Get)
             .ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public void ComposeOrPatternShouldThrowIfLeftPatternIsNull(IPattern<string, string> pattern)
     {
         var action = () => ((IPattern<string, string>)null).Compose(pattern, PatternComposition.Or);
         action.Should().Throw<ArgumentNullException>();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public void ComposeXorPatternWithDescriptionShouldThrowIfLeftPatternIsNull(
         IPattern<string, string> pattern,
         NonNull<string> description)
@@ -91,14 +91,14 @@ public class ComposeXorTests
         action.Should().Throw<ArgumentNullException>();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public void ComposeXorPatternShouldThrowIfRightPatternIsNull(IPattern<string, string> pattern)
     {
         var action = () => pattern.Compose(null, PatternComposition.Xor);
         action.Should().Throw<ArgumentNullException>();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public void ComposeXorPatternWithDescriptionShouldThrowIfRightPatternIsNull(
         IPattern<string, string> pattern,
         NonNull<string> description)
@@ -107,7 +107,7 @@ public class ComposeXorTests
         action.Should().Throw<ArgumentNullException>();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public void ComposeXorPatternShouldThrowIfDescriptionIsNull(
         IPattern<string, string> pattern1,
         IPattern<string, string> pattern2)
@@ -116,20 +116,20 @@ public class ComposeXorTests
         action.Should().Throw<ArgumentNullException>();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property XorPatternShouldNeverReturnNull(
         IPattern<string, string> pattern1,
         IPattern<string, string> pattern2) =>
         (pattern1.Xor(pattern2) != null).ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property XorPatternWithDescriptionShouldNeverReturnNull(
         IPattern<string, string> pattern1,
         IPattern<string, string> pattern2,
         NonNull<string> description) =>
         (pattern1.Xor(pattern2, description.Get) != null).ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property XorPatternShouldBeSameAsExcusiveEitherPattern(
         IPattern<string, string> pattern1,
         IPattern<string, string> pattern2,
@@ -137,7 +137,7 @@ public class ComposeXorTests
         ((pattern1.Match(x).IsSuccessful ^ pattern2.Match(x).IsSuccessful) ==
             pattern1.Xor(pattern2).Match(x).IsSuccessful).ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property XorPatternWithDescriptionShouldBeSameAsExcusiveEitherPattern(
         IPattern<string, string> pattern1,
         IPattern<string, string> pattern2,
@@ -147,7 +147,7 @@ public class ComposeXorTests
             pattern1.Xor(pattern2, description.Get).Match(x).IsSuccessful)
             .ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property XorPatternShouldHaveCorrectDescription(
         IPattern<string, string> pattern1,
         IPattern<string, string> pattern2) =>
@@ -156,40 +156,40 @@ public class ComposeXorTests
                 String.Format(Pattern.DefaultXorDescriptionFormat, pattern1.Description, pattern2.Description))
             .ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property XorPatternShouldHaveEmptyDescriptionIfFirstPatternHasEmptyDescription(
         IPattern<string, string> pattern,
         Func<string, bool> predicate) =>
         (Pattern.CreatePattern(predicate, String.Empty).Xor(pattern).Description.Length == 0).ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property XorPatternShouldHaveEmptyDescriptionIfSecondPatternHasEmptyDescription(
         IPattern<string, string> pattern,
         Func<string, bool> predicate) =>
         (pattern.Xor(Pattern.CreatePattern(predicate, String.Empty)).Description.Length == 0).ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property XorPatternShouldHaveEmptyDescriptionIfBothPatternsHaveEmptyDescription(
         Func<string, bool> predicate1,
         Func<string, bool> predicate2) =>
         (Pattern.CreatePattern(predicate1, String.Empty).Xor(Pattern.CreatePattern(predicate2, String.Empty))
             .Description.Length == 0).ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property XorPatternShouldHaveSpecifiedDescription(
         IPattern<string, string> pattern1,
         IPattern<string, string> pattern2,
         NonNull<string> description) =>
         (pattern1.Xor(pattern2, description.Get).Description == description.Get).ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public void XorPatternShouldThrowIfLeftPatternIsNull(IPattern<string, string> pattern)
     {
         var action = () => ((IPattern<string, string>)null).Xor(pattern);
         action.Should().Throw<ArgumentNullException>();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public void XorPatternWithDescriptionShouldThrowIfLeftPatternIsNull(
         IPattern<string, string> pattern,
         NonNull<string> description)
@@ -198,14 +198,14 @@ public class ComposeXorTests
         action.Should().Throw<ArgumentNullException>();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public void XorPatternShouldThrowIfRightPatternIsNull(IPattern<string, string> pattern)
     {
         var action = () => pattern.Xor(null);
         action.Should().Throw<ArgumentNullException>();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public void XorPatternWithDescriptionShouldThrowIfRightPatternIsNull(
         IPattern<string, string> pattern,
         NonNull<string> description)
@@ -214,7 +214,7 @@ public class ComposeXorTests
         action.Should().Throw<ArgumentNullException>();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public void XorPatternShouldThrowIfDescriptionIsNull(
         IPattern<string, string> pattern1,
         IPattern<string, string> pattern2)

@@ -2,552 +2,429 @@ namespace Matchmaker.Linq;
 
 public class AsyncMatchResultExtensionsTests
 {
-    [Property(Arbitrary = new[] { typeof(Generators) })]
-    public Property GetValueOrDefaultShouldReturnValueIfResultIsSuccessful(string value) =>
-        (Task.FromResult(MatchResult.Success(value)).GetValueOrDefault().Result == value).ToProperty();
+    [Property]
+    public async Task<Property> GetValueOrDefaultShouldReturnValueIfResultIsSuccessful(string value) =>
+        (await Task.FromResult(MatchResult.Success(value)).GetValueOrDefault() == value).ToProperty();
 
     [Fact]
-    public void GetValueOrDefaultShouldReturnDefaultIfResultIsUnsuccessful() =>
-        Task.FromResult(MatchResult.Failure<string>()).Result.GetValueOrDefault().Should().BeNull();
+    public async Task GetValueOrDefaultShouldReturnDefaultIfResultIsUnsuccessful() =>
+        (await Task.FromResult(MatchResult.Failure<string>())).GetValueOrDefault().Should().BeNull();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
-    public Property GetValueOrDefaultValueShouldReturnValueIfResultIsSuccessful(string value, string defaultValue) =>
-        (Task.FromResult(MatchResult.Success(value)).GetValueOrDefault(defaultValue).Result == value)
-            .ToProperty();
-
-    [Property(Arbitrary = new[] { typeof(Generators) })]
-    public Property GetValueOrDefaultValueShouldReturnSpecifiedValueIfResultIsUnsuccessful(string defaultValue) =>
-        (Task.FromResult(MatchResult.Failure<string>()).GetValueOrDefault(defaultValue).Result == defaultValue)
-            .ToProperty();
-
-    [Property(Arbitrary = new[] { typeof(Generators) })]
-    public Property GetValueOrDefaultLazyValueShouldReturnValueIfResultIsSuccessful(
+    [Property]
+    public async Task<Property> GetValueOrDefaultValueShouldReturnValueIfResultIsSuccessful(
         string value,
         string defaultValue) =>
-        (Task.FromResult(MatchResult.Success(value)).GetValueOrDefault(() => defaultValue).Result == value)
+        (await Task.FromResult(MatchResult.Success(value)).GetValueOrDefault(defaultValue) == value)
             .ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
-    public Property AsyncGetValueOrDefaultLazyValueShouldReturnValueIfResultIsSuccessful(
+    [Property]
+    public async Task<Property> GetValueOrDefaultValueShouldReturnSpecifiedValueIfResultIsUnsuccessful(
+        string defaultValue) =>
+        (await Task.FromResult(MatchResult.Failure<string>()).GetValueOrDefault(defaultValue) == defaultValue)
+            .ToProperty();
+
+    [Property]
+    public async Task<Property> GetValueOrDefaultLazyValueShouldReturnValueIfResultIsSuccessful(
         string value,
         string defaultValue) =>
-        (Task.FromResult(MatchResult.Success(value)).GetValueOrDefault(() => Task.FromResult(defaultValue))
-                .Result == value)
+        (await Task.FromResult(MatchResult.Success(value)).GetValueOrDefault(() => defaultValue) == value)
             .ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
-    public Property GetValueOrDefaultLazyValueShouldReturnSpecifiedValueIfResultIsUnsuccessful(string defaultValue) =>
-        (Task.FromResult(MatchResult.Failure<string>()).GetValueOrDefault(() => defaultValue).Result ==
-            defaultValue)
-            .ToProperty();
-
-    [Property(Arbitrary = new[] { typeof(Generators) })]
-    public Property AsyncGetValueOrDefaultLazyValueShouldReturnSpecifiedValueIfResultIsUnsuccessful(
+    [Property]
+    public async Task<Property> AsyncGetValueOrDefaultLazyValueShouldReturnValueIfResultIsSuccessful(
+        string value,
         string defaultValue) =>
-        (Task.FromResult(MatchResult.Failure<string>()).GetValueOrDefault(() => Task.FromResult(defaultValue))
-                .Result == defaultValue)
+        (await Task.FromResult(MatchResult.Success(value))
+            .GetValueOrDefault(() => Task.FromResult(defaultValue)) == value)
             .ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
-    public void GetValueOrDefaultLazyValueShouldBeLazy(string value)
+    [Property]
+    public async Task<Property> GetValueOrDefaultLazyValueShouldReturnSpecifiedValueIfResultIsUnsuccessful(
+        string defaultValue) =>
+        (await Task.FromResult(MatchResult.Failure<string>()).GetValueOrDefault(() => defaultValue) == defaultValue)
+            .ToProperty();
+
+    [Property]
+    public async Task<Property> AsyncGetValueOrDefaultLazyValueShouldReturnSpecifiedValueIfResultIsUnsuccessful(
+        string defaultValue) =>
+        (await Task.FromResult(MatchResult.Failure<string>())
+            .GetValueOrDefault(() => Task.FromResult(defaultValue)) == defaultValue)
+            .ToProperty();
+
+    [Property]
+    public async Task GetValueOrDefaultLazyValueShouldBeLazy(string value)
     {
-        var action = () =>
-        {
-            _ = Task.FromResult(MatchResult.Success(value))
-                .GetValueOrDefault((Func<string>)(() => throw new AssertionFailedException("not lazy")))
-                .Result;
-        };
+        var action = () => Task.FromResult(MatchResult.Success(value))
+            .GetValueOrDefault((Func<string>)(() => throw new AssertionFailedException("not lazy")));
 
-        action.Should().NotThrow<AssertionFailedException>();
-    }
-
-    [Property(Arbitrary = new[] { typeof(Generators) })]
-    public void AsyncGetValueOrDefaultLazyValueShouldBeLazy(string value)
-    {
-        var action = () =>
-        {
-            _ = Task.FromResult(MatchResult.Success(value))
-                .GetValueOrDefault((Func<Task<string>>)(() => throw new AssertionFailedException("not lazy")))
-                .Result;
-        };
-
-        action.Should().NotThrow<AssertionFailedException>();
-    }
-    [Fact]
-    public void GetValueOrDefaultShouldThrowIfResultTaskIsNull()
-    {
-        var action = () =>
-        {
-            _ = ((Task<MatchResult<string>>)null).GetValueOrDefault().Result;
-        };
-
-        action.Should().Throw<ArgumentNullException>();
+        await action.Should().NotThrowAsync<AssertionFailedException>();
     }
 
     [Property]
-    public void GetValueOrDefaultValueShouldThrowIfResultTaskIsNull(string value)
+    public async Task AsyncGetValueOrDefaultLazyValueShouldBeLazy(string value)
     {
-        var action = () =>
-        {
-            _ = ((Task<MatchResult<string>>)null).GetValueOrDefault(value).Result;
-        };
+        var action = () => Task.FromResult(MatchResult.Success(value))
+            .GetValueOrDefault((Func<Task<string>>)(() => throw new AssertionFailedException("not lazy")));
 
-        action.Should().Throw<ArgumentNullException>();
+        await action.Should().NotThrowAsync<AssertionFailedException>();
+    }
+
+    [Fact]
+    public async Task GetValueOrDefaultShouldThrowIfResultTaskIsNull()
+    {
+        var action = () => ((Task<MatchResult<string>>)null).GetValueOrDefault();
+        await action.Should().ThrowAsync<ArgumentNullException>();
     }
 
     [Property]
-    public void GetValueOrDefaultLazyValueShouldThrowIfResultTaskIsNull(string value)
+    public async Task GetValueOrDefaultValueShouldThrowIfResultTaskIsNull(string value)
     {
-        var action = () =>
-        {
-            _ = ((Task<MatchResult<string>>)null).GetValueOrDefault(() => value).Result;
-        };
-
-        action.Should().Throw<ArgumentNullException>();
+        var action = () => ((Task<MatchResult<string>>)null).GetValueOrDefault(value);
+        await action.Should().ThrowAsync<ArgumentNullException>();
     }
 
     [Property]
-    public void AsyncGetValueOrDefaultLazyValueShouldThrowIfResultTaskIsNull(string value)
+    public async Task GetValueOrDefaultLazyValueShouldThrowIfResultTaskIsNull(string value)
     {
-        var action = () =>
-        {
-            _ = ((Task<MatchResult<string>>)null).GetValueOrDefault(() => Task.FromResult(value)).Result;
-        };
-
-        action.Should().Throw<ArgumentNullException>();
+        var action = () => ((Task<MatchResult<string>>)null).GetValueOrDefault(() => value);
+        await action.Should().ThrowAsync<ArgumentNullException>();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
-    public void GetValueOrDefaultLazyValueShouldThrowIfValueProviderIsNull(Task<MatchResult<string>> result)
+    [Property]
+    public async Task AsyncGetValueOrDefaultLazyValueShouldThrowIfResultTaskIsNull(string value)
     {
-        var action = () =>
-        {
-            _ = result.GetValueOrDefault((Func<string>)null).Result;
-        };
-
-        action.Should().Throw<ArgumentNullException>();
+        var action = () => ((Task<MatchResult<string>>)null).GetValueOrDefault(() => Task.FromResult(value));
+        await action.Should().ThrowAsync<ArgumentNullException>();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
-    public void AsyncGetValueOrDefaultLazyValueShouldThrowIfValueProviderIsNull(Task<MatchResult<string>> result)
+    [Property]
+    public async Task GetValueOrDefaultLazyValueShouldThrowIfValueProviderIsNull(Task<MatchResult<string>> result)
     {
-        var action = () =>
-        {
-            _ = result.GetValueOrDefault((Func<Task<string>>)null).Result;
-        };
+        var action = () => result.GetValueOrDefault((Func<string>)null);
+        await action.Should().ThrowAsync<ArgumentNullException>();
+    }
 
-        action.Should().Throw<ArgumentNullException>();
+    [Property]
+    public async Task AsyncGetValueOrDefaultLazyValueShouldThrowIfValueProviderIsNull(Task<MatchResult<string>> result)
+    {
+        var action = () => result.GetValueOrDefault((Func<Task<string>>)null);
+        await action.Should().ThrowAsync<ArgumentNullException>();
     }
 
     [Fact]
-    public void AsyncGetValueOrDefaultLazyValueShouldThrowIfValueProviderReturnsNull()
+    public async Task AsyncGetValueOrDefaultLazyValueShouldThrowIfValueProviderReturnsNull()
     {
-        var action = () =>
-        {
-            _ = Task.FromResult(MatchResult.Failure<string>()).GetValueOrDefault(() => (Task<string>)null).Result;
-        };
-
-        action.Should().Throw<InvalidOperationException>();
+        var action = () => Task.FromResult(MatchResult.Failure<string>()).GetValueOrDefault(() => (Task<string>)null);
+        await action.Should().ThrowAsync<InvalidOperationException>();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
-    public Property GetValueOrThrowShouldReturnValueIfResultIsSuccessful(string value)
-        => (Task.FromResult(MatchResult.Success(value)).GetValueOrThrow(() => new MatchException()).Result == value)
+    [Property]
+    public async Task<Property> GetValueOrThrowShouldReturnValueIfResultIsSuccessful(string value) =>
+        (await Task.FromResult(MatchResult.Success(value)).GetValueOrThrow(() => new MatchException()) == value)
             .ToProperty();
 
     [Fact]
-    public void GetValueOrThrowShouldThrowIfResultIsUnsuccessful()
+    public async Task GetValueOrThrowShouldThrowIfResultIsUnsuccessful()
     {
-        var action = () =>
-        {
-            _ = Task.FromResult(MatchResult.Failure<string>()).GetValueOrThrow(() => new MatchException()).Result;
-        };
-
-        action.Should().Throw<MatchException>();
+        var action = () => Task.FromResult(MatchResult.Failure<string>()).GetValueOrThrow(() => new MatchException());
+        await action.Should().ThrowAsync<MatchException>();
     }
 
     [Fact]
-    public void GetValueOrThrowShouldThrowIfResultTaskIsNull()
+    public async Task GetValueOrThrowShouldThrowIfResultTaskIsNull()
     {
-        var action = () =>
-        {
-            _ = ((Task<MatchResult<string>>)null).GetValueOrThrow(() => new MatchException()).Result;
-        };
-
-        action.Should().Throw<ArgumentNullException>();
+        var action = () => ((Task<MatchResult<string>>)null).GetValueOrThrow(() => new MatchException());
+        await action.Should().ThrowAsync<ArgumentNullException>();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
-    public void GetValueOrThrowShouldThrowIfExceptionProviderIsNull(Task<MatchResult<string>> result)
+    [Property]
+    public async Task GetValueOrThrowShouldThrowIfExceptionProviderIsNull(Task<MatchResult<string>> result)
     {
-        var action = () =>
-        {
-            _ = result.GetValueOrThrow(null).Result;
-        };
-
-        action.Should().Throw<ArgumentNullException>();
+        var action = () => result.GetValueOrThrow(null);
+        await action.Should().ThrowAsync<ArgumentNullException>();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
-    public Property SelectShouldMapValueIfResultIsSuccessful(string value, Func<string, int> mapper) =>
-        (Task.FromResult(MatchResult.Success(value)).Select(mapper).Result == MatchResult.Success(mapper(value)))
+    [Property]
+    public async Task<Property> SelectShouldMapValueIfResultIsSuccessful(string value, Func<string, int> mapper) =>
+        (await Task.FromResult(MatchResult.Success(value)).Select(mapper) == MatchResult.Success(mapper(value)))
             .ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
-    public Property SelectShouldBeUnsuccessfulIfResultIsUnsuccessful(Func<string, int> mapper) =>
-        (!Task.FromResult(MatchResult.Failure<string>()).Select(mapper).Result.IsSuccessful).ToProperty();
+    [Property]
+    public async Task<Property> SelectShouldBeUnsuccessfulIfResultIsUnsuccessful(Func<string, int> mapper) =>
+        (!(await Task.FromResult(MatchResult.Failure<string>()).Select(mapper)).IsSuccessful).ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
-    public void SelectShouldDoNothingIfResultIsUnsuccessful()
+    [Property]
+    public async Task SelectShouldDoNothingIfResultIsUnsuccessful()
     {
-        var action = () =>
-        {
-            _ = Task.FromResult(MatchResult.Failure<string>())
-                .Select<string, int>(_ => throw new AssertionFailedException("select doesn't work"))
-                .Result;
-        };
+        var action = () => Task.FromResult(MatchResult.Failure<string>())
+            .Select<string, int>(_ => throw new AssertionFailedException("select doesn't work"));
 
-        action.Should().NotThrow<AssertionFailedException>();
+        await action.Should().NotThrowAsync<AssertionFailedException>();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
-    public void SelectShouldThrowIfTaskResultIsNull(Func<string, int> mapper)
+    [Property]
+    public async Task SelectShouldThrowIfTaskResultIsNull(Func<string, int> mapper)
     {
-        var action = () =>
-        {
-            _ = ((Task<MatchResult<string>>)null).Select(mapper).Result;
-        };
-
-        action.Should().Throw<ArgumentNullException>();
+        var action = () => ((Task<MatchResult<string>>)null).Select(mapper);
+        await action.Should().ThrowAsync<ArgumentNullException>();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
-    public void SelectShouldThrowIfMapperIsNull(Task<MatchResult<string>> result)
+    [Property]
+    public async Task SelectShouldThrowIfMapperIsNull(Task<MatchResult<string>> result)
     {
-        var action = () =>
-        {
-            _ = result.Select<string, int>(null).Result;
-        };
-
-        action.Should().Throw<ArgumentNullException>();
+        var action = () => result.Select<string, int>(null);
+        await action.Should().ThrowAsync<ArgumentNullException>();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
-    public Property BindShouldFlatMapValueIfResultIsSuccessful(
+    [Property]
+    public async Task<Property> BindShouldFlatMapValueIfResultIsSuccessful(
         string value,
         Func<string, Task<MatchResult<int>>> binder) =>
-        (Task.FromResult(MatchResult.Success(value)).Bind(binder).Result == binder(value).Result).ToProperty();
+        (await Task.FromResult(MatchResult.Success(value)).Bind(binder) == await binder(value)).ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
-    public Property BindShouldBeUnsuccessfulIfResultIsUnsuccessful(Func<string, Task<MatchResult<int>>> binder) =>
-        (!Task.FromResult(MatchResult.Failure<string>()).Bind(binder).Result.IsSuccessful).ToProperty();
+    [Property]
+    public async Task<Property> BindShouldBeUnsuccessfulIfResultIsUnsuccessful(
+        Func<string, Task<MatchResult<int>>> binder) =>
+        (!(await Task.FromResult(MatchResult.Failure<string>()).Bind(binder)).IsSuccessful).ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
-    public void BindShouldDoNothingIfResultIsUnsuccessful()
+    [Property]
+    public async Task BindShouldDoNothingIfResultIsUnsuccessful()
     {
-        var action = () =>
-        {
-            _ = Task.FromResult(MatchResult.Failure<string>())
-                .Bind<string, int>(_ => throw new AssertionFailedException("bind doesn't work"))
-                .Result;
-        };
+        var action = () => Task.FromResult(MatchResult.Failure<string>())
+            .Bind<string, int>(_ => throw new AssertionFailedException("bind doesn't work"));
 
-        action.Should().NotThrow<AssertionFailedException>();
-    }
-
-    [Property(Arbitrary = new[] { typeof(Generators) })]
-    public void BindShouldThrowIfTaskResultIsNull(Func<string, Task<MatchResult<int>>> binder)
-    {
-        var action = () =>
-        {
-            _ = ((Task<MatchResult<string>>)null).Bind(binder).Result;
-        };
-
-        action.Should().Throw<ArgumentNullException>();
-    }
-
-    [Property(Arbitrary = new[] { typeof(Generators) })]
-    public void BindShouldThrowIfBinderIsNull(MatchResult<string> result)
-    {
-        var action = () =>
-        {
-            _ = Task.FromResult(result).Bind<string, int>(null).Result;
-        };
-
-        action.Should().Throw<ArgumentNullException>();
-    }
-
-    [Property(Arbitrary = new[] { typeof(Generators) })]
-    public void BindShouldThrowIfBinderReturnsNull(string value)
-    {
-        var action = () =>
-        {
-            _ = Task.FromResult(MatchResult.Success(value)).Bind<string, int>(_ => null).Result;
-        };
-
-        action.Should().Throw<InvalidOperationException>();
-    }
-
-    [Property(Arbitrary = new[] { typeof(Generators) })]
-    public Property WhereShouldFilterValueIfResultIsSuccessful(string value, Func<string, bool> predicate) =>
-        (Task.FromResult(MatchResult.Success(value)).Where(predicate).Result.IsSuccessful == predicate(value))
-            .ToProperty();
-
-    [Property(Arbitrary = new[] { typeof(Generators) })]
-    public Property AsyncWhereShouldFilterValueIfResultIsSuccessful(
-        string value,
-        Func<string, Task<bool>> predicate) =>
-        (Task.FromResult(MatchResult.Success(value)).Where(predicate).Result.IsSuccessful ==
-            predicate(value).Result)
-            .ToProperty();
-
-    [Property(Arbitrary = new[] { typeof(Generators) })]
-    public Property WhereShouldHaveSameValueIfResultIsSuccessful(string value) =>
-        (MatchResult.Success(value).Where(_ => true).Value == value).ToProperty();
-
-    [Property(Arbitrary = new[] { typeof(Generators) })]
-    public Property AsyncWhereShouldHaveSameValueIfResultIsSuccessful(string value) =>
-        (Task.FromResult(MatchResult.Success(value)).Where(_ => Task.FromResult(true)).Result.Value == value)
-            .ToProperty();
-
-    [Property(Arbitrary = new[] { typeof(Generators) })]
-    public Property WhereShouldBeUnsuccessfulIfResultIsUnsuccessful(Func<string, bool> predicate) =>
-        (!MatchResult.Failure<string>().Where(predicate).IsSuccessful).ToProperty();
-
-    [Property(Arbitrary = new[] { typeof(Generators) })]
-    public Property AsyncWhereShouldBeUnsuccessfulIfResultIsUnsuccessful(Func<string, Task<bool>> predicate) =>
-        (!Task.FromResult(MatchResult.Failure<string>()).Where(predicate).Result.IsSuccessful).ToProperty();
-
-    [Property(Arbitrary = new[] { typeof(Generators) })]
-    public void WhereShouldDoNothingIfResultIsUnsuccessful()
-    {
-        var action = () =>
-        {
-            _ = Task.FromResult(MatchResult.Failure<string>())
-                .Where((Func<string, bool>)(_ => throw new AssertionFailedException("where doesn't work")))
-                .Result;
-        };
-
-        action.Should().NotThrow<AssertionFailedException>();
-    }
-
-    [Property(Arbitrary = new[] { typeof(Generators) })]
-    public void AsyncWhereShouldDoNothingIfResultIsUnsuccessful()
-    {
-        var action = () =>
-        {
-            _ = Task.FromResult(MatchResult.Failure<string>())
-                .Where((Func<string, Task<bool>>)(_ => throw new AssertionFailedException("where doesn't work")))
-                .Result;
-        };
-
-        action.Should().NotThrow<AssertionFailedException>();
-    }
-
-    [Property(Arbitrary = new[] { typeof(Generators) })]
-    public void WhereShouldThrowIfTaskResultIsNull(Func<string, bool> predicate)
-    {
-        var action = () =>
-        {
-            _ = ((Task<MatchResult<string>>)null).Where(predicate).Result;
-        };
-
-        action.Should().Throw<ArgumentNullException>();
-    }
-
-    [Property(Arbitrary = new[] { typeof(Generators) })]
-    public void AsyncWhereShouldThrowIfTaskResultIsNull(Func<string, Task<bool>> predicate)
-    {
-        var action = () =>
-        {
-            _ = ((Task<MatchResult<string>>)null).Where(predicate).Result;
-        };
-
-        action.Should().Throw<ArgumentNullException>();
-    }
-
-    [Property(Arbitrary = new[] { typeof(Generators) })]
-    public void WhereShouldThrowIfPredicateIsNull(Task<MatchResult<string>> result)
-    {
-        var action = () =>
-        {
-            _ = result.Where((Func<string, bool>)null).Result;
-        };
-
-        action.Should().Throw<ArgumentNullException>();
-    }
-
-    [Property(Arbitrary = new[] { typeof(Generators) })]
-    public void AsyncWhereShouldThrowIfPredicateIsNull(Task<MatchResult<string>> result)
-    {
-        var action = () =>
-        {
-            _ = result.Where((Func<string, Task<bool>>)null).Result;
-        };
-
-        action.Should().Throw<ArgumentNullException>();
+        await action.Should().NotThrowAsync<AssertionFailedException>();
     }
 
     [Property]
-    public void AsyncWhereShouldThrowIfPredicateReturnsNull(string value)
+    public async Task BindShouldThrowIfTaskResultIsNull(Func<string, Task<MatchResult<int>>> binder)
     {
-        var action = () =>
-        {
-            _ = Task.FromResult(MatchResult.Success(value)).Where(_ => null).Result;
-        };
-
-        action.Should().Throw<InvalidOperationException>();
+        var action = () => ((Task<MatchResult<string>>)null).Bind(binder);
+        await action.Should().ThrowAsync<ArgumentNullException>();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
-    public Property CastShouldCastValueOfCorrectTypeIfResultIsSuccessful(NonNull<string> value) =>
-        (Task.FromResult(MatchResult.Success<object>(value.Get)).Cast<object, string>().Result ==
+    [Property]
+    public async Task BindShouldThrowIfBinderIsNull(MatchResult<string> result)
+    {
+        var action = () => Task.FromResult(result).Bind<string, int>(null);
+        await action.Should().ThrowAsync<ArgumentNullException>();
+    }
+
+    [Property]
+    public async Task BindShouldThrowIfBinderReturnsNull(string value)
+    {
+        var action = () => Task.FromResult(MatchResult.Success(value)).Bind<string, int>(_ => null);
+        await action.Should().ThrowAsync<InvalidOperationException>();
+    }
+
+    [Property]
+    public async Task<Property> WhereShouldFilterValueIfResultIsSuccessful(
+        string value,
+        Func<string, bool> predicate) =>
+        ((await Task.FromResult(MatchResult.Success(value)).Where(predicate)).IsSuccessful == predicate(value))
+            .ToProperty();
+
+    [Property]
+    public async Task<Property> AsyncWhereShouldFilterValueIfResultIsSuccessful(
+        string value,
+        Func<string, Task<bool>> predicate) =>
+        ((await Task.FromResult(MatchResult.Success(value)).Where(predicate)).IsSuccessful == (await predicate(value)))
+            .ToProperty();
+
+    [Property]
+    public async Task<Property> WhereShouldHaveSameValueIfResultIsSuccessful(string value) =>
+        ((await Task.FromResult(MatchResult.Success(value)).Where(_ => true)).Value == value).ToProperty();
+
+    [Property]
+    public async Task<Property> AsyncWhereShouldHaveSameValueIfResultIsSuccessful(string value) =>
+        ((await Task.FromResult(MatchResult.Success(value)).Where(_ => Task.FromResult(true))).Value == value)
+            .ToProperty();
+
+    [Property]
+    public async Task<Property> WhereShouldBeUnsuccessfulIfResultIsUnsuccessful(Func<string, bool> predicate) =>
+        (!(await Task.FromResult(MatchResult.Failure<string>())).Where(predicate).IsSuccessful).ToProperty();
+
+    [Property]
+    public async Task<Property> AsyncWhereShouldBeUnsuccessfulIfResultIsUnsuccessful(
+        Func<string, Task<bool>> predicate) =>
+        (!(await Task.FromResult(MatchResult.Failure<string>()).Where(predicate)).IsSuccessful).ToProperty();
+
+    [Property]
+    public async Task WhereShouldDoNothingIfResultIsUnsuccessful()
+    {
+        var action = () => Task.FromResult(MatchResult.Failure<string>())
+            .Where((Func<string, bool>)(_ => throw new AssertionFailedException("where doesn't work")));
+
+        await action.Should().NotThrowAsync<AssertionFailedException>();
+    }
+
+    [Property]
+    public async Task AsyncWhereShouldDoNothingIfResultIsUnsuccessful()
+    {
+        var action = () => Task.FromResult(MatchResult.Failure<string>())
+            .Where((Func<string, Task<bool>>)(_ => throw new AssertionFailedException("where doesn't work")));
+
+        await action.Should().NotThrowAsync<AssertionFailedException>();
+    }
+
+    [Property]
+    public async Task WhereShouldThrowIfTaskResultIsNull(Func<string, bool> predicate)
+    {
+        var action = () => ((Task<MatchResult<string>>)null).Where(predicate);
+        await action.Should().ThrowAsync<ArgumentNullException>();
+    }
+
+    [Property]
+    public async Task AsyncWhereShouldThrowIfTaskResultIsNull(Func<string, Task<bool>> predicate)
+    {
+        var action = () => ((Task<MatchResult<string>>)null).Where(predicate);
+        await action.Should().ThrowAsync<ArgumentNullException>();
+    }
+
+    [Property]
+    public async Task WhereShouldThrowIfPredicateIsNull(Task<MatchResult<string>> result)
+    {
+        var action = () => result.Where((Func<string, bool>)null);
+        await action.Should().ThrowAsync<ArgumentNullException>();
+    }
+
+    [Property]
+    public async Task AsyncWhereShouldThrowIfPredicateIsNull(Task<MatchResult<string>> result)
+    {
+        var action = () => result.Where((Func<string, Task<bool>>)null);
+        await action.Should().ThrowAsync<ArgumentNullException>();
+    }
+
+    [Property]
+    public async Task AsyncWhereShouldThrowIfPredicateReturnsNull(string value)
+    {
+        var action = () => Task.FromResult(MatchResult.Success(value)).Where(_ => null);
+        await action.Should().ThrowAsync<InvalidOperationException>();
+    }
+
+    [Property]
+    public async Task<Property> CastShouldCastValueOfCorrectTypeIfResultIsSuccessful(NonNull<string> value) =>
+        (await Task.FromResult(MatchResult.Success<object>(value.Get)).Cast<object, string>() ==
             MatchResult.Success(value.Get))
             .ToProperty();
 
     [Fact]
-    public Property CastShouldSucceedIfResultContainsNull() =>
-        Task.FromResult(MatchResult.Success<object>(null)).Cast<object, string>().Result.IsSuccessful
+    public async Task CastShouldSucceedIfResultContainsNull() =>
+        (await Task.FromResult(MatchResult.Success<object>(null)).Cast<object, string>())
+            .IsSuccessful.Should().Be(true);
+
+    [Fact]
+    public async Task CastToNullableValueShouldFailIfResultContainsNull() =>
+        (await Task.FromResult(MatchResult.Success<object>(null)).Cast<object, int?>()).IsSuccessful.Should().Be(true);
+
+    [Fact]
+    public async Task CastToValueShouldFailIfResultContainsNull() =>
+        (await Task.FromResult(MatchResult.Success<object>(null)).Cast<object, int>()).IsSuccessful.Should().Be(false);
+
+    [Property]
+    public async Task<Property> CastShouldFailIfValueHasIncorrectTypeAndResultIsSuccessful(string value) =>
+        (!(await Task.FromResult(MatchResult.Success<object>(value)).Cast<object, int>()).IsSuccessful)
             .ToProperty();
 
     [Fact]
-    public Property CastToNullableValueShouldFailIfResultContainsNull() =>
-        Task.FromResult(MatchResult.Success<object>(null)).Cast<object, int?>().Result.IsSuccessful.ToProperty();
+    public async Task CastShouldBeUnsuccessfulIfResultIsUnsuccessful() =>
+        (await Task.FromResult(MatchResult.Failure<object>()).Cast<object, string>()).IsSuccessful.Should().Be(false);
 
     [Fact]
-    public Property CastToValueShouldFailIfResultContainsNull() =>
-        (!Task.FromResult(MatchResult.Success<object>(null)).Cast<object, int>().Result.IsSuccessful)
-            .ToProperty();
-
-    [Property(Arbitrary = new[] { typeof(Generators) })]
-    public Property CastShouldFailIfValueHasIncorrectTypeAndResultIsSuccessful(string value) =>
-        (!Task.FromResult(MatchResult.Success<object>(value)).Cast<object, int>().Result.IsSuccessful)
-            .ToProperty();
-
-    [Fact]
-    public Property CastShouldBeUnsuccessfulIfResultIsUnsuccessful() =>
-        (!Task.FromResult(MatchResult.Failure<object>()).Cast<object, string>().Result.IsSuccessful)
-            .ToProperty();
-
-    [Fact]
-    public void CastShouldThrowIfTaskResultIsNull()
+    public async Task CastShouldThrowIfTaskResultIsNull()
     {
-        var action = () =>
-        {
-            _ = ((Task<MatchResult<object>>)null).Cast<object, string>().Result;
-        };
-
-        action.Should().Throw<ArgumentNullException>();
-    }
-
-    [Property(Arbitrary = new[] { typeof(Generators) })]
-    public void DoShouldPerformActionIfResultIsSuccessful(string value)
-    {
-        int count = 0;
-        _ = Task.FromResult(MatchResult.Success(value)).Do(_ => count++).Result;
-        count.Should().Be(1);
-    }
-
-    [Property(Arbitrary = new[] { typeof(Generators) })]
-    public void AsyncDoShouldPerformActionIfResultIsSuccessful(string value)
-    {
-        int count = 0;
-        _ = Task.FromResult(MatchResult.Success(value)).Do(_ => Task.FromResult(count++)).Result;
-        count.Should().Be(1);
-    }
-
-    [Fact]
-    public void DoShouldNotPerformActionIfResultIsUnsuccessful()
-    {
-        int count = 0;
-        _ = Task.FromResult(MatchResult.Failure<string>()).Do(_ => count++).Result;
-        count.Should().Be(0);
-    }
-
-    [Fact]
-    public void AsyncDoShouldNotPerformActionIfResultIsUnsuccessful()
-    {
-        int count = 0;
-        _ = Task.FromResult(MatchResult.Failure<string>()).Do(_ => Task.FromResult(count++)).Result;
-        count.Should().Be(0);
-    }
-
-    [Property(Arbitrary = new[] { typeof(Generators) })]
-    public Property DoShouldReturnSameResult(Task<MatchResult<string>> result) =>
-        (result.Result == result.Do(_ => { }).Result).ToProperty();
-
-    [Property(Arbitrary = new[] { typeof(Generators) })]
-    public Property AsyncDoShouldReturnSameResult(Task<MatchResult<string>> result) =>
-        (result.Result == result.Do(_ => Task.CompletedTask).Result).ToProperty();
-
-    [Property(Arbitrary = new[] { typeof(Generators) })]
-    public void DoShouldPassValueIfResultIsSuccessful(string value)
-    {
-        string actualValue = null;
-        _ = Task.FromResult(MatchResult.Success(value)).Do(v => actualValue = v).Result;
-        actualValue.Should().Be(value);
-    }
-
-    [Property(Arbitrary = new[] { typeof(Generators) })]
-    public void AsyncDoShouldPassValueIfResultIsSuccessful(string value)
-    {
-        string actualValue = null;
-        _ = Task.FromResult(MatchResult.Success(value)).Do(v => Task.FromResult(actualValue = v)).Result;
-        actualValue.Should().Be(value);
-    }
-
-    [Fact]
-    public void DoShouldThrowIfTaskResultIsNull()
-    {
-        var action = () =>
-        {
-            _ = ((Task<MatchResult<object>>)null).Do(_ => { }).Result;
-        };
-
-        action.Should().Throw<ArgumentNullException>();
-    }
-
-    [Fact]
-    public void AsyncDoShouldThrowIfTaskResultIsNull()
-    {
-        var action = () =>
-        {
-            _ = ((Task<MatchResult<object>>)null).Do(_ => Task.CompletedTask).Result;
-        };
-
-        action.Should().Throw<ArgumentNullException>();
-    }
-
-    [Property(Arbitrary = new[] { typeof(Generators) })]
-    public void DoShouldThrowIfActionIsNull(Task<MatchResult<string>> result)
-    {
-        var action = () =>
-        {
-            _ = result.Do((Action<string>)null).Result;
-        };
-
-        action.Should().Throw<ArgumentNullException>();
-    }
-
-    [Property(Arbitrary = new[] { typeof(Generators) })]
-    public void AsyncDoShouldThrowIfActionIsNull(Task<MatchResult<string>> result)
-    {
-        var action = () =>
-        {
-            _ = result.Do(null).Result;
-        };
-
-        action.Should().Throw<ArgumentNullException>();
+        var action = async () => await ((Task<MatchResult<object>>)null).Cast<object, string>();
+        await action.Should().ThrowAsync<ArgumentNullException>();
     }
 
     [Property]
-    public void AsyncDoShouldThrowIfActionReturnsNull(string value)
+    public async Task DoShouldPerformActionIfResultIsSuccessful(string value)
     {
-        var action = () =>
-        {
-            _ = Task.FromResult(MatchResult.Success(value)).Do(_ => null).Result;
-        };
+        int count = 0;
+        await Task.FromResult(MatchResult.Success(value)).Do(_ => count++);
+        count.Should().Be(1);
+    }
 
-        action.Should().Throw<InvalidOperationException>();
+    [Property]
+    public async Task<Property> AsyncDoShouldPerformActionIfResultIsSuccessful(string value)
+    {
+        int count = 0;
+        await Task.FromResult(MatchResult.Success(value)).Do(_ => Task.FromResult(count++));
+        return (count == 1).ToProperty();
+    }
+
+    [Fact]
+    public async Task DoShouldNotPerformActionIfResultIsUnsuccessful()
+    {
+        int count = 0;
+        await Task.FromResult(MatchResult.Failure<string>()).Do(_ => count++);
+        count.Should().Be(0);
+    }
+
+    [Fact]
+    public async Task AsyncDoShouldNotPerformActionIfResultIsUnsuccessful()
+    {
+        int count = 0;
+        await Task.FromResult(MatchResult.Failure<string>()).Do(_ => Task.FromResult(count++));
+        count.Should().Be(0);
+    }
+
+    [Property]
+    public async Task<Property> DoShouldReturnSameResult(Task<MatchResult<string>> result) =>
+        (await result == await result.Do(_ => { })).ToProperty();
+
+    [Property]
+    public async Task<Property> AsyncDoShouldReturnSameResult(Task<MatchResult<string>> result) =>
+        (await result == await result.Do(_ => Task.CompletedTask)).ToProperty();
+
+    [Property]
+    public async Task<Property> DoShouldPassValueIfResultIsSuccessful(string value)
+    {
+        string actualValue = null;
+        await Task.FromResult(MatchResult.Success(value)).Do(v => actualValue = v);
+        return (actualValue == value).ToProperty();
+    }
+
+    [Property]
+    public async Task<Property> AsyncDoShouldPassValueIfResultIsSuccessful(string value)
+    {
+        string actualValue = null;
+        await Task.FromResult(MatchResult.Success(value)).Do(v => Task.FromResult(actualValue = v));
+        return (actualValue == value).ToProperty();
+    }
+
+    [Fact]
+    public async Task DoShouldThrowIfTaskResultIsNull()
+    {
+        var action = () => ((Task<MatchResult<object>>)null).Do(_ => { });
+        await action.Should().ThrowAsync<ArgumentNullException>();
+    }
+
+    [Fact]
+    public async Task AsyncDoShouldThrowIfTaskResultIsNull()
+    {
+        var action = () => ((Task<MatchResult<object>>)null).Do(_ => Task.CompletedTask);
+        await action.Should().ThrowAsync<ArgumentNullException>();
+    }
+
+    [Property]
+    public async Task DoShouldThrowIfActionIsNull(Task<MatchResult<string>> result)
+    {
+        var action = () => result.Do((Action<string>)null);
+        await action.Should().ThrowAsync<ArgumentNullException>();
+    }
+
+    [Property]
+    public async Task AsyncDoShouldThrowIfActionIsNull(Task<MatchResult<string>> result)
+    {
+        var action = () => result.Do(null);
+        await action.Should().ThrowAsync<ArgumentNullException>();
+    }
+
+    [Property]
+    public async Task AsyncDoShouldThrowIfActionReturnsNull(string value)
+    {
+        var action = () => Task.FromResult(MatchResult.Success(value)).Do(_ => null);
+        await action.Should().ThrowAsync<InvalidOperationException>();
     }
 }

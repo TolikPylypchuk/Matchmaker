@@ -2,32 +2,32 @@ namespace Matchmaker.Linq;
 
 public class AsAsyncTests
 {
-    [Property(Arbitrary = new[] { typeof(Generators) })]
-    public Property AsAsyncShouldMatchSameAsPattern(IPattern<string, string> pattern, string x) =>
-        (pattern.Match(x) == pattern.AsAsync().MatchAsync(x).Result).ToProperty();
+    [Property]
+    public async Task<Property> AsAsyncShouldMatchSameAsPattern(IPattern<string, string> pattern, string x) =>
+        (pattern.Match(x) == await pattern.AsAsync().MatchAsync(x)).ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
-    public Property AsAsyncWithDescriptionShouldMatchSameAsPattern(
+    [Property]
+    public async Task<Property> AsAsyncWithDescriptionShouldMatchSameAsPattern(
         IPattern<string, string> pattern,
         NonNull<string> description,
         string x) =>
-        (pattern.Match(x) == pattern.AsAsync(description.Get).MatchAsync(x).Result).ToProperty();
+        (pattern.Match(x) == await pattern.AsAsync(description.Get).MatchAsync(x)).ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property AsAsyncShouldNeverReturnNull(IPattern<string, string> pattern) =>
         (pattern.AsAsync() != null).ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property AsAsyncWithDescriptionShouldNeverReturnNull(
         IPattern<string, string> pattern,
         NonNull<string> description) =>
         (pattern.AsAsync(description.Get) != null).ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property AsAsyncShouldHaveSameDescriptionAsPattern(IPattern<string, string> pattern) =>
         (pattern.Description == pattern.AsAsync().Description).ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property AsAsyncWithDescriptionShouldHaveSpecifiedDescription(
         IPattern<string, string> pattern,
         NonNull<string> description) =>
@@ -47,7 +47,7 @@ public class AsAsyncTests
         action.Should().Throw<ArgumentNullException>();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public void AsAsyncWithDescriptionShouldThrowIfDescriptionIsNull(IPattern<string, string> pattern)
     {
         var action = () => pattern.AsAsync(null);

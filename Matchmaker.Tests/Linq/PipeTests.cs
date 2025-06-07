@@ -2,20 +2,20 @@ namespace Matchmaker.Linq;
 
 public class PipeTests
 {
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property PipePatternShouldNeverReturnNull(
         IPattern<string, string> firstPattern,
         IPattern<string, string> secondPattern) =>
         (firstPattern.Pipe(secondPattern) != null).ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property PipePatternWithDescriptionShouldNeverReturnNull(
         IPattern<string, string> firstPattern,
         IPattern<string, string> secondPattern,
         NonNull<string> description) =>
         (firstPattern.Pipe(secondPattern, description.Get) != null).ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property PipePatternShouldMatchSameAsPatterns(
         IPattern<string, string> firstPattern,
         IPattern<string, string> secondPattern,
@@ -27,7 +27,7 @@ public class PipeTests
             .ToProperty();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property PipePatternWithDescriptionShouldMatchSameAsPattern(
         IPattern<string, string> firstPattern,
         IPattern<string, string> secondPattern,
@@ -40,7 +40,7 @@ public class PipeTests
             .ToProperty();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property PipePatternShouldHaveCorrectDescription(
         IPattern<string, string> firstPattern,
         IPattern<string, string> secondPattern) =>
@@ -50,42 +50,42 @@ public class PipeTests
                     Pattern.DefaultPipeDescriptionFormat, firstPattern.Description, secondPattern.Description))
             .ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property PipePatternShouldHaveEmptyDescriptionIfFirstPatternHasEmptyDescription(
         IPattern<string, string> pattern,
         Func<string, bool> predicate) =>
         (Pattern.CreatePattern(predicate, String.Empty).Pipe(pattern).Description.Length == 0)
             .ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property PipePatternShouldHaveEmptyDescriptionIfSecondPatternHasEmptyDescription(
         IPattern<string, string> pattern,
         Func<string, bool> predicate) =>
         (pattern.Pipe(Pattern.CreatePattern(predicate, String.Empty)).Description.Length == 0)
             .ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property PipePatternShouldHaveEmptyDescriptionIfBothPatternsHaveEmptyDescription(
         Func<string, bool> predicate1,
         Func<string, bool> predicate2) =>
         (Pattern.CreatePattern(predicate1, String.Empty).Pipe(Pattern.CreatePattern(predicate2, String.Empty))
             .Description.Length == 0).ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property PipePatternWithDescriptionShouldHaveSpecifiedDescription(
         IPattern<string, string> firstPattern,
         IPattern<string, string> secondPattern,
         NonNull<string> description) =>
         (firstPattern.Pipe(secondPattern, description.Get).Description == description.Get).ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public void PipePatternShouldThrowIfFirstPatternIsNull(IPattern<string, string> secondPattern)
     {
         var action = () => ((IPattern<string, string>)null).Pipe(secondPattern);
         action.Should().Throw<ArgumentNullException>();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public void PipePatternWithDescriptionShouldThrowIfFirstPatternIsNull(
         IPattern<string, string> secondPattern,
         NonNull<string> description)
@@ -94,14 +94,14 @@ public class PipeTests
         action.Should().Throw<ArgumentNullException>();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public void PipePatternShouldThrowIfSecondPatternIsNull(IPattern<string, string> pattern)
     {
         var action = () => pattern.Pipe((IPattern<string, int>)null);
         action.Should().Throw<ArgumentNullException>();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public void PipePatternWithDescriptionShouldThrowIfSecondPatternIsNull(
         IPattern<string, string> pattern,
         NonNull<string> description)
@@ -110,7 +110,7 @@ public class PipeTests
         action.Should().Throw<ArgumentNullException>();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public void PipePatternWithDescriptionShouldThrowIfDescriptionIsNull(
         IPattern<string, string> firstPattern,
         IPattern<string, string> secondPattern)
@@ -119,20 +119,20 @@ public class PipeTests
         action.Should().Throw<ArgumentNullException>();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property PipePatternWithFunctionShouldNeverReturnNull(
         IPattern<string, string> pattern,
         Func<string, MatchResult<string>> matcher) =>
         (pattern.Pipe(matcher) != null).ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property PipePatternWithFunctionAndDescriptionShouldNeverReturnNull(
         IPattern<string, string> pattern,
         Func<string, MatchResult<string>> matcher,
         NonNull<string> description) =>
         (pattern.Pipe(matcher, description.Get) != null).ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property PipePatternWithFunctionShouldMatchSameAsPatterns(
         IPattern<string, string> pattern,
         Func<string, MatchResult<string>> matcher,
@@ -143,7 +143,7 @@ public class PipeTests
             .ToProperty();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property PipePatternWithFunctionAndDescriptionShouldMatchSameAsPattern(
         IPattern<string, string> pattern,
         Func<string, MatchResult<string>> matcher,
@@ -156,27 +156,27 @@ public class PipeTests
             .ToProperty();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property PipePatternWithFunctionShouldHaveSameDescriptionAsPattern(
         IPattern<string, string> pattern,
         Func<string, MatchResult<string>> matcher) =>
         (pattern.Pipe(matcher).Description == pattern.Description).ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property PipePatternWithFunctionAndDescriptionShouldHaveSpecifiedDescription(
         IPattern<string, string> pattern,
         Func<string, MatchResult<string>> matcher,
         NonNull<string> description) =>
         (pattern.Pipe(matcher, description.Get).Description == description.Get).ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public void PipePatternWithFunctionShouldThrowIfPatternIsNull(Func<string, MatchResult<string>> matcher)
     {
         var action = () => ((IPattern<string, string>)null).Pipe(matcher);
         action.Should().Throw<ArgumentNullException>();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public void PipePatternWithFunctionAndDescriptionShouldThrowIfPatternIsNull(
         Func<string, MatchResult<string>> matcher,
         NonNull<string> description)
@@ -185,14 +185,14 @@ public class PipeTests
         action.Should().Throw<ArgumentNullException>();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public void PipePatternWithFunctionShouldThrowIfMatcherIsNull(IPattern<string, string> pattern)
     {
         var action = () => pattern.Pipe((Func<string, MatchResult<int>>)null);
         action.Should().Throw<ArgumentNullException>();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public void PipePatternWithFunctionAndDescriptionShouldThrowIfMatcherIsNull(
         IPattern<string, string> pattern,
         NonNull<string> description)
@@ -201,7 +201,7 @@ public class PipeTests
         action.Should().Throw<ArgumentNullException>();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public void PipePatternWithFunctionAndDescriptionShouldThrowIfDescriptionIsNull(
         IPattern<string, string> pattern,
         Func<string, MatchResult<string>> matcher)
@@ -210,17 +210,17 @@ public class PipeTests
         action.Should().Throw<ArgumentNullException>();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property CastPatternShouldNeverReturnNull(IPattern<string, object> pattern) =>
         (pattern.Cast<string, object, string>() != null).ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property CastPatternWithDescriptionShouldNeverReturnNull(
         IPattern<string, object> pattern,
         NonNull<string> description) =>
         (pattern.Cast<string, object, string>(description.Get) != null).ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property CastPatternShouldMatchSameAsPatterns(IPattern<string, object> pattern, string x)
     {
         var result = pattern.Match(x);
@@ -230,7 +230,7 @@ public class PipeTests
             .ToProperty();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property CastPatternWithDescriptionShouldMatchSameAsPattern(
         IPattern<string, object> pattern,
         string x,
@@ -243,7 +243,7 @@ public class PipeTests
             .ToProperty();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property CastPatternShouldHaveCorrectDescription(IPattern<string, object> pattern) =>
         (pattern.Description.Length > 0).ImpliesThat(() =>
                 pattern.Cast<string, object, string>().Description ==
@@ -253,7 +253,7 @@ public class PipeTests
                     String.Format(Pattern.DefaultTypeDescriptionFormat, typeof(string))))
             .ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property CastPatternShouldHaveEmptyDescriptionIfFirstPatternHasEmptyDescription(
         Func<string, bool> predicate) =>
         (Pattern.CreatePattern(predicate, String.Empty)
@@ -262,7 +262,7 @@ public class PipeTests
                 .Description.Length == 0)
             .ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property CastPatternWithDescriptionShouldHaveSpecifiedDescription(
         IPattern<string, object> pattern,
         NonNull<string> description) =>
@@ -275,14 +275,14 @@ public class PipeTests
         action.Should().Throw<ArgumentNullException>();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public void CastPatternWithDescriptionShouldThrowIfPatternIsNull(NonNull<string> description)
     {
         var action = () => ((IPattern<string, object>)null).Cast<string, object, string>(description.Get);
         action.Should().Throw<ArgumentNullException>();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public void CastPatternWithDescriptionShouldThrowIfDescriptionIsNull(IPattern<string, object> pattern)
     {
         var action = () => pattern.Cast<string, object, string>(null);

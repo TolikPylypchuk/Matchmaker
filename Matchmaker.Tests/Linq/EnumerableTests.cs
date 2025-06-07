@@ -3,7 +3,7 @@ namespace Matchmaker.Linq;
 public class EnumerableTests
 {
     [Fact]
-    public Property EnumerateShouldForceEnumeration()
+    public void EnumerateShouldForceEnumeration()
     {
         const int count = 100;
 
@@ -13,7 +13,7 @@ public class EnumerableTests
             .Select(_ => result++)
             .Enumerate();
 
-        return (result == count).ToProperty();
+        result.Should().Be(count);
     }
 
     [Fact]
@@ -24,18 +24,17 @@ public class EnumerableTests
     }
 
     [Fact]
-    public Property EnumerateAsyncShouldForceEnumeration()
+    public async Task EnumerateAsyncShouldForceEnumeration()
     {
         const int count = 100;
 
         int result = 0;
 
-        AsyncEnumerable.Range(0, count)
+        await AsyncEnumerable.Range(0, count)
             .Select(_ => result++)
-            .EnumerateAsync()
-            .Wait();
+            .EnumerateAsync();
 
-        return (result == count).ToProperty();
+        result.Should().Be(count);
     }
 
     [Fact]

@@ -1,3 +1,5 @@
+[assembly: Properties(Arbitrary = new[] { typeof(Generators) })]
+
 namespace Matchmaker;
 
 public static class Generators
@@ -85,7 +87,7 @@ public static class Generators
     private class ArbitraryPattern : Arbitrary<IPattern<string, string>>
     {
         public override Gen<IPattern<string, string>> Generator =>
-            from input in Arb.Default.String().Generator
+            from input in ArbMap.Default.ArbFor<string>().Generator
                from item in Gen.Elements(Patterns(input))
                select item;
     }
@@ -135,8 +137,8 @@ public static class Generators
     {
         public override Gen<MatchResult<string>> Generator =>
             Gen.Frequency(
-                Tuple.Create(9, Arb.Default.String().Generator.Select(MatchResult.Success)),
-                Tuple.Create(1, Gen.Constant(MatchResult.Failure<string>())));
+                (9, ArbMap.Default.ArbFor<string>().Generator.Select(MatchResult.Success)),
+                (1, Gen.Constant(MatchResult.Failure<string>())));
     }
 
     private class ArbitraryResultBinder : Arbitrary<Func<string, MatchResult<int>>>
@@ -152,7 +154,7 @@ public static class Generators
     private class ArbitraryAsyncPattern : Arbitrary<IAsyncPattern<string, string>>
     {
         public override Gen<IAsyncPattern<string, string>> Generator =>
-            from input in Arb.Default.String().Generator
+            from input in ArbMap.Default.ArbFor<string>().Generator
                from item in Gen.Elements(AsyncPatterns(input))
                select item;
     }
@@ -193,9 +195,8 @@ public static class Generators
     {
         public override Gen<Task<MatchResult<string>>> Generator =>
             Gen.Frequency(
-                Tuple.Create(9, Arb.Default.String().Generator.Select(
-                    str => Task.FromResult(MatchResult.Success(str)))),
-                Tuple.Create(1, Gen.Constant(Task.FromResult(MatchResult.Failure<string>()))));
+                (9, ArbMap.Default.ArbFor<string>().Generator.Select(str => Task.FromResult(MatchResult.Success(str)))),
+                (1, Gen.Constant(Task.FromResult(MatchResult.Failure<string>()))));
     }
 
     private class ArbitraryAsyncResultBinder : Arbitrary<Func<string, Task<MatchResult<int>>>>
@@ -211,6 +212,6 @@ public static class Generators
     private class ArbitraryAsyncString : Arbitrary<Task<string>>
     {
         public override Gen<Task<string>> Generator =>
-            Arb.Default.String().Generator.Select(Task.FromResult);
+            ArbMap.Default.ArbFor<string>().Generator.Select(Task.FromResult);
     }
 }

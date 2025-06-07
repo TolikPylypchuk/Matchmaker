@@ -2,20 +2,20 @@ namespace Matchmaker.Linq;
 
 public class BindTests
 {
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property BindPatternShouldNeverReturnNull(
         IPattern<string, string> pattern,
         Func<string, IPattern<string, string>> binder) =>
         (pattern.Bind(binder) != null).ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property BindPatternWithDescriptionShouldNeverReturnNull(
         IPattern<string, string> pattern,
         Func<string, IPattern<string, string>> binder,
         NonNull<string> description) =>
         (pattern.Bind(binder, description.Get) != null).ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property BindPatternShouldMatchSameAsBinderResult(
         IPattern<string, string> pattern,
         Func<string, IPattern<string, string>> binder,
@@ -27,7 +27,7 @@ public class BindTests
             .ToProperty();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property BindPatternWithDescriptionShouldMatchSameAsBinderResult(
         IPattern<string, string> pattern,
         Func<string, IPattern<string, string>> binder,
@@ -40,27 +40,27 @@ public class BindTests
             .ToProperty();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property BindPatternShouldHaveSameDescriptionAsPattern(
         IPattern<string, string> pattern,
         Func<string, IPattern<string, string>> binder) =>
         (pattern.Bind(binder).Description == pattern.Description).ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property BindPatternWithDescriptionShouldHaveSpecifiedDescription(
         IPattern<string, string> pattern,
         Func<string, IPattern<string, string>> binder,
         NonNull<string> description) =>
         (pattern.Bind(binder, description.Get).Description == description.Get).ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public void BindPatternShouldThrowIfPatternIsNull(Func<string, IPattern<string, string>> binder)
     {
         var action = () => ((IPattern<string, string>)null).Bind(binder);
         action.Should().Throw<ArgumentNullException>();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public void BindPatternWithDescriptionShouldThrowIfPatternIsNull(
         Func<string, IPattern<string, string>> binder,
         NonNull<string> description)
@@ -69,14 +69,14 @@ public class BindTests
         action.Should().Throw<ArgumentNullException>();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public void BindPatternShouldThrowIfBinderIsNull(IPattern<string, string> pattern)
     {
         var action = () => pattern.Bind((Func<string, IPattern<string, int>>)null);
         action.Should().Throw<ArgumentNullException>();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public void BindPatternWithDescriptionShouldThrowIfDescriptionIsNull(
         IPattern<string, string> pattern,
         Func<string, IPattern<string, string>> binder)

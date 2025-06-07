@@ -52,8 +52,8 @@ public class AsyncMatchExpressionBuilderTests
         action.Should().Throw<ArgumentNullException>();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
-    public Property MatchShouldMatchPatternsCorrectlyWithAsyncPatternAndAsyncAction(
+    [Property]
+    public async Task<Property> MatchShouldMatchPatternsCorrectlyWithAsyncPatternAndAsyncAction(
         Func<string, Task<bool>> predicate,
         string value)
     {
@@ -61,17 +61,16 @@ public class AsyncMatchExpressionBuilderTests
 
         var pattern = AsyncPattern.CreatePattern(predicate);
 
-        bool matchSuccessful = AsyncMatch.CreateStatic<string, bool>(match => match
+        bool matchSuccessful = await AsyncMatch.CreateStatic<string, bool>(match => match
                 .Case(pattern, _ => Task.FromResult(true))
                 .Case(AsyncPattern.Any<string>(), _ => Task.FromResult(false)))
-            .ExecuteAsync(value)
-            .Result;
+            .ExecuteAsync(value);
 
-        return (matchSuccessful == pattern.MatchAsync(value).Result.IsSuccessful).ToProperty();
+        return (matchSuccessful == (await pattern.MatchAsync(value)).IsSuccessful).ToProperty();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
-    public Property MatchShouldMatchPatternsCorrectlyWithAsyncPatternAndSyncAction(
+    [Property]
+    public async Task<Property> MatchShouldMatchPatternsCorrectlyWithAsyncPatternAndSyncAction(
         Func<string, Task<bool>> predicate,
         string value)
     {
@@ -79,17 +78,16 @@ public class AsyncMatchExpressionBuilderTests
 
         var pattern = AsyncPattern.CreatePattern(predicate);
 
-        bool matchSuccessful = AsyncMatch.CreateStatic<string, bool>(match => match
+        bool matchSuccessful = await AsyncMatch.CreateStatic<string, bool>(match => match
                 .Case(pattern, _ => true)
                 .Case(AsyncPattern.Any<string>(), _ => false))
-            .ExecuteAsync(value)
-            .Result;
+            .ExecuteAsync(value);
 
-        return (matchSuccessful == pattern.MatchAsync(value).Result.IsSuccessful).ToProperty();
+        return (matchSuccessful == (await pattern.MatchAsync(value)).IsSuccessful).ToProperty();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
-    public Property MatchShouldMatchPatternsCorrectlyWithSyncPatternAndAsyncAction(
+    [Property]
+    public async Task<Property> MatchShouldMatchPatternsCorrectlyWithSyncPatternAndAsyncAction(
         Func<string, bool> predicate,
         string value)
     {
@@ -97,17 +95,16 @@ public class AsyncMatchExpressionBuilderTests
 
         var pattern = Pattern.CreatePattern(predicate);
 
-        bool matchSuccessful = AsyncMatch.CreateStatic<string, bool>(match => match
+        bool matchSuccessful = await AsyncMatch.CreateStatic<string, bool>(match => match
                 .Case(pattern, _ => Task.FromResult(true))
                 .Case(Pattern.Any<string>(), _ => Task.FromResult(false)))
-            .ExecuteAsync(value)
-            .Result;
+            .ExecuteAsync(value);
 
         return (matchSuccessful == pattern.Match(value).IsSuccessful).ToProperty();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
-    public Property MatchShouldMatchPatternsCorrectlyWithSyncPatternAndSyncAction(
+    [Property]
+    public async Task<Property> MatchShouldMatchPatternsCorrectlyWithSyncPatternAndSyncAction(
         Func<string, bool> predicate,
         string value)
     {
@@ -115,35 +112,35 @@ public class AsyncMatchExpressionBuilderTests
 
         var pattern = Pattern.CreatePattern(predicate);
 
-        bool matchSuccessful = AsyncMatch.CreateStatic<string, bool>(match => match
+        bool matchSuccessful = await AsyncMatch.CreateStatic<string, bool>(match => match
                 .Case(pattern, _ => true)
                 .Case(Pattern.Any<string>(), _ => false))
-            .ExecuteAsync(value)
-            .Result;
+            .ExecuteAsync(value);
 
         return (matchSuccessful == pattern.Match(value).IsSuccessful).ToProperty();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
-    public Property NonStrictMatchShouldMatchPatternsCorrectly(Func<string, Task<bool>> predicate, string value)
+    [Property]
+    public async Task<Property> NonStrictMatchShouldMatchPatternsCorrectly(
+        Func<string, Task<bool>> predicate,
+        string value)
     {
         AsyncMatch.ClearCache<string, bool>();
 
         var pattern = AsyncPattern.CreatePattern(predicate);
 
-        var result = AsyncMatch.CreateStatic<string, bool>(match => match
+        var result = await AsyncMatch.CreateStatic<string, bool>(match => match
                 .Case(pattern, _ => true)
                 .Case(AsyncPattern.Any<string>(), _ => false))
-            .ExecuteNonStrictAsync(value)
-            .Result;
+            .ExecuteNonStrictAsync(value);
 
         bool matchSuccessful = result.IsSuccessful && result.Value;
 
-        return (matchSuccessful == pattern.MatchAsync(value).Result.IsSuccessful).ToProperty();
+        return (matchSuccessful == (await pattern.MatchAsync(value)).IsSuccessful).ToProperty();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
-    public Property NonStrictMatchShouldMatchPatternsCorrectlyWithNull(
+    [Property]
+    public async Task<Property> NonStrictMatchShouldMatchPatternsCorrectlyWithNull(
         Func<string, Task<bool>> predicate,
         string value)
     {
@@ -151,19 +148,18 @@ public class AsyncMatchExpressionBuilderTests
 
         var pattern = AsyncPattern.CreatePattern(predicate);
 
-        var result = AsyncMatch.CreateStatic<string, bool?>(match => match
+        var result = await AsyncMatch.CreateStatic<string, bool?>(match => match
                 .Case(pattern, _ => true)
                 .Case(AsyncPattern.Any<string>(), _ => Task.FromResult<bool?>(null)))
-            .ExecuteNonStrictAsync(value)
-            .Result;
+            .ExecuteNonStrictAsync(value);
 
         var matchSuccessful = result.IsSuccessful ? result.Value : false;
 
-        return (matchSuccessful == true == pattern.MatchAsync(value).Result.IsSuccessful).ToProperty();
+        return (matchSuccessful == true == (await pattern.MatchAsync(value)).IsSuccessful).ToProperty();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
-    public Property NonStrictMatchShouldMatchPatternsCorrectlyWithNullable(
+    [Property]
+    public async Task<Property> NonStrictMatchShouldMatchPatternsCorrectlyWithNullable(
         Func<string, Task<bool>> predicate,
         string value)
     {
@@ -171,99 +167,92 @@ public class AsyncMatchExpressionBuilderTests
 
         var pattern = AsyncPattern.CreatePattern(predicate);
 
-        var result = AsyncMatch.CreateStatic<string, bool?>(match => match
+        var result = await AsyncMatch.CreateStatic<string, bool?>(match => match
                 .Case(pattern, _ => true)
                 .Case(AsyncPattern.Any<string>(), _ => false))
-            .ExecuteNonStrictAsync(value)
-            .Result;
+            .ExecuteNonStrictAsync(value);
 
         var matchSuccessful = result.IsSuccessful ? result.Value : null;
 
-        return (matchSuccessful == pattern.MatchAsync(value).Result.IsSuccessful).ToProperty();
+        return (matchSuccessful == (await pattern.MatchAsync(value)).IsSuccessful).ToProperty();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
-    public Property NonStrictMatchShouldReturnNothingIfNoMatchFound(Func<string, Task<bool>> predicate, string value)
+    [Property]
+    public async Task<Property> NonStrictMatchShouldReturnNothingIfNoMatchFound(
+        Func<string, Task<bool>> predicate,
+        string value)
     {
         AsyncMatch.ClearCache<string, bool>();
 
         var pattern = AsyncPattern.CreatePattern(predicate);
 
-        var result = AsyncMatch.CreateStatic<string, bool>(match => match
+        var result = await AsyncMatch.CreateStatic<string, bool>(match => match
                     .Case(pattern, _ => true))
-                .ExecuteNonStrictAsync(value)
-                .Result;
+                .ExecuteNonStrictAsync(value);
 
-        return (result.IsSuccessful == pattern.MatchAsync(value).Result.IsSuccessful).ToProperty();
+        return (result.IsSuccessful == (await pattern.MatchAsync(value)).IsSuccessful).ToProperty();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
-    public void MatchShouldThrowIfNoMatchFound(Func<string, Task<bool>> predicate, string value)
+    [Property]
+    public async Task MatchShouldThrowIfNoMatchFound(Func<string, Task<bool>> predicate, string value)
     {
         AsyncMatch.ClearCache<string, bool>();
 
         var pattern = AsyncPattern.CreatePattern(predicate);
 
-        var action = () =>
-        {
-            _ = AsyncMatch.CreateStatic<string, bool>(match => match
-                    .Case(pattern, _ => true))
-                .ExecuteAsync(value)
-                .Result;
-        };
+        var action = () => AsyncMatch.CreateStatic<string, bool>(match => match
+                .Case(pattern, _ => true))
+            .ExecuteAsync(value);
 
-        if (pattern.MatchAsync(value).Result.IsSuccessful)
+        if ((await pattern.MatchAsync(value)).IsSuccessful)
         {
-            action.Should().NotThrow<MatchException>();
+            await action.Should().NotThrowAsync<MatchException>();
         } else
         {
-            action.Should().Throw<MatchException>();
+            await action.Should().ThrowAsync<MatchException>();
         }
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
-    public void NonStrictMatchShouldNotThrowIfNoMatchFound(Func<string, Task<bool>> predicate, string value)
+    [Property]
+    public async Task NonStrictMatchShouldNotThrowIfNoMatchFound(Func<string, Task<bool>> predicate, string value)
     {
         AsyncMatch.ClearCache<string, bool>();
 
         var pattern = AsyncPattern.CreatePattern(predicate);
 
-        var action = () =>
-        {
-            _ = AsyncMatch.CreateStatic<string, bool>(match => match
-                    .Case(pattern, _ => true))
-                .ExecuteNonStrictAsync(value)
-                .Result;
-        };
+        var action = () => AsyncMatch.CreateStatic<string, bool>(match => match
+                .Case(pattern, _ => true))
+            .ExecuteNonStrictAsync(value);
 
-        action.Should().NotThrow<MatchException>();
+        await action.Should().NotThrowAsync<MatchException>();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
-    public Property MatchWithFallthroughShouldMatchPatternsCorrectly(Func<string, Task<bool>> predicate, string value)
+    [Property]
+    public async Task<Property> MatchWithFallthroughShouldMatchPatternsCorrectly(
+        Func<string, Task<bool>> predicate,
+        string value)
     {
         AsyncMatch.ClearCache<string, bool>();
 
         var pattern = AsyncPattern.CreatePattern(predicate);
 
-        var result = AsyncMatch.CreateStatic<string, bool>(match => match
+        var result = await AsyncMatch.CreateStatic<string, bool>(match => match
                 .Fallthrough(true)
                 .Case(pattern, _ => true)
                 .Case(AsyncPattern.Any<string>(), _ => false))
             .ExecuteWithFallthroughAsync(value)
-            .ToListAsync()
-            .Result;
+            .ToListAsync();
 
         var success = new List<bool> { true, false };
         var failure = new List<bool> { false };
 
-        return pattern.MatchAsync(value).Result.IsSuccessful
+        return (await pattern.MatchAsync(value)).IsSuccessful
             ? result.SequenceEqual(success).ToProperty()
             : result.SequenceEqual(failure).ToProperty();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
-    public Property MatchWithFallthroughShouldMatchPatternsCorrectlyWithNullable(
+    [Property]
+    public async Task<Property> MatchWithFallthroughShouldMatchPatternsCorrectlyWithNullable(
         Func<string, Task<bool>> predicate,
         string value)
     {
@@ -271,23 +260,22 @@ public class AsyncMatchExpressionBuilderTests
 
         var pattern = AsyncPattern.CreatePattern(predicate);
 
-        var result = AsyncMatch.CreateStatic<string, bool?>(match => match
+        var result = await AsyncMatch.CreateStatic<string, bool?>(match => match
                 .Fallthrough(true)
                 .Case(pattern, _ => true)
                 .Case(AsyncPattern.Any<string>(), _ => false))
             .ExecuteWithFallthroughAsync(value)
-            .ToListAsync()
-            .Result;
+            .ToListAsync();
 
         var success = new List<bool?> { true, false };
         var failure = new List<bool?> { false };
 
-        return pattern.MatchAsync(value).Result.IsSuccessful
+        return (await pattern.MatchAsync(value)).IsSuccessful
             ? result.SequenceEqual(success).ToProperty()
             : result.SequenceEqual(failure).ToProperty();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property MatchWithFallthroughShouldBeLazy(Func<string, Task<bool>> predicate, string value)
     {
         AsyncMatch.ClearCache<string, int>();
@@ -305,8 +293,8 @@ public class AsyncMatchExpressionBuilderTests
         return (count == 0).ToProperty();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
-    public Property MatchWithFallthroughFalseShouldMatchPatternsCorrectly(
+    [Property]
+    public async Task<Property> MatchWithFallthroughFalseShouldMatchPatternsCorrectly(
         Func<string, Task<bool>> predicate,
         string value)
     {
@@ -314,24 +302,23 @@ public class AsyncMatchExpressionBuilderTests
 
         var pattern = AsyncPattern.CreatePattern(predicate);
 
-        var result = AsyncMatch.CreateStatic<string, bool>(match => match
+        var result = await AsyncMatch.CreateStatic<string, bool>(match => match
                 .Fallthrough(true)
                 .Case(pattern, fallthrough: false, _ => true)
                 .Case(AsyncPattern.Any<string>(), _ => false))
             .ExecuteWithFallthroughAsync(value)
-            .ToListAsync()
-            .Result;
+            .ToListAsync();
 
         var success = new List<bool> { true };
         var failure = new List<bool> { false };
 
-        return pattern.MatchAsync(value).Result.IsSuccessful
+        return (await pattern.MatchAsync(value)).IsSuccessful
             ? result.SequenceEqual(success).ToProperty()
             : result.SequenceEqual(failure).ToProperty();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
-    public Property MatchWithFallthroughFalseShouldMatchPatternsCorrectlyWithNullable(
+    [Property]
+    public async Task<Property> MatchWithFallthroughFalseShouldMatchPatternsCorrectlyWithNullable(
         Func<string, Task<bool>> predicate,
         string value)
     {
@@ -339,24 +326,23 @@ public class AsyncMatchExpressionBuilderTests
 
         var pattern = AsyncPattern.CreatePattern(predicate);
 
-        var result = AsyncMatch.CreateStatic<string, bool?>(match => match
+        var result = await AsyncMatch.CreateStatic<string, bool?>(match => match
                 .Fallthrough(true)
                 .Case(pattern, fallthrough: false, _ => true)
                 .Case(AsyncPattern.Any<string>(), _ => false))
             .ExecuteWithFallthroughAsync(value)
-            .ToListAsync()
-            .Result;
+            .ToListAsync();
 
         var success = new List<bool?> { true };
         var failure = new List<bool?> { false };
 
-        return pattern.MatchAsync(value).Result.IsSuccessful
+        return (await pattern.MatchAsync(value)).IsSuccessful
             ? result.SequenceEqual(success).ToProperty()
             : result.SequenceEqual(failure).ToProperty();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
-    public Property MatchWithFallthroughTrueShouldMatchPatternsCorrectly(
+    [Property]
+    public async Task<Property> MatchWithFallthroughTrueShouldMatchPatternsCorrectly(
         Func<string, Task<bool>> predicate,
         string value)
     {
@@ -364,24 +350,23 @@ public class AsyncMatchExpressionBuilderTests
 
         var pattern = AsyncPattern.CreatePattern(predicate);
 
-        var result = AsyncMatch.CreateStatic<string, bool>(match => match
+        var result = await AsyncMatch.CreateStatic<string, bool>(match => match
                 .Fallthrough(false)
                 .Case(pattern, fallthrough: true, _ => true)
                 .Case(AsyncPattern.Any<string>(), _ => false))
             .ExecuteWithFallthroughAsync(value)
-            .ToListAsync()
-            .Result;
+            .ToListAsync();
 
         var success = new List<bool> { true, false };
         var failure = new List<bool> { false };
 
-        return pattern.MatchAsync(value).Result.IsSuccessful
+        return (await pattern.MatchAsync(value)).IsSuccessful
             ? result.SequenceEqual(success).ToProperty()
             : result.SequenceEqual(failure).ToProperty();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
-    public Property MatchWithFallthroughTrueShouldMatchPatternsCorrectlyWithNullable(
+    [Property]
+    public async Task<Property> MatchWithFallthroughTrueShouldMatchPatternsCorrectlyWithNullable(
         Func<string, Task<bool>> predicate,
         string value)
     {
@@ -389,23 +374,22 @@ public class AsyncMatchExpressionBuilderTests
 
         var pattern = AsyncPattern.CreatePattern(predicate);
 
-        var result = AsyncMatch.CreateStatic<string, bool?>(match => match
+        var result = await AsyncMatch.CreateStatic<string, bool?>(match => match
                 .Fallthrough(false)
                 .Case(pattern, fallthrough: true, _ => true)
                 .Case(AsyncPattern.Any<string>(), _ => false))
             .ExecuteWithFallthroughAsync(value)
-            .ToListAsync()
-            .Result;
+            .ToListAsync();
 
         var success = new List<bool?> { true, false };
         var failure = new List<bool?> { false };
 
-        return pattern.MatchAsync(value).Result.IsSuccessful
+        return (await pattern.MatchAsync(value)).IsSuccessful
             ? result.SequenceEqual(success).ToProperty()
             : result.SequenceEqual(failure).ToProperty();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property MatchWithFallthroughTrueShouldBeLazy(Func<string, Task<bool>> predicate, string value)
     {
         AsyncMatch.ClearCache<string, int>();
@@ -423,7 +407,7 @@ public class AsyncMatchExpressionBuilderTests
         return (count == 0).ToProperty();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property MatchWithFallthroughShouldNeverReturnNull(Func<string, Task<bool>> predicate, string value)
     {
         AsyncMatch.ClearCache<string, bool>();
@@ -439,25 +423,24 @@ public class AsyncMatchExpressionBuilderTests
         return (result != null).ToProperty();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
-    public Property MatchWithFallthroughShouldReturnEmptyEnumerableIfNoMatchFound(string value)
+    [Property]
+    public async Task<Property> MatchWithFallthroughShouldReturnEmptyEnumerableIfNoMatchFound(string value)
     {
         AsyncMatch.ClearCache<string, bool>();
 
         var pattern = AsyncPattern.CreatePattern<string>(_ => Task.FromResult(false));
 
-        var result = AsyncMatch.CreateStatic<string, bool>(match => match
+        var result = await AsyncMatch.CreateStatic<string, bool>(match => match
                 .Fallthrough(true)
                 .Case(pattern, _ => true))
             .ExecuteWithFallthroughAsync(value)
-            .ToListAsync()
-            .Result;
+            .ToListAsync();
 
         return result.SequenceEqual(Enumerable.Empty<bool>()).ToProperty();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
-    public Property MatchToFunctionShouldMatchPatternsCorrectly(
+    [Property]
+    public async Task<Property> MatchToFunctionShouldMatchPatternsCorrectly(
         Func<string, Task<bool>> predicate,
         string value)
     {
@@ -465,17 +448,16 @@ public class AsyncMatchExpressionBuilderTests
 
         var pattern = AsyncPattern.CreatePattern(predicate);
 
-        bool matchSuccessful = AsyncMatch.CreateStatic<string, bool>(match => match
+        bool matchSuccessful = await AsyncMatch.CreateStatic<string, bool>(match => match
                 .Case(pattern, _ => true)
                 .Case(AsyncPattern.Any<string>(), _ => false))
-            .ToFunction()(value)
-            .Result;
+            .ToFunction()(value);
 
-        return (matchSuccessful == pattern.MatchAsync(value).Result.IsSuccessful).ToProperty();
+        return (matchSuccessful == (await pattern.MatchAsync(value)).IsSuccessful).ToProperty();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
-    public Property NonStrictMatchToFunctionShouldMatchPatternsCorrectly(
+    [Property]
+    public async Task<Property> NonStrictMatchToFunctionShouldMatchPatternsCorrectly(
         Func<string, Task<bool>> predicate,
         string value)
     {
@@ -483,19 +465,18 @@ public class AsyncMatchExpressionBuilderTests
 
         var pattern = AsyncPattern.CreatePattern(predicate);
 
-        var result = AsyncMatch.CreateStatic<string, bool>(match => match
+        var result = await AsyncMatch.CreateStatic<string, bool>(match => match
                 .Case(pattern, _ => true)
                 .Case(AsyncPattern.Any<string>(), _ => false))
-            .ToNonStrictFunction()(value)
-            .Result;
+            .ToNonStrictFunction()(value);
 
         bool matchSuccessful = result.IsSuccessful && result.Value;
 
-        return (matchSuccessful == pattern.MatchAsync(value).Result.IsSuccessful).ToProperty();
+        return (matchSuccessful == (await pattern.MatchAsync(value)).IsSuccessful).ToProperty();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
-    public Property NonStrictMatchToFunctionShouldMatchPatternsCorrectlyWithNull(
+    [Property]
+    public async Task<Property> NonStrictMatchToFunctionShouldMatchPatternsCorrectlyWithNull(
         Func<string, Task<bool>> predicate,
         string value)
     {
@@ -503,19 +484,18 @@ public class AsyncMatchExpressionBuilderTests
 
         var pattern = AsyncPattern.CreatePattern(predicate);
 
-        var result = AsyncMatch.CreateStatic<string, bool?>(match => match
+        var result = await AsyncMatch.CreateStatic<string, bool?>(match => match
                 .Case(pattern, _ => true)
                 .Case(AsyncPattern.Any<string>(), _ => Task.FromResult<bool?>(null)))
-            .ToNonStrictFunction()(value)
-            .Result;
+            .ToNonStrictFunction()(value);
 
         var matchSuccessful = result.IsSuccessful ? result.Value : false;
 
-        return (matchSuccessful == true == pattern.MatchAsync(value).Result.IsSuccessful).ToProperty();
+        return (matchSuccessful == true == (await pattern.MatchAsync(value)).IsSuccessful).ToProperty();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
-    public Property NonStrictMatchToFunctionShouldMatchPatternsCorrectlyWithNullable(
+    [Property]
+    public async Task<Property> NonStrictMatchToFunctionShouldMatchPatternsCorrectlyWithNullable(
         Func<string, Task<bool>> predicate,
         string value)
     {
@@ -523,19 +503,18 @@ public class AsyncMatchExpressionBuilderTests
 
         var pattern = AsyncPattern.CreatePattern(predicate);
 
-        var result = AsyncMatch.CreateStatic<string, bool?>(match => match
+        var result = await AsyncMatch.CreateStatic<string, bool?>(match => match
                 .Case(pattern, _ => true)
                 .Case(AsyncPattern.Any<string>(), _ => false))
-            .ToNonStrictFunction()(value)
-            .Result;
+            .ToNonStrictFunction()(value);
 
         var matchSuccessful = result.IsSuccessful ? result.Value : false;
 
-        return (matchSuccessful == pattern.MatchAsync(value).Result.IsSuccessful).ToProperty();
+        return (matchSuccessful == (await pattern.MatchAsync(value)).IsSuccessful).ToProperty();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
-    public Property NonStrictMatchToFunctionShouldReturnNothingIfNoMatchFound(
+    [Property]
+    public async Task<Property> NonStrictMatchToFunctionShouldReturnNothingIfNoMatchFound(
         Func<string, Task<bool>> predicate,
         string value)
     {
@@ -543,40 +522,35 @@ public class AsyncMatchExpressionBuilderTests
 
         var pattern = AsyncPattern.CreatePattern(predicate);
 
-        var result = AsyncMatch.CreateStatic<string, bool>(match => match
+        var result = await AsyncMatch.CreateStatic<string, bool>(match => match
                 .Case(pattern, _ => true))
-            .ToNonStrictFunction()(value)
-            .Result;
+            .ToNonStrictFunction()(value);
 
-        return (result.IsSuccessful == pattern.MatchAsync(value).Result.IsSuccessful).ToProperty();
+        return (result.IsSuccessful == (await pattern.MatchAsync(value)).IsSuccessful).ToProperty();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
-    public void MatchToFunctionShouldThrowIfNoMatchFound(Func<string, Task<bool>> predicate, string value)
+    [Property]
+    public async Task MatchToFunctionShouldThrowIfNoMatchFound(Func<string, Task<bool>> predicate, string value)
     {
         AsyncMatch.ClearCache<string, bool>();
 
         var pattern = AsyncPattern.CreatePattern(predicate);
 
-        var action = () =>
-        {
-            _ = AsyncMatch.CreateStatic<string, bool>(match => match
-                    .Case(pattern, _ => true))
-                .ToFunction()(value)
-                .Result;
-        };
+        var action = () => AsyncMatch.CreateStatic<string, bool>(match => match
+                .Case(pattern, _ => true))
+            .ToFunction()(value);
 
-        if (pattern.MatchAsync(value).Result.IsSuccessful)
+        if ((await pattern.MatchAsync(value)).IsSuccessful)
         {
-            action.Should().NotThrow<MatchException>();
+            await action.Should().NotThrowAsync<MatchException>();
         } else
         {
-            action.Should().Throw<MatchException>();
+            await action.Should().ThrowAsync<MatchException>();
         }
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
-    public void NonStrictMatchToFunctionShouldNotThrowIfNoMatchFound(
+    [Property]
+    public async Task NonStrictMatchToFunctionShouldNotThrowIfNoMatchFound(
         Func<string, Task<bool>> predicate,
         string value)
     {
@@ -584,19 +558,15 @@ public class AsyncMatchExpressionBuilderTests
 
         var pattern = AsyncPattern.CreatePattern(predicate);
 
-        var action = () =>
-        {
-            _ = AsyncMatch.CreateStatic<string, bool>(match => match
-                    .Case(pattern, _ => true))
-                .ToNonStrictFunction()(value)
-                .Result;
-        };
+        var action = () => AsyncMatch.CreateStatic<string, bool>(match => match
+                .Case(pattern, _ => true))
+            .ToNonStrictFunction()(value);
 
-        action.Should().NotThrow<MatchException>();
+        await action.Should().NotThrowAsync<MatchException>();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
-    public Property MatchToFunctionWithFallthroughShouldMatchPatternsCorrectly(
+    [Property]
+    public async Task<Property> MatchToFunctionWithFallthroughShouldMatchPatternsCorrectly(
         Func<string, Task<bool>> predicate,
         string value)
     {
@@ -604,24 +574,23 @@ public class AsyncMatchExpressionBuilderTests
 
         var pattern = AsyncPattern.CreatePattern(predicate);
 
-        var result = AsyncMatch.CreateStatic<string, bool>(match => match
+        var result = await AsyncMatch.CreateStatic<string, bool>(match => match
                 .Fallthrough(true)
                 .Case(pattern, _ => true)
                 .Case(AsyncPattern.Any<string>(), _ => false))
             .ToFunctionWithFallthrough()(value)
-            .ToListAsync()
-            .Result;
+            .ToListAsync();
 
         var success = new List<bool> { true, false };
         var failure = new List<bool> { false };
 
-        return pattern.MatchAsync(value).Result.IsSuccessful
+        return (await pattern.MatchAsync(value)).IsSuccessful
             ? result.SequenceEqual(success).ToProperty()
             : result.SequenceEqual(failure).ToProperty();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
-    public Property MatchToFunctionWithFallthroughShouldMatchPatternsCorrectlyWithNullable(
+    [Property]
+    public async Task<Property> MatchToFunctionWithFallthroughShouldMatchPatternsCorrectlyWithNullable(
         Func<string, Task<bool>> predicate,
         string value)
     {
@@ -629,23 +598,22 @@ public class AsyncMatchExpressionBuilderTests
 
         var pattern = AsyncPattern.CreatePattern(predicate);
 
-        var result = AsyncMatch.CreateStatic<string, bool?>(match => match
+        var result = await AsyncMatch.CreateStatic<string, bool?>(match => match
                 .Fallthrough(true)
                 .Case(pattern, _ => true)
                 .Case(AsyncPattern.Any<string>(), _ => false))
             .ToFunctionWithFallthrough()(value)
-            .ToListAsync()
-            .Result;
+            .ToListAsync();
 
         var success = new List<bool?> { true, false };
         var failure = new List<bool?> { false };
 
-        return pattern.MatchAsync(value).Result.IsSuccessful
+        return (await pattern.MatchAsync(value)).IsSuccessful
             ? result.SequenceEqual(success).ToProperty()
             : result.SequenceEqual(failure).ToProperty();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property MatchToFunctionWithFallthroughShouldBeLazy(Func<string, Task<bool>> predicate, string value)
     {
         AsyncMatch.ClearCache<string, int>();
@@ -663,8 +631,8 @@ public class AsyncMatchExpressionBuilderTests
         return (count == 0).ToProperty();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
-    public Property MatchToFunctionWithFallthroughFalseShouldMatchPatternsCorrectly(
+    [Property]
+    public async Task<Property> MatchToFunctionWithFallthroughFalseShouldMatchPatternsCorrectly(
         Func<string, Task<bool>> predicate,
         string value)
     {
@@ -672,24 +640,23 @@ public class AsyncMatchExpressionBuilderTests
 
         var pattern = AsyncPattern.CreatePattern(predicate);
 
-        var result = AsyncMatch.CreateStatic<string, bool>(match => match
+        var result = await AsyncMatch.CreateStatic<string, bool>(match => match
                 .Fallthrough(true)
                 .Case(pattern, fallthrough: false, _ => true)
                 .Case(AsyncPattern.Any<string>(), _ => false))
             .ToFunctionWithFallthrough()(value)
-            .ToListAsync()
-            .Result;
+            .ToListAsync();
 
         var success = new List<bool> { true };
         var failure = new List<bool> { false };
 
-        return pattern.MatchAsync(value).Result.IsSuccessful
+        return (await pattern.MatchAsync(value)).IsSuccessful
             ? result.SequenceEqual(success).ToProperty()
             : result.SequenceEqual(failure).ToProperty();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
-    public Property MatchToFunctionWithFallthroughFalseShouldMatchPatternsCorrectlyWithNullable(
+    [Property]
+    public async Task<Property> MatchToFunctionWithFallthroughFalseShouldMatchPatternsCorrectlyWithNullable(
         Func<string, Task<bool>> predicate,
         string value)
     {
@@ -697,24 +664,23 @@ public class AsyncMatchExpressionBuilderTests
 
         var pattern = AsyncPattern.CreatePattern(predicate);
 
-        var result = AsyncMatch.CreateStatic<string, bool?>(match => match
+        var result = await AsyncMatch.CreateStatic<string, bool?>(match => match
                 .Fallthrough(true)
                 .Case(pattern, fallthrough: false, _ => true)
                 .Case(AsyncPattern.Any<string>(), _ => false))
             .ToFunctionWithFallthrough()(value)
-            .ToListAsync()
-            .Result;
+            .ToListAsync();
 
         var success = new List<bool?> { true };
         var failure = new List<bool?> { false };
 
-        return pattern.MatchAsync(value).Result.IsSuccessful
+        return (await pattern.MatchAsync(value)).IsSuccessful
             ? result.SequenceEqual(success).ToProperty()
             : result.SequenceEqual(failure).ToProperty();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
-    public Property MatchToFunctionWithFallthroughTrueShouldMatchPatternsCorrectly(
+    [Property]
+    public async Task<Property> MatchToFunctionWithFallthroughTrueShouldMatchPatternsCorrectly(
         Func<string, Task<bool>> predicate,
         string value)
     {
@@ -722,24 +688,23 @@ public class AsyncMatchExpressionBuilderTests
 
         var pattern = AsyncPattern.CreatePattern(predicate);
 
-        var result = AsyncMatch.CreateStatic<string, bool>(match => match
+        var result = await AsyncMatch.CreateStatic<string, bool>(match => match
                 .Fallthrough(false)
                 .Case(pattern, fallthrough: true, _ => true)
                 .Case(AsyncPattern.Any<string>(), _ => false))
             .ToFunctionWithFallthrough()(value)
-            .ToListAsync()
-            .Result;
+            .ToListAsync();
 
         var success = new List<bool> { true, false };
         var failure = new List<bool> { false };
 
-        return pattern.MatchAsync(value).Result.IsSuccessful
+        return (await pattern.MatchAsync(value)).IsSuccessful
             ? result.SequenceEqual(success).ToProperty()
             : result.SequenceEqual(failure).ToProperty();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
-    public Property MatchToFunctionWithFallthroughTrueShouldMatchPatternsCorrectlyWithNullable(
+    [Property]
+    public async Task<Property> MatchToFunctionWithFallthroughTrueShouldMatchPatternsCorrectlyWithNullable(
         Func<string, Task<bool>> predicate,
         string value)
     {
@@ -747,23 +712,22 @@ public class AsyncMatchExpressionBuilderTests
 
         var pattern = AsyncPattern.CreatePattern(predicate);
 
-        var result = AsyncMatch.CreateStatic<string, bool?>(match => match
+        var result = await AsyncMatch.CreateStatic<string, bool?>(match => match
                 .Fallthrough(false)
                 .Case(pattern, fallthrough: true, _ => true)
                 .Case(AsyncPattern.Any<string>(), _ => false))
             .ToFunctionWithFallthrough()(value)
-            .ToListAsync()
-            .Result;
+            .ToListAsync();
 
         var success = new List<bool?> { true, false };
         var failure = new List<bool?> { false };
 
-        return pattern.MatchAsync(value).Result.IsSuccessful
+        return (await pattern.MatchAsync(value)).IsSuccessful
             ? result.SequenceEqual(success).ToProperty()
             : result.SequenceEqual(failure).ToProperty();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property MatchToFunctionWithFallthroughTrueShouldBeLazy(Func<string, Task<bool>> predicate, string value)
     {
         AsyncMatch.ClearCache<string, int>();
@@ -781,7 +745,7 @@ public class AsyncMatchExpressionBuilderTests
         return (count == 0).ToProperty();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property MatchToFunctionWithFallthroughShouldNeverReturnNull(
         Func<string, Task<bool>> predicate,
         string value)
@@ -799,19 +763,18 @@ public class AsyncMatchExpressionBuilderTests
         return (result != null).ToProperty();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
-    public Property MatchToFunctionWithFallthroughShouldReturnEmptyEnumerableIfNoMatchFound(string value)
+    [Property]
+    public async Task<Property> MatchToFunctionWithFallthroughShouldReturnEmptyEnumerableIfNoMatchFound(string value)
     {
         AsyncMatch.ClearCache<string, bool>();
 
         var pattern = AsyncPattern.CreatePattern<string>(_ => Task.FromResult(false));
 
-        var result = AsyncMatch.CreateStatic<string, bool>(match => match
+        var result = await AsyncMatch.CreateStatic<string, bool>(match => match
                 .Fallthrough(true)
                 .Case(pattern, _ => true))
             .ToFunctionWithFallthrough()(value)
-            .ToListAsync()
-            .Result;
+            .ToListAsync();
 
         return result.SequenceEqual(Enumerable.Empty<bool>()).ToProperty();
     }
@@ -819,9 +782,8 @@ public class AsyncMatchExpressionBuilderTests
     [Fact]
     public void MatchShouldThrowIfAsyncPatternIsNull()
     {
-        var action = () =>
-            AsyncMatch.CreateStatic<string, bool>(match => match
-                .Case((IAsyncPattern<string, string>)null, _ => true));
+        var action = () => AsyncMatch.CreateStatic<string, bool>(match => match
+            .Case((IAsyncPattern<string, string>)null, _ => true));
 
         action.Should().Throw<ArgumentNullException>();
     }
@@ -829,9 +791,8 @@ public class AsyncMatchExpressionBuilderTests
     [Fact]
     public void MatchShouldThrowIfSyncPatternIsNullWithAsyncAction()
     {
-        var action = () =>
-            AsyncMatch.CreateStatic<string, bool>(match => match
-                .Case((IPattern<string, string>)null, _ => Task.FromResult(true)));
+        var action = () => AsyncMatch.CreateStatic<string, bool>(match => match
+            .Case((IPattern<string, string>)null, _ => Task.FromResult(true)));
 
         action.Should().Throw<ArgumentNullException>();
     }
@@ -839,9 +800,8 @@ public class AsyncMatchExpressionBuilderTests
     [Fact]
     public void MatchShouldThrowIfAsyncPatternIsNullWithAsyncAction()
     {
-        var action = () =>
-            AsyncMatch.CreateStatic<string, bool>(match => match
-                .Case((IAsyncPattern<string, string>)null, _ => Task.FromResult(true)));
+        var action = () => AsyncMatch.CreateStatic<string, bool>(match => match
+            .Case((IAsyncPattern<string, string>)null, _ => Task.FromResult(true)));
 
         action.Should().Throw<ArgumentNullException>();
     }
@@ -849,21 +809,19 @@ public class AsyncMatchExpressionBuilderTests
     [Fact]
     public void MatchShouldThrowIfSyncPatternIsNullWithSyncAction()
     {
-        var action = () =>
-            AsyncMatch.CreateStatic<string, bool>(match => match
-                .Case((IPattern<string, string>)null, _ => true));
+        var action = () => AsyncMatch.CreateStatic<string, bool>(match => match
+            .Case((IPattern<string, string>)null, _ => true));
 
         action.Should().Throw<ArgumentNullException>();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public void MatchShouldThrowIfCaseFunctionIsNullWithSyncAction(Func<string, Task<bool>> predicate)
     {
         var pattern = AsyncPattern.CreatePattern(predicate);
 
-        var action = () =>
-            AsyncMatch.CreateStatic<string, bool>(match => match
-                .Case(pattern, (Func<string, Task<bool>>)null));
+        var action = () => AsyncMatch.CreateStatic<string, bool>(match => match
+            .Case(pattern, (Func<string, Task<bool>>)null));
 
         action.Should().Throw<ArgumentNullException>();
     }
@@ -871,9 +829,8 @@ public class AsyncMatchExpressionBuilderTests
     [Fact]
     public void MatchShouldThrowIfCaseTypeAsyncFunctionIsNull()
     {
-        var action = () =>
-            AsyncMatch.CreateStatic<string, bool>(match => match
-                .Case((Func<string, Task<bool>>)null));
+        var action = () => AsyncMatch.CreateStatic<string, bool>(match => match
+            .Case((Func<string, Task<bool>>)null));
 
         action.Should().Throw<ArgumentNullException>();
     }
@@ -881,9 +838,8 @@ public class AsyncMatchExpressionBuilderTests
     [Fact]
     public void MatchShouldThrowIfCaseTypeSyncFunctionIsNull()
     {
-        var action = () =>
-            AsyncMatch.CreateStatic<string, bool>(match => match
-                .Case((Func<string, bool>)null));
+        var action = () => AsyncMatch.CreateStatic<string, bool>(match => match
+            .Case((Func<string, bool>)null));
 
         action.Should().Throw<ArgumentNullException>();
     }
@@ -893,9 +849,8 @@ public class AsyncMatchExpressionBuilderTests
     [InlineData(false)]
     public void MatchShouldThrowIfAsyncPatternWithFallthroughIsNullWithAsyncAction(bool fallthrough)
     {
-        var action = () =>
-            AsyncMatch.CreateStatic<string, bool>(match => match
-                .Case((IAsyncPattern<string, string>)null, fallthrough, _ => Task.FromResult(true)));
+        var action = () => AsyncMatch.CreateStatic<string, bool>(match => match
+            .Case((IAsyncPattern<string, string>)null, fallthrough, _ => Task.FromResult(true)));
 
         action.Should().Throw<ArgumentNullException>();
     }
@@ -905,9 +860,8 @@ public class AsyncMatchExpressionBuilderTests
     [InlineData(false)]
     public void MatchShouldThrowIfAsyncPatternWithFallthroughIsNullWithSyncAction(bool fallthrough)
     {
-        Action action = () =>
-            AsyncMatch.CreateStatic<string, bool>(match => match
-                .Case((IAsyncPattern<string, string>)null, fallthrough, _ => true));
+        var action = () => AsyncMatch.CreateStatic<string, bool>(match => match
+            .Case((IAsyncPattern<string, string>)null, fallthrough, _ => true));
 
         action.Should().Throw<ArgumentNullException>();
     }
@@ -917,9 +871,8 @@ public class AsyncMatchExpressionBuilderTests
     [InlineData(false)]
     public void MatchShouldThrowIfSyncPatternWithFallthroughIsNullWithAsyncAction(bool fallthrough)
     {
-        var action = () =>
-            AsyncMatch.CreateStatic<string, bool>(match => match
-                .Case((IPattern<string, string>)null, fallthrough, _ => Task.FromResult(true)));
+        var action = () => AsyncMatch.CreateStatic<string, bool>(match => match
+            .Case((IPattern<string, string>)null, fallthrough, _ => Task.FromResult(true)));
 
         action.Should().Throw<ArgumentNullException>();
     }
@@ -929,85 +882,78 @@ public class AsyncMatchExpressionBuilderTests
     [InlineData(false)]
     public void MatchShouldThrowIfSyncPatternWithFallthroughIsNullWithSyncAction(bool fallthrough)
     {
-        var action = () =>
-            AsyncMatch.CreateStatic<string, bool>(match => match
-                .Case((IPattern<string, string>)null, fallthrough, _ => true));
+        var action = () => AsyncMatch.CreateStatic<string, bool>(match => match
+            .Case((IPattern<string, string>)null, fallthrough, _ => true));
 
         action.Should().Throw<ArgumentNullException>();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public void MatchShouldThrowIfCaseAsyncFunctionWithFallthroughIsNullWithAsyncPattern(
         Func<string, Task<bool>> predicate,
         bool fallthrough)
     {
         var pattern = AsyncPattern.CreatePattern(predicate);
 
-        var action = () =>
-            AsyncMatch.CreateStatic<string, bool>(match => match
-                .Case(pattern, fallthrough, (Func<string, Task<bool>>)null));
+        var action = () => AsyncMatch.CreateStatic<string, bool>(match => match
+            .Case(pattern, fallthrough, (Func<string, Task<bool>>)null));
 
         action.Should().Throw<ArgumentNullException>();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public void MatchShouldThrowIfCaseSyncFunctionWithFallthroughIsNullWithAsyncPattern(
         Func<string, Task<bool>> predicate,
         bool fallthrough)
     {
         var pattern = AsyncPattern.CreatePattern(predicate);
 
-        var action = () =>
-            AsyncMatch.CreateStatic<string, bool>(match => match
-                .Case(pattern, fallthrough, (Func<string, bool>)null));
+        var action = () => AsyncMatch.CreateStatic<string, bool>(match => match
+            .Case(pattern, fallthrough, (Func<string, bool>)null));
 
         action.Should().Throw<ArgumentNullException>();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public void MatchShouldThrowIfCaseAsyncFunctionWithFallthroughIsNullWithSyncPattern(
         Func<string, bool> predicate,
         bool fallthrough)
     {
         var pattern = Pattern.CreatePattern(predicate);
 
-        var action = () =>
-            AsyncMatch.CreateStatic<string, bool>(match => match
-                .Case(pattern, fallthrough, (Func<string, Task<bool>>)null));
+        var action = () => AsyncMatch.CreateStatic<string, bool>(match => match
+            .Case(pattern, fallthrough, (Func<string, Task<bool>>)null));
 
         action.Should().Throw<ArgumentNullException>();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public void MatchShouldThrowIfCaseSyncFunctionWithFallthroughIsNullWithSyncPattern(
         Func<string, bool> predicate,
         bool fallthrough)
     {
         var pattern = Pattern.CreatePattern(predicate);
 
-        var action = () =>
-            AsyncMatch.CreateStatic<string, bool>(match => match
-                .Case(pattern, fallthrough, (Func<string, bool>)null));
+        var action = () => AsyncMatch.CreateStatic<string, bool>(match => match
+            .Case(pattern, fallthrough, (Func<string, bool>)null));
 
         action.Should().Throw<ArgumentNullException>();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public void MatchShouldThrowIfCaseTypeAsyncFunctionWithFallthroughIsNull(bool fallthrough)
     {
-        var action = () =>
-            AsyncMatch.CreateStatic<string, bool>(match => match
-                .Case(fallthrough, (Func<string, Task<bool>>)null));
+        var action = () => AsyncMatch.CreateStatic<string, bool>(match => match
+            .Case(fallthrough, (Func<string, Task<bool>>)null));
 
         action.Should().Throw<ArgumentNullException>();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public void MatchShouldThrowIfCaseTypeSyncFunctionWithFallthroughIsNull(bool fallthrough)
     {
-        var action = () =>
-            AsyncMatch.CreateStatic<string, bool>(match => match
-                .Case(fallthrough, (Func<string, bool>)null));
+        var action = () => AsyncMatch.CreateStatic<string, bool>(match => match
+            .Case(fallthrough, (Func<string, bool>)null));
 
         action.Should().Throw<ArgumentNullException>();
     }

@@ -4,140 +4,141 @@ public class GreaterOrEqualTests
 {
     private static readonly IComparer<string> StringComparer = Comparer<string>.Default;
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property GreaterOrEqualShouldNeverReturnNull(Task<string> x) =>
         (AsyncPattern.GreaterOrEqual(x) != null).ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property LazyGreaterOrEqualShouldNeverReturnNull(Task<string> x) =>
         (AsyncPattern.GreaterOrEqual(() => x) != null).ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property GreaterOrEqualWithComparerShouldNeverReturnNull(Task<string> x) =>
         (AsyncPattern.GreaterOrEqual(x, StringComparer) != null).ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property LazyGreaterOrEqualWithComparerShouldNeverReturnNull(Task<string> x) =>
         (AsyncPattern.GreaterOrEqual(() => x, StringComparer) != null).ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property GreaterOrEqualWithDescriptionShouldNeverReturnNull(Task<string> x, NonNull<string> description) =>
         (AsyncPattern.GreaterOrEqual(x, description.Get) != null).ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property LazyGreaterOrEqualWithDescriptionShouldNeverReturnNull(
         Task<string> x,
         NonNull<string> description) =>
         (AsyncPattern.GreaterOrEqual(() => x, description.Get) != null).ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property GreaterOrEqualWithComparerAndDescriptionShouldNeverReturnNull(
         Task<string> x,
         NonNull<string> description) =>
         (AsyncPattern.GreaterOrEqual(x, StringComparer, description.Get) != null).ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property LazyGreaterOrEqualWithComparerAndDescriptionShouldNeverReturnNull(
         Task<string> x,
         NonNull<string> description) =>
         (AsyncPattern.GreaterOrEqual(() => x, StringComparer, description.Get) != null).ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
-    public Property GreaterOrEqualShouldSucceedOnlyOnEqualObjects(string x, Task<string> y) =>
-        (Comparer<string>.Default.Compare(x, y.Result) >= 0 ==
-            AsyncPattern.GreaterOrEqual(y).MatchAsync(x).Result.IsSuccessful)
+    [Property]
+    public async Task<Property> GreaterOrEqualShouldSucceedOnlyOnEqualObjects(string x, Task<string> y) =>
+        (Comparer<string>.Default.Compare(x, await y) >= 0 ==
+            (await AsyncPattern.GreaterOrEqual(y).MatchAsync(x)).IsSuccessful)
             .ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
-    public Property LazyGreaterOrEqualShouldSucceedOnlyOnEqualObjects(string x, Task<string> y) =>
-        (Comparer<string>.Default.Compare(x, y.Result) >= 0 ==
-            AsyncPattern.GreaterOrEqual(() => y).MatchAsync(x).Result.IsSuccessful)
+    [Property]
+    public async Task<Property> LazyGreaterOrEqualShouldSucceedOnlyOnEqualObjects(string x, Task<string> y) =>
+        (Comparer<string>.Default.Compare(x, await y) >= 0 ==
+            (await AsyncPattern.GreaterOrEqual(() => y).MatchAsync(x)).IsSuccessful)
             .ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
-    public Property GreaterOrEqualWithComparerShouldSucceedOnlyOnEqualObjects(string x, Task<string> y) =>
-        (StringComparer.Compare(x, y.Result) >= 0 ==
-            AsyncPattern.GreaterOrEqual(y, StringComparer).MatchAsync(x).Result.IsSuccessful)
+    [Property]
+    public async Task<Property> GreaterOrEqualWithComparerShouldSucceedOnlyOnEqualObjects(string x, Task<string> y) =>
+        (StringComparer.Compare(x, await y) >= 0 ==
+            (await AsyncPattern.GreaterOrEqual(y, StringComparer).MatchAsync(x)).IsSuccessful)
             .ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
-    public Property LazyGreaterOrEqualWithComparerShouldSucceedOnlyOnEqualObjects(string x, Task<string> y) =>
-        (StringComparer.Compare(x, y.Result) >= 0 ==
-            AsyncPattern.GreaterOrEqual(() => y, StringComparer).MatchAsync(x).Result.IsSuccessful)
+    [Property]
+    public async Task<Property> LazyGreaterOrEqualWithComparerShouldSucceedOnlyOnEqualObjects(string x, Task<string> y) =>
+        (StringComparer.Compare(x, await y) >= 0 ==
+            (await AsyncPattern.GreaterOrEqual(() => y, StringComparer).MatchAsync(x)).IsSuccessful)
             .ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
-    public Property GreaterOrEqualWithDescriptionShouldSucceedOnlyOnEqualObjects(
+    [Property]
+    public async Task<Property> GreaterOrEqualWithDescriptionShouldSucceedOnlyOnEqualObjects(
         string x,
         Task<string> y,
         NonNull<string> description) =>
-        (Comparer<string>.Default.Compare(x, y.Result) >= 0 ==
-            AsyncPattern.GreaterOrEqual(y, description.Get).MatchAsync(x).Result.IsSuccessful)
+        (Comparer<string>.Default.Compare(x, await y) >= 0 ==
+            (await AsyncPattern.GreaterOrEqual(y, description.Get).MatchAsync(x)).IsSuccessful)
             .ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
-    public Property LazyGreaterOrEqualWithDescriptionShouldSucceedOnlyOnEqualObjects(
+    [Property]
+    public async Task<Property> LazyGreaterOrEqualWithDescriptionShouldSucceedOnlyOnEqualObjects(
         string x,
         Task<string> y,
         NonNull<string> description) =>
-        (Comparer<string>.Default.Compare(x, y.Result) >= 0 ==
-            AsyncPattern.GreaterOrEqual(() => y, description.Get).MatchAsync(x).Result.IsSuccessful)
+        (Comparer<string>.Default.Compare(x, await y) >= 0 ==
+            (await AsyncPattern.GreaterOrEqual(() => y, description.Get).MatchAsync(x)).IsSuccessful)
             .ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
-    public Property GreaterOrEqualWithComparerAndDescriptionShouldSucceedOnlyOnEqualObjects(
+    [Property]
+    public async Task<Property> GreaterOrEqualWithComparerAndDescriptionShouldSucceedOnlyOnEqualObjects(
         string x,
         Task<string> y,
         NonNull<string> description) =>
-        (StringComparer.Compare(x, y.Result) >= 0 ==
-            AsyncPattern.GreaterOrEqual(y, StringComparer, description.Get).MatchAsync(x).Result.IsSuccessful)
+        (StringComparer.Compare(x, await y) >= 0 ==
+            (await AsyncPattern.GreaterOrEqual(y, StringComparer, description.Get).MatchAsync(x)).IsSuccessful)
             .ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
-    public Property LazyGreaterOrEqualWithComparerAndDescriptionShouldSucceedOnlyOnEqualObjects(
+    [Property]
+    public async Task<Property> LazyGreaterOrEqualWithComparerAndDescriptionShouldSucceedOnlyOnEqualObjects(
         string x,
         Task<string> y,
         NonNull<string> description) =>
-        (StringComparer.Compare(x, y.Result) >= 0 ==
-            AsyncPattern.GreaterOrEqual(() => y, StringComparer, description.Get).MatchAsync(x).Result.IsSuccessful)
+        (StringComparer.Compare(x, await y) >= 0 ==
+            (await AsyncPattern.GreaterOrEqual(() => y, StringComparer, description.Get).MatchAsync(x)).IsSuccessful)
             .ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property GreaterOrEqualShouldHaveCorrectDefaultDescription(Task<string> x) =>
         (AsyncPattern.GreaterOrEqual(x).Description == AsyncPattern.DefaultGreaterOrEqualDescription)
             .ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property LazyGreaterOrEqualShouldHaveCorrectDefaultDescription(Task<string> x) =>
-        (AsyncPattern.GreaterOrEqual(() => x).Description == AsyncPattern.DefaultGreaterOrEqualDescription).ToProperty();
+        (AsyncPattern.GreaterOrEqual(() => x).Description == AsyncPattern.DefaultGreaterOrEqualDescription)
+            .ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property GreaterOrEqualWithComparerShouldHaveCorrectDefaultDescription(Task<string> x) =>
         (AsyncPattern.GreaterOrEqual(x, StringComparer).Description == AsyncPattern.DefaultGreaterOrEqualDescription)
             .ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property LazyGreaterOrEqualWithComparerShouldHaveCorrectDefaultDescription(Task<string> x) =>
         (AsyncPattern.GreaterOrEqual(() => x, StringComparer).Description ==
             AsyncPattern.DefaultGreaterOrEqualDescription)
             .ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property GreaterOrEqualShouldHaveSpecifiedDescription(Task<string> x, NonNull<string> description) =>
         (AsyncPattern.GreaterOrEqual(x, description.Get).Description == description.Get).ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property LazyGreaterOrEqualShouldHaveSpecifiedDescription(Task<string> x, NonNull<string> description) =>
         (AsyncPattern.GreaterOrEqual(() => x, description.Get).Description == description.Get).ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property GreaterOrEqualWithComparerShouldHaveSpecifiedDescription(
         Task<string> x,
         NonNull<string> description) =>
         (AsyncPattern.GreaterOrEqual(x, StringComparer, description.Get).Description == description.Get)
             .ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property LazyGreaterOrEqualWithComparerShouldHaveSpecifiedDescription(
         Task<string> x,
         NonNull<string> description) =>
@@ -161,7 +162,7 @@ public class GreaterOrEqualTests
         action.Should().NotThrow<AssertionFailedException>();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public void LazyGreaterOrEqualWithDescriptionShouldBeLazy(NonNull<string> description)
     {
         var action = () => AsyncPattern.GreaterOrEqual<string>(
@@ -170,7 +171,7 @@ public class GreaterOrEqualTests
         action.Should().NotThrow<AssertionFailedException>();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public void LazyGreaterOrEqualWithComparerAndDescriptionShouldBeLazy(NonNull<string> description)
     {
         var action = () => AsyncPattern.GreaterOrEqual(
@@ -180,8 +181,8 @@ public class GreaterOrEqualTests
         action.Should().NotThrow<AssertionFailedException>();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
-    public Property LazyGreaterOrEqualShouldBeMemoized(string input)
+    [Property]
+    public async Task<Property> LazyGreaterOrEqualShouldBeMemoized(string input)
     {
         int counter = 0;
 
@@ -191,14 +192,14 @@ public class GreaterOrEqualTests
             return Task.FromResult(String.Empty);
         });
 
-        pattern.MatchAsync(input);
-        pattern.MatchAsync(input);
+        await pattern.MatchAsync(input);
+        await pattern.MatchAsync(input);
 
         return (counter == 1).ToProperty();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
-    public Property LazyGreaterOrEqualWithComparerShouldBeMemoized(string input)
+    [Property]
+    public async Task<Property> LazyGreaterOrEqualWithComparerShouldBeMemoized(string input)
     {
         int counter = 0;
 
@@ -210,14 +211,16 @@ public class GreaterOrEqualTests
             },
             StringComparer);
 
-        pattern.MatchAsync(input);
-        pattern.MatchAsync(input);
+        await pattern.MatchAsync(input);
+        await pattern.MatchAsync(input);
 
         return (counter == 1).ToProperty();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
-    public Property LazyGreaterOrEqualWithDescriptionShouldBeMemoized(string input, NonNull<string> description)
+    [Property]
+    public async Task<Property> LazyGreaterOrEqualWithDescriptionShouldBeMemoized(
+        string input,
+        NonNull<string> description)
     {
         int counter = 0;
 
@@ -229,14 +232,16 @@ public class GreaterOrEqualTests
             },
             description.Get);
 
-        pattern.MatchAsync(input);
-        pattern.MatchAsync(input);
+        await pattern.MatchAsync(input);
+        await pattern.MatchAsync(input);
 
         return (counter == 1).ToProperty();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
-    public Property LazyGreaterOrEqualWithComparerAndDescriptionShouldBeMemoized(string input, NonNull<string> description)
+    [Property]
+    public async Task<Property> LazyGreaterOrEqualWithComparerAndDescriptionShouldBeMemoized(
+        string input,
+        NonNull<string> description)
     {
         int counter = 0;
 
@@ -249,41 +254,41 @@ public class GreaterOrEqualTests
             StringComparer,
             description.Get);
 
-        pattern.MatchAsync(input);
-        pattern.MatchAsync(input);
+        await pattern.MatchAsync(input);
+        await pattern.MatchAsync(input);
 
         return (counter == 1).ToProperty();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public void GreaterOrEqualShouldThrowIfComparerIsNull(Task<string> x)
     {
         var action = () => AsyncPattern.GreaterOrEqual(x, (IComparer<string>)null);
         action.Should().Throw<ArgumentNullException>();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public void LazyGreaterOrEqualShouldThrowIfComparerIsNull(Task<string> x)
     {
         var action = () => AsyncPattern.GreaterOrEqual(() => x, (IComparer<string>)null);
         action.Should().Throw<ArgumentNullException>();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public void GreaterOrEqualShouldThrowIfDescriptionIsNull(Task<string> x)
     {
         var action = () => AsyncPattern.GreaterOrEqual(x, (string)null);
         action.Should().Throw<ArgumentNullException>();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public void LazyGreaterOrEqualShouldThrowIfDescriptionIsNull(Task<string> x)
     {
         var action = () => AsyncPattern.GreaterOrEqual(() => x, (string)null);
         action.Should().Throw<ArgumentNullException>();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public void GreaterOrEqualShouldThrowIfComparerIsNullAndDescriptionIsNotNull(
         Task<string> x,
         NonNull<string> description)
@@ -292,7 +297,7 @@ public class GreaterOrEqualTests
         action.Should().Throw<ArgumentNullException>();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public void LazyGreaterOrEqualShouldThrowIfComparerIsNullAndDescriptionIsNotNull(
         Task<string> x,
         NonNull<string> description)
@@ -301,14 +306,14 @@ public class GreaterOrEqualTests
         action.Should().Throw<ArgumentNullException>();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public void GreaterOrEqualShouldThrowIfComparerIsNotNullAndDescriptionIsNull(Task<string> x)
     {
         var action = () => AsyncPattern.GreaterOrEqual(x, StringComparer, null);
         action.Should().Throw<ArgumentNullException>();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public void LazyGreaterOrEqualShouldThrowIfComparerIsNotNullAndDescriptionIsNull(Task<string> x)
     {
         var action = () => AsyncPattern.GreaterOrEqual(() => x, StringComparer, null);
@@ -329,14 +334,14 @@ public class GreaterOrEqualTests
         action.Should().Throw<ArgumentNullException>();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public void LazyGreaterOrEqualShouldThrowIfValueProviderIsNullAndDescriptionIsNotNull(NonNull<string> description)
     {
         var action = () => AsyncPattern.GreaterOrEqual((Func<Task<string>>)null, description.Get);
         action.Should().Throw<ArgumentNullException>();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public void LazyGreaterOrEqualShouldThrowIfValueProviderIsNullAndComparerAndDescriptionIsNotNull(
         NonNull<string> description)
     {

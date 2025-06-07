@@ -2,39 +2,39 @@ namespace Matchmaker.Linq;
 
 public class AsyncComposeOrTests
 {
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property ComposeOrPatternShouldNeverReturnNull(
         IAsyncPattern<string, string> pattern1,
         IAsyncPattern<string, string> pattern2) =>
         (pattern1.Compose(pattern2, PatternComposition.Or) != null).ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property ComposeOrPatternWithDescriptionShouldNeverReturnNull(
         IAsyncPattern<string, string> pattern1,
         IAsyncPattern<string, string> pattern2,
         NonNull<string> description) =>
         (pattern1.Compose(pattern2, PatternComposition.Or, description.Get) != null).ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
-    public Property ComposeOrPatternShouldBeSameAsEitherPattern(
+    [Property]
+    public async Task<Property> ComposeOrPatternShouldBeSameAsEitherPattern(
         IAsyncPattern<string, string> pattern1,
         IAsyncPattern<string, string> pattern2,
         string x) =>
-        ((pattern1.MatchAsync(x).Result.IsSuccessful || pattern2.MatchAsync(x).Result.IsSuccessful) ==
-            pattern1.Compose(pattern2, PatternComposition.Or).MatchAsync(x).Result.IsSuccessful)
+        (((await pattern1.MatchAsync(x)).IsSuccessful || (await pattern2.MatchAsync(x)).IsSuccessful) ==
+            (await pattern1.Compose(pattern2, PatternComposition.Or).MatchAsync(x)).IsSuccessful)
             .ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
-    public Property ComposeOrPatternWithDescriptionShouldBeSameAsEitherPattern(
+    [Property]
+    public async Task<Property> ComposeOrPatternWithDescriptionShouldBeSameAsEitherPattern(
         IAsyncPattern<string, string> pattern1,
         IAsyncPattern<string, string> pattern2,
         string x,
         NonNull<string> description) =>
-        ((pattern1.MatchAsync(x).Result.IsSuccessful || pattern2.MatchAsync(x).Result.IsSuccessful) ==
-            pattern1.Compose(pattern2, PatternComposition.Or, description.Get).MatchAsync(x).Result.IsSuccessful)
+        (((await pattern1.MatchAsync(x)).IsSuccessful || (await pattern2.MatchAsync(x)).IsSuccessful) ==
+            (await pattern1.Compose(pattern2, PatternComposition.Or, description.Get).MatchAsync(x)).IsSuccessful)
             .ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property ComposeOrPatternShouldHaveCorrectDescription(
         IAsyncPattern<string, string> pattern1,
         IAsyncPattern<string, string> pattern2) =>
@@ -43,7 +43,7 @@ public class AsyncComposeOrTests
              String.Format(AsyncPattern.DefaultOrDescriptionFormat, pattern1.Description, pattern2.Description))
             .ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property ComposeOrPatternShouldHaveEmptyDescriptionIfFirstPatternHasEmptyDescription(
         IAsyncPattern<string, string> pattern,
         Func<string, Task<bool>> predicate) =>
@@ -51,7 +51,7 @@ public class AsyncComposeOrTests
             .Compose(pattern, PatternComposition.Or).Description.Length == 0)
             .ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property ComposeOrPatternShouldHaveEmptyDescriptionIfSecondPatternHasEmptyDescription(
         IAsyncPattern<string, string> pattern,
         Func<string, Task<bool>> predicate) =>
@@ -59,7 +59,7 @@ public class AsyncComposeOrTests
             .Description.Length == 0)
             .ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property ComposeOrPatternShouldHaveEmptyDescriptionIfBothPatternsHaveEmptyDescription(
         Func<string, Task<bool>> predicate1,
         Func<string, Task<bool>> predicate2) =>
@@ -67,7 +67,7 @@ public class AsyncComposeOrTests
             .Compose(AsyncPattern.CreatePattern(predicate2, String.Empty), PatternComposition.Or)
             .Description.Length == 0).ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property ComposeOrPatternShouldHaveSpecifiedDescription(
         IAsyncPattern<string, string> pattern1,
         IAsyncPattern<string, string> pattern2,
@@ -75,14 +75,14 @@ public class AsyncComposeOrTests
         (pattern1.Compose(pattern2, PatternComposition.Or, description.Get).Description == description.Get)
             .ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public void ComposeOrPatternShouldThrowIfLeftPatternIsNull(IAsyncPattern<string, string> pattern)
     {
         var action = () => ((IAsyncPattern<string, string>)null).Compose(pattern, PatternComposition.Or);
         action.Should().Throw<ArgumentNullException>();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public void ComposeOrPatternWithDescriptionShouldThrowIfLeftPatternIsNull(
         IAsyncPattern<string, string> pattern,
         NonNull<string> description)
@@ -92,14 +92,14 @@ public class AsyncComposeOrTests
         action.Should().Throw<ArgumentNullException>();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public void ComposeOrPatternShouldThrowIfRightPatternIsNull(IAsyncPattern<string, string> pattern)
     {
         var action = () => pattern.Compose(null, PatternComposition.Or);
         action.Should().Throw<ArgumentNullException>();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public void ComposeOrPatternWithDescriptionShouldThrowIfRightPatternIsNull(
         IAsyncPattern<string, string> pattern,
         NonNull<string> description)
@@ -108,7 +108,7 @@ public class AsyncComposeOrTests
         action.Should().Throw<ArgumentNullException>();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public void ComposeOrPatternShouldThrowIfDescriptionIsNull(
         IAsyncPattern<string, string> pattern1,
         IAsyncPattern<string, string> pattern2)
@@ -117,39 +117,39 @@ public class AsyncComposeOrTests
         action.Should().Throw<ArgumentNullException>();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property OrPatternShouldNeverReturnNull(
         IAsyncPattern<string, string> pattern1,
         IAsyncPattern<string, string> pattern2) =>
         (pattern1.Or(pattern2) != null).ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property OrPatternWithDescriptionShouldNeverReturnNull(
         IAsyncPattern<string, string> pattern1,
         IAsyncPattern<string, string> pattern2,
         NonNull<string> description) =>
         (pattern1.Or(pattern2, description.Get) != null).ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
-    public Property OrPatternShouldBeSameAsEitherPattern(
+    [Property]
+    public async Task<Property> OrPatternShouldBeSameAsEitherPattern(
         IAsyncPattern<string, string> pattern1,
         IAsyncPattern<string, string> pattern2,
         string x) =>
-        ((pattern1.MatchAsync(x).Result.IsSuccessful || pattern2.MatchAsync(x).Result.IsSuccessful) ==
-            pattern1.Or(pattern2).MatchAsync(x).Result.IsSuccessful)
+        (((await pattern1.MatchAsync(x)).IsSuccessful || (await pattern2.MatchAsync(x)).IsSuccessful) ==
+            (await pattern1.Or(pattern2).MatchAsync(x)).IsSuccessful)
             .ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
-    public Property OrPatternWithDescriptionShouldBeSameAsEitherPattern(
+    [Property]
+    public async Task<Property> OrPatternWithDescriptionShouldBeSameAsEitherPattern(
         IAsyncPattern<string, string> pattern1,
         IAsyncPattern<string, string> pattern2,
         string x,
         NonNull<string> description) =>
-        ((pattern1.MatchAsync(x).Result.IsSuccessful || pattern2.MatchAsync(x).Result.IsSuccessful) ==
-            pattern1.Or(pattern2, description.Get).MatchAsync(x).Result.IsSuccessful)
+        (((await pattern1.MatchAsync(x)).IsSuccessful || (await pattern2.MatchAsync(x)).IsSuccessful) ==
+            (await pattern1.Or(pattern2, description.Get).MatchAsync(x)).IsSuccessful)
             .ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property OrPatternShouldHaveCorrectDescription(
         IAsyncPattern<string, string> pattern1,
         IAsyncPattern<string, string> pattern2) =>
@@ -158,19 +158,19 @@ public class AsyncComposeOrTests
                 String.Format(AsyncPattern.DefaultOrDescriptionFormat, pattern1.Description, pattern2.Description))
             .ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property OrPatternShouldHaveEmptyDescriptionIfFirstPatternHasEmptyDescription(
         IAsyncPattern<string, string> pattern,
         Func<string, Task<bool>> predicate) =>
         (AsyncPattern.CreatePattern(predicate, String.Empty).Or(pattern).Description.Length == 0).ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property OrPatternShouldHaveEmptyDescriptionIfSecondPatternHasEmptyDescription(
         IAsyncPattern<string, string> pattern,
         Func<string, Task<bool>> predicate) =>
         (pattern.Or(AsyncPattern.CreatePattern(predicate, String.Empty)).Description.Length == 0).ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property OrPatternShouldHaveEmptyDescriptionIfBothPatternsHaveEmptyDescription(
         Func<string, Task<bool>> predicate1,
         Func<string, Task<bool>> predicate2) =>
@@ -178,21 +178,21 @@ public class AsyncComposeOrTests
                 AsyncPattern.CreatePattern(predicate2, String.Empty))
             .Description.Length == 0).ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property OrPatternShouldHaveSpecifiedDescription(
         IAsyncPattern<string, string> pattern1,
         IAsyncPattern<string, string> pattern2,
         NonNull<string> description) =>
         (pattern1.Or(pattern2, description.Get).Description == description.Get).ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public void OrPatternShouldThrowIfLeftPatternIsNull(IAsyncPattern<string, string> pattern)
     {
         var action = () => ((IAsyncPattern<string, string>)null).Or(pattern);
         action.Should().Throw<ArgumentNullException>();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public void OrPatternWithDescriptionShouldThrowIfLeftPatternIsNull(
         IAsyncPattern<string, string> pattern,
         NonNull<string> description)
@@ -201,14 +201,14 @@ public class AsyncComposeOrTests
         action.Should().Throw<ArgumentNullException>();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public void OrPatternShouldThrowIfRightPatternIsNull(IAsyncPattern<string, string> pattern)
     {
         var action = () => pattern.Or(null);
         action.Should().Throw<ArgumentNullException>();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public void OrPatternWithDescriptionShouldThrowIfRightPatternIsNull(
         IAsyncPattern<string, string> pattern,
         NonNull<string> description)
@@ -217,7 +217,7 @@ public class AsyncComposeOrTests
         action.Should().Throw<ArgumentNullException>();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public void OrPatternShouldThrowIfDescriptionIsNull(
         IAsyncPattern<string, string> pattern1,
         IAsyncPattern<string, string> pattern2)

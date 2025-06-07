@@ -2,83 +2,84 @@ namespace Matchmaker.Linq;
 
 public class AsyncWhereTests
 {
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property WherePatternShouldNeverReturnNull(
         IAsyncPattern<string, string> pattern,
         Func<string, bool> predicate) =>
         (pattern.Where(predicate) != null).ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property WherePatternWithDescriptionShouldNeverReturnNull(
         IAsyncPattern<string, string> pattern,
         Func<string, bool> predicate,
         NonNull<string> description) =>
         (pattern.Where(predicate, description.Get) != null).ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
-    public Property WherePatternShouldMatchSameAsPatternAndPredicate(
+    [Property]
+    public async Task<Property> WherePatternShouldMatchSameAsPatternAndPredicate(
         IAsyncPattern<string, string> pattern,
         Func<string, bool> predicate,
         string input) =>
-        (pattern.Where(predicate).MatchAsync(input).Result.IsSuccessful ==
-                   (pattern.MatchAsync(input).Result.IsSuccessful && predicate(input)))
+        ((await pattern.Where(predicate).MatchAsync(input)).IsSuccessful ==
+                   ((await pattern.MatchAsync(input)).IsSuccessful && predicate(input)))
                .ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
-    public Property WherePatternShouldHaveSameResultAsPatternWhenSuccessful(
+    [Property]
+    public async Task<Property> WherePatternShouldHaveSameResultAsPatternWhenSuccessful(
         IAsyncPattern<string, string> pattern,
         Func<string, bool> predicate,
         string input)
     {
         var wherePattern = pattern.Where(predicate);
-        return wherePattern.MatchAsync(input).Result.IsSuccessful.ImpliesThat(() =>
-                wherePattern.MatchAsync(input).Result == pattern.MatchAsync(input).Result)
+        return (await (await wherePattern.MatchAsync(input)).IsSuccessful.ImpliesThatAsync(async () =>
+                await wherePattern.MatchAsync(input) == await pattern.MatchAsync(input)))
             .ToProperty();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
-    public Property WherePatternWithDescriptionShouldMatchSameAsPatternAndPredicate(
+    [Property]
+    public async Task<Property> WherePatternWithDescriptionShouldMatchSameAsPatternAndPredicate(
         IAsyncPattern<string, string> pattern,
         Func<string, bool> predicate,
         string input,
         NonNull<string> description) =>
-        (pattern.Where(predicate, description.Get).MatchAsync(input).Result.IsSuccessful ==
-            (pattern.MatchAsync(input).Result.IsSuccessful && predicate(input)))
+        ((await pattern.Where(predicate, description.Get).MatchAsync(input)).IsSuccessful ==
+            ((await pattern.MatchAsync(input)).IsSuccessful && predicate(input)))
             .ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
-    public Property WherePatternWithDescriptionShouldHaveSameResultAsPatternWhenSuccessful(
+    [Property]
+    public async Task<Property> WherePatternWithDescriptionShouldHaveSameResultAsPatternWhenSuccessful(
         IAsyncPattern<string, string> pattern,
         Func<string, bool> predicate,
         string input,
         NonNull<string> description)
     {
         var wherePattern = pattern.Where(predicate, description.Get);
-        return wherePattern.MatchAsync(input).Result.IsSuccessful.ImpliesThat(() =>
-            wherePattern.MatchAsync(input).Result == pattern.MatchAsync(input).Result).ToProperty();
+        return (await (await wherePattern.MatchAsync(input)).IsSuccessful.ImpliesThatAsync(async () =>
+                await wherePattern.MatchAsync(input) == await pattern.MatchAsync(input)))
+            .ToProperty();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property WherePatternShouldHaveSameDescriptionAsPattern(
         IAsyncPattern<string, string> pattern,
         Func<string, bool> predicate) =>
         (pattern.Where(predicate).Description == pattern.Description).ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property WherePatternWithDescriptionShouldHaveSpecifiedDescription(
         IAsyncPattern<string, string> pattern,
         Func<string, bool> predicate,
         NonNull<string> description) =>
         (pattern.Where(predicate, description.Get).Description == description.Get).ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public void WherePatternShouldThrowIfPatternIsNull(Func<string, bool> predicate)
     {
         var action = () => ((IAsyncPattern<string, string>)null).Where(predicate);
         action.Should().Throw<ArgumentNullException>();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public void WherePatternWithDescriptionShouldThrowIfPatternIsNull(
         Func<string, bool> predicate,
         NonNull<string> description)
@@ -87,14 +88,14 @@ public class AsyncWhereTests
         action.Should().Throw<ArgumentNullException>();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public void WherePatternShouldThrowIfPredicateIsNull(IAsyncPattern<string, string> pattern)
     {
         var action = () => pattern.Where((Func<string, bool>)null);
         action.Should().Throw<ArgumentNullException>();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public void WherePatternWithDescriptionShouldThrowIfPredicateIsNull(
         IAsyncPattern<string, string> pattern,
         NonNull<string> description)
@@ -103,7 +104,7 @@ public class AsyncWhereTests
         action.Should().Throw<ArgumentNullException>();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public void WherePatternWithDescriptionShouldThrowIfDescriptionIsNull(
         IAsyncPattern<string, string> pattern,
         Func<string, bool> predicate)
@@ -112,83 +113,84 @@ public class AsyncWhereTests
         action.Should().Throw<ArgumentNullException>();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property AsyncWherePatternShouldNeverReturnNull(
         IAsyncPattern<string, string> pattern,
         Func<string, Task<bool>> predicate) =>
         (pattern.Where(predicate) != null).ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property AsyncWherePatternWithDescriptionShouldNeverReturnNull(
         IAsyncPattern<string, string> pattern,
         Func<string, Task<bool>> predicate,
         NonNull<string> description) =>
         (pattern.Where(predicate, description.Get) != null).ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
-    public Property AsyncWherePatternShouldMatchSameAsPatternAndPredicate(
+    [Property]
+    public async Task<Property> AsyncWherePatternShouldMatchSameAsPatternAndPredicate(
         IAsyncPattern<string, string> pattern,
         Func<string, Task<bool>> predicate,
         string input) =>
-        (pattern.Where(predicate).MatchAsync(input).Result.IsSuccessful ==
-                   (pattern.MatchAsync(input).Result.IsSuccessful && predicate(input).Result))
-               .ToProperty();
+        ((await pattern.Where(predicate).MatchAsync(input)).IsSuccessful ==
+                ((await pattern.MatchAsync(input)).IsSuccessful && await predicate(input)))
+            .ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
-    public Property AsyncWherePatternShouldHaveSameResultAsPatternWhenSuccessful(
+    [Property]
+    public async Task<Property> AsyncWherePatternShouldHaveSameResultAsPatternWhenSuccessful(
         IAsyncPattern<string, string> pattern,
         Func<string, Task<bool>> predicate,
         string input)
     {
         var wherePattern = pattern.Where(predicate);
-        return wherePattern.MatchAsync(input).Result.IsSuccessful.ImpliesThat(() =>
-                wherePattern.MatchAsync(input).Result == pattern.MatchAsync(input).Result)
+        return (await (await wherePattern.MatchAsync(input)).IsSuccessful.ImpliesThatAsync(async () =>
+                await wherePattern.MatchAsync(input) == await pattern.MatchAsync(input)))
             .ToProperty();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
-    public Property AsyncWherePatternWithDescriptionShouldMatchSameAsPatternAndPredicate(
+    [Property]
+    public async Task<Property> AsyncWherePatternWithDescriptionShouldMatchSameAsPatternAndPredicate(
         IAsyncPattern<string, string> pattern,
         Func<string, Task<bool>> predicate,
         string input,
         NonNull<string> description) =>
-        (pattern.Where(predicate, description.Get).MatchAsync(input).Result.IsSuccessful ==
-            (pattern.MatchAsync(input).Result.IsSuccessful && predicate(input).Result))
+        ((await pattern.Where(predicate, description.Get).MatchAsync(input)).IsSuccessful ==
+                ((await pattern.MatchAsync(input)).IsSuccessful && await predicate(input)))
             .ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
-    public Property AsyncWherePatternWithDescriptionShouldHaveSameResultAsPatternWhenSuccessful(
+    [Property]
+    public async Task<Property> AsyncWherePatternWithDescriptionShouldHaveSameResultAsPatternWhenSuccessful(
         IAsyncPattern<string, string> pattern,
         Func<string, Task<bool>> predicate,
         string input,
         NonNull<string> description)
     {
         var wherePattern = pattern.Where(predicate, description.Get);
-        return wherePattern.MatchAsync(input).Result.IsSuccessful.ImpliesThat(() =>
-            wherePattern.MatchAsync(input).Result == pattern.MatchAsync(input).Result).ToProperty();
+        return (await (await wherePattern.MatchAsync(input)).IsSuccessful.ImpliesThatAsync(async () =>
+                await wherePattern.MatchAsync(input) == await pattern.MatchAsync(input)))
+            .ToProperty();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property AsyncWherePatternShouldHaveSameDescriptionAsPattern(
         IAsyncPattern<string, string> pattern,
         Func<string, Task<bool>> predicate) =>
         (pattern.Where(predicate).Description == pattern.Description).ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property AsyncWherePatternWithDescriptionShouldHaveSpecifiedDescription(
         IAsyncPattern<string, string> pattern,
         Func<string, Task<bool>> predicate,
         NonNull<string> description) =>
         (pattern.Where(predicate, description.Get).Description == description.Get).ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public void AsyncWherePatternShouldThrowIfPatternIsNull(Func<string, Task<bool>> predicate)
     {
         var action = () => ((IAsyncPattern<string, string>)null).Where(predicate);
         action.Should().Throw<ArgumentNullException>();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public void AsyncWherePatternWithDescriptionShouldThrowIfPatternIsNull(
         Func<string, Task<bool>> predicate,
         NonNull<string> description)
@@ -197,14 +199,14 @@ public class AsyncWhereTests
         action.Should().Throw<ArgumentNullException>();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public void AsyncWherePatternShouldThrowIfPredicateIsNull(IAsyncPattern<string, string> pattern)
     {
         var action = () => pattern.Where((Func<string, Task<bool>>)null);
         action.Should().Throw<ArgumentNullException>();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public void AsyncWherePatternWithDescriptionShouldThrowIfPredicateIsNull(
         IAsyncPattern<string, string> pattern,
         NonNull<string> description)
@@ -213,7 +215,7 @@ public class AsyncWhereTests
         action.Should().Throw<ArgumentNullException>();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public void AsyncWherePatternWithDescriptionShouldThrowIfDescriptionIsNull(
         IAsyncPattern<string, string> pattern,
         Func<string, Task<bool>> predicate)

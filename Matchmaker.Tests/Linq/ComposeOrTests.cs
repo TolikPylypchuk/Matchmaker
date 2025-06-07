@@ -2,20 +2,20 @@ namespace Matchmaker.Linq;
 
 public class ComposeOrTests
 {
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property ComposeOrPatternShouldNeverReturnNull(
         IPattern<string, string> pattern1,
         IPattern<string, string> pattern2) =>
         (pattern1.Compose(pattern2, PatternComposition.Or) != null).ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property ComposeOrPatternWithDescriptionShouldNeverReturnNull(
         IPattern<string, string> pattern1,
         IPattern<string, string> pattern2,
         NonNull<string> description) =>
         (pattern1.Compose(pattern2, PatternComposition.Or, description.Get) != null).ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property ComposeOrPatternShouldBeSameAsEitherPattern(
         IPattern<string, string> pattern1,
         IPattern<string, string> pattern2,
@@ -24,7 +24,7 @@ public class ComposeOrTests
             pattern1.Compose(pattern2, PatternComposition.Or).Match(x).IsSuccessful)
             .ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property ComposeOrPatternWithDescriptionShouldBeSameAsEitherPattern(
         IPattern<string, string> pattern1,
         IPattern<string, string> pattern2,
@@ -34,7 +34,7 @@ public class ComposeOrTests
             pattern1.Compose(pattern2, PatternComposition.Or, description.Get).Match(x).IsSuccessful)
             .ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property ComposeOrPatternShouldHaveCorrectDescription(
         IPattern<string, string> pattern1,
         IPattern<string, string> pattern2) =>
@@ -43,7 +43,7 @@ public class ComposeOrTests
                 String.Format(Pattern.DefaultOrDescriptionFormat, pattern1.Description, pattern2.Description))
             .ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property ComposeOrPatternShouldHaveEmptyDescriptionIfFirstPatternHasEmptyDescription(
         IPattern<string, string> pattern,
         Func<string, bool> predicate) =>
@@ -51,7 +51,7 @@ public class ComposeOrTests
             .Description.Length == 0)
             .ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property ComposeOrPatternShouldHaveEmptyDescriptionIfSecondPatternHasEmptyDescription(
         IPattern<string, string> pattern,
         Func<string, bool> predicate) =>
@@ -59,7 +59,7 @@ public class ComposeOrTests
             .Description.Length == 0)
             .ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property ComposeOrPatternShouldHaveEmptyDescriptionIfBothPatternsHaveEmptyDescription(
         Func<string, bool> predicate1,
         Func<string, bool> predicate2) =>
@@ -67,7 +67,7 @@ public class ComposeOrTests
             .Compose(Pattern.CreatePattern(predicate2, String.Empty), PatternComposition.Or)
             .Description.Length == 0).ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property ComposeOrPatternShouldHaveSpecifiedDescription(
         IPattern<string, string> pattern1,
         IPattern<string, string> pattern2,
@@ -75,14 +75,14 @@ public class ComposeOrTests
         (pattern1.Compose(pattern2, PatternComposition.Or, description.Get).Description == description.Get)
             .ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public void ComposeOrPatternShouldThrowIfLeftPatternIsNull(IPattern<string, string> pattern)
     {
         var action = () => ((IPattern<string, string>)null).Compose(pattern, PatternComposition.Or);
         action.Should().Throw<ArgumentNullException>();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public void ComposeOrPatternWithDescriptionShouldThrowIfLeftPatternIsNull(
         IPattern<string, string> pattern,
         NonNull<string> description)
@@ -92,14 +92,14 @@ public class ComposeOrTests
         action.Should().Throw<ArgumentNullException>();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public void ComposeOrPatternShouldThrowIfRightPatternIsNull(IPattern<string, string> pattern)
     {
         var action = () => pattern.Compose(null, PatternComposition.Or);
         action.Should().Throw<ArgumentNullException>();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public void ComposeOrPatternWithDescriptionShouldThrowIfRightPatternIsNull(
         IPattern<string, string> pattern,
         NonNull<string> description)
@@ -108,7 +108,7 @@ public class ComposeOrTests
         action.Should().Throw<ArgumentNullException>();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public void ComposeOrPatternShouldThrowIfDescriptionIsNull(
         IPattern<string, string> pattern1,
         IPattern<string, string> pattern2)
@@ -117,20 +117,20 @@ public class ComposeOrTests
         action.Should().Throw<ArgumentNullException>();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property OrPatternShouldNeverReturnNull(
         IPattern<string, string> pattern1,
         IPattern<string, string> pattern2) =>
         (pattern1.Or(pattern2) != null).ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property OrPatternWithDescriptionShouldNeverReturnNull(
         IPattern<string, string> pattern1,
         IPattern<string, string> pattern2,
         NonNull<string> description) =>
         (pattern1.Or(pattern2, description.Get) != null).ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property OrPatternShouldBeSameAsEitherPattern(
         IPattern<string, string> pattern1,
         IPattern<string, string> pattern2,
@@ -139,7 +139,7 @@ public class ComposeOrTests
             pattern1.Or(pattern2).Match(x).IsSuccessful)
             .ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property OrPatternWithDescriptionShouldBeSameAsEitherPattern(
         IPattern<string, string> pattern1,
         IPattern<string, string> pattern2,
@@ -149,7 +149,7 @@ public class ComposeOrTests
             pattern1.Or(pattern2, description.Get).Match(x).IsSuccessful)
             .ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property OrPatternShouldHaveCorrectDescription(
         IPattern<string, string> pattern1,
         IPattern<string, string> pattern2) =>
@@ -158,40 +158,40 @@ public class ComposeOrTests
                 String.Format(Pattern.DefaultOrDescriptionFormat, pattern1.Description, pattern2.Description))
             .ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property OrPatternShouldHaveEmptyDescriptionIfFirstPatternHasEmptyDescription(
         IPattern<string, string> pattern,
         Func<string, bool> predicate) =>
         (Pattern.CreatePattern(predicate, String.Empty).Or(pattern).Description.Length == 0).ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property OrPatternShouldHaveEmptyDescriptionIfSecondPatternHasEmptyDescription(
         IPattern<string, string> pattern,
         Func<string, bool> predicate) =>
         (pattern.Or(Pattern.CreatePattern(predicate, String.Empty)).Description.Length == 0).ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property OrPatternShouldHaveEmptyDescriptionIfBothPatternsHaveEmptyDescription(
         Func<string, bool> predicate1,
         Func<string, bool> predicate2) =>
         (Pattern.CreatePattern(predicate1, String.Empty).Or(Pattern.CreatePattern(predicate2, String.Empty))
             .Description.Length == 0).ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property OrPatternShouldHaveSpecifiedDescription(
         IPattern<string, string> pattern1,
         IPattern<string, string> pattern2,
         NonNull<string> description) =>
         (pattern1.Or(pattern2, description.Get).Description == description.Get).ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public void OrPatternShouldThrowIfLeftPatternIsNull(IPattern<string, string> pattern)
     {
         var action = () => ((IPattern<string, string>)null).Or(pattern);
         action.Should().Throw<ArgumentNullException>();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public void OrPatternWithDescriptionShouldThrowIfLeftPatternIsNull(
         IPattern<string, string> pattern,
         NonNull<string> description)
@@ -200,14 +200,14 @@ public class ComposeOrTests
         action.Should().Throw<ArgumentNullException>();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public void OrPatternShouldThrowIfRightPatternIsNull(IPattern<string, string> pattern)
     {
         var action = () => pattern.Or(null);
         action.Should().Throw<ArgumentNullException>();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public void OrPatternWithDescriptionShouldThrowIfRightPatternIsNull(
         IPattern<string, string> pattern,
         NonNull<string> description)
@@ -216,7 +216,7 @@ public class ComposeOrTests
         action.Should().Throw<ArgumentNullException>();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public void OrPatternShouldThrowIfDescriptionIsNull(
         IPattern<string, string> pattern1,
         IPattern<string, string> pattern2)

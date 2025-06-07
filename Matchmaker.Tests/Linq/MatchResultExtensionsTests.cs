@@ -2,7 +2,7 @@ namespace Matchmaker.Linq;
 
 public class MatchResultExtensionsTests
 {
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property GetValueOrDefaultShouldReturnValueIfResultIsSuccessful(string value) =>
         (MatchResult.Success(value).GetValueOrDefault() == value).ToProperty();
 
@@ -10,25 +10,25 @@ public class MatchResultExtensionsTests
     public void GetValueOrDefaultShouldReturnDefaultIfResultIsUnsuccessful() =>
         MatchResult.Failure<string>().GetValueOrDefault().Should().BeNull();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property GetValueOrDefaultValueShouldReturnValueIfResultIsSuccessful(string value, string defaultValue) =>
         (MatchResult.Success(value).GetValueOrDefault(defaultValue) == value).ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property GetValueOrDefaultValueShouldReturnSpecifiedValueIfResultIsUnsuccessful(string defaultValue) =>
         (MatchResult.Failure<string>().GetValueOrDefault(defaultValue) == defaultValue).ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property GetValueOrDefaultLazyValueShouldReturnValueIfResultIsSuccessful(
         string value,
         string defaultValue) =>
         (MatchResult.Success(value).GetValueOrDefault(() => defaultValue) == value).ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property GetValueOrDefaultLazyValueShouldReturnSpecifiedValueIfResultIsUnsuccessful(string defaultValue) =>
         (MatchResult.Failure<string>().GetValueOrDefault(() => defaultValue) == defaultValue).ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public void GetValueOrDefaultLazyValueShouldBeLazy(string value)
     {
         var action = () => MatchResult.Success(value).GetValueOrDefault(
@@ -36,14 +36,14 @@ public class MatchResultExtensionsTests
         action.Should().NotThrow<AssertionFailedException>();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public void GetValueOrDefaultLazyValueShouldThrowIfValueProviderIsNull(MatchResult<string> result)
     {
         var action = () => result.GetValueOrDefault((Func<string>)null);
         action.Should().Throw<ArgumentNullException>();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property GetValueOrThrowShouldReturnValueIfResultIsSuccessful(string value) =>
         (MatchResult.Success(value).GetValueOrThrow(() => new MatchException()) == value).ToProperty();
 
@@ -54,22 +54,22 @@ public class MatchResultExtensionsTests
         action.Should().Throw<MatchException>();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public void GetValueOrThrowShouldThrowIfExceptionProviderIsNull(MatchResult<string> result)
     {
         var action = () => result.GetValueOrThrow(null);
         action.Should().Throw<ArgumentNullException>();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property SelectShouldMapValueIfResultIsSuccessful(string value, Func<string, int> mapper) =>
         (MatchResult.Success(value).Select(mapper) == MatchResult.Success(mapper(value))).ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property SelectShouldBeUnsuccessfulIfResultIsUnsuccessful(Func<string, int> mapper) =>
         (!MatchResult.Failure<string>().Select(mapper).IsSuccessful).ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public void SelectShouldDoNothingIfResultIsUnsuccessful()
     {
         var action = () => MatchResult.Failure<string>().Select<string, int>(
@@ -77,22 +77,22 @@ public class MatchResultExtensionsTests
         action.Should().NotThrow<AssertionFailedException>();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public void SelectShouldThrowIfMapperIsNull(MatchResult<string> result)
     {
         var action = () => result.Select<string, int>(null);
         action.Should().Throw<ArgumentNullException>();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property BindShouldFlatMapValueIfResultIsSuccessful(string value, Func<string, MatchResult<int>> binder) =>
         (MatchResult.Success(value).Bind(binder) == binder(value)).ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property BindShouldBeUnsuccessfulIfResultIsUnsuccessful(Func<string, MatchResult<int>> binder) =>
         (!MatchResult.Failure<string>().Bind(binder).IsSuccessful).ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public void BindShouldDoNothingIfResultIsUnsuccessful()
     {
         var action = () => MatchResult.Failure<string>().Bind<string, int>(
@@ -100,26 +100,26 @@ public class MatchResultExtensionsTests
         action.Should().NotThrow<AssertionFailedException>();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public void BindShouldThrowIfBinderIsNull(MatchResult<string> result)
     {
         var action = () => result.Bind<string, int>(null);
         action.Should().Throw<ArgumentNullException>();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property WhereShouldFilterValueIfResultIsSuccessful(string value, Func<string, bool> predicate) =>
         (MatchResult.Success(value).Where(predicate).IsSuccessful == predicate(value)).ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property WhereShouldHaveSameValueIfResultIsSuccessful(string value) =>
         (MatchResult.Success(value).Where(_ => true).Value == value).ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property WhereShouldBeUnsuccessfulIfResultIsUnsuccessful(Func<string, bool> predicate) =>
         (!MatchResult.Failure<string>().Where(predicate).IsSuccessful).ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public void WhereShouldDoNothingIfResultIsUnsuccessful()
     {
         var action = () => MatchResult.Failure<string>().Where(
@@ -127,14 +127,14 @@ public class MatchResultExtensionsTests
         action.Should().NotThrow<AssertionFailedException>();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public void WhereShouldThrowIfPredicateIsNull(MatchResult<string> result)
     {
         var action = () => result.Where(null);
         action.Should().Throw<ArgumentNullException>();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property CastShouldCastValueOfCorrectTypeIfResultIsSuccessful(NonNull<string> value) =>
         (MatchResult.Success<object>(value.Get).Cast<object, string>() == MatchResult.Success(value.Get))
             .ToProperty();
@@ -151,7 +151,7 @@ public class MatchResultExtensionsTests
     public Property CastToValueShouldFailIfResultContainsNull() =>
         (!MatchResult.Success<object>(null).Cast<object, int>().IsSuccessful).ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property CastShouldFailIfValueHasIncorrectTypeAndResultIsSuccessful(string value) =>
         (!MatchResult.Success<object>(value).Cast<object, int>().IsSuccessful).ToProperty();
 
@@ -159,7 +159,7 @@ public class MatchResultExtensionsTests
     public Property CastShouldBeUnsuccessfulIfResultIsUnsuccessful() =>
         (!MatchResult.Failure<object>().Cast<object, string>().IsSuccessful).ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public void DoShouldPerformActionIfResultIsSuccessful(string value)
     {
         int count = 0;
@@ -175,11 +175,11 @@ public class MatchResultExtensionsTests
         count.Should().Be(0);
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property DoShouldReturnSameResult(MatchResult<string> result) =>
         (result == result.Do(_ => { })).ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public void DoShouldPassValueIfResultIsSuccessful(string value)
     {
         string actualValue = null;
@@ -187,7 +187,7 @@ public class MatchResultExtensionsTests
         actualValue.Should().Be(value);
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public void DoShouldThrowIfActionIsNull(MatchResult<string> result)
     {
         var action = () => result.Do(null);

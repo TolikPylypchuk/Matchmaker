@@ -16,7 +16,7 @@ public class MatchStatementTests
             .Should()
             .NotBeNull();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property MatchShouldMatchPatternsCorrectly(Func<string, bool> predicate, string value)
     {
         var pattern = Pattern.CreatePattern(predicate);
@@ -30,7 +30,7 @@ public class MatchStatementTests
         return (matchSuccessful == pattern.Match(value).IsSuccessful).ToProperty();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property NonStrictMatchShouldMatchPatternsCorrectly(Func<string, bool> predicate, string value)
     {
         var pattern = Pattern.CreatePattern(predicate);
@@ -44,7 +44,7 @@ public class MatchStatementTests
         return (matchSuccessful == pattern.Match(value).IsSuccessful).ToProperty();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public void MatchShouldThrowIfNoMatchFound(Func<string, bool> predicate, string value)
     {
         var pattern = Pattern.CreatePattern(predicate);
@@ -63,7 +63,7 @@ public class MatchStatementTests
         }
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property NonStrictMatchShouldReturnFalseIfNoMatchFound(Func<string, bool> predicate, string value)
     {
         var pattern = Pattern.CreatePattern(predicate);
@@ -75,7 +75,7 @@ public class MatchStatementTests
         return (matched == pattern.Match(value).IsSuccessful).ToProperty();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public void NonStrictMatchShouldNotThrowIfNoMatchFound(Func<string, bool> predicate, string value)
     {
         var pattern = Pattern.CreatePattern(predicate);
@@ -88,7 +88,7 @@ public class MatchStatementTests
         action.Should().NotThrow<MatchException>();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property MatchWithFallthroughShouldMatchPatternsCorrectly(Func<string, bool> predicate, string value)
     {
         var pattern = Pattern.CreatePattern(predicate);
@@ -105,7 +105,7 @@ public class MatchStatementTests
             : (result == 1 && matchCount == 1).ToProperty();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property MatchWithFallthroughShouldBeLazy(Func<string, bool> predicate, string value)
     {
         var pattern = Pattern.CreatePattern(predicate);
@@ -120,7 +120,7 @@ public class MatchStatementTests
         return (count == 0).ToProperty();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property MatchWithFallthroughFalseShouldMatchPatternsCorrectly(
         Func<string, bool> predicate,
         string value)
@@ -137,7 +137,7 @@ public class MatchStatementTests
         return (result == 1 && matchCount == 1).ToProperty();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property MatchWithFallthroughTrueShouldMatchPatternsCorrectly(
         Func<string, bool> predicate,
         string value)
@@ -156,7 +156,7 @@ public class MatchStatementTests
             : (result == 1 && matchCount == 1).ToProperty();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property MatchWithFallthroughTrueShouldBeLazy(Func<string, bool> predicate, string value)
     {
         var pattern = Pattern.CreatePattern(predicate);
@@ -171,7 +171,7 @@ public class MatchStatementTests
         return (count == 0).ToProperty();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property MatchWithFallthroughShouldReturnEmptyEnumerableIfNoMatchFound(string value)
     {
         var pattern = Pattern.CreatePattern<string>(_ => false);
@@ -184,7 +184,7 @@ public class MatchStatementTests
         return (result == 0).ToProperty();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property MatchToFunctionShouldMatchPatternsCorrectly(
         Func<string, bool> predicate,
         string value)
@@ -200,7 +200,7 @@ public class MatchStatementTests
         return (matchSuccessful == pattern.Match(value).IsSuccessful).ToProperty();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property NonStrictMatchToFunctionShouldMatchPatternsCorrectly(
         Func<string, bool> predicate,
         string value)
@@ -216,7 +216,7 @@ public class MatchStatementTests
         return (matchSuccessful == pattern.Match(value).IsSuccessful).ToProperty();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public void MatchToFunctionShouldThrowIfNoMatchFound(Func<string, bool> predicate, string value)
     {
         var pattern = Pattern.CreatePattern(predicate);
@@ -235,7 +235,7 @@ public class MatchStatementTests
         }
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property NonStrictMatchToFunctionShouldReturnFalseIfNoMatchFound(
         Func<string, bool> predicate,
         string value)
@@ -249,7 +249,7 @@ public class MatchStatementTests
         return (matched == pattern.Match(value).IsSuccessful).ToProperty();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public void NonStrictMatchToFunctionShouldNotThrowIfNoMatchFound(Func<string, bool> predicate, string value)
     {
         var pattern = Pattern.CreatePattern(predicate);
@@ -262,7 +262,7 @@ public class MatchStatementTests
         action.Should().NotThrow<MatchException>();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property MatchToFunctionWithFallthroughShouldMatchPatternsCorrectly(
         Func<string, bool> predicate,
         string value)
@@ -281,7 +281,7 @@ public class MatchStatementTests
             : (result == 1 && matchCount == 1).ToProperty();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property MatchToFunctionWithFallthroughFalseShouldMatchPatternsCorrectly(
         Func<string, bool> predicate,
         string value)
@@ -298,7 +298,7 @@ public class MatchStatementTests
         return (result == 1 && matchCount == 1).ToProperty();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property MatchToFunctionWithFallthroughTrueShouldMatchPatternsCorrectly(
         Func<string, bool> predicate,
         string value)
@@ -317,7 +317,7 @@ public class MatchStatementTests
             : (result == 1 && matchCount == 1).ToProperty();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property MatchToFunctionWithFallthroughShouldReturnEmptyEnumerableIfNoMatchFound(string value)
     {
         var pattern = Pattern.CreatePattern<string>(_ => false);
@@ -333,21 +333,19 @@ public class MatchStatementTests
     [Fact]
     public void MatchShouldThrowIfPatternIsNull()
     {
-        var action = () =>
-            Match.Create<string>()
-                .Case<string>(null, _ => { });
+        var action = () => Match.Create<string>()
+            .Case<string>(null, _ => { });
 
         action.Should().Throw<ArgumentNullException>();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public void MatchShouldThrowIfCaseFunctionIsNull(Func<string, bool> predicate)
     {
         var pattern = Pattern.CreatePattern(predicate);
 
-        var action = () =>
-            Match.Create<string>()
-                .Case(pattern, null);
+        var action = () => Match.Create<string>()
+            .Case(pattern, null);
 
         action.Should().Throw<ArgumentNullException>();
     }
@@ -355,9 +353,8 @@ public class MatchStatementTests
     [Fact]
     public void MatchShouldThrowIfCaseTypeFunctionIsNull()
     {
-        var action = () =>
-            Match.Create<string>()
-                .Case<string>(null);
+        var action = () => Match.Create<string>()
+            .Case<string>(null);
 
         action.Should().Throw<ArgumentNullException>();
     }
@@ -367,33 +364,30 @@ public class MatchStatementTests
     [InlineData(false)]
     public void MatchShouldThrowIfPatternWithFallthroughIsNull(bool fallthrough)
     {
-        var action = () =>
-            Match.Create<string>()
-                .Case<string>(null, fallthrough, _ => { });
+        var action = () => Match.Create<string>()
+            .Case<string>(null, fallthrough, _ => { });
 
         action.Should().Throw<ArgumentNullException>();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public void MatchShouldThrowIfCaseFunctionWithFallthroughIsNull(
         Func<string, bool> predicate,
         bool fallthrough)
     {
         var pattern = Pattern.CreatePattern(predicate);
 
-        var action = () =>
-            Match.Create<string>()
-                .Case(pattern, fallthrough, null);
+        var action = () => Match.Create<string>()
+            .Case(pattern, fallthrough, null);
 
         action.Should().Throw<ArgumentNullException>();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public void MatchShouldThrowIfCaseTypeFunctionWithFallthroughIsNull(bool fallthrough)
     {
-        var action = () =>
-            Match.Create<string>()
-                .Case<string>(fallthrough, null);
+        var action = () => Match.Create<string>()
+            .Case<string>(fallthrough, null);
 
         action.Should().Throw<ArgumentNullException>();
     }

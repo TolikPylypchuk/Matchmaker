@@ -2,29 +2,30 @@ namespace Matchmaker.Linq;
 
 public class AsyncCachedTests
 {
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property CachedPatternShouldNeverReturnNull(IAsyncPattern<string, string> pattern) =>
         (pattern.Cached() != null).ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property CachedPatternWithDescriptionShouldNeverReturnNull(
         IAsyncPattern<string, string> pattern,
         NonNull<string> description) =>
         (pattern.Cached(description.Get) != null).ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
-    public Property CachedPatternShouldMatchSameAsPattern(IAsyncPattern<string, string> pattern, string x) =>
-        (pattern.Cached().MatchAsync(x).Result == pattern.MatchAsync(x).Result).ToProperty();
+    [Property]
+    public async Task<Property> CachedPatternShouldMatchSameAsPattern(
+        IAsyncPattern<string, string> pattern, string x) =>
+        (await pattern.Cached().MatchAsync(x) == await pattern.MatchAsync(x)).ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
-    public Property CachedPatternWithDescriptionShouldMatchSameAsPattern(
+    [Property]
+    public async Task<Property> CachedPatternWithDescriptionShouldMatchSameAsPattern(
         IAsyncPattern<string, string> pattern,
         string x,
         NonNull<string> description) =>
-        (pattern.Cached(description.Get).MatchAsync(x).Result == pattern.MatchAsync(x).Result).ToProperty();
+        (await pattern.Cached(description.Get).MatchAsync(x) == await pattern.MatchAsync(x)).ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
-    public Property CachedPatternShouldBeCached(string x)
+    [Property]
+    public async Task<Property> CachedPatternShouldBeCached(string x)
     {
         int count = 0;
 
@@ -34,14 +35,14 @@ public class AsyncCachedTests
             return Task.FromResult(true);
         }).Cached();
 
-        pattern.MatchAsync(x);
-        pattern.MatchAsync(x);
+        await pattern.MatchAsync(x);
+        await pattern.MatchAsync(x);
 
         return (count == 1).ToProperty();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
-    public Property CachedPatternWithDescriptionShouldBeCached(string x, NonNull<string> description)
+    [Property]
+    public async Task<Property> CachedPatternWithDescriptionShouldBeCached(string x, NonNull<string> description)
     {
         int count = 0;
 
@@ -51,17 +52,17 @@ public class AsyncCachedTests
             return Task.FromResult(true);
         }).Cached(description.Get);
 
-        pattern.MatchAsync(x);
-        pattern.MatchAsync(x);
+        await pattern.MatchAsync(x);
+        await pattern.MatchAsync(x);
 
         return (count == 1).ToProperty();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property CachedPatternShouldHaveSameDescriptionAsPattern(IAsyncPattern<string, string> pattern) =>
         (pattern.Cached().Description == pattern.Description).ToProperty();
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public Property CachedPatternWithDescriptionShouldHaveSpecifiedDescription(
         IAsyncPattern<string, string> pattern,
         NonNull<string> description) =>
@@ -74,14 +75,14 @@ public class AsyncCachedTests
         action.Should().Throw<ArgumentNullException>();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public void CachedPatternWithDescriptionShouldThrowIfPatternIsNull(NonNull<string> description)
     {
         var action = () => ((IAsyncPattern<string, string>)null).Cached(description.Get);
         action.Should().Throw<ArgumentNullException>();
     }
 
-    [Property(Arbitrary = new[] { typeof(Generators) })]
+    [Property]
     public void CachedPatternWithDescriptionShouldThrowIfDescriptionIsNull(IAsyncPattern<string, string> pattern)
     {
         var action = () => pattern.Cached(null);
