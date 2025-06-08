@@ -95,9 +95,9 @@ the latter represents a match expression which doesn't yield a result (also know
 <p>A match expression can be created using the <code>Create</code> methods of the static class <code>Match</code>.</p>
 <h3 id="adding-cases">Adding Cases</h3>
 <p>The <code>Match</code> classes include <code>Case</code> methods which are used to add a pattern and a function which is executed if the match
-is successful. Match expressions are immutable – <code>Case</code> methods return new match expressions; they do not affect the
+is successful. Match expressions are immutable — <code>Case</code> methods return new match expressions; they do not affect the
 ones on which they are called.</p>
-<p><code>Case</code> methods are generic – they also contain information about the pattern's transformation type. Match expressions
+<p><code>Case</code> methods are generic — they also contain information about the pattern's transformation type. Match expressions
 can contain patterns of arbitrary transformation types without knowing about these types.</p>
 <h3 id="executing-match-expressions">Executing Match Expressions</h3>
 <p>To execute a match expression, the <code>ExecuteOn</code> method is used. It takes the input value to match. There are two modes of
@@ -108,7 +108,7 @@ the non-strict doesn't.</p>
 which executes the match expression in the non-strict mode. It returns <code>MatchResult&lt;TOutput&gt;</code> because the result might
 not be present.</p>
 <p>In the <code>Match&lt;TInput&gt;</code> class, the <code>ExecuteOn</code> method doesn't return anything, and also throws a <code>MatchException</code> if the
-match wasn't successful. This class also contains the <code>ExecuteNonStrict</code> method – it returns a boolean value which
+match wasn't successful. This class also contains the <code>ExecuteNonStrict</code> method — it returns a boolean value which
 indicates whether the match was successful and doesn't throw an exception if it wasn't.</p>
 <p>The <code>ToFunction</code> method and its variations are also available. They return a function which, when called, will execute
 the match expression.</p>
@@ -123,8 +123,8 @@ falls to the next case whether it's successful or not.</p>
 is enabled for a pattern, then the expression will continue searching for the next successful pattern. If it isn't, then
 the expression will stop at this pattern and not go any further.</p>
 <p><code>Match.Create</code> is also overloaded to take the default fall-through behavior.</p>
-<p>Matching with fall-through is lazy i.e. it returns an <code>IEnumerable</code> and is only executed when this enumerable is
-enumerated. Because matching will fall-through is lazy, it doesn't have any modes of execution – the user must decide
+<p>Matching with fall-through is lazy, i.e., it returns an <code>IEnumerable</code> and is only executed when this enumerable is
+enumerated. Because matching will fall-through is lazy, it doesn't have any modes of execution — the user must decide
 whether to throw an exception or not if there were no successful matches.</p>
 <p>In the <code>Match&lt;TInput, TOutput&gt;</code> class, the <code>ExecuteWithFallthrough</code> method returns an <code>IEnumerable&lt;TOutput&gt;</code> which can
 be used to get all successful match results.</p>
@@ -178,12 +178,12 @@ expression is initialized from scratch. Take a look at this example:</p>
         .ExecuteOn(i);
 </code></pre>
 <p>The problem here is that if we call <code>DoStuff</code> 10,000 times, we will initialize the match expression 10,000 times as
-well, even though it's actually the same expression. Having just 4 cases may not seem like much, but the lag does
-accumulate if we execute it thousands of times.</p>
+well, even though it's actually the same expression. Having just 4 cases may not seem like much, but the lag and
+allocations do accumulate if we execute it thousands of times.</p>
 <p>We can save the expression in a field and then call the <code>ExecuteOn</code> method on this field. But this makes the code much
 less readable because the case definitions are in a different place from the actual execution point.</p>
 <h3 id="the-solution">The Solution</h3>
-<p>There is a way to create static match expressions – expressions which will be initialized only once.</p>
+<p>There is a way to create static match expressions — expressions which will be initialized only once.</p>
 <p>The <code>Match</code> class contains the <code>CreateStatic</code> methods which allow the creation of static match expressions. Take a look
 at the modified example:</p>
 <pre><code class="lang-c#">void DoStuff(int i) =&gt;
@@ -199,7 +199,7 @@ called the build action, which is passed to the <code>CreateStatic</code> method
 only once, and its initialization code is in the same place as its execution point.</p>
 <p>The parameter of the build action has the type <code>MatchBuilder&lt;TInput, TOutput</code> or <code>MatchBuilder&lt;TInput&gt;</code>, depending on
 which type of match expressions you are building. This type has the same methods for adding cases as the <code>Match</code> classes
-and is mutable – the methods return the same builder instance.</p>
+and is mutable — the methods return the same builder instance.</p>
 <p><code>MatchBuilder</code> also has the <code>Fallthrough</code> method which specifies the default fall-through behavior. But this method
 specifies fall-through behavior only for cases that are defined after it. For example:</p>
 <pre><code class="lang-c#">builder

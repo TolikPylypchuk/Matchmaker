@@ -90,25 +90,25 @@
 <h2 id="should-i-use-this-library">Should I Use This Library?</h2>
 <p>Pattern matching as a technique was created to make code which operates on data more succinct, clear, and readable. I
 have to say, I'm not sure this library achieves this. There's no denying that this library is cumbersome, and some
-features are kind of convoluted. You can certainly use it if you want to – it's extensively tested. But this is more of
-an experimental effort – I wanted to see how powerful pattern matching can be in C#. In this article I'll try to explain
+features are kind of convoluted. You can certainly use it if you want to — it's extensively tested. But this is more of
+an experimental effort — I wanted to see how powerful pattern matching can be in C#. In this article I'll try to explain
 some reasons behind the features of this library. This is not documentation per se, it's more of a thought piece about
 this library and a recap of its history.</p>
 <p>Also, I should note that I haven't checked out any other pattern matching libraries for C#. I'm sure there are a lot of
-them – I can't be the only one who tried to bring this technique into C#. But I wanted to create something by myself and
+them — I can't be the only one who tried to bring this technique into C#. But I wanted to create something by myself and
 not get inspired by (read: steal) features from the other libraries as I'm sure there's not actually much space for
 stretching here. Some pattern matching libraries are probably better than this one and I'm okay with it.</p>
 <h2 id="background">Background</h2>
 <p>In the end of 2017, after studying F# and functional programming, I've decided to try to bring some functional features
-into C#. I've created a small library for C# and named it <a href="https://github.com/TolikPylypchuk/CSX">CSX – C# Extensions</a>.
+into C#. I've created a small library for C# and named it <a href="https://github.com/TolikPylypchuk/CSX">CSX — C# Extensions</a>.
 I worked on this library just for the fun of it and never intended for it to be anything serious. I've long since
 stopped doing anything with it, because I've realized that it required a lot of work. My implementations of functional
 data structures were quite naive, and I've decided that I don't want to invest time into optimizing them. Moreover, I
 was discouraged by the fact that there already are great functional libraries out there, like
 <a href="https://github.com/louthy/language-ext">language-ext</a>.</p>
 <p>One feature from that library grew into something more: pattern matching. I've included it into CSX and tried to create
-a simple way to implement pattern matching on arbitrary types through interfaces but failed and realized that this can't
-be done that way. I came up with a different way to do pattern matching on arbitrary types but decided to implement it
+a simple way to implement pattern matching on arbitrary types through interfaces, but failed and realized that it can't
+be done that way. I came up with a different way to do pattern matching on arbitrary types, but decided to implement it
 separately from CSX. This is how the <a href="https://github.com/TolikPylypchuk/PatternMatching">PatternMatching</a> library was
 born.</p>
 <h2 id="patternmatching">PatternMatching</h2>
@@ -150,9 +150,9 @@ this is still the same library, because it stayed the same at its core.</p>
 <p>After releasing version 1.2, it came to me how to implement type-ignorant matching without the use of neither the DLR
 nor reflection. And to be honest, at that moment I felt dumb, because I haven't thought about it before, and the
 solution was obvious.</p>
-<p>In this version I've also completely uprooted the pattern hierarchy and made working with them much easier. I've also
-added some primitive caching. I'm not an expert on caching – this can be an extensive topic of research – so I can't
-say that caching in this library is great – it's okay at best. If you need more extensive or better caching of match
+<p>In this version, I've also completely uprooted the pattern hierarchy and made working with them much easier. I've also
+added some primitive caching. I'm not an expert on caching — this can be an extensive topic of research — so I can't
+say that caching in this library is great — it's okay at best. If you need more extensive or better caching of match
 expressions, you can create an issue (or better yet, a pull request) on GitHub. I will most definitely respond and will
 do my best to implement it.</p>
 <p>I've improved the performance of match expression initializations by making them static. This makes the code even more
@@ -169,7 +169,7 @@ it would break any actual code.</p>
 <p>After releasing version 2.1.0, I started working on version 3.0.0 which contains 2 major additions: support for nullable
 reference types and asynchronous pattern matching. Because of those additions, the .NET Standard version had to be
 bumped to 2.1 (sorry, .NET Framework). Asynchronous pattern matching will probably not be used often. I wrote it simply
-because I can, and why not – we have asynchronous enumeration, asynchronous disposal, asynchronous almost everything,
+because I can, and why not — we have asynchronous enumeration, asynchronous disposal, asynchronous almost everything,
 so why not asynchronous pattern matching?</p>
 <p>Five years after releasing version 3.0.0, I've decided to release version 3.1.0 which adds support for .NET Standard 2.0
 back and uses <a href="https://www.nuget.org/packages/Microsoft.Bcl.AsyncInterfaces">Microsoft.Bcl.AsyncInterfaces</a> as the

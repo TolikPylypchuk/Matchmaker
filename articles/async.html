@@ -120,7 +120,7 @@ turned into async patterns using the <code>AsAsync()</code> extension) and to ta
 pattern is matched successfully (sync actions are turned into async actions).</p>
 <p>Async match expressions can be executed using the <code>ExecuteAsync</code>, <code>ExecuteNonStrictAsync</code> and
 <code>ExecuteWithFallthroughAsync</code> methods.  The <code>ToFunction</code> method and its variations are also available.
-<code>ExecuteWithFallthroughAsync</code> returns an <code>IAsyncEnumerable</code> which enable lazy async execution of match expressions.</p>
+<code>ExecuteWithFallthroughAsync</code> returns an <code>IAsyncEnumerable</code> which enables lazy async execution of match expressions.</p>
 <p>The <code>Matchmaker.Linq</code> namespace contains the <code>EnumerateAsync</code> extension method for <code>IAsyncEnumerable&lt;T&gt;</code> which
 enumerates it and ignores the result. You can use it if you just want to execute the match statement with fall-through.</p>
 <p>Static async match expressions are also available. Use the <code>AsyncMatch.CreateStatic</code> methods to create them, just like
