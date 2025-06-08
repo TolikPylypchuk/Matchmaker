@@ -62,11 +62,11 @@ While this example doesn't show the full power of pattern matching, there are a 
 - The input of the match expression is specified _after_ all the cases. This allows us to save the match expression in
 an object and use it multiple times on different input values.
 - The default case is a pattern, just like any other. It's called `Any` and is always matched successfully.
-- Like in `switch` the patterns are tried out sequentially. This means that the `Any` pattern should always come last.
+- Like in `switch`, the patterns are tried out sequentially. This means that the `Any` pattern should always come last.
 
 C# 8 included a new way to write `switch` expressions which yield a value, and further versions extended it quite a bit.
 This drastically reduced the need for external libraries like this one for pattern matching. However, this library lets
-the user define arbitrary patterns, which makes this library more powerful than the `switch` expression.
+the user define arbitrary patterns which makes this library more powerful than the `switch` expression.
 
 Here's what the equivalent switch expression looks like in C# 8:
 
@@ -94,6 +94,6 @@ to use this library.
 If you need extensive information, go to the [API reference](api/index.md).
 
 If you need even more info about this library, you can go through the
-[tests](https://github.com/TolikPylypchuk/Matchmaker/Matchmaker.Tests). They are property-based and as such, they
-describe every aspect of the classes and their members. They cover 100% of this library's code (except the
+[tests](https://github.com/TolikPylypchuk/Matchmaker/tree/main/Matchmaker.Tests). They are property-based and as such,
+they describe every aspect of the classes and their members. They cover 100% of this library's code (except the
 `MatchException` class which is trivial).

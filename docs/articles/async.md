@@ -44,7 +44,7 @@ pattern is matched successfully (sync actions are turned into async actions).
 
 Async match expressions can be executed using the `ExecuteAsync`, `ExecuteNonStrictAsync` and
 `ExecuteWithFallthroughAsync` methods.  The `ToFunction` method and its variations are also available.
-`ExecuteWithFallthroughAsync` returns an `IAsyncEnumerable` which enable lazy async execution of match expressions.
+`ExecuteWithFallthroughAsync` returns an `IAsyncEnumerable` which enables lazy async execution of match expressions.
 
 The `Matchmaker.Linq` namespace contains the `EnumerateAsync` extension method for `IAsyncEnumerable<T>` which
 enumerates it and ignores the result. You can use it if you just want to execute the match statement with fall-through.

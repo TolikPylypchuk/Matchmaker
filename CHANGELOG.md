@@ -4,10 +4,10 @@
 
 Whats's new in version 3.1.0:
 
-- .NET Standard 2.0 support was added back, but without nullable reference types
-- Matchmaker is now built with .NET 9
-- Trimming is now enabled only for .NET 6+
+- .NET Standard 2.0 support was added back
 - `BinarryFormatter` support was removed from `MatchException`
+- Matchmaker is now built with .NET 9
+- Trimming is now enabled only for .NET 6 or later
 - Docs now use a new theme
 - Docs for older versions were removed
 
@@ -17,7 +17,7 @@ Whats's new in version 3.0.1:
 
 - No changes to the library's code or API
 - Matchmaker is now built with .NET 6 and uses C# 10 (but still targets .NET Standard 2.1)
-- Improved the NuGet package (added a symbol package, a readme, and Source Link)
+- The NuGet package was improved (a symbol package, a readme, and Source Link were added)
 - The library is now trimmable
 - GitHub Actions are now used for CI instead of AppVeyor
 

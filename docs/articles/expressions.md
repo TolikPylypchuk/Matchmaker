@@ -13,10 +13,10 @@ A match expression can be created using the `Create` methods of the static class
 ### Adding Cases
 
 The `Match` classes include `Case` methods which are used to add a pattern and a function which is executed if the match
-is successful. Match expressions are immutable – `Case` methods return new match expressions; they do not affect the
+is successful. Match expressions are immutable — `Case` methods return new match expressions; they do not affect the
 ones on which they are called.
 
-`Case` methods are generic – they also contain information about the pattern's transformation type. Match expressions
+`Case` methods are generic — they also contain information about the pattern's transformation type. Match expressions
 can contain patterns of arbitrary transformation types without knowing about these types.
 
 ### Executing Match Expressions
@@ -31,7 +31,7 @@ which executes the match expression in the non-strict mode. It returns `MatchRes
 not be present.
 
 In the `Match<TInput>` class, the `ExecuteOn` method doesn't return anything, and also throws a `MatchException` if the
-match wasn't successful. This class also contains the `ExecuteNonStrict` method – it returns a boolean value which
+match wasn't successful. This class also contains the `ExecuteNonStrict` method — it returns a boolean value which
 indicates whether the match was successful and doesn't throw an exception if it wasn't.
 
 The `ToFunction` method and its variations are also available. They return a function which, when called, will execute
@@ -54,8 +54,8 @@ the expression will stop at this pattern and not go any further.
 
 `Match.Create` is also overloaded to take the default fall-through behavior.
 
-Matching with fall-through is lazy i.e. it returns an `IEnumerable` and is only executed when this enumerable is
-enumerated. Because matching will fall-through is lazy, it doesn't have any modes of execution – the user must decide
+Matching with fall-through is lazy, i.e., it returns an `IEnumerable` and is only executed when this enumerable is
+enumerated. Because matching will fall-through is lazy, it doesn't have any modes of execution — the user must decide
 whether to throw an exception or not if there were no successful matches.
 
 In the `Match<TInput, TOutput>` class, the `ExecuteWithFallthrough` method returns an `IEnumerable<TOutput>` which can
@@ -121,15 +121,15 @@ void DoStuff(int i) =>
 ```
 
 The problem here is that if we call `DoStuff` 10,000 times, we will initialize the match expression 10,000 times as
-well, even though it's actually the same expression. Having just 4 cases may not seem like much, but the lag does
-accumulate if we execute it thousands of times.
+well, even though it's actually the same expression. Having just 4 cases may not seem like much, but the lag and
+allocations do accumulate if we execute it thousands of times.
 
 We can save the expression in a field and then call the `ExecuteOn` method on this field. But this makes the code much
 less readable because the case definitions are in a different place from the actual execution point.
 
 ### The Solution
 
-There is a way to create static match expressions – expressions which will be initialized only once.
+There is a way to create static match expressions — expressions which will be initialized only once.
 
 The `Match` class contains the `CreateStatic` methods which allow the creation of static match expressions. Take a look
 at the modified example:
@@ -150,7 +150,7 @@ only once, and its initialization code is in the same place as its execution poi
 
 The parameter of the build action has the type `MatchBuilder<TInput, TOutput` or `MatchBuilder<TInput>`, depending on
 which type of match expressions you are building. This type has the same methods for adding cases as the `Match` classes
-and is mutable – the methods return the same builder instance.
+and is mutable — the methods return the same builder instance.
 
 `MatchBuilder` also has the `Fallthrough` method which specifies the default fall-through behavior. But this method
 specifies fall-through behavior only for cases that are defined after it. For example:

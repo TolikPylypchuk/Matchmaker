@@ -19,11 +19,11 @@ The `Match` method actually does two things:
 - Matches the input value with the pattern and returns a successful result if the match is successful.
 - Transforms the input value. The returned result contains the transformed value if it's successful.
 
-Since options are not supported natively in C#, a custom type – [`MatchResult<T>`](results.md) – is used.
+Since options are not supported natively in C#, a custom type — [`MatchResult<T>`](results.md) — is used.
 
 The definition of patterns is similar to F#'s active patterns.
 
-Descriptions for patterns are not terribly important, but can be useful for debugging. As such, they are optional – if
+Descriptions for patterns are not terribly important, but can be useful for debugging. As such, they are optional — if
 you don't want a pattern to have a description, it should be empty. A pattern's description should never be `null`.
 
 ## Null Values
@@ -59,7 +59,7 @@ All methods for getting predefined patterns are overloaded to take a custom desc
 The `Matchmaker.Linq` namespace provides several extension methods for patterns:
 
 - `Select` maps a pattern's result value if it's successful.
-- `Pipe` creates a pattern pipeline – the result of the first pattern is the input of the second pattern.
+- `Pipe` creates a pattern pipeline — the result of the first pattern is the input of the second pattern.
 - `Cast` casts a pattern's result to a specified type. It's the same as piping a pattern to the `Type` pattern. If the
 input is `null`, then the match will fail only if the destination type is a non-nullable value type.
 - `Bind` flat-maps a pattern's result. If a pattern's result is successful, it calls the specified function and passes
@@ -70,7 +70,7 @@ result is the final result.
 the input if successful.
 - `Compose` is the same as the three methods above, but the composition operator is passed to it as well.
 - `Cached` returns a pattern which matches the same as the specified pattern but caches its results in a `null`-safe
-hash table. Every input will be matched only once – if it's matched again, the result will be taken from the cache. The
+hash table. Every input will be matched only once — if it's matched again, the result will be taken from the cache. The
 caching process is not thread-safe.
 
 All extension methods for patterns are overloaded to take a custom description.
@@ -82,10 +82,10 @@ a combination of the Reader and Maybe monads.
 
 ## Immutability
 
-Every predefined pattern as well as patterns returned by the `CreatePattern` and extension methods are immutable.
-Calling an extension method on a pattern returns a new pattern – the old one is unchanged.
+All predefined patterns, as well as patterns returned by `CreatePattern` and extension methods, are immutable. Calling
+an extension method on a pattern returns a new pattern — the old one is unchanged.
 
-An exception is the pattern returned by the `Cached` method, which is not immutable – it holds a mutable cache. But if a
+An exception is the pattern returned by the `Cached` method, which is not immutable — it holds a mutable cache. But if a
 pattern is referentially transparent (its `Match` method always returns the same result for the same input and doesn't
 have any side effects), then the caching pattern based on it can be thought of as immutable as well, because it doesn't
 matter how many times the base pattern's `Match` method is called.
@@ -109,7 +109,7 @@ There are also overloads which take a description.
 
 If you want something more complex than a single function, you can create a class which extends the
 `Matchmaker.Patterns.Pattern<TInput, TMatchResult>` class. This is a base class for patterns, and it implements the
-`Description` property which you don't have to use if you don't want – by default the description is empty, which means
+`Description` property which you don't have to use if you don't want — by default the description is empty, which means
 that the pattern doesn't have a description.
 
 You can also implement the `IPattern<TInput, TMatchResult>` interface directly. There is no reason to do that instead of

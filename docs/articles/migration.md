@@ -6,12 +6,12 @@ This article describes how to migrate to version 2.0.0 from
 If you need to migrate from older versions, first migrate to version 1.2.0. You can do that just by reading the
 changelog, because previous versions contained much fewer changes and it's much simpler to migrate.
 
-In order to migrate from version 2.0.0 to version 2.1.0 action is required only if you implemented the
+In order to migrate from version 2.0.0 to version 2.1.0, action is required only if you implemented the
 `IPattern<TInput, TMatchResult>` interface (which wasn't recommended). The less generic `IPattern<TInput>` interface was
 removed, so you should remove its `Match` method. That's it.
 
 No changes are required to migrate from version 2.1.0 to 3.1.0. Version 3.0.0 removed support for .NET Standard 2.0, but
-version 3.1.0 added it back, effectively undoing the only breaking change of 3.0.0.
+version 3.1.0 added it back, effectively undoing its only breaking change.
 
 ## General
 

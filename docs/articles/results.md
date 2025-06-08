@@ -12,8 +12,8 @@ may want just pattern matching and nothing else.
 - Users may use a different library/framework for functional features. There are a lot of those for C#.
 
 So, starting with version 2, instead of using the `OptionUnsafe<T>` type from language-ext, this library includes a
-`MatchResult<T>` type. This type is much like optional types from other libraries in that it may contain a value, or may
-not, except for a couple differences:
+`MatchResult<T>` type. This type works much like optional types from other libraries in that it may contain a value, or
+may not, except for a couple differences:
 
 - `MatchResult<T>` is not a general-purpose optional type and shouldn't be used as such.
 - `MatchResult<T>` can contain `null` values and this is important to remember. This type is not used to avoid
