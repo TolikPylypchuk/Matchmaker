@@ -87,13 +87,12 @@
         <article data-uid="">
 <h1 id="patterns">Patterns</h1>
 
-<p>One of two central ideas of this library is a <em>pattern</em>. Patterns are used to match the input value
-against a certain 'shape'. For example, 'the input value is equal to some value' or 'the input value
-has some type'.</p>
+<p>One of two central ideas of this library is a pattern. Patterns are used to match the input value against a certain
+'shape'. For example, 'the input value is equal to some value' or 'the input value has some type'.</p>
 <h2 id="the-ipatterntinput-tmatchresult-interface">The <code>IPattern&lt;TInput, TMatchResult&gt;</code> interface</h2>
-<p>A pattern is an object which implements the <code>Matchmaker.Patterns.IPattern&lt;TInput, TMatchResult&gt;</code> interface.
-This interface contains two members:</p>
-<pre><code>string Description { get; }
+<p>A pattern is an object which implements the <code>Matchmaker.Patterns.IPattern&lt;TInput, TMatchResult&gt;</code> interface. This
+interface contains two members:</p>
+<pre><code class="lang-c#">string Description { get; }
 
 MatchResult&lt;TMatchResult&gt; Match(Tinput input);
 </code></pre>
@@ -102,10 +101,10 @@ MatchResult&lt;TMatchResult&gt; Match(Tinput input);
 <li>Matches the input value with the pattern and returns a successful result if the match is successful.</li>
 <li>Transforms the input value. The returned result contains the transformed value if it's successful.</li>
 </ul>
-<p>Since options are not supported natively in C#, a custom type - <a href="results.html"><code>MatchResult&lt;T&gt;</code></a> - is used.</p>
+<p>Since options are not supported natively in C#, a custom type – <a href="results.html"><code>MatchResult&lt;T&gt;</code></a> – is used.</p>
 <p>The definition of patterns is similar to F#'s active patterns.</p>
-<p>Descriptions for patterns are not terribly important but can be useful for debugging. As such, they are optional -
-if you don't want a pattern to have a description, it should be empty. A pattern's description should <em>never</em> be <code>null</code>.</p>
+<p>Descriptions for patterns are not terribly important, but can be useful for debugging. As such, they are optional – if
+you don't want a pattern to have a description, it should be empty. A pattern's description should never be <code>null</code>.</p>
 <h2 id="null-values">Null Values</h2>
 <p>The results of patterns' matching can be <code>null</code>. This is why the <code>MatchResult&lt;T&gt;</code> type can contain a <code>null</code> value.</p>
 <h2 id="using-predefined-patterns">Using Predefined Patterns</h2>
@@ -114,69 +113,68 @@ if you don't want a pattern to have a description, it should be empty. A pattern
 <li><code>Any</code> is always matched successfully and returns its input.</li>
 <li><code>Return</code> is also always matched successfully but returns the specified value instead of its input.</li>
 <li><code>Null</code> is matched successfully if its input is <code>null</code>.</li>
-<li><code>ValueNull</code> is also matched successfully if its input is <code>null</code> but is used for nullable value types.</li>
+<li><code>ValueNull</code> is also matched successfully if its input is <code>null</code>, but is used for nullable value types.</li>
 <li><code>EqualTo</code> is matched successfully if its input is equal to the specified value.</li>
-<li><code>LessThan</code>, <code>LessOrEqual</code>, <code>GreaterThan</code> and <code>GreaterOrEqual</code> are matched successfully if their input
-is compared successfully to the specified value.</li>
-<li><code>Type</code> is matched successfully if its input has the specified type. It returns its input as a value of that type.
-If the input is <code>null</code>, then the match will fail only if the destination type is a non-nullable value type.</li>
-<li><code>Not</code> is matched successfully if the specified pattern is not matched successfully. It ignores the specified
-pattern's transformation and returns its input if matched successfully.</li>
+<li><code>LessThan</code>, <code>LessOrEqual</code>, <code>GreaterThan</code> and <code>GreaterOrEqual</code> are matched successfully if their input is compared
+successfully to the specified value.</li>
+<li><code>Type</code> is matched successfully if its input has the specified type. It returns its input as a value of that type. If
+the input is <code>null</code>, then the match will fail only if the destination type is a non-nullable value type.</li>
+<li><code>Not</code> is matched successfully if the specified pattern is not matched successfully. It ignores the specified pattern's
+transformation and returns its input if matched successfully.</li>
 </ul>
 <p>The patterns which compare their inputs can also take a custom comparer which will be used to compare values.</p>
-<p>The patterns that take a value can also take a value provider (a function which returns the value) in order
-to lazily match the input. The value provider will be called once upon the first call to the <code>Match</code> method
-and then its result will be cached. Note that the caching process is not thread-safe.</p>
+<p>The patterns that take a value can also take a value provider (a function which returns the value) in order to lazily
+match the input. The value provider will be called once upon the first call to the <code>Match</code> method and then its result
+will be cached. Note that the caching process is not thread-safe.</p>
 <p>All methods for getting predefined patterns are overloaded to take a custom description.</p>
 <h2 id="linq-to-patterns">LINQ to Patterns</h2>
 <p>The <code>Matchmaker.Linq</code> namespace provides several extension methods for patterns:</p>
 <ul>
 <li><code>Select</code> maps a pattern's result value if it's successful.</li>
-<li><code>Pipe</code> creates a pattern pipeline - the result of the first pattern is the input of the second pattern.</li>
-<li><code>Cast</code> casts a pattern's result to a specified type. It's the same as piping a pattern to the <code>Type</code> pattern.
-If the input is <code>null</code>, then the match will fail only if the destination type is a non-nullable value type.</li>
-<li><code>Bind</code> flat-maps a pattern's result. If a pattern's result is successful, it calls the
-specified function and passes the result to it. The function returns another pattern which is then used to match
-the input. The second pattern's result is the final result.</li>
+<li><code>Pipe</code> creates a pattern pipeline – the result of the first pattern is the input of the second pattern.</li>
+<li><code>Cast</code> casts a pattern's result to a specified type. It's the same as piping a pattern to the <code>Type</code> pattern. If the
+input is <code>null</code>, then the match will fail only if the destination type is a non-nullable value type.</li>
+<li><code>Bind</code> flat-maps a pattern's result. If a pattern's result is successful, it calls the specified function and passes
+the result to it. The function returns another pattern which is then used to match the input. The second pattern's
+result is the final result.</li>
 <li><code>Where</code> filters the pattern's result if it's successful.</li>
-<li><code>And</code>, <code>Or</code> and <code>Xor</code> compose two patterns. The resulting pattern ignores the patterns' transformations and
-returns the input if successful.</li>
+<li><code>And</code>, <code>Or</code> and <code>Xor</code> compose two patterns. The resulting pattern ignores the patterns' transformations and returns
+the input if successful.</li>
 <li><code>Compose</code> is the same as the three methods above, but the composition operator is passed to it as well.</li>
 <li><code>Cached</code> returns a pattern which matches the same as the specified pattern but caches its results in a <code>null</code>-safe
-hash table. Every input will be matched only once - if it's matched again, the result will be taken from the
-cache. The caching process is not thread-safe.</li>
+hash table. Every input will be matched only once – if it's matched again, the result will be taken from the cache. The
+caching process is not thread-safe.</li>
 </ul>
 <p>All extension methods for patterns are overloaded to take a custom description.</p>
 <p>Since there are the <code>Select</code> and <code>Where</code> extensions on patterns, you can write them using C#'s query syntax.</p>
-<p>Patterns have the <code>Bind</code> and <code>Return</code> functions, so they are monads (I haven't tested the monad laws though).
-To be more specific, patterns can be thought of as a combination of the Reader and Maybe monads.</p>
+<p>Patterns have the <code>Bind</code> and <code>Return</code> functions, so they are monads. To be more specific, patterns can be thought of as
+a combination of the Reader and Maybe monads.</p>
 <h2 id="immutability">Immutability</h2>
 <p>Every predefined pattern as well as patterns returned by the <code>CreatePattern</code> and extension methods are immutable.
-Calling an extension method on a pattern returns a new pattern - the old one is unchanged.</p>
-<p>An exception is the pattern returned by the <code>Cached</code> method, which is not immutable - it holds a mutable cache.
-But if a pattern is referentially transparent (its <code>Match</code> method always returns the same result for the same input and
-doesn't have any side effects), then the caching pattern based on it can be thought of as immutable as well, because it
-doesn't matter how many times the base pattern's <code>Match</code> method is called.</p>
+Calling an extension method on a pattern returns a new pattern – the old one is unchanged.</p>
+<p>An exception is the pattern returned by the <code>Cached</code> method, which is not immutable – it holds a mutable cache. But if a
+pattern is referentially transparent (its <code>Match</code> method always returns the same result for the same input and doesn't
+have any side effects), then the caching pattern based on it can be thought of as immutable as well, because it doesn't
+matter how many times the base pattern's <code>Match</code> method is called.</p>
 <h2 id="creating-custom-patterns">Creating Custom Patterns</h2>
 <p>This library works with arbitrary patterns. There are several ways to create custom patterns.</p>
 <h3 id="the-easy-way">The Easy Way</h3>
-<p>The <code>Pattern</code> class contains the <code>CreatePattern</code> methods which create patterns from functions. There are two
-variations:</p>
+<p>The <code>Pattern</code> class contains the <code>CreatePattern</code> methods which create patterns from functions. There are two variations:</p>
 <ul>
-<li>Create a pattern from a predicate. This predicate will be used to test the value. If it returns <code>true</code>, then the
-input value will be the result.</li>
-<li>Create a pattern from a matcher function. This is a function which has the same signature as the <code>Match</code> method
-of the <code>IPattern&lt;TInput, TMatchResult&gt;</code> interface. This function will be used to match inputs.</li>
+<li>Create a pattern from a predicate. This predicate will be used to test the value. If it returns <code>true</code>, then the input
+value will be the result.</li>
+<li>Create a pattern from a matcher function. This is a function which has the same signature as the <code>Match</code> method of the
+<code>IPattern&lt;TInput, TMatchResult&gt;</code> interface. This function will be used to match inputs.</li>
 </ul>
 <p>There are also overloads which take a description.</p>
 <h3 id="the-hard-way">The Hard Way</h3>
 <p>If you want something more complex than a single function, you can create a class which extends the
-<code>Matchmaker.Patterns.Pattern&lt;TInput, TMatchResult&gt;</code> class. This is a base class for patterns, and it implements
-the <code>Description</code> property which you don't have to use if you don't want – by default the description is empty, which
-means that the pattern doesn't have a description.</p>
-<p>You can also implement the <code>IPattern&lt;TInput, TMatchResult&gt;</code> interface directly. But there is no reason to do that
-instead of extending the <code>Pattern&lt;TInput, TMatchResult&gt;</code> class unless your class already extends another class. But
-in that case making your class a pattern will break the single responsibility principle. So, don't do that.</p>
+<code>Matchmaker.Patterns.Pattern&lt;TInput, TMatchResult&gt;</code> class. This is a base class for patterns, and it implements the
+<code>Description</code> property which you don't have to use if you don't want – by default the description is empty, which means
+that the pattern doesn't have a description.</p>
+<p>You can also implement the <code>IPattern&lt;TInput, TMatchResult&gt;</code> interface directly. There is no reason to do that instead of
+extending the <code>Pattern&lt;TInput, TMatchResult&gt;</code> class unless your class already extends another class. But in that case,
+making your class a pattern will most probably break the single responsibility principle.</p>
 
 </article>
 

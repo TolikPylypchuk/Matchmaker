@@ -87,42 +87,46 @@
         <article data-uid="">
 <h1 id="asynchronous-pattern-matching">Asynchronous Pattern Matching</h1>
 
-<p>Starting with version 3.0 asynchronous pattern matching is also available.</p>
+<p>Starting with version 3.0, asynchronous pattern matching is also available.</p>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>On .NET Standard 2.0, Matchmaker uses
+<a href="https://www.nuget.org/packages/Microsoft.Bcl.AsyncInterfaces">Microsoft.Bcl.AsyncInterfaces</a> as the polyfill for
+asynchronous interfaces.</p>
+</div>
 <h2 id="async-patterns">Async Patterns</h2>
 <p>Async patterns are objects which implement the <code>Matchmaker.Patterns.Async.IAsyncPattern&lt;TInput, TMatchResult&gt;</code>
-interface. They are very similar to <a href="patterns.html">normal patterns</a>, except they are, well, matched asynchronously.
-The interface contains two members:</p>
-<pre><code>string Description { get; }
+interface. They are very similar to <a href="patterns.html">normal patterns</a>, except they are matched asynchronously. The
+interface contains two members:</p>
+<pre><code class="lang-c#">string Description { get; }
 
 Task&lt;MatchResult&lt;TMatchResult&gt;&gt; MatchAsync(Tinput input);
 </code></pre>
-<p>The predefined patterns (contained in the <code>Matchmaker.Patterns.Async.AsyncPattern</code> class) and extension methods
-from <code>MatchMaker.Linq</code> are basically the same. There are also extensions for <code>Task&lt;MatchResult&lt;TMatchResult&gt;&gt;</code>.</p>
+<p>The predefined patterns (contained in the <code>Matchmaker.Patterns.Async.AsyncPattern</code> class) and extension methods from
+<code>MatchMaker.Linq</code> are basically the same. There are also extensions for <code>Task&lt;MatchResult&lt;TMatchResult&gt;&gt;</code>.</p>
 <p>The only difference is that the <code>Cached</code> extension method returns a pattern which caches its inputs in a thread-safe
 manner.</p>
 <p>Creating custom async patterns is also basically the same as creating custom patterns: you can use the <code>CreatePattern</code>
-methods from the <code>AsyncPattern</code> class, extend the
-<code>Matchmaker.Patterns.Async.AsyncPattern&lt;TInput, TMatchResult&gt;</code> class to get the <code>Description</code> property for
-free, or implement the <code>IAsyncPattern&lt;TInput, TMatchResult&gt;</code> directly (which is not recommended).</p>
-<p>Normal patterns can be turned into async patterns by calling the <code>AsAsync()</code> extension (defined in the
-<code>Matchmaker.Linq</code> namespace).</p>
+methods from the <code>AsyncPattern</code> class, extend the <code>Matchmaker.Patterns.Async.AsyncPattern&lt;TInput, TMatchResult&gt;</code> class
+to get the <code>Description</code> property for free, or implement the <code>IAsyncPattern&lt;TInput, TMatchResult&gt;</code> directly.</p>
+<p>Normal patterns can be turned into async patterns by calling the <code>AsAsync()</code> extension (defined in the <code>Matchmaker.Linq</code>
+namespace).</p>
 <h2 id="async-match-expressions">Async Match Expressions</h2>
 <p>Async match expressions are also very similar to <a href="expressions.html">normal match expressions</a>. There are two types of
-async match expressions: <code>AsyncMatch&lt;TInput, TOutput&gt;</code> which yields a result and <code>AsyncMatch&lt;TInput&gt;</code> which
-doesn't. They can be created using methods in the <code>AsyncMatch</code> class.</p>
-<p>The <code>Case</code> methods of async match expressions are overloaded to take either async patterns or normal patterns (which
-are turned into async patterns using the <code>AsAsync()</code> extension) and to take either async or sync actions to executed
-when a pattern is matched successfully (sync actions are turned into pseudo-async actions).</p>
+async match expressions: <code>AsyncMatch&lt;TInput, TOutput&gt;</code> which yields a result and <code>AsyncMatch&lt;TInput&gt;</code> which doesn't.
+They can be created using methods in the <code>AsyncMatch</code> class.</p>
+<p>The <code>Case</code> methods of async match expressions are overloaded to take either async patterns or normal patterns (which are
+turned into async patterns using the <code>AsAsync()</code> extension) and to take either async or sync actions to executed when a
+pattern is matched successfully (sync actions are turned into async actions).</p>
 <p>Async match expressions can be executed using the <code>ExecuteAsync</code>, <code>ExecuteNonStrictAsync</code> and
 <code>ExecuteWithFallthroughAsync</code> methods.  The <code>ToFunction</code> method and its variations are also available.
-<code>ExecuteWithFallthroughAsync</code> returns an <code>IAsyncEnumerable</code> which enable lazy async execution of match
-expressions.</p>
-<p>The <code>Matchmaker.Linq</code> namespace contains the <code>EnumerateAsync</code> extension method for <code>IEnumerable&lt;T&gt;</code> which
+<code>ExecuteWithFallthroughAsync</code> returns an <code>IAsyncEnumerable</code> which enable lazy async execution of match expressions.</p>
+<p>The <code>Matchmaker.Linq</code> namespace contains the <code>EnumerateAsync</code> extension method for <code>IAsyncEnumerable&lt;T&gt;</code> which
 enumerates it and ignores the result. You can use it if you just want to execute the match statement with fall-through.</p>
-<p>Static async match expressions are also available. Use the <code>AsyncMatch.CreateStatic</code> methods to create them, just
-like normal match expressions. The methods accept an action on either <code>AsyncMatchBuilder&lt;TInput, TOutput&gt;</code> or
-<code>AsyncMatchBuilder&lt;TInput&gt;</code>. Static match expressions are globally cached and the caching process is thread-safe.
-Caches can be cleared with the <code>ClearCache</code> methods in <code>AsyncMatch</code>.</p>
+<p>Static async match expressions are also available. Use the <code>AsyncMatch.CreateStatic</code> methods to create them, just like
+normal match expressions. The methods accept an action on either <code>AsyncMatchBuilder&lt;TInput, TOutput&gt;</code> or
+<code>AsyncMatchBuilder&lt;TInput&gt;</code>. Static match expressions are globally cached and the caching process is thread-safe. Caches
+can be cleared with the <code>ClearCache</code> methods in <code>AsyncMatch</code>.</p>
 
 </article>
 
