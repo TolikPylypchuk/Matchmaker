@@ -14,9 +14,8 @@ public interface IPattern<in TInput, TMatchResult>
     /// Gets the description of this pattern.
     /// </summary>
     /// <remarks>
-    /// Description is not terribly important, but can be used for debugging.
-    /// The description may never be <see langword="null" />. An empty description
-    /// implies that a pattern doesn't have a description.
+    /// Description is not terribly important, but can be used for debugging. The description may never be
+    /// <see langword="null" />. An empty description implies that a pattern doesn't have a description.
     /// </remarks>
     string Description { get; }
 
@@ -25,8 +24,8 @@ public interface IPattern<in TInput, TMatchResult>
     /// </summary>
     /// <param name="input">The input value to match.</param>
     /// <returns>
-    /// A successful match result which contains the transformed result of the match,
-    /// if this match is successful. Otherwise, a failed match result.
+    /// A successful match result which contains the transformed result of the match, if this match is successful.
+    /// Otherwise, a failed match result.
     /// </returns>
     MatchResult<TMatchResult> Match(TInput input);
 }

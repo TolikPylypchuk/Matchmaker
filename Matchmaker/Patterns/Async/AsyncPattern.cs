@@ -73,7 +73,7 @@ public static class AsyncPattern
     public static readonly string DefaultXorDescriptionFormat = "({0}) xor ({1})";
 
     /// <summary>
-    /// The default description of the 'not' pattern combinators.
+    /// The default description of the 'not' pattern combinator.
     /// </summary>
     public static readonly string DefaultNotDescriptionFormat = "not ({0})";
 
@@ -195,8 +195,8 @@ public static class AsyncPattern
     /// <param name="value">The value to return.</param>
     /// <returns>A pattern which always successfully returns the specified value.</returns>
     /// <remarks>
-    /// This pattern is much like the <see cref="Any{TInput}()" /> pattern,
-    /// except it returns the specified value instead of the pattern's input.
+    /// This pattern works much like the <see cref="Any{TInput}()" /> pattern, except it returns the specified value
+    /// instead of the pattern's input.
     /// </remarks>
     public static IAsyncPattern<TInput, TValue> Return<TInput, TValue>(Task<TValue> value) =>
         Return<TInput, TValue>(value, DefaultReturnDescription);
@@ -210,8 +210,8 @@ public static class AsyncPattern
     /// <param name="description">The description of the pattern.</param>
     /// <returns>A pattern which always successfully returns the specified value.</returns>
     /// <remarks>
-    /// This pattern is much like the <see cref="Any{TInput}(string)" /> pattern,
-    /// except it returns the specified value instead of the pattern's input.
+    /// This pattern works much like the <see cref="Any{TInput}(string)" /> pattern, except it returns the specified
+    /// value instead of the pattern's input.
     /// </remarks>
     /// <exception cref="ArgumentNullException">
     /// <paramref name="description" /> is <see langword="null" />.
@@ -229,8 +229,19 @@ public static class AsyncPattern
     /// <param name="valueProvider">The provider of the value to return.</param>
     /// <returns>A pattern which always successfully returns the provided value.</returns>
     /// <remarks>
-    /// This pattern is much like the <see cref="Any{TInput}()" /> pattern,
-    /// except it returns the provided value instead of the pattern's input.
+    /// <para>
+    /// The <paramref name="valueProvider" /> is not called until this pattern's
+    /// <see cref="Pattern{TInput, TMatchResult}.Match(TInput)" /> method is called.
+    /// </para>
+    /// <para>
+    /// The <paramref name="valueProvider" /> will be memoized, so it will be called once, and then its result will be
+    /// cached. The caching process is not thread-safe, so there is a chance that the <paramref name="valueProvider" />
+    /// can be called more than once.
+    /// </para>
+    /// <para>
+    /// This pattern works much like the <see cref="Any{TInput}(string)" /> pattern, except it returns the provided
+    /// value instead of the pattern's input.
+    /// </para>
     /// </remarks>
     /// <exception cref="ArgumentNullException">
     /// <paramref name="valueProvider"/> is <see langword="null" />.
@@ -252,14 +263,13 @@ public static class AsyncPattern
     /// <see cref="Pattern{TInput, TMatchResult}.Match(TInput)" /> method is called.
     /// </para>
     /// <para>
-    /// The <paramref name="valueProvider" /> will be memoized, so it will be called once,
-    /// and then its result will be cached. The caching process is not thread-safe,
-    /// so there is a chance that the <paramref name="valueProvider" /> can be called
-    /// more than once.
+    /// The <paramref name="valueProvider" /> will be memoized, so it will be called once, and then its result will be
+    /// cached. The caching process is not thread-safe, so there is a chance that the <paramref name="valueProvider" />
+    /// can be called more than once.
     /// </para>
     /// <para>
-    /// This pattern is much like the <see cref="Any{TInput}(string)" /> pattern,
-    /// except it returns the provided value instead of the pattern's input.
+    /// This pattern works much like the <see cref="Any{TInput}(string)" /> pattern, except it returns the provided
+    /// value instead of the pattern's input.
     /// </para>
     /// </remarks>
     /// <exception cref="ArgumentNullException">
@@ -351,10 +361,9 @@ public static class AsyncPattern
     /// <see cref="IAsyncPattern{TInput, TMatchResult}.MatchAsync(TInput)" /> method is called.
     /// </para>
     /// <para>
-    /// The <paramref name="valueProvider" /> will be memoized, so it will be called once,
-    /// and then its result will be cached. The caching process is not thread-safe,
-    /// so there is a chance that the <paramref name="valueProvider" /> can be called
-    /// more than once.
+    /// The <paramref name="valueProvider" /> will be memoized, so it will be called once, and then its result will be
+    /// cached. The caching process is not thread-safe, so there is a chance that the <paramref name="valueProvider" />
+    /// can be called more than once.
     /// </para>
     /// <para>
     /// If <paramref name="valueProvider" /> returns <see langword="null" />, an
@@ -368,8 +377,8 @@ public static class AsyncPattern
         EqualTo(valueProvider, DefaultEqualToDescription);
 
     /// <summary>
-    /// Returns a pattern which is matched successfully when the input value is equal to the specified value
-    /// according to the specified equality comparer.
+    /// Returns a pattern which is matched successfully when the input value is equal to the specified value according
+    /// to the specified equality comparer.
     /// </summary>
     /// <typeparam name="TInput">The type of the input value of the expression.</typeparam>
     /// <param name="value">The value to check for equality.</param>
@@ -386,8 +395,8 @@ public static class AsyncPattern
         EqualTo(value, comparer, DefaultEqualToDescription);
 
     /// <summary>
-    /// Returns a pattern which is matched successfully when the input value is equal to the provided value
-    /// according to the specified equality comparer.
+    /// Returns a pattern which is matched successfully when the input value is equal to the provided value according to
+    /// the specified equality comparer.
     /// </summary>
     /// <typeparam name="TInput">The type of the input value of the expression.</typeparam>
     /// <param name="valueProvider">The provider of the value to check for equality.</param>
@@ -401,10 +410,9 @@ public static class AsyncPattern
     /// <see cref="IAsyncPattern{TInput, TMatchResult}.MatchAsync(TInput)" /> method is called.
     /// </para>
     /// <para>
-    /// The <paramref name="valueProvider" /> will be memoized, so it will be called once,
-    /// and then its result will be cached. The caching process is not thread-safe,
-    /// so there is a chance that the <paramref name="valueProvider" /> can be called
-    /// more than once.
+    /// The <paramref name="valueProvider" /> will be memoized, so it will be called once, and then its result will be
+    /// cached. The caching process is not thread-safe, so there is a chance that the <paramref name="valueProvider" />
+    /// can be called more than once.
     /// </para>
     /// <para>
     /// If <paramref name="valueProvider" /> returns <see langword="null" />, an
@@ -449,10 +457,9 @@ public static class AsyncPattern
     /// <see cref="IAsyncPattern{TInput, TMatchResult}.MatchAsync(TInput)" /> method is called.
     /// </para>
     /// <para>
-    /// The <paramref name="valueProvider" /> will be memoized, so it will be called once,
-    /// and then its result will be cached. The caching process is not thread-safe,
-    /// so there is a chance that the <paramref name="valueProvider" /> can be called
-    /// more than once.
+    /// The <paramref name="valueProvider" /> will be memoized, so it will be called once, and then its result will be
+    /// cached. The caching process is not thread-safe, so there is a chance that the <paramref name="valueProvider" />
+    /// can be called more than once.
     /// </para>
     /// <para>
     /// If <paramref name="valueProvider" /> returns <see langword="null" />, an
@@ -468,8 +475,8 @@ public static class AsyncPattern
         EqualTo(valueProvider, EqualityComparer<TInput>.Default, description);
 
     /// <summary>
-    /// Returns a pattern which is matched successfully when the input value is equal to the specified value
-    /// according to the specified equality comparer.
+    /// Returns a pattern which is matched successfully when the input value is equal to the specified value according
+    /// to the specified equality comparer.
     /// </summary>
     /// <typeparam name="TInput">The type of the input value of the expression.</typeparam>
     /// <param name="value">The value to check for equality.</param>
@@ -479,7 +486,7 @@ public static class AsyncPattern
     /// A pattern which is matched successfully when the input value is equal to the specified value.
     /// </returns>
     /// <exception cref="ArgumentNullException">
-    /// <paramref name="value" />, <paramref name="comparer" /> or <paramref name="description" /> is
+    /// <paramref name="value" />, <paramref name="comparer" />, or <paramref name="description" /> is
     /// <see langword="null" />.
     /// </exception>
     public static IAsyncPattern<TInput, TInput> EqualTo<TInput>(
@@ -495,8 +502,8 @@ public static class AsyncPattern
             : throw new ArgumentNullException(nameof(value));
 
     /// <summary>
-    /// Returns a pattern which is matched successfully when the input value is equal to the provided value
-    /// according to the specified equality comparer.
+    /// Returns a pattern which is matched successfully when the input value is equal to the provided value according to
+    /// the specified equality comparer.
     /// </summary>
     /// <typeparam name="TInput">The type of the input value of the expression.</typeparam>
     /// <param name="valueProvider">The provider of the value to check for equality.</param>
@@ -511,10 +518,9 @@ public static class AsyncPattern
     /// <see cref="IAsyncPattern{TInput, TMatchResult}.MatchAsync(TInput)" /> method is called.
     /// </para>
     /// <para>
-    /// The <paramref name="valueProvider" /> will be memoized, so it will be called once,
-    /// and then its result will be cached. The caching process is not thread-safe,
-    /// so there is a chance that the <paramref name="valueProvider" /> can be called
-    /// more than once.
+    /// The <paramref name="valueProvider" /> will be memoized, so it will be called once, and then its result will be
+    /// cached. The caching process is not thread-safe, so there is a chance that the <paramref name="valueProvider" />
+    /// can be called more than once.
     /// </para>
     /// <para>
     /// If <paramref name="valueProvider" /> returns <see langword="null" />, an
@@ -522,8 +528,8 @@ public static class AsyncPattern
     /// </para>
     /// </remarks>
     /// <exception cref="ArgumentNullException">
-    /// <paramref name="valueProvider" />, <paramref name="comparer" /> or <paramref name="description" />
-    /// is <see langword="null" />.
+    /// <paramref name="valueProvider" />, <paramref name="comparer" />, or <paramref name="description" /> is
+    /// <see langword="null" />.
     /// </exception>
     public static IAsyncPattern<TInput, TInput> EqualTo<TInput>(
         Func<Task<TInput>> valueProvider,
@@ -568,10 +574,9 @@ public static class AsyncPattern
     /// <see cref="IAsyncPattern{TInput, TMatchResult}.MatchAsync(TInput)" /> method is called.
     /// </para>
     /// <para>
-    /// The <paramref name="valueProvider" /> will be memoized, so it will be called once,
-    /// and then its result will be cached. The caching process is not thread-safe,
-    /// so there is a chance that the <paramref name="valueProvider" /> can be called
-    /// more than once.
+    /// The <paramref name="valueProvider" /> will be memoized, so it will be called once, and then its result will be
+    /// cached. The caching process is not thread-safe, so there is a chance that the <paramref name="valueProvider" />
+    /// can be called more than once.
     /// </para>
     /// <para>
     /// If <paramref name="valueProvider" /> returns <see langword="null" />, an
@@ -586,8 +591,8 @@ public static class AsyncPattern
         LessThan(valueProvider, DefaultLessThanDescription);
 
     /// <summary>
-    /// Returns a pattern which is matched successfully when the input value is less than the specified value
-    /// according to the specified comparer.
+    /// Returns a pattern which is matched successfully when the input value is less than the specified value according
+    /// to the specified comparer.
     /// </summary>
     /// <typeparam name="TInput">The type of the input value of the expression.</typeparam>
     /// <param name="value">The value to compare with.</param>
@@ -602,8 +607,8 @@ public static class AsyncPattern
         LessThan(value, comparer, DefaultLessThanDescription);
 
     /// <summary>
-    /// Returns a pattern which is matched successfully when the input value is less than the provided value
-    /// according to the specified comparer.
+    /// Returns a pattern which is matched successfully when the input value is less than the provided value according
+    /// to the specified comparer.
     /// </summary>
     /// <typeparam name="TInput">The type of the input value of the expression.</typeparam>
     /// <param name="valueProvider">The provider of the value to compare with.</param>
@@ -617,10 +622,9 @@ public static class AsyncPattern
     /// <see cref="IAsyncPattern{TInput, TMatchResult}.MatchAsync(TInput)" /> method is called.
     /// </para>
     /// <para>
-    /// The <paramref name="valueProvider" /> will be memoized, so it will be called once,
-    /// and then its result will be cached. The caching process is not thread-safe,
-    /// so there is a chance that the <paramref name="valueProvider" /> can be called
-    /// more than once.
+    /// The <paramref name="valueProvider" /> will be memoized, so it will be called once, and then its result will be
+    /// cached. The caching process is not thread-safe, so there is a chance that the <paramref name="valueProvider" />
+    /// can be called more than once.
     /// </para>
     /// <para>
     /// If <paramref name="valueProvider" /> returns <see langword="null" />, an
@@ -666,10 +670,9 @@ public static class AsyncPattern
     /// <see cref="IAsyncPattern{TInput, TMatchResult}.MatchAsync(TInput)" /> method is called.
     /// </para>
     /// <para>
-    /// The <paramref name="valueProvider" /> will be memoized, so it will be called once,
-    /// and then its result will be cached. The caching process is not thread-safe,
-    /// so there is a chance that the <paramref name="valueProvider" /> can be called
-    /// more than once.
+    /// The <paramref name="valueProvider" /> will be memoized, so it will be called once, and then its result will be
+    /// cached. The caching process is not thread-safe, so there is a chance that the <paramref name="valueProvider" />
+    /// can be called more than once.
     /// </para>
     /// <para>
     /// If <paramref name="valueProvider" /> returns <see langword="null" />, an
@@ -686,8 +689,8 @@ public static class AsyncPattern
         LessThan(valueProvider, Comparer<TInput>.Default, description);
 
     /// <summary>
-    /// Returns a pattern which is matched successfully when the input value is less than the specified value
-    /// according to the specified comparer.
+    /// Returns a pattern which is matched successfully when the input value is less than the specified value according
+    /// to the specified comparer.
     /// </summary>
     /// <typeparam name="TInput">The type of the input value of the expression.</typeparam>
     /// <param name="value">The value to compare with.</param>
@@ -697,7 +700,7 @@ public static class AsyncPattern
     /// A pattern which is matched successfully when the input value is less than the specified value.
     /// </returns>
     /// <exception cref="ArgumentNullException">
-    /// <paramref name="value" />, <paramref name="comparer" /> or <paramref name="description" /> is
+    /// <paramref name="value" />, <paramref name="comparer" />, or <paramref name="description" /> is
     /// <see langword="null" />.
     /// </exception>
     public static IAsyncPattern<TInput, TInput> LessThan<TInput>(
@@ -713,8 +716,8 @@ public static class AsyncPattern
             : throw new ArgumentNullException(nameof(value));
 
     /// <summary>
-    /// Returns a pattern which is matched successfully when the input value is less than the provided value
-    /// according to the specified comparer.
+    /// Returns a pattern which is matched successfully when the input value is less than the provided value according
+    /// to the specified comparer.
     /// </summary>
     /// <typeparam name="TInput">The type of the input value of the expression.</typeparam>
     /// <param name="valueProvider">The provider of the value to compare with.</param>
@@ -729,10 +732,9 @@ public static class AsyncPattern
     /// <see cref="IAsyncPattern{TInput, TMatchResult}.MatchAsync(TInput)" /> method is called.
     /// </para>
     /// <para>
-    /// The <paramref name="valueProvider" /> will be memoized, so it will be called once,
-    /// and then its result will be cached. The caching process is not thread-safe,
-    /// so there is a chance that the <paramref name="valueProvider" /> can be called
-    /// more than once.
+    /// The <paramref name="valueProvider" /> will be memoized, so it will be called once, and then its result will be
+    /// cached. The caching process is not thread-safe, so there is a chance that the <paramref name="valueProvider" />
+    /// can be called more than once.
     /// </para>
     /// <para>
     /// If <paramref name="valueProvider" /> returns <see langword="null" />, an
@@ -740,8 +742,8 @@ public static class AsyncPattern
     /// </para>
     /// </remarks>
     /// <exception cref="ArgumentNullException">
-    /// <paramref name="valueProvider" />, <paramref name="comparer" /> or <paramref name="description" />
-    /// is <see langword="null" />.
+    /// <paramref name="valueProvider" />, <paramref name="comparer" />, or <paramref name="description" /> is
+    /// <see langword="null" />.
     /// </exception>
     public static IAsyncPattern<TInput, TInput> LessThan<TInput>(
         Func<Task<TInput>> valueProvider,
@@ -758,8 +760,8 @@ public static class AsyncPattern
     }
 
     /// <summary>
-    /// Returns a pattern which is matched successfully when the input value is less than or equal
-    /// to the specified value.
+    /// Returns a pattern which is matched successfully when the input value is less than or equal to the specified
+    /// value.
     /// </summary>
     /// <typeparam name="TInput">The type of the input value of the expression.</typeparam>
     /// <param name="value">The value to compare with.</param>
@@ -774,8 +776,8 @@ public static class AsyncPattern
         LessOrEqual(value, DefaultLessOrEqualDescription);
 
     /// <summary>
-    /// Returns a pattern which is matched successfully when the input value is less than or equal
-    /// to the provided value.
+    /// Returns a pattern which is matched successfully when the input value is less than or equal to the provided
+    /// value.
     /// </summary>
     /// <typeparam name="TInput">The type of the input value of the expression.</typeparam>
     /// <param name="valueProvider">The provider of the value to compare with.</param>
@@ -788,10 +790,9 @@ public static class AsyncPattern
     /// <see cref="IAsyncPattern{TInput, TMatchResult}.MatchAsync(TInput)" /> method is called.
     /// </para>
     /// <para>
-    /// The <paramref name="valueProvider" /> will be memoized, so it will be called once,
-    /// and then its result will be cached. The caching process is not thread-safe,
-    /// so there is a chance that the <paramref name="valueProvider" /> can be called
-    /// more than once.
+    /// The <paramref name="valueProvider" /> will be memoized, so it will be called once, and then its result will be
+    /// cached. The caching process is not thread-safe, so there is a chance that the <paramref name="valueProvider" />
+    /// can be called more than once.
     /// </para>
     /// <para>
     /// If <paramref name="valueProvider" /> returns <see langword="null" />, an
@@ -806,8 +807,8 @@ public static class AsyncPattern
         LessOrEqual(valueProvider, DefaultLessOrEqualDescription);
 
     /// <summary>
-    /// Returns a pattern which is matched successfully when the input value is less than or equal
-    /// to the specified value according to the specified comparer.
+    /// Returns a pattern which is matched successfully when the input value is less than or equal to the specified
+    /// value according to the specified comparer.
     /// </summary>
     /// <typeparam name="TInput">The type of the input value of the expression.</typeparam>
     /// <param name="value">The value to compare with.</param>
@@ -822,8 +823,8 @@ public static class AsyncPattern
         LessOrEqual(value, comparer, DefaultLessOrEqualDescription);
 
     /// <summary>
-    /// Returns a pattern which is matched successfully when the input value is less than or equal
-    /// to the provided value according to the specified comparer.
+    /// Returns a pattern which is matched successfully when the input value is less than or equal to the provided value
+    /// according to the specified comparer.
     /// </summary>
     /// <typeparam name="TInput">The type of the input value of the expression.</typeparam>
     /// <param name="valueProvider">The provider of the value to compare with.</param>
@@ -837,10 +838,9 @@ public static class AsyncPattern
     /// <see cref="IAsyncPattern{TInput, TMatchResult}.MatchAsync(TInput)" /> method is called.
     /// </para>
     /// <para>
-    /// The <paramref name="valueProvider" /> will be memoized, so it will be called once,
-    /// and then its result will be cached. The caching process is not thread-safe,
-    /// so there is a chance that the <paramref name="valueProvider" /> can be called
-    /// more than once.
+    /// The <paramref name="valueProvider" /> will be memoized, so it will be called once, and then its result will be
+    /// cached. The caching process is not thread-safe, so there is a chance that the <paramref name="valueProvider" />
+    /// can be called more than once.
     /// </para>
     /// <para>
     /// If <paramref name="valueProvider" /> returns <see langword="null" />, an
@@ -856,8 +856,8 @@ public static class AsyncPattern
         LessOrEqual(valueProvider, comparer, DefaultLessOrEqualDescription);
 
     /// <summary>
-    /// Returns a pattern which is matched successfully when the input value is less than or equal
-    /// to the specified value.
+    /// Returns a pattern which is matched successfully when the input value is less than or equal to the specified
+    /// value.
     /// </summary>
     /// <typeparam name="TInput">The type of the input value of the expression.</typeparam>
     /// <param name="value">The value to compare with.</param>
@@ -873,8 +873,8 @@ public static class AsyncPattern
         LessOrEqual(value, Comparer<TInput>.Default, description);
 
     /// <summary>
-    /// Returns a pattern which is matched successfully when the input value is less than or equal
-    /// to the provided value.
+    /// Returns a pattern which is matched successfully when the input value is less than or equal to the provided
+    /// value.
     /// </summary>
     /// <typeparam name="TInput">The type of the input value of the expression.</typeparam>
     /// <param name="valueProvider">The provider of the value to compare with.</param>
@@ -888,10 +888,9 @@ public static class AsyncPattern
     /// <see cref="IAsyncPattern{TInput, TMatchResult}.MatchAsync(TInput)" /> method is called.
     /// </para>
     /// <para>
-    /// The <paramref name="valueProvider" /> will be memoized, so it will be called once,
-    /// and then its result will be cached. The caching process is not thread-safe,
-    /// so there is a chance that the <paramref name="valueProvider" /> can be called
-    /// more than once.
+    /// The <paramref name="valueProvider" /> will be memoized, so it will be called once, and then its result will be
+    /// cached. The caching process is not thread-safe, so there is a chance that the <paramref name="valueProvider" />
+    /// can be called more than once.
     /// </para>
     /// <para>
     /// If <paramref name="valueProvider" /> returns <see langword="null" />, an
@@ -908,8 +907,8 @@ public static class AsyncPattern
         LessOrEqual(valueProvider, Comparer<TInput>.Default, description);
 
     /// <summary>
-    /// Returns a pattern which is matched successfully when the input value is less than or equal
-    /// to the specified value according to the specified comparer.
+    /// Returns a pattern which is matched successfully when the input value is less than or equal to the specified
+    /// value according to the specified comparer.
     /// </summary>
     /// <typeparam name="TInput">The type of the input value of the expression.</typeparam>
     /// <param name="value">The value to compare with.</param>
@@ -919,7 +918,7 @@ public static class AsyncPattern
     /// A pattern which is matched successfully when the input value is less than or equal to the specified value.
     /// </returns>
     /// <exception cref="ArgumentNullException">
-    /// <paramref name="value" />, <paramref name="comparer" /> or <paramref name="description" /> is
+    /// <paramref name="value" />, <paramref name="comparer" />, or <paramref name="description" /> is
     /// <see langword="null" />.
     /// </exception>
     public static IAsyncPattern<TInput, TInput> LessOrEqual<TInput>(
@@ -935,8 +934,8 @@ public static class AsyncPattern
             : throw new ArgumentNullException(nameof(value));
 
     /// <summary>
-    /// Returns a pattern which is matched successfully when the input value is less than or equal
-    /// to the provided value according to the specified comparer.
+    /// Returns a pattern which is matched successfully when the input value is less than or equal to the provided value
+    /// according to the specified comparer.
     /// </summary>
     /// <typeparam name="TInput">The type of the input value of the expression.</typeparam>
     /// <param name="valueProvider">The provider of the value to compare with.</param>
@@ -951,10 +950,9 @@ public static class AsyncPattern
     /// <see cref="IAsyncPattern{TInput, TMatchResult}.MatchAsync(TInput)" /> method is called.
     /// </para>
     /// <para>
-    /// The <paramref name="valueProvider" /> will be memoized, so it will be called once,
-    /// and then its result will be cached. The caching process is not thread-safe,
-    /// so there is a chance that the <paramref name="valueProvider" /> can be called
-    /// more than once.
+    /// The <paramref name="valueProvider" /> will be memoized, so it will be called once, and then its result will be
+    /// cached. The caching process is not thread-safe, so there is a chance that the <paramref name="valueProvider" />
+    /// can be called more than once.
     /// </para>
     /// <para>
     /// If <paramref name="valueProvider" /> returns <see langword="null" />, an
@@ -962,8 +960,8 @@ public static class AsyncPattern
     /// </para>
     /// </remarks>
     /// <exception cref="ArgumentNullException">
-    /// <paramref name="valueProvider" />, <paramref name="comparer" /> or <paramref name="description" />
-    /// is <see langword="null" />.
+    /// <paramref name="valueProvider" />, <paramref name="comparer" />, or <paramref name="description" /> is
+    /// <see langword="null" />.
     /// </exception>
     public static IAsyncPattern<TInput, TInput> LessOrEqual<TInput>(
         Func<Task<TInput>> valueProvider,
@@ -1008,10 +1006,9 @@ public static class AsyncPattern
     /// <see cref="IAsyncPattern{TInput, TMatchResult}.MatchAsync(TInput)" /> method is called.
     /// </para>
     /// <para>
-    /// The <paramref name="valueProvider" /> will be memoized, so it will be called once,
-    /// and then its result will be cached. The caching process is not thread-safe,
-    /// so there is a chance that the <paramref name="valueProvider" /> can be called
-    /// more than once.
+    /// The <paramref name="valueProvider" /> will be memoized, so it will be called once, and then its result will be
+    /// cached. The caching process is not thread-safe, so there is a chance that the <paramref name="valueProvider" />
+    /// can be called more than once.
     /// </para>
     /// <para>
     /// If <paramref name="valueProvider" /> returns <see langword="null" />, an
@@ -1057,10 +1054,9 @@ public static class AsyncPattern
     /// <see cref="IAsyncPattern{TInput, TMatchResult}.MatchAsync(TInput)" /> method is called.
     /// </para>
     /// <para>
-    /// The <paramref name="valueProvider" /> will be memoized, so it will be called once,
-    /// and then its result will be cached. The caching process is not thread-safe,
-    /// so there is a chance that the <paramref name="valueProvider" /> can be called
-    /// more than once.
+    /// The <paramref name="valueProvider" /> will be memoized, so it will be called once, and then its result will be
+    /// cached. The caching process is not thread-safe, so there is a chance that the <paramref name="valueProvider" />
+    /// can be called more than once.
     /// </para>
     /// <para>
     /// If <paramref name="valueProvider" /> returns <see langword="null" />, an
@@ -1106,10 +1102,9 @@ public static class AsyncPattern
     /// <see cref="IAsyncPattern{TInput, TMatchResult}.MatchAsync(TInput)" /> method is called.
     /// </para>
     /// <para>
-    /// The <paramref name="valueProvider" /> will be memoized, so it will be called once,
-    /// and then its result will be cached. The caching process is not thread-safe,
-    /// so there is a chance that the <paramref name="valueProvider" /> can be called
-    /// more than once.
+    /// The <paramref name="valueProvider" /> will be memoized, so it will be called once, and then its result will be
+    /// cached. The caching process is not thread-safe, so there is a chance that the <paramref name="valueProvider" />
+    /// can be called more than once.
     /// </para>
     /// <para>
     /// If <paramref name="valueProvider" /> returns <see langword="null" />, an
@@ -1137,7 +1132,7 @@ public static class AsyncPattern
     /// A pattern which is matched successfully when the input value is greater than the specified value.
     /// </returns>
     /// <exception cref="ArgumentNullException">
-    /// <paramref name="value" />, <paramref name="comparer" /> or <paramref name="description" /> is
+    /// <paramref name="value" />, <paramref name="comparer" />, or <paramref name="description" /> is
     /// <see langword="null" />.
     /// </exception>
     public static IAsyncPattern<TInput, TInput> GreaterThan<TInput>(
@@ -1169,10 +1164,9 @@ public static class AsyncPattern
     /// <see cref="IAsyncPattern{TInput, TMatchResult}.MatchAsync(TInput)" /> method is called.
     /// </para>
     /// <para>
-    /// The <paramref name="valueProvider" /> will be memoized, so it will be called once,
-    /// and then its result will be cached. The caching process is not thread-safe,
-    /// so there is a chance that the <paramref name="valueProvider" /> can be called
-    /// more than once.
+    /// The <paramref name="valueProvider" /> will be memoized, so it will be called once, and then its result will be
+    /// cached. The caching process is not thread-safe, so there is a chance that the <paramref name="valueProvider" />
+    /// can be called more than once.
     /// </para>
     /// <para>
     /// If <paramref name="valueProvider" /> returns <see langword="null" />, an
@@ -1180,8 +1174,8 @@ public static class AsyncPattern
     /// </para>
     /// </remarks>
     /// <exception cref="ArgumentNullException">
-    /// <paramref name="valueProvider" />, <paramref name="comparer" /> or <paramref name="description" />
-    /// is <see langword="null" />.
+    /// <paramref name="valueProvider" />, <paramref name="comparer" />, or <paramref name="description" /> is
+    /// <see langword="null" />.
     /// </exception>
     public static IAsyncPattern<TInput, TInput> GreaterThan<TInput>(
         Func<Task<TInput>> valueProvider,
@@ -1198,14 +1192,13 @@ public static class AsyncPattern
     }
 
     /// <summary>
-    /// Returns a pattern which is matched successfully when the input value is greater than or equal
-    /// to the specified value.
+    /// Returns a pattern which is matched successfully when the input value is greater than or equal to the specified
+    /// value.
     /// </summary>
     /// <typeparam name="TInput">The type of the input value of the expression.</typeparam>
     /// <param name="value">The value to compare with.</param>
     /// <returns>
-    /// A pattern which is matched successfully when the input value is greater than or equal to
-    /// the specified value.
+    /// A pattern which is matched successfully when the input value is greater than or equal to the specified value.
     /// </returns>
     /// <exception cref="ArgumentNullException">
     /// <paramref name="value" /> is <see langword="null" />.
@@ -1215,14 +1208,13 @@ public static class AsyncPattern
         GreaterOrEqual(value, DefaultGreaterOrEqualDescription);
 
     /// <summary>
-    /// Returns a pattern which is matched successfully when the input value is greater than or equal
-    /// to the provided value.
+    /// Returns a pattern which is matched successfully when the input value is greater than or equal to the provided
+    /// value.
     /// </summary>
     /// <typeparam name="TInput">The type of the input value of the expression.</typeparam>
     /// <param name="valueProvider">The provider of the value to compare with.</param>
     /// <returns>
-    /// A pattern which is matched successfully when the input value is greater than or equal to
-    /// the provided value.
+    /// A pattern which is matched successfully when the input value is greater than or equal to the provided value.
     /// </returns>
     /// <remarks>
     /// <para>
@@ -1230,10 +1222,9 @@ public static class AsyncPattern
     /// <see cref="IAsyncPattern{TInput, TMatchResult}.MatchAsync(TInput)" /> method is called.
     /// </para>
     /// <para>
-    /// The <paramref name="valueProvider" /> will be memoized, so it will be called once,
-    /// and then its result will be cached. The caching process is not thread-safe,
-    /// so there is a chance that the <paramref name="valueProvider" /> can be called
-    /// more than once.
+    /// The <paramref name="valueProvider" /> will be memoized, so it will be called once, and then its result will be
+    /// cached. The caching process is not thread-safe, so there is a chance that the <paramref name="valueProvider" />
+    /// can be called more than once.
     /// </para>
     /// <para>
     /// If <paramref name="valueProvider" /> returns <see langword="null" />, an
@@ -1248,15 +1239,14 @@ public static class AsyncPattern
         GreaterOrEqual(valueProvider, DefaultGreaterOrEqualDescription);
 
     /// <summary>
-    /// Returns a pattern which is matched successfully when the input value is greater than or equal
-    /// to the specified value according to the specified comparer.
+    /// Returns a pattern which is matched successfully when the input value is greater than or equal to the specified
+    /// value according to the specified comparer.
     /// </summary>
     /// <typeparam name="TInput">The type of the input value of the expression.</typeparam>
     /// <param name="value">The value to compare with.</param>
     /// <param name="comparer">The comparer to use for comparison.</param>
     /// <returns>
-    /// A pattern which is matched successfully when the input value is greater than or equal to
-    /// the specified value.
+    /// A pattern which is matched successfully when the input value is greater than or equal to the specified value.
     /// </returns>
     /// <exception cref="ArgumentNullException">
     /// <paramref name="value" /> or <paramref name="comparer" /> is <see langword="null" />.
@@ -1267,15 +1257,14 @@ public static class AsyncPattern
         GreaterOrEqual(value, comparer, DefaultGreaterOrEqualDescription);
 
     /// <summary>
-    /// Returns a pattern which is matched successfully when the input value is greater than or equal
-    /// to the provided value according to the specified comparer.
+    /// Returns a pattern which is matched successfully when the input value is greater than or equal to the provided
+    /// value according to the specified comparer.
     /// </summary>
     /// <typeparam name="TInput">The type of the input value of the expression.</typeparam>
     /// <param name="valueProvider">The provider of the value to compare with.</param>
     /// <param name="comparer">The comparer to use for comparison.</param>
     /// <returns>
-    /// A pattern which is matched successfully when the input value is greater than or equal to
-    /// the provided value.
+    /// A pattern which is matched successfully when the input value is greater than or equal to the provided value.
     /// </returns>
     /// <remarks>
     /// <para>
@@ -1283,10 +1272,9 @@ public static class AsyncPattern
     /// <see cref="IAsyncPattern{TInput, TMatchResult}.MatchAsync(TInput)" /> method is called.
     /// </para>
     /// <para>
-    /// The <paramref name="valueProvider" /> will be memoized, so it will be called once,
-    /// and then its result will be cached. The caching process is not thread-safe,
-    /// so there is a chance that the <paramref name="valueProvider" /> can be called
-    /// more than once.
+    /// The <paramref name="valueProvider" /> will be memoized, so it will be called once, and then its result will be
+    /// cached. The caching process is not thread-safe, so there is a chance that the <paramref name="valueProvider" />
+    /// can be called more than once.
     /// </para>
     /// <para>
     /// If <paramref name="valueProvider" /> returns <see langword="null" />, an
@@ -1302,15 +1290,14 @@ public static class AsyncPattern
         GreaterOrEqual(valueProvider, comparer, DefaultGreaterOrEqualDescription);
 
     /// <summary>
-    /// Returns a pattern which is matched successfully when the input value is greater than or equal
-    /// to the specified value.
+    /// Returns a pattern which is matched successfully when the input value is greater than or equal to the specified
+    /// value.
     /// </summary>
     /// <typeparam name="TInput">The type of the input value of the expression.</typeparam>
     /// <param name="value">The value to compare with.</param>
     /// <param name="description">The description of the pattern.</param>
     /// <returns>
-    /// A pattern which is matched successfully when the input value is greater than or equal to
-    /// the specified value.
+    /// A pattern which is matched successfully when the input value is greater than or equal to the specified value.
     /// </returns>
     /// <exception cref="ArgumentNullException">
     /// <paramref name="value" /> or <paramref name="description" /> is <see langword="null" />.
@@ -1320,15 +1307,14 @@ public static class AsyncPattern
         GreaterOrEqual(value, Comparer<TInput>.Default, description);
 
     /// <summary>
-    /// Returns a pattern which is matched successfully when the input value is greater than or equal
-    /// to the provided value.
+    /// Returns a pattern which is matched successfully when the input value is greater than or equal to the provided
+    /// value.
     /// </summary>
     /// <typeparam name="TInput">The type of the input value of the expression.</typeparam>
     /// <param name="valueProvider">The provider of the value to compare with.</param>
     /// <param name="description">The description of the pattern.</param>
     /// <returns>
-    /// A pattern which is matched successfully when the input value is greater than or equal to
-    /// the provided value.
+    /// A pattern which is matched successfully when the input value is greater than or equal to the provided value.
     /// </returns>
     /// <remarks>
     /// <para>
@@ -1336,10 +1322,9 @@ public static class AsyncPattern
     /// <see cref="IAsyncPattern{TInput, TMatchResult}.MatchAsync(TInput)" /> method is called.
     /// </para>
     /// <para>
-    /// The <paramref name="valueProvider" /> will be memoized, so it will be called once,
-    /// and then its result will be cached. The caching process is not thread-safe,
-    /// so there is a chance that the <paramref name="valueProvider" /> can be called
-    /// more than once.
+    /// The <paramref name="valueProvider" /> will be memoized, so it will be called once, and then its result will be
+    /// cached. The caching process is not thread-safe, so there is a chance that the <paramref name="valueProvider" />
+    /// can be called more than once.
     /// </para>
     /// <para>
     /// If <paramref name="valueProvider" /> returns <see langword="null" />, an
@@ -1356,16 +1341,15 @@ public static class AsyncPattern
         GreaterOrEqual(valueProvider, Comparer<TInput>.Default, description);
 
     /// <summary>
-    /// Returns a pattern which is matched successfully when the input value is greater than or equal
-    /// to the specified value according to the specified comparer.
+    /// Returns a pattern which is matched successfully when the input value is greater than or equal to the specified
+    /// value according to the specified comparer.
     /// </summary>
     /// <typeparam name="TInput">The type of the input value of the expression.</typeparam>
     /// <param name="value">The value to compare with.</param>
     /// <param name="comparer">The comparer to use for comparison.</param>
     /// <param name="description">The description of the pattern.</param>
     /// <returns>
-    /// A pattern which is matched successfully when the input value is greater than or equal to
-    /// the specified value.
+    /// A pattern which is matched successfully when the input value is greater than or equal to the specified value.
     /// </returns>
     /// <exception cref="ArgumentNullException">
     /// <paramref name="value" />, <paramref name="comparer" /> or <paramref name="description" /> is
@@ -1384,16 +1368,15 @@ public static class AsyncPattern
             : throw new ArgumentNullException(nameof(value));
 
     /// <summary>
-    /// Returns a pattern which is matched successfully when the input value is greater than or equal
-    /// to the provided value according to the specified comparer.
+    /// Returns a pattern which is matched successfully when the input value is greater than or equal to the provided
+    /// value according to the specified comparer.
     /// </summary>
     /// <typeparam name="TInput">The type of the input value of the expression.</typeparam>
     /// <param name="valueProvider">The provider of the value to compare with.</param>
     /// <param name="comparer">The comparer to use for comparison.</param>
     /// <param name="description">The description of the pattern.</param>
     /// <returns>
-    /// A pattern which is matched successfully when the input value is greater than or equal to
-    /// the provided value.
+    /// A pattern which is matched successfully when the input value is greater than or equal to the provided value.
     /// </returns>
     /// <remarks>
     /// <para>
@@ -1401,10 +1384,9 @@ public static class AsyncPattern
     /// <see cref="IAsyncPattern{TInput, TMatchResult}.MatchAsync(TInput)" /> method is called.
     /// </para>
     /// <para>
-    /// The <paramref name="valueProvider" /> will be memoized, so it will be called once,
-    /// and then its result will be cached. The caching process is not thread-safe,
-    /// so there is a chance that the <paramref name="valueProvider" /> can be called
-    /// more than once.
+    /// The <paramref name="valueProvider" /> will be memoized, so it will be called once, and then its result will be
+    /// cached. The caching process is not thread-safe, so there is a chance that the <paramref name="valueProvider" />
+    /// can be called more than once.
     /// </para>
     /// <para>
     /// If <paramref name="valueProvider" /> returns <see langword="null" />, an
@@ -1412,8 +1394,8 @@ public static class AsyncPattern
     /// </para>
     /// </remarks>
     /// <exception cref="ArgumentNullException">
-    /// <paramref name="valueProvider" />, <paramref name="comparer" /> or <paramref name="description" />
-    /// is <see langword="null" />.
+    /// <paramref name="valueProvider" />, <paramref name="comparer" />, or <paramref name="description" /> is
+    /// <see langword="null" />.
     /// </exception>
     public static IAsyncPattern<TInput, TInput> GreaterOrEqual<TInput>(
         Func<Task<TInput>> valueProvider,
@@ -1438,8 +1420,8 @@ public static class AsyncPattern
     /// A pattern which is matched successfully when the input value is of the specified type.
     /// </returns>
     /// <remarks>
-    /// If the input is <see langword="null" />, then this pattern fails only when <typeparamref name="TType"/>
-    /// is a non-nullable value type.
+    /// If the input is <see langword="null" />, then this pattern fails only when <typeparamref name="TType"/> is a
+    /// non-nullable value type.
     /// </remarks>
     public static IAsyncPattern<TInput, TType> Type<TInput, TType>()
         where TType : TInput =>
@@ -1455,8 +1437,8 @@ public static class AsyncPattern
     /// A pattern which is matched successfully when the input value is of the specified type.
     /// </returns>
     /// <remarks>
-    /// If the input is <see langword="null" />, then this pattern fails only when <typeparamref name="TType"/>
-    /// is a non-nullable value type.
+    /// If the input is <see langword="null" />, then this pattern fails only when <typeparamref name="TType"/> is a
+    /// non-nullable value type.
     /// </remarks>
     /// <exception cref="ArgumentNullException">
     /// <paramref name="description" /> is <see langword="null" />.
@@ -1479,8 +1461,7 @@ public static class AsyncPattern
     /// A pattern which is matched successfully when the specified pattern is not matched successfully.
     /// </returns>
     /// <remarks>
-    /// This pattern ignores the specified pattern's transformation
-    /// and returns the input value if matched successfully.
+    /// This pattern ignores the specified pattern's transformation and returns the input value if matched successfully.
     /// </remarks>
     /// <exception cref="ArgumentNullException">
     /// <paramref name="pattern" /> is <see langword="null" />.
@@ -1506,8 +1487,7 @@ public static class AsyncPattern
     /// A pattern which is matched successfully when the specified pattern is not matched successfully.
     /// </returns>
     /// <remarks>
-    /// This pattern ignores the specified pattern's transformation
-    /// and returns the input value if matched successfully.
+    /// This pattern ignores the specified pattern's transformation and returns the input value if matched successfully.
     /// </remarks>
     /// <exception cref="ArgumentNullException">
     /// <paramref name="pattern" /> or <paramref name="description" /> is <see langword="null" />.
@@ -1522,8 +1502,8 @@ public static class AsyncPattern
             : throw new ArgumentNullException(nameof(pattern));
 
     /// <summary>
-    /// Matches the specified pattern and throws an <see cref="InvalidOperationException" />
-    /// if the returned <see cref="Task{TResult}" /> is <see langword="null" />.
+    /// Matches the specified pattern and throws an <see cref="InvalidOperationException" /> if the returned
+    /// <see cref="Task{TResult}" /> is <see langword="null" />.
     /// </summary>
     /// <typeparam name="TInput">The type of the input value of the expression.</typeparam>
     /// <typeparam name="TMatchResult">The type of the result of this pattern's match.</typeparam>

@@ -42,8 +42,8 @@ public static class AsyncPatternExtensions
     /// A pattern which maps the result of the specified pattern when it's successful.
     /// </returns>
     /// <exception cref="ArgumentNullException">
-    /// <paramref name="pattern" />, <paramref name="mapper" /> or <paramref name="description" />
-    /// is <see langword="null" />.
+    /// <paramref name="pattern" />, <paramref name="mapper" />, or <paramref name="description" /> is
+    /// <see langword="null" />.
     /// </exception>
     public static IAsyncPattern<TInput, TMatchResult> Select<TInput, TIntermediateResult, TMatchResult>(
         this IAsyncPattern<TInput, TIntermediateResult> pattern,
@@ -88,8 +88,8 @@ public static class AsyncPatternExtensions
     /// A pattern which pipes the result of one pattern to the other pattern when it's successful.
     /// </returns>
     /// <exception cref="ArgumentNullException">
-    /// <paramref name="firstPattern" />, <paramref name="secondPattern" /> or <paramref name="description" />
-    /// is <see langword="null" />.
+    /// <paramref name="firstPattern" />, <paramref name="secondPattern" />, or <paramref name="description" /> is
+    /// <see langword="null" />.
     /// </exception>
     public static IAsyncPattern<TInput, TMatchResult> Pipe<TInput, TIntermediateResult, TMatchResult>(
         this IAsyncPattern<TInput, TIntermediateResult> firstPattern,
@@ -101,8 +101,8 @@ public static class AsyncPatternExtensions
             description ?? throw new ArgumentNullException(nameof(description)));
 
     /// <summary>
-    /// Returns a pattern which pipes the result of one pattern to the pattern
-    /// created by the specified matcher function.
+    /// Returns a pattern which pipes the result of one pattern to the pattern created by the specified matcher
+    /// function.
     /// </summary>
     /// <typeparam name="TInput">The type of the input value of the expression.</typeparam>
     /// <typeparam name="TIntermediateResult">The type of the result of the specified pattern's match.</typeparam>
@@ -110,13 +110,12 @@ public static class AsyncPatternExtensions
     /// <param name="pattern">The pattern whose result should be piped.</param>
     /// <param name="matcher">The pattern whose input is the first pattern's output.</param>
     /// <returns>
-    /// A pattern which pipes the result of one pattern to the pattern
-    /// created by the specified matcher function.
+    /// A pattern which pipes the result of one pattern to the pattern created by the specified matcher function.
     /// </returns>
     /// <remarks>
     /// This method is functionally equivalent to the following, except it reuses the pattern's description:
     /// <code>
-    /// pattern.Pipe(Pattern.CreatePattern(matcher))
+    /// pattern.Pipe(AsyncPattern.CreatePattern(matcher))
     /// </code>
     /// </remarks>
     /// <exception cref="ArgumentNullException">
@@ -128,8 +127,8 @@ public static class AsyncPatternExtensions
         pattern.Pipe(matcher, pattern?.Description ?? throw new ArgumentNullException(nameof(pattern)));
 
     /// <summary>
-    /// Returns a pattern which pipes the result of one pattern to the pattern
-    /// created by the specified matcher function.
+    /// Returns a pattern which pipes the result of one pattern to the pattern created by the specified matcher
+    /// function.
     /// </summary>
     /// <typeparam name="TInput">The type of the input value of the expression.</typeparam>
     /// <typeparam name="TIntermediateResult">The type of the result of the specified pattern's match.</typeparam>
@@ -138,18 +137,17 @@ public static class AsyncPatternExtensions
     /// <param name="matcher">The pattern whose input is the first pattern's output.</param>
     /// <param name="description">The description of this pattern.</param>
     /// <returns>
-    /// A pattern which pipes the result of one pattern to the pattern
-    /// created by the specified matcher function.
+    /// A pattern which pipes the result of one pattern to the pattern created by the specified matcher function.
     /// </returns>
     /// <remarks>
     /// This method is functionally equivalent to the following:
     /// <code>
-    /// pattern.Pipe(Pattern.CreatePattern(matcher), description)
+    /// pattern.Pipe(AsyncPattern.CreatePattern(matcher), description)
     /// </code>
     /// </remarks>
     /// <exception cref="ArgumentNullException">
-    /// <paramref name="pattern" />, <paramref name="matcher" /> or <paramref name="description" />
-    /// is <see langword="null" />.
+    /// <paramref name="pattern" />, <paramref name="matcher" />, or <paramref name="description" /> is
+    /// <see langword="null" />.
     /// </exception>
     public static IAsyncPattern<TInput, TMatchResult> Pipe<TInput, TIntermediateResult, TMatchResult>(
         this IAsyncPattern<TInput, TIntermediateResult> pattern,
@@ -173,10 +171,10 @@ public static class AsyncPatternExtensions
     /// <remarks>
     /// This method is functionally equivalent to the following:
     /// <code>
-    /// pattern.Pipe(Pattern.Type&lt;TIntermediateResult, TMatchResult&gt;())
+    /// pattern.Pipe(AsyncPattern.Type&lt;TIntermediateResult, TMatchResult&gt;())
     /// </code>
-    /// As such, this pattern fails if the input is <see langword="null" /> and <typeparamref name="TMatchResult"/>
-    /// is a non-nullable value type.
+    /// As such, this pattern fails if the input is <see langword="null" /> and <typeparamref name="TMatchResult" /> is
+    /// a non-nullable value type.
     /// </remarks>
     /// <exception cref="ArgumentNullException">
     /// <paramref name="pattern" /> is <see langword="null" />.
@@ -200,10 +198,10 @@ public static class AsyncPatternExtensions
     /// <remarks>
     /// This method is functionally equivalent to the following:
     /// <code>
-    /// pattern.Pipe(Pattern.Type&lt;TIntermediateResult, TMatchResult&gt;(), description)
+    /// pattern.Pipe(AsyncPattern.Type&lt;TIntermediateResult, TMatchResult&gt;(), description)
     /// </code>
-    /// As such, this pattern fails if the input is <see langword="null" /> and <typeparamref name="TMatchResult"/>
-    /// is a non-nullable value type.
+    /// As such, this pattern fails if the input is <see langword="null" /> and <typeparamref name="TMatchResult" /> is
+    /// a non-nullable value type.
     /// </remarks>
     /// <exception cref="ArgumentNullException">
     /// <paramref name="pattern" /> or <paramref name="description" /> is <see langword="null" />.
@@ -248,8 +246,8 @@ public static class AsyncPatternExtensions
     /// A pattern which binds (flat-maps) the result of the specified pattern when it's successful.
     /// </returns>
     /// <exception cref="ArgumentNullException">
-    /// <paramref name="pattern" />, <paramref name="binder" /> or <paramref name="description" />
-    /// is <see langword="null" />.
+    /// <paramref name="pattern" />, <paramref name="binder" />, or <paramref name="description" /> is
+    /// <see langword="null" />.
     /// </exception>
     public static IAsyncPattern<TInput, TMatchResult> Bind<TInput, TIntermediateResult, TMatchResult>(
         this IAsyncPattern<TInput, TIntermediateResult> pattern,
@@ -292,7 +290,8 @@ public static class AsyncPatternExtensions
     /// A pattern which adds a condition to the specified pattern.
     /// </returns>
     /// <exception cref="ArgumentNullException">
-    /// <paramref name="pattern" /> or <paramref name="predicate" /> is <see langword="null" />.
+    /// <paramref name="pattern" />, <paramref name="predicate" />, or <paramref name="description" /> is
+    /// <see langword="null" />.
     /// </exception>
     public static IAsyncPattern<TInput, TMatchResult> Where<TInput, TMatchResult>(
         this IAsyncPattern<TInput, TMatchResult> pattern,
@@ -334,7 +333,8 @@ public static class AsyncPatternExtensions
     /// A pattern which adds a condition to the specified pattern.
     /// </returns>
     /// <exception cref="ArgumentNullException">
-    /// <paramref name="pattern" /> or <paramref name="predicate" /> is <see langword="null" />.
+    /// <paramref name="pattern" />, <paramref name="predicate" />, or <paramref name="description" /> is
+    /// <see langword="null" />.
     /// </exception>
     public static IAsyncPattern<TInput, TMatchResult> Where<TInput, TMatchResult>(
         this IAsyncPattern<TInput, TMatchResult> pattern,
@@ -358,8 +358,7 @@ public static class AsyncPatternExtensions
     /// A pattern which is composed of the two specified patterns.
     /// </returns>
     /// <remarks>
-    /// The resulting pattern ignores the patterns' transformations
-    /// and returns the input value if matched successfully.
+    /// The resulting pattern ignores the patterns' transformations and returns the input value if matched successfully.
     /// </remarks>
     /// <exception cref="ArgumentNullException">
     /// <paramref name="leftPattern" /> or <paramref name="rightPattern" /> is <see langword="null" />.
@@ -387,12 +386,11 @@ public static class AsyncPatternExtensions
     /// A pattern which is composed of the two specified patterns.
     /// </returns>
     /// <remarks>
-    /// The resulting pattern ignores the patterns' transformations
-    /// and returns the input value if matched successfully.
+    /// The resulting pattern ignores the patterns' transformations and returns the input value if matched successfully.
     /// </remarks>
     /// <exception cref="ArgumentNullException">
-    /// <paramref name="leftPattern" />, <paramref name="rightPattern" /> or <paramref name="description" />
-    /// is <see langword="null" />.
+    /// <paramref name="leftPattern" />, <paramref name="rightPattern" />, or <paramref name="description" /> is
+    /// <see langword="null" />.
     /// </exception>
     public static IAsyncPattern<T, T> Compose<T>(
         this IAsyncPattern<T, T> leftPattern,
@@ -406,8 +404,8 @@ public static class AsyncPatternExtensions
             description ?? throw new ArgumentNullException(nameof(description)));
 
     /// <summary>
-    /// Returns a pattern which is composed of the two specified patterns such that the result is successful
-    /// only when both patterns' results are successful.
+    /// Returns a pattern which is composed of the two specified patterns such that the result is successful only when
+    /// both patterns' results are successful.
     /// </summary>
     /// <typeparam name="T">
     /// The type of the input value of the expression and also the type of the result of this pattern's match.
@@ -415,13 +413,12 @@ public static class AsyncPatternExtensions
     /// <param name="leftPattern">The left pattern to compose.</param>
     /// <param name="rightPattern">The right pattern to compose.</param>
     /// <returns>
-    /// A pattern which is composed of the two specified patterns such that the result is successful
-    /// only when both patterns' results are successful.
+    /// A pattern which is composed of the two specified patterns such that the result is successful only when both
+    /// patterns' results are successful.
     /// </returns>
     /// <remarks>
     /// <para>
-    /// The resulting pattern ignores the patterns' transformations
-    /// and returns the input value if matched successfully.
+    /// The resulting pattern ignores the patterns' transformations and returns the input value if matched successfully.
     /// </para>
     /// <para>
     /// This method is functionally equivalent to the following:
@@ -437,8 +434,8 @@ public static class AsyncPatternExtensions
         leftPattern.Compose(rightPattern, PatternComposition.And);
 
     /// <summary>
-    /// Returns a pattern which is composed of the two specified patterns such that the result is successful
-    /// only when both patterns' results are successful.
+    /// Returns a pattern which is composed of the two specified patterns such that the result is successful only when
+    /// both patterns' results are successful.
     /// </summary>
     /// <typeparam name="T">
     /// The type of the input value of the expression and also the type of the result of this pattern's match.
@@ -447,13 +444,12 @@ public static class AsyncPatternExtensions
     /// <param name="rightPattern">The right pattern to compose.</param>
     /// <param name="description">The description of this pattern.</param>
     /// <returns>
-    /// A pattern which is composed of the two specified patterns such that the result is successful
-    /// only when both patterns' results are successful.
+    /// A pattern which is composed of the two specified patterns such that the result is successful only when both
+    /// patterns' results are successful.
     /// </returns>
     /// <remarks>
     /// <para>
-    /// The resulting pattern ignores the patterns' transformations
-    /// and returns the input value if matched successfully.
+    /// The resulting pattern ignores the patterns' transformations and returns the input value if matched successfully.
     /// </para>
     /// <para>
     /// This method is functionally equivalent to the following:
@@ -463,8 +459,8 @@ public static class AsyncPatternExtensions
     /// </para>
     /// </remarks>
     /// <exception cref="ArgumentNullException">
-    /// <paramref name="leftPattern" />, <paramref name="rightPattern" /> or <paramref name="description" />
-    /// is <see langword="null" />.
+    /// <paramref name="leftPattern" />, <paramref name="rightPattern" />, or <paramref name="description" /> is
+    /// <see langword="null" />.
     /// </exception>
     public static IAsyncPattern<T, T> And<T>(
         this IAsyncPattern<T, T> leftPattern,
@@ -473,8 +469,8 @@ public static class AsyncPatternExtensions
         leftPattern.Compose(rightPattern, PatternComposition.And, description);
 
     /// <summary>
-    /// Returns a pattern which is composed of the two specified patterns such that the result is successful
-    /// only when both patterns' results are successful.
+    /// Returns a pattern which is composed of the two specified patterns such that the result is successful when either
+    /// pattern's result is successful.
     /// </summary>
     /// <typeparam name="T">
     /// The type of the input value of the expression and also the type of the result of this pattern's match.
@@ -482,13 +478,12 @@ public static class AsyncPatternExtensions
     /// <param name="leftPattern">The left pattern to compose.</param>
     /// <param name="rightPattern">The right pattern to compose.</param>
     /// <returns>
-    /// A pattern which is composed of the two specified patterns such that the result is successful
-    /// only when both patterns' results are successful.
+    /// A pattern which is composed of the two specified patterns such that the result is successful when either
+    /// pattern's result is successful.
     /// </returns>
     /// <remarks>
     /// <para>
-    /// The resulting pattern ignores the patterns' transformations
-    /// and returns the input value if matched successfully.
+    /// The resulting pattern ignores the patterns' transformations and returns the input value if matched successfully.
     /// </para>
     /// <para>
     /// This method is functionally equivalent to the following:
@@ -504,8 +499,8 @@ public static class AsyncPatternExtensions
         leftPattern.Compose(rightPattern, PatternComposition.Or);
 
     /// <summary>
-    /// Returns a pattern which is composed of the two specified patterns such that the result is successful
-    /// when either pattern's result is successful.
+    /// Returns a pattern which is composed of the two specified patterns such that the result is successful when either
+    /// pattern's result is successful.
     /// </summary>
     /// <typeparam name="T">
     /// The type of the input value of the expression and also the type of the result of this pattern's match.
@@ -514,13 +509,12 @@ public static class AsyncPatternExtensions
     /// <param name="rightPattern">The right pattern to compose.</param>
     /// <param name="description">The description of this pattern.</param>
     /// <returns>
-    /// A pattern which is composed of the two specified patterns such that the result is successful
-    /// when either pattern's result is successful.
+    /// A pattern which is composed of the two specified patterns such that the result is successful when either
+    /// pattern's result is successful.
     /// </returns>
     /// <remarks>
     /// <para>
-    /// The resulting pattern ignores the patterns' transformations
-    /// and returns the input value if matched successfully.
+    /// The resulting pattern ignores the patterns' transformations and returns the input value if matched successfully.
     /// </para>
     /// <para>
     /// This method is functionally equivalent to the following:
@@ -530,8 +524,8 @@ public static class AsyncPatternExtensions
     /// </para>
     /// </remarks>
     /// <exception cref="ArgumentNullException">
-    /// <paramref name="leftPattern" />, <paramref name="rightPattern" /> or <paramref name="description" />
-    /// is <see langword="null" />.
+    /// <paramref name="leftPattern" />, <paramref name="rightPattern" />, or <paramref name="description" /> is
+    /// <see langword="null" />.
     /// </exception>
     public static IAsyncPattern<T, T> Or<T>(
         this IAsyncPattern<T, T> leftPattern,
@@ -540,8 +534,8 @@ public static class AsyncPatternExtensions
         leftPattern.Compose(rightPattern, PatternComposition.Or, description);
 
     /// <summary>
-    /// Returns a pattern which is composed of the two specified patterns such that the result is successful
-    /// only when both patterns' results are successful.
+    /// Returns a pattern which is composed of the two specified patterns such that the result is successful when only
+    /// one pattern's result is successful.
     /// </summary>
     /// <typeparam name="T">
     /// The type of the input value of the expression and also the type of the result of this pattern's match.
@@ -549,13 +543,12 @@ public static class AsyncPatternExtensions
     /// <param name="leftPattern">The left pattern to compose.</param>
     /// <param name="rightPattern">The right pattern to compose.</param>
     /// <returns>
-    /// A pattern which is composed of the two specified patterns such that the result is successful
-    /// only when both patterns' results are successful.
+    /// A pattern which is composed of the two specified patterns such that the result is successful when only one
+    /// pattern's result is successful.
     /// </returns>
     /// <remarks>
     /// <para>
-    /// The resulting pattern ignores the patterns' transformations
-    /// and returns the input value if matched successfully.
+    /// The resulting pattern ignores the patterns' transformations and returns the input value if matched successfully.
     /// </para>
     /// <para>
     /// This method is functionally equivalent to the following:
@@ -571,8 +564,8 @@ public static class AsyncPatternExtensions
         leftPattern.Compose(rightPattern, PatternComposition.Xor);
 
     /// <summary>
-    /// Returns a pattern which is composed of the two specified patterns such that the result is successful
-    /// when only one pattern's result is successful.
+    /// Returns a pattern which is composed of the two specified patterns such that the result is successful when only
+    /// one pattern's result is successful.
     /// </summary>
     /// <typeparam name="T">
     /// The type of the input value of the expression and also the type of the result of this pattern's match.
@@ -581,13 +574,12 @@ public static class AsyncPatternExtensions
     /// <param name="rightPattern">The right pattern to compose.</param>
     /// <param name="description">The description of this pattern.</param>
     /// <returns>
-    /// A pattern which is composed of the two specified patterns such that the result is successful
-    /// when only one pattern's result is successful.
+    /// A pattern which is composed of the two specified patterns such that the result is successful when only one
+    /// pattern's result is successful.
     /// </returns>
     /// <remarks>
     /// <para>
-    /// The resulting pattern ignores the patterns' transformations
-    /// and returns the input value if matched successfully.
+    /// The resulting pattern ignores the patterns' transformations and returns the input value if matched successfully.
     /// </para>
     /// <para>
     /// This method is functionally equivalent to the following:
@@ -597,8 +589,8 @@ public static class AsyncPatternExtensions
     /// </para>
     /// </remarks>
     /// <exception cref="ArgumentNullException">
-    /// <paramref name="leftPattern" />, <paramref name="rightPattern" /> or <paramref name="description" />
-    /// is <see langword="null" />.
+    /// <paramref name="leftPattern" />, <paramref name="rightPattern" />, or <paramref name="description" /> is
+    /// <see langword="null" />.
     /// </exception>
     public static IAsyncPattern<T, T> Xor<T>(
         this IAsyncPattern<T, T> leftPattern,
@@ -616,9 +608,11 @@ public static class AsyncPatternExtensions
     /// A pattern which matches the same as the specified pattern, but caches its results.
     /// </returns>
     /// <remarks>
-    /// The returned pattern's caching process is thread-safe.
-    /// The cache itself is a simple null-safe hash table.
+    /// The returned pattern's caching process is thread-safe. The cache itself is a simple null-safe hash table.
     /// </remarks>
+    /// <exception cref="ArgumentNullException">
+    /// <paramref name="pattern" /> is <see langword="null" />.
+    /// </exception>
     public static IAsyncPattern<TInput, TMatchResult> Cached<TInput, TMatchResult>(
         this IAsyncPattern<TInput, TMatchResult> pattern) =>
         new CachingAsyncPattern<TInput, TMatchResult>(pattern ?? throw new ArgumentNullException(nameof(pattern)));
@@ -634,9 +628,11 @@ public static class AsyncPatternExtensions
     /// A pattern which matches the same as the specified pattern, but caches its results.
     /// </returns>
     /// <remarks>
-    /// The returned pattern's caching process is thread-safe.
-    /// The cache itself is a simple null-safe hash table.
+    /// The returned pattern's caching process is thread-safe. The cache itself is a simple null-safe hash table.
     /// </remarks>
+    /// <exception cref="ArgumentNullException">
+    /// <paramref name="pattern" /> or <paramref name="description" /> is <see langword="null" />.
+    /// </exception>
     public static IAsyncPattern<TInput, TMatchResult> Cached<TInput, TMatchResult>(
         this IAsyncPattern<TInput, TMatchResult> pattern,
         string description) =>

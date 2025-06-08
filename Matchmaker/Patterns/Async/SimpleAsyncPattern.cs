@@ -13,16 +13,16 @@ internal sealed class SimpleAsyncPattern<TInput, TMatchResult> : AsyncPattern<TI
     private readonly Func<TInput, Task<MatchResult<TMatchResult>>> matcher;
 
     /// <summary>
-    /// Initializes a new instance of the <see cref="SimpleAsyncPattern{TInput, TMatchResult}" /> class
-    /// with the specified matcher function.
+    /// Initializes a new instance of the <see cref="SimpleAsyncPattern{TInput, TMatchResult}" /> class with the
+    /// specified matcher function.
     /// </summary>
     /// <param name="matcher">The matcher function.</param>
     internal SimpleAsyncPattern(Func<TInput, Task<MatchResult<TMatchResult>>> matcher) =>
         this.matcher = matcher;
 
     /// <summary>
-    /// Initializes a new instance of the <see cref="SimpleAsyncPattern{TInput, TMatchResult}" /> class
-    /// with the specified matcher function and description.
+    /// Initializes a new instance of the <see cref="SimpleAsyncPattern{TInput, TMatchResult}" /> class with the
+    /// specified matcher function and description.
     /// </summary>
     /// <param name="matcher">The matcher function.</param>
     /// <param name="description">The description of this pattern.</param>
@@ -38,8 +38,8 @@ internal sealed class SimpleAsyncPattern<TInput, TMatchResult> : AsyncPattern<TI
     /// </summary>
     /// <param name="input">The input value to match.</param>
     /// <returns>
-    /// A successful match result which contains the transformed result of the match,
-    /// if this match is successful. Otherwise, a failed match result.
+    /// A successful match result which contains the transformed result of the match, if this match is successful.
+    /// Otherwise, a failed match result.
     /// </returns>
     public override Task<MatchResult<TMatchResult>> MatchAsync(TInput input) =>
         this.matcher(input) ?? throw new InvalidOperationException("The function returned null");

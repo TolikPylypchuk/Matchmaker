@@ -50,8 +50,8 @@ internal sealed class ConditionalPattern<TInput, TMatchResult> : Pattern<TInput,
     /// </summary>
     /// <param name="input">The input value to match.</param>
     /// <returns>
-    /// A successful match result which contains the transformed result of the match,
-    /// if this match is successful. Otherwise, a failed match result.
+    /// A successful match result which contains the transformed result of the match, if this match is successful.
+    /// Otherwise, a failed match result.
     /// </returns>
     public override MatchResult<TMatchResult> Match(TInput input) =>
         this.pattern.Match(input)

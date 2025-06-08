@@ -56,15 +56,15 @@ public sealed class Match<TInput>
     internal static Dictionary<string, Match<TInput>> Cache { get; } = [];
 
     /// <summary>
-    /// Returns a new match statement which includes the specified pattern and action to execute if this
-    /// pattern is matched successfully.
+    /// Returns a new match statement which includes the specified pattern and action to execute if this pattern is
+    /// matched successfully.
     /// </summary>
     /// <typeparam name="TMatchResult">The type of the result of the pattern's match.</typeparam>
     /// <param name="pattern">The pattern to match with.</param>
     /// <param name="action">The action to execute if the match is successful.</param>
     /// <returns>
-    /// A new match statement which includes the specified pattern and action to execute if this
-    /// pattern is matched successfully.
+    /// A new match statement which includes the specified pattern and action to execute if this pattern is matched
+    /// successfully.
     /// </returns>
     /// <exception cref="ArgumentNullException">
     /// <paramref name="pattern" /> or <paramref name="action" /> is <see langword="null" />.
@@ -73,16 +73,16 @@ public sealed class Match<TInput>
         this.Case(pattern, this.fallthroughByDefault, action);
 
     /// <summary>
-    /// Returns a new match statement which includes the specified pattern and action to execute if this
-    /// pattern is matched successfully.
+    /// Returns a new match statement which includes the specified pattern and action to execute if this pattern is
+    /// matched successfully.
     /// </summary>
     /// <typeparam name="TMatchResult">The type of the result of the pattern's match.</typeparam>
     /// <param name="pattern">The pattern to match with.</param>
     /// <param name="fallthrough">The fallthrough behaviour.</param>
     /// <param name="action">The action to execute if the match is successful.</param>
     /// <returns>
-    /// A new match statement which includes the specified pattern and action to execute if this
-    /// pattern is matched successfully.
+    /// A new match statement which includes the specified pattern and action to execute if this pattern is matched
+    /// successfully.
     /// </returns>
     /// <exception cref="ArgumentNullException">
     /// <paramref name="pattern" /> or <paramref name="action" /> is <see langword="null" />.
@@ -106,14 +106,14 @@ public sealed class Match<TInput>
             : throw new ArgumentNullException(nameof(pattern));
 
     /// <summary>
-    /// Returns a new match statement which includes the pattern for the specified type
-    /// and action to execute if this pattern is matched successfully.
+    /// Returns a new match statement which includes the pattern for the specified type and action to execute if this
+    /// pattern is matched successfully.
     /// </summary>
     /// <typeparam name="TType">The type of the result of the pattern's match.</typeparam>
     /// <param name="action">The action to execute if the match is successful.</param>
     /// <returns>
-    /// A new match statement which includes the type pattern and action to execute if this
-    /// pattern is matched successfully.
+    /// A new match statement which includes the type pattern and action to execute if this pattern is matched
+    /// successfully.
     /// </returns>
     /// <remarks>
     /// This method is functionally equivalent to the following:
@@ -129,15 +129,15 @@ public sealed class Match<TInput>
         this.Case(this.fallthroughByDefault, action);
 
     /// <summary>
-    /// Returns a new match statement which includes the pattern for the specified type
-    /// and action to execute if this pattern is matched successfully.
+    /// Returns a new match statement which includes the pattern for the specified type and action to execute if this
+    /// pattern is matched successfully.
     /// </summary>
     /// <typeparam name="TType">The type of the result of the pattern's match.</typeparam>
     /// <param name="fallthrough">The fallthrough behaviour.</param>
     /// <param name="action">The action to execute if the match is successful.</param>
     /// <returns>
-    /// A new match statement which includes the type pattern and action to execute if this
-    /// pattern is matched successfully.
+    /// A new match statement which includes the type pattern and action to execute if this pattern is matched
+    /// successfully.
     /// </returns>
     /// <remarks>
     /// This method is functionally equivalent to the following:
@@ -197,8 +197,8 @@ public sealed class Match<TInput>
     /// </summary>
     /// <param name="input">The input value of the statement.</param>
     /// <returns>
-    /// An enumerable of <see langword="null" /> objects which enables the execution to be lazy.
-    /// The number of items in this enumerable equals the number of successful cases.
+    /// An enumerable of <see langword="null" /> objects which enables the execution to be lazy. The number of items in
+    /// this enumerable equals the number of successful cases.
     /// </returns>
     public IEnumerable<object?> ExecuteWithFallthrough(TInput input)
     {

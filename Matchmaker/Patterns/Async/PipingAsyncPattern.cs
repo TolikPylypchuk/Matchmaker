@@ -20,8 +20,8 @@ internal sealed class PipingAsyncPattern<TInput, TIntermediateResult, TMatchResu
     private readonly IAsyncPattern<TIntermediateResult, TMatchResult> secondPattern;
 
     /// <summary>
-    /// Initializes a new instance of the
-    /// <see cref="PipingAsyncPattern{TInput, TIntermediateResult, TMatchResult}" /> class.
+    /// Initializes a new instance of the <see cref="PipingAsyncPattern{TInput, TIntermediateResult, TMatchResult}" />
+    /// class.
     /// </summary>
     /// <param name="firstPattern">The pattern whose result should be piped.</param>
     /// <param name="secondPattern">The pattern whose input is the first pattern's output.</param>
@@ -38,8 +38,8 @@ internal sealed class PipingAsyncPattern<TInput, TIntermediateResult, TMatchResu
     { }
 
     /// <summary>
-    /// Initializes a new instance of the
-    /// <see cref="PipingAsyncPattern{TInput, TIntermediateResult, TMatchResult}" /> class.
+    /// Initializes a new instance of the <see cref="PipingAsyncPattern{TInput, TIntermediateResult, TMatchResult}" />
+    /// class.
     /// </summary>
     /// <param name="firstPattern">The pattern whose result should be piped.</param>
     /// <param name="secondPattern">The pattern whose input is the first pattern's output.</param>
@@ -62,8 +62,8 @@ internal sealed class PipingAsyncPattern<TInput, TIntermediateResult, TMatchResu
     /// </summary>
     /// <param name="input">The input value to match.</param>
     /// <returns>
-    /// A successful match result which contains the transformed result of the match,
-    /// if this match is successful. Otherwise, a failed match result.
+    /// A successful match result which contains the transformed result of the match, if this match is successful.
+    /// Otherwise, a failed match result.
     /// </returns>
     public override Task<MatchResult<TMatchResult>> MatchAsync(TInput input) =>
         this.firstPattern.MatchAsync(input)

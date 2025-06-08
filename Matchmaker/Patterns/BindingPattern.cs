@@ -19,8 +19,8 @@ internal sealed class BindingPattern<TInput, TIntermediateResult, TMatchResult> 
     private readonly Func<TIntermediateResult, IPattern<TInput, TMatchResult>> binder;
 
     /// <summary>
-    /// Initializes a new instance of the
-    /// <see cref="BindingPattern{TInput, TIntermediateResult, TMatchResult}" /> class.
+    /// Initializes a new instance of the <see cref="BindingPattern{TInput, TIntermediateResult, TMatchResult}" />
+    /// class.
     /// </summary>
     /// <param name="pattern">The pattern whose result should be mapped.</param>
     /// <param name="binder">The result binding function.</param>
@@ -31,8 +31,8 @@ internal sealed class BindingPattern<TInput, TIntermediateResult, TMatchResult> 
     { }
 
     /// <summary>
-    /// Initializes a new instance of the
-    /// <see cref="BindingPattern{TInput, TIntermediateResult, TMatchResult}" /> class.
+    /// Initializes a new instance of the <see cref="BindingPattern{TInput, TIntermediateResult, TMatchResult}" />
+    /// class.
     /// </summary>
     /// <param name="pattern">The pattern whose result should be mapped.</param>
     /// <param name="binder">The result binding function.</param>
@@ -55,8 +55,8 @@ internal sealed class BindingPattern<TInput, TIntermediateResult, TMatchResult> 
     /// </summary>
     /// <param name="input">The input value to match.</param>
     /// <returns>
-    /// A successful match result which contains the transformed result of the match,
-    /// if this match is successful. Otherwise, a failed match result.
+    /// A successful match result which contains the transformed result of the match, if this match is successful.
+    /// Otherwise, a failed match result.
     /// </returns>
     public override MatchResult<TMatchResult> Match(TInput input) =>
         this.pattern.Match(input)

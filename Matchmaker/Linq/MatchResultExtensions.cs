@@ -128,8 +128,8 @@ public static class MatchResultExtensions
             : throw new ArgumentNullException(nameof(binder));
 
     /// <summary>
-    /// Returns a successful result only if the specified result is successful
-    /// and its value satisfies a specified predicate.
+    /// Returns a successful result only if the specified result is successful and its value satisfies a specified
+    /// predicate.
     /// </summary>
     /// <typeparam name="T">The type of the result's value.</typeparam>
     /// <param name="result">The result whose value should be checked.</param>
@@ -150,8 +150,8 @@ public static class MatchResultExtensions
             : throw new ArgumentNullException(nameof(predicate));
 
     /// <summary>
-    /// Returns a successful result if the specified result is successful
-    /// and contains a value that can be cast to <typeparamref name="TResult" />.
+    /// Returns a successful result if the specified result is successful and contains a value that can be cast to
+    /// <typeparamref name="TResult" />.
     /// </summary>
     /// <typeparam name="T">The type of the result's value.</typeparam>
     /// <typeparam name="TResult">The type of the returned result's value.</typeparam>
@@ -430,8 +430,8 @@ public static class MatchResultExtensions
     }
 
     /// <summary>
-    /// Returns a successful result only if the specified result is successful
-    /// and its value satisfies a specified predicate.
+    /// Returns a successful result only if the specified result is successful and its value satisfies a specified
+    /// predicate.
     /// </summary>
     /// <typeparam name="T">The type of the result's value.</typeparam>
     /// <param name="futureResult">The result whose value should be checked.</param>
@@ -464,8 +464,8 @@ public static class MatchResultExtensions
     }
 
     /// <summary>
-    /// Returns a successful result only if the specified result is successful
-    /// and its value satisfies a specified predicate.
+    /// Returns a successful result only if the specified result is successful and its value satisfies a specified
+    /// predicate.
     /// </summary>
     /// <typeparam name="T">The type of the result's value.</typeparam>
     /// <param name="futureResult">The result whose value should be checked.</param>
@@ -505,8 +505,8 @@ public static class MatchResultExtensions
     }
 
     /// <summary>
-    /// Returns a successful result if the specified result is successful
-    /// and contains a value that can be cast to <typeparamref name="TResult" />.
+    /// Returns a successful result if the specified result is successful and contains a value that can be cast to
+    /// <typeparamref name="TResult" />.
     /// </summary>
     /// <typeparam name="T">The type of the result's value.</typeparam>
     /// <typeparam name="TResult">The type of the returned result's value.</typeparam>

@@ -66,9 +66,8 @@ public static class AsyncMatch
     /// <returns>The globally cached match expression.</returns>
     /// <remarks>
     /// <para>
-    /// The key of the cache is the location of this method's call in the source code.
-    /// This way, a new match expression object will not be allocated every time pattern matching occurs
-    /// in the same place more than once.
+    /// The key of the cache is the location of this method's call in the source code. This way, a new match expression
+    /// object will not be allocated every time pattern matching occurs in the same place more than once.
     /// </para>
     /// <para>
     /// The pattern caching process is thread-safe.
@@ -112,9 +111,8 @@ public static class AsyncMatch
     /// <returns>The globally cached match expression.</returns>
     /// <remarks>
     /// <para>
-    /// The key of the cache is the location of this method's call in the source code.
-    /// This way, a new match statement object will not be allocated every time pattern matching occurs
-    /// in the same place more than once.
+    /// The key of the cache is the location of this method's call in the source code. This way, a new match expression
+    /// object will not be allocated every time pattern matching occurs in the same place more than once.
     /// </para>
     /// <para>
     /// The pattern caching process is thread-safe.
@@ -155,7 +153,7 @@ public static class AsyncMatch
     /// <typeparam name="TOutput">The type of the result.</typeparam>
     /// <remarks>
     /// <para>
-    /// After calling this method all
+    /// After calling this method, all
     /// <see cref="CreateStatic{TInput, TOutput}(Action{AsyncMatchBuilder{TInput, TOutput}}, string, int)" />
     /// calls will recalculate match expressions for types <typeparamref name="TInput" /> and
     /// <typeparamref name="TOutput" />.
@@ -173,7 +171,7 @@ public static class AsyncMatch
     /// <typeparam name="TInput">The type of the input value.</typeparam>
     /// <remarks>
     /// <para>
-    /// After calling this method all
+    /// After calling this method, all
     /// <see cref="CreateStatic{TInput}(Action{AsyncMatchBuilder{TInput}}, string, int)" />
     /// calls will recalculate match statements for type <typeparamref name="TInput" />.
     /// </para>

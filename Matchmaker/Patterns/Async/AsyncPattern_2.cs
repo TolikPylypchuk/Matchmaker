@@ -17,8 +17,8 @@ public abstract class AsyncPattern<TInput, TMatchResult> : IAsyncPattern<TInput,
     { }
 
     /// <summary>
-    /// Initializes a new instance of the <see cref="AsyncPattern{TInput, TMatchResult}" /> class
-    /// with the specified description.
+    /// Initializes a new instance of the <see cref="AsyncPattern{TInput, TMatchResult}" /> class with the specified
+    /// description.
     /// </summary>
     /// <param name="description">The description of this pattern.</param>
     /// <exception cref="ArgumentNullException">
@@ -39,8 +39,8 @@ public abstract class AsyncPattern<TInput, TMatchResult> : IAsyncPattern<TInput,
     /// </summary>
     /// <param name="input">The input value to match.</param>
     /// <returns>
-    /// A successful match result which contains the transformed result of the match,
-    /// if this match is successful. Otherwise, a failed match result.
+    /// A successful match result which contains the transformed result of the match, if this match is successful.
+    /// Otherwise, a failed match result.
     /// </returns>
     public abstract Task<MatchResult<TMatchResult>> MatchAsync(TInput input);
 

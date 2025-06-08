@@ -17,8 +17,8 @@ public abstract class Pattern<TInput, TMatchResult> : IPattern<TInput, TMatchRes
     { }
 
     /// <summary>
-    /// Initializes a new instance of the <see cref="Pattern{TInput, TMatchResult}" /> class
-    /// with the specified description.
+    /// Initializes a new instance of the <see cref="Pattern{TInput, TMatchResult}" /> class with the specified
+    /// description.
     /// </summary>
     /// <param name="description">The description of this pattern.</param>
     /// <exception cref="ArgumentNullException">
@@ -39,8 +39,8 @@ public abstract class Pattern<TInput, TMatchResult> : IPattern<TInput, TMatchRes
     /// </summary>
     /// <param name="input">The input value to match.</param>
     /// <returns>
-    /// A successful match result which contains the transformed result of the match,
-    /// if this match is successful. Otherwise, a failed match result.
+    /// A successful match result which contains the transformed result of the match, if this match is successful.
+    /// Otherwise, a failed match result.
     /// </returns>
     public abstract MatchResult<TMatchResult> Match(TInput input);
 
@@ -48,8 +48,7 @@ public abstract class Pattern<TInput, TMatchResult> : IPattern<TInput, TMatchRes
     /// Returns the description of this pattern, if it has one.
     /// </summary>
     /// <returns>
-    /// The description of this pattern, if it has one.
-    /// Otherwise, the name of this pattern's type.
+    /// The description of this pattern, if it has one. Otherwise, the name of this pattern's type.
     /// </returns>
     public override string ToString() =>
         String.IsNullOrEmpty(this.Description) ? base.ToString()! : this.Description;

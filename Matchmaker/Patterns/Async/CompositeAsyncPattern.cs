@@ -69,8 +69,8 @@ internal sealed class CompositeAsyncPattern<T> : AsyncPattern<T, T>
     /// </summary>
     /// <param name="input">The input value to match.</param>
     /// <returns>
-    /// A successful match result which contains the input value,
-    /// if this match is successful. Otherwise, a failed match result.
+    /// A successful match result which contains the input value, if this match is successful.
+    /// Otherwise, a failed match result.
     /// </returns>
     public override async Task<MatchResult<T>> MatchAsync(T input)
     {

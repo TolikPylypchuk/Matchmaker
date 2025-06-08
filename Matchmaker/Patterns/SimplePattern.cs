@@ -13,16 +13,16 @@ internal sealed class SimplePattern<TInput, TMatchResult> : Pattern<TInput, TMat
     private readonly Func<TInput, MatchResult<TMatchResult>> matcher;
 
     /// <summary>
-    /// Initializes a new instance of the <see cref="SimplePattern{TInput, TMatchResult}" /> class
-    /// with the specified matcher function.
+    /// Initializes a new instance of the <see cref="SimplePattern{TInput, TMatchResult}" /> class with the specified
+    /// matcher function.
     /// </summary>
     /// <param name="matcher">The matcher function.</param>
     internal SimplePattern(Func<TInput, MatchResult<TMatchResult>> matcher) =>
         this.matcher = matcher;
 
     /// <summary>
-    /// Initializes a new instance of the <see cref="SimplePattern{TInput, TMatchResult}" /> class
-    /// with the specified matcher function and description.
+    /// Initializes a new instance of the <see cref="SimplePattern{TInput, TMatchResult}" /> class with the specified
+    /// matcher function and description.
     /// </summary>
     /// <param name="matcher">The matcher function.</param>
     /// <param name="description">The description of this pattern.</param>
@@ -38,8 +38,8 @@ internal sealed class SimplePattern<TInput, TMatchResult> : Pattern<TInput, TMat
     /// </summary>
     /// <param name="input">The input value to match.</param>
     /// <returns>
-    /// A successful match result which contains the transformed result of the match,
-    /// if this match is successful. Otherwise, a failed match result.
+    /// A successful match result which contains the transformed result of the match, if this match is successful.
+    /// Otherwise, a failed match result.
     /// </returns>
     public override MatchResult<TMatchResult> Match(TInput input) =>
         this.matcher(input);

@@ -66,8 +66,8 @@ internal sealed class CompositePattern<T> : Pattern<T, T>
     /// </summary>
     /// <param name="input">The input value to match.</param>
     /// <returns>
-    /// A successful match result which contains the input value,
-    /// if this match is successful. Otherwise, a failed match result.
+    /// A successful match result which contains the input value, if this match is successful.
+    /// Otherwise, a failed match result.
     /// </returns>
     public override MatchResult<T> Match(T input) =>
         this.ComposeResults(

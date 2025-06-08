@@ -59,15 +59,15 @@ public sealed class AsyncMatch<TInput, TOutput>
     internal static ConcurrentDictionary<string, AsyncMatch<TInput, TOutput>> Cache { get; } = new();
 
     /// <summary>
-    /// Returns a new match expression which includes the specified pattern and function to execute if this
-    /// pattern is matched successfully.
+    /// Returns a new match expression which includes the specified pattern and function to execute if this pattern is
+    /// matched successfully.
     /// </summary>
     /// <typeparam name="TMatchResult">The type of the result of the pattern's match.</typeparam>
     /// <param name="pattern">The pattern to match with.</param>
     /// <param name="func">The function to execute if the match is successful.</param>
     /// <returns>
-    /// A new match expression which includes the specified pattern and function to execute if this
-    /// pattern is matched successfully.
+    /// A new match expression which includes the specified pattern and function to execute if this pattern is matched
+    /// successfully.
     /// </returns>
     /// <exception cref="ArgumentNullException">
     /// <paramref name="pattern" /> or <paramref name="func" /> is <see langword="null" />.
@@ -78,15 +78,15 @@ public sealed class AsyncMatch<TInput, TOutput>
         this.Case(pattern, this.fallthroughByDefault, func);
 
     /// <summary>
-    /// Returns a new match expression which includes the specified pattern and function to execute if this
-    /// pattern is matched successfully.
+    /// Returns a new match expression which includes the specified pattern and function to execute if this pattern is
+    /// matched successfully.
     /// </summary>
     /// <typeparam name="TMatchResult">The type of the result of the pattern's match.</typeparam>
     /// <param name="pattern">The pattern to match with.</param>
     /// <param name="func">The function to execute if the match is successful.</param>
     /// <returns>
-    /// A new match expression which includes the specified pattern and function to execute if this
-    /// pattern is matched successfully.
+    /// A new match expression which includes the specified pattern and function to execute if this pattern is matched
+    /// successfully.
     /// </returns>
     /// <exception cref="ArgumentNullException">
     /// <paramref name="pattern" /> or <paramref name="func" /> is <see langword="null" />.
@@ -97,15 +97,15 @@ public sealed class AsyncMatch<TInput, TOutput>
         this.Case(pattern, func.AsAsync());
 
     /// <summary>
-    /// Returns a new match expression which includes the specified pattern and function to execute if this
-    /// pattern is matched successfully.
+    /// Returns a new match expression which includes the specified pattern and function to execute if this pattern is
+    /// matched successfully.
     /// </summary>
     /// <typeparam name="TMatchResult">The type of the result of the pattern's match.</typeparam>
     /// <param name="pattern">The pattern to match with.</param>
     /// <param name="func">The function to execute if the match is successful.</param>
     /// <returns>
-    /// A new match expression which includes the specified pattern and function to execute if this
-    /// pattern is matched successfully.
+    /// A new match expression which includes the specified pattern and function to execute if this pattern is matched
+    /// successfully.
     /// </returns>
     /// <exception cref="ArgumentNullException">
     /// <paramref name="pattern" /> or <paramref name="func" /> is <see langword="null" />.
@@ -116,15 +116,15 @@ public sealed class AsyncMatch<TInput, TOutput>
         this.Case(pattern.AsAsync(), this.fallthroughByDefault, func);
 
     /// <summary>
-    /// Returns a new match expression which includes the specified pattern and function to execute if this
-    /// pattern is matched successfully.
+    /// Returns a new match expression which includes the specified pattern and function to execute if this pattern is
+    /// matched successfully.
     /// </summary>
     /// <typeparam name="TMatchResult">The type of the result of the pattern's match.</typeparam>
     /// <param name="pattern">The pattern to match with.</param>
     /// <param name="func">The function to execute if the match is successful.</param>
     /// <returns>
-    /// A new match expression which includes the specified pattern and function to execute if this
-    /// pattern is matched successfully.
+    /// A new match expression which includes the specified pattern and function to execute if this pattern is matched
+    /// successfully.
     /// </returns>
     /// <exception cref="ArgumentNullException">
     /// <paramref name="pattern" /> or <paramref name="func" /> is <see langword="null" />.
@@ -135,16 +135,16 @@ public sealed class AsyncMatch<TInput, TOutput>
         this.Case(pattern.AsAsync(), func.AsAsync());
 
     /// <summary>
-    /// Returns a new match expression which includes the specified pattern and function to execute if this
-    /// pattern is matched successfully.
+    /// Returns a new match expression which includes the specified pattern and function to execute if this pattern is
+    /// matched successfully.
     /// </summary>
     /// <typeparam name="TMatchResult">The type of the result of the pattern's match.</typeparam>
     /// <param name="pattern">The pattern to match with.</param>
     /// <param name="fallthrough">The fallthrough behaviour.</param>
     /// <param name="func">The function to execute if the match is successful.</param>
     /// <returns>
-    /// A new match expression which includes the specified pattern and function to execute if this
-    /// pattern is matched successfully.
+    /// A new match expression which includes the specified pattern and function to execute if this pattern is matched
+    /// successfully.
     /// </returns>
     /// <exception cref="ArgumentNullException">
     /// <paramref name="pattern" /> or <paramref name="func" /> is <see langword="null" />.
@@ -168,16 +168,16 @@ public sealed class AsyncMatch<TInput, TOutput>
             : throw new ArgumentNullException(nameof(pattern));
 
     /// <summary>
-    /// Returns a new match expression which includes the specified pattern and function to execute if this
-    /// pattern is matched successfully.
+    /// Returns a new match expression which includes the specified pattern and function to execute if this pattern is
+    /// matched successfully.
     /// </summary>
     /// <typeparam name="TMatchResult">The type of the result of the pattern's match.</typeparam>
     /// <param name="pattern">The pattern to match with.</param>
     /// <param name="fallthrough">The fallthrough behaviour.</param>
     /// <param name="func">The function to execute if the match is successful.</param>
     /// <returns>
-    /// A new match expression which includes the specified pattern and function to execute if this
-    /// pattern is matched successfully.
+    /// A new match expression which includes the specified pattern and function to execute if this pattern is matched
+    /// successfully.
     /// </returns>
     /// <exception cref="ArgumentNullException">
     /// <paramref name="pattern" /> or <paramref name="func" /> is <see langword="null" />.
@@ -189,16 +189,16 @@ public sealed class AsyncMatch<TInput, TOutput>
         this.Case(pattern, fallthrough, func.AsAsync());
 
     /// <summary>
-    /// Returns a new match expression which includes the specified pattern and function to execute if this
-    /// pattern is matched successfully.
+    /// Returns a new match expression which includes the specified pattern and function to execute if this pattern is
+    /// matched successfully.
     /// </summary>
     /// <typeparam name="TMatchResult">The type of the result of the pattern's match.</typeparam>
     /// <param name="pattern">The pattern to match with.</param>
     /// <param name="fallthrough">The fallthrough behaviour.</param>
     /// <param name="func">The function to execute if the match is successful.</param>
     /// <returns>
-    /// A new match expression which includes the specified pattern and function to execute if this
-    /// pattern is matched successfully.
+    /// A new match expression which includes the specified pattern and function to execute if this pattern is matched
+    /// successfully.
     /// </returns>
     /// <exception cref="ArgumentNullException">
     /// <paramref name="pattern" /> or <paramref name="func" /> is <see langword="null" />.
@@ -210,16 +210,16 @@ public sealed class AsyncMatch<TInput, TOutput>
         this.Case(pattern.AsAsync(), fallthrough, func);
 
     /// <summary>
-    /// Returns a new match expression which includes the specified pattern and function to execute if this
-    /// pattern is matched successfully.
+    /// Returns a new match expression which includes the specified pattern and function to execute if this pattern is
+    /// matched successfully.
     /// </summary>
     /// <typeparam name="TMatchResult">The type of the result of the pattern's match.</typeparam>
     /// <param name="pattern">The pattern to match with.</param>
     /// <param name="fallthrough">The fallthrough behaviour.</param>
     /// <param name="func">The function to execute if the match is successful.</param>
     /// <returns>
-    /// A new match expression which includes the specified pattern and function to execute if this
-    /// pattern is matched successfully.
+    /// A new match expression which includes the specified pattern and function to execute if this pattern is matched
+    /// successfully.
     /// </returns>
     /// <exception cref="ArgumentNullException">
     /// <paramref name="pattern" /> or <paramref name="func" /> is <see langword="null" />.
@@ -231,14 +231,14 @@ public sealed class AsyncMatch<TInput, TOutput>
         this.Case(pattern, fallthrough, func.AsAsync());
 
     /// <summary>
-    /// Returns a new match expression which includes the pattern for the specified type
-    /// and function to execute if this pattern is matched successfully.
+    /// Returns a new match expression which includes the pattern for the specified type and function to execute if this
+    /// pattern is matched successfully.
     /// </summary>
     /// <typeparam name="TType">The type of the result of the pattern's match.</typeparam>
     /// <param name="func">The function to execute if the match is successful.</param>
     /// <returns>
-    /// A new match expression which includes the type pattern and function to execute if this
-    /// pattern is matched successfully.
+    /// A new match expression which includes the type pattern and function to execute if this pattern is matched
+    /// successfully.
     /// </returns>
     /// <remarks>
     /// This method is functionally equivalent to the following:
@@ -254,14 +254,14 @@ public sealed class AsyncMatch<TInput, TOutput>
         this.Case(this.fallthroughByDefault, func);
 
     /// <summary>
-    /// Returns a new match expression which includes the pattern for the specified type
-    /// and function to execute if this pattern is matched successfully.
+    /// Returns a new match expression which includes the pattern for the specified type and function to execute if this
+    /// pattern is matched successfully.
     /// </summary>
     /// <typeparam name="TType">The type of the result of the pattern's match.</typeparam>
     /// <param name="func">The function to execute if the match is successful.</param>
     /// <returns>
-    /// A new match expression which includes the type pattern and function to execute if this
-    /// pattern is matched successfully.
+    /// A new match expression which includes the type pattern and function to execute if this pattern is matched
+    /// successfully.
     /// </returns>
     /// <remarks>
     /// This method is functionally equivalent to the following:
@@ -277,15 +277,15 @@ public sealed class AsyncMatch<TInput, TOutput>
         this.Case(this.fallthroughByDefault, func.AsAsync());
 
     /// <summary>
-    /// Returns a new match expression which includes the pattern for the specified type
-    /// and function to execute if this pattern is matched successfully.
+    /// Returns a new match expression which includes the pattern for the specified type and function to execute if this
+    /// pattern is matched successfully.
     /// </summary>
     /// <typeparam name="TType">The type of the result of the pattern's match.</typeparam>
     /// <param name="fallthrough">The fallthrough behaviour.</param>
     /// <param name="func">The function to execute if the match is successful.</param>
     /// <returns>
-    /// A new match expression which includes the type pattern and function to execute if this
-    /// pattern is matched successfully.
+    /// A new match expression which includes the type pattern and function to execute if this pattern is matched
+    /// successfully.
     /// </returns>
     /// <remarks>
     /// This method is functionally equivalent to the following:
@@ -301,15 +301,15 @@ public sealed class AsyncMatch<TInput, TOutput>
         this.Case(AsyncPattern.Type<TInput, TType>(), fallthrough, func);
 
     /// <summary>
-    /// Returns a new match expression which includes the pattern for the specified type
-    /// and function to execute if this pattern is matched successfully.
+    /// Returns a new match expression which includes the pattern for the specified type and function to execute if this
+    /// pattern is matched successfully.
     /// </summary>
     /// <typeparam name="TType">The type of the result of the pattern's match.</typeparam>
     /// <param name="fallthrough">The fallthrough behaviour.</param>
     /// <param name="func">The function to execute if the match is successful.</param>
     /// <returns>
-    /// A new match expression which includes the type pattern and function to execute if this
-    /// pattern is matched successfully.
+    /// A new match expression which includes the type pattern and function to execute if this pattern is matched
+    /// successfully.
     /// </returns>
     /// <remarks>
     /// This method is functionally equivalent to the following:
@@ -357,8 +357,8 @@ public sealed class AsyncMatch<TInput, TOutput>
     }
 
     /// <summary>
-    /// Asynchronously executes the match expression on the specified input with fallthrough
-    /// and lazily returns the results.
+    /// Asynchronously executes the match expression on the specified input with fallthrough and lazily returns the
+    /// results.
     /// </summary>
     /// <param name="input">The input value of the expression.</param>
     /// <returns>
@@ -366,8 +366,8 @@ public sealed class AsyncMatch<TInput, TOutput>
     /// </returns>
     /// <remarks>
     /// <para>
-    /// This method returns a lazy enumerable - it will check only as many patterns,
-    /// as are needed to return one result at a time.
+    /// This method returns a lazy enumerable - it will check only as many patterns as are needed to return one result
+    /// at a time.
     /// </para>
     /// <para>
     /// The enumerable may contain <see langword="null" /> values.
@@ -410,8 +410,8 @@ public sealed class AsyncMatch<TInput, TOutput>
     /// <returns>A function which, when called, will match the specified value.</returns>
     /// <remarks>
     /// <para>
-    /// This method returns a lazy enumerable - it will check only as many patterns,
-    /// as are needed to return one result at a time.
+    /// This method returns a lazy enumerable - it will check only as many patterns, as are needed to return one result
+    /// at a time.
     /// </para>
     /// <para>
     /// The enumerable may contain <see langword="null" /> values.

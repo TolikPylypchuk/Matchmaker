@@ -19,8 +19,7 @@ internal sealed class PipingPattern<TInput, TIntermediateResult, TMatchResult> :
     private readonly IPattern<TIntermediateResult, TMatchResult> secondPattern;
 
     /// <summary>
-    /// Initializes a new instance of the
-    /// <see cref="PipingPattern{TInput, TIntermediateResult, TMatchResult}" /> class.
+    /// Initializes a new instance of the <see cref="PipingPattern{TInput, TIntermediateResult, TMatchResult}" /> class.
     /// </summary>
     /// <param name="firstPattern">The pattern whose result should be piped.</param>
     /// <param name="secondPattern">The pattern whose input is the first pattern's output.</param>
@@ -37,8 +36,7 @@ internal sealed class PipingPattern<TInput, TIntermediateResult, TMatchResult> :
     { }
 
     /// <summary>
-    /// Initializes a new instance of the
-    /// <see cref="PipingPattern{TInput, TIntermediateResult, TMatchResult}" /> class.
+    /// Initializes a new instance of the <see cref="PipingPattern{TInput, TIntermediateResult, TMatchResult}" /> class.
     /// </summary>
     /// <param name="firstPattern">The pattern whose result should be piped.</param>
     /// <param name="secondPattern">The pattern whose input is the first pattern's output.</param>
@@ -61,8 +59,8 @@ internal sealed class PipingPattern<TInput, TIntermediateResult, TMatchResult> :
     /// </summary>
     /// <param name="input">The input value to match.</param>
     /// <returns>
-    /// A successful match result which contains the transformed result of the match,
-    /// if this match is successful. Otherwise, a failed match result.
+    /// A successful match result which contains the transformed result of the match, if this match is successful.
+    /// Otherwise, a failed match result.
     /// </returns>
     public override MatchResult<TMatchResult> Match(TInput input) =>
         this.firstPattern.Match(input)

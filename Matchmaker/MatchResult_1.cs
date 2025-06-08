@@ -5,8 +5,8 @@ namespace Matchmaker;
 /// </summary>
 /// <typeparam name="T">The type of the value contained in this class.</typeparam>
 /// <remarks>
-/// If the result is successful, it contains a value which may be <see langword="null" />. If it is not,
-/// then it doesn't contain a value.
+/// If the result is successful, it contains a value which may be <see langword="null" />. If it is not, then it doesn't
+/// contain a value.
 /// </remarks>
 /// <seealso cref="MatchResult" />
 /// <seealso cref="MatchResultExtensions" />
@@ -67,8 +67,7 @@ public readonly struct MatchResult<T> : IEquatable<MatchResult<T>>
     /// </summary>
     /// <param name="obj">The object to compare to.</param>
     /// <returns>
-    /// <see langword="true" /> if this match result is equal to the other object.
-    /// Otherwise, <see langword="false" />.
+    /// <see langword="true" /> if this match result is equal to the other object. Otherwise, <see langword="false" />.
     /// </returns>
     public override bool Equals(object? obj) =>
         obj is MatchResult<T> other && this.Equals(other);
@@ -78,8 +77,8 @@ public readonly struct MatchResult<T> : IEquatable<MatchResult<T>>
     /// </summary>
     /// <param name="other">The match result to compare to.</param>
     /// <returns>
-    /// <see langword="true" /> if this match result is equal to the other match result.
-    /// Otherwise, <see langword="false" />.
+    /// <see langword="true" /> if this match result is equal to the other match result. Otherwise,
+    /// <see langword="false" />.
     /// </returns>
     public bool Equals(MatchResult<T> other) =>
         (this.IsSuccessful == other.IsSuccessful) && Equals(this.value, other.value);

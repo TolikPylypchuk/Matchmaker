@@ -52,8 +52,8 @@ internal sealed class ConditionalAsyncPattern<TInput, TMatchResult> : AsyncPatte
     /// </summary>
     /// <param name="input">The input value to match.</param>
     /// <returns>
-    /// A successful match result which contains the transformed result of the match,
-    /// if this match is successful. Otherwise, a failed match result.
+    /// A successful match result which contains the transformed result of the match, if this match is successful.
+    /// Otherwise, a failed match result.
     /// </returns>
     public override Task<MatchResult<TMatchResult>> MatchAsync(TInput input) =>
         this.pattern.MatchAsync(input)
