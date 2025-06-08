@@ -5,8 +5,8 @@
 A library which enables more powerful pattern matching than is currently available in the C#'s `switch`
 statement/expression.
 
-This library is a successor of [PatternMatching](https://github.com/TolikPylypchuk/PatternMatching).
-Version 1.x can be found there. This repository contains version 2+.
+This library is a successor of [PatternMatching](https://github.com/TolikPylypchuk/PatternMatching). Version 1.x can be
+found there. This repository contains version 2+.
 
 ## Installation
 
@@ -65,13 +65,12 @@ While this example doesn't show the full power of pattern matching, there are a 
 
 - The match expression yields a result. We don't have to assign the result explicitly in each case.
 
-- The input of the match expression is specified _after_ all the cases. This allows us to save the match expression
-in an object, and use it multiple times on different input values.
+- The input of the match expression is specified _after_ all the cases. This allows us to save the match expression in
+an object, and use it multiple times on different input values.
 
 - The default case is a pattern, just like any other. It's called `Any` and is always matched successfully.
 
-- Like in `switch` the patterns are tried out sequentially. This means that the `Any` pattern should always
-come last.
+- Like in `switch` the patterns are tried out sequentially. This means that the `Any` pattern should always come last.
 
 C# 8 included a new way to write `switch` expressions which yield a value, and further versions extended it quite a bit.
 This drastically reduced the need for external libraries like this one for pattern matching. However, this library lets
@@ -92,13 +91,13 @@ string result = i switch
 };
 ```
 
-OK, this is much shorter and cleaner than the previous two examples. But this library shines when the patterns are
-more complex. While C# allows various kinds of patterns, this library allows anything you can think of.
+OK, this is much shorter and cleaner than the previous two examples. But this library shines when the patterns are more
+complex. While C# allows various kinds of patterns, this library allows anything you can think of.
 
 ## Another Example
 
-Let's define a simple list, implemented as [cons cells](https://en.wikipedia.org/wiki/Cons). This list is not
-generic for simplicity.
+Let's define a simple list, implemented as [cons cells](https://en.wikipedia.org/wiki/Cons). This list is not generic
+for simplicity.
 
 ```c#
 public abstract class ConsList
@@ -132,8 +131,8 @@ public sealed class Empty : ConsList
 }
 ```
 
-Now let's look what pattern matching on the list would look like. Let's create
-a function which finds the sum of all items of the list.
+Now let's look what pattern matching on the list would look like. Let's create a function which finds the sum of all
+items of the list.
 
 ```c#
 public int Sum(ConsList list) =>
@@ -162,13 +161,13 @@ public int Sum(ConsList list)
 }
 ```
 
-As you can see, we have to throw an exception in the `switch` version, because C# can't know that `ConsCell`
-and `Empty` are the only possible subclasses of `ConsList`. And for that reason, if we forget to define one
-of the cases in `switch` or in a match, we'll get an exception. In F#, a warning is issued when the match is
-incomplete, but C# doesn't have the notion of complete or incomplete matches.
+As you can see, we have to throw an exception in the `switch` version, because C# can't know that `ConsCell` and `Empty`
+are the only possible subclasses of `ConsList`. And for that reason, if we forget to define one of the cases in `switch`
+or in a match, we'll get an exception. In F#, a warning is issued when the match is incomplete, but C# doesn't have the
+notion of complete or incomplete matches.
 
-With C# 8 there's a better way to do this, but we still have to explicitly throw an exception
-in the default case (which we know won't happen):
+With C# 8 there's a better way to do this, but we still have to explicitly throw an exception in the default case (which
+we know won't happen):
 
 ```c#
 public int Sum(ConsList list) =>
@@ -217,8 +216,8 @@ var result = Enumerable.Range(0, 15)
 ## Static Match Expressions
 
 One pain point of match expressions is that whenever a method which contains a match expression is executed, the match
-expression is initialized from scratch every time. This can be solved with static match expressions. Take a look at
-the revised simple example:
+expression is initialized from scratch every time. This can be solved with static match expressions. Take a look at the
+revised simple example:
 
 ```c#
 string result = Match.CreateStatic<int, string>(match => match
@@ -230,29 +229,28 @@ string result = Match.CreateStatic<int, string>(match => match
     .ExecuteOn(5);
 ```
 
-Now this match expression will be initialized only once even if its containing method is executed multiple times.
-You can read more [here](https://matchmaker.tolik.io/articles/expressions.html#static-match-expressions).
+Now this match expression will be initialized only once even if its containing method is executed multiple times. You
+can read more [here](https://matchmaker.tolik.io/articles/expressions.html#static-match-expressions).
 
 ## More Info
 
-If you want to learn how to use this library, you should read the [documentation](https://matchmaker.tolik.io).
-The articles provide everything you need to know to use this library.
+If you want to learn how to use this library, you should read the [documentation](https://matchmaker.tolik.io). The
+articles provide everything you need to know to use this library.
 
 If you need extensive information, go to the [API reference](https://matchmaker.tolik.io/api/index.html).
 
 If you need even more info about this library, you can go through the
-[tests](https://github.com/TolikPylypchuk/Matchmaker/Matchmaker.Tests). They are property-based and as such
-they describe every aspect of the classes and their members.
+[tests](https://github.com/TolikPylypchuk/Matchmaker/Matchmaker.Tests). They are property-based and as such, they
+describe every aspect of the classes and their members.
 
 ## Is This Library Still Maintained?
 
-I'm not planning on writing new versions beyond 3.1 (or maybe 3.2 if some stuff needs fixing). To be fair, I thought
-the same thing after releasing version 1.1 and yet here we are. This time I do believe that this library has enough
-features (probably more than enough). Maybe one day I'll revisit this decision, but for now (June 2025) this is it;
-this is as good as it gets.
+I'm not planning on writing new versions beyond 3.1. To be fair, I thought the same thing after releasing version 1.1
+and yet here we are. This time I do believe that this library has enough features (probably more than enough). Maybe one
+day I'll revisit this decision, but for now (June 2025) this is it; this is as good as it gets.
 
-That said, if you report a bug or request a new feature, I'll definitely look into it. I'm not giving up on this
-library any time soon.
+That said, if you report a bug or request a new feature, I'll definitely look into it. I'm not giving up on this library
+any time soon.
 
 ## Icon
 

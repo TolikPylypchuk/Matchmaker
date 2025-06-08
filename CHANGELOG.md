@@ -6,7 +6,10 @@ Whats's new in version 3.1.0:
 
 - .NET Standard 2.0 support was added back, but without nullable reference types
 - Matchmaker is now built with .NET 9
-- Trimming is now enabled only in .NET 6+
+- Trimming is now enabled only for .NET 6+
+- `BinarryFormatter` support was removed from `MatchException`
+- Docs now use a new theme
+- Docs for older versions were removed
 
 ## v3.0.1
 
