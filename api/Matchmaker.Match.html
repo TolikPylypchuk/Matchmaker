@@ -184,7 +184,7 @@ Class Match  <a class="header-action link-secondary" title="View source" href="h
 
   <h4 class="section" id="Matchmaker_Match_ClearCache__1_remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>
-After calling this method all <a class="xref" href="Matchmaker.Match.html#Matchmaker_Match_CreateStatic__1_System_Action_Matchmaker_MatchBuilder___0___System_String_System_Int32_">CreateStatic&lt;TInput&gt;(Action&lt;MatchBuilder&lt;TInput&gt;&gt;, string, int)</a>
+After calling this method, all <a class="xref" href="Matchmaker.Match.html#Matchmaker_Match_CreateStatic__1_System_Action_Matchmaker_MatchBuilder___0___System_String_System_Int32_">CreateStatic&lt;TInput&gt;(Action&lt;MatchBuilder&lt;TInput&gt;&gt;, string, int)</a>
 calls will recalculate match statements for type <code class="typeparamref">TInput</code>.
 </p>
 <p>
@@ -229,7 +229,7 @@ Clearing the cache is not thread-safe.
 
   <h4 class="section" id="Matchmaker_Match_ClearCache__2_remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>
-After calling this method all
+After calling this method, all
 <a class="xref" href="Matchmaker.Match.html#Matchmaker_Match_CreateStatic__2_System_Action_Matchmaker_MatchBuilder___0___1___System_String_System_Int32_">CreateStatic&lt;TInput, TOutput&gt;(Action&lt;MatchBuilder&lt;TInput, TOutput&gt;&gt;, string, int)</a>
 calls will recalculate match expressions for types <code class="typeparamref">TInput</code> and
 <code class="typeparamref">TOutput</code>.
@@ -291,9 +291,8 @@ Clearing the cache is not thread-safe.
 
   <h4 class="section" id="Matchmaker_Match_CreateStatic__1_System_Action_Matchmaker_MatchBuilder___0___System_String_System_Int32__remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>
-The key of the cache is the location of this method's call in the source code.
-This way, a new match statement object will not be allocated every time pattern matching occurs
-in the same place more than once.
+The key of the cache is the location of this method's call in the source code. This way, a new match expression
+object will not be allocated every time pattern matching occurs in the same place more than once.
 </p>
 <p>
 The pattern caching process is not thread-safe.
@@ -361,9 +360,8 @@ The pattern caching process is not thread-safe.
 
   <h4 class="section" id="Matchmaker_Match_CreateStatic__2_System_Action_Matchmaker_MatchBuilder___0___1___System_String_System_Int32__remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>
-The key of the cache is the location of this method's call in the source code.
-This way, a new match expression object will not be allocated every time pattern matching occurs
-in the same place more than once.
+The key of the cache is the location of this method's call in the source code. This way, a new match expression
+object will not be allocated every time pattern matching occurs in the same place more than once.
 </p>
 <p>
 The pattern caching process is not thread-safe.
