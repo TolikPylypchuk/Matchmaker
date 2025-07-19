@@ -4,20 +4,20 @@
 
 Pattern matching as a technique was created to make code which operates on data more succinct, clear, and readable. I
 have to say, I'm not sure this library achieves this. There's no denying that this library is cumbersome, and some
-features are kind of convoluted. You can certainly use it if you want to — it's extensively tested. But this is more of
-an experimental effort — I wanted to see how powerful pattern matching can be in C#. In this article I'll try to explain
+features are kind of convoluted. You can certainly use it if you want to – it's extensively tested. But this is more of
+an experimental effort – I wanted to see how powerful pattern matching can be in C#. In this article I'll try to explain
 some reasons behind the features of this library. This is not documentation per se, it's more of a thought piece about
 this library and a recap of its history.
 
 Also, I should note that I haven't checked out any other pattern matching libraries for C#. I'm sure there are a lot of
-them — I can't be the only one who tried to bring this technique into C#. But I wanted to create something by myself and
+them – I can't be the only one who tried to bring this technique into C#. But I wanted to create something by myself and
 not get inspired by (read: steal) features from the other libraries as I'm sure there's not actually much space for
 stretching here. Some pattern matching libraries are probably better than this one and I'm okay with it.
 
 ## Background
 
 In the end of 2017, after studying F# and functional programming, I've decided to try to bring some functional features
-into C#. I've created a small library for C# and named it [CSX — C# Extensions](https://github.com/TolikPylypchuk/CSX).
+into C#. I've created a small library for C# and named it [CSX – C# Extensions](https://github.com/TolikPylypchuk/CSX).
 I worked on this library just for the fun of it and never intended for it to be anything serious. I've long since
 stopped doing anything with it, because I've realized that it required a lot of work. My implementations of functional
 data structures were quite naive, and I've decided that I don't want to invest time into optimizing them. Moreover, I
@@ -81,8 +81,8 @@ nor reflection. And to be honest, at that moment I felt dumb, because I haven't 
 solution was obvious.
 
 In this version, I've also completely uprooted the pattern hierarchy and made working with them much easier. I've also
-added some primitive caching. I'm not an expert on caching — this can be an extensive topic of research — so I can't
-say that caching in this library is great — it's okay at best. If you need more extensive or better caching of match
+added some primitive caching. I'm not an expert on caching – this can be an extensive topic of research – so I can't
+say that caching in this library is great – it's okay at best. If you need more extensive or better caching of match
 expressions, you can create an issue (or better yet, a pull request) on GitHub. I will most definitely respond and will
 do my best to implement it.
 
@@ -104,7 +104,7 @@ it would break any actual code.
 After releasing version 2.1.0, I started working on version 3.0.0 which contains 2 major additions: support for nullable
 reference types and asynchronous pattern matching. Because of those additions, the .NET Standard version had to be
 bumped to 2.1 (sorry, .NET Framework). Asynchronous pattern matching will probably not be used often. I wrote it simply
-because I can, and why not — we have asynchronous enumeration, asynchronous disposal, asynchronous almost everything,
+because I can, and why not – we have asynchronous enumeration, asynchronous disposal, asynchronous almost everything,
 so why not asynchronous pattern matching?
 
 Five years after releasing version 3.0.0, I've decided to release version 3.1.0 which adds support for .NET Standard 2.0
