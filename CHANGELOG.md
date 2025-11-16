@@ -1,5 +1,15 @@
 # Changelog
 
+## v3.1.1
+
+Whats's new in version 3.1.1:
+
+- No changes to the library's code or API
+- Matchmaker is now built with .NET 10 and uses C# 14 (but still targets .NET Standard)
+- The .NET 6 target was removed and the .NET 10 target was added
+- Microsoft.Testing.Platform is now used to run tests
+- GitHub Trusted Publising is now used to publish the package
+
 ## v3.1.0
 
 Whats's new in version 3.1.0:
@@ -54,7 +64,7 @@ What's new in version 2.0 (almost all changes are breaking):
 - Creating custom patterns became possible through factory methods and extension methods
 - The default mode of match statements changed from non-strict to strict
 
-Read the [migration guide](https://matchmaker.tolik.io/v2.1.0/articles/migration.html) for more info.
+Read the [migration guide](https://matchmaker.tolik.io/articles/migration.html) for more info.
 
 ## v1.2
 

@@ -4,14 +4,14 @@
       "src": [
         {
           "files": [
-            "artifacts/bin/Matchmaker/release_net6.0/Matchmaker.dll"
+            "artifacts/bin/Matchmaker/release_net10.0/Matchmaker.dll"
           ],
           "src": "../"
         }
       ],
       "dest": "api",
       "properties": {
-        "TargetFramework": "net6.0"
+        "TargetFramework": "net10.0"
       },
       "disableGitFeatures": false,
       "disableDefaultFilter": false
