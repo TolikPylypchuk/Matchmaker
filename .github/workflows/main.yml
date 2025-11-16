@@ -30,7 +30,7 @@ jobs:
       - name: Test Matchmaker
         shell: pwsh
         run: |
-          dotnet test Matchmaker.slnx -c Release /p:ContinuousIntegrationBuild=true
+          dotnet test -c Release /p:ContinuousIntegrationBuild=true
 
       - name: Pack Matchmaker
         shell: pwsh
