@@ -2,11 +2,11 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-      <title>Matchmaker API | Matchmaker </title>
+      <title>Enum PatternComposition | Matchmaker </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="Matchmaker API | Matchmaker ">
+      <meta name="title" content="Enum PatternComposition | Matchmaker ">
       
-      
+      <meta name="description" content="Represnts types of pattern composition.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/TolikPylypchuk/Matchmaker/blob/main/docs/api/index.md/#L1">
+      
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -39,7 +39,7 @@
 
   </head>
 
-  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
     <header class="bg-body border-bottom">
       <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
         <div class="container-xxl flex-nowrap">
@@ -84,19 +84,66 @@
           <nav id="breadcrumb"></nav>
         </div>
 
-        <article data-uid="">
-<h1 id="matchmaker-api">Matchmaker API</h1>
+        <article data-uid="Matchmaker.Patterns.PatternComposition">
 
-<p>This section contains API docs for the <a href="https://www.nuget.org/packages/Matchmaker">Matchmaker</a> package. Use the sidebar
-to navigate the API documentation.</p>
 
+
+
+  <h1 id="Matchmaker_Patterns_PatternComposition" data-uid="Matchmaker.Patterns.PatternComposition" class="text-break">
+Enum PatternComposition  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/Matchmaker/blob/main/Matchmaker/Patterns/PatternComposition.cs"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Matchmaker.html">Matchmaker</a>.<a class="xref" href="Matchmaker.Patterns.html">Patterns</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Matchmaker.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Represnts types of pattern composition.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public enum PatternComposition</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+  <h2 id="fields">Fields
+</h2>
+  <dl class="parameters">
+    <dt id="Matchmaker_Patterns_PatternComposition_And"><code>And = 0</code></dt>
+  
+  <dd><p>Represents the 'and' composition - the result is successful only when both results are successful.</p>
+</dd>
+    <dt id="Matchmaker_Patterns_PatternComposition_Or"><code>Or = 1</code></dt>
+  
+  <dd><p>Represents the 'or' composition - the result is successful when either of the results is successful.</p>
+</dd>
+    <dt id="Matchmaker_Patterns_PatternComposition_Xor"><code>Xor = 2</code></dt>
+  
+  <dd><p>Represents the 'xor' composition - the result is successful when only one of the results is successful.</p>
+</dd>
+  </dl>
+
+
+
+  <h2 id="seealso">See Also</h2>
+  <div class="seealso">
+      <div><a class="xref" href="Matchmaker.Linq.PatternExtensions.html">PatternExtensions</a></div>
+      <div><a class="xref" href="Matchmaker.Linq.AsyncPatternExtensions.html">AsyncPatternExtensions</a></div>
+  </div>
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/main/docs/api/index.md/#L1" class="edit-link">Edit this page</a>
+          <a href="https://github.com/TolikPylypchuk/Matchmaker/blob/main/Matchmaker/Patterns/PatternComposition.cs" class="edit-link">Edit this page</a>
         </div>
 
-        <div class="next-article d-print-none border-top" id="nextArticle"></div>
 
       </div>
 
